@@ -1,7 +1,7 @@
-// Service Worker for LĐK Academy PWA
+// Service Worker for KOHODA Academy PWA
 // Cache-first for static assets, network-first for API/HTML
 
-const CACHE_VERSION = "ldk-v1";
+const CACHE_VERSION = "kohoda-v2";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 
@@ -47,6 +47,11 @@ self.addEventListener("fetch", (event) => {
 
   // Skip cross-origin requests
   if (url.origin !== self.location.origin) return;
+
+  // Skip Next.js build assets — filenames are already content-hashed,
+  // so the browser HTTP cache handles them correctly. Caching them in SW
+  // pins old bundles after a deploy and causes stale-content flicker.
+  if (url.pathname.startsWith("/_next/")) return;
 
   // Network-first for API calls
   if (url.pathname.startsWith("/api/")) {

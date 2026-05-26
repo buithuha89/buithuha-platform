@@ -1,7 +1,7 @@
 {
-  "name": "Lê Đăng Khương Academy",
-  "short_name": "LĐK Academy",
-  "description": "Làm chủ Video AI, xây kênh triệu view và thương hiệu cá nhân",
+  "name": "Chuyên Gia — Bùi Hà",
+  "short_name": "Chuyên Gia",
+  "description": "Nền tảng đào tạo chuyên gia của Bùi Hà",
   "start_url": "/dashboard",
   "display": "standalone",
   "background_color": "#0a0a0a",

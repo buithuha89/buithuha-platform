@@ -23,9 +23,10 @@ export const siteConfig = {
   ),
 
   // ─── Owner ───
-  // Env: NEXT_PUBLIC_OWNER_NAME, NEXT_PUBLIC_OWNER_BIO, NEXT_PUBLIC_OWNER_AVATAR
+  // Env: NEXT_PUBLIC_OWNER_NAME, NEXT_PUBLIC_OWNER_TITLE, NEXT_PUBLIC_OWNER_BIO, NEXT_PUBLIC_OWNER_AVATAR
   owner: {
     name: env("NEXT_PUBLIC_OWNER_NAME", "Lê Đăng Khương"),
+    title: env("NEXT_PUBLIC_OWNER_TITLE", "Academy"),
     bio: env("NEXT_PUBLIC_OWNER_BIO", "Chuyên gia Video AI & Thương Hiệu Cá Nhân"),
     avatar: env("NEXT_PUBLIC_OWNER_AVATAR", "/images/about/portrait.jpg"),
   },

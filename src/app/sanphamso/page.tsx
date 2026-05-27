@@ -1,30 +1,81 @@
 import type { Metadata } from "next";
-import SanPhamSoLanding from "./SanPhamSoLanding";
+import SiloPage, { type SiloData } from "@/components/silo/SiloPage";
+import { Compass, BookOpen, Target, Sparkles, NotebookPen, RefreshCw } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Lộ Trình Kiếm Tiền Từ Sản Phẩm Số 2026 | Lê Đăng Khương",
+  title: "Phát triển bản thân — Hà Bùi Academy",
   description:
-    "Chỉ với 100K — sở hữu lộ trình kiếm tiền từ sản phẩm số 2026 trị giá 1.000.000đ. Không cần vốn lớn, không cần kho hàng, tận dụng AI làm việc 10x năng suất.",
-  alternates: {
-    canonical: "https://dangkhuong.com/sanphamso",
-  },
+    "Chia sẻ của chị Hà về tự nhận thức, lập kế hoạch cá nhân, hiểu mình muốn gì. Cách chị tự ngồi xuống với bản thân nhiều năm qua.",
+  alternates: { canonical: "https://buithuha.com/sanphamso" },
   openGraph: {
-    title: "Lộ Trình Kiếm Tiền Từ Sản Phẩm Kỹ Thuật Số 2026",
+    title: "Phát triển bản thân — Hà Bùi Academy",
     description:
-      "Bí quyết kiếm tiền từ sản phẩm số — Ứng dụng thực chiến cho thị trường Việt Nam 2026. Giá gốc 1.000.000đ → Chỉ 100.000đ.",
+      "Hiểu mình rồi mới biết đi đâu. Chia sẻ thật từ chị Bùi Hà về tự nhìn vào bản thân và lập kế hoạch.",
     type: "website",
-    url: "https://dangkhuong.com/sanphamso",
-    images: [
-      {
-        url: "https://dangkhuong.com/images/sanphamso/banner.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Lộ Trình Kiếm Tiền Từ Sản Phẩm Số 2026 — Trainer Lê Đăng Khương",
-      },
+    url: "https://buithuha.com/sanphamso",
+  },
+};
+
+const data: SiloData = {
+  slug: "phat-trien-ban-than",
+  num: 2,
+  color: "#84CC16",
+  title: "Phát triển bản thân",
+  subtitle: "Hiểu mình rồi mới biết đi đâu",
+  intro:
+    "Chị gặp nhiều người đi làm 5, 7, 10 năm vẫn loay hoay không biết mình muốn gì. Không phải vì họ lười — họ chưa có thời gian ngồi xuống với chính mình. Ở đây chị chia sẻ những cách chị đã dùng cho bản thân và cho học viên.",
+  story: {
+    heading: "Mình chưa biết mình muốn gì, không ai giúp được",
+    paragraphs: [
+      "Có giai đoạn chị đi học MBA, đi làm quản lý, đi đào tạo — bên ngoài mọi thứ đều ổn. Nhưng bên trong, chị không trả lời được câu đơn giản: \"Mình thật sự muốn gì?\"",
+      "Mọi người hay đợi đến lúc kiệt sức mới ngồi nhìn lại. Lúc đó muộn rồi. Chị thấy việc tự nhìn vào bản thân nên là việc làm hàng ngày, không phải cứu hỏa lúc khủng hoảng.",
+      "Trong chủ đề này chị chia sẻ những công cụ thực dụng — không thiền cao siêu, không journaling chung chung. Chỉ là những câu hỏi cụ thể, bài tập cụ thể, mà chị đã dùng cho chính mình.",
     ],
+  },
+  topics: [
+    {
+      icon: Compass,
+      title: "7 câu hỏi tự nhìn vào bản thân",
+      desc: "Bộ câu hỏi chị dùng nhiều nhất — cho mình và cho học viên. Có trong cẩm nang miễn phí.",
+    },
+    {
+      icon: Target,
+      title: "Lập kế hoạch năm — cách chị làm",
+      desc: "Không phải SMART goals khô khan. Cách chị lập kế hoạch năm có cả phần lý trí lẫn phần mong muốn.",
+    },
+    {
+      icon: NotebookPen,
+      title: "Viết để hiểu mình",
+      desc: "Chị viết tay mỗi sáng nhiều năm nay. Chia sẻ tại sao và bắt đầu thế nào nếu bạn chưa từng viết.",
+    },
+    {
+      icon: BookOpen,
+      title: "Sách chị đọc đi đọc lại",
+      desc: "Một danh sách nhỏ — không phải bestseller, không phải tiếng Anh chỉ. Chỉ là sách thật sự đã thay đổi chị.",
+    },
+    {
+      icon: RefreshCw,
+      title: "Review cuộc sống mỗi quý",
+      desc: "Bản đồ 4 góc chị dùng để check mỗi 3 tháng: sự nghiệp / quan hệ / sức khỏe / bản thân.",
+    },
+    {
+      icon: Sparkles,
+      title: "Khi 30 tuổi mà chưa rõ mình muốn gì",
+      desc: "Không phải khủng hoảng — là dấu hiệu bạn đã đủ trưởng thành để đặt câu hỏi đúng.",
+    },
+  ],
+  audience: [
+    "Bạn đi làm vài năm rồi mà nhìn lại thấy mình đứng yên một chỗ",
+    "Bạn muốn lập kế hoạch nghiêm túc cho năm tới, không phải resolution \"tập gym, đọc 50 cuốn sách\"",
+    "Bạn cảm thấy bận rộn mà không thấy ý nghĩa",
+    "Bạn muốn bắt đầu thói quen tự nhìn lại, mà chưa biết bắt đầu từ đâu",
+  ],
+  cta: {
+    heading: "Bắt đầu từ 7 câu hỏi",
+    body: "Cẩm nang miễn phí \"7 câu hỏi tự nhìn vào bản thân\" — chính là bộ câu hỏi đầu tiên chị đưa cho ai muốn bắt đầu hành trình hiểu mình.",
   },
 };
 
 export default function SanPhamSoPage() {
-  return <SanPhamSoLanding />;
+  return <SiloPage data={data} />;
 }

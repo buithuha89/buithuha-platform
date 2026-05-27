@@ -5,11 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import {
-  ArrowRight, Play, Star, ChevronDown, CheckCircle,
-  Users, Video, BookOpen, Bot, Clock, TrendingDown,
-  User, Briefcase, Heart, GraduationCap, ShoppingBag, Rocket,
-  Mail, Phone, Zap, Shield, Gift, Menu, X,
-  MessageCircle, Award, Eye, Sparkles, Download,
+  ArrowRight, ChevronDown, CheckCircle,
+  Users, BookOpen, Heart, GraduationCap, Briefcase, Sprout,
+  Mail, Shield, Gift, Menu, X, MessageSquare, MessageCircle,
+  Compass, Layers, Award, Download, Coffee,
 } from "lucide-react";
 import PasswordInput from "@/components/auth/PasswordInput";
 import SocialLoginButtons from "@/components/auth/SocialLoginButtons";
@@ -17,86 +16,173 @@ import SocialLoginButtons from "@/components/auth/SocialLoginButtons";
 /* ─── Data ───────────────────────────────────────────────────── */
 
 const painPoints = [
-  { icon: Clock, emoji: "😫", title: "Làm video quá tốn thời gian", desc: "Quay 1 video mất cả ngày, dựng thêm 1 ngày nữa. Ra được 1 video/tuần đã kiệt sức." },
-  { icon: TrendingDown, emoji: "📉", title: "Kênh mãi không lên", desc: "Đăng video đều mà view chỉ 200-500. Không biết thuật toán muốn gì." },
-  { icon: User, emoji: "🤷", title: "Có chuyên môn nhưng không ai biết", desc: "Bạn giỏi nghề thật sự, nhưng người ta tìm chuyên gia khác vì bạn chưa có thương hiệu." },
-  { icon: Heart, emoji: "⏰", title: "Bán hàng kiệt sức", desc: "Tư vấn từng khách 1-1, trả tin nhắn đến 11h đêm, không có thời gian cho gia đình." },
+  {
+    emoji: "💬",
+    title: "Cãi nhau với người thân mà không hiểu vì sao",
+    desc: "Có những lần nói ra để giải thích, mà càng nói càng xa. Vợ chồng, con cái, đồng nghiệp — đôi khi cứ vướng mãi một chuyện cũ.",
+  },
+  {
+    emoji: "👔",
+    title: "Mới lên quản lý — chưa biết bắt đầu thế nào",
+    desc: "Trước làm tốt việc của mình. Giờ phải lo cho cả team. Sếp ép, nhân viên hỏi, mà mình thì cũng đang loay hoay.",
+  },
+  {
+    emoji: "❓",
+    title: "Đi làm vài năm rồi mà chưa rõ mình muốn gì",
+    desc: "Mỗi ngày vẫn đến công ty. Nhưng nhìn lại thấy mình đứng nguyên một chỗ. Không biết nên đổi việc, học thêm, hay làm gì.",
+  },
+  {
+    emoji: "🏢",
+    title: "Doanh chủ SME — team không theo kịp mình",
+    desc: "Giao việc xong vẫn phải kiểm. Muốn buông tay mà sợ rớt việc. Người làm thì có, nhưng người chịu trách nhiệm thì chỉ mình mình.",
+  },
 ];
 
-const steps = [
+/* 4 chủ đề chị viết */
+const silos = [
   {
-    num: 1, icon: Video, color: "#FBBF24", title: "LÀM CHỦ VIDEO AI VEO3.1",
-    subtitle: "Tạo video chuyên nghiệp trong 30 phút",
-    points: ["Không cần quay, không cần dựng", "Prompt đúng — ra video chất lượng cinema", "1 video/ngày dễ dàng, không kiệt sức", "Đã đào tạo 1,000+ học viên thành thạo VEO3.1"],
-    quote: "Học từ gốc rễ — Tự tin tạo prompt — Học 1 lần, làm được mọi thể loại",
+    num: 1, icon: MessageSquare, color: "#FBBF24",
+    href: "/cafe",
+    title: "GIAO TIẾP & QUAN HỆ",
+    subtitle: "Trong gia đình và ở chỗ làm",
+    points: [
+      "Vì sao mình hay tổn thương với người gần nhất",
+      "3 câu hỏi khi đồng nghiệp khó hợp tác",
+      "Cách lắng nghe mà không cắt ngang",
+      "Nói ra điều khó nói — mà không làm tổn thương ai",
+    ],
+    quote: "Hiểu nhau cần thời gian. Cãi nhau thì chỉ cần một câu sai",
   },
   {
-    num: 2, icon: Eye, color: "#84CC16", title: "XÂY KÊNH TRIỆU VIEW",
-    subtitle: "Từ 0 view → triệu view trong 90 ngày",
-    points: ["Phương pháp xây kênh độc quyền đã kiểm chứng", "Hiểu thuật toán YouTube, TikTok, Facebook Reels", "Tối ưu nội dung thu hút triệu view tự nhiên", "800+ học viên đã đạt triệu view"],
-    quote: "Kênh triệu view không phải may mắn — đó là phương pháp",
+    num: 2, icon: Compass, color: "#84CC16",
+    href: "/sanphamso",
+    title: "PHÁT TRIỂN BẢN THÂN",
+    subtitle: "Hiểu mình rồi mới biết đi đâu",
+    points: [
+      "7 câu hỏi tự nhìn vào bản thân",
+      "Lập kế hoạch năm — cách chị làm",
+      "Tự nhận thức bản thân — bắt đầu từ đâu",
+      "Khi 30 tuổi mà chưa rõ mình muốn gì",
+    ],
+    quote: "Mình chưa biết mình muốn gì thì không ai giúp được",
   },
   {
-    num: 3, icon: BookOpen, color: "#FBBF24", title: "TẠO SẢN PHẨM SỐ",
-    subtitle: "Biến kiến thức thành tài sản kiếm tiền 24/7",
-    points: ["Đóng gói chuyên môn thành Ebook, Khoá học, Membership", "Định giá đúng — bán được giá cao", "Xây landing page bán hàng chuyển đổi cao", "Một sản phẩm — bán mãi mãi, không giới hạn"],
-    quote: "Học viên Thầy Khương đã tạo sản phẩm số bán 50-500 triệu/tháng",
+    num: 3, icon: BookOpen, color: "#FBBF24",
+    href: "/slowenglish",
+    title: "NGHỀ L&D",
+    subtitle: "Cho người làm Học & Phát triển trong doanh nghiệp",
+    points: [
+      "L&D khác 'tổ chức đào tạo' chỗ nào",
+      "Đo hiệu quả đào tạo — góc nhìn người trong nghề",
+      "Trainer giỏi và trainer hot khác nhau ở đâu",
+      "Xây lộ trình học cho team — bắt đầu từ con số 0",
+    ],
+    quote: "Người dạy giỏi là người vẫn còn đang học",
   },
   {
-    num: 4, icon: Bot, color: "#84CC16", title: "AI AGENT BÁN HÀNG TỰ ĐỘNG",
-    subtitle: "Hệ thống kiếm tiền 24/7 không cần bạn",
-    points: ["AI Agent nghiên cứu thị trường, tạo landing page, bán hàng tự động", "Chốt đơn tự động qua chatbot AI", "Email marketing tự động nurture lead 24/7", "Bạn ngủ — hệ thống vẫn bán hàng"],
-    quote: "Công nghệ AI Agent mới nhất 2026 — Áp dụng ngay",
+    num: 4, icon: Award, color: "#84CC16",
+    href: "/weballinone",
+    title: "LÃNH ĐẠO & QUẢN LÝ",
+    subtitle: "Cho quản lý cấp trung và doanh chủ SME",
+    points: [
+      "Lần đầu lên quản lý — 5 nỗi sợ chị từng có",
+      "Giao việc mà vẫn yên tâm",
+      "Khi team không theo kịp mình",
+      "Cách nói chuyện khó với nhân viên",
+    ],
+    quote: "Quản lý là việc làm hàng ngày, không phải chức danh treo trên cửa",
   },
 ];
 
 const targetAudience = [
-  { icon: Award, title: "Chuyên gia / Coach / Mentor", desc: "Muốn lan toả kiến thức và kiếm tiền tự động từ chuyên môn" },
-  { icon: Heart, title: "Bác sĩ / Dược sĩ / Chuyên gia sức khoẻ", desc: "Muốn xây thương hiệu cá nhân uy tín, thu hút bệnh nhân chủ động" },
-  { icon: GraduationCap, title: "Giáo viên / Đào tạo viên", desc: "Muốn bán khoá học online, scale doanh thu không scale thời gian" },
-  { icon: Briefcase, title: "Chủ doanh nghiệp nhỏ", desc: "Muốn dùng Video AI để marketing không cần thuê team" },
-  { icon: ShoppingBag, title: "Người kinh doanh online", desc: "Muốn tăng đơn 5-10 lần với AI Agent bán hàng tự động" },
-  { icon: Rocket, title: "Người mới bắt đầu", desc: "Muốn khởi nghiệp kiếm tiền online từ con số 0 với AI" },
+  { icon: Sprout, title: "Người mới đi làm 1-3 năm", desc: "Muốn xây nền tảng kỹ năng mềm vững chắc trước khi phát triển sự nghiệp." },
+  { icon: Briefcase, title: "Người đi làm 3-7 năm", desc: "Đang ở ngã rẽ — tiếp tục chuyên môn hay rẽ sang quản lý? Cần tự nhìn lại bản thân." },
+  { icon: Users, title: "Lần đầu lên vị trí quản lý", desc: "Chuyển từ 'người làm giỏi' sang 'người dẫn dắt giỏi' — hành trình không ai dạy." },
+  { icon: Award, title: "Quản lý cấp trung", desc: "Đang vận hành team 5-20 người, muốn nâng cấp khả năng lãnh đạo và đào tạo nhân viên." },
+  { icon: Heart, title: "Doanh chủ SME", desc: "Muốn xây team bền vững, học cách giao quyền, và dành thời gian cho việc đáng làm hơn." },
+  { icon: GraduationCap, title: "Người làm L&D / HR / Trainer", desc: "Muốn nâng cấp tay nghề trong lĩnh vực Học & Phát triển — từ người thực chiến." },
 ];
 
-/* Fallback courses used while API data loads */
 const fallbackCourses = [
-  { emoji: "🎬", title: "Học Làm Video VEO3.1 Từ A-Z", badge: "Flagship", desc: "Học làm video Video AI VEO3.1 từ gốc rễ — tự tin tạo prompt, ra video chuyên nghiệp mọi thể loại.", stats: "1,300+ học viên | ⭐ 4.9/5 | 🎬 50+ bài học", slug: "hoc-lam-video-veo3-1", thumbnail: null as string | null, price: 0, sale_price: null as number | null, lessonCount: 0, chapterCount: 0, _static: true },
-  { emoji: "📈", title: "Xây Kênh Nhàn Tênh - Triệu View", badge: "Độc quyền", desc: "Từ 0 view → triệu view trong 90 ngày với phương pháp đã kiểm chứng qua hàng trăm học viên.", stats: "800+ học viên | ⭐ 4.9/5 | 📅 90 ngày lộ trình", slug: "xay-kenh-trieu-view", thumbnail: null as string | null, price: 0, sale_price: null as number | null, lessonCount: 0, chapterCount: 0, _static: true },
-  { emoji: "🤖", title: "AI Agent Bán Hàng Tự Động", badge: "Coming Soon", desc: "Xây hệ thống bán hàng 24/7 với AI Agent — không cần nhân viên, không cần tư vấn thủ công.", stats: "⏰ Ra mắt Q2/2026 | 🎁 Ưu đãi early bird", slug: null as string | null, thumbnail: null as string | null, price: 0, sale_price: null as number | null, lessonCount: 0, chapterCount: 0, _static: true },
-  { emoji: "💎", title: "30Day10M - Thử Thách 30 Ngày", badge: "Hot", desc: "Lộ trình 30 ngày từ chuyên gia ẩn danh → có video viral + chốt đơn đầu tiên.", stats: "500+ học viên | 💰 Cam kết kết quả", slug: "30day10m", thumbnail: null as string | null, price: 0, sale_price: null as number | null, lessonCount: 0, chapterCount: 0, _static: true },
+  {
+    emoji: "🌱",
+    title: "Hành trình Hiểu Mình",
+    badge: "Sắp ra mắt",
+    desc: "Chương trình 8 tuần để bạn tự nhìn vào bên trong — hiểu giá trị, động lực, và hướng đi thật sự của mình.",
+    stats: "⏰ Đang hoàn thiện | 🎁 Ưu tiên người đăng ký sớm",
+    slug: null as string | null,
+    thumbnail: null as string | null,
+    price: 0, sale_price: null as number | null,
+    lessonCount: 0, chapterCount: 0, _static: true,
+  },
+  {
+    emoji: "🤝",
+    title: "Lần Đầu Lên Quản Lý",
+    badge: "Sắp ra mắt",
+    desc: "Dành cho người vừa được giao team — học cách dẫn dắt mà không đánh mất chính mình. Kết hợp tâm lý + phương pháp luận thực chiến.",
+    stats: "⏰ Đang hoàn thiện | 🎁 Ưu tiên người đăng ký sớm",
+    slug: null as string | null,
+    thumbnail: null as string | null,
+    price: 0, sale_price: null as number | null,
+    lessonCount: 0, chapterCount: 0, _static: true,
+  },
 ];
 
-const testimonials = [
-  { name: "Thùy Dung", role: "Coach sức khoẻ", result: "📈 250K sub", text: "Sau khoá Video AI VEO3.1 của Thầy Khương, em ra 1 video/ngày dễ dàng. Kênh em đạt 200K sub sau 4 tháng.", avatar: "TD" },
-  { name: "BS. Trần Thị Ninh", role: "Bác sĩ Da liễu", result: "📈 1.5M view/tháng", text: "Em là bác sĩ da liễu, ngại lên video. Nhờ VEO3.1 + phương pháp xây kênh của Thầy, giờ em có 1,5 triệu view/tháng và phòng khám kín lịch.", avatar: "TN" },
-  { name: "Phạm Văn Tùng", role: "Chuyên gia tài chính", result: "💰 80M/tháng", text: "Em đã chốt 80 triệu doanh thu trong tháng đầu áp dụng. Cảm ơn Thầy Khương rất nhiều!", avatar: "VT" },
-  { name: "Lê Kim Yến", role: "Giáo viên Tiếng Anh", result: "💰 25M/30 ngày", text: "Học xong 30Day10M, em vượt KPI 10 triệu, đạt 25 triệu trong 30 ngày. Cuộc đời em thay đổi 180°.", avatar: "KY" },
-  { name: "Hoàng Văn Nam", role: "55 tuổi, Hà Nội", result: "📱 100K follow TikTok", text: "Em không rành công nghệ. Vậy mà giờ em tự làm video AI, có kênh TikTok 100K follow. Thầy Khương dạy quá tâm huyết.", avatar: "VN" },
-  { name: "Vũ Thị Tình", role: "Chủ shop online", result: "🤖 Bán tự động", text: "AI Agent của Thầy giúp em bán hàng 24/7. Em đi du lịch mà đơn vẫn về đều đặn.", avatar: "VT" },
+/* Stats bar — đổi từ số học viên giả sang 4 giá trị cốt lõi của brand */
+const valueBar = [
+  { icon: BookOpen, label: "Học thuật", desc: "MBA + nhiều năm đào tạo" },
+  { icon: Briefcase, label: "Thực chiến", desc: "Đã từng là quản lý" },
+  { icon: Heart, label: "Đồng cảm", desc: "Hiểu nỗi đau từ bên trong" },
+  { icon: Coffee, label: "Chia sẻ", desc: "Như ngồi nói chuyện cafe" },
 ];
 
 const faqs = [
-  { q: "Tôi không rành công nghệ, có học Video AI được không?", a: "Hoàn toàn được! Hơn 1,300 học viên của Thầy Khương đa số đều không rành công nghệ, có học viên 55-60 tuổi vẫn làm video AI đều đặn. Lộ trình được thiết kế từ A-Z, mỗi bước rõ ràng nhất." },
-  { q: "Tôi cần đầu tư bao nhiêu để bắt đầu?", a: "Bạn có thể bắt đầu HOÀN TOÀN MIỄN PHÍ với Bộ Kit Khởi Đầu. Khi sẵn sàng đầu tư sâu hơn, các khoá học từ 999k." },
-  { q: "Video AI VEO3.1 khác gì các công cụ khác?", a: "VEO3.1 là công nghệ mới nhất 2025-2026 của Google, cho chất lượng video gần như cinema, lip-sync chính xác, có sound effects tự động — vượt xa các công cụ cũ." },
-  { q: "Phương pháp xây kênh triệu view có khác YouTube/TikTok mỗi nền tảng không?", a: "Có. Thầy Khương dạy bạn nguyên tắc cốt lõi áp dụng được mọi nền tảng + chi tiết tối ưu cho từng nền tảng (YouTube, TikTok, Facebook Reels)." },
-  { q: "AI Agent có phức tạp không? Tôi không biết code.", a: "Không cần biết code. Thầy Khương dạy bạn dùng các no-code platform để dựng AI Agent — kéo thả là xong." },
-  { q: "Tôi cần bao nhiêu thời gian mỗi ngày?", a: "Chỉ cần 30-60 phút/ngày là đủ để thấy kết quả sau 30 ngày. Phù hợp người bận rộn." },
-  { q: "Tôi có được hỗ trợ trực tiếp từ Thầy Khương không?", a: "Có. Học viên các khoá có Q&A với Thầy Khương qua Zoom + cộng đồng — không chỉ học video sẵn." },
-];
-
-const statsBar = [
-  { value: "1,300+", label: "Học viên" },
-  { value: "300M+", label: "Lượt view học viên tạo ra" },
-  { value: "500+", label: "Đánh giá 5★" },
-  { value: "4.9/5", label: "Mức độ hài lòng" },
+  {
+    q: "Chị Hà có phải coach chuyên nghiệp không?",
+    a: "Mình chưa từng tự nhận là coach và cũng chưa qua chứng chỉ coach quốc tế. Mình là người đào tạo nhiều năm, từng làm quản lý, đã học MBA và là người thích chiêm nghiệm. Những gì chia sẻ ở đây là trải nghiệm thật của mình — không phải lý thuyết tham khảo.",
+  },
+  {
+    q: "Nội dung của Hà Bùi Academy phù hợp với ai?",
+    a: "Người đi làm muốn phát triển bản thân, người lần đầu lên quản lý, quản lý cấp trung, doanh chủ SME, và người làm nghề L&D / HR / Trainer. Nếu bạn đang tìm câu trả lời cho 'mình là ai, mình muốn gì, mình dẫn dắt như thế nào' — thì đây là nơi dành cho bạn.",
+  },
+  {
+    q: "Cách tiếp cận của chị Hà khác gì các chương trình khác trên thị trường?",
+    a: "Mình không dạy 'framework X bước' hay 'công thức Y'. Mình chia sẻ phương pháp luận có hệ thống (từ background MBA + đào tạo), kết hợp với trải nghiệm thực chiến (từng là quản lý), và quan trọng nhất là sự đồng cảm — vì mình đã đi qua những nỗi đau đó.",
+  },
+  {
+    q: "Khóa học bao nhiêu tiền? Có cam kết kết quả không?",
+    a: "Các khóa học chính đang được hoàn thiện. Bạn có thể đăng ký nhận thông báo sớm để được ưu đãi early-bird. Mình không cam kết 'thay đổi cuộc đời sau 30 ngày' — vì sự chuyển hóa là hành trình của riêng mỗi người. Mình chỉ hứa sẽ đi cùng bạn một đoạn đường tử tế.",
+  },
+  {
+    q: "Nếu mình thấy không hợp với cách chia sẻ của chị thì sao?",
+    a: "Không sao cả. Mỗi người hợp với một người thầy / người chia sẻ khác nhau. Bạn có thể đăng ký nhận cẩm nang miễn phí + theo dõi blog một thời gian — nếu thấy hợp thì học tiếp, không thì tìm con đường khác. Mình không muốn ai cố ép bản thân vào khuôn của mình.",
+  },
+  {
+    q: "Có cộng đồng học viên không?",
+    a: "Có. Mình đang xây cộng đồng nhỏ cho những người đã đăng ký nhận tin — nơi mọi người chia sẻ trải nghiệm, đặt câu hỏi, và mình trả lời định kỳ. Không phải nhóm 'tự sướng' hay 'PR khóa học' — là không gian để cùng nhau chiêm nghiệm.",
+  },
+  {
+    q: "Mình có thể đặt câu hỏi trực tiếp với chị không?",
+    a: "Sau khi đăng ký nhận tin, bạn có thể nhắn cho mình qua Zalo hoặc email. Mình không hứa trả lời ngay 24/7 (vì mình cũng có cuộc sống riêng) nhưng sẽ đọc và phản hồi khi có thời gian. Câu hỏi hay sẽ được mình viết thành bài chia sẻ chung.",
+  },
 ];
 
 const freeOfferItems = [
-  { icon: Video, title: "PHẦN 1: 10 ngách Video triệu view", desc: "Danh sách 10 ngách dễ lên triệu view nhất tại Việt Nam 2026 — kèm phân tích cạnh tranh." },
-  { icon: Zap, title: "PHẦN 2: BÍ MẬT HOOK 3 GIÂY ĐẦU", desc: "Cách viết hook khiến người xem KHÔNG THỂ lướt qua — yếu tố quyết định 80% thành công của video." },
-  { icon: TrendingDown, title: "PHẦN 3: GIẢI MÃ THUẬT TOÁN 2026", desc: "Cập nhật mới nhất về thuật toán YouTube Shorts, TikTok, Facebook Reels — đăng giờ nào, dài bao nhiêu, hashtag gì." },
+  {
+    icon: Compass,
+    title: "Phần 1: 7 câu hỏi tự nhìn vào bản thân",
+    desc: "Bộ câu hỏi chị dùng cho chính mình và đã chia sẻ với một số học viên.",
+  },
+  {
+    icon: BookOpen,
+    title: "Phần 2: Bài tập viết 7 ngày",
+    desc: "Hướng dẫn cụ thể từng ngày. Mỗi ngày 1 chủ đề, viết 10-15 phút.",
+  },
+  {
+    icon: Layers,
+    title: "Phần 3: Bản đồ tự đánh giá 4 mảng",
+    desc: "4 mảng: sự nghiệp / quan hệ / sức khỏe / bản thân. Cách chị review mỗi quý.",
+  },
 ];
 
 /* ─── Page ────────────────────────────────────────────────────── */
@@ -107,7 +193,6 @@ export default function HomePage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", password: "" });
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error" | "verify">("idle");
   const [formError, setFormError] = useState("");
-  const [countdown, setCountdown] = useState({ h: 23, m: 59, s: 59 });
   const [showLeadModal, setShowLeadModal] = useState(false);
 
   // Dynamic courses from API
@@ -136,21 +221,6 @@ export default function HomePage() {
         setDynamicCourses(mapped);
       })
       .catch(() => {/* keep fallback */});
-  }, []);
-
-  // Countdown timer
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown((prev) => {
-        let { h, m, s } = prev;
-        if (s > 0) { s--; }
-        else if (m > 0) { m--; s = 59; }
-        else if (h > 0) { h--; m = 59; s = 59; }
-        else { h = 23; m = 59; s = 59; }
-        return { h, m, s };
-      });
-    }, 1000);
-    return () => clearInterval(timer);
   }, []);
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -184,12 +254,10 @@ export default function HomePage() {
     }
   };
 
-  const pad = (n: number) => n.toString().padStart(2, "0");
-
   const navLinks = [
-    { label: "Khoá học", href: "#courses" },
-    { label: "Lộ trình", href: "#roadmap" },
-    { label: "Học viên", href: "#testimonials" },
+    { label: "Về chị Hà", href: "/about" },
+    { label: "4 chủ đề", href: "#silos" },
+    { label: "Khóa học", href: "#courses" },
     { label: "Blog", href: "/blog" },
     { label: "Cộng đồng", href: "/community" },
   ];
@@ -202,9 +270,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5">
-            <Image src="/images/about/portrait.jpg" alt="Lê Đăng Khương" width={36} height={36} sizes="36px" className="w-9 h-9 rounded-lg object-cover" />
+            <Image src={siteConfig.owner.avatar} alt={siteConfig.owner.name} width={36} height={36} sizes="36px" className="w-9 h-9 rounded-lg object-cover" />
             <div>
-              <div className="text-sm font-bold leading-tight">Lê Đăng Khương</div>
+              <div className="text-sm font-bold leading-tight">{siteConfig.name}</div>
             </div>
           </Link>
 
@@ -219,7 +287,7 @@ export default function HomePage() {
           <div className="hidden md:flex items-center gap-3">
             <Link href="/login" className="text-sm text-gray-400 hover:text-white transition-colors">Đăng nhập</Link>
             <button onClick={() => setShowLeadModal(true)} className="btn-green text-sm py-2 px-5">
-              <Gift size={14} /> Nhận quà miễn phí
+              <Gift size={14} /> Nhận cẩm nang miễn phí
             </button>
           </div>
 
@@ -238,7 +306,7 @@ export default function HomePage() {
             <div className="flex gap-3 pt-2">
               <Link href="/login" className="text-sm text-gray-400">Đăng nhập</Link>
               <button onClick={() => { setShowLeadModal(true); setMobileMenu(false); }} className="btn-green text-sm py-2 px-4">
-                <Gift size={14} /> Nhận quà miễn phí
+                <Gift size={14} /> Nhận cẩm nang
               </button>
             </div>
           </div>
@@ -255,62 +323,33 @@ export default function HomePage() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-5 sm:mb-8 text-xs sm:text-sm font-medium"
             style={{ background: "rgba(251,191,36,0.1)", border: "1px solid rgba(251,191,36,0.25)", color: "#FBBF24" }}>
-            <Zap size={14} /> Hơn 1,300 người đã xây kênh triệu view cùng Lê Đăng Khương
+            <Heart size={14} /> {siteConfig.name}
           </div>
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-4 sm:mb-6">
-            Làm Chủ{" "}
-            <span className="text-[#FBBF24]">Video AI</span>
-            , Xây Kênh{" "}
-            <span className="text-[#84CC16]">Triệu View</span>
-            {" "}& <span className="text-[#FBBF24]">Thương Hiệu Cá Nhân</span>
-            {" "}Với AI Agent
+            Chia sẻ những <span className="text-[#FBBF24]">giá trị thật</span>
           </h1>
 
           {/* Sub-headline */}
           <p className="text-sm sm:text-lg text-gray-400 max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
-            Lộ trình độc quyền từ <strong className="text-white">Lê Đăng Khương</strong> — chuyên gia đào tạo Video AI VEO3.1 đã giúp 1,300+ học viên Việt Nam tạo video AI chuyên nghiệp, xây kênh triệu view và thiết lập hệ thống AI Agent kiếm tiền tự động 24/7.
+            Mình là <strong className="text-white">{siteConfig.owner.name}</strong>. Nhiều năm làm đào tạo, từng làm quản lý, đã học MBA.
+            Mình chưa tự nhận là coach và cũng không có công thức nào kỳ diệu. Ở đây mình chỉ viết lại những gì mình đang làm
+            và đã trải qua — để ai thấy hữu ích thì cùng đọc.
           </p>
 
           {/* CTA */}
           <div className="flex justify-center">
             <button onClick={() => setShowLeadModal(true)} className="btn-green text-sm sm:text-base py-3 sm:py-3.5 px-5 sm:px-8 justify-center">
-              <Download size={16} /> Đăng ký nhận Bí Mật Video AI Triệu View
+              <Download size={16} /> Nhận cẩm nang &quot;7 câu hỏi tự nhìn vào bản thân&quot;
             </button>
           </div>
 
-          {/* Video giới thiệu */}
-          <div className="mt-8 sm:mt-14 max-w-2xl mx-auto">
-            <div className="relative rounded-2xl overflow-hidden border border-[#FBBF24]/20 aspect-video bg-black">
-              <iframe
-                src="https://www.youtube.com/embed/b7tuRnyuuNw"
-                title="Video giới thiệu - Lê Đăng Khương"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
-            </div>
-          </div>
-
-          {/* Video triệu view showcase - 4 ảnh */}
-          <div className="mt-4 sm:mt-6 grid grid-cols-2 gap-2 sm:gap-3 max-w-2xl mx-auto">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="relative rounded-xl overflow-hidden aspect-video border border-white/10 hover:border-[#FBBF24]/30 transition-colors bg-[#111]">
-                <Image src={`/images/students/channel-${i}.jpg`} alt={`Video triệu view ${i}`} width={400} height={225} sizes="(max-width: 768px) 50vw, 25vw" className="w-full h-full object-cover" />
-              </div>
-            ))}
-          </div>
-
           {/* Trust bar */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 mt-6 sm:mt-10 text-xs sm:text-sm text-gray-500">
-            <span className="flex items-center gap-1.5"><Users size={14} className="text-[#FBBF24]" /> +1,300 học viên</span>
-            <span className="flex items-center gap-1.5"><Video size={14} className="text-[#84CC16]" /> 500M+ view</span>
-            <span className="flex items-center gap-1.5">
-              {[1,2,3,4,5].map(i => <Star key={i} size={12} fill="#F59E0B" color="#F59E0B" />)}
-              <span className="ml-1">4.9/5 (500+ đánh giá)</span>
-            </span>
-            <span className="flex items-center gap-1.5"><Award size={14} className="text-[#FBBF24]" /> Founder Kohada</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 mt-8 sm:mt-12 text-xs sm:text-sm text-gray-500">
+            <span className="flex items-center gap-1.5"><BookOpen size={14} className="text-[#FBBF24]" /> MBA</span>
+            <span className="flex items-center gap-1.5"><Briefcase size={14} className="text-[#84CC16]" /> Nhiều năm đào tạo</span>
+            <span className="flex items-center gap-1.5"><Heart size={14} className="text-[#FBBF24]" /> Từng làm quản lý</span>
           </div>
         </div>
       </section>
@@ -319,12 +358,11 @@ export default function HomePage() {
       <section className="py-12 sm:py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Bạn có đang mắc kẹt với <span className="text-[#FBBF24]">những điều này?</span>
-          </h2>
+            Có thể bạn đang <span className="text-[#FBBF24]">gặp một trong những điều này</span></h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             {painPoints.map((p, i) => (
-              <div key={i} className="bg-[#111] border border-white/5 rounded-2xl p-6 hover:border-red-500/20 transition-colors">
+              <div key={i} className="bg-[#111] border border-white/5 rounded-2xl p-6 hover:border-[#FBBF24]/20 transition-colors">
                 <div className="text-3xl mb-3">{p.emoji}</div>
                 <h3 className="text-lg font-bold mb-2">{p.title}</h3>
                 <p className="text-sm text-gray-400 leading-relaxed">{p.desc}</p>
@@ -333,25 +371,26 @@ export default function HomePage() {
           </div>
 
           <p className="text-center mt-10 text-gray-400">
-            👇 <em>Tin tốt là: Tất cả những điều này đều có thể giải quyết — bằng AI, đúng phương pháp.</em>
+            Mình đã từng ở cả 4 chỗ này. Không có lối thoát thần kỳ — chỉ có những điều mình rút ra được, và muốn ghi lại để chia sẻ.
           </p>
         </div>
       </section>
 
-      {/* ═══ SECTION 3: SOLUTION — 4 BƯỚC ═══ */}
-      <section id="roadmap" className="py-12 sm:py-24 px-4 sm:px-6 bg-[#0d0d0d]">
+      {/* ═══ SECTION 3: 4 SILO ═══ */}
+      <section id="silos" className="py-12 sm:py-24 px-4 sm:px-6 bg-[#0d0d0d]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">
-              Lộ Trình <span className="text-[#FBBF24]">4 Bước</span> Từ Lê Đăng Khương
+              4 chủ đề <span className="text-[#FBBF24]">chị viết</span>
             </h2>
-            <p className="text-gray-400">Từ con số 0 → Kênh triệu view → Thu nhập tự động</p>
+            <p className="text-gray-400">Không phải &quot;4 bước thành công&quot;. Đây là 4 mảng chị có chuyện thật để kể.</p>
           </div>
 
           <div className="space-y-5">
-            {steps.map((s) => (
-              <div key={s.num} className="bg-[#111] border border-white/5 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-                {/* Step number bg */}
+            {silos.map((s) => (
+              <Link key={s.num} href={s.href}
+                className="block bg-[#111] border border-white/5 rounded-2xl p-6 sm:p-8 relative overflow-hidden hover:border-white/10 transition-colors group">
+                {/* Number bg */}
                 <div className="absolute top-4 right-6 text-[80px] font-extrabold leading-none opacity-5" style={{ color: s.color }}>
                   {s.num}
                 </div>
@@ -363,7 +402,7 @@ export default function HomePage() {
                       <s.icon size={20} style={{ color: s.color }} />
                     </div>
                     <div>
-                      <div className="text-xs font-bold uppercase tracking-wider" style={{ color: s.color }}>Bước {s.num}</div>
+                      <div className="text-xs font-bold uppercase tracking-wider" style={{ color: s.color }}>Chủ đề {s.num}</div>
                       <h3 className="text-xl font-extrabold">{s.title}</h3>
                     </div>
                   </div>
@@ -380,24 +419,28 @@ export default function HomePage() {
                   </div>
 
                   <p className="text-sm italic" style={{ color: s.color }}>→ &quot;{s.quote}&quot;</p>
+
+                  <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium opacity-70 group-hover:opacity-100 transition-opacity" style={{ color: s.color }}>
+                    Đọc chủ đề này <ArrowRight size={14} />
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
           <div className="text-center mt-10">
             <button onClick={() => setShowLeadModal(true)} className="btn-green text-base py-3.5 px-8 justify-center inline-flex">
-              <Download size={18} /> Đăng ký nhận Bí Mật Video AI Triệu View
+              <Download size={18} /> Cùng đi với chị một đoạn đường
             </button>
           </div>
         </div>
       </section>
 
-      {/* ═══ SECTION 4: ABOUT LÊ ĐĂNG KHƯƠNG ═══ */}
-      <section className="py-12 sm:py-24 px-4 sm:px-6">
+      {/* ═══ SECTION 4: ABOUT ═══ */}
+      <section id="about" className="py-12 sm:py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Lê Đăng Khương <span className="text-[#FBBF24]">Là Ai?</span>
+            Chị <span className="text-[#FBBF24]">{siteConfig.owner.name}</span> là ai?
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
@@ -405,24 +448,16 @@ export default function HomePage() {
             <div className="lg:col-span-2">
               <div className="aspect-[3/4] rounded-2xl overflow-hidden relative border border-white/10">
                 <Image
-                  src="/images/about/portrait.jpg"
-                  alt="Lê Đăng Khương"
+                  src={siteConfig.owner.avatar}
+                  alt={siteConfig.owner.name}
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover"
                 />
-                <div className="hidden w-full h-full flex items-center justify-center"
-                  style={{ background: "linear-gradient(135deg, #1a1a1a, #111)" }}>
-                  <div className="text-center">
-                    <Image src="/images/about/portrait.jpg" alt="Lê Đăng Khương" width={112} height={112} sizes="112px" className="w-28 h-28 rounded-full mx-auto mb-3 object-cover" />
-                    <div className="text-lg font-bold">Lê Đăng Khương</div>
-                    <div className="text-sm text-[#FBBF24]">Founder Kohada</div>
-                  </div>
-                </div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center"
                   style={{ background: "linear-gradient(transparent, rgba(0,0,0,0.85))" }}>
-                  <div className="text-lg font-bold">Lê Đăng Khương</div>
-                  <div className="text-sm text-[#FBBF24]">Founder Kohada</div>
+                  <div className="text-lg font-bold">{siteConfig.owner.name}</div>
+                  <div className="text-sm text-[#FBBF24]">{siteConfig.owner.title}</div>
                 </div>
               </div>
             </div>
@@ -430,20 +465,21 @@ export default function HomePage() {
             {/* Bio */}
             <div className="lg:col-span-3 space-y-5">
               <h3 className="text-xl sm:text-2xl font-bold leading-snug">
-                Chuyên gia đào tạo Video AI & Thương hiệu cá nhân <span className="text-[#FBBF24]">hàng đầu Việt Nam</span>
+                Đã từng làm <span className="text-[#FBBF24]">đào tạo, quản lý, và đi học MBA</span>
               </h3>
 
               <p className="text-gray-400 leading-relaxed">
-                Tôi là <strong className="text-white">Lê Đăng Khương</strong> — người đã dành nhiều năm nghiên cứu và làm chủ công nghệ Video AI đặc biệt là VEO3.1 để giúp các chuyên gia Việt Nam phá vỡ giới hạn truyền thông cũng như xây dựng thương hiệu cá nhân hiệu quả trên internet.
+                Mình làm đào tạo trong doanh nghiệp đã nhiều năm. Trước đó mình từng là quản lý, có lúc lead team, có lúc bị áp lực
+                kẹp giữa sếp và nhân viên. Sau khi học MBA xong, mình dành thời gian đọc, viết, ghi lại những gì mình từng làm.
+                Hà Bùi Academy là nơi mình tập hợp những thứ đó.
               </p>
 
               <div className="space-y-3">
                 {[
-                  { icon: "🎓", text: "Founder Kohada — Hệ sinh thái đào tạo Video AI & Thương hiệu cá nhân" },
-                  { icon: "👥", text: "Đã đào tạo 1,300+ học viên thành thạo Video AI và xây kênh triệu view" },
-                  { icon: "🎬", text: "Pioneer Video AI VEO3.1 tại Việt Nam — Người Việt đầu tiên xây giáo trình A-Z" },
-                  { icon: "📈", text: "Học viên tạo ra 300M+ view từ phương pháp đào tạo" },
-                  { icon: "🤖", text: "Tiên phong ứng dụng AI Agent vào hệ thống bán hàng tự động" },
+                  { icon: "🎓", text: "MBA" },
+                  { icon: "💼", text: "Nhiều năm làm chuyên gia đào tạo trong doanh nghiệp" },
+                  { icon: "👥", text: "Từng làm quản lý — hiểu áp lực của người ngồi ghế leader" },
+                  { icon: "📚", text: "Thích đọc, viết, và ghi chép" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <span className="text-lg shrink-0">{item.icon}</span>
@@ -453,15 +489,22 @@ export default function HomePage() {
               </div>
 
               <blockquote className="border-l-2 border-[#FBBF24] pl-4 italic text-gray-400 text-sm">
-                &quot;Giúp 10,000 chuyên gia Việt Nam làm chủ Video AI, xây kênh triệu view và xây dựng thương hiệu cá nhân bằng AI — để sống cân bằng và tự do tài chính.&quot;
+                &quot;Mình chưa làm coach, cũng chưa có năng lực coach. Mình chỉ muốn chia sẻ những gì mình đang làm,
+                đã từng trải qua thôi.&quot;
               </blockquote>
 
-              <a href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all hover:scale-[1.02]"
-                style={{ background: "#1877F2", color: "#fff" }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                Chat với {siteConfig.owner.name}
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/about"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-[#FBBF24]/30 text-[#FBBF24] hover:bg-[#FBBF24]/5 transition-colors">
+                  Đọc thêm về chị <ArrowRight size={15} />
+                </Link>
+                <a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all hover:scale-[1.02]"
+                  style={{ background: "#1877F2", color: "#fff" }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  Nhắn cho chị qua Facebook
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -471,7 +514,7 @@ export default function HomePage() {
       <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[#0d0d0d]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Lộ trình này <span className="text-[#84CC16]">dành cho bạn</span> nếu...
+            Chị viết cho <span className="text-[#84CC16]">ai</span>?
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -489,29 +532,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ SECTION 6: KHOÁ HỌC (dynamic from DB) ═══ */}
+      {/* ═══ SECTION 6: KHÓA HỌC ═══ */}
       <section id="courses" className="py-12 sm:py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">
-              Khoá Học Của <span className="text-[#FBBF24]">Lê Đăng Khương</span>
+              Chương trình của <span className="text-[#FBBF24]">{siteConfig.name}</span>
             </h2>
-            <p className="text-gray-400">Được thiết kế để bạn áp dụng ngay — không lý thuyết suông</p>
+            <p className="text-gray-400">Đang được hoàn thiện — đăng ký nhận thông báo sớm để được ưu tiên</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {dynamicCourses.map((c, i) => (
               <div key={c.slug ?? i} className="bg-[#111] border border-white/5 rounded-2xl overflow-hidden flex flex-col hover:border-[#FBBF24]/20 transition-colors">
-                {/* Thumbnail (from DB) */}
                 {c.thumbnail && !c._static && (
                   <div className="relative aspect-video bg-[#0d0d0d] overflow-hidden">
-                    <Image
-                      src={c.thumbnail}
-                      alt={c.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                      className="object-cover"
-                    />
+                    <Image src={c.thumbnail} alt={c.title} fill sizes="(max-width: 640px) 100vw, 50vw" className="object-cover" />
                     {c.price > 0 && c.sale_price !== null && c.sale_price < c.price && (
                       <span className="absolute top-3 right-3 px-2 py-1 rounded-md text-[11px] font-bold bg-red-500 text-white">
                         -{Math.round(((c.price - c.sale_price) / c.price) * 100)}%
@@ -530,8 +566,8 @@ export default function HomePage() {
                       {c.badge && (
                         <span className="text-xs font-bold px-2 py-0.5 rounded-md"
                           style={{
-                            background: c.badge === "Coming Soon" ? "rgba(132,204,22,0.1)" : c.badge === "Miễn phí" ? "rgba(34,197,94,0.1)" : "rgba(251,191,36,0.1)",
-                            color: c.badge === "Coming Soon" ? "#84CC16" : c.badge === "Miễn phí" ? "#22c55e" : "#FBBF24",
+                            background: c.badge === "Sắp ra mắt" ? "rgba(132,204,22,0.1)" : c.badge === "Miễn phí" ? "rgba(34,197,94,0.1)" : "rgba(251,191,36,0.1)",
+                            color: c.badge === "Sắp ra mắt" ? "#84CC16" : c.badge === "Miễn phí" ? "#22c55e" : "#FBBF24",
                           }}>
                           {c.badge}
                         </span>
@@ -545,69 +581,57 @@ export default function HomePage() {
                       Xem chi tiết <ArrowRight size={15} />
                     </Link>
                   ) : (
-                    <Link href="/register" className="inline-flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-bold border border-[#84CC16]/30 text-[#84CC16] hover:bg-[#84CC16]/5 transition-colors">
+                    <button onClick={() => setShowLeadModal(true)} className="inline-flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-bold border border-[#84CC16]/30 text-[#84CC16] hover:bg-[#84CC16]/5 transition-colors">
                       Đăng ký nhận thông báo <ArrowRight size={15} />
-                    </Link>
+                    </button>
                   )}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* View all courses link */}
           <div className="text-center mt-8">
             <Link href="/courses" className="inline-flex items-center gap-2 text-sm font-medium text-[#FBBF24] hover:text-[#FFD814] transition-colors">
-              Xem tất cả khoá học <ArrowRight size={15} />
+              Xem tất cả chương trình <ArrowRight size={15} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ═══ SECTION 7: TESTIMONIALS ═══ */}
-      <section id="testimonials" className="py-12 sm:py-24 px-4 sm:px-6 bg-[#0d0d0d]">
+      {/* ═══ SECTION 7: 4 GIÁ TRỊ CỐT LÕI (thay testimonials số bịa) ═══ */}
+      <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[#0d0d0d]">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-6">
-            Hơn 1,200 Học Viên Đã <span className="text-[#84CC16]">Thay Đổi Cuộc Đời</span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-4">
+            4 thứ chị có để <span className="text-[#84CC16]">chia sẻ với bạn</span>
           </h2>
+          <p className="text-center text-gray-400 mb-14 max-w-2xl mx-auto">
+            Không phải khẩu hiệu. Đây là 4 thứ chị thực sự đã có và đang làm.
+          </p>
 
-          {/* Stats bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-14">
-            {statsBar.map((s, i) => (
-              <div key={i} className="text-center bg-[#111] border border-white/5 rounded-xl py-5 px-3">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#FBBF24]">{s.value}</div>
-                <div className="text-xs text-gray-500 mt-1">{s.label}</div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {valueBar.map((v, i) => (
+              <div key={i} className="text-center bg-[#111] border border-white/5 rounded-2xl py-8 px-4 hover:border-[#FBBF24]/20 transition-colors">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4"
+                  style={{ background: "rgba(251,191,36,0.1)" }}>
+                  <v.icon size={22} className="text-[#FBBF24]" />
+                </div>
+                <div className="text-lg font-extrabold mb-1">{v.label}</div>
+                <div className="text-xs text-gray-500">{v.desc}</div>
               </div>
             ))}
           </div>
 
-          {/* Testimonial cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-[#111] border border-white/5 rounded-2xl p-5">
-                <div className="flex gap-1 mb-3">
-                  {[1,2,3,4,5].map(j => <Star key={j} size={13} fill="#F59E0B" color="#F59E0B" />)}
-                </div>
-                <p className="text-sm text-gray-300 leading-relaxed mb-4 italic">&quot;{t.text}&quot;</p>
-                <div className="flex items-center gap-3 pt-3 border-t border-white/5">
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold"
-                    style={{ background: "linear-gradient(135deg, #FBBF24, #84CC16)", color: "#0a0a0a" }}>
-                    {t.avatar}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-sm font-semibold truncate">{t.name}</div>
-                    <div className="text-xs text-gray-500">{t.role}</div>
-                  </div>
-                  <span className="text-xs font-medium text-[#84CC16] shrink-0">{t.result}</span>
-                </div>
-              </div>
-            ))}
+          {/* Testimonials placeholder */}
+          <div className="mt-14 bg-[#111] border border-white/5 rounded-2xl p-8 text-center">
+            <p className="text-sm text-gray-500">
+              💬 Chia sẻ từ học viên đang được chị xin phép trước khi đăng. Sẽ cập nhật dần.
+            </p>
           </div>
         </div>
       </section>
 
       {/* ═══ SECTION 8: FREE OFFER ═══ */}
       <section id="free-offer" className="py-12 sm:py-24 px-4 sm:px-6 relative overflow-hidden scroll-mt-20">
-        {/* Background glow */}
         <div className="absolute inset-0 opacity-10"
           style={{ background: "radial-gradient(ellipse at center, #FBBF24, transparent 70%)" }} />
 
@@ -615,43 +639,20 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4 text-sm font-bold"
               style={{ background: "rgba(251,191,36,0.15)", color: "#FBBF24" }}>
-              <Gift size={16} /> TẶNG MIỄN PHÍ TỪ LÊ ĐĂNG KHƯƠNG
+              <Gift size={16} /> CẨM NANG MIỄN PHÍ
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">
-              &quot;Bí Mật Video AI <span className="text-[#FBBF24]">Triệu View</span>&quot;
+              <span className="text-[#FBBF24]">&quot;7 câu hỏi tự nhìn vào bản thân&quot;</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Cẩm Nang Độc Quyền Giúp Bạn Tạo Video AI Viral Triệu View — Ngay Cả Khi Bạn Mới Bắt Đầu Từ Con Số 0
+              Bộ câu hỏi chị dùng cho chính mình và một số học viên. Miễn phí, chỉ cần email để chị gửi cẩm nang.
             </p>
-          </div>
-
-          {/* Banner image */}
-          <div className="mb-10 rounded-2xl overflow-hidden border border-[#FBBF24]/20">
-            <Image
-              src="/images/hero/offer-banner.jpg"
-              alt="Bí Mật Video AI Triệu View - Khoá học miễn phí"
-              width={1200}
-              height={600}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 960px"
-              className="w-full h-auto object-cover"
-            />
-          </div>
-
-          {/* Value badge + countdown */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-            <span className="text-sm font-bold px-4 py-2 rounded-full"
-              style={{ background: "rgba(251,191,36,0.1)", color: "#FBBF24", border: "1px solid rgba(251,191,36,0.2)" }}>
-              💎 Trị giá 2.990.000đ — Miễn phí
-            </span>
-            <span className="text-sm font-mono text-[#84CC16]">
-              ⏰ Ưu đãi kết thúc sau: {pad(countdown.h)}:{pad(countdown.m)}:{pad(countdown.s)}
-            </span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left - content */}
             <div className="space-y-6">
-              <h3 className="text-xl font-bold">📦 Bên trong cẩm nang có gì?</h3>
+              <h3 className="text-xl font-bold">Bên trong cẩm nang có gì?</h3>
 
               {freeOfferItems.map((item, i) => (
                 <div key={i} className="flex gap-4 bg-[#111] border border-white/5 rounded-xl p-4">
@@ -667,39 +668,38 @@ export default function HomePage() {
               ))}
 
               <div className="space-y-2 text-sm text-gray-400">
-                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Đã giúp <strong className="text-white">1,300+ học viên</strong> tạo video triệu view</div>
-                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Tổng cộng học viên đã tạo ra <strong className="text-white">300M+ view</strong></div>
-                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Đánh giá <strong className="text-white">4.9/5</strong> từ 500+ học viên</div>
+                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> File PDF, đọc trên điện thoại được</div>
+                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Mỗi tuần chị gửi 1 email ngắn, không spam</div>
+                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Hủy đăng ký bất cứ lúc nào</div>
               </div>
             </div>
 
             {/* Right - CTA box */}
             <div className="bg-[#111] border-2 border-[#FBBF24]/30 rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center text-center">
               <Gift size={40} className="text-[#FBBF24] mb-4" />
-              <h3 className="text-xl font-bold mb-3">NHẬN CẨM NANG NGAY HÔM NAY</h3>
+              <h3 className="text-xl font-bold mb-3">Nhận cẩm nang</h3>
               <p className="text-sm text-gray-400 mb-6 leading-relaxed">
-                Đăng ký miễn phí để nhận ngay khoá học &quot;Bí Mật Video AI Triệu View&quot; + bộ tài liệu độc quyền trị giá 2.990.000đ
+                Đăng ký miễn phí. Cẩm nang gửi qua email trong vài phút.
               </p>
 
               {formStatus === "verify" ? (
                 <div className="w-full">
                   <CheckCircle size={48} className="text-[#22c55e] mx-auto mb-4" />
-                  <h4 className="text-lg font-bold mb-2">Đăng ký thành công! 🎉</h4>
-                  <p className="text-sm text-gray-400 mb-4">Vui lòng kiểm tra email để xác thực tài khoản, sau đó đăng nhập.</p>
+                  <h4 className="text-lg font-bold mb-2">Cảm ơn bạn đã đăng ký</h4>
+                  <p className="text-sm text-gray-400 mb-4">Vui lòng kiểm tra email để xác thực tài khoản, sau đó đăng nhập để nhận cẩm nang.</p>
                   <Link href="/login" className="btn-green w-full justify-center py-3 text-base">
                     Đăng nhập <ArrowRight size={18} />
                   </Link>
                 </div>
               ) : (
-                <button onClick={() => setShowLeadModal(true)}
-                  className="btn-green w-full justify-center py-3.5 text-base">
-                  <Download size={18} /> ĐĂNG KÝ NHẬN MIỄN PHÍ →
+                <button onClick={() => setShowLeadModal(true)} className="btn-green w-full justify-center py-3.5 text-base">
+                  <Download size={18} /> Nhận cẩm nang miễn phí
                 </button>
               )}
 
               <div className="mt-4 flex items-center justify-center gap-4 text-[10px] text-gray-500">
-                <span className="flex items-center gap-1"><Shield size={10} /> Bảo mật tuyệt đối</span>
-                <span className="flex items-center gap-1"><Zap size={10} /> Gửi trong 2 phút</span>
+                <span className="flex items-center gap-1"><Shield size={10} /> Email bảo mật</span>
+                <span className="flex items-center gap-1"><Mail size={10} /> Gửi trong vài phút</span>
               </div>
             </div>
           </div>
@@ -710,7 +710,7 @@ export default function HomePage() {
       <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[#0d0d0d]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Câu Hỏi <span className="text-[#FBBF24]">Thường Gặp</span>
+            Câu hỏi <span className="text-[#FBBF24]">thường gặp</span>
           </h2>
 
           <div className="space-y-3">
@@ -741,26 +741,19 @@ export default function HomePage() {
 
         <div className="relative max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-4xl font-extrabold mb-4">
-            Sẵn Sàng <span className="text-[#FBBF24]">Bứt Phá</span> Cùng Lê Đăng Khương?
+            Bắt đầu từ <span className="text-[#FBBF24]">một email</span>
           </h2>
           <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-            Tham gia cùng 1,300+ chuyên gia Việt Nam đang làm chủ Video AI, xây kênh triệu view và kiếm tiền tự động với AI Agent.
+            Không cam kết thay đổi cuộc đời. Không công thức kỳ diệu. Chị chỉ chia sẻ những gì chị thấy hữu ích — bạn đọc thử, hợp thì đi tiếp.
           </p>
-
-          <div className="flex items-center justify-center gap-2 mb-8 text-sm text-gray-500">
-            {[1,2,3,4,5].map(i => <Star key={i} size={14} fill="#F59E0B" color="#F59E0B" />)}
-            <span className="ml-1">4.9/5 từ 500+ học viên</span>
-            <span className="mx-2">|</span>
-            <span>👥 1,300+ học viên đã thành công</span>
-          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => setShowLeadModal(true)} className="btn-green text-base py-3.5 px-8 justify-center">
-              <Download size={18} /> Đăng ký nhận Bí Mật Video AI Triệu View
+              <Download size={18} /> Nhận cẩm nang miễn phí
             </button>
-            <a href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer"
+            <a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 py-3.5 px-8 rounded-lg text-base font-semibold border border-white/10 hover:border-white/20 transition-colors">
-              <MessageCircle size={16} className="text-[#FBBF24]" /> Tư vấn trực tiếp
+              <MessageCircle size={16} className="text-[#FBBF24]" /> Nhắn cho chị
             </a>
           </div>
         </div>
@@ -773,54 +766,52 @@ export default function HomePage() {
             {/* Col 1: About */}
             <div>
               <div className="flex items-center gap-2.5 mb-4">
-                <Image src="/images/about/portrait.jpg" alt="Lê Đăng Khương" width={32} height={32} sizes="32px" className="w-8 h-8 rounded-lg object-cover" />
-                <span className="font-bold text-sm">Lê Đăng Khương</span>
+                <Image src={siteConfig.owner.avatar} alt={siteConfig.owner.name} width={32} height={32} sizes="32px" className="w-8 h-8 rounded-lg object-cover" />
+                <span className="font-bold text-sm">{siteConfig.name}</span>
               </div>
               <ul className="space-y-2 text-sm text-gray-500">
-                <li><a href="#" className="hover:text-white transition-colors">Giới thiệu</a></li>
+                <li><Link href="/about" className="hover:text-white transition-colors">Về chị Hà</Link></li>
                 <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-                <li><a href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Liên hệ</a></li>
+                <li><a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Liên hệ</a></li>
               </ul>
             </div>
 
-            {/* Col 2: Courses */}
+            {/* Col 2: 4 chủ đề */}
             <div>
-              <h4 className="font-bold text-sm mb-4">Khoá học</h4>
+              <h4 className="font-bold text-sm mb-4">4 chủ đề</h4>
               <ul className="space-y-2 text-sm text-gray-500">
-                <li><a href="#" className="hover:text-white transition-colors">Video AI VEO3.1 A-Z</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Xây Kênh Triệu View</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">AI Agent Bán Hàng</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">30Day10M Challenge</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Sản phẩm số</a></li>
+                <li><Link href="/cafe" className="hover:text-white transition-colors">Giao tiếp &amp; Quan hệ</Link></li>
+                <li><Link href="/sanphamso" className="hover:text-white transition-colors">Phát triển bản thân</Link></li>
+                <li><Link href="/slowenglish" className="hover:text-white transition-colors">Nghề L&amp;D</Link></li>
+                <li><Link href="/weballinone" className="hover:text-white transition-colors">Lãnh đạo &amp; Quản lý</Link></li>
               </ul>
             </div>
 
             {/* Col 3: Links */}
             <div>
-              <h4 className="font-bold text-sm mb-4">Hỗ trợ</h4>
+              <h4 className="font-bold text-sm mb-4">Khám phá</h4>
               <ul className="space-y-2 text-sm text-gray-500">
                 <li><Link href="/community" className="hover:text-white transition-colors">Cộng đồng</Link></li>
                 <li><Link href="/events" className="hover:text-white transition-colors">Sự kiện</Link></li>
-                <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
+                <li><Link href="/courses" className="hover:text-white transition-colors">Chương trình</Link></li>
               </ul>
             </div>
 
             {/* Col 4: Newsletter */}
             <div>
               <h4 className="font-bold text-sm mb-4">Đăng ký nhận tin</h4>
-              <p className="text-xs text-gray-500 mb-3">Nhận tip Video AI + Xây kênh triệu view mỗi tuần</p>
-              <form className="flex gap-2">
-                <input type="email" placeholder="Email của bạn" className="input-dark flex-1 text-sm py-2 px-3" />
-                <button type="submit" className="btn-green text-xs py-2 px-3 shrink-0">Đăng ký</button>
-              </form>
+              <p className="text-xs text-gray-500 mb-3">Mỗi tuần chị gửi 1 email chia sẻ ngắn — không spam, không bán hàng cứng.</p>
+              <button onClick={() => setShowLeadModal(true)} className="btn-green text-xs py-2 px-3 inline-flex">
+                <Mail size={12} /> Đăng ký nhận tin
+              </button>
             </div>
           </div>
 
           <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-            <p>&copy; {new Date().getFullYear()} Lê Đăng Khương | dangkhuong.com | Powered by Kohada</p>
+            <p>{siteConfig.footer.copyright} | buithuha.com</p>
             <div className="flex gap-4">
-              <a href="/privacy-policy" className="hover:text-white transition-colors">Chính sách bảo mật</a>
-              <a href="/terms-of-service" className="hover:text-white transition-colors">Điều khoản dịch vụ</a>
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">Chính sách bảo mật</Link>
+              <Link href="/terms-of-service" className="hover:text-white transition-colors">Điều khoản dịch vụ</Link>
             </div>
           </div>
         </div>
@@ -830,30 +821,10 @@ export default function HomePage() {
       <div className="fixed bottom-0 left-0 right-0 z-50 pb-[env(safe-area-inset-bottom)]"
         style={{ background: "linear-gradient(transparent, rgba(0,0,0,0.9) 30%)" }}>
         <div className="max-w-lg mx-auto px-4 pb-4 pt-6 flex items-center justify-center gap-2">
-          {/* Left arrows */}
-          <div className="flex items-center gap-0.5 shrink-0">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="blink-arrow">
-              <path d="M13 5l7 7-7 7" stroke="#ef4444" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="blink-arrow-delay">
-              <path d="M13 5l7 7-7 7" stroke="#ef4444" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-
           <button onClick={() => setShowLeadModal(true)}
             className="btn-success py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full shadow-lg shadow-green-500/25 flex-1 max-w-sm justify-center">
-            <Download size={16} /> Đăng ký nhận Bí Mật Video AI Triệu View Miễn Phí
+            <Download size={16} /> Nhận cẩm nang miễn phí
           </button>
-
-          {/* Right arrows */}
-          <div className="flex items-center gap-0.5 shrink-0">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="blink-arrow-delay" style={{ transform: "scaleX(-1)" }}>
-              <path d="M13 5l7 7-7 7" stroke="#ef4444" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="blink-arrow" style={{ transform: "scaleX(-1)" }}>
-              <path d="M13 5l7 7-7 7" stroke="#ef4444" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
         </div>
       </div>
 
@@ -862,18 +833,15 @@ export default function HomePage() {
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => formStatus !== "loading" && setShowLeadModal(false)} />
           <div className="relative w-full max-w-md bg-[#111] border border-[#FBBF24]/30 rounded-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
-            {/* Close button */}
             <button onClick={() => formStatus !== "loading" && setShowLeadModal(false)}
               className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors z-10 p-1 rounded-lg hover:bg-white/5">
               <X size={18} />
             </button>
 
-            {/* Header glow */}
             <div className="absolute top-0 left-0 right-0 h-32 opacity-20 pointer-events-none"
               style={{ background: "radial-gradient(ellipse at top, #FBBF24, transparent 80%)" }} />
 
             <div className="relative p-6 sm:p-8">
-              {/* Verify email state */}
               {formStatus === "verify" ? (
                 <div className="text-center py-4">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5"
@@ -882,7 +850,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-xl font-bold mb-2">Kiểm tra email của bạn</h3>
                   <p className="text-sm text-gray-400 mb-2 leading-relaxed">
-                    Chúng tôi đã gửi email xác thực đến:
+                    Chị đã gửi email xác thực đến:
                   </p>
                   <p className="text-[#D4A843] font-semibold mb-4">{formData.email}</p>
                   <p className="text-sm text-gray-500 mb-6 leading-relaxed">
@@ -897,16 +865,14 @@ export default function HomePage() {
                 </div>
               ) : (
                 <>
-                  {/* Header */}
                   <div className="text-center mb-6">
-                    <Image src="/images/about/portrait.jpg" alt="Lê Đăng Khương" width={56} height={56} sizes="56px" className="w-14 h-14 rounded-2xl mb-3 object-cover inline-block" />
-                    <h3 className="text-xl font-bold mb-1">Tạo tài khoản miễn phí</h3>
+                    <Image src={siteConfig.owner.avatar} alt={siteConfig.owner.name} width={56} height={56} sizes="56px" className="w-14 h-14 rounded-2xl mb-3 object-cover inline-block" />
+                    <h3 className="text-xl font-bold mb-1">Đăng ký nhận cẩm nang</h3>
                     <p className="text-sm text-gray-400">
-                      Đăng ký để nhận <span className="text-[#FBBF24] font-semibold">&quot;Bí Mật Video AI Triệu View&quot;</span>
+                      <span className="text-[#FBBF24] font-semibold">&quot;7 câu hỏi tự nhìn vào bản thân&quot;</span> — miễn phí
                     </p>
                   </div>
 
-                  {/* Error */}
                   {formError && (
                     <div className="mb-4 p-3 rounded-lg text-sm text-red-400 border border-red-400/20"
                       style={{ background: "rgba(239,68,68,0.08)" }}>
@@ -943,21 +909,19 @@ export default function HomePage() {
                       <PasswordInput name="popup_password"
                         placeholder="Tối thiểu 8 ký tự"
                         minLength={8} />
-                      {/* Hidden input to sync password to state */}
                     </div>
 
                     <p className="text-xs text-gray-500 pt-1">
                       Bằng cách đăng ký, bạn đồng ý với{" "}
-                      <a href="#" className="text-[#D4A843] hover:underline">Điều khoản dịch vụ</a> và{" "}
-                      <a href="#" className="text-[#D4A843] hover:underline">Chính sách bảo mật</a>
+                      <Link href="/terms-of-service" className="text-[#D4A843] hover:underline">Điều khoản dịch vụ</Link> và{" "}
+                      <Link href="/privacy-policy" className="text-[#D4A843] hover:underline">Chính sách bảo mật</Link>
                     </p>
                     <button type="submit" disabled={formStatus === "loading"}
                       className="btn-green w-full justify-center py-2.5 mt-2 disabled:opacity-50">
-                      {formStatus === "loading" ? "Đang xử lý..." : "Đăng ký — Hoàn toàn miễn phí"}
+                      {formStatus === "loading" ? "Đang xử lý..." : "Đăng ký — Miễn phí, không spam"}
                     </button>
                   </form>
 
-                  {/* Social Login */}
                   <div className="mt-5">
                     <SocialLoginButtons />
                   </div>

@@ -18,7 +18,7 @@ const ACHIEVEMENTS = [
   "11+ năm kinh nghiệm trong giáo dục online & marketing",
   "151K Follow trên Facebook cá nhân — hàng trăm ngàn học viên đã học",
   "45 triệu doanh thu trong 1 tuần thử nghiệm với chỉ 300 data",
-  "Đã tự xây thành công hệ thống dangkhuong.com (LMS, Admin, CRM)",
+  "Đã tự xây thành công hệ thống buithuha.com (LMS, Admin, CRM)",
   "Tiết kiệm 1 tỷ đồng so với cách làm truyền thống thuê dev",
 ];
 
@@ -30,7 +30,7 @@ const REASONS = [
   },
   {
     title: "Hệ thống đang chạy thật",
-    body: "Bạn có thể vào dangkhuong.com xem trực tiếp ngay bây giờ.",
+    body: "Bạn có thể vào buithuha.com xem trực tiếp ngay bây giờ.",
     Icon: Activity,
   },
   {
@@ -222,7 +222,7 @@ export default function SpeakerSection() {
               />
               <img
                 src="/images/about/portrait.jpg"
-                alt="Thầy Lê Đăng Khương"
+                alt="Thầy Hà Bùi"
                 className="relative w-full max-w-xs rounded-2xl object-cover"
                 style={{ border: "2px solid rgba(229,182,99,0.35)" }}
               />
@@ -364,7 +364,7 @@ export default function SpeakerSection() {
                 className="mt-2 text-[10px] sm:text-[11px] uppercase tracking-[0.14em]"
                 style={{ color: "rgba(241,245,251,0.55)" }}
               >
-                dangkhuong.com đang chạy real-time
+                buithuha.com đang chạy real-time
               </div>
             </div>
           </div>
@@ -452,7 +452,7 @@ export default function SpeakerSection() {
                 className="text-[11px] font-semibold uppercase tracking-[0.18em]"
                 style={{ color: "#E5B663" }}
               >
-                — Thầy Lê Đăng Khương
+                — Thầy Hà Bùi
               </footer>
             </blockquote>
 
@@ -490,7 +490,7 @@ export default function SpeakerSection() {
           className="text-center text-base sm:text-lg font-bold mb-8 mt-10"
           style={{ color: "#F1F5FB" }}
         >
-          Tại sao bạn nên học từ Thầy Khương?
+          Tại sao bạn nên học từ chị Hà?
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
           {REASONS.map((r, i) => {

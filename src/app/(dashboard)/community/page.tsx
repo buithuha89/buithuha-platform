@@ -493,12 +493,12 @@ export default function CommunityPage() {
     }
   };
 
-  const getShareUrl = (postId: string) => `https://dangkhuong.com/community?post=${postId}`;
+  const getShareUrl = (postId: string) => `https://buithuha.com/community?post=${postId}`;
 
   const handleShare = async (postId: string, platform: "copy" | "facebook" | "x" | "zalo") => {
     const url = getShareUrl(postId);
     const post = posts.find(p => p.id === postId);
-    const text = post?.content?.slice(0, 100) || "Xem bài viết trên Lê Đăng Khương Academy";
+    const text = post?.content?.slice(0, 100) || "Xem bài viết trên Hà Bùi Academy";
 
     switch (platform) {
       case "copy":

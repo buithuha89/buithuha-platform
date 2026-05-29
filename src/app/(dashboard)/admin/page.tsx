@@ -162,7 +162,7 @@ export default async function AdminPage() {
 
   return (
     <div>
-      <TopBar title="Admin Panel" subtitle="Quản lý toàn bộ nền tảng dangkhuong.com" />
+      <TopBar title="Admin Panel" subtitle="Quản lý toàn bộ nền tảng buithuha.com" />
 
       <div className="p-6 max-w-7xl mx-auto space-y-6">
 

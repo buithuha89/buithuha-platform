@@ -214,12 +214,12 @@ export default function HocChuaXongLanding() {
         <Link href="/" className="flex items-center gap-2.5">
           <img
             src="/images/about/portrait.jpg"
-            alt="Lê Đăng Khương"
+            alt="Hà Bùi"
             className="w-9 h-9 rounded-lg object-cover"
             style={{ border: "1px solid rgba(229,182,99,0.35)" }}
           />
           <div className="hidden sm:flex flex-col leading-tight">
-            <span className="font-semibold text-sm text-white">Lê Đăng Khương</span>
+            <span className="font-semibold text-sm text-white">Hà Bùi</span>
             <span className="text-[10px] uppercase tracking-[0.18em]" style={{ color: "#C9A86B" }}>
               Premium Mentorship
             </span>
@@ -526,7 +526,7 @@ export default function HocChuaXongLanding() {
             </div>
 
             <p className="text-[11px] text-center leading-relaxed pt-1" style={{ color: "rgba(241,245,251,0.4)" }}>
-              Bằng việc đăng ký, bạn đồng ý điều khoản sử dụng của Lê Đăng Khương Academy.
+              Bằng việc đăng ký, bạn đồng ý điều khoản sử dụng của Hà Bùi Academy.
             </p>
             <p className="text-xs text-center pt-3" style={{ color: "rgba(241,245,251,0.55)" }}>
               Đã có tài khoản?{" "}

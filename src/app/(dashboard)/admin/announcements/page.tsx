@@ -165,7 +165,7 @@ export default function AnnouncementsPage() {
                 type="url"
                 value={link}
                 onChange={(e) => setLink(e.target.value)}
-                placeholder="https://dangkhuong.com/courses/..."
+                placeholder="https://buithuha.com/courses/..."
                 className="input-dark w-full text-sm"
               />
             </div>

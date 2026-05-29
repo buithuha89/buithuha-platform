@@ -27,13 +27,13 @@ function escapeHtml(str: string): string {
 
 // ─── Constants ──────────────────────────────────────────────
 
-const DEFAULT_FROM_EMAIL = process.env.EMAIL_FROM || "support@ledangkhuong.net";
-const DEFAULT_FROM_NAME = process.env.EMAIL_FROM_NAME || "Lê Đăng Khương Academy";
-const COMPANY_NAME = process.env.EMAIL_FROM_NAME || "Lê Đăng Khương Academy";
+const DEFAULT_FROM_EMAIL = process.env.EMAIL_FROM || "support@buithuha.com";
+const DEFAULT_FROM_NAME = process.env.EMAIL_FROM_NAME || "Hà Bùi Academy";
+const COMPANY_NAME = process.env.EMAIL_FROM_NAME || "Hà Bùi Academy";
 
 function getAppUrl(): string {
   return (
-    process.env.NEXT_PUBLIC_APP_URL || "https://dangkhuong.com"
+    process.env.NEXT_PUBLIC_APP_URL || "https://buithuha.com"
   );
 }
 

@@ -116,7 +116,7 @@ export default async function AffiliateDashboardPage({
     ? ((affiliate.total_conversions / affiliate.total_clicks) * 100).toFixed(1)
     : "0";
 
-  const origin = "https://dangkhuong.com";
+  const origin = "https://buithuha.com";
 
   return (
     <>
@@ -236,7 +236,7 @@ export default async function AffiliateDashboardPage({
                 <CopyRefLink text={`${origin}?ref=${affiliate.ref_code}`} />
               </div>
               <p className="text-xs text-gray-400 mt-2">
-                Gắn <code className="text-[#D4A843]">?ref={affiliate.ref_code}</code> vào bất kỳ URL nào trên dangkhuong.com
+                Gắn <code className="text-[#D4A843]">?ref={affiliate.ref_code}</code> vào bất kỳ URL nào trên buithuha.com
               </p>
               {/* Change ref code */}
               <ChangeRefCodeForm currentCode={affiliate.ref_code} />

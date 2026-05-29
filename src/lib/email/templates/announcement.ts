@@ -21,7 +21,7 @@ export function announcementEmailHtml(
     try {
       return new URL(baseUrl).hostname;
     } catch {
-      return "dangkhuong.com";
+      return "buithuha.com";
     }
   })();
 
@@ -49,7 +49,7 @@ export function announcementEmailHtml(
 <body>
   <div class="wrap">
     <div class="logo">
-      <div class="logo-icon">LĐK</div>
+      <div class="logo-icon">HB</div>
       <div class="logo-text">${escapeHtml(siteName)}</div>
     </div>
     <div class="card">

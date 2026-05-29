@@ -2,14 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/server";
 import { rateLimit } from "@/lib/rate-limit";
 
-const FALLBACK_URL = process.env.NEXT_PUBLIC_APP_URL || "https://dangkhuong.com";
+const FALLBACK_URL = process.env.NEXT_PUBLIC_APP_URL || "https://buithuha.com";
 
 // Extract domain from the base URL for allowed domains check
 const _baseDomain = (() => {
   try {
     return new URL(FALLBACK_URL).hostname;
   } catch {
-    return "dangkhuong.com";
+    return "buithuha.com";
   }
 })();
 const ALLOWED_DOMAINS = [_baseDomain, `www.${_baseDomain}`];

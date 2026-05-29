@@ -14,7 +14,7 @@ export async function forgotPassword(formData: FormData) {
 
   const headersList = await headers();
   const envUrl = process.env.NEXT_PUBLIC_APP_URL;
-  const host = headersList.get("host") || "dangkhuong.com";
+  const host = headersList.get("host") || "buithuha.com";
   const protocol = host.includes("localhost") ? "http" : "https";
   const origin = envUrl || `${protocol}://${host}`;
 

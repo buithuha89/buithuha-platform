@@ -46,7 +46,7 @@ const MODULES = [
     icon: Wrench,
     title: "TỰ XÂY HỆ THỐNG BÁN + LMS BẰNG CLAUDE CODE",
     meta: "22 bài học · 14 giờ video · Tuần 3 · QUAN TRỌNG NHẤT",
-    result: "Bạn có WEBSITE HOÀN CHỈNH — vừa bán hàng tự động vừa có trang giao sản phẩm số riêng giống dangkhuong.com. Bán được mọi loại sản phẩm số.",
+    result: "Bạn có WEBSITE HOÀN CHỈNH — vừa bán hàng tự động vừa có trang giao sản phẩm số riêng giống buithuha.com. Bán được mọi loại sản phẩm số.",
     sections: [
       {
         title: "A. Nền tảng hệ thống",

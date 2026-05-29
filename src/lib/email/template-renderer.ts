@@ -9,8 +9,8 @@ import type { Subscriber, TemplateVariables } from "./types";
 // ─── Constants ───────────────────────────────────────────────
 
 const APP_URL =
-  process.env.NEXT_PUBLIC_APP_URL || "https://dangkhuong.com";
-const COMPANY_NAME = process.env.EMAIL_FROM_NAME || "Lê Đăng Khương Academy";
+  process.env.NEXT_PUBLIC_APP_URL || "https://buithuha.com";
+const COMPANY_NAME = process.env.EMAIL_FROM_NAME || "Hà Bùi Academy";
 
 // ─── Render Template ─────────────────────────────────────────
 
@@ -22,8 +22,8 @@ const COMPANY_NAME = process.env.EMAIL_FROM_NAME || "Lê Đăng Khương Academy
  * @returns HTML đã render xong
  *
  * @example
- * renderTemplate("Xin chào {{name}}", { name: "Khương" })
- * // => "Xin chào Khương"
+ * renderTemplate("Xin chào {{name}}", { name: "Hà" })
+ * // => "Xin chào Hà"
  */
 // Keys whose values are safe URLs (already constructed by us) and must not be escaped
 const URL_VARIABLE_KEYS = new Set(["unsubscribe_url"]);

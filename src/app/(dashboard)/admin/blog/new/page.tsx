@@ -512,7 +512,7 @@ export default function NewBlogPostPage() {
                 </label>
                 <div className="rounded-lg p-4" style={{ background: "#fff" }}>
                   <div className="text-[13px] text-[#202124] truncate" style={{ fontFamily: "Arial, sans-serif" }}>
-                    dangkhuong.com &rsaquo; blog &rsaquo; {currentSlug || "..."}
+                    buithuha.com &rsaquo; blog &rsaquo; {currentSlug || "..."}
                   </div>
                   <div
                     className="text-[20px] leading-tight mt-1 truncate"
@@ -553,7 +553,7 @@ export default function NewBlogPostPage() {
                   </label>
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] text-gray-500 shrink-0">
-                      dangkhuong.com/blog/
+                      buithuha.com/blog/
                     </span>
                     <input
                       value={slug || autoSlug(title)}

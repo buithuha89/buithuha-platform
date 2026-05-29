@@ -18,9 +18,9 @@ export function generateAbandonedCartEmail(
   productSlug: string,
   totalAmount: number,
 ): { subject: string; html: string } {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://dangkhuong.com";
-  const siteDomain = (() => { try { return new URL(baseUrl).hostname; } catch { return "dangkhuong.com"; } })();
-  const siteName = process.env.EMAIL_FROM_NAME || "Lê Đăng Khương Academy";
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://buithuha.com";
+  const siteDomain = (() => { try { return new URL(baseUrl).hostname; } catch { return "buithuha.com"; } })();
+  const siteName = process.env.EMAIL_FROM_NAME || "Hà Bùi Academy";
   const formattedAmount = totalAmount.toLocaleString("vi-VN") + "₫";
   const courseUrl = `${baseUrl}/courses/${encodeURIComponent(productSlug)}`;
 
@@ -50,8 +50,8 @@ export function generateAbandonedCartEmail(
 <body>
   <div class="wrap">
     <div class="logo">
-      <div class="logo-icon">LĐK</div>
-      <div class="logo-text">Lê Đăng Khương Academy</div>
+      <div class="logo-icon">HB</div>
+      <div class="logo-text">Hà Bùi Academy</div>
     </div>
     <div class="card">
       <h1>Đơn hàng của bạn đang chờ hoàn tất! ⏳</h1>
@@ -72,7 +72,7 @@ export function generateAbandonedCartEmail(
       </p>
       <div class="divider"></div>
       <p style="margin:0;font-size:13px;color:#6b7280;">Nếu bạn gặp vấn đề trong quá trình thanh toán, reply email này để được hỗ trợ ngay.</p>
-      <p style="margin:8px 0 0; color:#6b7280; font-size:13px;">— Lê Đăng Khương</p>
+      <p style="margin:8px 0 0; color:#6b7280; font-size:13px;">— Hà Bùi</p>
     </div>
     <div class="footer">
       © ${new Date().getFullYear()} ${siteName} · <a href="${baseUrl}" style="color:#4b5563;">${siteDomain}</a><br/>

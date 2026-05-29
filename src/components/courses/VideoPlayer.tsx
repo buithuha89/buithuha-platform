@@ -494,7 +494,7 @@ export default function VideoPlayer({
 
         {/* Watermark */}
         <div className="absolute bottom-14 right-3 text-[10px] text-white/15 select-none pointer-events-none z-20">
-          dangkhuong.com
+          buithuha.com
         </div>
 
         {/* Gradient fade for controls */}

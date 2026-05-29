@@ -38,7 +38,7 @@ const FAQS = [
   },
   {
     q: "Có hỗ trợ 1:1 không?",
-    a: "CÓ: Group Zalo hỗ trợ 30 ngày (Thầy và team trả lời) + Live Q&A hàng tuần với Thầy Khương + Comment dưới mỗi bài học. Nếu cần hỗ trợ 1:1 sâu hơn — bạn có thể upgrade lên gói Coaching (9.997K) hoặc Mastermind (49.997K).",
+    a: "CÓ: Group Zalo hỗ trợ 30 ngày (Thầy và team trả lời) + Live Q&A hàng tuần với chị Hà + Comment dưới mỗi bài học. Nếu cần hỗ trợ 1:1 sâu hơn — bạn có thể upgrade lên gói Coaching (9.997K) hoặc Mastermind (49.997K).",
   },
   {
     q: "Có dạy chạy quảng cáo không?",

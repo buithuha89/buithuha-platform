@@ -114,7 +114,7 @@ export default function HeroSection({ onScrollToRegister }: HeroSectionProps) {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/hocchuaxongtiendave/banner.jpeg"
-              alt="Học Chưa Xong - Tiền Đã Về · Tạo sản phẩm số bán chạy nhất trong ngách của bạn · Trainer Lê Đăng Khương · KOHADA"
+              alt="Học Chưa Xong - Tiền Đã Về · Tạo sản phẩm số bán chạy nhất trong ngách của bạn · Trainer Hà Bùi · KOHADA"
               className="block w-full h-auto"
               loading="eager"
               fetchPriority="high"
@@ -245,13 +245,13 @@ export default function HeroSection({ onScrollToRegister }: HeroSectionProps) {
             boxShadow:
               "0 0 60px rgba(229,182,99,0.2), inset 0 1px 0 rgba(255,255,255,0.04)",
           }}
-          aria-label="Mở dashboard quản trị dangkhuong.com/admin — Doanh thu 45.776.000đ, 307 học viên"
+          aria-label="Mở dashboard quản trị buithuha.com/admin — Doanh thu 45.776.000đ, 307 học viên"
         >
           {/* Real dashboard screenshot */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/hocchuaxongtiendave/admin-dashboard.png"
-            alt="Dashboard quản trị dangkhuong.com/admin — Doanh thu thật 45.776.000đ, 307 học viên, 65 đơn hàng"
+            alt="Dashboard quản trị buithuha.com/admin — Doanh thu thật 45.776.000đ, 307 học viên, 65 đơn hàng"
             className="absolute inset-0 h-full w-full object-cover object-top"
             loading="eager"
           />
@@ -283,7 +283,7 @@ export default function HeroSection({ onScrollToRegister }: HeroSectionProps) {
                 animation: "hcx-live-pulse 1.6s ease-in-out infinite",
               }}
             />
-            Live · dangkhuong.com/admin
+            Live · buithuha.com/admin
           </span>
 
           {/* Stats pill */}

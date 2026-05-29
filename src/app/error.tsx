@@ -197,7 +197,7 @@ export default function Error({ error, reset }: ErrorProps) {
             color: "#4b5563",
           }}
         >
-          © 2026 Lê Đăng Khương Academy
+          © 2026 Hà Bùi Academy
         </p>
       </div>
     </div>

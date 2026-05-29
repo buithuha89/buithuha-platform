@@ -5,14 +5,14 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: `Chính Sách Bảo Mật | ${siteConfig.name}`,
   description:
-    "Chính sách bảo mật và bảo vệ dữ liệu cá nhân của nền tảng Lê Đăng Khương Academy, tuân thủ Luật An ninh mạng 2018 và Nghị định 13/2023/NĐ-CP.",
+    "Chính sách bảo mật và bảo vệ dữ liệu cá nhân của nền tảng Hà Bùi Academy, tuân thủ Luật An ninh mạng 2018 và Nghị định 13/2023/NĐ-CP.",
   alternates: {
-    canonical: "https://dangkhuong.com/privacy",
+    canonical: "https://buithuha.com/privacy",
   },
   openGraph: {
     title: `Chính Sách Bảo Mật — ${siteConfig.name}`,
     description:
-      "Chính sách bảo mật và bảo vệ dữ liệu cá nhân của nền tảng Lê Đăng Khương Academy",
+      "Chính sách bảo mật và bảo vệ dữ liệu cá nhân của nền tảng Hà Bùi Academy",
   },
 };
 
@@ -21,7 +21,7 @@ const sections = [
     id: "thu-thap",
     title: "1. Thu thập thông tin",
     content: [
-      "Khi bạn sử dụng nền tảng dangkhuong.com, chúng tôi thu thập các loại thông tin cá nhân sau đây, phù hợp với quy định tại Điều 2 Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân:",
+      "Khi bạn sử dụng nền tảng buithuha.com, chúng tôi thu thập các loại thông tin cá nhân sau đây, phù hợp với quy định tại Điều 2 Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân:",
     ],
     subsections: [
       {
@@ -208,7 +208,7 @@ const sections = [
       },
     ],
     extra: [
-      "Để thực hiện bất kỳ quyền nào nêu trên, vui lòng liên hệ chúng tôi qua email support@ledangkhuong.net. Chúng tôi sẽ xác minh danh tính và phản hồi trong vòng 72 giờ, xử lý hoàn tất trong vòng 30 ngày kể từ ngày nhận được yêu cầu hợp lệ.",
+      "Để thực hiện bất kỳ quyền nào nêu trên, vui lòng liên hệ chúng tôi qua email support@buithuha.com. Chúng tôi sẽ xác minh danh tính và phản hồi trong vòng 72 giờ, xử lý hoàn tất trong vòng 30 ngày kể từ ngày nhận được yêu cầu hợp lệ.",
     ],
   },
   {
@@ -439,10 +439,10 @@ export default function PrivacyPage() {
                   <p className="text-gray-300">
                     <span className="text-gray-500">Email:</span>{" "}
                     <a
-                      href="mailto:support@ledangkhuong.net"
+                      href="mailto:support@buithuha.com"
                       className="text-[#D4A843] hover:underline"
                     >
-                      support@ledangkhuong.net
+                      support@buithuha.com
                     </a>
                   </p>
                   <p className="text-gray-300">

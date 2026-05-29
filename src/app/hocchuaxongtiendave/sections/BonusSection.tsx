@@ -22,7 +22,7 @@ const BONUSES = [
   {
     icon: "📝",
     title: "50 Prompt Claude Tạo Nội Dung Bán Hàng",
-    body: "50 prompt mẫu Thầy Khương đã test và tối ưu — viết landing page, email, ad copy, content social. Copy paste vào Claude là dùng được ngay.",
+    body: "50 prompt mẫu chị Hà đã test và tối ưu — viết landing page, email, ad copy, content social. Copy paste vào Claude là dùng được ngay.",
     value: "1.997.000đ",
   },
   {
@@ -34,7 +34,7 @@ const BONUSES = [
   {
     icon: "🎓",
     title: "Source Code LMS Hoàn Chỉnh",
-    body: "Source code LMS y hệt dangkhuong.com: Dashboard học viên + Course Player + Tracking + Certificate. Bạn được sở hữu 100%.",
+    body: "Source code LMS y hệt buithuha.com: Dashboard học viên + Course Player + Tracking + Certificate. Bạn được sở hữu 100%.",
     value: "4.997.000đ",
   },
   {
@@ -52,7 +52,7 @@ const BONUSES = [
   {
     icon: "👥",
     title: "Group Zalo Hỗ Trợ 30 Ngày + Live Q&A",
-    body: "Vào group Zalo riêng để Thầy và team hỗ trợ trực tiếp 30 ngày. Live Q&A hàng tuần với Thầy Khương để giải đáp mọi vướng mắc.",
+    body: "Vào group Zalo riêng để Thầy và team hỗ trợ trực tiếp 30 ngày. Live Q&A hàng tuần với chị Hà để giải đáp mọi vướng mắc.",
     value: "2.997.000đ",
   },
 ];
@@ -278,7 +278,7 @@ function EmailPreview() {
           </div>
           <div className="text-[10px] leading-tight">
             <div style={{ color: "#F1F5FB" }}>
-              From: <span style={{ color: "#E5B663" }}>Thầy Khương</span>
+              From: <span style={{ color: "#E5B663" }}>chị Hà</span>
             </div>
             <div style={{ color: "rgba(241,245,251,0.55)" }}>Re: Chào mừng bạn</div>
           </div>

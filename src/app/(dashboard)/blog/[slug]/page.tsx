@@ -54,7 +54,7 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://dangkhuong.com";
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://buithuha.com";
 
 // ---------------------------------------------------------------------------
 // Helpers

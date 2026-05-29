@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Chính sách bảo mật | Đăng Khương Academy",
+  title: "Chính sách bảo mật | Hà Bùi Academy",
   description:
-    "Chính sách bảo mật và bảo vệ dữ liệu cá nhân của nền tảng Đăng Khương Academy — dangkhuong.com",
+    "Chính sách bảo mật và bảo vệ dữ liệu cá nhân của nền tảng Hà Bùi Academy — buithuha.com",
 };
 
 const sections = [
@@ -11,7 +11,7 @@ const sections = [
     id: "thu-thap",
     title: "1. Thông tin chúng tôi thu thập",
     content: [
-      "Khi bạn sử dụng nền tảng dangkhuong.com, chúng tôi có thể thu thập các loại thông tin sau:",
+      "Khi bạn sử dụng nền tảng buithuha.com, chúng tôi có thể thu thập các loại thông tin sau:",
     ],
     list: [
       "Họ và tên đầy đủ",
@@ -114,7 +114,7 @@ const sections = [
     title: "8. Bảo vệ trẻ em",
     content: [
       "Nền tảng không dành cho người dưới 16 tuổi. Chúng tôi không cố ý thu thập dữ liệu cá nhân của trẻ em dưới 16 tuổi.",
-      "Nếu phát hiện đã thu thập dữ liệu của trẻ em, chúng tôi sẽ xoá ngay lập tức. Nếu bạn là phụ huynh và phát hiện con mình đã cung cấp thông tin, vui lòng liên hệ chúng tôi qua email support@ledangkhuong.net.",
+      "Nếu phát hiện đã thu thập dữ liệu của trẻ em, chúng tôi sẽ xoá ngay lập tức. Nếu bạn là phụ huynh và phát hiện con mình đã cung cấp thông tin, vui lòng liên hệ chúng tôi qua email support@buithuha.com.",
     ],
   },
   {
@@ -157,9 +157,9 @@ export default function PrivacyPolicyPage() {
           <div className="space-y-3">
             <p className="text-gray-300 leading-relaxed">
               Chào mừng bạn đến với{" "}
-              <span className="text-white font-medium">dangkhuong.com</span> —
+              <span className="text-white font-medium">buithuha.com</span> —
               nền tảng học tập trực tuyến thuộc sở hữu của{" "}
-              <span className="text-white font-medium">Đăng Khương</span>.
+              <span className="text-white font-medium">Hà Bùi</span>.
             </p>
             <p className="text-gray-300 leading-relaxed">
               Chúng tôi tôn trọng quyền riêng tư của bạn và cam kết bảo vệ
@@ -245,22 +245,22 @@ export default function PrivacyPolicyPage() {
                   <p className="text-gray-300">
                     <span className="text-gray-500">Nền tảng:</span>{" "}
                     <span className="text-white font-medium">
-                      Lê Đăng Khương Academy
+                      Hà Bùi Academy
                     </span>
                   </p>
                   <p className="text-gray-300">
                     <span className="text-gray-500">Website:</span>{" "}
                     <Link href="/" className="text-[#D4A843] hover:underline">
-                      dangkhuong.com
+                      buithuha.com
                     </Link>
                   </p>
                   <p className="text-gray-300">
                     <span className="text-gray-500">Email:</span>{" "}
                     <a
-                      href="mailto:support@ledangkhuong.net"
+                      href="mailto:support@buithuha.com"
                       className="text-[#D4A843] hover:underline"
                     >
-                      support@ledangkhuong.net
+                      support@buithuha.com
                     </a>
                   </p>
                   <p className="text-gray-300">
@@ -268,7 +268,7 @@ export default function PrivacyPolicyPage() {
                       Người chịu trách nhiệm bảo vệ dữ liệu:
                     </span>{" "}
                     <span className="text-white font-medium">
-                      Lê Đăng Khương
+                      Hà Bùi
                     </span>
                   </p>
                 </div>

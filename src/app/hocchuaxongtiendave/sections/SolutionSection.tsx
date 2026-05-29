@@ -38,7 +38,7 @@ const BENEFITS = [
   "Cách chọn ngách triệu đô — dùng AI brainstorm và validate trong 24 giờ",
   "Pre-sale validate ngách TRƯỚC khi đầu tư công sức — không bao giờ phí 80% thời gian",
   "Tạo Ebook, Tài liệu, Khóa học, Template bằng AI trong 5-7 ngày — giọng văn của bạn",
-  "Tự xây website hoàn chỉnh giống dangkhuong.com — toàn bộ bằng Claude Code",
+  "Tự xây website hoàn chỉnh giống buithuha.com — toàn bộ bằng Claude Code",
   "Tự động hóa 100% — khách CK → tạo account → giao sản phẩm → email — bạn không làm gì cả",
   "Chạy quảng cáo Facebook scale từ 500K/ngày lên 5 triệu/ngày một cách an toàn",
 ];

@@ -460,7 +460,7 @@ export default function EditBlogPostPage() {
                 </label>
                 <div className="rounded-lg p-4" style={{ background: "#fff" }}>
                   <div className="text-[13px] text-[#202124] truncate" style={{ fontFamily: "Arial, sans-serif" }}>
-                    dangkhuong.com &rsaquo; blog &rsaquo; {slug || "..."}
+                    buithuha.com &rsaquo; blog &rsaquo; {slug || "..."}
                   </div>
                   <div className="text-[20px] leading-tight mt-1 truncate" style={{ color: "#1a0dab", fontFamily: "Arial, sans-serif" }}>
                     {title || "Tiêu đề bài viết"}
@@ -485,7 +485,7 @@ export default function EditBlogPostPage() {
                 <div>
                   <label className="block text-xs font-medium text-gray-400 mb-1.5">Slug (URL)</label>
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] text-gray-500 shrink-0">dangkhuong.com/blog/</span>
+                    <span className="text-[10px] text-gray-500 shrink-0">buithuha.com/blog/</span>
                     <input value={slug} onChange={(e) => setSlug(e.target.value)} className="input-dark flex-1 text-sm" />
                   </div>
                 </div>

@@ -3,7 +3,7 @@
 // ──────────────────────────────────────────────
 // Tất cả giá trị đều có thể override bằng env vars trên Vercel.
 // Học viên KHÔNG cần sửa file này — chỉ cần set env vars.
-// Giá trị mặc định (fallback) là của Lê Đăng Khương Academy.
+// Giá trị mặc định (fallback) là của Hà Bùi Academy.
 // ──────────────────────────────────────────────
 
 const env = (key: string, fallback: string): string =>
@@ -13,9 +13,9 @@ export const siteConfig = {
   // ─── Brand ───
   // Env: NEXT_PUBLIC_SITE_NAME, NEXT_PUBLIC_SITE_SHORT_NAME, NEXT_PUBLIC_SITE_DOMAIN
   //      NEXT_PUBLIC_SITE_TAGLINE, NEXT_PUBLIC_SITE_DESCRIPTION
-  name: env("NEXT_PUBLIC_SITE_NAME", "Lê Đăng Khương Academy"),
-  shortName: env("NEXT_PUBLIC_SITE_SHORT_NAME", "LĐK Academy"),
-  domain: env("NEXT_PUBLIC_SITE_DOMAIN", "dangkhuong.com"),
+  name: env("NEXT_PUBLIC_SITE_NAME", "Hà Bùi Academy"),
+  shortName: env("NEXT_PUBLIC_SITE_SHORT_NAME", "Hà Bùi Academy"),
+  domain: env("NEXT_PUBLIC_SITE_DOMAIN", "buithuha.com"),
   tagline: env("NEXT_PUBLIC_SITE_TAGLINE", "Chuyên gia Video AI & Thương Hiệu Cá Nhân"),
   description: env(
     "NEXT_PUBLIC_SITE_DESCRIPTION",
@@ -25,7 +25,7 @@ export const siteConfig = {
   // ─── Owner ───
   // Env: NEXT_PUBLIC_OWNER_NAME, NEXT_PUBLIC_OWNER_TITLE, NEXT_PUBLIC_OWNER_BIO, NEXT_PUBLIC_OWNER_AVATAR
   owner: {
-    name: env("NEXT_PUBLIC_OWNER_NAME", "Lê Đăng Khương"),
+    name: env("NEXT_PUBLIC_OWNER_NAME", "Hà Bùi"),
     title: env("NEXT_PUBLIC_OWNER_TITLE", "Academy"),
     bio: env("NEXT_PUBLIC_OWNER_BIO", "Chuyên gia Video AI & Thương Hiệu Cá Nhân"),
     avatar: env("NEXT_PUBLIC_OWNER_AVATAR", "/images/about/portrait.jpg"),
@@ -46,8 +46,8 @@ export const siteConfig = {
   // Env: NEXT_PUBLIC_SOCIAL_FACEBOOK, NEXT_PUBLIC_SOCIAL_YOUTUBE,
   //      NEXT_PUBLIC_SOCIAL_ZALO, NEXT_PUBLIC_SOCIAL_TIKTOK, NEXT_PUBLIC_SOCIAL_INSTAGRAM
   socials: {
-    facebook: env("NEXT_PUBLIC_SOCIAL_FACEBOOK", "https://facebook.com/ledangkhuong"),
-    youtube: env("NEXT_PUBLIC_SOCIAL_YOUTUBE", "https://youtube.com/@ledangkhuong"),
+    facebook: env("NEXT_PUBLIC_SOCIAL_FACEBOOK", "https://facebook.com/habuiacademy"),
+    youtube: env("NEXT_PUBLIC_SOCIAL_YOUTUBE", "https://youtube.com/@habuiacademy"),
     zalo: env("NEXT_PUBLIC_SOCIAL_ZALO", "https://zalo.me/0782276727"),
     tiktok: env("NEXT_PUBLIC_SOCIAL_TIKTOK", ""),
     instagram: env("NEXT_PUBLIC_SOCIAL_INSTAGRAM", ""),
@@ -58,7 +58,7 @@ export const siteConfig = {
   footer: {
     copyright: env(
       "NEXT_PUBLIC_FOOTER_COPYRIGHT",
-      `© ${new Date().getFullYear()} Lê Đăng Khương Academy`
+      `© ${new Date().getFullYear()} Hà Bùi Academy`
     ),
   },
 

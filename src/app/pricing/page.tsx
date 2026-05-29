@@ -6,17 +6,17 @@ export const metadata: Metadata = {
   description:
     "Chọn gói học phù hợp tại Hà Bùi Academy — từ miễn phí đến Premium với tư vấn 1-1 và tài liệu độc quyền. Làm chủ Video AI & Thương Hiệu Cá Nhân.",
   alternates: {
-    canonical: "https://dangkhuong.com/pricing",
+    canonical: "https://buithuha.com/pricing",
   },
   openGraph: {
     title: "Bảng Giá Khoá Học | Hà Bùi Academy",
     description:
       "Chọn gói học phù hợp — Miễn phí, Standard hoặc Premium. Truy cập khoá học Video AI, chứng chỉ, tư vấn 1-1 và tài liệu độc quyền.",
     type: "website",
-    url: "https://dangkhuong.com/pricing",
+    url: "https://buithuha.com/pricing",
     images: [
       {
-        url: "https://dangkhuong.com/og-pricing.jpg",
+        url: "https://buithuha.com/og-pricing.jpg",
         width: 1200,
         height: 630,
         alt: "Bảng Giá Khoá Học — Hà Bùi Academy",

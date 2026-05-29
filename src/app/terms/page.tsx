@@ -5,9 +5,9 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Điều Khoản Sử Dụng | Hà Bùi Academy",
   description:
-    "Điều khoản sử dụng nền tảng học tập trực tuyến Hà Bùi Academy — dangkhuong.com. Tuân thủ Nghị định 52/2013/NĐ-CP về thương mại điện tử.",
+    "Điều khoản sử dụng nền tảng học tập trực tuyến Hà Bùi Academy — buithuha.com. Tuân thủ Nghị định 52/2013/NĐ-CP về thương mại điện tử.",
   alternates: {
-    canonical: "https://dangkhuong.com/terms",
+    canonical: "https://buithuha.com/terms",
   },
   openGraph: {
     title: "Điều Khoản Sử Dụng — Hà Bùi Academy",
@@ -77,7 +77,7 @@ const sections = [
       "Chúng tôi có quyền thay đổi giá dịch vụ sau khi thông báo trước 7 ngày. Giá mới không áp dụng cho các đơn hàng đã thanh toán",
     ],
     extra: [
-      "Yêu cầu hoàn tiền được gửi qua email support@ledangkhuong.net và sẽ được xử lý trong vòng 7 ngày làm việc.",
+      "Yêu cầu hoàn tiền được gửi qua email support@buithuha.com và sẽ được xử lý trong vòng 7 ngày làm việc.",
     ],
   },
   {
@@ -338,10 +338,10 @@ export default function TermsPage() {
                   <p className="text-gray-300">
                     <span className="text-gray-500">Email hỗ trợ:</span>{" "}
                     <a
-                      href="mailto:support@ledangkhuong.net"
+                      href="mailto:support@buithuha.com"
                       className="text-[#D4A843] hover:underline"
                     >
-                      support@ledangkhuong.net
+                      support@buithuha.com
                     </a>
                   </p>
                   <p className="text-gray-300">

@@ -484,7 +484,7 @@ export default function FinalCTASection({ onScrollToRegister }: FinalCTASectionP
 
           <div className="relative">
             <div className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] mb-3 font-semibold" style={{ color: "#E5B663" }}>
-              P.S. — Lời nhắn cuối từ Thầy Khương
+              P.S. — Lời nhắn cuối từ chị Hà
             </div>
             <p className="text-[14px] sm:text-[14.5px] leading-[1.85] mb-3" style={{ color: "rgba(241,245,251,0.8)" }}>
               Tôi từng đốt gần 1 tỷ đồng và 1 năm trời cho việc thuê dev — và tôi đã thất bại. Tôi muốn bạn không phải trải qua nỗi đau đó.
@@ -512,13 +512,13 @@ export default function FinalCTASection({ onScrollToRegister }: FinalCTASectionP
                   transform: "rotate(-3deg)",
                 }}
               >
-                Lê Đăng Khương
+                Hà Bùi
               </div>
               <div
                 className="mt-2 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold"
                 style={{ color: "rgba(229,182,99,0.7)" }}
               >
-                — Thầy Lê Đăng Khương
+                — Thầy Hà Bùi
               </div>
             </div>
           </div>

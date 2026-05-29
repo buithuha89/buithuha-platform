@@ -27,7 +27,7 @@ type Proof = {
 const PROOFS: Proof[] = [
   {
     icon: BarChart3,
-    title: "Dashboard quản trị dangkhuong.com/admin",
+    title: "Dashboard quản trị buithuha.com/admin",
     body: "310 học viên đang được track real-time. Mỗi học viên có XP riêng, level riêng. Hệ thống tự cấp khi họ hoàn thành bài học.",
     pill: "Real-time Analytics",
     mockup: "dashboard",
@@ -71,7 +71,7 @@ const COMPARISON = [
     bad: true,
   },
   {
-    option: "Chương trình Thầy Khương",
+    option: "Chương trình chị Hà",
     initial: "5.000.000đ",
     monthly: "~600K",
     own: "✅ 100%",
@@ -186,7 +186,7 @@ function DashboardMockup({ Icon }: { Icon: LucideIcon }) {
             className="ml-2 text-[9px] tracking-wider"
             style={{ color: "rgba(241,245,251,0.5)" }}
           >
-            dangkhuong.com/admin
+            buithuha.com/admin
           </span>
         </div>
         <span

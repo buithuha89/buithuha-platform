@@ -17,7 +17,7 @@ const INCLUDED = [
   "Update miễn phí khi có phiên bản mới",
   "Toàn bộ 6 bonus trị giá 16.479.000đ",
   "Vào Group Zalo hỗ trợ 30 ngày",
-  "Live Q&A hàng tuần với Thầy Khương",
+  "Live Q&A hàng tuần với chị Hà",
 ];
 
 const MATH_HOOKS = [

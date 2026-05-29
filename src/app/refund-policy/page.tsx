@@ -5,9 +5,9 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Chính Sách Hoàn Tiền | Hà Bùi Academy",
   description:
-    "Chính sách hoàn tiền khi mua khoá học trên nền tảng Hà Bùi Academy — dangkhuong.com",
+    "Chính sách hoàn tiền khi mua khoá học trên nền tảng Hà Bùi Academy — buithuha.com",
   alternates: {
-    canonical: "https://dangkhuong.com/refund-policy",
+    canonical: "https://buithuha.com/refund-policy",
   },
   openGraph: {
     title: "Chính Sách Hoàn Tiền — Hà Bùi Academy",
@@ -22,7 +22,7 @@ const sections = [
     title: "1. Chính sách hoàn tiền",
     content: [
       `${siteConfig.name} cam kết mang đến trải nghiệm học tập chất lượng cho tất cả học viên. Chúng tôi hiểu rằng đôi khi khoá học có thể không phù hợp với nhu cầu của bạn, vì vậy chúng tôi cung cấp chính sách hoàn tiền rõ ràng và minh bạch.`,
-      "Chính sách này áp dụng cho tất cả các khoá học được mua trực tiếp trên nền tảng dangkhuong.com.",
+      "Chính sách này áp dụng cho tất cả các khoá học được mua trực tiếp trên nền tảng buithuha.com.",
     ],
   },
   {
@@ -64,7 +64,7 @@ const sections = [
       "Để yêu cầu hoàn tiền, bạn vui lòng thực hiện theo các bước sau:",
     ],
     list: [
-      "Bước 1: Gửi yêu cầu hoàn tiền qua email support@ledangkhuong.net hoặc nhắn tin qua Zalo với tiêu đề \"Yêu cầu hoàn tiền\"",
+      "Bước 1: Gửi yêu cầu hoàn tiền qua email support@buithuha.com hoặc nhắn tin qua Zalo với tiêu đề \"Yêu cầu hoàn tiền\"",
       "Bước 2: Cung cấp đầy đủ thông tin gồm: họ tên, email đăng ký tài khoản, tên khoá học cần hoàn tiền và lý do hoàn tiền",
       "Bước 3: Đội ngũ hỗ trợ sẽ xác minh thông tin và kiểm tra điều kiện hoàn tiền trong vòng 1-2 ngày làm việc",
       "Bước 4: Bạn sẽ nhận được email thông báo kết quả xử lý yêu cầu (chấp nhận hoặc từ chối kèm lý do cụ thể)",
@@ -212,10 +212,10 @@ export default function RefundPolicyPage() {
                   <p className="text-gray-300">
                     <span className="text-gray-500">Email:</span>{" "}
                     <a
-                      href="mailto:support@ledangkhuong.net"
+                      href="mailto:support@buithuha.com"
                       className="text-[#D4A843] hover:underline"
                     >
-                      support@ledangkhuong.net
+                      support@buithuha.com
                     </a>
                   </p>
                   <p className="text-gray-300">

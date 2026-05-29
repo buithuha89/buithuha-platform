@@ -168,7 +168,7 @@ const INCLUDED = [
   "Cập nhật mới nhất về Google Flow & Gemini Omni Flash",
   "Demo thực tế: Characters, Avatar @me, Voices, Agent",
   "Góc nhìn biến video AI thành hệ thống kinh doanh",
-  "Hỏi đáp trực tiếp cùng Thầy Lê Đăng Khương",
+  "Hỏi đáp trực tiếp cùng Thầy Hà Bùi",
 ];
 
 /* ─── FAQ ─── */
@@ -330,12 +330,12 @@ export default function UpdateVeoLanding() {
         <Link href="/" className="flex items-center gap-2.5">
           <img
             src="/images/about/portrait.jpg"
-            alt="Lê Đăng Khương"
+            alt="Hà Bùi"
             className="w-9 h-9 rounded-lg object-cover"
             style={{ border: "1px solid rgba(59,130,246,0.35)" }}
           />
           <div className="hidden sm:flex flex-col leading-tight">
-            <span className="font-semibold text-sm text-white">Lê Đăng Khương</span>
+            <span className="font-semibold text-sm text-white">Hà Bùi</span>
             <span className="text-[10px] uppercase tracking-[0.18em]" style={{ color: "#22D3EE" }}>
               AI Video Workshop
             </span>
@@ -384,7 +384,7 @@ export default function UpdateVeoLanding() {
           {/* Banner */}
           <div className="mb-6 sm:mb-8 w-full max-w-3xl">
             <h1 className="sr-only">
-              Update VEO 3.1 thành Gemini Omni Flash — Workshop trực tuyến cùng Thầy Lê Đăng Khương
+              Update VEO 3.1 thành Gemini Omni Flash — Workshop trực tuyến cùng Thầy Hà Bùi
             </h1>
             <div
               className="relative overflow-hidden rounded-2xl"
@@ -396,7 +396,7 @@ export default function UpdateVeoLanding() {
             >
               <img
                 src="/images/updateveo31/banner.png"
-                alt="Update VEO 3.1 thành Gemini Omni Flash — Workshop trực tuyến 23-24/05 · Trainer Lê Đăng Khương · KOHADA"
+                alt="Update VEO 3.1 thành Gemini Omni Flash — Workshop trực tuyến 23-24/05 · Trainer Hà Bùi · KOHADA"
                 className="block w-full h-auto"
                 loading="eager"
                 fetchPriority="high"
@@ -665,7 +665,7 @@ export default function UpdateVeoLanding() {
             &ldquo;AI video không chỉ là công cụ sáng tạo. Nó đang trở thành công cụ kinh doanh. Ai hiểu sớm, học sớm, ứng dụng sớm — sẽ có lợi thế rất lớn.&rdquo;
           </p>
           <div className="mt-4 text-[13px] font-semibold" style={{ color: "#3B82F6" }}>
-            — Lê Đăng Khương
+            — Hà Bùi
           </div>
         </div>
       </section>
@@ -919,12 +919,12 @@ export default function UpdateVeoLanding() {
           >
             <img
               src="/images/about/portrait.jpg"
-              alt="Thầy Lê Đăng Khương"
+              alt="Thầy Hà Bùi"
               className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover flex-shrink-0"
               style={{ border: "2px solid rgba(59,130,246,0.35)" }}
             />
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Thầy Lê Đăng Khương</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Thầy Hà Bùi</h3>
               <div className="text-[12px] uppercase tracking-[0.15em] font-semibold mb-3" style={{ color: "#3B82F6" }}>
                 KOHADA · AI Technology · Training · Video
               </div>
@@ -1138,7 +1138,7 @@ export default function UpdateVeoLanding() {
             </div>
 
             <p className="text-[11px] text-center leading-relaxed pt-1" style={{ color: "rgba(241,245,251,0.4)" }}>
-              Bằng việc đăng ký, bạn đồng ý điều khoản sử dụng của Lê Đăng Khương Academy.
+              Bằng việc đăng ký, bạn đồng ý điều khoản sử dụng của Hà Bùi Academy.
             </p>
             <p className="text-xs text-center pt-3" style={{ color: "rgba(241,245,251,0.55)" }}>
               Đã có tài khoản?{" "}

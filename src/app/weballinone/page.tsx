@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import SiloPage, { type SiloData } from "@/components/silo/SiloPage";
-import { Award, ShieldAlert, UserCheck, MessagesSquare, Layers, Briefcase } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Lãnh đạo & Quản lý — Hà Bùi Academy",
@@ -33,36 +32,12 @@ const data: SiloData = {
     ],
   },
   topics: [
-    {
-      icon: ShieldAlert,
-      title: "Lần đầu lên quản lý — 5 nỗi sợ chị từng có",
-      desc: "Sợ nhân viên không nghe. Sợ sếp kỳ vọng. Sợ làm sai. Sợ trở nên xa cách với đồng nghiệp cũ. Sợ mình không đủ giỏi.",
-    },
-    {
-      icon: UserCheck,
-      title: "Giao việc mà vẫn yên tâm",
-      desc: "Không phải micromanage, không phải buông tay hoàn toàn. Có khung chị dùng để vừa đỡ tay vừa không mất kiểm soát.",
-    },
-    {
-      icon: MessagesSquare,
-      title: "Nói chuyện khó với nhân viên",
-      desc: "Phản hồi tiêu cực, ra quyết định không phổ biến, hoặc cho nghỉ việc — chị chia sẻ cách chuẩn bị và cách nói.",
-    },
-    {
-      icon: Award,
-      title: "Khi team không theo kịp mình",
-      desc: "Thường mình nghĩ lỗi ở team. Đôi khi lỗi ở chính mình — và đó là tin tốt, vì cái mình kiểm soát được.",
-    },
-    {
-      icon: Briefcase,
-      title: "Doanh chủ SME — bài học giao quyền",
-      desc: "Khi doanh nghiệp lớn lên, không thể mình ôm hết. Cách chị quan sát các doanh chủ SME thành công thật sự buông được.",
-    },
-    {
-      icon: Layers,
-      title: "Lead team mà vẫn giữ được mình",
-      desc: "Quản lý không có nghĩa phải đóng vai khác. Cách giữ được giá trị cá nhân khi lên vị trí cao hơn.",
-    },
+    { icon: "ShieldAlert", title: "Lần đầu lên quản lý — 5 nỗi sợ chị từng có", desc: "Sợ nhân viên không nghe. Sợ sếp kỳ vọng. Sợ làm sai. Sợ trở nên xa cách với đồng nghiệp cũ. Sợ mình không đủ giỏi." },
+    { icon: "UserCheck", title: "Giao việc mà vẫn yên tâm", desc: "Không phải micromanage, không phải buông tay hoàn toàn. Có khung chị dùng để vừa đỡ tay vừa không mất kiểm soát." },
+    { icon: "MessagesSquare", title: "Nói chuyện khó với nhân viên", desc: "Phản hồi tiêu cực, ra quyết định không phổ biến, hoặc cho nghỉ việc — chị chia sẻ cách chuẩn bị và cách nói." },
+    { icon: "Award", title: "Khi team không theo kịp mình", desc: "Thường mình nghĩ lỗi ở team. Đôi khi lỗi ở chính mình — và đó là tin tốt, vì cái mình kiểm soát được." },
+    { icon: "Briefcase", title: "Doanh chủ SME — bài học giao quyền", desc: "Khi doanh nghiệp lớn lên, không thể mình ôm hết. Cách chị quan sát các doanh chủ SME thành công thật sự buông được." },
+    { icon: "Layers", title: "Lead team mà vẫn giữ được mình", desc: "Quản lý không có nghĩa phải đóng vai khác. Cách giữ được giá trị cá nhân khi lên vị trí cao hơn." },
   ],
   audience: [
     "Bạn vừa được giao team lần đầu, đang loay hoay không biết bắt đầu thế nào",

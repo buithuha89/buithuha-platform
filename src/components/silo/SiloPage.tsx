@@ -6,11 +6,25 @@ import { useState } from "react";
 import { siteConfig } from "@/lib/site-config";
 import {
   ArrowRight, Mail, Menu, X, Heart, Download, MessageCircle, Gift,
+  MessageSquare, Users, HeartHandshake, Ear, Frown, Home,
+  Compass, BookOpen, Target, Sparkles, NotebookPen, RefreshCw,
+  BarChart3, GraduationCap, ClipboardCheck, Wrench,
+  Award, ShieldAlert, UserCheck, MessagesSquare, Layers, Briefcase,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+/* Registry of icon names → component. Silo pages pass string names so the
+ * data is fully serializable across the Server→Client component boundary. */
+const ICONS: Record<string, LucideIcon> = {
+  MessageSquare, Users, HeartHandshake, Ear, Frown, Home,
+  Compass, BookOpen, Target, Sparkles, NotebookPen, RefreshCw,
+  BarChart3, GraduationCap, ClipboardCheck, Wrench,
+  Award, ShieldAlert, UserCheck, MessagesSquare, Layers, Briefcase,
+};
+export type IconName = keyof typeof ICONS;
+
 export interface SiloTopic {
-  icon: LucideIcon;
+  icon: IconName;
   title: string;
   desc: string;
 }
@@ -144,16 +158,19 @@ export default function SiloPage({ data }: { data: SiloData }) {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-            {data.topics.map((t, i) => (
-              <div key={i} className="bg-[#111] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                  style={{ background: `${data.color}1A` }}>
-                  <t.icon size={20} style={{ color: data.color }} />
+            {data.topics.map((t, i) => {
+              const Icon = ICONS[t.icon];
+              return (
+                <div key={i} className="bg-[#111] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+                    style={{ background: `${data.color}1A` }}>
+                    {Icon && <Icon size={20} style={{ color: data.color }} />}
+                  </div>
+                  <h3 className="font-bold text-base mb-2">{t.title}</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">{t.desc}</p>
                 </div>
-                <h3 className="font-bold text-base mb-2">{t.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{t.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

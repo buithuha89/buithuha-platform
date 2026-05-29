@@ -5,8 +5,8 @@ import { Suspense } from "react";
 import LoginForm from "@/components/auth/LoginForm";
 
 export const metadata: Metadata = {
-  title: "Đăng nhập — Lê Đăng Khương Academy",
-  description: "Đăng nhập vào tài khoản Lê Đăng Khương Academy để học các khoá học Video AI, xây kênh triệu view.",
+  title: "Đăng nhập — Hà Bùi Academy",
+  description: "Đăng nhập vào tài khoản Hà Bùi Academy để học các khoá học Video AI, xây kênh triệu view.",
   robots: { index: false, follow: false },
 };
 

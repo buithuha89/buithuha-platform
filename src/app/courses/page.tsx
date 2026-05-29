@@ -8,18 +8,18 @@ import CoursesPublicGrid from "@/components/courses/CoursesPublicGrid";
 const BASE_URL = getBaseUrl();
 
 export const metadata = {
-  title: "Khoá học — Lê Đăng Khương Academy",
+  title: "Khoá học — Hà Bùi Academy",
   description:
-    "Khoá học Video AI, Xây kênh triệu view, Sản phẩm số & AI Agent từ Lê Đăng Khương.",
+    "Khoá học Video AI, Xây kênh triệu view, Sản phẩm số & AI Agent từ chị Hà Bùi.",
   alternates: {
     canonical: `${BASE_URL}/courses`,
   },
   openGraph: {
-    title: "Khoá học — Lê Đăng Khương Academy",
+    title: "Khoá học — Hà Bùi Academy",
     description:
-      "Khoá học Video AI, Xây kênh triệu view, Sản phẩm số & AI Agent từ Lê Đăng Khương.",
+      "Khoá học Video AI, Xây kênh triệu view, Sản phẩm số & AI Agent từ chị Hà Bùi.",
     url: "/courses",
-    siteName: "Lê Đăng Khương Academy",
+    siteName: "Hà Bùi Academy",
     locale: "vi_VN",
     type: "website",
     images: [
@@ -27,7 +27,7 @@ export const metadata = {
         url: "/images/hero/offer-banner.jpg",
         width: 1200,
         height: 630,
-        alt: "Khoá học — Lê Đăng Khương Academy",
+        alt: "Khoá học — Hà Bùi Academy",
       },
     ],
   },

@@ -3,16 +3,16 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Điều Khoản Sử Dụng | Lê Đăng Khương Academy",
+  title: "Điều Khoản Sử Dụng | Hà Bùi Academy",
   description:
-    "Điều khoản sử dụng nền tảng học tập trực tuyến Lê Đăng Khương Academy — dangkhuong.com. Tuân thủ Nghị định 52/2013/NĐ-CP về thương mại điện tử.",
+    "Điều khoản sử dụng nền tảng học tập trực tuyến Hà Bùi Academy — dangkhuong.com. Tuân thủ Nghị định 52/2013/NĐ-CP về thương mại điện tử.",
   alternates: {
     canonical: "https://dangkhuong.com/terms",
   },
   openGraph: {
-    title: "Điều Khoản Sử Dụng — Lê Đăng Khương Academy",
+    title: "Điều Khoản Sử Dụng — Hà Bùi Academy",
     description:
-      "Điều khoản sử dụng nền tảng học tập trực tuyến Lê Đăng Khương Academy",
+      "Điều khoản sử dụng nền tảng học tập trực tuyến Hà Bùi Academy",
   },
 };
 

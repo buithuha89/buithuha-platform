@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import SiloPage, { type SiloData } from "@/components/silo/SiloPage";
-import { MessageSquare, Users, HeartHandshake, Ear, Frown, Home } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Giao tiếp & Quan hệ — Hà Bùi Academy",
@@ -33,36 +32,12 @@ const data: SiloData = {
     ],
   },
   topics: [
-    {
-      icon: MessageSquare,
-      title: "Cách nói điều khó nói",
-      desc: "Khi cần phản hồi nhân viên, từ chối một đề nghị, hoặc thẳng thắn với người thân — chị thường chuẩn bị thế nào.",
-    },
-    {
-      icon: Ear,
-      title: "Lắng nghe mà không cắt ngang",
-      desc: "Nghe ai đó nói trong khi não mình đang chuẩn bị câu trả lời — đó không phải lắng nghe. Chị chia sẻ cách tập lại từ đầu.",
-    },
-    {
-      icon: Frown,
-      title: "Khi xung đột không tránh được",
-      desc: "Có những xung đột là dấu hiệu mối quan hệ đang lành lại, không phải đang vỡ. Cách phân biệt và cách đi qua.",
-    },
-    {
-      icon: Home,
-      title: "Giao tiếp trong gia đình",
-      desc: "Với vợ/chồng, với con, với cha mẹ. Khác hẳn giao tiếp ở chỗ làm — và khó hơn nhiều.",
-    },
-    {
-      icon: Users,
-      title: "Khi đồng nghiệp khó hợp tác",
-      desc: "3 câu hỏi chị tự đặt cho mình trước khi đi nói chuyện với đồng nghiệp khó.",
-    },
-    {
-      icon: HeartHandshake,
-      title: "Làm lành sau khi nói lời tổn thương",
-      desc: "Ai cũng có lúc lỡ lời. Cách chị thường dùng để nối lại — không phải xin lỗi đại.",
-    },
+    { icon: "MessageSquare", title: "Cách nói điều khó nói", desc: "Khi cần phản hồi nhân viên, từ chối một đề nghị, hoặc thẳng thắn với người thân — chị thường chuẩn bị thế nào." },
+    { icon: "Ear", title: "Lắng nghe mà không cắt ngang", desc: "Nghe ai đó nói trong khi não mình đang chuẩn bị câu trả lời — đó không phải lắng nghe. Chị chia sẻ cách tập lại từ đầu." },
+    { icon: "Frown", title: "Khi xung đột không tránh được", desc: "Có những xung đột là dấu hiệu mối quan hệ đang lành lại, không phải đang vỡ. Cách phân biệt và cách đi qua." },
+    { icon: "Home", title: "Giao tiếp trong gia đình", desc: "Với vợ/chồng, với con, với cha mẹ. Khác hẳn giao tiếp ở chỗ làm — và khó hơn nhiều." },
+    { icon: "Users", title: "Khi đồng nghiệp khó hợp tác", desc: "3 câu hỏi chị tự đặt cho mình trước khi đi nói chuyện với đồng nghiệp khó." },
+    { icon: "HeartHandshake", title: "Làm lành sau khi nói lời tổn thương", desc: "Ai cũng có lúc lỡ lời. Cách chị thường dùng để nối lại — không phải xin lỗi đại." },
   ],
   audience: [
     "Bạn đang vướng một mối quan hệ trong gia đình hoặc ở công ty mà chưa biết cách gỡ",

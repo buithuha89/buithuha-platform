@@ -3,16 +3,16 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Chính Sách Hoàn Tiền | Lê Đăng Khương Academy",
+  title: "Chính Sách Hoàn Tiền | Hà Bùi Academy",
   description:
-    "Chính sách hoàn tiền khi mua khoá học trên nền tảng Lê Đăng Khương Academy — dangkhuong.com",
+    "Chính sách hoàn tiền khi mua khoá học trên nền tảng Hà Bùi Academy — dangkhuong.com",
   alternates: {
     canonical: "https://dangkhuong.com/refund-policy",
   },
   openGraph: {
-    title: "Chính Sách Hoàn Tiền — Lê Đăng Khương Academy",
+    title: "Chính Sách Hoàn Tiền — Hà Bùi Academy",
     description:
-      "Chính sách hoàn tiền khi mua khoá học trên nền tảng Lê Đăng Khương Academy",
+      "Chính sách hoàn tiền khi mua khoá học trên nền tảng Hà Bùi Academy",
   },
 };
 

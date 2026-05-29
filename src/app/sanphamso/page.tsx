@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import SiloPage, { type SiloData } from "@/components/silo/SiloPage";
-import { Compass, BookOpen, Target, Sparkles, NotebookPen, RefreshCw } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Phát triển bản thân — Hà Bùi Academy",
@@ -33,36 +32,12 @@ const data: SiloData = {
     ],
   },
   topics: [
-    {
-      icon: Compass,
-      title: "7 câu hỏi tự nhìn vào bản thân",
-      desc: "Bộ câu hỏi chị dùng nhiều nhất — cho mình và cho học viên. Có trong cẩm nang miễn phí.",
-    },
-    {
-      icon: Target,
-      title: "Lập kế hoạch năm — cách chị làm",
-      desc: "Không phải SMART goals khô khan. Cách chị lập kế hoạch năm có cả phần lý trí lẫn phần mong muốn.",
-    },
-    {
-      icon: NotebookPen,
-      title: "Viết để hiểu mình",
-      desc: "Chị viết tay mỗi sáng nhiều năm nay. Chia sẻ tại sao và bắt đầu thế nào nếu bạn chưa từng viết.",
-    },
-    {
-      icon: BookOpen,
-      title: "Sách chị đọc đi đọc lại",
-      desc: "Một danh sách nhỏ — không phải bestseller, không phải tiếng Anh chỉ. Chỉ là sách thật sự đã thay đổi chị.",
-    },
-    {
-      icon: RefreshCw,
-      title: "Review cuộc sống mỗi quý",
-      desc: "Bản đồ 4 góc chị dùng để check mỗi 3 tháng: sự nghiệp / quan hệ / sức khỏe / bản thân.",
-    },
-    {
-      icon: Sparkles,
-      title: "Khi 30 tuổi mà chưa rõ mình muốn gì",
-      desc: "Không phải khủng hoảng — là dấu hiệu bạn đã đủ trưởng thành để đặt câu hỏi đúng.",
-    },
+    { icon: "Compass", title: "7 câu hỏi tự nhìn vào bản thân", desc: "Bộ câu hỏi chị dùng nhiều nhất — cho mình và cho học viên. Có trong cẩm nang miễn phí." },
+    { icon: "Target", title: "Lập kế hoạch năm — cách chị làm", desc: "Không phải SMART goals khô khan. Cách chị lập kế hoạch năm có cả phần lý trí lẫn phần mong muốn." },
+    { icon: "NotebookPen", title: "Viết để hiểu mình", desc: "Chị viết tay mỗi sáng nhiều năm nay. Chia sẻ tại sao và bắt đầu thế nào nếu bạn chưa từng viết." },
+    { icon: "BookOpen", title: "Sách chị đọc đi đọc lại", desc: "Một danh sách nhỏ — không phải bestseller, không phải tiếng Anh chỉ. Chỉ là sách thật sự đã thay đổi chị." },
+    { icon: "RefreshCw", title: "Review cuộc sống mỗi quý", desc: "Bản đồ 4 góc chị dùng để check mỗi 3 tháng: sự nghiệp / quan hệ / sức khỏe / bản thân." },
+    { icon: "Sparkles", title: "Khi 30 tuổi mà chưa rõ mình muốn gì", desc: "Không phải khủng hoảng — là dấu hiệu bạn đã đủ trưởng thành để đặt câu hỏi đúng." },
   ],
   audience: [
     "Bạn đi làm vài năm rồi mà nhìn lại thấy mình đứng yên một chỗ",

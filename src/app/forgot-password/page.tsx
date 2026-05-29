@@ -4,8 +4,8 @@ import Image from "next/image";
 import ForgotPasswordForm from "@/components/auth/ForgotPasswordForm";
 
 export const metadata: Metadata = {
-  title: "Quên mật khẩu — Lê Đăng Khương Academy",
-  description: "Khôi phục mật khẩu tài khoản Lê Đăng Khương Academy.",
+  title: "Quên mật khẩu — Hà Bùi Academy",
+  description: "Khôi phục mật khẩu tài khoản Hà Bùi Academy.",
   robots: { index: false, follow: false },
 };
 

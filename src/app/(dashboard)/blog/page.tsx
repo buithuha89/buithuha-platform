@@ -10,14 +10,14 @@ import NewsletterForm from "@/components/blog/NewsletterForm";
 const BASE_URL = getBaseUrl();
 
 export const metadata: Metadata = {
-  title: "Blog — Lê Đăng Khương Academy",
-  description: "Chia sẻ kiến thức về Video AI, thương hiệu cá nhân, marketing và kiếm tiền online từ Lê Đăng Khương.",
+  title: "Blog — Hà Bùi Academy",
+  description: "Chia sẻ kiến thức về Video AI, thương hiệu cá nhân, marketing và kiếm tiền online từ chị Hà Bùi.",
   alternates: { canonical: `${BASE_URL}/blog` },
   openGraph: {
-    title: "Blog — Lê Đăng Khương Academy",
-    description: "Chia sẻ kiến thức về Video AI, thương hiệu cá nhân, marketing và kiếm tiền online từ Lê Đăng Khương.",
+    title: "Blog — Hà Bùi Academy",
+    description: "Chia sẻ kiến thức về Video AI, thương hiệu cá nhân, marketing và kiếm tiền online từ chị Hà Bùi.",
     url: "/blog",
-    siteName: "Lê Đăng Khương Academy",
+    siteName: "Hà Bùi Academy",
     locale: "vi_VN",
     type: "website",
     images: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: "/images/hero/offer-banner.jpg",
         width: 1200,
         height: 630,
-        alt: "Blog — Lê Đăng Khương Academy",
+        alt: "Blog — Hà Bùi Academy",
       },
     ],
   },

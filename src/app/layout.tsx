@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero/offer-banner.jpg",
+        url: "/images/about/portrait.jpg",
         width: 1200,
         height: 630,
         alt: `${siteConfig.name} - ${siteConfig.owner.name}`,
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.owner.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
-    images: ["/images/hero/offer-banner.jpg"],
+    images: ["/images/about/portrait.jpg"],
   },
   icons: {
     icon: "/favicon.png",

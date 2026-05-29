@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero/offer-banner.jpg",
+        url: "/images/about/portrait.jpg",
         width: 1200,
         height: 630,
         alt: "Blog — Hà Bùi Academy",

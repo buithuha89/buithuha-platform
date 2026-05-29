@@ -168,7 +168,7 @@ children.push(
     alignment: AlignmentType.CENTER,
     spacing: { after: 60 },
     border: { top: { style: BorderStyle.SINGLE, size: 2, color: GOLD, space: 12 } },
-    children: [new TextRun({ text: "Biên soạn bởi: Lê Đăng Khương", size: 22, font: "Arial", color: DARK })],
+    children: [new TextRun({ text: "Biên soạn bởi: Hà Bùi", size: 22, font: "Arial", color: DARK })],
   }),
   new Paragraph({
     alignment: AlignmentType.CENTER,
@@ -1129,7 +1129,7 @@ const doc = new Document({
           alignment: AlignmentType.CENTER,
           border: { top: { style: BorderStyle.SINGLE, size: 1, color: "E5E7EB", space: 8 } },
           children: [
-            new TextRun({ text: "Lê Đăng Khương Academy", size: 16, font: "Arial", color: GRAY }),
+            new TextRun({ text: "Hà Bùi Academy", size: 16, font: "Arial", color: GRAY }),
             new TextRun({ text: "  |  Trang ", size: 16, font: "Arial", color: GRAY }),
             new TextRun({ children: [PageNumber.CURRENT], size: 16, font: "Arial", color: GRAY }),
           ],

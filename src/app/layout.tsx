@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
 import { Suspense } from "react";
 import PageTracker from "@/components/analytics/PageTracker";
 import FacebookPixel from "@/components/analytics/FacebookPixel";
@@ -14,11 +14,17 @@ import "./globals.css";
 // Validate environment variables once at server startup
 validateEnv();
 
-const inter = Inter({
+/**
+ * Be Vietnam Pro — designed specifically for Vietnamese script (in
+ * collaboration with Lao Type). Tone-mark positioning and spacing are
+ * tuned for Vietnamese diacritics, which Inter's generic Vietnamese
+ * subset gets visibly wrong on ờ, ử, ằ, ẫ, ữ, ỡ, etc.
+ */
+const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
   weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
@@ -72,7 +78,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="vi" className={inter.variable} suppressHydrationWarning>
+    <html lang="vi" className={beVietnamPro.variable} suppressHydrationWarning>
       <body className="antialiased min-h-screen" style={{ background: "#0a0a0a", color: "#f5f5f5" }} suppressHydrationWarning>
         {/* Skip to main content — accessibility */}
         <a

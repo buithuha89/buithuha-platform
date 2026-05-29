@@ -60,8 +60,15 @@ export const metadata: Metadata = {
     images: ["/images/about/portrait.jpg"],
   },
   icons: {
-    icon: "/favicon.png",
-    apple: "/apple-touch-icon.png",
+    // ?v=habui — cache-buster so browsers fetch the new Hà Bùi favicon
+    // instead of the cached LĐK one. Safe to bump when the file changes again.
+    icon: [
+      { url: "/favicon.png?v=habui", type: "image/png" },
+      { url: "/icon-192.png?v=habui", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png?v=habui", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png?v=habui",
+    shortcut: "/favicon.png?v=habui",
   },
   appleWebApp: {
     capable: true,

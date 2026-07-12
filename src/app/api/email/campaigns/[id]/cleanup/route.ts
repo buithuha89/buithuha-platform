@@ -40,7 +40,7 @@ export async function POST(
       .order("created_at", { ascending: true });
 
     if (sendsError) {
-      return NextResponse.json({ error: sendsError.message }, { status: 500 });
+      return NextResponse.json({ error: "Đã xảy ra lỗi, vui lòng thử lại" }, { status: 500 });
     }
 
     if (!allSends || allSends.length === 0) {
@@ -138,7 +138,7 @@ export async function POST(
 
     if (updateError) {
       return NextResponse.json(
-        { error: updateError.message },
+        { error: "Đã xảy ra lỗi, vui lòng thử lại" },
         { status: 500 }
       );
     }

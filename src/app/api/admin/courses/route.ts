@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: "Đã xảy ra lỗi, vui lòng thử lại" }, { status: 500 });
     }
 
     return NextResponse.json({ success: true, id: data.id });

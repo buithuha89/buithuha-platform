@@ -66,7 +66,7 @@ export async function POST(
     .single();
 
   if (updateError)
-    return NextResponse.json({ error: updateError.message }, { status: 500 });
+    return NextResponse.json({ error: "Đã xảy ra lỗi, vui lòng thử lại" }, { status: 500 });
 
   // Log journey_change activity
   await adminClient.from("crm_activities").insert({

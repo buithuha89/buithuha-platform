@@ -32,7 +32,7 @@ export async function GET(_req: NextRequest) {
     .not("utm_source", "is", null);
 
   if (contactsError)
-    return NextResponse.json({ error: contactsError.message }, { status: 500 });
+    return NextResponse.json({ error: "Đã xảy ra lỗi, vui lòng thử lại" }, { status: 500 });
 
   // Build source breakdown
   const sourceMap: Record<

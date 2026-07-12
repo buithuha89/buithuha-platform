@@ -182,7 +182,7 @@ export async function POST(req: NextRequest) {
 
     if (insertError) {
       return NextResponse.json(
-        { error: insertError.message },
+        { error: "Đã xảy ra lỗi, vui lòng thử lại" },
         { status: 500 }
       );
     }

@@ -35,7 +35,7 @@ export async function GET(req: NextRequest) {
     .select("*");
 
   if (repsError)
-    return NextResponse.json({ error: repsError.message }, { status: 500 });
+    return NextResponse.json({ error: "Đã xảy ra lỗi, vui lòng thử lại" }, { status: 500 });
 
   let periodStats: {
     total_revenue: number;

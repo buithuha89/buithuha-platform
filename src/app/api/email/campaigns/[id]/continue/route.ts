@@ -99,7 +99,7 @@ export async function POST(
 
     if (queueError) {
       return NextResponse.json(
-        { error: queueError.message },
+        { error: "Đã xảy ra lỗi, vui lòng thử lại" },
         { status: 500 }
       );
     }

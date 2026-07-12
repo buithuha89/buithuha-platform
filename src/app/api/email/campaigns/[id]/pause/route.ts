@@ -49,7 +49,7 @@ export async function POST(
 
     if (updateError) {
       return NextResponse.json(
-        { error: updateError.message },
+        { error: "Đã xảy ra lỗi, vui lòng thử lại" },
         { status: 500 }
       );
     }

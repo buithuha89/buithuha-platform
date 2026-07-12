@@ -161,7 +161,7 @@ export async function PUT(
 
     if (updateError) {
       return NextResponse.json(
-        { error: updateError.message },
+        { error: "Đã xảy ra lỗi, vui lòng thử lại" },
         { status: 500 }
       );
     }
@@ -233,7 +233,7 @@ export async function DELETE(
 
     if (deleteError) {
       return NextResponse.json(
-        { error: deleteError.message },
+        { error: "Đã xảy ra lỗi, vui lòng thử lại" },
         { status: 500 }
       );
     }

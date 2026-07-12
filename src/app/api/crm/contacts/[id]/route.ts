@@ -165,7 +165,7 @@ export async function PATCH(
     .single();
 
   if (updateError)
-    return NextResponse.json({ error: updateError.message }, { status: 500 });
+    return NextResponse.json({ error: "Đã xảy ra lỗi, vui lòng thử lại" }, { status: 500 });
 
   // Log activity if status changed
   if (currentContact && body.status && body.status !== currentContact.status) {

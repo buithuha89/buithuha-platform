@@ -196,7 +196,7 @@ export async function POST(
         .from("email_campaigns")
         .update({ status: "draft", sent_at: null, updated_at: new Date().toISOString() })
         .eq("id", id);
-      return NextResponse.json({ error: subError.message }, { status: 500 });
+      return NextResponse.json({ error: "Đã xảy ra lỗi, vui lòng thử lại" }, { status: 500 });
     }
 
     // Normalize subscriber data (handle joined vs direct queries)
@@ -246,7 +246,7 @@ export async function POST(
         .update({ status: "draft", sent_at: null, updated_at: new Date().toISOString() })
         .eq("id", id);
       return NextResponse.json(
-        { error: insertsError.message },
+        { error: "Đã xảy ra lỗi, vui lòng thử lại" },
         { status: 500 }
       );
     }

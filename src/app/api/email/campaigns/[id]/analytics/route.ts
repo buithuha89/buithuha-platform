@@ -40,7 +40,7 @@ export async function GET(
 
     if (eventsError) {
       return NextResponse.json(
-        { error: eventsError.message },
+        { error: "Đã xảy ra lỗi, vui lòng thử lại" },
         { status: 500 }
       );
     }

@@ -36,6 +36,11 @@ const painPoints = [
     title: "Doanh chủ SME — team không theo kịp mình",
     desc: "Giao việc xong vẫn phải kiểm. Muốn buông tay mà sợ rớt việc. Người làm thì có, nhưng người chịu trách nhiệm thì chỉ mình mình.",
   },
+  {
+    emoji: "🔥",
+    title: "Làm một mình — nghỉ một ngày là mọi thứ dừng",
+    desc: "Bạn tự cân hết: bán hàng, chăm khách, sổ sách. Không có ai để giao. Sợ ốm một hôm là cả guồng đứng lại.",
+  },
 ];
 
 /* 4 chủ đề chị viết */
@@ -323,25 +328,25 @@ export default function HomePage() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-5 sm:mb-8 text-xs sm:text-sm font-medium"
             style={{ background: "rgba(251,191,36,0.1)", border: "1px solid rgba(251,191,36,0.25)", color: "#FBBF24" }}>
-            <Heart size={14} /> {siteConfig.name}
+            <Heart size={14} /> Học viện Quản trị &amp; Kỹ năng thiết yếu
           </div>
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-4 sm:mb-6">
-            Chia sẻ những <span className="text-[#FBBF24]">giá trị thật</span>
+            Dẫn dắt đội nhóm, vận hành công việc — <span className="text-[#FBBF24]">mà không phải ôm hết một mình</span>
           </h1>
 
           {/* Sub-headline */}
           <p className="text-sm sm:text-lg text-gray-400 max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
-            Mình là <strong className="text-white">{siteConfig.owner.name}</strong>. Nhiều năm làm đào tạo, từng làm quản lý, đã học MBA.
-            Mình chưa tự nhận là coach và cũng không có công thức nào kỳ diệu. Ở đây mình chỉ viết lại những gì mình đang làm
-            và đã trải qua — để ai thấy hữu ích thì cùng đọc.
+            Nơi dành cho <strong className="text-white">quản lý mới lên, quản lý cấp trung, chủ doanh nghiệp nhỏ và người làm một mình</strong> —
+            học cách xây đội nhóm, giao việc và vận hành bằng hệ thống, thay vì gồng bằng sức.
+            Mình là {siteConfig.owner.name}: MBA, nhiều năm đào tạo trong doanh nghiệp, từng ngồi đúng cái ghế quản lý áp lực đó — và viết lại những gì thật sự dùng được.
           </p>
 
           {/* CTA */}
           <div className="flex justify-center">
             <button onClick={() => setShowLeadModal(true)} className="btn-green text-sm sm:text-base py-3 sm:py-3.5 px-5 sm:px-8 justify-center">
-              <Download size={16} /> Nhận cẩm nang &quot;7 câu hỏi tự nhìn vào bản thân&quot;
+              <Download size={16} /> Nhận cẩm nang miễn phí
             </button>
           </div>
 
@@ -371,7 +376,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-center mt-10 text-gray-400">
-            Mình đã từng ở cả 4 chỗ này. Không có lối thoát thần kỳ — chỉ có những điều mình rút ra được, và muốn ghi lại để chia sẻ.
+            Mình đã từng ở những chỗ này. Không có lối thoát thần kỳ — nhưng có phương pháp, có trải nghiệm thật, và những điều mình rút ra được để đi qua.
           </p>
         </div>
       </section>
@@ -621,12 +626,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Testimonials placeholder */}
-          <div className="mt-14 bg-[#111] border border-white/5 rounded-2xl p-8 text-center">
-            <p className="text-sm text-gray-500">
-              💬 Chia sẻ từ học viên đang được chị xin phép trước khi đăng. Sẽ cập nhật dần.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -744,7 +743,7 @@ export default function HomePage() {
             Bắt đầu từ <span className="text-[#FBBF24]">một email</span>
           </h2>
           <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-            Không cam kết thay đổi cuộc đời. Không công thức kỳ diệu. Chị chỉ chia sẻ những gì chị thấy hữu ích — bạn đọc thử, hợp thì đi tiếp.
+            Không hứa hẹn viển vông — chỉ là phương pháp thật, trải nghiệm thật, dùng được ngay. Bạn thử một đoạn, thấy hợp thì mình đi tiếp cùng nhau.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -889,14 +888,14 @@ export default function HomePage() {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-1.5">
-                        Số điện thoại <span className="text-red-400">*</span>
+                        Số điện thoại <span className="text-gray-500 font-normal">(không bắt buộc)</span>
                       </label>
-                      <input type="tel" required value={formData.phone}
+                      <input type="tel" value={formData.phone}
                         onChange={(e) => setFormData(p => ({ ...p, phone: e.target.value }))}
                         pattern="^(0|\+84)[0-9]{9}$"
                         title="Nhập số điện thoại hợp lệ (VD: 0912345678)"
                         className="input-dark w-full" placeholder="0912345678" />
-                      <p className="text-[10px] text-gray-500 mt-1">Định dạng: 09xx hoặc +84xxx (10 số)</p>
+                      <p className="text-[10px] text-gray-500 mt-1">Để lại nếu muốn chị hỗ trợ nhanh qua Zalo — có thể bỏ trống.</p>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-1.5">Email</label>

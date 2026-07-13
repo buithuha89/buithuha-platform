@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
 
     // Validate
     if (!full_name?.trim()) return NextResponse.json({ error: "Vui lòng nhập họ và tên" }, { status: 400 });
-    if (!phone || !/^(0|\+84)[0-9]{9}$/.test(phone.replace(/\s+/g, "")))
+    if (phone && !/^(0|\+84)[0-9]{9}$/.test(phone.replace(/\s+/g, "")))
       return NextResponse.json({ error: "Số điện thoại không hợp lệ" }, { status: 400 });
     if (!email?.trim()) return NextResponse.json({ error: "Vui lòng nhập email" }, { status: 400 });
 
@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Mật khẩu không được quá 72 ký tự" }, { status: 400 });
     }
 
-    const cleanPhone = phone.replace(/\s+/g, "");
+    const cleanPhone = phone ? phone.replace(/\s+/g, "") : null;
     const cleanEmail = email.trim().toLowerCase();
     const admin = await createAdminClient();
 

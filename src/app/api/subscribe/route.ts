@@ -75,15 +75,30 @@ export async function POST(req: NextRequest) {
     }
 
     // Insert new subscriber
-    const subscriberTags = customTags && Array.isArray(customTags) ? customTags : ["newsletter"];
+    // R07: coerce untrusted fields to safe, bounded values (no rejection — real users pass through)
+    const safeName =
+      typeof name === "string" ? name.trim().slice(0, 200) || null : null;
+    const safePhone =
+      typeof phone === "string" ? phone.trim().slice(0, 32) || null : null;
+    const safeSource =
+      typeof source === "string" && source.trim()
+        ? source.trim().slice(0, 100)
+        : "blog_newsletter";
+    const filteredTags = Array.isArray(customTags)
+      ? customTags
+          .filter((t) => typeof t === "string" && t.trim())
+          .slice(0, 20)
+          .map((t) => t.trim().slice(0, 50))
+      : [];
+    const subscriberTags = filteredTags.length ? filteredTags : ["newsletter"];
     const { data: subscriber, error: insertError } = await supabase
       .from("subscribers")
       .insert({
         email: normalizedEmail,
-        full_name: name || null,
-        phone: phone || null,
+        full_name: safeName,
+        phone: safePhone,
         status: "active",
-        source: source || "blog_newsletter",
+        source: safeSource,
         tags: subscriberTags,
         subscribed_at: new Date().toISOString(),
       })

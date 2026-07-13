@@ -105,7 +105,7 @@ export async function POST(req: NextRequest) {
         await admin.from("crm_activities").insert({
           contact_id: contact.id,
           type: "page_view",
-          content: `Xem khoá học: ${product?.title || product_id}`,
+          content: `Xem khoá học: ${String(product?.title || product_id).slice(0, 200)}`,
           created_by: user.id,
           is_system: true,
         });

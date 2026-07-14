@@ -40,10 +40,10 @@ const data: SiloData = {
     { icon: "HeartHandshake", title: "Làm lành sau khi nói lời tổn thương", desc: "Ai cũng có lúc lỡ lời. Cách mình thường dùng để nối lại — không phải xin lỗi đại." },
   ],
   audience: [
-    "Anh/chị đang vướng một mối quan hệ trong gia đình hoặc ở công ty mà chưa biết cách gỡ",
-    "Anh/chị mới lên quản lý, phải nói chuyện khó với nhân viên",
-    "Anh/chị cảm thấy mình lắng nghe kém — hay cắt ngang, hay phản ứng quá nhanh",
-    "Anh/chị muốn cải thiện giao tiếp với người thân, nhưng đã thử nhiều cách rồi vẫn không thay đổi",
+    "Bạn đang vướng một mối quan hệ trong gia đình hoặc ở công ty mà chưa biết cách gỡ",
+    "Bạn mới lên quản lý, phải nói chuyện khó với nhân viên",
+    "Bạn cảm thấy mình lắng nghe kém — hay cắt ngang, hay phản ứng quá nhanh",
+    "Bạn muốn cải thiện giao tiếp với người thân, nhưng đã thử nhiều cách rồi vẫn không thay đổi",
   ],
   cta: {
     heading: "Bắt đầu từ cẩm nang miễn phí",

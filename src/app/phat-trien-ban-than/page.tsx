@@ -34,16 +34,16 @@ const data: SiloData = {
   topics: [
     { icon: "Compass", title: "7 câu hỏi tự nhìn vào bản thân", desc: "Bộ câu hỏi mình dùng nhiều nhất — cho mình và cho học viên. Có trong cẩm nang miễn phí." },
     { icon: "Target", title: "Lập kế hoạch năm — cách mình làm", desc: "Không phải SMART goals khô khan. Cách mình lập kế hoạch năm có cả phần lý trí lẫn phần mong muốn." },
-    { icon: "NotebookPen", title: "Viết để hiểu mình", desc: "Mình viết tay mỗi sáng nhiều năm nay. Chia sẻ tại sao và bắt đầu thế nào nếu anh/chị chưa từng viết." },
+    { icon: "NotebookPen", title: "Viết để hiểu mình", desc: "Mình viết tay mỗi sáng nhiều năm nay. Chia sẻ tại sao và bắt đầu thế nào nếu bạn chưa từng viết." },
     { icon: "BookOpen", title: "Sách mình đọc đi đọc lại", desc: "Một danh sách nhỏ — không phải bestseller, không phải tiếng Anh chỉ. Chỉ là sách thật sự đã thay đổi mình." },
     { icon: "RefreshCw", title: "Review cuộc sống mỗi quý", desc: "Bản đồ 4 góc mình dùng để check mỗi 3 tháng: sự nghiệp / quan hệ / sức khỏe / bản thân." },
-    { icon: "Sparkles", title: "Khi 30 tuổi mà chưa rõ mình muốn gì", desc: "Không phải khủng hoảng — là dấu hiệu anh/chị đã đủ trưởng thành để đặt câu hỏi đúng." },
+    { icon: "Sparkles", title: "Khi 30 tuổi mà chưa rõ mình muốn gì", desc: "Không phải khủng hoảng — là dấu hiệu bạn đã đủ trưởng thành để đặt câu hỏi đúng." },
   ],
   audience: [
-    "Anh/chị đi làm vài năm rồi mà nhìn lại thấy mình đứng yên một chỗ",
-    "Anh/chị muốn lập kế hoạch nghiêm túc cho năm tới, không phải resolution \"tập gym, đọc 50 cuốn sách\"",
-    "Anh/chị cảm thấy bận rộn mà không thấy ý nghĩa",
-    "Anh/chị muốn bắt đầu thói quen tự nhìn lại, mà chưa biết bắt đầu từ đâu",
+    "Bạn đi làm vài năm rồi mà nhìn lại thấy mình đứng yên một chỗ",
+    "Bạn muốn lập kế hoạch nghiêm túc cho năm tới, không phải resolution \"tập gym, đọc 50 cuốn sách\"",
+    "Bạn cảm thấy bận rộn mà không thấy ý nghĩa",
+    "Bạn muốn bắt đầu thói quen tự nhìn lại, mà chưa biết bắt đầu từ đâu",
   ],
   cta: {
     heading: "Bắt đầu từ 7 câu hỏi",

@@ -41,7 +41,7 @@ const principles = [
   },
   {
     title: "Không hứa thay đổi sau 30 ngày",
-    body: "Chuyển hóa thật là hành trình của riêng mỗi người. Hà chỉ chia sẻ cách Hà đã đi qua — anh/chị đi qua theo cách của anh/chị.",
+    body: "Chuyển hóa thật là hành trình của riêng mỗi người. Hà chỉ chia sẻ cách Hà đã đi qua — bạn đi qua theo cách của bạn.",
   },
   {
     title: "Cụ thể, không trừu tượng",
@@ -140,12 +140,12 @@ export default function AboutPage() {
               đứng yên. Mở doanh nghiệp nhỏ mà team không theo kịp.
             </p>
             <p>
-              Không phải vì anh/chị không giỏi. Mà vì không ai dạy mình những thứ này từ đầu — đặc biệt là theo cách phù hợp
+              Không phải vì bạn không giỏi. Mà vì không ai dạy mình những thứ này từ đầu — đặc biệt là theo cách phù hợp
               với văn hóa Việt, gia đình Việt, công sở Việt.
             </p>
             <p>
               <strong className="text-white">{siteConfig.name} là nơi mình ghi lại những điều đó.</strong> Không phải lớp học
-              cao siêu. Không phải khóa coaching đắt tiền. Chỉ là một chỗ để Hà viết, anh/chị đọc, và nếu thấy hữu ích thì
+              cao siêu. Không phải khóa coaching đắt tiền. Chỉ là một chỗ để Hà viết, bạn đọc, và nếu thấy hữu ích thì
               chúng ta cùng đi tiếp.
             </p>
           </div>
@@ -273,7 +273,7 @@ export default function AboutPage() {
             Bắt đầu từ <span className="text-[#FBBF24]">một email</span>
           </h2>
           <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-            Nếu anh/chị thấy hợp với cách Hà viết, đăng ký nhận cẩm nang miễn phí và bài viết hàng tuần.
+            Nếu bạn thấy hợp với cách Hà viết, đăng ký nhận cẩm nang miễn phí và bài viết hàng tuần.
             Hủy bất cứ lúc nào.
           </p>
 

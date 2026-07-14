@@ -179,7 +179,7 @@ export default function SiloPage({ data }: { data: SiloData }) {
       <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[#0d0d0d]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-10">
-            Phù hợp với <span style={{ color: data.color }}>anh/chị</span> nếu...
+            Phù hợp với <span style={{ color: data.color }}>bạn</span> nếu...
           </h2>
 
           <ul className="space-y-3">

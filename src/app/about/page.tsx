@@ -14,21 +14,21 @@ const FacebookIcon = (props: { size?: number; className?: string }) => (
 );
 
 export const metadata: Metadata = {
-  title: `Về chị ${siteConfig.owner.name} — ${siteConfig.name}`,
+  title: `Về ${siteConfig.owner.name} — ${siteConfig.name}`,
   description:
-    "Bùi Hà — chuyên gia đào tạo nhiều năm, từng làm quản lý, học MBA. Hà Bùi Academy là nơi chị ghi lại những gì đã làm, đã trải qua, và muốn chia sẻ.",
+    "Bùi Hà — chuyên gia đào tạo nhiều năm, từng làm quản lý, học MBA. Hà Bùi Academy là nơi Hà ghi lại những gì đã làm, đã trải qua, và muốn chia sẻ.",
   alternates: { canonical: "https://buithuha.com/about" },
   openGraph: {
-    title: `Về chị ${siteConfig.owner.name} — ${siteConfig.name}`,
+    title: `Về ${siteConfig.owner.name} — ${siteConfig.name}`,
     description:
-      "Câu chuyện và background của chị Bùi Hà — người đào tạo, người quản lý, người thích đọc và viết.",
+      "Câu chuyện và background của Bùi Hà — người đào tạo, người quản lý, người thích đọc và viết.",
     type: "profile",
     url: "https://buithuha.com/about",
   },
 };
 
 const background = [
-  { icon: GraduationCap, label: "MBA", desc: "Nền tảng phương pháp luận chị mang theo trong mọi việc" },
+  { icon: GraduationCap, label: "MBA", desc: "Nền tảng phương pháp luận Hà mang theo trong mọi việc" },
   { icon: Briefcase, label: "Nhiều năm đào tạo", desc: "Làm L&D / đào tạo trong doanh nghiệp" },
   { icon: Award, label: "Từng làm quản lý", desc: "Hiểu áp lực của người ngồi ghế leader từ bên trong" },
   { icon: PenLine, label: "Đọc và viết hàng ngày", desc: "Thích chiêm nghiệm, ghi chép, và chia sẻ" },
@@ -37,19 +37,19 @@ const background = [
 const principles = [
   {
     title: "Không bán bí kíp",
-    body: "Chị không có công thức nào kỳ diệu. Cuộc đời mỗi người khác nhau — bí kíp của người này có khi là bẫy của người kia.",
+    body: "Hà không có công thức nào kỳ diệu. Cuộc đời mỗi người khác nhau — bí kíp của người này có khi là bẫy của người kia.",
   },
   {
     title: "Không hứa thay đổi sau 30 ngày",
-    body: "Chuyển hóa thật là hành trình của riêng mỗi người. Chị chỉ chia sẻ cách chị đã đi qua — bạn đi qua theo cách của bạn.",
+    body: "Chuyển hóa thật là hành trình của riêng mỗi người. Hà chỉ chia sẻ cách Hà đã đi qua — anh/chị đi qua theo cách của anh/chị.",
   },
   {
     title: "Cụ thể, không trừu tượng",
-    body: "Chị viết về tình huống thật, có bối cảnh, có ngày tháng. Tránh nói chuyện chung chung kiểu motivational poster.",
+    body: "Hà viết về tình huống thật, có bối cảnh, có ngày tháng. Tránh nói chuyện chung chung kiểu motivational poster.",
   },
   {
     title: "Học từ sai lầm, không chỉ thành công",
-    body: "Bài học giá trị nhất chị có được đến từ những lần làm sai. Chị chia sẻ cả hai — đặc biệt là những lần sai.",
+    body: "Bài học giá trị nhất Hà có được đến từ những lần làm sai. Hà chia sẻ cả hai — đặc biệt là những lần sai.",
   },
 ];
 
@@ -104,7 +104,7 @@ export default function AboutPage() {
             <div className="lg:col-span-3 space-y-5">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium"
                 style={{ background: "rgba(251,191,36,0.1)", border: "1px solid rgba(251,191,36,0.25)", color: "#FBBF24" }}>
-                <Heart size={14} /> Về chị
+                <Heart size={14} /> Về Hà
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight">
                 Mình là <span className="text-[#FBBF24]">{siteConfig.owner.name}</span>
@@ -140,12 +140,12 @@ export default function AboutPage() {
               đứng yên. Mở doanh nghiệp nhỏ mà team không theo kịp.
             </p>
             <p>
-              Không phải vì các bạn không giỏi. Mà vì không ai dạy mình những thứ này từ đầu — đặc biệt là theo cách phù hợp
+              Không phải vì anh/chị không giỏi. Mà vì không ai dạy mình những thứ này từ đầu — đặc biệt là theo cách phù hợp
               với văn hóa Việt, gia đình Việt, công sở Việt.
             </p>
             <p>
               <strong className="text-white">{siteConfig.name} là nơi mình ghi lại những điều đó.</strong> Không phải lớp học
-              cao siêu. Không phải khóa coaching đắt tiền. Chỉ là một chỗ để chị viết, bạn đọc, và nếu thấy hữu ích thì
+              cao siêu. Không phải khóa coaching đắt tiền. Chỉ là một chỗ để Hà viết, anh/chị đọc, và nếu thấy hữu ích thì
               chúng ta cùng đi tiếp.
             </p>
           </div>
@@ -181,14 +181,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ═══ PRINCIPLES — Cách chị làm việc ═══ */}
+      {/* ═══ PRINCIPLES — Cách Hà làm việc ═══ */}
       <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[#0d0d0d]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-4">
-            4 nguyên tắc khi <span className="text-[#84CC16]">chị viết và chia sẻ</span>
+            4 nguyên tắc khi <span className="text-[#84CC16]">Hà viết và chia sẻ</span>
           </h2>
           <p className="text-center text-gray-400 mb-10 sm:mb-14 max-w-2xl mx-auto">
-            Không phải tuyên ngôn. Đây là cách chị thật sự xuất hiện trong từng bài viết, từng buổi đào tạo.
+            Không phải tuyên ngôn. Đây là cách Hà thật sự xuất hiện trong từng bài viết, từng buổi đào tạo.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -206,7 +206,7 @@ export default function AboutPage() {
       <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-10 sm:mb-14">
-            4 chủ đề chị <span className="text-[#FBBF24]">đang viết</span>
+            4 chủ đề Hà <span className="text-[#FBBF24]">đang viết</span>
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -232,10 +232,10 @@ export default function AboutPage() {
       <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[#0d0d0d]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-extrabold mb-4">
-            Kết nối với <span className="text-[#FBBF24]">chị</span>
+            Kết nối với <span className="text-[#FBBF24]">Hà</span>
           </h2>
           <p className="text-gray-400 mb-10 max-w-xl mx-auto">
-            Chị đọc và phản hồi mọi tin nhắn — không hứa trong vòng 1 giờ, nhưng sẽ đọc và trả lời khi có thời gian.
+            Hà đọc và phản hồi mọi tin nhắn — không hứa trong vòng 1 giờ, nhưng sẽ đọc và trả lời khi có thời gian.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
@@ -273,7 +273,7 @@ export default function AboutPage() {
             Bắt đầu từ <span className="text-[#FBBF24]">một email</span>
           </h2>
           <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-            Nếu bạn thấy hợp với cách chị viết, đăng ký nhận cẩm nang miễn phí và bài viết hàng tuần.
+            Nếu anh/chị thấy hợp với cách Hà viết, đăng ký nhận cẩm nang miễn phí và bài viết hàng tuần.
             Hủy bất cứ lúc nào.
           </p>
 

@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   BookOpen, PlayCircle, ArrowRight, Clock,
-  Video, Globe, TrendingUp, Sparkles,
+  Heart, Target, GraduationCap, Sparkles,
 } from "lucide-react";
 
 type PublicCourse = {
@@ -25,42 +25,42 @@ type PublicCourse = {
 
 /* ─── Category config ───────────────────────────────────────────────────────── */
 
-type CategoryKey = "video" | "branding" | "business" | "personal_development";
+type CategoryKey = "communication" | "personal_development" | "ld" | "leadership";
 
 const CATEGORIES: {
   key: CategoryKey;
   title: string;
   subtitle: string;
-  icon: typeof Video;
+  icon: typeof Sparkles;
   color: string;
 }[] = [
   {
-    key: "video",
-    title: "Khóa học làm video",
-    subtitle: "Học cách tạo video chuyên nghiệp, thu hút triệu view",
-    icon: Video,
-    color: "#3b82f6",
-  },
-  {
-    key: "branding",
-    title: "Khóa học xây kênh, thương hiệu cá nhân",
-    subtitle: "Xây dựng thương hiệu và kênh truyền thông bền vững",
-    icon: Globe,
-    color: "#a855f7",
-  },
-  {
-    key: "business",
-    title: "Khóa học kinh doanh, hệ thống chuyển đổi cao",
-    subtitle: "Chiến lược kinh doanh và tối ưu doanh thu",
-    icon: TrendingUp,
-    color: "#f59e0b",
+    key: "communication",
+    title: "Giao tiếp & Quan hệ",
+    subtitle: "Kết nối, thấu hiểu và hợp tác — trong gia đình và ở chỗ làm",
+    icon: Heart,
+    color: "#14b8a6",
   },
   {
     key: "personal_development",
-    title: "Khóa học phát triển bản thân",
-    subtitle: "Nâng cao kỹ năng và tư duy để thành công",
+    title: "Phát triển bản thân",
+    subtitle: "Hiểu mình, đặt mục tiêu và tự nhìn lại để đi đúng hướng",
     icon: Sparkles,
     color: "#22c55e",
+  },
+  {
+    key: "ld",
+    title: "Nghề L&D",
+    subtitle: "Cho người làm Học & Phát triển trong doanh nghiệp",
+    icon: GraduationCap,
+    color: "#3b82f6",
+  },
+  {
+    key: "leadership",
+    title: "Lãnh đạo & Quản lý",
+    subtitle: "Cho quản lý cấp trung và doanh chủ SME",
+    icon: Target,
+    color: "#a855f7",
   },
 ];
 

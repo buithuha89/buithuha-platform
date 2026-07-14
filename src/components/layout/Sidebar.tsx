@@ -16,29 +16,56 @@ import {
   Star, ShieldCheck, Zap, X, UserPlus, Contact, GitBranch,
   FolderOpen, TrendingUp, Target, UserCheck, Tag, ClipboardCheck,
   CreditCard, GraduationCap, Megaphone, Eye, Shield,
-  Video, Globe, Sparkles,
+  Sparkles, Heart,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const courseSubNav = [
-  { href: "/courses?cat=video", icon: Video, label: "Làm video", color: "#3b82f6" },
-  { href: "/courses?cat=branding", icon: Globe, label: "Xây kênh & thương hiệu", color: "#a855f7" },
-  { href: "/courses?cat=business", icon: TrendingUp, label: "Kinh doanh & chuyển đổi", color: "#f59e0b" },
+type SubNavItem = { href: string; icon: LucideIcon; label: string; color: string };
+type NavItem = { href: string; icon: LucideIcon; label: string; subNav?: SubNavItem[] };
+type AdminItem = { href: string; icon: LucideIcon; label: string; roles: string[] };
+type NavGroup = { title: string; items: NavItem[] };
+type AdminGroup = { title: string; items: AdminItem[] };
+
+// Danh mục khoá học khớp 4 chủ đề thương hiệu Hà Bùi Academy
+const courseSubNav: SubNavItem[] = [
+  { href: "/courses?cat=communication", icon: Heart, label: "Giao tiếp & Quan hệ", color: "#14b8a6" },
   { href: "/courses?cat=personal_development", icon: Sparkles, label: "Phát triển bản thân", color: "#22c55e" },
+  { href: "/courses?cat=ld", icon: GraduationCap, label: "Nghề L&D", color: "#3b82f6" },
+  { href: "/courses?cat=leadership", icon: Target, label: "Lãnh đạo & Quản lý", color: "#a855f7" },
 ];
 
-const mainNav = [
-  { href: "/dashboard", icon: LayoutDashboard, label: "Tổng quan" },
-  { href: "/courses", icon: BookOpen, label: "Khoá học", subNav: courseSubNav },
-  { href: "/resources", icon: FolderOpen, label: "Tài nguyên" },
-  { href: "/community", icon: Users, label: "Cộng đồng" },
-  { href: "/blog", icon: FileText, label: "Blog" },
-  { href: "/leaderboard", icon: Trophy, label: "Bảng xếp hạng" },
-  { href: "/events", icon: Calendar, label: "Sự kiện" },
-  { href: "/subscriptions", icon: CreditCard, label: "Gói đăng ký" },
-  { href: "/dashboard/affiliate", icon: Zap, label: "Affiliate" },
+// Mục Tổng quan luôn đứng đầu, không thuộc nhóm nào
+const overviewItem: NavItem = { href: "/dashboard", icon: LayoutDashboard, label: "Tổng quan" };
+
+// Menu học viên — gom 3 cụm theo hành trình học
+const mainNavGroups: NavGroup[] = [
+  {
+    title: "Học tập",
+    items: [
+      { href: "/courses", icon: BookOpen, label: "Khoá học", subNav: courseSubNav },
+      { href: "/resources", icon: FolderOpen, label: "Tài nguyên" },
+      { href: "/events", icon: Calendar, label: "Sự kiện" },
+    ],
+  },
+  {
+    title: "Cộng đồng",
+    items: [
+      { href: "/community", icon: Users, label: "Cộng đồng" },
+      { href: "/leaderboard", icon: Trophy, label: "Bảng xếp hạng" },
+      { href: "/blog", icon: FileText, label: "Blog" },
+    ],
+  },
+  {
+    title: "Tài khoản",
+    items: [
+      { href: "/subscriptions", icon: CreditCard, label: "Gói đăng ký" },
+      { href: "/dashboard/affiliate", icon: Zap, label: "Affiliate" },
+      { href: "/settings", icon: Settings, label: "Cài đặt" },
+    ],
+  },
 ];
 
-const instructorNav = [
+const instructorNav: NavItem[] = [
   { href: "/instructor", icon: GraduationCap, label: "Giảng viên" },
   { href: "/instructor/courses", icon: BookOpen, label: "Khóa học của tôi" },
   { href: "/instructor/students", icon: Users, label: "Tiến trình học viên" },
@@ -46,35 +73,57 @@ const instructorNav = [
   { href: "/instructor/submissions", icon: ClipboardCheck, label: "Chấm bài" },
 ];
 
-const adminNav = [
-  { href: "/admin", icon: ShieldCheck, label: "Admin Panel", roles: ["admin"] },
-  { href: "/admin/courses", icon: BookOpen, label: "Quản lý Khoá học", roles: ["admin", "manager", "editor", "instructor"] },
-  { href: "/admin/enrollments", icon: UserPlus, label: "Cấp khoá học", roles: ["admin", "manager", "sale"] },
-  { href: "/admin/users", icon: Users, label: "Quản lý Users", roles: ["admin", "manager", "sale"] },
-  { href: "/admin/orders", icon: Rocket, label: "Quản lý Đơn hàng", roles: ["admin", "manager", "sale"] },
-  { href: "/admin/coupons", icon: Tag, label: "Mã giảm giá", roles: ["admin", "manager"] },
-  { href: "/admin/quizzes", icon: ClipboardCheck, label: "Quản lý Quiz", roles: ["admin", "manager", "editor"] },
-  { href: "/admin/blog", icon: FileText, label: "Quản lý Blog", roles: ["admin", "manager", "marketing"] },
-  { href: "/admin/questions", icon: MessageSquare, label: "Câu hỏi học viên", roles: ["admin", "manager", "support", "editor"] },
-  { href: "/admin/promotions", icon: Star, label: "Quảng cáo đầu trang", roles: ["admin", "manager"] },
-  { href: "/admin/featured-courses", icon: Sparkles, label: "Khoá học nổi bật", roles: ["admin", "manager"] },
-  { href: "/admin/announcements", icon: Megaphone, label: "Thông báo", roles: ["admin", "manager"] },
-  { href: "/email", icon: Mail, label: "Email Marketing", roles: ["admin", "manager", "marketing"] },
-  { href: "/crm", icon: BarChart3, label: "CRM Doanh số", roles: ["admin", "manager", "sale"] },
-  { href: "/crm/contacts", icon: Contact, label: "Khách hàng", roles: ["admin", "manager", "sale", "support"] },
-  { href: "/crm/pipeline", icon: GitBranch, label: "Pipeline", roles: ["admin", "manager", "sale"] },
-  { href: "/crm/performance", icon: TrendingUp, label: "Hiệu suất Sale", roles: ["admin", "manager"] },
-  { href: "/crm/attribution", icon: Target, label: "Nguồn khách", roles: ["admin", "manager", "marketing"] },
-  { href: "/crm/interests", icon: Eye, label: "Khách quan tâm", roles: ["admin", "manager", "sale", "support"] },
-  { href: "/crm/moderation", icon: Shield, label: "Kiểm duyệt", roles: ["admin", "manager", "support"] },
-  { href: "/crm/assignments", icon: UserCheck, label: "Phân công", roles: ["admin", "manager"] },
-  { href: "/admin/subscriptions", icon: CreditCard, label: "Quản lý Gói", roles: ["admin", "manager"] },
-  { href: "/admin/affiliates", icon: Zap, label: "Quản lý Affiliate", roles: ["admin", "manager"] },
-  { href: "/admin/zalo", icon: MessageCircle, label: "Zalo OA", roles: ["admin"] },
-];
-
-const settingsNav = [
-  { href: "/settings", icon: Settings, label: "Cài đặt" },
+// Menu quản trị — gom 24 mục thành 5 nhóm chức năng (giữ nguyên toàn bộ tính năng & phân quyền)
+const adminNavGroups: AdminGroup[] = [
+  {
+    title: "Đào tạo",
+    items: [
+      { href: "/admin/courses", icon: BookOpen, label: "Quản lý Khoá học", roles: ["admin", "manager", "editor", "instructor"] },
+      { href: "/admin/featured-courses", icon: Sparkles, label: "Khoá học nổi bật", roles: ["admin", "manager"] },
+      { href: "/admin/quizzes", icon: ClipboardCheck, label: "Quản lý Quiz", roles: ["admin", "manager", "editor"] },
+      { href: "/admin/questions", icon: MessageSquare, label: "Câu hỏi học viên", roles: ["admin", "manager", "support", "editor"] },
+      { href: "/admin/enrollments", icon: UserPlus, label: "Cấp khoá học", roles: ["admin", "manager", "sale"] },
+      { href: "/admin/users", icon: Users, label: "Quản lý Users", roles: ["admin", "manager", "sale"] },
+    ],
+  },
+  {
+    title: "Bán hàng & CRM",
+    items: [
+      { href: "/crm", icon: BarChart3, label: "CRM Doanh số", roles: ["admin", "manager", "sale"] },
+      { href: "/crm/contacts", icon: Contact, label: "Khách hàng", roles: ["admin", "manager", "sale", "support"] },
+      { href: "/crm/interests", icon: Eye, label: "Khách quan tâm", roles: ["admin", "manager", "sale", "support"] },
+      { href: "/crm/pipeline", icon: GitBranch, label: "Pipeline", roles: ["admin", "manager", "sale"] },
+      { href: "/crm/attribution", icon: Target, label: "Nguồn khách", roles: ["admin", "manager", "marketing"] },
+      { href: "/crm/performance", icon: TrendingUp, label: "Hiệu suất Sale", roles: ["admin", "manager"] },
+      { href: "/crm/assignments", icon: UserCheck, label: "Phân công", roles: ["admin", "manager"] },
+    ],
+  },
+  {
+    title: "Doanh thu & thanh toán",
+    items: [
+      { href: "/admin/orders", icon: Rocket, label: "Quản lý Đơn hàng", roles: ["admin", "manager", "sale"] },
+      { href: "/admin/subscriptions", icon: CreditCard, label: "Quản lý Gói", roles: ["admin", "manager"] },
+      { href: "/admin/coupons", icon: Tag, label: "Mã giảm giá", roles: ["admin", "manager"] },
+      { href: "/admin/affiliates", icon: Zap, label: "Quản lý Affiliate", roles: ["admin", "manager"] },
+    ],
+  },
+  {
+    title: "Marketing & truyền thông",
+    items: [
+      { href: "/admin/blog", icon: FileText, label: "Quản lý Blog", roles: ["admin", "manager", "marketing"] },
+      { href: "/email", icon: Mail, label: "Email Marketing", roles: ["admin", "manager", "marketing"] },
+      { href: "/admin/zalo", icon: MessageCircle, label: "Zalo OA", roles: ["admin"] },
+      { href: "/admin/promotions", icon: Star, label: "Quảng cáo đầu trang", roles: ["admin", "manager"] },
+      { href: "/admin/announcements", icon: Megaphone, label: "Thông báo", roles: ["admin", "manager"] },
+    ],
+  },
+  {
+    title: "Vận hành & hệ thống",
+    items: [
+      { href: "/admin", icon: ShieldCheck, label: "Admin Panel", roles: ["admin"] },
+      { href: "/crm/moderation", icon: Shield, label: "Kiểm duyệt", roles: ["admin", "manager", "support"] },
+    ],
+  },
 ];
 
 interface Profile {
@@ -148,6 +197,64 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
   const tierLabel = isStaff || isInstructor ? (roleLabels[userRole] ?? "Staff") : profile?.tier === "vip" ? "VIP" : profile?.tier === "member" ? "Member" : "Free";
   const tierColor = isAdmin ? "#ef4444" : isStaff ? "#3b82f6" : isInstructor ? "#8b5cf6" : profile?.tier === "vip" ? "#f59e0b" : profile?.tier === "member" ? "#a855f7" : "#D4A843";
 
+  // Render a single nav item (handles the courses submenu expansion + active state)
+  const renderNavItem = (item: NavItem, isCompact: boolean) => {
+    const isActive =
+      pathname === item.href ||
+      (item.href !== "/dashboard" && item.href.length > 1 && pathname.startsWith(item.href));
+    const hasSubNav = item.subNav && item.subNav.length > 0;
+    const isExpanded = expandedMenu === item.href;
+
+    if (hasSubNav && !isCompact) {
+      return (
+        <div key={item.href}>
+          <div
+            className={`sidebar-nav-item cursor-pointer ${isActive ? "active" : ""}`}
+            onClick={() => setExpandedMenu(isExpanded ? null : item.href)}
+          >
+            <Link href={item.href} className="flex items-center gap-2.5 flex-1 min-w-0" onClick={(e) => e.stopPropagation()}>
+              <item.icon size={18} className="shrink-0" />
+              <span>{item.label}</span>
+            </Link>
+            <ChevronDown
+              size={14}
+              className={`shrink-0 text-gray-500 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+            />
+          </div>
+          <div
+            className="overflow-hidden transition-all duration-200"
+            style={{ maxHeight: isExpanded ? `${item.subNav!.length * 36 + 8}px` : "0px" }}
+          >
+            <div className="pl-4 py-1 space-y-0.5">
+              {item.subNav!.map((sub) => (
+                <Link
+                  key={sub.href}
+                  href={sub.href}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs text-gray-400 hover:text-white hover:bg-[#1a1a1a] transition-colors"
+                >
+                  <sub.icon size={13} style={{ color: sub.color }} className="shrink-0" />
+                  <span className="truncate">{sub.label}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <Link
+        key={item.href}
+        href={item.href}
+        className={`sidebar-nav-item ${isActive ? "active" : ""} ${isCompact ? "justify-center px-2" : ""}`}
+        title={isCompact ? item.label : undefined}
+      >
+        <item.icon size={18} className="shrink-0" />
+        {!isCompact && <span>{item.label}</span>}
+      </Link>
+    );
+  };
+
   // isCompact: on mobile drawer we always show expanded; on desktop respect collapsed
   const renderSidebar = (isCompact: boolean, isMobile: boolean) => (
     <aside
@@ -208,68 +315,22 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
 
       {/* Navigation */}
       <nav className="flex-1 px-2 py-4 space-y-0.5 overflow-y-auto" role="navigation" aria-label="Menu chính">
-        {/* Main nav */}
-        <div>
-          {mainNav.map((item) => {
-            const isActive =
-              pathname === item.href ||
-              (item.href !== "/dashboard" && item.href.length > 1 && pathname.startsWith(item.href));
-            const hasSubNav = item.subNav && item.subNav.length > 0;
-            const isExpanded = expandedMenu === item.href;
+        {/* Tổng quan — luôn đứng đầu */}
+        {renderNavItem(overviewItem, isCompact)}
 
-            return (
-              <div key={item.href}>
-                {hasSubNav && !isCompact ? (
-                  /* Parent item with submenu — click toggles submenu, link on icon/text */
-                  <div>
-                    <div
-                      className={`sidebar-nav-item cursor-pointer ${isActive ? "active" : ""}`}
-                      onClick={() => setExpandedMenu(isExpanded ? null : item.href)}
-                    >
-                      <Link href={item.href} className="flex items-center gap-2.5 flex-1 min-w-0" onClick={(e) => e.stopPropagation()}>
-                        <item.icon size={18} className="shrink-0" />
-                        <span>{item.label}</span>
-                      </Link>
-                      <ChevronDown
-                        size={14}
-                        className={`shrink-0 text-gray-500 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
-                      />
-                    </div>
-                    {/* Submenu */}
-                    <div
-                      className="overflow-hidden transition-all duration-200"
-                      style={{ maxHeight: isExpanded ? `${item.subNav!.length * 36 + 8}px` : "0px" }}
-                    >
-                      <div className="pl-4 py-1 space-y-0.5">
-                        {item.subNav!.map((sub) => (
-                          <Link
-                            key={sub.href}
-                            href={sub.href}
-                            className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs text-gray-400 hover:text-white hover:bg-[#1a1a1a] transition-colors"
-                          >
-                            <sub.icon size={13} style={{ color: sub.color }} className="shrink-0" />
-                            <span className="truncate">{sub.label}</span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={`sidebar-nav-item ${isActive ? "active" : ""} ${isCompact ? "justify-center px-2" : ""}`}
-                    title={isCompact ? item.label : undefined}
-                  >
-                    <item.icon size={18} className="shrink-0" />
-                    {!isCompact && <span>{item.label}</span>}
-                  </Link>
-                )}
+        {/* Menu học viên — 3 cụm có tiêu đề */}
+        {mainNavGroups.map((group) => (
+          <div key={group.title} className="mt-5">
+            {!isCompact && (
+              <div className="px-3 mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-gray-500">
+                {group.title}
               </div>
-            );
-          })}
-        </div>
+            )}
+            {group.items.map((item) => renderNavItem(item, isCompact))}
+          </div>
+        ))}
 
-        {/* Instructor nav */}
+        {/* Khu giảng viên */}
         {isInstructor && (
           <div className="mt-6">
             {!isCompact && (
@@ -277,76 +338,26 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
                 Giảng viên
               </div>
             )}
-            {instructorNav.map((item) => {
-              const isActive =
-                pathname === item.href ||
-                (item.href.length > 1 && pathname.startsWith(item.href) && item.href !== "/instructor");
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`sidebar-nav-item ${isActive ? "active" : ""} ${isCompact ? "justify-center px-2" : ""}`}
-                  title={isCompact ? item.label : undefined}
-                >
-                  <item.icon size={18} className="shrink-0" />
-                  {!isCompact && <span>{item.label}</span>}
-                </Link>
-              );
-            })}
+            {instructorNav.map((item) => renderNavItem(item, isCompact))}
           </div>
         )}
 
-        {/* Staff nav */}
-        {isStaff && (
-          <div className="mt-6">
-            {!isCompact && (
-              <div className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-widest text-[#f59e0b]">
-                {isAdmin ? "Admin" : "Quản lý"}
-              </div>
-            )}
-            {adminNav
-              .filter((item) => item.roles.includes(userRole))
-              .map((item) => {
-                const isActive =
-                  pathname === item.href ||
-                  (item.href.length > 1 && pathname.startsWith(item.href) && item.href !== "/admin");
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`sidebar-nav-item ${isActive ? "active" : ""} ${isCompact ? "justify-center px-2" : ""}`}
-                    title={isCompact ? item.label : undefined}
-                  >
-                    <item.icon size={18} className="shrink-0" />
-                    {!isCompact && <span>{item.label}</span>}
-                  </Link>
-                );
-              })}
-          </div>
-        )}
-
-        {/* Settings */}
-        <div className={isStaff ? "mt-2" : "mt-6"}>
-          {!isStaff && !isCompact && (
-            <div className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-widest text-gray-500">
-              Quản lý
-            </div>
-          )}
-          {settingsNav.map((item) => {
-            const isActive = pathname === item.href;
+        {/* Khu quản trị — gom 5 nhóm, lọc theo vai trò */}
+        {isStaff &&
+          adminNavGroups.map((group) => {
+            const items = group.items.filter((item) => item.roles.includes(userRole));
+            if (items.length === 0) return null;
             return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`sidebar-nav-item ${isActive ? "active" : ""} ${isCompact ? "justify-center px-2" : ""}`}
-                title={isCompact ? item.label : undefined}
-              >
-                <item.icon size={18} className="shrink-0" />
-                {!isCompact && <span>{item.label}</span>}
-              </Link>
+              <div key={group.title} className="mt-6">
+                {!isCompact && (
+                  <div className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-widest text-[#f59e0b]">
+                    {group.title}
+                  </div>
+                )}
+                {items.map((item) => renderNavItem(item, isCompact))}
+              </div>
             );
           })}
-        </div>
       </nav>
 
       {/* CTA */}

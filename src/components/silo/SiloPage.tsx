@@ -38,7 +38,7 @@ export interface SiloData {
   subtitle: string;
   /** Câu mở hero, 2-3 câu */
   intro: string;
-  /** Story chị kể, 2-4 đoạn */
+  /** Story Hà kể, 2-4 đoạn */
   story: {
     heading: string;
     paragraphs: string[];
@@ -59,7 +59,7 @@ export interface SiloData {
 }
 
 const navLinks = [
-  { label: "Về chị Hà", href: "/#about" },
+  { label: "Về Hà", href: "/#about" },
   { label: "4 chủ đề", href: "/#silos" },
   { label: "Khóa học", href: "/#courses" },
   { label: "Blog", href: "/blog" },
@@ -154,7 +154,7 @@ export default function SiloPage({ data }: { data: SiloData }) {
       <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-10 sm:mb-14">
-            Những điều chị <span style={{ color: data.color }}>sẽ chia sẻ</span> trong chủ đề này
+            Những điều Hà <span style={{ color: data.color }}>sẽ chia sẻ</span> trong chủ đề này
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
@@ -179,7 +179,7 @@ export default function SiloPage({ data }: { data: SiloData }) {
       <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[#0d0d0d]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-10">
-            Phù hợp với <span style={{ color: data.color }}>bạn</span> nếu...
+            Phù hợp với <span style={{ color: data.color }}>anh/chị</span> nếu...
           </h2>
 
           <ul className="space-y-3">
@@ -212,7 +212,7 @@ export default function SiloPage({ data }: { data: SiloData }) {
             </Link>
             <a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 py-3.5 px-8 rounded-lg text-base font-semibold border border-white/10 hover:border-white/20 transition-colors">
-              <MessageCircle size={16} style={{ color: data.color }} /> Nhắn cho chị
+              <MessageCircle size={16} style={{ color: data.color }} /> Nhắn cho Hà
             </a>
           </div>
         </div>

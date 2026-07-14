@@ -39,11 +39,11 @@ const painPoints = [
   {
     emoji: "🔥",
     title: "Làm một mình — nghỉ một ngày là mọi thứ dừng",
-    desc: "Bạn tự cân hết: bán hàng, chăm khách, sổ sách. Không có ai để giao. Sợ ốm một hôm là cả guồng đứng lại.",
+    desc: "Anh/chị tự cân hết: bán hàng, chăm khách, sổ sách. Không có ai để giao. Sợ ốm một hôm là cả guồng đứng lại.",
   },
 ];
 
-/* 4 chủ đề chị viết */
+/* 4 chủ đề Hà viết */
 const silos = [
   {
     num: 1, icon: MessageSquare, color: "#FBBF24",
@@ -65,7 +65,7 @@ const silos = [
     subtitle: "Hiểu mình rồi mới biết đi đâu",
     points: [
       "7 câu hỏi tự nhìn vào bản thân",
-      "Lập kế hoạch năm — cách chị làm",
+      "Lập kế hoạch năm — cách Hà làm",
       "Tự nhận thức bản thân — bắt đầu từ đâu",
       "Khi 30 tuổi mà chưa rõ mình muốn gì",
     ],
@@ -90,7 +90,7 @@ const silos = [
     title: "LÃNH ĐẠO & QUẢN LÝ",
     subtitle: "Cho quản lý cấp trung và doanh chủ SME",
     points: [
-      "Lần đầu lên quản lý — 5 nỗi sợ chị từng có",
+      "Lần đầu lên quản lý — 5 nỗi sợ Hà từng có",
       "Giao việc mà vẫn yên tâm",
       "Khi team không theo kịp mình",
       "Cách nói chuyện khó với nhân viên",
@@ -113,7 +113,7 @@ const fallbackCourses = [
     emoji: "🌱",
     title: "Hành trình Hiểu Mình",
     badge: "Sắp ra mắt",
-    desc: "Chương trình 8 tuần để bạn tự nhìn vào bên trong — hiểu giá trị, động lực, và hướng đi thật sự của mình.",
+    desc: "Chương trình 8 tuần để anh/chị tự nhìn vào bên trong — hiểu giá trị, động lực, và hướng đi thật sự của mình.",
     stats: "⏰ Đang hoàn thiện | 🎁 Ưu tiên người đăng ký sớm",
     slug: null as string | null,
     thumbnail: null as string | null,
@@ -143,32 +143,32 @@ const valueBar = [
 
 const faqs = [
   {
-    q: "Chị Hà có phải coach chuyên nghiệp không?",
+    q: "Hà có phải coach chuyên nghiệp không?",
     a: "Mình chưa từng tự nhận là coach và cũng chưa qua chứng chỉ coach quốc tế. Mình là người đào tạo nhiều năm, từng làm quản lý, đã học MBA và là người thích chiêm nghiệm. Những gì chia sẻ ở đây là trải nghiệm thật của mình — không phải lý thuyết tham khảo.",
   },
   {
     q: "Nội dung của Hà Bùi Academy phù hợp với ai?",
-    a: "Người đi làm muốn phát triển bản thân, người lần đầu lên quản lý, quản lý cấp trung, doanh chủ SME, và người làm nghề L&D / HR / Trainer. Nếu bạn đang tìm câu trả lời cho 'mình là ai, mình muốn gì, mình dẫn dắt như thế nào' — thì đây là nơi dành cho bạn.",
+    a: "Người đi làm muốn phát triển bản thân, người lần đầu lên quản lý, quản lý cấp trung, doanh chủ SME, và người làm nghề L&D / HR / Trainer. Nếu anh/chị đang tìm câu trả lời cho 'mình là ai, mình muốn gì, mình dẫn dắt như thế nào' — thì đây là nơi dành cho anh/chị.",
   },
   {
-    q: "Cách tiếp cận của chị Hà khác gì các chương trình khác trên thị trường?",
+    q: "Cách tiếp cận của Hà khác gì các chương trình khác trên thị trường?",
     a: "Mình không dạy 'framework X bước' hay 'công thức Y'. Mình chia sẻ phương pháp luận có hệ thống (từ background MBA + đào tạo), kết hợp với trải nghiệm thực chiến (từng là quản lý), và quan trọng nhất là sự đồng cảm — vì mình đã đi qua những nỗi đau đó.",
   },
   {
     q: "Khóa học bao nhiêu tiền? Có cam kết kết quả không?",
-    a: "Các khóa học chính đang được hoàn thiện. Bạn có thể đăng ký nhận thông báo sớm để được ưu đãi early-bird. Mình không cam kết 'thay đổi cuộc đời sau 30 ngày' — vì sự chuyển hóa là hành trình của riêng mỗi người. Mình chỉ hứa sẽ đi cùng bạn một đoạn đường tử tế.",
+    a: "Các khóa học chính đang được hoàn thiện. Anh/chị có thể đăng ký nhận thông báo sớm để được ưu đãi early-bird. Mình không cam kết 'thay đổi cuộc đời sau 30 ngày' — vì sự chuyển hóa là hành trình của riêng mỗi người. Mình chỉ hứa sẽ đi cùng anh/chị một đoạn đường tử tế.",
   },
   {
-    q: "Nếu mình thấy không hợp với cách chia sẻ của chị thì sao?",
-    a: "Không sao cả. Mỗi người hợp với một người thầy / người chia sẻ khác nhau. Bạn có thể đăng ký nhận cẩm nang miễn phí + theo dõi blog một thời gian — nếu thấy hợp thì học tiếp, không thì tìm con đường khác. Mình không muốn ai cố ép bản thân vào khuôn của mình.",
+    q: "Nếu mình thấy không hợp với cách chia sẻ của Hà thì sao?",
+    a: "Không sao cả. Mỗi người hợp với một người thầy / người chia sẻ khác nhau. Anh/chị có thể đăng ký nhận cẩm nang miễn phí + theo dõi blog một thời gian — nếu thấy hợp thì học tiếp, không thì tìm con đường khác. Mình không muốn ai cố ép bản thân vào khuôn của mình.",
   },
   {
     q: "Có cộng đồng học viên không?",
     a: "Có. Mình đang xây cộng đồng nhỏ cho những người đã đăng ký nhận tin — nơi mọi người chia sẻ trải nghiệm, đặt câu hỏi, và mình trả lời định kỳ. Không phải nhóm 'tự sướng' hay 'PR khóa học' — là không gian để cùng nhau chiêm nghiệm.",
   },
   {
-    q: "Mình có thể đặt câu hỏi trực tiếp với chị không?",
-    a: "Sau khi đăng ký nhận tin, bạn có thể nhắn cho mình qua Zalo hoặc email. Mình không hứa trả lời ngay 24/7 (vì mình cũng có cuộc sống riêng) nhưng sẽ đọc và phản hồi khi có thời gian. Câu hỏi hay sẽ được mình viết thành bài chia sẻ chung.",
+    q: "Mình có thể đặt câu hỏi trực tiếp với Hà không?",
+    a: "Sau khi đăng ký nhận tin, anh/chị có thể nhắn cho mình qua Zalo hoặc email. Mình không hứa trả lời ngay 24/7 (vì mình cũng có cuộc sống riêng) nhưng sẽ đọc và phản hồi khi có thời gian. Câu hỏi hay sẽ được mình viết thành bài chia sẻ chung.",
   },
 ];
 
@@ -176,7 +176,7 @@ const freeOfferItems = [
   {
     icon: Compass,
     title: "Phần 1: 7 câu hỏi tự nhìn vào bản thân",
-    desc: "Bộ câu hỏi chị dùng cho chính mình và đã chia sẻ với một số học viên.",
+    desc: "Bộ câu hỏi Hà dùng cho chính mình và đã chia sẻ với một số học viên.",
   },
   {
     icon: BookOpen,
@@ -186,7 +186,7 @@ const freeOfferItems = [
   {
     icon: Layers,
     title: "Phần 3: Bản đồ tự đánh giá 4 mảng",
-    desc: "4 mảng: sự nghiệp / quan hệ / sức khỏe / bản thân. Cách chị review mỗi quý.",
+    desc: "4 mảng: sự nghiệp / quan hệ / sức khỏe / bản thân. Cách Hà review mỗi quý.",
   },
 ];
 
@@ -260,7 +260,7 @@ export default function HomePage() {
   };
 
   const navLinks = [
-    { label: "Về chị Hà", href: "/about" },
+    { label: "Về Hà", href: "/about" },
     { label: "4 chủ đề", href: "#silos" },
     { label: "Khóa học", href: "#courses" },
     { label: "Blog", href: "/blog" },
@@ -363,7 +363,7 @@ export default function HomePage() {
       <section className="py-12 sm:py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Có thể bạn đang <span className="text-[#FBBF24]">gặp một trong những điều này</span></h2>
+            Có thể anh/chị đang <span className="text-[#FBBF24]">gặp một trong những điều này</span></h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             {painPoints.map((p, i) => (
@@ -386,9 +386,9 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">
-              4 chủ đề <span className="text-[#FBBF24]">chị viết</span>
+              4 chủ đề <span className="text-[#FBBF24]">Hà viết</span>
             </h2>
-            <p className="text-gray-400">Không phải &quot;4 bước thành công&quot;. Đây là 4 mảng chị có chuyện thật để kể.</p>
+            <p className="text-gray-400">Không phải &quot;4 bước thành công&quot;. Đây là 4 mảng Hà có chuyện thật để kể.</p>
           </div>
 
           <div className="space-y-5">
@@ -435,7 +435,7 @@ export default function HomePage() {
 
           <div className="text-center mt-10">
             <button onClick={() => setShowLeadModal(true)} className="btn-green text-base py-3.5 px-8 justify-center inline-flex">
-              <Download size={18} /> Cùng đi với chị một đoạn đường
+              <Download size={18} /> Cùng đi với Hà một đoạn đường
             </button>
           </div>
         </div>
@@ -445,7 +445,7 @@ export default function HomePage() {
       <section id="about" className="py-12 sm:py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Chị <span className="text-[#FBBF24]">{siteConfig.owner.name}</span> là ai?
+            <span className="text-[#FBBF24]">{siteConfig.owner.name}</span> là ai?
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
@@ -501,13 +501,13 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3">
                 <Link href="/about"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-[#FBBF24]/30 text-[#FBBF24] hover:bg-[#FBBF24]/5 transition-colors">
-                  Đọc thêm về chị <ArrowRight size={15} />
+                  Đọc thêm về Hà <ArrowRight size={15} />
                 </Link>
                 <a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all hover:scale-[1.02]"
                   style={{ background: "#1877F2", color: "#fff" }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                  Nhắn cho chị qua Facebook
+                  Nhắn cho Hà qua Facebook
                 </a>
               </div>
             </div>
@@ -519,7 +519,7 @@ export default function HomePage() {
       <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[#0d0d0d]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Chị viết cho <span className="text-[#84CC16]">ai</span>?
+            Hà viết cho <span className="text-[#84CC16]">ai</span>?
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -607,10 +607,10 @@ export default function HomePage() {
       <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[#0d0d0d]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-4">
-            4 thứ chị có để <span className="text-[#84CC16]">chia sẻ với bạn</span>
+            4 thứ Hà có để <span className="text-[#84CC16]">chia sẻ với anh/chị</span>
           </h2>
           <p className="text-center text-gray-400 mb-14 max-w-2xl mx-auto">
-            Không phải khẩu hiệu. Đây là 4 thứ chị thực sự đã có và đang làm.
+            Không phải khẩu hiệu. Đây là 4 thứ Hà thực sự đã có và đang làm.
           </p>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -644,7 +644,7 @@ export default function HomePage() {
               <span className="text-[#FBBF24]">&quot;7 câu hỏi tự nhìn vào bản thân&quot;</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Bộ câu hỏi chị dùng cho chính mình và một số học viên. Miễn phí, chỉ cần email để chị gửi cẩm nang.
+              Bộ câu hỏi Hà dùng cho chính mình và một số học viên. Miễn phí, chỉ cần email để Hà gửi cẩm nang.
             </p>
           </div>
 
@@ -668,7 +668,7 @@ export default function HomePage() {
 
               <div className="space-y-2 text-sm text-gray-400">
                 <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> File PDF, đọc trên điện thoại được</div>
-                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Mỗi tuần chị gửi 1 email ngắn, không spam</div>
+                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Mỗi tuần Hà gửi 1 email ngắn, không spam</div>
                 <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Hủy đăng ký bất cứ lúc nào</div>
               </div>
             </div>
@@ -684,7 +684,7 @@ export default function HomePage() {
               {formStatus === "verify" ? (
                 <div className="w-full">
                   <CheckCircle size={48} className="text-[#22c55e] mx-auto mb-4" />
-                  <h4 className="text-lg font-bold mb-2">Cảm ơn bạn đã đăng ký</h4>
+                  <h4 className="text-lg font-bold mb-2">Cảm ơn anh/chị đã đăng ký</h4>
                   <p className="text-sm text-gray-400 mb-4">Vui lòng kiểm tra email để xác thực tài khoản, sau đó đăng nhập để nhận cẩm nang.</p>
                   <Link href="/login" className="btn-green w-full justify-center py-3 text-base">
                     Đăng nhập <ArrowRight size={18} />
@@ -743,7 +743,7 @@ export default function HomePage() {
             Bắt đầu từ <span className="text-[#FBBF24]">một email</span>
           </h2>
           <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-            Không hứa hẹn viển vông — chỉ là phương pháp thật, trải nghiệm thật, dùng được ngay. Bạn thử một đoạn, thấy hợp thì mình đi tiếp cùng nhau.
+            Không hứa hẹn viển vông — chỉ là phương pháp thật, trải nghiệm thật, dùng được ngay. Anh/chị thử một đoạn, thấy hợp thì mình đi tiếp cùng nhau.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -752,7 +752,7 @@ export default function HomePage() {
             </button>
             <a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 py-3.5 px-8 rounded-lg text-base font-semibold border border-white/10 hover:border-white/20 transition-colors">
-              <MessageCircle size={16} className="text-[#FBBF24]" /> Nhắn cho chị
+              <MessageCircle size={16} className="text-[#FBBF24]" /> Nhắn cho Hà
             </a>
           </div>
         </div>
@@ -769,7 +769,7 @@ export default function HomePage() {
                 <span className="font-bold text-sm">{siteConfig.name}</span>
               </div>
               <ul className="space-y-2 text-sm text-gray-500">
-                <li><Link href="/about" className="hover:text-white transition-colors">Về chị Hà</Link></li>
+                <li><Link href="/about" className="hover:text-white transition-colors">Về Hà</Link></li>
                 <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
                 <li><a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Liên hệ</a></li>
               </ul>
@@ -799,7 +799,7 @@ export default function HomePage() {
             {/* Col 4: Newsletter */}
             <div>
               <h4 className="font-bold text-sm mb-4">Đăng ký nhận tin</h4>
-              <p className="text-xs text-gray-500 mb-3">Mỗi tuần chị gửi 1 email chia sẻ ngắn — không spam, không bán hàng cứng.</p>
+              <p className="text-xs text-gray-500 mb-3">Mỗi tuần Hà gửi 1 email chia sẻ ngắn — không spam, không bán hàng cứng.</p>
               <button onClick={() => setShowLeadModal(true)} className="btn-green text-xs py-2 px-3 inline-flex">
                 <Mail size={12} /> Đăng ký nhận tin
               </button>
@@ -847,9 +847,9 @@ export default function HomePage() {
                     style={{ background: "rgba(212,168,67,0.1)", border: "1px solid rgba(212,168,67,0.2)" }}>
                     <Mail size={32} className="text-[#D4A843]" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Kiểm tra email của bạn</h3>
+                  <h3 className="text-xl font-bold mb-2">Kiểm tra email của anh/chị</h3>
                   <p className="text-sm text-gray-400 mb-2 leading-relaxed">
-                    Chị đã gửi email xác thực đến:
+                    Hà đã gửi email xác thực đến:
                   </p>
                   <p className="text-[#D4A843] font-semibold mb-4">{formData.email}</p>
                   <p className="text-sm text-gray-500 mb-6 leading-relaxed">
@@ -895,7 +895,7 @@ export default function HomePage() {
                         pattern="^(0|\+84)[0-9]{9}$"
                         title="Nhập số điện thoại hợp lệ (VD: 0912345678)"
                         className="input-dark w-full" placeholder="0912345678" />
-                      <p className="text-[10px] text-gray-500 mt-1">Để lại nếu muốn chị hỗ trợ nhanh qua Zalo — có thể bỏ trống.</p>
+                      <p className="text-[10px] text-gray-500 mt-1">Để lại nếu muốn Hà hỗ trợ nhanh qua Zalo — có thể bỏ trống.</p>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-1.5">Email</label>
@@ -911,7 +911,7 @@ export default function HomePage() {
                     </div>
 
                     <p className="text-xs text-gray-500 pt-1">
-                      Bằng cách đăng ký, bạn đồng ý với{" "}
+                      Bằng cách đăng ký, anh/chị đồng ý với{" "}
                       <Link href="/terms-of-service" className="text-[#D4A843] hover:underline">Điều khoản dịch vụ</Link> và{" "}
                       <Link href="/privacy-policy" className="text-[#D4A843] hover:underline">Chính sách bảo mật</Link>
                     </p>

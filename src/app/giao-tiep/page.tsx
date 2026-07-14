@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   title: "Giao tiếp & Quan hệ — Hà Bùi Academy",
   description:
     "Chia sẻ của Hà về giao tiếp trong gia đình và ở chỗ làm. Cách lắng nghe, cách nói điều khó nói, cách xử lý xung đột — từ trải nghiệm thực tế nhiều năm.",
-  alternates: { canonical: "https://buithuha.com/cafe" },
+  alternates: { canonical: "https://buithuha.com/giao-tiep" },
   openGraph: {
     title: "Giao tiếp & Quan hệ — Hà Bùi Academy",
     description:
       "Chia sẻ về giao tiếp và quan hệ — trong gia đình, công sở. Voice ấm áp, câu chuyện thật từ Bùi Hà.",
     type: "website",
-    url: "https://buithuha.com/cafe",
+    url: "https://buithuha.com/giao-tiep",
   },
 };
 

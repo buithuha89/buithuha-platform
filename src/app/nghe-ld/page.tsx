@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   title: "Nghề L&D — Hà Bùi Academy",
   description:
     "Chia sẻ của Hà về nghề Học & Phát triển trong doanh nghiệp. Cho người làm L&D, HR, hoặc Trainer muốn nâng cấp tay nghề từ người trong nghề.",
-  alternates: { canonical: "https://buithuha.com/slowenglish" },
+  alternates: { canonical: "https://buithuha.com/nghe-ld" },
   openGraph: {
     title: "Nghề L&D — Hà Bùi Academy",
     description:
       "Học & Phát triển — góc nhìn người trong nghề. Chia sẻ thật từ Bùi Hà sau nhiều năm làm đào tạo doanh nghiệp.",
     type: "website",
-    url: "https://buithuha.com/slowenglish",
+    url: "https://buithuha.com/nghe-ld",
   },
 };
 

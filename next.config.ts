@@ -9,6 +9,15 @@ const cspReportUri = process.env.CSP_REPORT_URI ?? "";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Slug 4 chủ đề đổi sang tiếng Việt — giữ 301 để link cũ & Google index không hỏng
+  async redirects() {
+    return [
+      { source: "/cafe", destination: "/giao-tiep", permanent: true },
+      { source: "/sanphamso", destination: "/phat-trien-ban-than", permanent: true },
+      { source: "/slowenglish", destination: "/nghe-ld", permanent: true },
+      { source: "/weballinone", destination: "/lanh-dao-quan-ly", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

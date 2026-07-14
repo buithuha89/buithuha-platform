@@ -45,7 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     },
     {
-      url: `${BASE_URL}/cafe`,
+      url: `${BASE_URL}/giao-tiep`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.5,
@@ -75,19 +75,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/slowenglish`,
+      url: `${BASE_URL}/nghe-ld`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/sanphamso`,
+      url: `${BASE_URL}/phat-trien-ban-than`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/weballinone`,
+      url: `${BASE_URL}/lanh-dao-quan-ly`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,

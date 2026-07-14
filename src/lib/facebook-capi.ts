@@ -97,7 +97,7 @@ export async function sendCAPIEvent(params: CAPIEventParams): Promise<boolean> {
     event_name: params.eventName,
     event_time: eventTime,
     event_id: params.eventId || `${params.eventName}_${eventTime}_${Math.random().toString(36).slice(2, 8)}`,
-    event_source_url: params.sourceUrl || "https://buithuha.com/slowenglish",
+    event_source_url: params.sourceUrl || "https://buithuha.com/nghe-ld",
     action_source: params.actionSource || "website",
     user_data: hashUserData(params.userData),
     custom_data: params.customData || {},

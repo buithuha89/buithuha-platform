@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   title: "Phát triển bản thân — Hà Bùi Academy",
   description:
     "Chia sẻ của Hà về tự nhận thức, lập kế hoạch cá nhân, hiểu mình muốn gì. Cách mình tự ngồi xuống với bản thân nhiều năm qua.",
-  alternates: { canonical: "https://buithuha.com/sanphamso" },
+  alternates: { canonical: "https://buithuha.com/phat-trien-ban-than" },
   openGraph: {
     title: "Phát triển bản thân — Hà Bùi Academy",
     description:
       "Hiểu mình rồi mới biết đi đâu. Chia sẻ thật từ Bùi Hà về tự nhìn vào bản thân và lập kế hoạch.",
     type: "website",
-    url: "https://buithuha.com/sanphamso",
+    url: "https://buithuha.com/phat-trien-ban-than",
   },
 };
 

@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   title: "Lãnh đạo & Quản lý — Hà Bùi Academy",
   description:
     "Chia sẻ của Hà cho quản lý cấp trung và doanh chủ SME. Từ trải nghiệm thực — mình đã từng làm quản lý, đã từng vướng những bài học này.",
-  alternates: { canonical: "https://buithuha.com/weballinone" },
+  alternates: { canonical: "https://buithuha.com/lanh-dao-quan-ly" },
   openGraph: {
     title: "Lãnh đạo & Quản lý — Hà Bùi Academy",
     description:
       "Cho quản lý cấp trung và doanh chủ SME. Chia sẻ thật từ Bùi Hà về nghề lãnh đạo — không phải lý thuyết.",
     type: "website",
-    url: "https://buithuha.com/weballinone",
+    url: "https://buithuha.com/lanh-dao-quan-ly",
   },
 };
 

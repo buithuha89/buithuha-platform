@@ -47,7 +47,7 @@ const painPoints = [
 const silos = [
   {
     num: 1, icon: MessageSquare, color: "#FBBF24",
-    href: "/cafe",
+    href: "/giao-tiep",
     title: "GIAO TIẾP & QUAN HỆ",
     subtitle: "Trong gia đình và ở chỗ làm",
     points: [
@@ -60,7 +60,7 @@ const silos = [
   },
   {
     num: 2, icon: Compass, color: "#84CC16",
-    href: "/sanphamso",
+    href: "/phat-trien-ban-than",
     title: "PHÁT TRIỂN BẢN THÂN",
     subtitle: "Hiểu mình rồi mới biết đi đâu",
     points: [
@@ -73,7 +73,7 @@ const silos = [
   },
   {
     num: 3, icon: BookOpen, color: "#FBBF24",
-    href: "/slowenglish",
+    href: "/nghe-ld",
     title: "NGHỀ L&D",
     subtitle: "Cho người làm Học & Phát triển trong doanh nghiệp",
     points: [
@@ -86,7 +86,7 @@ const silos = [
   },
   {
     num: 4, icon: Award, color: "#84CC16",
-    href: "/weballinone",
+    href: "/lanh-dao-quan-ly",
     title: "LÃNH ĐẠO & QUẢN LÝ",
     subtitle: "Cho quản lý cấp trung và doanh chủ SME",
     points: [
@@ -779,10 +779,10 @@ export default function HomePage() {
             <div>
               <h4 className="font-bold text-sm mb-4">4 chủ đề</h4>
               <ul className="space-y-2 text-sm text-gray-500">
-                <li><Link href="/cafe" className="hover:text-white transition-colors">Giao tiếp &amp; Quan hệ</Link></li>
-                <li><Link href="/sanphamso" className="hover:text-white transition-colors">Phát triển bản thân</Link></li>
-                <li><Link href="/slowenglish" className="hover:text-white transition-colors">Nghề L&amp;D</Link></li>
-                <li><Link href="/weballinone" className="hover:text-white transition-colors">Lãnh đạo &amp; Quản lý</Link></li>
+                <li><Link href="/giao-tiep" className="hover:text-white transition-colors">Giao tiếp &amp; Quan hệ</Link></li>
+                <li><Link href="/phat-trien-ban-than" className="hover:text-white transition-colors">Phát triển bản thân</Link></li>
+                <li><Link href="/nghe-ld" className="hover:text-white transition-colors">Nghề L&amp;D</Link></li>
+                <li><Link href="/lanh-dao-quan-ly" className="hover:text-white transition-colors">Lãnh đạo &amp; Quản lý</Link></li>
               </ul>
             </div>
 

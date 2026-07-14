@@ -8,10 +8,10 @@ const HIDE_ON_PATHS = [
   "/hocchuaxongtiendave",
   "/updateveo3.1",
   "/updateveo3",
-  "/slowenglish",
-  "/sanphamso",
-  "/cafe",
-  "/weballinone",
+  "/nghe-ld",
+  "/phat-trien-ban-than",
+  "/giao-tiep",
+  "/lanh-dao-quan-ly",
 ];
 
 export interface CookiePreferences {

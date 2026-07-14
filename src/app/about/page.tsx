@@ -54,10 +54,10 @@ const principles = [
 ];
 
 const silos = [
-  { num: 1, icon: MessageSquare, color: "#FBBF24", href: "/cafe", title: "Giao tiếp & Quan hệ" },
-  { num: 2, icon: Compass, color: "#84CC16", href: "/sanphamso", title: "Phát triển bản thân" },
-  { num: 3, icon: BookOpen, color: "#FBBF24", href: "/slowenglish", title: "Nghề L&D" },
-  { num: 4, icon: Award, color: "#84CC16", href: "/weballinone", title: "Lãnh đạo & Quản lý" },
+  { num: 1, icon: MessageSquare, color: "#FBBF24", href: "/giao-tiep", title: "Giao tiếp & Quan hệ" },
+  { num: 2, icon: Compass, color: "#84CC16", href: "/phat-trien-ban-than", title: "Phát triển bản thân" },
+  { num: 3, icon: BookOpen, color: "#FBBF24", href: "/nghe-ld", title: "Nghề L&D" },
+  { num: 4, icon: Award, color: "#84CC16", href: "/lanh-dao-quan-ly", title: "Lãnh đạo & Quản lý" },
 ];
 
 export default function AboutPage() {

@@ -261,6 +261,7 @@ export default function HomePage() {
 
   const navLinks = [
     { label: "Về Hà", href: "/about" },
+    { label: "Chương trình", href: "/nguoi-tat-den-cuoi-cung" },
     { label: "4 chủ đề", href: "#silos" },
     { label: "Khóa học", href: "#courses" },
     { label: "Blog", href: "/blog" },
@@ -378,6 +379,33 @@ export default function HomePage() {
           <p className="text-center mt-10 text-gray-400">
             Tôi đã từng ở những chỗ này. Không có lối thoát thần kỳ — nhưng có phương pháp, có trải nghiệm thật, và những điều tôi rút ra được để đi qua.
           </p>
+        </div>
+      </section>
+
+      {/* ═══ FLAGSHIP PROGRAM BANNER ═══ */}
+      <section className="py-10 sm:py-16 px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl border border-[#FBBF24]/25 p-8 sm:p-12 text-center"
+            style={{ background: "linear-gradient(135deg,#161616,#0d0d0d)" }}>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[420px] h-[220px] rounded-full opacity-10 blur-[70px] pointer-events-none"
+              style={{ background: "radial-gradient(circle,#FBBF24,transparent 70%)" }} />
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-5 text-xs font-bold"
+                style={{ background: "rgba(251,191,36,0.12)", border: "1px solid rgba(251,191,36,0.25)", color: "#FBBF24" }}>
+                ⭐ Chương trình chủ lực
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-extrabold mb-4">
+                Người Tắt Đèn Cuối Cùng
+              </h2>
+              <p className="text-gray-300 max-w-2xl mx-auto mb-2 leading-relaxed">
+                Chương trình <span className="text-[#FBBF24] font-semibold">90 ngày nâng cao năng lực quản lý</span> — để công việc chạy mà không phải qua tay bạn.
+              </p>
+              <p className="text-sm text-gray-500 mb-7">Dành cho chủ doanh nghiệp SME · quản lý lâu năm · người làm một mình</p>
+              <Link href="/nguoi-tat-den-cuoi-cung" className="btn-green text-base py-3.5 px-8 inline-flex justify-center">
+                Tìm hiểu chương trình <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { siteConfig } from "@/lib/site-config";
 
 const CSS = `
 .ndtc{--paper:#FFFFFF;--card:#F6F8FC;--ink:#0B0E14;--muted:#5B616E;--line:#E6E9F0;--line-2:#F0F2F7;
@@ -352,7 +353,7 @@ export default function LandingClient() {
             <details><summary>Doanh nghiệp bao nhiêu người thì hợp?</summary><div className="body">Hợp nhất với chủ SME <b>5–50 nhân sự</b>, quản lý đã có đội, và cả người đang <b>làm một mình</b> chuẩn bị tuyển người đầu tiên.</div></details>
             <details><summary>Trả góp / xuất hóa đơn?</summary><div className="body">Có. Trả góp <b>2 kỳ × 7.450.000đ</b>. Có <b>xuất hoá đơn VAT</b> cho doanh nghiệp.</div></details>
             <details><summary>Sau chương trình có hỗ trợ tiếp không?</summary><div className="body">Có — bạn ở lại Cộng đồng chủ doanh nghiệp &amp; quản lý <b>12 tháng</b>.</div></details>
-            <details><summary>Vẫn còn phân vân?</summary><div className="body">Để lại thông tin, tôi sẽ liên hệ tư vấn trực tiếp — nếu chương trình không hợp với bạn lúc này, tôi nói thẳng.</div></details>
+            <details><summary>Vẫn còn phân vân?</summary><div className="body">Để lại thông tin, tôi sẽ liên hệ tư vấn trực tiếp — nếu chương trình không hợp với bạn lúc này, tôi nói thẳng. Hoặc nhắn tôi ngay qua <a href={siteConfig.socials.zalo} target="_blank" rel="noopener noreferrer" style={{ color: "var(--go)", fontWeight: 600 }}>Zalo</a> / <a href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer" style={{ color: "var(--go)", fontWeight: 600 }}>Facebook</a>.</div></details>
           </div>
         </div></section>
 

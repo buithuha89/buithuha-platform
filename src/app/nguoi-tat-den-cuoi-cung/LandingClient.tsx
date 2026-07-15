@@ -5,79 +5,135 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
 const CSS = `
-.ndtc{--paper:#FFFFFF;--card:#F6F8FC;--ink:#0B0E14;--muted:#5B616E;--line:#E6E9F0;--line-2:#F0F2F7;
---deep:#0A1B4D;--deep-2:#123A9E;--go:#1F4BFF;--go-deep:#153AD6;--go-bright:#4E77FF;--go-tint:#ECF1FF;--go-line:#C6D6FF;
---pain:#E23B4E;--pain-tint:#FDECEE;--pain-line:#F6C3C9;--gold:#0B0E14;--gold-tint:#F1F3F8;--gold-line:#DADEE8;
+.ndtc{--paper:#F7F3EC;--surf:#FFFDF9;--surf2:#F1EADD;--ink:#221E18;--muted:#6E6455;--muted2:#8A7F6D;
+--line:#E7DECE;--line-2:#F0E9DB;--night:#14171C;--night-2:#1E232B;
+--gold:#CC8A22;--gold-b:#E4A93A;--gold-d:#A9741A;--gold-tint:#F6EAD1;--gold-line:#E7CE9C;
+--teal:#0C6070;--teal-d:#084451;--teal-tint:#E4EEEF;--teal-line:#BAD7DB;
+--pain:#B4530A;--pain-tint:#FAEBDD;--pain-line:#ECCBA8;
 --f:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 --mono:ui-monospace,"Cascadia Mono",Consolas,"SF Mono",monospace;--maxw:1000px;
 background:var(--paper);color:var(--ink);font-family:var(--f);line-height:1.6;-webkit-font-smoothing:antialiased;
 overflow-x:hidden;min-height:100vh;padding-bottom:80px}
 .ndtc *{box-sizing:border-box}
 .ndtc .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-.ndtc h1,.ndtc h2,.ndtc h3{margin:0;letter-spacing:-.03em;text-wrap:balance;line-height:1.08;font-weight:800}
-.ndtc h2{font-size:clamp(28px,5vw,46px);margin-bottom:16px}
-.ndtc .lbl{font-size:11.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--go);display:block;margin-bottom:16px}
+.ndtc h1,.ndtc h2,.ndtc h3{margin:0;letter-spacing:-.03em;text-wrap:balance;line-height:1.1;font-weight:800}
+.ndtc h2{font-size:clamp(28px,5vw,44px);margin-bottom:16px}
+.ndtc .lbl{font-size:11.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d);display:block;margin-bottom:16px}
+.ndtc .lbl.pain{color:var(--pain)}
 .ndtc .lead{color:var(--muted);font-size:clamp(16px,2.1vw,19px);max-width:62ch;text-wrap:pretty}
-.ndtc .story p,.ndtc .col li span,.ndtc .pil span,.ndtc .obj .a,.ndtc .row .t small{text-wrap:pretty}
-.ndtc section{padding:82px 0}
-.ndtc .btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;background:var(--go);color:#fff;
-font-weight:800;font-size:16px;letter-spacing:.02em;padding:18px 36px;border-radius:8px;text-decoration:none;border:0;
-cursor:pointer;text-transform:uppercase;font-family:inherit;box-shadow:0 10px 28px rgba(31,75,255,.30);
-transition:transform .12s ease,background .15s ease}
-.ndtc .btn:hover{background:var(--go-deep);transform:translateY(-2px)}
-.ndtc .btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.ndtc .btn.lg{font-size:17px;padding:20px 44px}
-.ndtc .nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.ndtc .beat p,.ndtc .stateblk li span,.ndtc .rung span,.ndtc .obj .a,.ndtc .row .t small{text-wrap:pretty}
+.ndtc section{padding:80px 0}
+.ndtc .btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;background:var(--gold-b);color:#231A08;
+font-weight:800;font-size:16px;letter-spacing:.02em;padding:17px 34px;border-radius:999px;text-decoration:none;border:0;
+cursor:pointer;text-transform:uppercase;font-family:inherit;box-shadow:0 12px 30px rgba(204,138,34,.34);
+transition:transform .12s ease,background .15s ease,filter .15s ease}
+.ndtc .btn:hover{background:var(--gold);transform:translateY(-2px)}
+.ndtc .btn:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.ndtc .btn.lg{font-size:17px;padding:20px 42px}
+.ndtc .center{text-align:center}
+.ndtc .nav{position:sticky;top:0;z-index:40;background:rgba(247,243,236,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .ndtc .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
 .ndtc .brand{font-weight:800;font-size:15px;text-decoration:none;color:var(--ink)}
 .ndtc .brand small{display:block;font-weight:500;font-size:11px;color:var(--muted)}
 .ndtc .nav .btn{padding:11px 22px;font-size:13px}
-.ndtc .hero{background:linear-gradient(180deg,#EEF3FF 0%,#FFFFFF 72%);color:var(--ink);border-bottom:1px solid var(--line);
-padding:96px 0 78px;position:relative;overflow:hidden}
-.ndtc .hero::after{content:"";position:absolute;right:-140px;bottom:-160px;width:520px;height:520px;border-radius:50%;
-background:radial-gradient(circle,rgba(31,75,255,.18),transparent 64%);filter:blur(48px)}
+
+/* HERO — night + lamp */
+.ndtc .hero{background:var(--night);color:#F3EEE4;padding:80px 0 74px;position:relative;overflow:hidden}
+.ndtc .hero::after{content:"";position:absolute;left:-120px;top:-140px;width:620px;height:520px;
+background:radial-gradient(ellipse at center,rgba(224,169,58,.22),rgba(224,169,58,.05) 44%,transparent 68%);pointer-events:none}
 .ndtc .hero .wrap{position:relative}
-.ndtc .hero .lbl{color:var(--go)}
-.ndtc .hero h1{font-size:clamp(31px,6.2vw,66px);max-width:17ch;margin-bottom:22px;text-wrap:balance}
-.ndtc .hero h1 em{font-style:normal;color:var(--go)}
-.ndtc .hero .sub{color:var(--muted);font-size:clamp(16px,2.15vw,19px);max-width:54ch;margin:0 0 14px;text-wrap:pretty}
-.ndtc .hero .sub:last-of-type{margin-bottom:34px}
-.ndtc .hero .sub b{color:var(--ink)}
-.ndtc .proofstrip{margin-top:38px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 34px}
+.ndtc .hero .lamp{font-size:30px;margin-bottom:14px;filter:drop-shadow(0 0 20px rgba(224,169,58,.55))}
+.ndtc .hero .lbl{color:var(--gold-b)}
+.ndtc .hero h1{font-size:clamp(31px,6vw,62px);max-width:17ch;margin-bottom:20px;color:#fff;text-wrap:balance}
+.ndtc .hero h1 em{font-style:normal;color:var(--gold-b)}
+.ndtc .hero .sub{color:#C9C0B1;font-size:clamp(16px,2.15vw,19px);max-width:52ch;margin:0 0 14px;text-wrap:pretty}
+.ndtc .hero .sub b{color:#fff}
+.ndtc .hero .kill{font-size:15px;border-left:3px solid var(--gold);padding-left:14px;max-width:50ch;margin-bottom:30px}
+.ndtc .hero .kill b{color:#fff}
+.ndtc .proofstrip{margin-top:36px;padding-top:22px;border-top:1px solid #2C313A;display:flex;flex-wrap:wrap;gap:12px 34px}
 .ndtc .proofstrip div{display:flex;flex-direction:column}
-.ndtc .proofstrip .v{font-family:var(--mono);font-weight:800;font-size:22px;color:var(--ink);letter-spacing:-.02em}
-.ndtc .proofstrip .l{font-size:11.5px;color:var(--muted);letter-spacing:.04em}
-.ndtc .gap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
-.ndtc .col{border-radius:14px;padding:26px 26px 22px;border:1px solid var(--line);background:var(--card)}
-.ndtc .col.now{border-color:var(--pain-line);background:var(--pain-tint)}
-.ndtc .col.then{border-color:var(--go-line);background:var(--go-tint)}
-.ndtc .col h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px}
-.ndtc .col.now h3{color:var(--pain)} .ndtc .col.then h3{color:var(--go-deep)}
-.ndtc .col ul{list-style:none;padding:0;margin:0;display:grid;gap:11px}
-.ndtc .col li{display:grid;grid-template-columns:auto 1fr;gap:11px;font-size:15.4px;color:var(--ink)}
-.ndtc .col li i{font-style:normal;font-weight:800}
-.ndtc .col.now li i{color:var(--pain)} .ndtc .col.then li i{color:var(--go-deep)}
-.ndtc .arrowline{text-align:center;margin-top:26px;font-size:19px;font-weight:800;color:var(--go-deep)}
-.ndtc .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
-.ndtc .pil{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 24px;transition:transform .15s ease,border-color .15s ease}
-.ndtc .pil:hover{transform:translateY(-3px);border-color:var(--go)}
-.ndtc .pil .n{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--go);letter-spacing:.1em}
-.ndtc .pil b{display:block;font-size:19px;font-weight:800;margin:8px 0 6px;letter-spacing:-.02em}
-.ndtc .pil span{color:var(--muted);font-size:14.5px}
-.ndtc .story{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--pain);border-radius:12px;padding:28px 30px;margin-top:30px}
-.ndtc .story p{margin:0 0 13px;font-size:16px}
-.ndtc .story p.dim{color:var(--muted)}
-.ndtc .story p.beat{font-weight:800;font-size:18px}
-.ndtc .story .clock{font-family:var(--mono);font-size:12px;color:var(--pain);font-weight:700;display:block;margin-bottom:2px}
-.ndtc .story hr{border:0;border-top:1px dashed var(--line);margin:18px 0}
+.ndtc .proofstrip .v{font-family:var(--mono);font-weight:800;font-size:22px;color:var(--gold-b);letter-spacing:-.02em}
+.ndtc .proofstrip .l{font-size:11px;color:#8A8172;letter-spacing:.05em}
+
+/* OPERATING-STATE PANEL */
+.ndtc .panel{margin-top:34px;background:var(--surf);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 70px -42px rgba(34,30,24,.42)}
+.ndtc .panelhead{display:flex;align-items:center;gap:10px;padding:13px 18px;border-bottom:1px solid var(--line-2);background:var(--surf2)}
+.ndtc .panelhead .dots{display:flex;gap:6px}
+.ndtc .panelhead .dots i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.ndtc .panelhead .fn{font-family:var(--mono);font-size:11.5px;color:var(--muted2);letter-spacing:.04em}
+.ndtc .panelbody{padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.ndtc .panelbody .stateblk.good{border-left:1px dashed var(--line);padding-left:22px}
+.ndtc .stateblk .stt{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin-bottom:13px}
+.ndtc .stateblk.bad .stt{color:var(--pain)} .ndtc .stateblk.good .stt{color:var(--teal)}
+.ndtc .stateblk .tag{margin-left:auto;font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:5px}
+.ndtc .stateblk.bad .tag{background:var(--pain-tint);color:var(--pain);border:1px solid var(--pain-line)}
+.ndtc .stateblk.good .tag{background:var(--teal-tint);color:var(--teal-d);border:1px solid var(--teal-line)}
+.ndtc .stateblk ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.ndtc .stateblk li{display:grid;grid-template-columns:16px 1fr;gap:9px;font-size:14.4px;align-items:start;color:var(--ink)}
+.ndtc .stateblk li i{font-style:normal;font-weight:800;font-family:var(--mono);font-size:13px;line-height:1.5}
+.ndtc .stateblk.bad li i{color:var(--pain)} .ndtc .stateblk.good li i{color:var(--teal)}
+.ndtc .arrowline{text-align:center;margin-top:26px;font-size:18px;font-weight:800;color:var(--gold-d)}
+
+/* STORY TIMELINE */
+.ndtc .tl{max-width:680px;margin:36px 0 0;position:relative;padding-left:32px}
+.ndtc .tl::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold-line),var(--line))}
+.ndtc .beat{position:relative;padding:0 0 26px}
+.ndtc .beat::before{content:"";position:absolute;left:-30px;top:5px;width:15px;height:15px;border-radius:50%;background:var(--surf2);border:2px solid var(--gold)}
+.ndtc .beat .tm{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--gold-d);letter-spacing:.04em}
+.ndtc .beat p{margin:4px 0 0;font-size:15.6px;color:var(--ink)}
+.ndtc .beat p em{color:var(--muted);font-style:italic}
+.ndtc .turn{max-width:680px;margin-top:8px;border-top:1px dashed var(--line);padding-top:24px;display:grid;gap:12px}
+.ndtc .turn p{margin:0}
+.ndtc .turn .tbeat{font-weight:800;font-size:18px}
+.ndtc .turn .tbeat.gold{color:var(--gold-d);font-size:20px}
+.ndtc .turn .tdim{color:var(--muted);font-size:15.6px}
+.ndtc .turn b{color:var(--ink)}
+
+/* 6 TẦNG LADDER */
+.ndtc .ladder{display:grid;gap:10px;margin-top:34px}
+.ndtc .rung{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:20px 22px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.ndtc .rung:hover{border-color:var(--gold);transform:translateX(4px);box-shadow:0 16px 34px -26px rgba(169,116,26,.5)}
+.ndtc .rung .rno{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--gold-d);background:var(--gold-tint);border:1px solid var(--gold-line);border-radius:9px;padding:8px 11px;text-align:center;line-height:1.2;white-space:nowrap}
+.ndtc .rung .rno b{display:block;font-size:19px}
+.ndtc .rung .rtx b{font-size:17px;display:block;margin-bottom:3px}
+.ndtc .rung .rtx span{color:var(--muted);font-size:14.5px}
+
+/* PROOF STATS */
 .ndtc .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:32px}
-.ndtc .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 12px;text-align:center}
-.ndtc .stat .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(21px,3vw,30px);font-weight:700;color:var(--gold);letter-spacing:-.02em}
+.ndtc .stat{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:24px 12px;text-align:center}
+.ndtc .stat .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(21px,3vw,30px);font-weight:800;color:var(--gold-d);letter-spacing:-.02em}
 .ndtc .stat .l{font-size:12px;color:var(--muted);margin-top:5px}
-.ndtc .obj{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:11px}
+
+/* TESTIMONIALS */
+.ndtc .tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
+.ndtc .tcard{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:24px}
+.ndtc .tcard .stars{color:var(--gold-b);font-size:14px;letter-spacing:2px;margin-bottom:10px}
+.ndtc .tcard p{font-size:15.4px;color:var(--ink);margin:0 0 16px;text-wrap:pretty}
+.ndtc .tcard .who{display:flex;align-items:center;gap:12px}
+.ndtc .tcard .av{width:44px;height:44px;border-radius:50%;background:var(--gold-tint);color:var(--gold-d);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;flex-shrink:0}
+.ndtc .tcard .nm{font-weight:800;font-size:14.5px}
+.ndtc .tcard .rl{color:var(--muted);font-size:12.8px}
+
+/* OBJECTIONS */
+.ndtc .obj{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:11px}
 .ndtc .obj .q{font-weight:800;font-size:16px;margin-bottom:5px}
 .ndtc .obj .a{color:var(--muted);font-size:14.7px}
-.ndtc .offerbox{background:var(--card);border:2px solid var(--gold-line);border-radius:16px;margin-top:30px;overflow:hidden}
+.ndtc .obj .a b{color:var(--ink)}
+
+/* POSITIONING — night + lamp glow */
+.ndtc .posn{margin-top:12px;background:var(--night);color:#F3EEE4;border-radius:18px;padding:40px 36px;position:relative;overflow:hidden}
+.ndtc .posn::before{content:"";position:absolute;left:-70px;top:-90px;width:440px;height:340px;background:radial-gradient(ellipse,rgba(224,169,58,.2),transparent 66%);pointer-events:none;z-index:0}
+.ndtc .posn>*{position:relative;z-index:1}
+.ndtc .posn .k{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-b);font-weight:800;margin-bottom:14px;display:block}
+.ndtc .posn h3{font-size:clamp(21px,3.3vw,31px);color:#fff;margin:0 0 16px;max-width:26ch;line-height:1.2;letter-spacing:-.02em}
+.ndtc .posn p{color:#C9C0B1;font-size:15.6px;margin:0;max-width:64ch;text-wrap:pretty}
+.ndtc .posn .line{margin-top:22px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.ndtc .posn .strike{color:#9A8F7D;text-decoration:line-through;font-weight:600;font-size:17px}
+.ndtc .posn .big{font-size:clamp(30px,6vw,50px);font-weight:800;color:var(--gold-b);letter-spacing:-.03em}
+.ndtc .posn .to{color:var(--gold-b);font-weight:800}
+
+/* OFFER */
+.ndtc .offerbox{background:var(--surf);border:2px solid var(--gold-line);border-radius:16px;margin-top:30px;overflow:hidden;box-shadow:0 30px 70px -44px rgba(169,116,26,.5)}
 .ndtc .offerhead{background:var(--gold-tint);border-bottom:1px solid var(--gold-line);padding:22px 28px}
 .ndtc .offerhead b{font-size:18px;font-weight:800}
 .ndtc .offerhead small{display:block;color:var(--muted);font-size:13px;margin-top:3px}
@@ -86,95 +142,94 @@ background:radial-gradient(circle,rgba(31,75,255,.18),transparent 64%);filter:bl
 .ndtc .row:last-of-type{border-bottom:0}
 .ndtc .row .t b{font-size:15.5px}
 .ndtc .row .t small{display:block;color:var(--muted);font-size:13.6px;margin-top:2px}
-.ndtc .row .v{font-family:var(--mono);font-size:13px;color:var(--gold);font-weight:700;white-space:nowrap;padding-top:3px}
+.ndtc .row .v{font-family:var(--mono);font-size:13px;color:var(--gold-d);font-weight:700;white-space:nowrap;padding-top:3px}
 .ndtc .price{background:var(--gold-tint);padding:20px 28px;border-top:2px solid var(--gold-line);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px}
 .ndtc .price .l{color:var(--muted);font-size:14.5px}
-.ndtc .price .r{font-size:21px;font-weight:800;color:var(--gold)}
+.ndtc .price .r{font-size:22px;font-weight:800;color:var(--gold-d)}
 .ndtc .price s{color:var(--muted);font-weight:500;font-size:14px;margin-right:8px}
-.ndtc .guar{margin:20px 28px;background:var(--go-tint);border:1px solid var(--go-line);border-radius:12px;padding:18px 20px;color:var(--muted);font-size:14.7px}
-.ndtc .guar b{color:var(--ink)} .ndtc .guar .t{color:var(--go-deep);font-weight:800}
+.ndtc .guar{margin:20px 28px;background:var(--teal-tint);border:1px solid var(--teal-line);border-radius:12px;padding:18px 20px;color:var(--muted);font-size:14.7px}
+.ndtc .guar b{color:var(--ink)} .ndtc .guar .t{color:var(--teal-d);font-weight:800}
 .ndtc .scarce{list-style:none;padding:16px 20px;margin:0 28px 22px;display:grid;gap:9px;background:var(--pain-tint);border:1px solid var(--pain-line);border-radius:12px}
 .ndtc .scarce li{display:grid;grid-template-columns:auto 1fr;gap:11px;color:var(--muted);font-size:14.7px}
 .ndtc .scarce i{font-style:normal;color:var(--pain);font-weight:800}
 .ndtc .scarce b{color:var(--ink)}
 .ndtc .offercta{padding:0 28px 28px;text-align:center}
 .ndtc .offercta .btn{width:100%;max-width:420px}
-.ndtc details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
-.ndtc summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center}
-.ndtc summary::-webkit-details-marker{display:none}
-.ndtc summary::after{content:"+";color:var(--go);font-size:20px;font-weight:800}
-.ndtc details[open] summary::after{content:"–"}
-.ndtc details .body{padding:15px 22px 18px;color:var(--muted);font-size:14.7px;border-top:1px solid var(--line-2)}
-.ndtc .final{background:linear-gradient(150deg,var(--deep) 0%,var(--deep-2) 52%,#1F4BFF 100%);color:#EAF0FF;text-align:center;padding:92px 0}
-.ndtc .final h2{color:#fff;max-width:18ch;margin:0 auto 18px}
-.ndtc .final p{color:#C6D2FF;font-size:18px;max-width:52ch;margin:0 auto 32px}
-.ndtc .final .btn{background:#fff;color:var(--go-deep);box-shadow:0 10px 30px rgba(0,0,0,.22)}
-.ndtc .final .btn:hover{background:#EAF0FF}
-.ndtc .final .mini{margin-top:18px;font-size:13px;color:#AEC0F7}
-.ndtc footer{padding:36px 0 28px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-.ndtc .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:11px 16px calc(11px + env(safe-area-inset-bottom));
-background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
-.ndtc .sticky .inner{max-width:540px;margin:0 auto}
-.ndtc .sticky .btn{width:100%}
-.ndtc .center{text-align:center}
-.ndtc .alabox{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+
+/* MUA LẺ */
+.ndtc .alabox{margin-top:24px;background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
 .ndtc .alahead{font-weight:800;font-size:17px;margin-bottom:4px}
 .ndtc .alasub{color:var(--muted);font-size:13.5px;margin-bottom:16px}
 .ndtc .alagrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.ndtc .ala{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--paper)}
+.ndtc .ala{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--surf2)}
 .ndtc .ala b{font-size:14px;font-weight:600;line-height:1.3}
 .ndtc .ala .r2{display:flex;align-items:center;gap:9px;flex-shrink:0}
 .ndtc .ala .p2{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
-.ndtc .alabtn{background:none;border:1px solid var(--go);color:var(--go);font-weight:700;font-size:12px;padding:6px 11px;border-radius:7px;cursor:pointer;font-family:inherit;white-space:nowrap}
-.ndtc .alabtn:hover{background:var(--go-tint)}
-.ndtc .decoy{margin-top:18px;background:var(--go-tint);border:1px solid var(--go-line);border-radius:10px;padding:18px 20px;font-size:14.5px;color:var(--ink);text-align:center}
-.ndtc .decoy b{color:var(--go-deep)}
+.ndtc .alabtn{background:none;border:1px solid var(--gold);color:var(--gold-d);font-weight:700;font-size:12px;padding:6px 11px;border-radius:7px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.ndtc .alabtn:hover{background:var(--gold-tint)}
+.ndtc .decoy{margin-top:18px;background:var(--gold-tint);border:1px solid var(--gold-line);border-radius:10px;padding:18px 20px;font-size:14.5px;color:var(--ink);text-align:center}
+.ndtc .decoy b{color:var(--gold-d)}
 .ndtc .decoy .btn{margin-top:14px;width:100%;max-width:360px}
-.ndtc .posn{margin-top:12px;background:linear-gradient(135deg,var(--deep) 0%,var(--go-deep) 100%);color:#fff;border-radius:18px;padding:38px 34px;position:relative;overflow:hidden}
-.ndtc .posn .k{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#AEC0F7;font-weight:800;margin-bottom:14px;display:block}
-.ndtc .posn h3{font-size:clamp(21px,3.3vw,31px);color:#fff;margin:0 0 16px;max-width:24ch;line-height:1.2;letter-spacing:-.02em}
-.ndtc .posn p{color:#D3DEFF;font-size:15.6px;margin:0;max-width:64ch;text-wrap:pretty}
-.ndtc .posn .line{margin-top:22px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.ndtc .posn .strike{color:#9FB2EE;text-decoration:line-through;font-weight:600;font-size:17px}
-.ndtc .posn .big{font-size:clamp(30px,6vw,50px);font-weight:800;color:#fff;letter-spacing:-.03em}
-.ndtc .posn .to{color:#AEC0F7;font-weight:800}
-.ndtc .hero .kill{border-left:3px solid var(--go);padding-left:14px}
-.ndtc .tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
-.ndtc .tcard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px}
-.ndtc .tcard .stars{color:#F5A623;font-size:14px;letter-spacing:2px;margin-bottom:10px}
-.ndtc .tcard p{font-size:15.4px;color:var(--ink);margin:0 0 16px;text-wrap:pretty}
-.ndtc .tcard .who{display:flex;align-items:center;gap:12px}
-.ndtc .tcard .av{width:44px;height:44px;border-radius:50%;background:var(--go-tint);color:var(--go-deep);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;flex-shrink:0}
-.ndtc .tcard .nm{font-weight:800;font-size:14.5px}
-.ndtc .tcard .rl{color:var(--muted);font-size:12.8px}
+
+/* FAQ */
+.ndtc details{background:var(--surf);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.ndtc summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.ndtc summary::-webkit-details-marker{display:none}
+.ndtc summary::after{content:"+";color:var(--gold-d);font-size:20px;font-weight:800}
+.ndtc details[open] summary::after{content:"–"}
+.ndtc details .body{padding:15px 22px 18px;color:var(--muted);font-size:14.7px;border-top:1px solid var(--line-2)}
+.ndtc details .body b{color:var(--ink)}
+
+/* FINAL — night + lamp */
+.ndtc .final{background:var(--night);color:#EDE6D9;text-align:center;padding:88px 0;position:relative;overflow:hidden}
+.ndtc .final::before{content:"";position:absolute;left:50%;top:-100px;transform:translateX(-50%);width:520px;height:380px;background:radial-gradient(ellipse,rgba(224,169,58,.2),transparent 66%);pointer-events:none;z-index:0}
+.ndtc .final .wrap{position:relative;z-index:1}
+.ndtc .final .lamp{font-size:26px;margin-bottom:12px;filter:drop-shadow(0 0 18px rgba(224,169,58,.55))}
+.ndtc .final h2{color:#fff;max-width:18ch;margin:0 auto 16px}
+.ndtc .final p{color:#C4BBAC;font-size:17.5px;max-width:52ch;margin:0 auto 30px}
+.ndtc .final .mini{margin-top:16px;font-size:12.5px;color:#8A8172}
+
+.ndtc footer{padding:36px 0 28px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+.ndtc .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:11px 16px calc(11px + env(safe-area-inset-bottom));
+background:rgba(247,243,236,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.ndtc .sticky .inner{max-width:540px;margin:0 auto}
+.ndtc .sticky .btn{width:100%}
+
+/* FAB */
 .ndtc .fab{position:fixed;right:15px;bottom:88px;z-index:55;display:flex;flex-direction:column;gap:9px}
 .ndtc .fab a{display:inline-flex;align-items:center;gap:8px;padding:10px 15px;border-radius:30px;color:#fff;text-decoration:none;font-weight:800;font-size:13px;box-shadow:0 8px 22px rgba(0,0,0,.22)}
 .ndtc .fab .zl{background:#0068FF} .ndtc .fab .fb{background:#1877F2}
 .ndtc .fab a:hover{filter:brightness(1.06)}
+
 .ndtc .reveal{opacity:0;transform:translateY(16px)}
 .ndtc .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
 @media (prefers-reduced-motion:reduce){.ndtc .reveal{opacity:1;transform:none;transition:none}}
-.ndtc-ov{position:fixed;inset:0;z-index:60;background:rgba(10,20,18,.55);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:18px}
-.ndtc-modal{position:relative;width:100%;max-width:420px;background:#fff;border-radius:16px;padding:30px 28px;box-shadow:0 30px 80px rgba(0,0,0,.3);font-family:"Be Vietnam Pro",system-ui,sans-serif;color:#141C1A}
+
+/* MODAL */
+.ndtc-ov{position:fixed;inset:0;z-index:60;background:rgba(20,23,28,.6);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:18px}
+.ndtc-modal{position:relative;width:100%;max-width:420px;background:#FFFDF9;border-radius:16px;padding:30px 28px;box-shadow:0 30px 80px rgba(0,0,0,.32);font-family:"Be Vietnam Pro",system-ui,sans-serif;color:#221E18}
 .ndtc-modal h3{margin:0 0 5px;font-size:21px;font-weight:800;letter-spacing:-.02em}
-.ndtc-modal .desc{margin:0 0 18px;font-size:14px;color:#5F6C68}
+.ndtc-modal .desc{margin:0 0 18px;font-size:14px;color:#6E6455}
 .ndtc-modal label{display:block;font-size:13.5px;font-weight:600;margin:0 0 5px}
-.ndtc-modal input{width:100%;padding:11px 13px;border:1px solid #DDE1DE;border-radius:8px;font-size:15px;margin-bottom:13px;font-family:inherit;color:#141C1A;background:#fff}
-.ndtc-modal input:focus{outline:2px solid #1F4BFF;outline-offset:1px;border-color:#1F4BFF}
-.ndtc-modal .go{width:100%;background:#1F4BFF;color:#fff;border:0;padding:14px;border-radius:8px;font-weight:800;font-size:15.5px;cursor:pointer;font-family:inherit;text-transform:uppercase;letter-spacing:.02em}
+.ndtc-modal input{width:100%;padding:11px 13px;border:1px solid #E0D7C7;border-radius:8px;font-size:15px;margin-bottom:13px;font-family:inherit;color:#221E18;background:#fff}
+.ndtc-modal input:focus{outline:2px solid #CC8A22;outline-offset:1px;border-color:#CC8A22}
+.ndtc-modal .go{width:100%;background:#E4A93A;color:#231A08;border:0;padding:14px;border-radius:8px;font-weight:800;font-size:15.5px;cursor:pointer;font-family:inherit;text-transform:uppercase;letter-spacing:.02em}
 .ndtc-modal .go:disabled{opacity:.6}
-.ndtc-modal .x{position:absolute;top:12px;right:14px;border:0;background:none;font-size:22px;cursor:pointer;color:#8A9490;line-height:1}
-.ndtc-modal .err{background:#FDEEE9;border:1px solid #F6C4B5;color:#B4442A;padding:9px 12px;border-radius:8px;font-size:13.5px;margin-bottom:12px}
+.ndtc-modal .x{position:absolute;top:12px;right:14px;border:0;background:none;font-size:22px;cursor:pointer;color:#8A7F6D;line-height:1}
+.ndtc-modal .err{background:#FAEBDD;border:1px solid #ECCBA8;color:#B4530A;padding:9px 12px;border-radius:8px;font-size:13.5px;margin-bottom:12px}
 .ndtc-modal .ok{text-align:center;padding:14px 0}
 .ndtc-modal .ok .big{font-size:44px;line-height:1}
 .ndtc-modal .ok h3{margin-top:10px}
+
 @media (max-width:820px){
-.ndtc section{padding:60px 0}
-.ndtc .gap{grid-template-columns:1fr} .ndtc .pillars{grid-template-columns:1fr} .ndtc .alagrid{grid-template-columns:1fr}
+.ndtc section{padding:58px 0}
+.ndtc .panelbody{grid-template-columns:1fr}
+.ndtc .panelbody .stateblk.good{border-left:0;border-top:1px dashed var(--line);padding-left:0;padding-top:16px}
+.ndtc .alagrid{grid-template-columns:1fr}
 .ndtc .stats{grid-template-columns:repeat(2,1fr)} .ndtc .stats .stat:last-child{grid-column:span 2}
 .ndtc .ledger,.ndtc .offercta,.ndtc .price,.ndtc .offerhead{padding-left:20px;padding-right:20px}
 .ndtc .guar,.ndtc .scarce{margin-left:20px;margin-right:20px}
-.ndtc .tgrid{grid-template-columns:1fr} .ndtc .posn{padding:28px 22px}
+.ndtc .tgrid{grid-template-columns:1fr} .ndtc .posn{padding:30px 24px}
 .ndtc .fab a{padding:9px 13px;font-size:12px} .ndtc .fab{bottom:80px;right:12px}
 }
 `;
@@ -244,7 +299,8 @@ export default function LandingClient() {
 
         {/* HERO */}
         <header className="hero"><div className="wrap">
-          <span className="lbl">Người Tắt Đèn Cuối Cùng · Hệ 6 Năng Lực Giải Phóng Người Chủ™</span>
+          <div className="lamp">🔦</div>
+          <span className="lbl">Người Tắt Đèn Cuối Cùng · Lộ Trình 6 Tầng Thôi Ôm Hết™</span>
           <h1>Doanh nghiệp của bạn phải chạy được — <em>cả khi bạn vắng mặt</em>.</h1>
           <p className="sub">Bạn dựng cơ ngơi này để được tự do. Hôm nay, người bị trói chặt nhất trong đó — <b>chính là bạn</b>. Tự do bắt đầu từ ngày bạn <b>thôi ôm hết</b>.</p>
           <p className="sub kill">Không cần bỏ việc để đi học, không cần giỏi quản lý bẩm sinh. <b>6 khóa online</b>, học <b>trọn đời</b>, có <b>biểu mẫu áp dụng ngay trong tuần đầu</b>.</p>
@@ -258,78 +314,81 @@ export default function LandingClient() {
           </div>
         </div></header>
 
-        {/* GAP */}
+        {/* OPERATING STATE */}
         <section><div className="wrap reveal">
           <span className="lbl">Khoảng cách</span>
-          <h2>Giữa nơi bạn đang đứng — và nơi bạn có thể đến.</h2>
-          <p className="lead">Khoảng cách đó không phải là năng lực. Là <span style={{ color: "var(--go)", fontWeight: 800, fontSize: "1.4em", letterSpacing: "-.02em", whiteSpace: "nowrap" }}>cách bạn đang vận hành</span>.</p>
-          <div className="gap">
-            <div className="col now">
-              <h3>◆ Hôm nay</h3>
-              <ul>
-                <li><i>✕</i><span>Việc gì cũng phải qua tay bạn duyệt.</span></li>
-                <li><i>✕</i><span>Giao xong vẫn phải kiểm — thậm chí làm lại.</span></li>
-                <li><i>✕</i><span>Không ai dám tự quyết. Mọi thứ dội ngược lên bàn bạn.</span></li>
-                <li><i>✕</i><span>Nghỉ ba ngày là việc dồn ứ chờ bạn về.</span></li>
-                <li><i>✕</i><span>Tuyển mãi không ra người “làm được như mình”.</span></li>
-                <li><i>✕</i><span>Bạn là người tắt đèn cuối cùng. Mỗi ngày.</span></li>
-              </ul>
-            </div>
-            <div className="col then">
-              <h3>◆ Sau 180 ngày</h3>
-              <ul>
-                <li><i>✓</i><span>Đội ngũ biết rõ đích đến — và tự đi tới đó.</span></li>
-                <li><i>✓</i><span>Bạn giao việc một lần. Không phải làm lại.</span></li>
-                <li><i>✓</i><span>Quản lý tự quyết, tự chịu trách nhiệm kết quả.</span></li>
-                <li><i>✓</i><span>Bạn nghỉ một tuần — cỗ máy vẫn chạy.</span></li>
-                <li><i>✓</i><span>Người mới cứng nghề sau 90 ngày, không phải 9 tháng.</span></li>
-                <li><i>✓</i><span>Bạn dành giờ làm cho thứ thật sự đưa doanh nghiệp đi lên.</span></li>
-              </ul>
+          <h2>Khoảng cách không nằm ở năng lực. Nằm ở cách bạn đang vận hành.</h2>
+          <p className="lead">Cùng một con người, một đội ngũ — chỉ khác cách vận hành. Đây là “trạng thái” doanh nghiệp bạn hôm nay, và sau khi đi hết lộ trình:</p>
+          <div className="panel">
+            <div className="panelhead"><span className="dots"><i></i><i></i><i></i></span><span className="fn">trang-thai-van-hanh.log</span></div>
+            <div className="panelbody">
+              <div className="stateblk bad">
+                <div className="stt">◆ Hôm nay <span className="tag">PHỤ THUỘC 1 NGƯỜI</span></div>
+                <ul>
+                  <li><i>✕</i><span>Việc gì cũng phải qua tay bạn duyệt.</span></li>
+                  <li><i>✕</i><span>Giao xong vẫn phải kiểm — thậm chí làm lại.</span></li>
+                  <li><i>✕</i><span>Không ai dám tự quyết. Mọi thứ dội ngược lên bàn bạn.</span></li>
+                  <li><i>✕</i><span>Nghỉ ba ngày là việc dồn ứ chờ bạn về.</span></li>
+                  <li><i>✕</i><span>Tuyển mãi không ra người “làm được như mình”.</span></li>
+                  <li><i>✕</i><span>Bạn là người tắt đèn cuối cùng. Mỗi ngày.</span></li>
+                </ul>
+              </div>
+              <div className="stateblk good">
+                <div className="stt">◆ Sau lộ trình <span className="tag">TỰ VẬN HÀNH</span></div>
+                <ul>
+                  <li><i>✓</i><span>Đội ngũ biết rõ đích đến — và tự đi tới đó.</span></li>
+                  <li><i>✓</i><span>Bạn giao việc một lần. Không phải làm lại.</span></li>
+                  <li><i>✓</i><span>Quản lý tự quyết, tự chịu trách nhiệm kết quả.</span></li>
+                  <li><i>✓</i><span>Bạn nghỉ một tuần — cỗ máy vẫn chạy.</span></li>
+                  <li><i>✓</i><span>Người mới cứng nghề sau 90 ngày, không phải 9 tháng.</span></li>
+                  <li><i>✓</i><span>Bạn dành giờ làm cho thứ thật sự đưa doanh nghiệp đi lên.</span></li>
+                </ul>
+              </div>
             </div>
           </div>
           <p className="arrowline">↓ Bạn không cần cố gắng nhiều hơn. Bạn cần một cách làm khác. ↓</p>
         </div></section>
 
         {/* STORY */}
-        <section style={{ background: "var(--card)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+        <section style={{ background: "var(--surf2)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
           <div className="wrap reveal">
-            <span className="lbl" style={{ color: "var(--pain)" }}>Sự thật</span>
+            <span className="lbl pain">Sự thật</span>
             <h2>Bạn không còn mệt nữa. Bạn chỉ chai lì.</h2>
-            <div className="story">
-              <p><span className="clock">5:40 SÁNG</span>Bạn tỉnh trước chuông báo thức — không phải vì ngủ đủ, mà vì cái đầu không chịu tắt. Tay với điện thoại trước khi chân chạm đất: hai mươi mấy tin nhắn. Ngày mới bắt đầu bằng việc dọn hậu quả của ngày cũ.</p>
-              <p><span className="clock">8:30 → TRƯA</span>Bạn tự hứa dành buổi sáng cho việc lớn. 9 giờ 10, một nhân viên đứng ở cửa: <em>“Sếp xem giúp em cái này.”</em> Bạn xem. Xem xong thì sửa. Sửa xong thì làm luôn cho nhanh. Đến trưa, việc lớn vẫn nằm nguyên chỗ cũ.</p>
-              <p><span className="clock">19:00</span>Đèn văn phòng vẫn sáng, vì bạn còn ngồi đó. Mọi người về hết. Lúc đó bạn mới bắt đầu làm việc của bạn.</p>
-              <p><span className="clock">23:00</span>Cơm nguội. Nhà ngủ rồi. Cái vai cứng như đá. Cơn ho vặt ba tuần chưa dứt. Bạn không nhớ nổi lần cuối mình ngủ một giấc trọn vẹn.</p>
-              <hr />
-              <p className="beat">Rồi thứ đáng sợ hơn xuất hiện: bạn hết mệt.</p>
-              <p className="dim">Không phải vì nhẹ đi — mà vì bạn <b>chai</b>. Việc gấp không còn làm tim bạn đập nhanh. Lời khen trôi qua như nước. Ngày xưa bạn làm nghề này bằng <b>lửa</b>. Giờ bạn làm bằng <b>quán tính</b>.</p>
-              <p className="beat">Càng chạy nhanh, việc càng dồn về bạn — vì bạn làm nhanh nhất, đúng nhất, ít sai nhất.<br />Bạn chính là cái nút thắt mà bạn đang cố gỡ.</p>
-              <hr />
-              <p className="beat" style={{ color: "var(--go-deep)" }}>Bạn không kẹt vì kém. Bạn kẹt vì giỏi.</p>
-              <p className="dim">Mọi tiêu chuẩn, mọi cách làm đúng đều nằm trong đầu bạn — nên việc gì cũng phải quay về bạn. Ngày bạn đưa nó <b>ra khỏi đầu</b>, biến nó thành mô hình ai cũng dùng được, là ngày bạn thôi vận hành bằng <b>sức</b> (thứ có trần) và bắt đầu vận hành bằng <b>năng lực</b> (thứ học được, trao đi được).</p>
-              <p className="beat">Đèn vẫn sáng sau khi bạn về. Chỉ là bạn không còn phải là người tắt đèn cuối cùng.</p>
+            <div className="tl">
+              <div className="beat"><span className="tm">5:40 SÁNG</span><p>Bạn tỉnh trước chuông báo thức — không phải vì ngủ đủ, mà vì cái đầu không chịu tắt. Tay với điện thoại trước khi chân chạm đất: hai mươi mấy tin nhắn. Ngày mới bắt đầu bằng việc dọn hậu quả của ngày cũ.</p></div>
+              <div className="beat"><span className="tm">8:30 → TRƯA</span><p>Bạn tự hứa dành buổi sáng cho việc lớn. 9 giờ 10, một nhân viên đứng ở cửa: <em>“Sếp xem giúp em cái này.”</em> Bạn xem. Xem xong thì sửa. Sửa xong thì làm luôn cho nhanh. Đến trưa, việc lớn vẫn nằm nguyên chỗ cũ.</p></div>
+              <div className="beat"><span className="tm">19:00 TỐI</span><p>Đèn văn phòng vẫn sáng, vì bạn còn ngồi đó. Mọi người về hết. Lúc đó bạn mới bắt đầu làm việc của bạn.</p></div>
+              <div className="beat"><span className="tm">23:00 KHUYA</span><p>Cơm nguội. Nhà ngủ rồi. Cái vai cứng như đá. Cơn ho vặt ba tuần chưa dứt. Bạn không nhớ nổi lần cuối mình ngủ một giấc trọn vẹn.</p></div>
+            </div>
+            <div className="turn">
+              <p className="tbeat">Rồi thứ đáng sợ hơn xuất hiện: bạn hết mệt.</p>
+              <p className="tdim">Không phải vì nhẹ đi — mà vì bạn <b>chai</b>. Việc gấp không còn làm tim bạn đập nhanh. Lời khen trôi qua như nước. Ngày xưa bạn làm nghề này bằng <b>lửa</b>. Giờ bạn làm bằng <b>quán tính</b>.</p>
+              <p className="tbeat">Càng chạy nhanh, việc càng dồn về bạn — vì bạn làm nhanh nhất, đúng nhất, ít sai nhất. Bạn chính là cái nút thắt mà bạn đang cố gỡ.</p>
+              <p className="tbeat gold">Bạn không kẹt vì kém. Bạn kẹt vì giỏi.</p>
+              <p className="tdim">Mọi tiêu chuẩn, mọi cách làm đúng đều nằm trong đầu bạn — nên việc gì cũng phải quay về bạn. Ngày bạn đưa nó <b>ra khỏi đầu</b>, biến nó thành mô hình ai cũng dùng được, là ngày bạn thôi vận hành bằng <b>sức</b> (thứ có trần) và bắt đầu vận hành bằng <b>năng lực</b> (thứ học được, trao đi được).</p>
+              <p className="tbeat">Đèn vẫn sáng sau khi bạn về. Chỉ là bạn không còn phải là người tắt đèn cuối cùng.</p>
             </div>
           </div>
         </section>
 
-        {/* 6 TRỤ CỘT */}
+        {/* 6 TẦNG */}
         <section><div className="wrap reveal">
-          <span className="lbl">Hệ 6 Năng Lực Giải Phóng Người Chủ™</span>
-          <h2>6 năng lực để bước ra khỏi vòng lặp ôm việc.</h2>
-          <p className="lead">Mỗi năng lực là một khóa gọn, đi kèm <b style={{ color: "var(--ink)" }}>câu chuyện thật · mô hình chuẩn · biểu mẫu áp dụng được ngay</b>. Học theo lộ trình 180 ngày để mỗi năng lực thành thói quen — nhưng truy cập trọn đời, học theo nhịp của bạn.</p>
-          <div className="pillars">
-            <div className="pil"><span className="n">01</span><b>Tư duy người quản lý</b><span>Cách thoát khỏi vòng lặp ôm việc — nhìn ra việc nào đáng làm, việc nào phải buông.</span></div>
-            <div className="pil"><span className="n">02</span><b>Giao việc &amp; uỷ quyền</b><span>Kèm biểu mẫu: giao mà vẫn giữ chuẩn, không phải kiểm từng ly hay làm lại.</span></div>
-            <div className="pil"><span className="n">03</span><b>Đào tạo đội ngũ &amp; onboarding</b><span>Lộ trình đưa người mới tự đứng được — thay vì bạn kèm mãi.</span></div>
-            <div className="pil"><span className="n">04</span><b>Khung năng lực cơ bản</b><span>Để tuyển đúng người, đánh giá công bằng, đào tạo có đích.</span></div>
-            <div className="pil"><span className="n">05</span><b>Nhận sai không mất uy tín</b><span>Cách xử lý khi mình sai mà vẫn giữ được vị thế trước đội ngũ.</span></div>
-            <div className="pil"><span className="n">06</span><b>Phản hồi &amp; nói chuyện khó</b><span>Góp ý, xử lý sai phạm — nói thẳng mà không mất người.</span></div>
+          <span className="lbl">Lộ Trình 6 Tầng Thôi Ôm Hết™</span>
+          <h2>6 tầng năng lực để bước ra khỏi vòng lặp ôm việc.</h2>
+          <p className="lead">Mỗi tầng là một khóa gọn, đi kèm <b style={{ color: "var(--ink)" }}>câu chuyện thật · mô hình chuẩn · biểu mẫu áp dụng được ngay</b>. Leo lần lượt — mỗi tầng gỡ một nút thắt đang buộc bạn vào bàn làm việc. Truy cập trọn đời, học theo nhịp của bạn.</p>
+          <div className="ladder">
+            <div className="rung"><div className="rno">Tầng<b>01</b></div><div className="rtx"><b>Tư duy người quản lý</b><span>Cách thoát khỏi vòng lặp ôm việc — nhìn ra việc nào đáng làm, việc nào phải buông.</span></div></div>
+            <div className="rung"><div className="rno">Tầng<b>02</b></div><div className="rtx"><b>Giao việc &amp; uỷ quyền</b><span>Kèm biểu mẫu: giao mà vẫn giữ chuẩn, không phải kiểm từng ly hay làm lại.</span></div></div>
+            <div className="rung"><div className="rno">Tầng<b>03</b></div><div className="rtx"><b>Đào tạo đội ngũ &amp; onboarding</b><span>Lộ trình đưa người mới tự đứng được — thay vì bạn kèm mãi.</span></div></div>
+            <div className="rung"><div className="rno">Tầng<b>04</b></div><div className="rtx"><b>Khung năng lực cơ bản</b><span>Để tuyển đúng người, đánh giá công bằng, đào tạo có đích.</span></div></div>
+            <div className="rung"><div className="rno">Tầng<b>05</b></div><div className="rtx"><b>Nhận sai không mất uy tín</b><span>Cách xử lý khi mình sai mà vẫn giữ được vị thế trước đội ngũ.</span></div></div>
+            <div className="rung"><div className="rno">Tầng<b>06</b></div><div className="rtx"><b>Phản hồi &amp; nói chuyện khó</b><span>Góp ý, xử lý sai phạm — nói thẳng mà không mất người.</span></div></div>
           </div>
           <div className="center" style={{ marginTop: 34 }}><CTA>Xem gói học ưu đãi →</CTA></div>
         </div></section>
 
         {/* PROOF */}
-        <section style={{ background: "var(--card)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+        <section style={{ background: "var(--surf2)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
           <div className="wrap reveal">
             <span className="lbl">Người đồng hành</span>
             <h2>Tôi vẫn đang ngồi trong ghế nóng — cùng chỗ với bạn.</h2>
@@ -393,14 +452,14 @@ export default function LandingClient() {
         </div></section>
 
         {/* OFFER */}
-        <section id="dangky" style={{ background: "var(--card)", borderTop: "1px solid var(--line)" }}>
+        <section id="dangky" style={{ background: "var(--surf2)", borderTop: "1px solid var(--line)" }}>
           <div className="wrap reveal">
-            <span className="lbl" style={{ color: "var(--gold)" }}>Ưu đãi Founding Member · chỉ 15 suất đầu tiên</span>
+            <span className="lbl">Ưu đãi Founding Member · chỉ 15 suất đầu tiên</span>
             <h2>Bạn nhận được gì</h2>
             <div className="offerbox">
-              <div className="offerhead"><b>Gói trọn — 6 khóa nâng cao năng lực quản lý</b><small>Học online (LMS) · truy cập TRỌN ĐỜI · 6 buổi Zoom tháo gỡ · cộng đồng trọn đời</small></div>
+              <div className="offerhead"><b>Gói trọn — Lộ Trình 6 Tầng Thôi Ôm Hết™</b><small>Học online (LMS) · truy cập TRỌN ĐỜI · 6 buổi Zoom tháo gỡ · cộng đồng trọn đời</small></div>
               <div className="ledger">
-                <div className="row"><div className="t"><b>6 khóa (6 năng lực) trên LMS — truy cập trọn đời</b><small>Tư duy thoát vòng lặp · Giao việc &amp; uỷ quyền · Đào tạo đội ngũ &amp; onboarding · Khung năng lực · Nhận sai không mất uy tín · Phản hồi &amp; nói chuyện khó.</small></div><div className="v">2.940.000đ</div></div>
+                <div className="row"><div className="t"><b>6 khóa (6 tầng năng lực) trên LMS — truy cập trọn đời</b><small>Tư duy thoát vòng lặp · Giao việc &amp; uỷ quyền · Đào tạo đội ngũ &amp; onboarding · Khung năng lực · Nhận sai không mất uy tín · Phản hồi &amp; nói chuyện khó.</small></div><div className="v">2.940.000đ</div></div>
                 <div className="row"><div className="t"><b>6 buổi Zoom tháo gỡ vướng mắc (nhóm)</b><small>Mang đúng tình huống của bạn ra để cùng gỡ trực tiếp.</small></div><div className="v">2.400.000đ</div></div>
                 <div className="row"><div className="t"><b>Bộ biểu mẫu áp dụng được ngay</b><small>Biểu mẫu giao việc &amp; uỷ quyền, khung năng lực theo vị trí, quy trình onboarding theo JD, kịch bản 10 cuộc nói chuyện khó.</small></div><div className="v">990.000đ</div></div>
                 <div className="row"><div className="t"><b>Cộng đồng trọn đời — case study quản trị + biểu mẫu</b><small>Nơi bạn hỏi được những câu không hỏi được với nhân viên.</small></div><div className="v">570.000đ</div></div>
@@ -409,7 +468,7 @@ export default function LandingClient() {
                 <div className="l">Giá gốc: <b style={{ color: "var(--ink)" }}>6.900.000đ</b><br /><span style={{ fontSize: 13 }}>Ưu đãi khách hàng đầu tiên · truy cập trọn đời</span></div>
                 <div className="r"><s>6.900.000đ</s> 1.999.000đ</div>
               </div>
-              <div className="guar"><span className="t">✓ Cam kết bảo đảm.</span> Xem hết <b>3 khóa đầu</b>, nếu bạn không thấy giá trị, nhắn tôi trong <b>14 ngày</b> — tôi <b>hoàn 100% học phí</b>. Rủi ro để tôi lo, không phải bạn.</div>
+              <div className="guar"><span className="t">✓ Cam kết bảo đảm.</span> Xem hết <b>3 tầng đầu</b>, nếu bạn không thấy giá trị, nhắn tôi trong <b>14 ngày</b> — tôi <b>hoàn 100% học phí</b>. Rủi ro để tôi lo, không phải bạn.</div>
               <ul className="scarce">
                 <li><i>◆</i><div>Giá <b>1.999.000đ</b> (thay vì 6.900.000đ) + <b>truy cập trọn đời</b> chỉ mở cho <b>15 khách hàng đầu tiên</b> — hết suất, giá về 6.900.000đ.</div></li>
                 <li><i>◆</i><div>Khóa mở ngay sau khi đăng ký. 6 buổi Zoom tháo gỡ nhóm bắt đầu đợt đầu từ <b>15/09/2026</b>.</div></li>
@@ -420,10 +479,10 @@ export default function LandingClient() {
         </section>
 
         {/* MUA LẺ — chim mồi */}
-        <section style={{ background: "var(--card)", borderTop: "1px solid var(--line)" }}>
+        <section style={{ background: "var(--surf2)", borderTop: "1px solid var(--line)" }}>
           <div className="wrap reveal">
             <span className="lbl">Chưa muốn cả gói?</span>
-            <h2>Mua lẻ từng khóa — chỉ 490.000đ/khóa.</h2>
+            <h2>Mua lẻ từng tầng — chỉ 490.000đ/khóa.</h2>
             <div className="alabox">
               <div className="alahead">6 khóa, mua riêng khóa nào bạn cần</div>
               <div className="alasub">Học phí khóa lẻ được trừ thẳng vào gói trọn nếu bạn nâng cấp trong 30 ngày.</div>
@@ -453,16 +512,17 @@ export default function LandingClient() {
             <details><summary>Doanh nghiệp bao nhiêu người thì hợp?</summary><div className="body">Hợp nhất với chủ SME <b>5–50 nhân sự</b>, quản lý đã có đội, và cả người đang <b>làm một mình</b> chuẩn bị tuyển người đầu tiên.</div></details>
             <details><summary>Thanh toán &amp; hoá đơn?</summary><div className="body">Học phí ưu đãi <b>1.999.000đ</b>, thanh toán 1 lần là truy cập trọn đời. Có <b>xuất hoá đơn VAT</b> nếu bạn cần cho doanh nghiệp.</div></details>
             <details><summary>Sau khóa có hỗ trợ tiếp không?</summary><div className="body">Có — bạn ở lại <b>Cộng đồng trọn đời</b>: case study quản trị và biểu mẫu được cập nhật, hỏi đáp cùng cộng đồng chủ doanh nghiệp &amp; quản lý.</div></details>
-            <details><summary>Vẫn còn phân vân?</summary><div className="body">Để lại thông tin, tôi sẽ liên hệ tư vấn trực tiếp — nếu chương trình không hợp với bạn lúc này, tôi nói thẳng. Hoặc nhắn tôi ngay qua <a href={siteConfig.socials.zalo} target="_blank" rel="noopener noreferrer" style={{ color: "var(--go)", fontWeight: 600 }}>Zalo</a> / <a href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer" style={{ color: "var(--go)", fontWeight: 600 }}>Facebook</a>.</div></details>
+            <details><summary>Vẫn còn phân vân?</summary><div className="body">Để lại thông tin, tôi sẽ liên hệ tư vấn trực tiếp — nếu chương trình không hợp với bạn lúc này, tôi nói thẳng. Hoặc nhắn tôi ngay qua <a href={siteConfig.socials.zalo} target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold-d)", fontWeight: 600 }}>Zalo</a> / <a href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold-d)", fontWeight: 600 }}>Facebook</a>.</div></details>
           </div>
         </div></section>
 
         {/* FINAL CTA */}
         <section className="final"><div className="wrap reveal">
+          <div className="lamp">🔦</div>
           <h2>Sẵn sàng thôi làm người tắt đèn cuối cùng?</h2>
           <p>Năm sau, doanh nghiệp của bạn sẽ chạy bằng hệ thống — hoặc vẫn chạy bằng sức của bạn. Cả hai đều là một lựa chọn.</p>
           <CTA cls="lg">Đăng ký ngay →</CTA>
-          <div className="mini">Chỉ 1.999.000đ · Truy cập trọn đời · Hoàn 100% trong 14 ngày · Ưu đãi khách hàng đầu tiên</div>
+          <div className="mini">Chỉ 1.999.000đ · Truy cập trọn đời · Hoàn 100% trong 14 ngày · 15 suất đầu tiên</div>
         </div></section>
 
         <footer>Hà Bùi Academy — Học viện Quản trị &amp; Kỹ năng thiết yếu · buithuha.com</footer>

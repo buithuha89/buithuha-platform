@@ -17,7 +17,8 @@ overflow-x:hidden;min-height:100vh;padding-bottom:80px}
 .ndtc h1,.ndtc h2,.ndtc h3{margin:0;letter-spacing:-.03em;text-wrap:balance;line-height:1.08;font-weight:800}
 .ndtc h2{font-size:clamp(28px,5vw,46px);margin-bottom:16px}
 .ndtc .lbl{font-size:11.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--go);display:block;margin-bottom:16px}
-.ndtc .lead{color:var(--muted);font-size:clamp(16px,2.1vw,19px);max-width:62ch}
+.ndtc .lead{color:var(--muted);font-size:clamp(16px,2.1vw,19px);max-width:62ch;text-wrap:pretty}
+.ndtc .story p,.ndtc .col li span,.ndtc .pil span,.ndtc .obj .a,.ndtc .row .t small{text-wrap:pretty}
 .ndtc section{padding:82px 0}
 .ndtc .btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;background:var(--go);color:#fff;
 font-weight:800;font-size:16px;letter-spacing:.02em;padding:18px 36px;border-radius:8px;text-decoration:none;border:0;
@@ -37,9 +38,10 @@ padding:96px 0 78px;position:relative;overflow:hidden}
 background:radial-gradient(circle,rgba(31,75,255,.18),transparent 64%);filter:blur(48px)}
 .ndtc .hero .wrap{position:relative}
 .ndtc .hero .lbl{color:var(--go)}
-.ndtc .hero h1{font-size:clamp(36px,6.6vw,68px);max-width:16ch;margin-bottom:22px}
+.ndtc .hero h1{font-size:clamp(31px,6.2vw,66px);max-width:17ch;margin-bottom:22px;text-wrap:balance}
 .ndtc .hero h1 em{font-style:normal;color:var(--go)}
-.ndtc .hero .sub{color:var(--muted);font-size:clamp(16px,2.2vw,20px);max-width:56ch;margin:0 0 34px}
+.ndtc .hero .sub{color:var(--muted);font-size:clamp(16px,2.15vw,19px);max-width:54ch;margin:0 0 14px;text-wrap:pretty}
+.ndtc .hero .sub:last-of-type{margin-bottom:34px}
 .ndtc .hero .sub b{color:var(--ink)}
 .ndtc .proofstrip{margin-top:38px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 34px}
 .ndtc .proofstrip div{display:flex;flex-direction:column}
@@ -202,7 +204,8 @@ export default function LandingClient() {
         <header className="hero"><div className="wrap">
           <span className="lbl">Chương trình nâng cao năng lực quản lý</span>
           <h1>Tự do bắt đầu từ ngày bạn <em>thôi ôm hết</em>.</h1>
-          <p className="sub">Bạn dựng cơ ngơi này để được tự do. Hôm nay, người bị trói chặt nhất trong đó — <b>chính là bạn</b>.<br /><br />90 ngày tới, bạn <b>làm chủ 6 năng lực quản trị</b> khiến cỗ máy chạy được cả khi bạn không có mặt.</p>
+          <p className="sub">Bạn dựng cơ ngơi này để được tự do. Hôm nay, người bị trói chặt nhất trong đó — <b>chính là bạn</b>.</p>
+          <p className="sub">Trong <b>180 ngày</b>, bạn <b>làm chủ 6 năng lực quản trị cốt lõi</b> — đủ thời gian để mỗi năng lực thành thói quen, và để cỗ máy chạy được cả khi bạn không có mặt.</p>
           <CTA cls="lg">Giữ chỗ ngay →</CTA>
           <div className="proofstrip">
             <div><span className="v">10.000+</span><span className="l">HỌC VIÊN</span></div>
@@ -217,7 +220,7 @@ export default function LandingClient() {
         <section><div className="wrap reveal">
           <span className="lbl">Khoảng cách</span>
           <h2>Giữa nơi bạn đang đứng — và nơi bạn có thể đến.</h2>
-          <p className="lead">Khoảng cách đó không phải là năng lực. Là <b style={{ color: "var(--ink)" }}>cách bạn đang vận hành</b>.</p>
+          <p className="lead">Khoảng cách đó không phải là năng lực. Là <span style={{ color: "var(--go)", fontWeight: 800, fontSize: "1.4em", letterSpacing: "-.02em", whiteSpace: "nowrap" }}>cách bạn đang vận hành</span>.</p>
           <div className="gap">
             <div className="col now">
               <h3>◆ Hôm nay</h3>
@@ -231,7 +234,7 @@ export default function LandingClient() {
               </ul>
             </div>
             <div className="col then">
-              <h3>◆ Sau 90 ngày</h3>
+              <h3>◆ Sau 180 ngày</h3>
               <ul>
                 <li><i>✓</i><span>Đội ngũ biết rõ đích đến — và tự đi tới đó.</span></li>
                 <li><i>✓</i><span>Bạn giao việc một lần. Không phải làm lại.</span></li>
@@ -271,7 +274,7 @@ export default function LandingClient() {
         <section><div className="wrap reveal">
           <span className="lbl">6 trụ cột</span>
           <h2>Làm chủ 6 năng lực quyết định doanh nghiệp của bạn.</h2>
-          <p className="lead">Không phải mẹo vặt. Mỗi trụ cột đi kèm <b style={{ color: "var(--ink)" }}>câu chuyện thật · mô hình chuẩn · hướng dẫn thực hành cụ thể</b> — và đi ra một sản phẩm dùng được ngay.</p>
+          <p className="lead">Không phải mẹo vặt. Mỗi trụ cột đi kèm <b style={{ color: "var(--ink)" }}>câu chuyện thật · mô hình chuẩn · hướng dẫn thực hành cụ thể</b> — và đi ra một sản phẩm dùng được ngay. 180 ngày cho bạn đủ thời gian để lần lượt gỡ từng năng lực, không nhồi nhét.</p>
           <div className="pillars">
             <div className="pil"><span className="n">01</span><b>Làm chủ ưu tiên</b><span>Nhìn ra đâu là việc thật sự quyết định doanh nghiệp — và dám buông phần còn lại.</span></div>
             <div className="pil"><span className="n">02</span><b>Làm chủ uỷ quyền</b><span>Giao đúng người, đúng mức, có điểm kiểm. Buông tay mà vẫn nắm.</span></div>
@@ -280,7 +283,7 @@ export default function LandingClient() {
             <div className="pil"><span className="n">05</span><b>Làm chủ đối thoại</b><span>Nói chuyện khó, góp ý, xử lý sai phạm — nói thẳng mà không mất người.</span></div>
             <div className="pil"><span className="n">06</span><b>Làm chủ hiệu suất</b><span>Đo được, kèm được — để đội tự chạy khi bạn vắng mặt.</span></div>
           </div>
-          <div className="center" style={{ marginTop: 34 }}><CTA>Bắt đầu 90 ngày của bạn →</CTA></div>
+          <div className="center" style={{ marginTop: 34 }}><CTA>Bắt đầu 180 ngày của bạn →</CTA></div>
         </div></section>
 
         {/* PROOF */}
@@ -318,9 +321,9 @@ export default function LandingClient() {
             <span className="lbl" style={{ color: "var(--gold)" }}>Suất Founding Member</span>
             <h2>Bạn nhận được gì</h2>
             <div className="offerbox">
-              <div className="offerhead"><b>Người Tắt Đèn Cuối Cùng — Chương trình nâng cao năng lực quản lý</b><small>90 ngày · Chủ doanh nghiệp SME · Quản lý lâu năm · Người làm một mình</small></div>
+              <div className="offerhead"><b>Người Tắt Đèn Cuối Cùng — Chương trình nâng cao năng lực quản lý</b><small>180 ngày · Chủ doanh nghiệp SME · Quản lý lâu năm · Người làm một mình</small></div>
               <div className="ledger">
-                <div className="row"><div className="t"><b>Lõi chương trình — 90 ngày · 12 buổi · online (có ghi hình)</b><small>6 trụ cột năng lực quản trị. Mỗi chặng: câu chuyện thật + mô hình chuẩn + hướng dẫn thực hành cụ thể.</small></div><div className="v">18.000.000đ</div></div>
+                <div className="row"><div className="t"><b>Lõi chương trình — 180 ngày · 12 buổi · online (có ghi hình)</b><small>6 trụ cột năng lực quản trị. Mỗi chặng: câu chuyện thật + mô hình chuẩn + hướng dẫn thực hành cụ thể.</small></div><div className="v">18.000.000đ</div></div>
                 <div className="row"><div className="t"><b>6 buổi tư vấn “soi nút thắt” trực tiếp cùng tôi</b><small>Nhóm nhỏ. Mang đúng doanh nghiệp của bạn ra để cùng gỡ.</small></div><div className="v">12.000.000đ</div></div>
                 <div className="row"><div className="t"><b>Bộ mẫu Khung năng lực &amp; lộ trình theo vị trí</b><small>Điền được ngay — không phải xây từ số 0.</small></div><div className="v">5.000.000đ</div></div>
                 <div className="row"><div className="t"><b>Bộ công cụ Giao việc &amp; Uỷ quyền</b><small>Thôi phải kiểm từng ly và làm lại việc của nhân viên.</small></div><div className="v">3.000.000đ</div></div>
@@ -348,7 +351,7 @@ export default function LandingClient() {
           <span className="lbl">Hỏi &amp; Đáp</span>
           <h2>Câu hỏi thường gặp</h2>
           <div style={{ marginTop: 26 }}>
-            <details><summary>Chương trình bắt đầu khi nào?</summary><div className="body">Khai giảng <b>15/09/2026</b>. Lịch: 1 buổi/tuần, tối thứ Năm 20:00–22:00, xen kẽ 6 buổi tư vấn nhóm. Tổng 12 buổi trong 90 ngày.</div></details>
+            <details><summary>Chương trình bắt đầu khi nào?</summary><div className="body">Khai giảng <b>15/09/2026</b>. Lịch: các buổi cách nhau khoảng 2 tuần, tối thứ Năm 20:00–22:00, xen kẽ 6 buổi tư vấn nhóm. Tổng 12 buổi, trải trong 180 ngày — đủ thời gian để bạn áp dụng từng năng lực vào doanh nghiệp giữa các buổi.</div></details>
             <details><summary>Online hay offline?</summary><div className="body"><b>Online</b> qua Zoom — có <b>ghi hình xem lại</b>, nên bạn không sợ lỡ buổi nào vì việc đột xuất.</div></details>
             <details><summary>Doanh nghiệp bao nhiêu người thì hợp?</summary><div className="body">Hợp nhất với chủ SME <b>5–50 nhân sự</b>, quản lý đã có đội, và cả người đang <b>làm một mình</b> chuẩn bị tuyển người đầu tiên.</div></details>
             <details><summary>Trả góp / xuất hóa đơn?</summary><div className="body">Có. Trả góp <b>2 kỳ × 7.450.000đ</b>. Có <b>xuất hoá đơn VAT</b> cho doanh nghiệp.</div></details>

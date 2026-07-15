@@ -130,6 +130,27 @@ background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-top:1px solid
 .ndtc .decoy{margin-top:18px;background:var(--go-tint);border:1px solid var(--go-line);border-radius:10px;padding:18px 20px;font-size:14.5px;color:var(--ink);text-align:center}
 .ndtc .decoy b{color:var(--go-deep)}
 .ndtc .decoy .btn{margin-top:14px;width:100%;max-width:360px}
+.ndtc .posn{margin-top:12px;background:linear-gradient(135deg,var(--deep) 0%,var(--go-deep) 100%);color:#fff;border-radius:18px;padding:38px 34px;position:relative;overflow:hidden}
+.ndtc .posn .k{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#AEC0F7;font-weight:800;margin-bottom:14px;display:block}
+.ndtc .posn h3{font-size:clamp(21px,3.3vw,31px);color:#fff;margin:0 0 16px;max-width:24ch;line-height:1.2;letter-spacing:-.02em}
+.ndtc .posn p{color:#D3DEFF;font-size:15.6px;margin:0;max-width:64ch;text-wrap:pretty}
+.ndtc .posn .line{margin-top:22px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.ndtc .posn .strike{color:#9FB2EE;text-decoration:line-through;font-weight:600;font-size:17px}
+.ndtc .posn .big{font-size:clamp(30px,6vw,50px);font-weight:800;color:#fff;letter-spacing:-.03em}
+.ndtc .posn .to{color:#AEC0F7;font-weight:800}
+.ndtc .hero .kill{border-left:3px solid var(--go);padding-left:14px}
+.ndtc .tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
+.ndtc .tcard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px}
+.ndtc .tcard .stars{color:#F5A623;font-size:14px;letter-spacing:2px;margin-bottom:10px}
+.ndtc .tcard p{font-size:15.4px;color:var(--ink);margin:0 0 16px;text-wrap:pretty}
+.ndtc .tcard .who{display:flex;align-items:center;gap:12px}
+.ndtc .tcard .av{width:44px;height:44px;border-radius:50%;background:var(--go-tint);color:var(--go-deep);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;flex-shrink:0}
+.ndtc .tcard .nm{font-weight:800;font-size:14.5px}
+.ndtc .tcard .rl{color:var(--muted);font-size:12.8px}
+.ndtc .fab{position:fixed;right:15px;bottom:88px;z-index:55;display:flex;flex-direction:column;gap:9px}
+.ndtc .fab a{display:inline-flex;align-items:center;gap:8px;padding:10px 15px;border-radius:30px;color:#fff;text-decoration:none;font-weight:800;font-size:13px;box-shadow:0 8px 22px rgba(0,0,0,.22)}
+.ndtc .fab .zl{background:#0068FF} .ndtc .fab .fb{background:#1877F2}
+.ndtc .fab a:hover{filter:brightness(1.06)}
 .ndtc .reveal{opacity:0;transform:translateY(16px)}
 .ndtc .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
 @media (prefers-reduced-motion:reduce){.ndtc .reveal{opacity:1;transform:none;transition:none}}
@@ -153,6 +174,8 @@ background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-top:1px solid
 .ndtc .stats{grid-template-columns:repeat(2,1fr)} .ndtc .stats .stat:last-child{grid-column:span 2}
 .ndtc .ledger,.ndtc .offercta,.ndtc .price,.ndtc .offerhead{padding-left:20px;padding-right:20px}
 .ndtc .guar,.ndtc .scarce{margin-left:20px;margin-right:20px}
+.ndtc .tgrid{grid-template-columns:1fr} .ndtc .posn{padding:28px 22px}
+.ndtc .fab a{padding:9px 13px;font-size:12px} .ndtc .fab{bottom:80px;right:12px}
 }
 `;
 
@@ -162,6 +185,12 @@ export default function LandingClient() {
   const [err, setErr] = useState("");
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
   const rootRef = useRef<HTMLDivElement>(null);
+
+  // Lời chứng thực THẬT — chờ chị Hà cung cấp (tên + chức danh + cho phép dùng).
+  // Điền vào mảng này là khối testimonial tự hiện lên trang. KHÔNG dựng review giả.
+  const testimonials: { quote: string; name: string; role: string }[] = [
+    // { quote: "…", name: "…", role: "Giám đốc, Công ty …" },
+  ];
 
   useEffect(() => {
     const els = rootRef.current?.querySelectorAll(".reveal");
@@ -215,10 +244,10 @@ export default function LandingClient() {
 
         {/* HERO */}
         <header className="hero"><div className="wrap">
-          <span className="lbl">Chương trình nâng cao năng lực quản lý</span>
-          <h1>Tự do bắt đầu từ ngày bạn <em>thôi ôm hết</em>.</h1>
-          <p className="sub">Bạn dựng cơ ngơi này để được tự do. Hôm nay, người bị trói chặt nhất trong đó — <b>chính là bạn</b>.</p>
-          <p className="sub">Trong <b>180 ngày</b>, bạn <b>làm chủ 6 năng lực quản trị cốt lõi</b> — đủ thời gian để mỗi năng lực thành thói quen, và để cỗ máy chạy được cả khi bạn không có mặt.</p>
+          <span className="lbl">Người Tắt Đèn Cuối Cùng · Hệ 6 Năng Lực Giải Phóng Người Chủ™</span>
+          <h1>Doanh nghiệp của bạn phải chạy được — <em>cả khi bạn vắng mặt</em>.</h1>
+          <p className="sub">Bạn dựng cơ ngơi này để được tự do. Hôm nay, người bị trói chặt nhất trong đó — <b>chính là bạn</b>. Tự do bắt đầu từ ngày bạn <b>thôi ôm hết</b>.</p>
+          <p className="sub kill">Không cần bỏ việc để đi học, không cần giỏi quản lý bẩm sinh. <b>6 khóa online</b>, học <b>trọn đời</b>, có <b>biểu mẫu áp dụng ngay trong tuần đầu</b>.</p>
           <CTA cls="lg">Đăng ký ngay →</CTA>
           <div className="proofstrip">
             <div><span className="v">10.000+</span><span className="l">HỌC VIÊN</span></div>
@@ -285,7 +314,7 @@ export default function LandingClient() {
 
         {/* 6 TRỤ CỘT */}
         <section><div className="wrap reveal">
-          <span className="lbl">6 năng lực · 6 khóa</span>
+          <span className="lbl">Hệ 6 Năng Lực Giải Phóng Người Chủ™</span>
           <h2>6 năng lực để bước ra khỏi vòng lặp ôm việc.</h2>
           <p className="lead">Mỗi năng lực là một khóa gọn, đi kèm <b style={{ color: "var(--ink)" }}>câu chuyện thật · mô hình chuẩn · biểu mẫu áp dụng được ngay</b>. Học theo lộ trình 180 ngày để mỗi năng lực thành thói quen — nhưng truy cập trọn đời, học theo nhịp của bạn.</p>
           <div className="pillars">
@@ -315,6 +344,26 @@ export default function LandingClient() {
           </div>
         </section>
 
+        {/* TESTIMONIALS — chỉ hiện khi có lời chứng thực THẬT */}
+        {testimonials.length > 0 && (
+          <section><div className="wrap reveal">
+            <span className="lbl">Người học nói gì</span>
+            <h2>Họ đã bước ra khỏi vòng lặp.</h2>
+            <div className="tgrid">
+              {testimonials.map((t, i) => (
+                <div className="tcard" key={i}>
+                  <div className="stars">★★★★★</div>
+                  <p>“{t.quote}”</p>
+                  <div className="who">
+                    <div className="av">{t.name.trim().charAt(0)}</div>
+                    <div><div className="nm">{t.name}</div><div className="rl">{t.role}</div></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div></section>
+        )}
+
         {/* OBJECTIONS */}
         <section><div className="wrap reveal">
           <span className="lbl">Trả lời thẳng</span>
@@ -328,10 +377,25 @@ export default function LandingClient() {
           </div>
         </div></section>
 
+        {/* POSITIONING GIÁ */}
+        <section><div className="wrap reveal">
+          <span className="lbl">Vì sao chỉ 1.999.000đ?</span>
+          <div className="posn">
+            <span className="k">Cùng một hệ thống — một mức giá khác hẳn</span>
+            <h3>Cùng năng lực “giải phóng người chủ” mà nhiều nơi dạy offline vài chục triệu — tôi đóng gói online để bạn học trọn đời.</h3>
+            <p>Tôi không mở lớp offline chục triệu. Tôi lấy đúng 6 năng lực cốt lõi đúc kết từ 15 năm đứng lớp cho Vingroup, FPT Telecom, TokyoLife, gói thành khóa online kèm biểu mẫu dùng ngay — để một người chủ trả <b style={{ color: "#fff" }}>một lần</b>, <b style={{ color: "#fff" }}>dùng trọn đời</b>, không phải bỏ việc đi học xa.</p>
+            <div className="line">
+              <span className="strike">Giá trị thật 6.900.000đ</span>
+              <span className="to">→</span>
+              <span className="big">1.999.000đ</span>
+            </div>
+          </div>
+        </div></section>
+
         {/* OFFER */}
         <section id="dangky" style={{ background: "var(--card)", borderTop: "1px solid var(--line)" }}>
           <div className="wrap reveal">
-            <span className="lbl" style={{ color: "var(--gold)" }}>Ưu đãi khách hàng đầu tiên</span>
+            <span className="lbl" style={{ color: "var(--gold)" }}>Ưu đãi Founding Member · chỉ 15 suất đầu tiên</span>
             <h2>Bạn nhận được gì</h2>
             <div className="offerbox">
               <div className="offerhead"><b>Gói trọn — 6 khóa nâng cao năng lực quản lý</b><small>Học online (LMS) · truy cập TRỌN ĐỜI · 6 buổi Zoom tháo gỡ · cộng đồng trọn đời</small></div>
@@ -347,7 +411,7 @@ export default function LandingClient() {
               </div>
               <div className="guar"><span className="t">✓ Cam kết bảo đảm.</span> Xem hết <b>3 khóa đầu</b>, nếu bạn không thấy giá trị, nhắn tôi trong <b>14 ngày</b> — tôi <b>hoàn 100% học phí</b>. Rủi ro để tôi lo, không phải bạn.</div>
               <ul className="scarce">
-                <li><i>◆</i><div>Giá <b>1.999.000đ</b> (thay vì 6.900.000đ) + <b>truy cập trọn đời</b> chỉ dành cho <b>khách hàng đầu tiên</b> — hết ưu đãi sẽ về 6.900.000đ.</div></li>
+                <li><i>◆</i><div>Giá <b>1.999.000đ</b> (thay vì 6.900.000đ) + <b>truy cập trọn đời</b> chỉ mở cho <b>15 khách hàng đầu tiên</b> — hết suất, giá về 6.900.000đ.</div></li>
                 <li><i>◆</i><div>Khóa mở ngay sau khi đăng ký. 6 buổi Zoom tháo gỡ nhóm bắt đầu đợt đầu từ <b>15/09/2026</b>.</div></li>
               </ul>
               <div className="offercta"><CTA cls="lg">Đăng ký ngay — 1.999.000đ</CTA></div>
@@ -402,6 +466,16 @@ export default function LandingClient() {
         </div></section>
 
         <footer>Hà Bùi Academy — Học viện Quản trị &amp; Kỹ năng thiết yếu · buithuha.com</footer>
+
+        <div className="fab">
+          <a className="zl" href={siteConfig.socials.zalo} target="_blank" rel="noopener noreferrer" aria-label="Chat Zalo">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.5 1.4 4.7 3.6 6.2-.1 1-.6 2.4-1.3 3.3-.2.3.1.7.4.6 1.9-.4 3.3-1 4.2-1.6 1 .3 2 .4 3.1.4 5.5 0 10-3.6 10-8S17.5 3 12 3z" /></svg>Zalo
+          </a>
+          <a className="fb" href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Nhắn Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.5 1.4 4.7 3.6 6.2-.1 1-.6 2.4-1.3 3.3-.2.3.1.7.4.6 1.9-.4 3.3-1 4.2-1.6 1 .3 2 .4 3.1.4 5.5 0 10-3.6 10-8S17.5 3 12 3z" /></svg>Facebook
+          </a>
+        </div>
+
         <div className="sticky"><div className="inner"><CTA>Đăng ký ngay — chỉ 1.999.000đ (trọn đời)</CTA></div></div>
       </div>
 

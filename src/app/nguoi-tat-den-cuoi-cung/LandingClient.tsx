@@ -117,6 +117,19 @@ background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-top:1px solid
 .ndtc .sticky .inner{max-width:540px;margin:0 auto}
 .ndtc .sticky .btn{width:100%}
 .ndtc .center{text-align:center}
+.ndtc .alabox{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+.ndtc .alahead{font-weight:800;font-size:17px;margin-bottom:4px}
+.ndtc .alasub{color:var(--muted);font-size:13.5px;margin-bottom:16px}
+.ndtc .alagrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.ndtc .ala{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--paper)}
+.ndtc .ala b{font-size:14px;font-weight:600;line-height:1.3}
+.ndtc .ala .r2{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.ndtc .ala .p2{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.ndtc .alabtn{background:none;border:1px solid var(--go);color:var(--go);font-weight:700;font-size:12px;padding:6px 11px;border-radius:7px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.ndtc .alabtn:hover{background:var(--go-tint)}
+.ndtc .decoy{margin-top:18px;background:var(--go-tint);border:1px solid var(--go-line);border-radius:10px;padding:18px 20px;font-size:14.5px;color:var(--ink);text-align:center}
+.ndtc .decoy b{color:var(--go-deep)}
+.ndtc .decoy .btn{margin-top:14px;width:100%;max-width:360px}
 .ndtc .reveal{opacity:0;transform:translateY(16px)}
 .ndtc .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
 @media (prefers-reduced-motion:reduce){.ndtc .reveal{opacity:1;transform:none;transition:none}}
@@ -136,7 +149,7 @@ background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-top:1px solid
 .ndtc-modal .ok h3{margin-top:10px}
 @media (max-width:820px){
 .ndtc section{padding:60px 0}
-.ndtc .gap{grid-template-columns:1fr} .ndtc .pillars{grid-template-columns:1fr}
+.ndtc .gap{grid-template-columns:1fr} .ndtc .pillars{grid-template-columns:1fr} .ndtc .alagrid{grid-template-columns:1fr}
 .ndtc .stats{grid-template-columns:repeat(2,1fr)} .ndtc .stats .stat:last-child{grid-column:span 2}
 .ndtc .ledger,.ndtc .offercta,.ndtc .price,.ndtc .offerhead{padding-left:20px;padding-right:20px}
 .ndtc .guar,.ndtc .scarce{margin-left:20px;margin-right:20px}
@@ -206,7 +219,7 @@ export default function LandingClient() {
           <h1>Tự do bắt đầu từ ngày bạn <em>thôi ôm hết</em>.</h1>
           <p className="sub">Bạn dựng cơ ngơi này để được tự do. Hôm nay, người bị trói chặt nhất trong đó — <b>chính là bạn</b>.</p>
           <p className="sub">Trong <b>180 ngày</b>, bạn <b>làm chủ 6 năng lực quản trị cốt lõi</b> — đủ thời gian để mỗi năng lực thành thói quen, và để cỗ máy chạy được cả khi bạn không có mặt.</p>
-          <CTA cls="lg">Giữ chỗ ngay →</CTA>
+          <CTA cls="lg">Đăng ký ngay →</CTA>
           <div className="proofstrip">
             <div><span className="v">10.000+</span><span className="l">HỌC VIÊN</span></div>
             <div><span className="v">350+</span><span className="l">CHƯƠNG TRÌNH</span></div>
@@ -272,18 +285,18 @@ export default function LandingClient() {
 
         {/* 6 TRỤ CỘT */}
         <section><div className="wrap reveal">
-          <span className="lbl">6 trụ cột</span>
-          <h2>Làm chủ 6 năng lực quyết định doanh nghiệp của bạn.</h2>
-          <p className="lead">Không phải mẹo vặt. Mỗi trụ cột đi kèm <b style={{ color: "var(--ink)" }}>câu chuyện thật · mô hình chuẩn · hướng dẫn thực hành cụ thể</b> — và đi ra một sản phẩm dùng được ngay. 180 ngày cho bạn đủ thời gian để lần lượt gỡ từng năng lực, không nhồi nhét.</p>
+          <span className="lbl">6 năng lực · 6 khóa</span>
+          <h2>6 năng lực để bước ra khỏi vòng lặp ôm việc.</h2>
+          <p className="lead">Mỗi năng lực là một khóa gọn, đi kèm <b style={{ color: "var(--ink)" }}>câu chuyện thật · mô hình chuẩn · biểu mẫu áp dụng được ngay</b>. Học theo lộ trình 180 ngày để mỗi năng lực thành thói quen — nhưng truy cập trọn đời, học theo nhịp của bạn.</p>
           <div className="pillars">
-            <div className="pil"><span className="n">01</span><b>Làm chủ ưu tiên</b><span>Nhìn ra đâu là việc thật sự quyết định doanh nghiệp — và dám buông phần còn lại.</span></div>
-            <div className="pil"><span className="n">02</span><b>Làm chủ uỷ quyền</b><span>Giao đúng người, đúng mức, có điểm kiểm. Buông tay mà vẫn nắm.</span></div>
-            <div className="pil"><span className="n">03</span><b>Làm chủ đội ngũ</b><span>Nâng người lên thay vì gánh thay họ: khung năng lực, lộ trình, onboarding 30-60-90.</span></div>
-            <div className="pil"><span className="n">04</span><b>Làm chủ động lực</b><span>Hiểu điều thật sự giữ chân người giỏi — thường không phải là tiền.</span></div>
-            <div className="pil"><span className="n">05</span><b>Làm chủ đối thoại</b><span>Nói chuyện khó, góp ý, xử lý sai phạm — nói thẳng mà không mất người.</span></div>
-            <div className="pil"><span className="n">06</span><b>Làm chủ hiệu suất</b><span>Đo được, kèm được — để đội tự chạy khi bạn vắng mặt.</span></div>
+            <div className="pil"><span className="n">01</span><b>Tư duy người quản lý</b><span>Cách thoát khỏi vòng lặp ôm việc — nhìn ra việc nào đáng làm, việc nào phải buông.</span></div>
+            <div className="pil"><span className="n">02</span><b>Giao việc &amp; uỷ quyền</b><span>Kèm biểu mẫu: giao mà vẫn giữ chuẩn, không phải kiểm từng ly hay làm lại.</span></div>
+            <div className="pil"><span className="n">03</span><b>Đào tạo đội ngũ &amp; onboarding</b><span>Lộ trình đưa người mới tự đứng được — thay vì bạn kèm mãi.</span></div>
+            <div className="pil"><span className="n">04</span><b>Khung năng lực cơ bản</b><span>Để tuyển đúng người, đánh giá công bằng, đào tạo có đích.</span></div>
+            <div className="pil"><span className="n">05</span><b>Nhận sai không mất uy tín</b><span>Cách xử lý khi mình sai mà vẫn giữ được vị thế trước đội ngũ.</span></div>
+            <div className="pil"><span className="n">06</span><b>Phản hồi &amp; nói chuyện khó</b><span>Góp ý, xử lý sai phạm — nói thẳng mà không mất người.</span></div>
           </div>
-          <div className="center" style={{ marginTop: 34 }}><CTA>Bắt đầu 180 ngày của bạn →</CTA></div>
+          <div className="center" style={{ marginTop: 34 }}><CTA>Xem gói học ưu đãi →</CTA></div>
         </div></section>
 
         {/* PROOF */}
@@ -318,30 +331,50 @@ export default function LandingClient() {
         {/* OFFER */}
         <section id="dangky" style={{ background: "var(--card)", borderTop: "1px solid var(--line)" }}>
           <div className="wrap reveal">
-            <span className="lbl" style={{ color: "var(--gold)" }}>Suất Founding Member</span>
+            <span className="lbl" style={{ color: "var(--gold)" }}>Ưu đãi khách hàng đầu tiên</span>
             <h2>Bạn nhận được gì</h2>
             <div className="offerbox">
-              <div className="offerhead"><b>Người Tắt Đèn Cuối Cùng — Chương trình nâng cao năng lực quản lý</b><small>180 ngày · Chủ doanh nghiệp SME · Quản lý lâu năm · Người làm một mình</small></div>
+              <div className="offerhead"><b>Gói trọn — 6 khóa nâng cao năng lực quản lý</b><small>Học online (LMS) · truy cập TRỌN ĐỜI · 6 buổi Zoom tháo gỡ · cộng đồng trọn đời</small></div>
               <div className="ledger">
-                <div className="row"><div className="t"><b>Lõi chương trình — 180 ngày · 12 buổi · online (có ghi hình)</b><small>6 trụ cột năng lực quản trị. Mỗi chặng: câu chuyện thật + mô hình chuẩn + hướng dẫn thực hành cụ thể.</small></div><div className="v">18.000.000đ</div></div>
-                <div className="row"><div className="t"><b>6 buổi tư vấn “soi nút thắt” trực tiếp cùng tôi</b><small>Nhóm nhỏ. Mang đúng doanh nghiệp của bạn ra để cùng gỡ.</small></div><div className="v">12.000.000đ</div></div>
-                <div className="row"><div className="t"><b>Bộ mẫu Khung năng lực &amp; lộ trình theo vị trí</b><small>Điền được ngay — không phải xây từ số 0.</small></div><div className="v">5.000.000đ</div></div>
-                <div className="row"><div className="t"><b>Bộ công cụ Giao việc &amp; Uỷ quyền</b><small>Thôi phải kiểm từng ly và làm lại việc của nhân viên.</small></div><div className="v">3.000.000đ</div></div>
-                <div className="row"><div className="t"><b>Khung Onboarding 30-60-90 ngày</b><small>Người mới cứng nghề sau 3 tháng, không phải 9 tháng.</small></div><div className="v">3.000.000đ</div></div>
-                <div className="row"><div className="t"><b>Kịch bản 10 cuộc nói chuyện khó</b><small>Hết mất ngủ trước buổi nhắc nhở, góp ý, xử lý sai phạm.</small></div><div className="v">2.000.000đ</div></div>
-                <div className="row"><div className="t"><b>Cộng đồng chủ doanh nghiệp &amp; quản lý (12 tháng)</b><small>Nơi bạn hỏi được những câu không hỏi được với nhân viên.</small></div><div className="v">4.000.000đ</div></div>
+                <div className="row"><div className="t"><b>6 khóa (6 năng lực) trên LMS — truy cập trọn đời</b><small>Tư duy thoát vòng lặp · Giao việc &amp; uỷ quyền · Đào tạo đội ngũ &amp; onboarding · Khung năng lực · Nhận sai không mất uy tín · Phản hồi &amp; nói chuyện khó.</small></div><div className="v">2.940.000đ</div></div>
+                <div className="row"><div className="t"><b>6 buổi Zoom tháo gỡ vướng mắc (nhóm)</b><small>Mang đúng tình huống của bạn ra để cùng gỡ trực tiếp.</small></div><div className="v">2.400.000đ</div></div>
+                <div className="row"><div className="t"><b>Bộ biểu mẫu áp dụng được ngay</b><small>Biểu mẫu giao việc &amp; uỷ quyền, khung năng lực theo vị trí, quy trình onboarding theo JD, kịch bản 10 cuộc nói chuyện khó.</small></div><div className="v">990.000đ</div></div>
+                <div className="row"><div className="t"><b>Cộng đồng trọn đời — case study quản trị + biểu mẫu</b><small>Nơi bạn hỏi được những câu không hỏi được với nhân viên.</small></div><div className="v">570.000đ</div></div>
               </div>
               <div className="price">
-                <div className="l">Tổng giá trị: <b style={{ color: "var(--ink)" }}>47.000.000đ</b><br /><span style={{ fontSize: 13 }}>Giá chính thức khi mở bán: <b style={{ color: "var(--ink)" }}>25.000.000đ</b></span></div>
-                <div className="r"><s>25.000.000đ</s> 14.900.000đ<br /><span style={{ fontSize: 13, fontWeight: 500, color: "var(--muted)" }}>hoặc 2 kỳ × 7.450.000đ</span></div>
+                <div className="l">Giá gốc: <b style={{ color: "var(--ink)" }}>6.900.000đ</b><br /><span style={{ fontSize: 13 }}>Ưu đãi khách hàng đầu tiên · truy cập trọn đời</span></div>
+                <div className="r"><s>6.900.000đ</s> 1.999.000đ</div>
               </div>
-              <div className="guar"><span className="t">✓ Cam kết bảo đảm.</span> Học đủ <b>4 buổi đầu</b> và làm bài áp dụng — nếu chưa thấy chuyển biến nào trong cách doanh nghiệp mình vận hành, nhắn tôi trong <b>14 ngày</b>, tôi <b>hoàn 100% học phí</b>. Rủi ro để tôi lo.</div>
+              <div className="guar"><span className="t">✓ Cam kết bảo đảm.</span> Xem hết <b>3 khóa đầu</b>, nếu bạn không thấy giá trị, nhắn tôi trong <b>14 ngày</b> — tôi <b>hoàn 100% học phí</b>. Rủi ro để tôi lo, không phải bạn.</div>
               <ul className="scarce">
-                <li><i>◆</i><div><b>15 suất</b> — mỗi người mang một doanh nghiệp thật vào lớp, tôi kèm sát từng người.</div></li>
-                <li><i>◆</i><div><b>Ưu đãi đến hết 31/08/2026</b> — sau đó về 25.000.000đ. Khai giảng 15/09/2026.</div></li>
-                <li><i>◆</i><div>Founding Member <b>giữ giá trọn đời</b> + <b>1 buổi tư vấn riêng 1-1 (60 phút)</b>.</div></li>
+                <li><i>◆</i><div>Giá <b>1.999.000đ</b> (thay vì 6.900.000đ) + <b>truy cập trọn đời</b> chỉ dành cho <b>khách hàng đầu tiên</b> — hết ưu đãi sẽ về 6.900.000đ.</div></li>
+                <li><i>◆</i><div>Khóa mở ngay sau khi đăng ký. 6 buổi Zoom tháo gỡ nhóm bắt đầu đợt đầu từ <b>15/09/2026</b>.</div></li>
               </ul>
-              <div className="offercta"><CTA cls="lg">Giữ chỗ ngay →</CTA></div>
+              <div className="offercta"><CTA cls="lg">Đăng ký ngay — 1.999.000đ</CTA></div>
+            </div>
+          </div>
+        </section>
+
+        {/* MUA LẺ — chim mồi */}
+        <section style={{ background: "var(--card)", borderTop: "1px solid var(--line)" }}>
+          <div className="wrap reveal">
+            <span className="lbl">Chưa muốn cả gói?</span>
+            <h2>Mua lẻ từng khóa — chỉ 490.000đ/khóa.</h2>
+            <div className="alabox">
+              <div className="alahead">6 khóa, mua riêng khóa nào bạn cần</div>
+              <div className="alasub">Học phí khóa lẻ được trừ thẳng vào gói trọn nếu bạn nâng cấp trong 30 ngày.</div>
+              <div className="alagrid">
+                <div className="ala"><b>1. Tư duy người quản lý — thoát vòng lặp</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => setOpen(true)}>Mua lẻ</button></div></div>
+                <div className="ala"><b>2. Giao việc &amp; uỷ quyền (+ biểu mẫu)</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => setOpen(true)}>Mua lẻ</button></div></div>
+                <div className="ala"><b>3. Đào tạo đội ngũ &amp; onboarding</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => setOpen(true)}>Mua lẻ</button></div></div>
+                <div className="ala"><b>4. Khung năng lực cơ bản</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => setOpen(true)}>Mua lẻ</button></div></div>
+                <div className="ala"><b>5. Nhận sai mà không mất uy tín</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => setOpen(true)}>Mua lẻ</button></div></div>
+                <div className="ala"><b>6. Phản hồi &amp; nói chuyện khó</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => setOpen(true)}>Mua lẻ</button></div></div>
+              </div>
+              <div className="decoy">
+                Mua lẻ chỉ <b>4 khóa</b> đã là <b>1.960.000đ</b> — gần bằng cả gói trọn <b>1.999.000đ</b>, mà gói có tới <b>6 khóa + 6 buổi Zoom + biểu mẫu + cộng đồng trọn đời</b>.<br />
+                <CTA cls="lg">Lấy cả gói cho hời — 1.999.000đ</CTA>
+              </div>
             </div>
           </div>
         </section>
@@ -351,11 +384,11 @@ export default function LandingClient() {
           <span className="lbl">Hỏi &amp; Đáp</span>
           <h2>Câu hỏi thường gặp</h2>
           <div style={{ marginTop: 26 }}>
-            <details><summary>Chương trình bắt đầu khi nào?</summary><div className="body">Khai giảng <b>15/09/2026</b>. Lịch: các buổi cách nhau khoảng 2 tuần, tối thứ Năm 20:00–22:00, xen kẽ 6 buổi tư vấn nhóm. Tổng 12 buổi, trải trong 180 ngày — đủ thời gian để bạn áp dụng từng năng lực vào doanh nghiệp giữa các buổi.</div></details>
-            <details><summary>Online hay offline?</summary><div className="body"><b>Online</b> qua Zoom — có <b>ghi hình xem lại</b>, nên bạn không sợ lỡ buổi nào vì việc đột xuất.</div></details>
+            <details><summary>Học thế nào, bắt đầu khi nào?</summary><div className="body">6 khóa nằm sẵn trên LMS — đăng ký xong học được ngay, mọi lúc, <b>truy cập trọn đời</b>. Lộ trình gợi ý 180 ngày để mỗi năng lực thành thói quen. Riêng <b>6 buổi Zoom tháo gỡ nhóm</b> bắt đầu đợt đầu từ <b>15/09/2026</b>, mỗi buổi cách nhau ~2 tuần (có ghi hình).</div></details>
+            <details><summary>Online hay offline?</summary><div className="body"><b>100% online</b>: khóa học trên LMS (xem lại không giới hạn) + 6 buổi Zoom nhóm (có ghi hình). Không sợ lỡ buổi nào vì việc đột xuất.</div></details>
             <details><summary>Doanh nghiệp bao nhiêu người thì hợp?</summary><div className="body">Hợp nhất với chủ SME <b>5–50 nhân sự</b>, quản lý đã có đội, và cả người đang <b>làm một mình</b> chuẩn bị tuyển người đầu tiên.</div></details>
-            <details><summary>Trả góp / xuất hóa đơn?</summary><div className="body">Có. Trả góp <b>2 kỳ × 7.450.000đ</b>. Có <b>xuất hoá đơn VAT</b> cho doanh nghiệp.</div></details>
-            <details><summary>Sau chương trình có hỗ trợ tiếp không?</summary><div className="body">Có — bạn ở lại Cộng đồng chủ doanh nghiệp &amp; quản lý <b>12 tháng</b>.</div></details>
+            <details><summary>Thanh toán &amp; hoá đơn?</summary><div className="body">Học phí ưu đãi <b>1.999.000đ</b>, thanh toán 1 lần là truy cập trọn đời. Có <b>xuất hoá đơn VAT</b> nếu bạn cần cho doanh nghiệp.</div></details>
+            <details><summary>Sau khóa có hỗ trợ tiếp không?</summary><div className="body">Có — bạn ở lại <b>Cộng đồng trọn đời</b>: case study quản trị và biểu mẫu được cập nhật, hỏi đáp cùng cộng đồng chủ doanh nghiệp &amp; quản lý.</div></details>
             <details><summary>Vẫn còn phân vân?</summary><div className="body">Để lại thông tin, tôi sẽ liên hệ tư vấn trực tiếp — nếu chương trình không hợp với bạn lúc này, tôi nói thẳng. Hoặc nhắn tôi ngay qua <a href={siteConfig.socials.zalo} target="_blank" rel="noopener noreferrer" style={{ color: "var(--go)", fontWeight: 600 }}>Zalo</a> / <a href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer" style={{ color: "var(--go)", fontWeight: 600 }}>Facebook</a>.</div></details>
           </div>
         </div></section>
@@ -364,12 +397,12 @@ export default function LandingClient() {
         <section className="final"><div className="wrap reveal">
           <h2>Sẵn sàng thôi làm người tắt đèn cuối cùng?</h2>
           <p>Năm sau, doanh nghiệp của bạn sẽ chạy bằng hệ thống — hoặc vẫn chạy bằng sức của bạn. Cả hai đều là một lựa chọn.</p>
-          <CTA cls="lg">Giữ chỗ ngay →</CTA>
-          <div className="mini">15 suất · Hoàn 100% học phí trong 14 ngày nếu không hiệu quả</div>
+          <CTA cls="lg">Đăng ký ngay →</CTA>
+          <div className="mini">Chỉ 1.999.000đ · Truy cập trọn đời · Hoàn 100% trong 14 ngày · Ưu đãi khách hàng đầu tiên</div>
         </div></section>
 
         <footer>Hà Bùi Academy — Học viện Quản trị &amp; Kỹ năng thiết yếu · buithuha.com</footer>
-        <div className="sticky"><div className="inner"><CTA>Giữ chỗ ngay — 15 suất · 14.900.000đ</CTA></div></div>
+        <div className="sticky"><div className="inner"><CTA>Đăng ký ngay — chỉ 1.999.000đ (trọn đời)</CTA></div></div>
       </div>
 
       {/* MODAL */}

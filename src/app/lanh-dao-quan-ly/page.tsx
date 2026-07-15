@@ -4,7 +4,7 @@ import SiloPage, { type SiloData } from "@/components/silo/SiloPage";
 export const metadata: Metadata = {
   title: "Lãnh đạo & Quản lý — Hà Bùi Academy",
   description:
-    "Chia sẻ của Hà cho quản lý cấp trung và doanh chủ SME. Từ trải nghiệm thực — mình đã từng làm quản lý, đã từng vướng những bài học này.",
+    "Chia sẻ của Hà cho quản lý cấp trung và doanh chủ SME. Từ trải nghiệm thực — mình vẫn đang trực tiếp làm quản lý, và đã đi qua chính những bài học này.",
   alternates: { canonical: "https://buithuha.com/lanh-dao-quan-ly" },
   openGraph: {
     title: "Lãnh đạo & Quản lý — Hà Bùi Academy",

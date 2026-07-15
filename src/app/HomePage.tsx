@@ -136,7 +136,7 @@ const fallbackCourses = [
 /* Stats bar — đổi từ số học viên giả sang 4 giá trị cốt lõi của brand */
 const valueBar = [
   { icon: BookOpen, label: "Học thuật", desc: "MBA + nhiều năm đào tạo" },
-  { icon: Briefcase, label: "Thực chiến", desc: "Đã từng là quản lý" },
+  { icon: Briefcase, label: "Thực chiến", desc: "Vẫn đang trực tiếp làm quản lý" },
   { icon: Heart, label: "Đồng cảm", desc: "Hiểu nỗi đau từ bên trong" },
   { icon: Coffee, label: "Chia sẻ", desc: "Như ngồi nói chuyện cafe" },
 ];
@@ -144,7 +144,7 @@ const valueBar = [
 const faqs = [
   {
     q: "Bạn có phải coach chuyên nghiệp không?",
-    a: "Tôi chưa từng tự nhận là coach và cũng chưa qua chứng chỉ coach quốc tế. Tôi là người đào tạo nhiều năm, từng làm quản lý, đã học MBA và là người thích chiêm nghiệm. Những gì chia sẻ ở đây là trải nghiệm thật của tôi — không phải lý thuyết tham khảo.",
+    a: "Tôi chưa từng tự nhận là coach và cũng chưa qua chứng chỉ coach quốc tế. Tôi là người đào tạo nhiều năm, hiện vẫn trực tiếp làm quản lý, đã học MBA và là người thích chiêm nghiệm. Những gì chia sẻ ở đây là trải nghiệm thật của tôi — không phải lý thuyết tham khảo.",
   },
   {
     q: "Nội dung của Hà Bùi Academy phù hợp với ai?",
@@ -152,7 +152,7 @@ const faqs = [
   },
   {
     q: "Cách tiếp cận của bạn khác gì các chương trình khác trên thị trường?",
-    a: "Tôi không giảng 'framework X bước' hay 'công thức Y'. Tôi chia sẻ phương pháp luận có hệ thống (từ background MBA + đào tạo), kết hợp với trải nghiệm thực chiến (từng là quản lý), và quan trọng nhất là sự đồng cảm — vì tôi đã đi qua những nỗi đau đó.",
+    a: "Tôi không giảng 'framework X bước' hay 'công thức Y'. Tôi chia sẻ phương pháp luận có hệ thống (từ background MBA + đào tạo), kết hợp với trải nghiệm thực chiến (hiện vẫn đang trực tiếp làm quản lý), và quan trọng nhất là sự đồng cảm — vì tôi đang đi qua chính những nỗi đau đó.",
   },
   {
     q: "Khóa học bao nhiêu tiền? Có cam kết kết quả không?",
@@ -341,7 +341,7 @@ export default function HomePage() {
           <p className="text-sm sm:text-lg text-gray-400 max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
             Nơi dành cho <strong className="text-white">quản lý mới lên, quản lý cấp trung, chủ doanh nghiệp nhỏ và người làm một mình</strong> —
             học cách xây đội nhóm, giao việc và vận hành bằng hệ thống, thay vì gồng bằng sức.
-            Mình là {siteConfig.owner.name}: MBA, nhiều năm đào tạo trong doanh nghiệp, từng ngồi đúng cái ghế quản lý áp lực đó — và viết lại những gì thật sự dùng được.
+            Mình là {siteConfig.owner.name}: MBA, nhiều năm đào tạo trong doanh nghiệp, vẫn đang ngồi đúng cái ghế quản lý áp lực đó — và viết lại những gì thật sự dùng được.
           </p>
 
           {/* CTA */}
@@ -355,7 +355,7 @@ export default function HomePage() {
           <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 mt-8 sm:mt-12 text-xs sm:text-sm text-gray-500">
             <span className="flex items-center gap-1.5"><BookOpen size={14} className="text-[#FBBF24]" /> MBA</span>
             <span className="flex items-center gap-1.5"><Briefcase size={14} className="text-[#84CC16]" /> Nhiều năm đào tạo</span>
-            <span className="flex items-center gap-1.5"><Heart size={14} className="text-[#FBBF24]" /> Từng làm quản lý</span>
+            <span className="flex items-center gap-1.5"><Heart size={14} className="text-[#FBBF24]" /> Vẫn đang làm quản lý</span>
           </div>
         </div>
       </section>
@@ -498,12 +498,12 @@ export default function HomePage() {
             {/* Bio */}
             <div className="lg:col-span-3 space-y-5">
               <h3 className="text-xl sm:text-2xl font-bold leading-snug">
-                Đã từng làm <span className="text-[#FBBF24]">đào tạo, quản lý, và đi học MBA</span>
+                Vẫn đang làm <span className="text-[#FBBF24]">đào tạo và quản lý</span> — đã học xong MBA
               </h3>
 
               <p className="text-gray-400 leading-relaxed">
-                Tôi làm đào tạo trong doanh nghiệp đã nhiều năm. Trước đó tôi từng là quản lý, có lúc lead team, có lúc bị áp lực
-                kẹp giữa sếp và nhân viên. Sau khi học MBA xong, tôi dành thời gian đọc, viết, ghi lại những gì tôi từng làm.
+                Tôi làm đào tạo trong doanh nghiệp đã nhiều năm. Song song đó, tôi vẫn đang trực tiếp làm quản lý — lead team,
+                chịu áp lực kẹp giữa sếp và nhân viên. Sau khi học MBA xong, tôi dành thời gian đọc, viết, ghi lại những gì tôi làm mỗi ngày.
                 Hà Bùi Academy là nơi tôi tập hợp những thứ đó.
               </p>
 
@@ -511,7 +511,7 @@ export default function HomePage() {
                 {[
                   { icon: "🎓", text: "MBA" },
                   { icon: "💼", text: "Nhiều năm làm chuyên gia đào tạo trong doanh nghiệp" },
-                  { icon: "👥", text: "Từng làm quản lý — hiểu áp lực của người ngồi ghế leader" },
+                  { icon: "👥", text: "Vẫn đang trực tiếp làm quản lý — hiểu áp lực của người ngồi ghế leader" },
                   { icon: "📚", text: "Thích đọc, viết, và ghi chép" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">

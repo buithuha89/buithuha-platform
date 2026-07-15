@@ -16,7 +16,7 @@ const FacebookIcon = (props: { size?: number; className?: string }) => (
 export const metadata: Metadata = {
   title: `Về ${siteConfig.owner.name} — ${siteConfig.name}`,
   description:
-    "Bùi Hà — chuyên gia đào tạo nhiều năm, từng làm quản lý, học MBA. Hà Bùi Academy là nơi Hà ghi lại những gì đã làm, đã trải qua, và muốn chia sẻ.",
+    "Bùi Hà — chuyên gia đào tạo nhiều năm, hiện vẫn trực tiếp làm quản lý, học MBA. Hà Bùi Academy là nơi Hà ghi lại những gì đang làm, đã trải qua, và muốn chia sẻ.",
   alternates: { canonical: "https://buithuha.com/about" },
   openGraph: {
     title: `Về ${siteConfig.owner.name} — ${siteConfig.name}`,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const background = [
   { icon: GraduationCap, label: "MBA", desc: "Nền tảng phương pháp luận Hà mang theo trong mọi việc" },
   { icon: Briefcase, label: "Nhiều năm đào tạo", desc: "Làm L&D / đào tạo trong doanh nghiệp" },
-  { icon: Award, label: "Từng làm quản lý", desc: "Hiểu áp lực của người ngồi ghế leader từ bên trong" },
+  { icon: Award, label: "Vẫn đang làm quản lý", desc: "Đang ngồi trong ghế leader — hiểu áp lực từ bên trong" },
   { icon: PenLine, label: "Đọc và viết hàng ngày", desc: "Thích chiêm nghiệm, ghi chép, và chia sẻ" },
 ];
 
@@ -110,7 +110,7 @@ export default function AboutPage() {
                 Mình là <span className="text-[#FBBF24]">{siteConfig.owner.name}</span>
               </h1>
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                Nhiều năm làm đào tạo. Từng làm quản lý. Đã học xong MBA. Thích đọc, thích viết, thích ngồi yên suy nghĩ.
+                Nhiều năm làm đào tạo. Hiện vẫn trực tiếp làm quản lý. Đã học xong MBA. Thích đọc, thích viết, thích ngồi yên suy nghĩ.
               </p>
               <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                 Mình không tự nhận là coach, cũng không có công thức nào kỳ diệu. {siteConfig.name} là nơi mình tập hợp lại

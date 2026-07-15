@@ -308,8 +308,8 @@ export default function LandingClient() {
           <div className="proofstrip">
             <div><span className="v">10.000+</span><span className="l">HỌC VIÊN</span></div>
             <div><span className="v">350+</span><span className="l">CHƯƠNG TRÌNH</span></div>
-            <div><span className="v">1.000+</span><span className="l">LỚP HỌC</span></div>
-            <div><span className="v">15</span><span className="l">NĂM</span></div>
+            <div><span className="v">1.000+</span><span className="l">KHÓA HỌC</span></div>
+            <div><span className="v">15</span><span className="l">NĂM ĐT / QL</span></div>
             <div><span className="v">MBA</span><span className="l">QUẢN TRỊ KINH DOANH</span></div>
           </div>
         </div></header>
@@ -396,8 +396,8 @@ export default function LandingClient() {
             <div className="stats" style={{ marginTop: 28 }}>
               <div className="stat"><div className="v">10.000+</div><div className="l">học viên đã đào tạo</div></div>
               <div className="stat"><div className="v">350+</div><div className="l">chương trình đào tạo</div></div>
-              <div className="stat"><div className="v">1.000+</div><div className="l">lớp học đã đứng</div></div>
-              <div className="stat"><div className="v">15</div><div className="l">năm trong nghề</div></div>
+              <div className="stat"><div className="v">1.000+</div><div className="l">khóa học</div></div>
+              <div className="stat"><div className="v">15</div><div className="l">năm đào tạo / quản lý</div></div>
               <div className="stat"><div className="v">MBA</div><div className="l">Quản trị Kinh doanh</div></div>
             </div>
           </div>

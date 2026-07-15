@@ -152,7 +152,7 @@ const faqs = [
   },
   {
     q: "Cách tiếp cận của bạn khác gì các chương trình khác trên thị trường?",
-    a: "Tôi không giảng 'framework X bước' hay 'công thức Y'. Tôi chia sẻ phương pháp luận có hệ thống (từ background MBA + đào tạo), kết hợp với trải nghiệm thực chiến (hiện vẫn đang trực tiếp làm quản lý), và quan trọng nhất là sự đồng cảm — vì tôi đang đi qua chính những nỗi đau đó.",
+    a: "Tôi không bán 'công thức thần kỳ' hay lý thuyết suông. Tôi chia sẻ phương pháp luận có hệ thống (từ background MBA + đào tạo), kết hợp với trải nghiệm thực chiến (hiện vẫn đang trực tiếp làm quản lý), và quan trọng nhất là sự đồng cảm — vì tôi đang đi qua chính những nỗi đau đó.",
   },
   {
     q: "Khóa học bao nhiêu tiền? Có cam kết kết quả không?",
@@ -398,7 +398,7 @@ export default function HomePage() {
                 Người Tắt Đèn Cuối Cùng
               </h2>
               <p className="text-gray-300 max-w-2xl mx-auto mb-2 leading-relaxed">
-                Chương trình <span className="text-[#FBBF24] font-semibold">90 ngày nâng cao năng lực quản lý</span> — để công việc chạy mà không phải qua tay bạn.
+                Chương trình <span className="text-[#FBBF24] font-semibold">180 ngày nâng cao năng lực quản lý</span> — để công việc chạy mà không phải qua tay bạn.
               </p>
               <p className="text-sm text-gray-500 mb-7">Dành cho chủ doanh nghiệp SME · quản lý lâu năm · người làm một mình</p>
               <Link href="/nguoi-tat-den-cuoi-cung" className="btn-green text-base py-3.5 px-8 inline-flex justify-center">
@@ -522,8 +522,8 @@ export default function HomePage() {
               </div>
 
               <blockquote className="border-l-2 border-[#FBBF24] pl-4 italic text-gray-400 text-sm">
-                &quot;Tôi chưa làm coach, cũng chưa có năng lực coach. Tôi chỉ muốn chia sẻ những gì tôi đang làm,
-                đã từng trải qua thôi.&quot;
+                &quot;Tôi không phải coach kiểu diễn giả truyền cảm hứng. Tôi là người vẫn đang trực tiếp làm quản lý —
+                và chia sẻ lại đúng những gì tôi dùng được thật.&quot;
               </blockquote>
 
               <div className="flex flex-wrap gap-3">

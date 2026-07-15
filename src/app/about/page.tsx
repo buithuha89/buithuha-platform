@@ -144,9 +144,9 @@ export default function AboutPage() {
               với văn hóa Việt, gia đình Việt, công sở Việt.
             </p>
             <p>
-              <strong className="text-white">{siteConfig.name} là nơi mình ghi lại những điều đó.</strong> Không phải lớp học
-              cao siêu. Không phải khóa coaching đắt tiền. Chỉ là một chỗ để Hà viết, bạn đọc, và nếu thấy hữu ích thì
-              chúng ta cùng đi tiếp.
+              <strong className="text-white">{siteConfig.name} là nơi mình ghi lại những điều đó.</strong> Không hứa hẹn màu mè,
+              không lý thuyết cao siêu. Phần lớn ở đây miễn phí để đọc — còn nếu bạn muốn đi sâu theo lộ trình, mình có những
+              khóa học được đóng gói kỹ, đúc kết từ chính việc mình đang làm mỗi ngày.
             </p>
           </div>
         </div>
@@ -175,8 +175,8 @@ export default function AboutPage() {
           </div>
 
           <blockquote className="mt-10 max-w-2xl mx-auto border-l-2 border-[#FBBF24] pl-5 italic text-gray-300 text-base sm:text-lg leading-relaxed">
-            &quot;Mình chưa làm coach, cũng chưa có năng lực coach. Mình chỉ muốn chia sẻ những gì mình đang làm,
-            đã từng trải qua thôi.&quot;
+            &quot;Mình không phải coach kiểu diễn giả truyền cảm hứng. Mình là người vẫn đang trực tiếp làm quản lý —
+            và chia sẻ lại đúng những gì mình dùng được thật.&quot;
           </blockquote>
         </div>
       </section>

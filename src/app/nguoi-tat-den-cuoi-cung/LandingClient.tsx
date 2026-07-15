@@ -4,9 +4,9 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 const CSS = `
-.ndtc{--paper:#FBFAF7;--card:#FFFFFF;--ink:#141C1A;--muted:#5F6C68;--line:#E6E4DC;--line-2:#F1EFE9;
---deep:#07332B;--deep-2:#0B4B3E;--go:#0FA37F;--go-deep:#0B7D62;--go-bright:#22C79E;--go-tint:#E6F7F2;--go-line:#9BDCC7;
---pain:#E2664A;--pain-tint:#FDEEE9;--pain-line:#F5C3B4;--gold:#DFA22E;--gold-tint:#FDF4E3;--gold-line:#F0D398;
+.ndtc{--paper:#150F14;--card:#221A20;--ink:#F4EFEA;--muted:#A99FA6;--line:rgba(255,255,255,.10);--line-2:rgba(255,255,255,.055);
+--deep:#1C0D12;--deep-2:#3A0F18;--go:#EE3B33;--go-deep:#C92E27;--go-bright:#F6B31E;--go-tint:rgba(238,59,51,.13);--go-line:rgba(238,59,51,.34);
+--pain:#F0603E;--pain-tint:rgba(240,96,62,.12);--pain-line:rgba(240,96,62,.30);--gold:#F6B31E;--gold-tint:rgba(246,179,30,.11);--gold-line:rgba(246,179,30,.34);
 --f:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 --mono:ui-monospace,"Cascadia Mono",Consolas,"SF Mono",monospace;--maxw:1000px;
 background:var(--paper);color:var(--ink);font-family:var(--f);line-height:1.6;-webkit-font-smoothing:antialiased;
@@ -20,41 +20,41 @@ overflow-x:hidden;min-height:100vh;padding-bottom:80px}
 .ndtc section{padding:82px 0}
 .ndtc .btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;background:var(--go);color:#fff;
 font-weight:800;font-size:16px;letter-spacing:.02em;padding:18px 36px;border-radius:8px;text-decoration:none;border:0;
-cursor:pointer;text-transform:uppercase;font-family:inherit;box-shadow:0 10px 28px rgba(15,163,127,.30);
+cursor:pointer;text-transform:uppercase;font-family:inherit;box-shadow:0 10px 30px rgba(238,59,51,.38);
 transition:transform .12s ease,background .15s ease}
 .ndtc .btn:hover{background:var(--go-deep);transform:translateY(-2px)}
 .ndtc .btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .ndtc .btn.lg{font-size:17px;padding:20px 44px}
-.ndtc .nav{position:sticky;top:0;z-index:40;background:rgba(251,250,247,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.ndtc .nav{position:sticky;top:0;z-index:40;background:rgba(21,15,20,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .ndtc .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
 .ndtc .brand{font-weight:800;font-size:15px;text-decoration:none;color:var(--ink)}
 .ndtc .brand small{display:block;font-weight:500;font-size:11px;color:var(--muted)}
 .ndtc .nav .btn{padding:11px 22px;font-size:13px}
-.ndtc .hero{background:linear-gradient(150deg,var(--deep) 0%,var(--deep-2) 55%,#0F6350 100%);color:#EAF6F2;
+.ndtc .hero{background:linear-gradient(150deg,var(--deep) 0%,var(--deep-2) 52%,#6E1421 100%);color:#F6EFEA;
 padding:96px 0 78px;position:relative;overflow:hidden}
 .ndtc .hero::after{content:"";position:absolute;right:-140px;bottom:-160px;width:520px;height:520px;border-radius:50%;
-background:radial-gradient(circle,rgba(34,199,158,.40),transparent 62%);filter:blur(50px)}
+background:radial-gradient(circle,rgba(238,59,51,.48),transparent 62%);filter:blur(50px)}
 .ndtc .hero .wrap{position:relative}
 .ndtc .hero .lbl{color:var(--go-bright)}
 .ndtc .hero h1{font-size:clamp(36px,6.6vw,68px);max-width:16ch;margin-bottom:22px}
 .ndtc .hero h1 em{font-style:normal;color:var(--go-bright)}
-.ndtc .hero .sub{color:#A9C6BE;font-size:clamp(16px,2.2vw,20px);max-width:56ch;margin:0 0 34px}
-.ndtc .hero .sub b{color:#EAF6F2}
+.ndtc .hero .sub{color:#D3C5BF;font-size:clamp(16px,2.2vw,20px);max-width:56ch;margin:0 0 34px}
+.ndtc .hero .sub b{color:#FBF3EC}
 .ndtc .proofstrip{margin-top:38px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:12px 34px}
 .ndtc .proofstrip div{display:flex;flex-direction:column}
 .ndtc .proofstrip .v{font-family:var(--mono);font-weight:700;font-size:22px;color:var(--go-bright);letter-spacing:-.02em}
-.ndtc .proofstrip .l{font-size:11.5px;color:#8FAFA7;letter-spacing:.04em}
+.ndtc .proofstrip .l{font-size:11.5px;color:#B7A79F;letter-spacing:.04em}
 .ndtc .gap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
 .ndtc .col{border-radius:14px;padding:26px 26px 22px;border:1px solid var(--line);background:var(--card)}
 .ndtc .col.now{border-color:var(--pain-line);background:var(--pain-tint)}
-.ndtc .col.then{border-color:var(--go-line);background:var(--go-tint)}
+.ndtc .col.then{border-color:var(--gold-line);background:var(--gold-tint)}
 .ndtc .col h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px}
-.ndtc .col.now h3{color:var(--pain)} .ndtc .col.then h3{color:var(--go-deep)}
+.ndtc .col.now h3{color:var(--pain)} .ndtc .col.then h3{color:var(--gold)}
 .ndtc .col ul{list-style:none;padding:0;margin:0;display:grid;gap:11px}
 .ndtc .col li{display:grid;grid-template-columns:auto 1fr;gap:11px;font-size:15.4px;color:var(--ink)}
 .ndtc .col li i{font-style:normal;font-weight:800}
-.ndtc .col.now li i{color:var(--pain)} .ndtc .col.then li i{color:var(--go-deep)}
-.ndtc .arrowline{text-align:center;margin-top:26px;font-size:19px;font-weight:800;color:var(--go-deep)}
+.ndtc .col.now li i{color:var(--pain)} .ndtc .col.then li i{color:var(--gold)}
+.ndtc .arrowline{text-align:center;margin-top:26px;font-size:19px;font-weight:800;color:var(--gold)}
 .ndtc .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
 .ndtc .pil{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 24px;transition:transform .15s ease,border-color .15s ease}
 .ndtc .pil:hover{transform:translateY(-3px);border-color:var(--go)}
@@ -69,7 +69,7 @@ background:radial-gradient(circle,rgba(34,199,158,.40),transparent 62%);filter:b
 .ndtc .story hr{border:0;border-top:1px dashed var(--line);margin:18px 0}
 .ndtc .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:32px}
 .ndtc .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 12px;text-align:center}
-.ndtc .stat .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(21px,3vw,30px);font-weight:700;color:var(--go-deep);letter-spacing:-.02em}
+.ndtc .stat .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(21px,3vw,30px);font-weight:700;color:var(--gold);letter-spacing:-.02em}
 .ndtc .stat .l{font-size:12px;color:var(--muted);margin-top:5px}
 .ndtc .obj{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:11px}
 .ndtc .obj .q{font-weight:800;font-size:16px;margin-bottom:5px}
@@ -89,7 +89,7 @@ background:radial-gradient(circle,rgba(34,199,158,.40),transparent 62%);filter:b
 .ndtc .price .r{font-size:21px;font-weight:800;color:var(--gold)}
 .ndtc .price s{color:var(--muted);font-weight:500;font-size:14px;margin-right:8px}
 .ndtc .guar{margin:20px 28px;background:var(--go-tint);border:1px solid var(--go-line);border-radius:12px;padding:18px 20px;color:var(--muted);font-size:14.7px}
-.ndtc .guar b{color:var(--ink)} .ndtc .guar .t{color:var(--go-deep);font-weight:800}
+.ndtc .guar b{color:var(--ink)} .ndtc .guar .t{color:var(--gold);font-weight:800}
 .ndtc .scarce{list-style:none;padding:16px 20px;margin:0 28px 22px;display:grid;gap:9px;background:var(--pain-tint);border:1px solid var(--pain-line);border-radius:12px}
 .ndtc .scarce li{display:grid;grid-template-columns:auto 1fr;gap:11px;color:var(--muted);font-size:14.7px}
 .ndtc .scarce i{font-style:normal;color:var(--pain);font-weight:800}
@@ -102,15 +102,15 @@ background:radial-gradient(circle,rgba(34,199,158,.40),transparent 62%);filter:b
 .ndtc summary::after{content:"+";color:var(--go);font-size:20px;font-weight:800}
 .ndtc details[open] summary::after{content:"–"}
 .ndtc details .body{padding:15px 22px 18px;color:var(--muted);font-size:14.7px;border-top:1px solid var(--line-2)}
-.ndtc .final{background:linear-gradient(150deg,var(--deep) 0%,var(--deep-2) 100%);color:#EAF6F2;text-align:center;padding:92px 0}
+.ndtc .final{background:linear-gradient(150deg,var(--deep) 0%,#4A1018 60%,#6E1421 100%);color:#F6EFEA;text-align:center;padding:92px 0}
 .ndtc .final h2{color:#fff;max-width:18ch;margin:0 auto 18px}
-.ndtc .final p{color:#A9C6BE;font-size:18px;max-width:52ch;margin:0 auto 32px}
-.ndtc .final .btn{background:var(--go-bright);color:#04231C}
-.ndtc .final .btn:hover{background:#3FE0B6}
-.ndtc .final .mini{margin-top:18px;font-size:13px;color:#8FAFA7}
+.ndtc .final p{color:#D3C5BF;font-size:18px;max-width:52ch;margin:0 auto 32px}
+.ndtc .final .btn{background:var(--go-bright);color:#2A1400}
+.ndtc .final .btn:hover{background:#FFC94A}
+.ndtc .final .mini{margin-top:18px;font-size:13px;color:#C3B2A9}
 .ndtc footer{padding:36px 0 28px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
 .ndtc .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:11px 16px calc(11px + env(safe-area-inset-bottom));
-background:rgba(251,250,247,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+background:rgba(21,15,20,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
 .ndtc .sticky .inner{max-width:540px;margin:0 auto}
 .ndtc .sticky .btn{width:100%}
 .ndtc .center{text-align:center}
@@ -123,8 +123,8 @@ background:rgba(251,250,247,.94);backdrop-filter:blur(10px);border-top:1px solid
 .ndtc-modal .desc{margin:0 0 18px;font-size:14px;color:#5F6C68}
 .ndtc-modal label{display:block;font-size:13.5px;font-weight:600;margin:0 0 5px}
 .ndtc-modal input{width:100%;padding:11px 13px;border:1px solid #DDE1DE;border-radius:8px;font-size:15px;margin-bottom:13px;font-family:inherit;color:#141C1A;background:#fff}
-.ndtc-modal input:focus{outline:2px solid #0FA37F;outline-offset:1px;border-color:#0FA37F}
-.ndtc-modal .go{width:100%;background:#0FA37F;color:#fff;border:0;padding:14px;border-radius:8px;font-weight:800;font-size:15.5px;cursor:pointer;font-family:inherit;text-transform:uppercase;letter-spacing:.02em}
+.ndtc-modal input:focus{outline:2px solid #EE3B33;outline-offset:1px;border-color:#EE3B33}
+.ndtc-modal .go{width:100%;background:linear-gradient(135deg,#F0392F,#F6B31E);color:#fff;border:0;padding:14px;border-radius:8px;font-weight:800;font-size:15.5px;cursor:pointer;font-family:inherit;text-transform:uppercase;letter-spacing:.02em}
 .ndtc-modal .go:disabled{opacity:.6}
 .ndtc-modal .x{position:absolute;top:12px;right:14px;border:0;background:none;font-size:22px;cursor:pointer;color:#8A9490;line-height:1}
 .ndtc-modal .err{background:#FDEEE9;border:1px solid #F6C4B5;color:#B4442A;padding:9px 12px;border-radius:8px;font-size:13.5px;margin-bottom:12px}

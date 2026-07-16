@@ -11,18 +11,18 @@ const CSS = `
 --teal:#0C6070;--teal-d:#084451;--teal-tint:#E4EEEF;--teal-line:#BAD7DB;
 --pain:#B4530A;--pain-tint:#FAEBDD;--pain-line:#ECCBA8;
 --f:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
---mono:ui-monospace,"Cascadia Mono",Consolas,"SF Mono",monospace;--maxw:1000px;
+--mono:ui-monospace,"Cascadia Mono",Consolas,"SF Mono",monospace;--maxw:1100px;
 background:var(--paper);color:var(--ink);font-family:var(--f);line-height:1.6;-webkit-font-smoothing:antialiased;
 overflow-x:hidden;min-height:100vh;padding-bottom:80px}
 .ndtc *{box-sizing:border-box}
 .ndtc .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
 .ndtc h1,.ndtc h2,.ndtc h3{margin:0;letter-spacing:-.03em;text-wrap:balance;line-height:1.1;font-weight:800}
-.ndtc h2{font-size:clamp(28px,5vw,44px);margin-bottom:16px}
-.ndtc .lbl{font-size:11.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d);display:block;margin-bottom:16px}
+.ndtc h2{font-size:clamp(28px,5vw,44px);margin-bottom:16px;text-align:center}
+.ndtc .lbl{font-size:11.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d);display:block;margin-bottom:16px;text-align:center}
 .ndtc .lbl.pain{color:var(--pain)}
-.ndtc .lead{color:var(--muted);font-size:clamp(16px,2.1vw,19px);max-width:62ch;text-wrap:pretty}
+.ndtc .lead{color:var(--muted);font-size:clamp(16px,2.1vw,19px);max-width:62ch;margin-left:auto;margin-right:auto;text-align:center;text-wrap:pretty}
 .ndtc .beat p,.ndtc .stateblk li span,.ndtc .rung span,.ndtc .obj .a,.ndtc .row .t small{text-wrap:pretty}
-.ndtc section{padding:80px 0}
+.ndtc section{padding:72px 0}
 .ndtc .btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;background:var(--gold-b);color:#231A08;
 font-weight:800;font-size:16px;letter-spacing:.02em;padding:17px 34px;border-radius:999px;text-decoration:none;border:0;
 cursor:pointer;text-transform:uppercase;font-family:inherit;box-shadow:0 12px 30px rgba(204,138,34,.34);
@@ -41,16 +41,17 @@ transition:transform .12s ease,background .15s ease,filter .15s ease}
 .ndtc .hero{background:var(--night);color:#F3EEE4;padding:80px 0 74px;position:relative;overflow:hidden}
 .ndtc .hero::after{content:"";position:absolute;left:-120px;top:-140px;width:620px;height:520px;
 background:radial-gradient(ellipse at center,rgba(224,169,58,.22),rgba(224,169,58,.05) 44%,transparent 68%);pointer-events:none}
-.ndtc .hero .wrap{position:relative}
+.ndtc .hero .wrap{position:relative;text-align:center}
 .ndtc .hero .lamp{font-size:30px;margin-bottom:14px;filter:drop-shadow(0 0 20px rgba(224,169,58,.55))}
 .ndtc .hero .lbl{color:var(--gold-b)}
-.ndtc .hero h1{font-size:clamp(31px,6vw,62px);max-width:17ch;margin-bottom:20px;color:#fff;text-wrap:balance}
+.ndtc .hero h1{font-size:clamp(31px,5.6vw,58px);max-width:19ch;margin:0 auto 20px;color:#fff;text-wrap:balance}
 .ndtc .hero h1 em{font-style:normal;color:var(--gold-b)}
-.ndtc .hero .sub{color:#C9C0B1;font-size:clamp(16px,2.15vw,19px);max-width:52ch;margin:0 0 14px;text-wrap:pretty}
+.ndtc .hero .sub{color:#C9C0B1;font-size:clamp(16px,2.15vw,19px);max-width:56ch;margin:0 auto 14px;text-wrap:pretty}
 .ndtc .hero .sub b{color:#fff}
-.ndtc .hero .kill{font-size:15px;border-left:3px solid var(--gold);padding-left:14px;max-width:50ch;margin-bottom:30px}
+.ndtc .hero .kill{font-size:15px;max-width:58ch;margin:8px auto 30px;padding-top:16px;border-top:1px solid rgba(228,169,58,.35);color:#B9AF9E}
 .ndtc .hero .kill b{color:#fff}
-.ndtc .proofstrip{margin-top:36px;padding-top:22px;border-top:1px solid #2C313A;display:flex;flex-wrap:wrap;gap:12px 34px}
+.ndtc .proofstrip{margin:38px auto 0;padding-top:22px;border-top:1px solid #2C313A;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 30px;max-width:780px}
+.ndtc .proofstrip div{align-items:center}
 .ndtc .proofstrip div{display:flex;flex-direction:column}
 .ndtc .proofstrip .v{font-family:var(--mono);font-weight:800;font-size:22px;color:var(--gold-b);letter-spacing:-.02em}
 .ndtc .proofstrip .l{font-size:11px;color:#8A8172;letter-spacing:.05em}
@@ -75,14 +76,15 @@ background:radial-gradient(ellipse at center,rgba(224,169,58,.22),rgba(224,169,5
 .ndtc .arrowline{text-align:center;margin-top:26px;font-size:18px;font-weight:800;color:var(--gold-d)}
 
 /* STORY TIMELINE */
-.ndtc .tl{max-width:680px;margin:36px 0 0;position:relative;padding-left:32px}
+.ndtc .storysec{text-align:center}
+.ndtc .tl{max-width:640px;margin:36px auto 0;position:relative;padding-left:32px;text-align:left}
 .ndtc .tl::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold-line),var(--line))}
 .ndtc .beat{position:relative;padding:0 0 26px}
 .ndtc .beat::before{content:"";position:absolute;left:-30px;top:5px;width:15px;height:15px;border-radius:50%;background:var(--surf2);border:2px solid var(--gold)}
 .ndtc .beat .tm{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--gold-d);letter-spacing:.04em}
 .ndtc .beat p{margin:4px 0 0;font-size:15.6px;color:var(--ink)}
 .ndtc .beat p em{color:var(--muted);font-style:italic}
-.ndtc .turn{max-width:680px;margin-top:8px;border-top:1px dashed var(--line);padding-top:24px;display:grid;gap:12px}
+.ndtc .turn{max-width:640px;margin:8px auto 0;border-top:1px dashed var(--line);padding-top:24px;display:grid;gap:12px;text-align:center}
 .ndtc .turn p{margin:0}
 .ndtc .turn .tbeat{font-weight:800;font-size:18px}
 .ndtc .turn .tbeat.gold{color:var(--gold-d);font-size:20px}
@@ -300,7 +302,7 @@ export default function LandingClient() {
         {/* HERO */}
         <header className="hero"><div className="wrap">
           <div className="lamp">🔦</div>
-          <span className="lbl">Người Tắt Đèn Cuối Cùng · Lộ Trình 6 Tầng Thôi Ôm Hết™</span>
+          <span className="lbl">Người Tắt Đèn Cuối Cùng · Lộ Trình 6&nbsp;Tầng Thôi Ôm Hết™</span>
           <h1>Doanh nghiệp của bạn phải chạy được — <em>cả khi bạn vắng mặt</em>.</h1>
           <p className="sub">Bạn dựng cơ ngơi này để được tự do. Hôm nay, người bị trói chặt nhất trong đó — <b>chính là bạn</b>. Tự do bắt đầu từ ngày bạn <b>thôi ôm hết</b>.</p>
           <p className="sub kill">Không cần bỏ việc để đi học, không cần giỏi quản lý bẩm sinh. <b>6 khóa online</b>, học <b>trọn đời</b>, có <b>biểu mẫu áp dụng ngay trong tuần đầu</b>.</p>
@@ -351,7 +353,7 @@ export default function LandingClient() {
 
         {/* STORY */}
         <section style={{ background: "var(--surf2)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
-          <div className="wrap reveal">
+          <div className="wrap reveal storysec">
             <span className="lbl pain">Sự thật</span>
             <h2>Bạn không còn mệt nữa. Bạn chỉ chai lì.</h2>
             <div className="tl">
@@ -441,7 +443,7 @@ export default function LandingClient() {
           <span className="lbl">Vì sao chỉ 1.999.000đ?</span>
           <div className="posn">
             <span className="k">Cùng một hệ thống — một mức giá khác hẳn</span>
-            <h3>Cùng năng lực “giải phóng người chủ” mà nhiều nơi dạy offline vài chục triệu — tôi đóng gói online để bạn học trọn đời.</h3>
+            <h3>Cùng năng lực “giải phóng người&nbsp;chủ” mà nhiều nơi dạy offline vài chục triệu — tôi đóng gói online để bạn học trọn đời.</h3>
             <p>Tôi không mở lớp offline chục triệu. Tôi lấy đúng 6 năng lực cốt lõi đúc kết từ 15 năm đứng lớp cho Vingroup, FPT Telecom, TokyoLife, gói thành khóa online kèm biểu mẫu dùng ngay — để một người chủ trả <b style={{ color: "#fff" }}>một lần</b>, <b style={{ color: "#fff" }}>dùng trọn đời</b>, không phải bỏ việc đi học xa.</p>
             <div className="line">
               <span className="strike">Giá trị thật 6.900.000đ</span>

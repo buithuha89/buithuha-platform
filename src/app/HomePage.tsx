@@ -429,8 +429,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             {ecosystem.map((c) => c.soon ? (
-              <div key={c.title} className="relative bg-[#111] border border-white/5 rounded-2xl p-5 opacity-70">
-                <span className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FBBF24]/15 text-[#FBBF24]">SẮP CÓ</span>
+              <div key={c.title} className="block bg-[#111] border border-white/5 rounded-2xl p-5 transition-all">
                 <div className="text-2xl mb-2">{c.icon}</div>
                 <h3 className="font-bold text-sm mb-1">{c.title}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed">{c.desc}</p>

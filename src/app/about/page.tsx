@@ -110,11 +110,10 @@ export default function AboutPage() {
                 Mình là <span className="text-[#FBBF24]">{siteConfig.owner.name}</span>
               </h1>
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                Nhiều năm làm đào tạo. Hiện vẫn trực tiếp làm quản lý. Đã học xong MBA. Thích đọc, thích viết, thích ngồi yên suy nghĩ.
+                <strong className="text-white">MBA Quản trị Kinh doanh · 15 năm đào tạo quản lý cho Vingroup, FPT Telecom, TokyoLife</strong> — và mình vẫn đang trực tiếp quản lý nhân sự mỗi ngày. Hơn <strong className="text-white">10.000 học viên</strong> và <strong className="text-white">350+ chương trình</strong> đã đi qua tay mình.
               </p>
               <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-                Mình không tự nhận là coach, cũng không có công thức nào kỳ diệu. {siteConfig.name} là nơi mình tập hợp lại
-                những gì mình đang làm và đã trải qua — để ai thấy hữu ích thì cùng đọc.
+                Mình không phải diễn giả truyền cảm hứng hay coach bán “công thức thần kỳ”. Mình là người <strong className="text-gray-200">đang làm thật</strong> — rồi đóng gói lại đúng cái dùng được thành <strong className="text-gray-200">phương pháp bài bản</strong>. Ở đây có nội dung miễn phí để đọc, và có những <strong className="text-gray-200">khóa học chuyên sâu</strong> cho ai muốn đi xa hơn cùng mình.
               </p>
             </div>
           </div>

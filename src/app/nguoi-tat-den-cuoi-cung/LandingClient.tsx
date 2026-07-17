@@ -105,6 +105,10 @@ background:radial-gradient(ellipse at center,rgba(224,169,58,.22),rgba(224,169,5
 .ndtc .stat{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:24px 12px;text-align:center}
 .ndtc .stat .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(21px,3vw,30px);font-weight:800;color:var(--gold-d);letter-spacing:-.02em}
 .ndtc .stat .l{font-size:12px;color:var(--muted);margin-top:5px}
+.ndtc .mentor{display:grid;grid-template-columns:280px 1fr;gap:36px;align-items:center}
+.ndtc .mentorimg{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;border:1px solid var(--line);box-shadow:0 26px 54px -30px rgba(34,30,24,.55);display:block}
+.ndtc .mentortx .lbl{margin-bottom:12px}
+.ndtc .mentortx h2{margin-bottom:14px}
 
 /* TESTIMONIALS */
 .ndtc .tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
@@ -232,6 +236,7 @@ background:rgba(247,243,236,.94);backdrop-filter:blur(10px);border-top:1px solid
 .ndtc .ledger,.ndtc .offercta,.ndtc .price,.ndtc .offerhead{padding-left:20px;padding-right:20px}
 .ndtc .guar,.ndtc .scarce{margin-left:20px;margin-right:20px}
 .ndtc .tgrid{grid-template-columns:1fr} .ndtc .posn{padding:30px 24px}
+.ndtc .mentor{grid-template-columns:1fr;gap:22px} .ndtc .mentorimg{max-width:260px;margin:0 auto}
 .ndtc .fab a{padding:9px 13px;font-size:12px} .ndtc .fab{bottom:80px;right:12px}
 }
 `;
@@ -392,10 +397,15 @@ export default function LandingClient() {
         {/* PROOF */}
         <section style={{ background: "var(--surf2)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
           <div className="wrap reveal">
-            <span className="lbl">Người đồng hành</span>
-            <h2>Tôi vẫn đang ngồi trong ghế nóng — cùng chỗ với bạn.</h2>
-            <p className="lead">Tôi không đứng ngoài nhìn vào. Tôi vẫn giao việc, vẫn xử lý người, vẫn xây khung năng lực mỗi tuần. <b style={{ color: "var(--ink)" }}>MBA · 15 năm đào tạo · từng phụ trách đào tạo quản lý tại Vingroup, FPT Telecom, TokyoLife · đang trực tiếp quản lý nhân sự.</b></p>
-            <div className="stats" style={{ marginTop: 28 }}>
+            <div className="mentor">
+              <img className="mentorimg" src={siteConfig.owner.avatar} alt="Hà Bùi — Hà Bùi Academy" loading="lazy" />
+              <div className="mentortx">
+                <span className="lbl">Người đồng hành</span>
+                <h2>Tôi vẫn đang ngồi trong ghế nóng — cùng chỗ với bạn.</h2>
+                <p className="lead">Tôi không đứng ngoài nhìn vào. Tôi vẫn giao việc, vẫn xử lý người, vẫn xây khung năng lực mỗi tuần. <b style={{ color: "var(--ink)" }}>MBA · 15 năm đào tạo · từng phụ trách đào tạo quản lý tại Vingroup, FPT Telecom, TokyoLife · đang trực tiếp quản lý nhân sự.</b></p>
+              </div>
+            </div>
+            <div className="stats" style={{ marginTop: 32 }}>
               <div className="stat"><div className="v">10.000+</div><div className="l">học viên đã đào tạo</div></div>
               <div className="stat"><div className="v">350+</div><div className="l">chương trình đào tạo</div></div>
               <div className="stat"><div className="v">1.000+</div><div className="l">khóa học</div></div>

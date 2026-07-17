@@ -261,7 +261,7 @@ export default function HomePage() {
 
   const navLinks = [
     { label: "Hệ sinh thái", href: "#he-sinh-thai" },
-    { label: "Trắc nghiệm", href: "#he-sinh-thai" },
+    { label: "Trắc nghiệm", href: "/trac-nghiem" },
     { label: "Ebook", href: "#he-sinh-thai" },
     { label: "Khóa học", href: "/courses" },
     { label: "Học liệu & công cụ", href: "#he-sinh-thai" },
@@ -282,7 +282,7 @@ export default function HomePage() {
   const ecosystem = [
     { icon: "🎓", title: "Khóa học", desc: "Các khóa nâng cao năng lực quản lý & kỹ năng thiết yếu.", href: "/courses", soon: false },
     { icon: "📘", title: "Ebook & Cẩm nang", desc: "Sách ngắn, cẩm nang áp dụng được ngay.", href: "#", soon: true },
-    { icon: "📝", title: "Trắc nghiệm", desc: "Bài tự chẩn đoán “GÁNH hay DẪN DẮT?” và hơn thế.", href: "#", soon: true },
+    { icon: "📝", title: "Trắc nghiệm", desc: "Bài tự chẩn đoán “GÁNH hay DẪN DẮT?” — 2 phút, có kết quả riêng.", href: "/trac-nghiem", soon: false },
     { icon: "🧾", title: "Biểu mẫu & Form", desc: "Form giao việc, khung năng lực, đánh giá — điền là dùng.", href: "#", soon: true },
     { icon: "✅", title: "Checklist", desc: "Danh sách kiểm việc cho từng tình huống quản lý.", href: "#", soon: true },
     { icon: "📖", title: "Truyện tranh quản trị", desc: "Bài học quản lý kể bằng truyện tranh — dễ nhớ, dễ ngấm.", href: "#", soon: true },

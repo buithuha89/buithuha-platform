@@ -271,10 +271,10 @@ export default function HomePage() {
 
   // Lối đi theo từng nhóm khách (như logic phân khúc của vanhongteacher)
   const audiences = [
-    { id: "ai-sme", icon: "🏢", title: "Chủ doanh nghiệp SME", pain: "Doanh nghiệp phụ thuộc vào bạn — nghỉ một ngày là việc dồn ứ. Bạn cần đội tự chạy.", cta: "Xem chương trình chủ lực →", href: "/nguoi-tat-den-cuoi-cung" },
-    { id: "ai-solo", icon: "🧑‍💻", title: "Chủ doanh nghiệp 1 người", pain: "Bạn ôm hết từ A đến Z. Cần đóng gói năng lực thành hệ thống để nhân bản chính mình.", cta: "Xem lối thoát ôm việc →", href: "/nguoi-tat-den-cuoi-cung" },
-    { id: "ai-quanly", icon: "📋", title: "Quản lý cấp trung", pain: "Kẹp giữa sếp và nhân viên, việc gì cũng dội tới tay. Cần giao việc & dẫn đội cho vững.", cta: "Đọc chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" },
-    { id: "ai-nhanvien", icon: "💼", title: "Nhân viên văn phòng", pain: "Muốn phát triển bản thân, giao tiếp tốt hơn và đi nhanh hơn trong sự nghiệp.", cta: "Đọc chủ đề Phát triển bản thân →", href: "/phat-trien-ban-than" },
+    { id: "ai-sme", icon: "🏢", title: "Chủ doanh nghiệp SME", pain: "Doanh nghiệp phụ thuộc vào bạn — nghỉ một ngày là việc dồn ứ. Bạn cần đội tự chạy.", links: [{ label: "Chương trình chủ lực →", href: "/nguoi-tat-den-cuoi-cung" }, { label: "Chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
+    { id: "ai-solo", icon: "🧑‍💻", title: "Chủ doanh nghiệp 1 người", pain: "Bạn ôm hết từ A đến Z. Cần đóng gói năng lực thành hệ thống để nhân bản chính mình.", links: [{ label: "Chương trình chủ lực →", href: "/nguoi-tat-den-cuoi-cung" }, { label: "Chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
+    { id: "ai-quanly", icon: "📋", title: "Quản lý cấp trung", pain: "Kẹp giữa sếp và nhân viên, việc gì cũng dội tới tay. Cần giao việc & dẫn đội cho vững.", links: [{ label: "Đọc chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
+    { id: "ai-nhanvien", icon: "💼", title: "Nhân viên văn phòng", pain: "Muốn phát triển bản thân, giao tiếp tốt hơn và đi nhanh hơn trong sự nghiệp.", links: [{ label: "Đọc chủ đề Phát triển bản thân →", href: "/phat-trien-ban-than" }] },
   ];
 
   // Hệ sinh thái (mục có sẵn + mục sắp có, như lưới sản phẩm của vanhongteacher)
@@ -397,13 +397,17 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {audiences.map((a) => (
-              <a key={a.id} id={a.id} href={a.href}
-                className="group block bg-[#111] border border-white/5 rounded-2xl p-6 sm:p-7 hover:border-[#FBBF24]/40 transition-all scroll-mt-24">
+              <div key={a.id} id={a.id}
+                className="bg-[#111] border border-white/5 rounded-2xl p-6 sm:p-7 hover:border-[#FBBF24]/40 transition-all scroll-mt-24">
                 <div className="text-3xl mb-3">{a.icon}</div>
                 <h3 className="text-lg font-bold mb-2">{a.title}</h3>
                 <p className="text-sm text-gray-400 leading-relaxed mb-4">{a.pain}</p>
-                <span className="text-sm font-semibold text-[#FBBF24] inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">{a.cta}</span>
-              </a>
+                <div className="flex flex-col gap-2">
+                  {a.links.map((lk) => (
+                    <a key={lk.href} href={lk.href} className="text-sm font-semibold text-[#FBBF24] inline-flex items-center gap-1.5 hover:gap-2.5 transition-all w-fit">{lk.label}</a>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>

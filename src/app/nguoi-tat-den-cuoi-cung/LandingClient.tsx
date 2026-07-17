@@ -212,6 +212,20 @@ background:rgba(247,243,236,.94);backdrop-filter:blur(10px);border-top:1px solid
 .ndtc .fab .zl{background:#0068FF} .ndtc .fab .fb{background:#1877F2}
 .ndtc .fab a:hover{filter:brightness(1.06)}
 
+.ndtc .btnsoft{display:inline-flex;align-items:center;gap:7px;background:none;border:0;color:var(--gold-d);font-weight:700;font-size:14px;font-family:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;padding:6px 2px;text-align:left}
+.ndtc .btnsoft:hover{color:var(--gold)}
+.ndtc .hero .btnsoft{color:#E7C97D}
+.ndtc .herosoft{margin-top:14px}
+.ndtc .why{max-width:760px}
+.ndtc .why h2{margin-bottom:18px}
+.ndtc .why p{font-size:clamp(16px,2.05vw,18.5px);color:var(--ink);margin:0 0 15px;text-wrap:pretty}
+.ndtc .why p b{color:var(--gold-d)}
+.ndtc .why .sig{margin-top:6px;font-weight:800;color:var(--ink)}
+.ndtc .softclose{background:var(--surf);border:1px dashed var(--gold-line);border-radius:16px;padding:30px 28px;text-align:center;max-width:680px;margin:0 auto}
+.ndtc .softclose h3{font-size:clamp(19px,2.6vw,25px);margin-bottom:10px}
+.ndtc .softclose p{color:var(--muted);font-size:15.3px;max-width:54ch;margin:0 auto 20px;text-wrap:pretty}
+.ndtc .softclose p b{color:var(--ink)}
+.ndtc .final .btnsoft{color:#E7C97D;margin-top:14px}
 .ndtc .reveal{opacity:0;transform:translateY(16px)}
 .ndtc .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
 @media (prefers-reduced-motion:reduce){.ndtc .reveal{opacity:1;transform:none;transition:none}}
@@ -248,6 +262,7 @@ background:rgba(247,243,236,.94);backdrop-filter:blur(10px);border-top:1px solid
 
 export default function LandingClient() {
   const [open, setOpen] = useState(false);
+  const [mode, setMode] = useState<"hold" | "gift">("hold");
   const [status, setStatus] = useState<"idle" | "loading" | "done">("idle");
   const [err, setErr] = useState("");
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
@@ -295,8 +310,13 @@ export default function LandingClient() {
     }
   };
 
+  const openModal = (m: "hold" | "gift" = "hold") => { setMode(m); setStatus("idle"); setErr(""); setOpen(true); };
+
   const CTA = ({ children, cls }: { children: React.ReactNode; cls?: string }) => (
-    <button className={"btn" + (cls ? " " + cls : "")} onClick={() => setOpen(true)}>{children}</button>
+    <button className={"btn" + (cls ? " " + cls : "")} onClick={() => openModal("hold")}>{children}</button>
+  );
+  const SoftCTA = ({ children, cls }: { children: React.ReactNode; cls?: string }) => (
+    <button className={"btnsoft" + (cls ? " " + cls : "")} onClick={() => openModal("gift")}>{children}</button>
   );
 
   return (
@@ -317,6 +337,7 @@ export default function LandingClient() {
           <p className="sub">Bạn dựng cơ ngơi này để được tự do. Hôm nay, người bị trói chặt nhất trong đó — <b>chính là bạn</b>. Tự do bắt đầu từ ngày bạn <b>thôi ôm hết</b>.</p>
           <p className="sub kill">Không cần bỏ việc để đi học, không cần giỏi quản lý bẩm sinh. <b>6 khóa online</b>, học <b>trọn đời</b>, có <b>biểu mẫu áp dụng ngay trong tuần đầu</b>.</p>
           <CTA cls="lg">Đăng ký ngay →</CTA>
+          <div className="herosoft"><SoftCTA>Chưa sẵn sàng? Nhận miễn phí cẩm nang “Thoát vòng lặp ôm việc” →</SoftCTA></div>
           <div className="proofstrip">
             <div><span className="v">10.000+</span><span className="l">HỌC VIÊN</span></div>
             <div><span className="v">350+</span><span className="l">CHƯƠNG TRÌNH</span></div>
@@ -333,6 +354,18 @@ export default function LandingClient() {
             <span>Vingroup</span>
             <span>FPT Telecom</span>
             <span>TokyoLife</span>
+          </div>
+        </div></section>
+
+        {/* WHY — vì sao tôi làm (nháp, chị chỉnh lời cho đúng niềm tin thật) */}
+        <section><div className="wrap reveal">
+          <span className="lbl">Vì sao tôi làm điều này</span>
+          <div className="why">
+            <h2>Tôi không tin bạn cần cố gắng nhiều hơn. Tôi tin bạn cần thôi ôm hết.</h2>
+            <p>Tôi đi qua đúng cái vòng đó: giỏi nên ôm, ôm nên kẹt, kẹt nên chẳng ai lớn lên được bên cạnh mình. Càng chăm, doanh nghiệp càng phụ thuộc vào một người — và người đó kiệt sức.</p>
+            <p>Mười lăm năm đào tạo quản lý, tới giờ vẫn <b>đang trực tiếp ngồi ghế nóng</b>, tôi thấy sự thật này lặp đi lặp lại: người chủ không thiếu năng lực — họ thiếu <b>một cách vận hành để năng lực đó chảy ra khỏi đầu mình</b>, thành quy trình, thành người, thành hệ thống.</p>
+            <p>Tôi dựng 6 khóa này để trao lại đúng cách làm đó — gọn, thật, dùng được ngay — để bạn thôi phải là người tắt đèn cuối cùng.</p>
+            <div className="sig">— Hà Bùi</div>
           </div>
         </div></section>
 
@@ -514,12 +547,12 @@ export default function LandingClient() {
               <div className="alahead">6 khóa, mua riêng khóa nào bạn cần</div>
               <div className="alasub">Học phí khóa lẻ được trừ thẳng vào gói trọn nếu bạn nâng cấp trong 30 ngày.</div>
               <div className="alagrid">
-                <div className="ala"><b>1. Tư duy người quản lý — thoát vòng lặp</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => setOpen(true)}>Mua lẻ</button></div></div>
-                <div className="ala"><b>2. Giao việc &amp; uỷ quyền (+ biểu mẫu)</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => setOpen(true)}>Mua lẻ</button></div></div>
-                <div className="ala"><b>3. Đào tạo đội ngũ &amp; onboarding</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => setOpen(true)}>Mua lẻ</button></div></div>
-                <div className="ala"><b>4. Khung năng lực cơ bản</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => setOpen(true)}>Mua lẻ</button></div></div>
-                <div className="ala"><b>5. Nhận sai mà không mất uy tín</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => setOpen(true)}>Mua lẻ</button></div></div>
-                <div className="ala"><b>6. Phản hồi &amp; nói chuyện khó</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => setOpen(true)}>Mua lẻ</button></div></div>
+                <div className="ala"><b>1. Tư duy người quản lý — thoát vòng lặp</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => openModal("hold")}>Mua lẻ</button></div></div>
+                <div className="ala"><b>2. Giao việc &amp; uỷ quyền (+ biểu mẫu)</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => openModal("hold")}>Mua lẻ</button></div></div>
+                <div className="ala"><b>3. Đào tạo đội ngũ &amp; onboarding</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => openModal("hold")}>Mua lẻ</button></div></div>
+                <div className="ala"><b>4. Khung năng lực cơ bản</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => openModal("hold")}>Mua lẻ</button></div></div>
+                <div className="ala"><b>5. Nhận sai mà không mất uy tín</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => openModal("hold")}>Mua lẻ</button></div></div>
+                <div className="ala"><b>6. Phản hồi &amp; nói chuyện khó</b><div className="r2"><span className="p2">490.000đ</span><button className="alabtn" onClick={() => openModal("hold")}>Mua lẻ</button></div></div>
               </div>
               <div className="decoy">
                 Mua lẻ chỉ <b>4 khóa</b> đã là <b>1.960.000đ</b> — gần bằng cả gói trọn <b>1.999.000đ</b>, mà gói có tới <b>6 khóa + 6 buổi Zoom + biểu mẫu + cộng đồng trọn đời</b>.<br />
@@ -543,6 +576,17 @@ export default function LandingClient() {
           </div>
         </div></section>
 
+        {/* SOFT CLOSE — bắt lead cho người chưa sẵn sàng */}
+        <section style={{ background: "var(--surf2)", borderTop: "1px solid var(--line)" }}>
+          <div className="wrap reveal">
+            <div className="softclose">
+              <h3>Chưa sẵn sàng đăng ký hôm nay?</h3>
+              <p>Không sao. Mang về trước bộ cẩm nang <b>“7 câu hỏi tự nhìn lại cách bạn đang vận hành”</b> — đọc 10 phút, bạn tự thấy mình đang <b>GÁNH</b> hay đang <b>DẪN DẮT</b>.</p>
+              <button className="btn" onClick={() => openModal("gift")}>Nhận cẩm nang miễn phí</button>
+            </div>
+          </div>
+        </section>
+
         {/* FINAL CTA */}
         <section className="final"><div className="wrap reveal">
           <div className="lamp">🔦</div>
@@ -550,6 +594,7 @@ export default function LandingClient() {
           <p>Năm sau, doanh nghiệp của bạn sẽ chạy bằng hệ thống — hoặc vẫn chạy bằng sức của bạn. Cả hai đều là một lựa chọn.</p>
           <CTA cls="lg">Đăng ký ngay →</CTA>
           <div className="mini">Chỉ 1.999.000đ · Truy cập trọn đời · Hoàn 100% trong 14 ngày · 15 suất đầu tiên</div>
+          <div><SoftCTA>Chưa sẵn sàng? Nhận cẩm nang miễn phí →</SoftCTA></div>
         </div></section>
 
         <footer>Hà Bùi Academy — Học viện Quản trị &amp; Kỹ năng thiết yếu · buithuha.com</footer>
@@ -573,14 +618,18 @@ export default function LandingClient() {
             <button className="x" onClick={() => status !== "loading" && setOpen(false)} aria-label="Đóng">×</button>
             {status === "done" ? (
               <div className="ok">
-                <div className="big">✅</div>
-                <h3>Đã nhận thông tin của bạn!</h3>
-                <p className="desc">Tôi sẽ liên hệ sớm để tư vấn và xác nhận suất Founding Member. Kiểm tra email (cả mục Spam) giúp tôi nhé.</p>
+                <div className="big">{mode === "gift" ? "🎁" : "✅"}</div>
+                <h3>{mode === "gift" ? "Đã nhận — cẩm nang đang tới!" : "Đã nhận thông tin của bạn!"}</h3>
+                <p className="desc">{mode === "gift"
+                  ? "Tôi sẽ gửi bộ cẩm nang tới email của bạn sớm — nhớ kiểm tra cả mục Spam nhé."
+                  : "Tôi sẽ liên hệ sớm để tư vấn và xác nhận suất Founding Member. Kiểm tra email (cả mục Spam) giúp tôi nhé."}</p>
               </div>
             ) : (
               <>
-                <h3>Giữ chỗ Founding Member</h3>
-                <p className="desc">Để lại thông tin — tôi sẽ liên hệ tư vấn trực tiếp và giữ suất cho bạn. Chỉ 15 suất.</p>
+                <h3>{mode === "gift" ? "Nhận miễn phí bộ cẩm nang" : "Giữ chỗ Founding Member"}</h3>
+                <p className="desc">{mode === "gift"
+                  ? "Để lại thông tin — tôi gửi bạn cẩm nang “7 câu hỏi tự nhìn lại cách bạn đang vận hành”, đọc là tự soi được mình đang GÁNH hay DẪN DẮT."
+                  : "Để lại thông tin — tôi sẽ liên hệ tư vấn trực tiếp và giữ suất cho bạn. Chỉ 15 suất."}</p>
                 {err && <div className="err">{err}</div>}
                 <form onSubmit={submit}>
                   <label>Họ và tên</label>
@@ -590,7 +639,7 @@ export default function LandingClient() {
                   <label>Email</label>
                   <input required type="email" value={form.email} onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))} placeholder="ban@email.com" />
                   <button className="go" type="submit" disabled={status === "loading"}>
-                    {status === "loading" ? "Đang gửi..." : "Giữ chỗ ngay"}
+                    {status === "loading" ? "Đang gửi..." : (mode === "gift" ? "Gửi cẩm nang cho tôi" : "Giữ chỗ ngay")}
                   </button>
                 </form>
               </>

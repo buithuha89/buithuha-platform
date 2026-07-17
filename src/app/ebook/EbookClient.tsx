@@ -72,6 +72,11 @@ export default function EbookClient() {
               ))}
             </div>
 
+            <Link href="/ebook/nghe-thuat-thua-nhan-sai" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
+              <div className="ctitle"><span className="ic">📕</span> Ebook trả phí: Nghệ thuật thừa nhận sai</div>
+              <p className="csub" style={{ marginBottom: 0 }}>Phản hồi thông minh dưới áp lực mà không mất uy tín · 61 trang · 499.000đ — đọc thử 15 trang miễn phí →</p>
+            </Link>
+
             <LeadCTA
               title="Muốn ngồi lại với bản in?"
               desc="Nhận bản PDF đẹp của “7 câu hỏi tự nhìn vào bản thân” — có chỗ để bạn viết câu trả lời, in ra và ngồi thật với chính mình."

@@ -342,7 +342,7 @@ export default function LandingClient() {
             <div><span className="v">10.000+</span><span className="l">HỌC VIÊN</span></div>
             <div><span className="v">350+</span><span className="l">CHƯƠNG TRÌNH</span></div>
             <div><span className="v">1.000+</span><span className="l">KHÓA HỌC</span></div>
-            <div><span className="v">15</span><span className="l">NĂM ĐT / QL</span></div>
+            <div><span className="v">15</span><span className="l">NĂM ĐÀO TẠO / QUẢN LÝ</span></div>
             <div><span className="v">MBA</span><span className="l">QUẢN TRỊ KINH DOANH</span></div>
           </div>
         </div></header>
@@ -521,7 +521,7 @@ export default function LandingClient() {
               <div className="ledger">
                 <div className="row"><div className="t"><b>6 khóa (6 tầng năng lực) trên LMS — truy cập trọn đời</b><small>Tư duy thoát vòng lặp · Giao việc &amp; uỷ quyền · Đào tạo đội ngũ &amp; onboarding · Khung năng lực · Nhận sai không mất uy tín · Phản hồi &amp; nói chuyện khó.</small></div><div className="v">2.940.000đ</div></div>
                 <div className="row"><div className="t"><b>6 buổi Zoom tháo gỡ vướng mắc (nhóm)</b><small>Mang đúng tình huống của bạn ra để cùng gỡ trực tiếp.</small></div><div className="v">2.400.000đ</div></div>
-                <div className="row"><div className="t"><b>Bộ biểu mẫu áp dụng được ngay</b><small>Biểu mẫu giao việc &amp; uỷ quyền, khung năng lực theo vị trí, quy trình onboarding theo JD, kịch bản 10 cuộc nói chuyện khó.</small></div><div className="v">990.000đ</div></div>
+                <div className="row"><div className="t"><b>Bộ biểu mẫu áp dụng được ngay</b><small>Biểu mẫu giao việc &amp; uỷ quyền, khung năng lực theo vị trí, quy trình onboarding theo mô tả công việc, kịch bản 10 cuộc nói chuyện khó.</small></div><div className="v">990.000đ</div></div>
                 <div className="row"><div className="t"><b>Cộng đồng trọn đời — case study quản trị + biểu mẫu</b><small>Nơi bạn hỏi được những câu không hỏi được với nhân viên.</small></div><div className="v">570.000đ</div></div>
               </div>
               <div className="price">

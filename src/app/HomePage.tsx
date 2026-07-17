@@ -271,11 +271,11 @@ export default function HomePage() {
 
   // Lối đi theo từng nhóm khách (như logic phân khúc của vanhongteacher)
   const audiences = [
-    { id: "ai-sme", icon: "🏢", title: "Chủ doanh nghiệp SME", btn: "Tôi là chủ DN SME", pain: "Doanh nghiệp phụ thuộc vào bạn — nghỉ một ngày là việc dồn ứ. Bạn cần đội tự chạy.", links: [{ label: "Chương trình chủ lực →", href: "/nguoi-tat-den-cuoi-cung" }, { label: "Chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
-    { id: "ai-solo", icon: "🧑‍💻", title: "Chủ doanh nghiệp 1 người", btn: "Tôi là chủ DN 1 người", pain: "Bạn ôm hết từ A đến Z. Cần đóng gói năng lực thành hệ thống để nhân bản chính mình.", links: [{ label: "Chương trình chủ lực →", href: "/nguoi-tat-den-cuoi-cung" }, { label: "Chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
+    { id: "ai-sme", icon: "🏢", title: "Chủ doanh nghiệp SME", btn: "Tôi là chủ doanh nghiệp SME", pain: "Doanh nghiệp phụ thuộc vào bạn — nghỉ một ngày là việc dồn ứ. Bạn cần đội tự chạy.", links: [{ label: "Chương trình chủ lực →", href: "/nguoi-tat-den-cuoi-cung" }, { label: "Chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
+    { id: "ai-solo", icon: "🧑‍💻", title: "Chủ doanh nghiệp 1 người", btn: "Tôi là chủ doanh nghiệp 1 người", pain: "Bạn ôm hết từ A đến Z. Cần đóng gói năng lực thành hệ thống để nhân bản chính mình.", links: [{ label: "Chương trình chủ lực →", href: "/nguoi-tat-den-cuoi-cung" }, { label: "Chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
     { id: "ai-quanly", icon: "📋", title: "Quản lý cấp trung", btn: "Tôi là quản lý cấp trung", pain: "Kẹp giữa sếp và nhân viên, việc gì cũng dội tới tay. Cần giao việc & dẫn đội cho vững.", links: [{ label: "Đọc chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
     { id: "ai-nhanvien", icon: "💼", title: "Nhân viên văn phòng", btn: "Tôi là nhân viên văn phòng", pain: "Muốn phát triển bản thân, giao tiếp tốt hơn và đi nhanh hơn trong sự nghiệp.", links: [{ label: "Đọc chủ đề Phát triển bản thân →", href: "/phat-trien-ban-than" }] },
-    { id: "ai-ld", icon: "🎓", title: "Người làm nghề L&D / HR", btn: "Tôi là người L&D / HR", pain: "Bạn làm đào tạo / nhân sự và muốn hiểu nghề sâu hơn — có phương pháp bài bản, không mò mẫm.", links: [{ label: "Đọc chủ đề Nghề L&D →", href: "/nghe-ld" }] },
+    { id: "ai-ld", icon: "🎓", title: "Người làm nghề L&D / HR", btn: "Tôi làm L&D / HR", pain: "Bạn làm đào tạo / nhân sự và muốn hiểu nghề sâu hơn — có phương pháp bài bản, không mò mẫm.", links: [{ label: "Đọc chủ đề Nghề L&D →", href: "/nghe-ld" }] },
   ];
 
   // Hệ sinh thái (mục có sẵn + mục sắp có, như lưới sản phẩm của vanhongteacher)

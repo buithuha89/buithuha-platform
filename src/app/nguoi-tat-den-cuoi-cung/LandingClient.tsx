@@ -55,6 +55,11 @@ background:radial-gradient(ellipse at center,rgba(224,169,58,.22),rgba(224,169,5
 .ndtc .proofstrip div{display:flex;flex-direction:column}
 .ndtc .proofstrip .v{font-family:var(--mono);font-weight:800;font-size:22px;color:var(--gold-b);letter-spacing:-.02em}
 .ndtc .proofstrip .l{font-size:11px;color:#8A8172;letter-spacing:.05em}
+.ndtc .trustband{padding:24px 0;background:var(--surf2);border-bottom:1px solid var(--line)}
+.ndtc .trustband .wrap{display:flex;flex-direction:column;align-items:center;gap:13px;text-align:center}
+.ndtc .trustband .tlbl{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.ndtc .trustband .tlogos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 34px}
+.ndtc .trustband .tlogos span{font-weight:800;font-size:clamp(18px,2.6vw,25px);color:var(--ink);letter-spacing:-.01em}
 
 /* OPERATING-STATE PANEL */
 .ndtc .panel{margin-top:34px;background:var(--surf);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 70px -42px rgba(34,30,24,.42)}
@@ -320,6 +325,16 @@ export default function LandingClient() {
             <div><span className="v">MBA</span><span className="l">QUẢN TRỊ KINH DOANH</span></div>
           </div>
         </div></header>
+
+        {/* TRUST BAND — proof thật */}
+        <section className="trustband"><div className="wrap">
+          <span className="tlbl">Đã trực tiếp đào tạo &amp; xây khung năng lực tại</span>
+          <div className="tlogos">
+            <span>Vingroup</span>
+            <span>FPT Telecom</span>
+            <span>TokyoLife</span>
+          </div>
+        </div></section>
 
         {/* OPERATING STATE */}
         <section><div className="wrap reveal">

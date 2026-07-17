@@ -271,20 +271,27 @@ export default function HomePage() {
 
   // Lối đi theo từng nhóm khách (như logic phân khúc của vanhongteacher)
   const audiences = [
-    { id: "ai-sme", icon: "🏢", title: "Chủ doanh nghiệp SME", pain: "Doanh nghiệp phụ thuộc vào bạn — nghỉ một ngày là việc dồn ứ. Bạn cần đội tự chạy.", links: [{ label: "Chương trình chủ lực →", href: "/nguoi-tat-den-cuoi-cung" }, { label: "Chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
-    { id: "ai-solo", icon: "🧑‍💻", title: "Chủ doanh nghiệp 1 người", pain: "Bạn ôm hết từ A đến Z. Cần đóng gói năng lực thành hệ thống để nhân bản chính mình.", links: [{ label: "Chương trình chủ lực →", href: "/nguoi-tat-den-cuoi-cung" }, { label: "Chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
-    { id: "ai-quanly", icon: "📋", title: "Quản lý cấp trung", pain: "Kẹp giữa sếp và nhân viên, việc gì cũng dội tới tay. Cần giao việc & dẫn đội cho vững.", links: [{ label: "Đọc chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
-    { id: "ai-nhanvien", icon: "💼", title: "Nhân viên văn phòng", pain: "Muốn phát triển bản thân, giao tiếp tốt hơn và đi nhanh hơn trong sự nghiệp.", links: [{ label: "Đọc chủ đề Phát triển bản thân →", href: "/phat-trien-ban-than" }] },
+    { id: "ai-sme", icon: "🏢", title: "Chủ doanh nghiệp SME", btn: "Tôi là chủ DN SME", pain: "Doanh nghiệp phụ thuộc vào bạn — nghỉ một ngày là việc dồn ứ. Bạn cần đội tự chạy.", links: [{ label: "Chương trình chủ lực →", href: "/nguoi-tat-den-cuoi-cung" }, { label: "Chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
+    { id: "ai-solo", icon: "🧑‍💻", title: "Chủ doanh nghiệp 1 người", btn: "Tôi là chủ DN 1 người", pain: "Bạn ôm hết từ A đến Z. Cần đóng gói năng lực thành hệ thống để nhân bản chính mình.", links: [{ label: "Chương trình chủ lực →", href: "/nguoi-tat-den-cuoi-cung" }, { label: "Chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
+    { id: "ai-quanly", icon: "📋", title: "Quản lý cấp trung", btn: "Tôi là quản lý cấp trung", pain: "Kẹp giữa sếp và nhân viên, việc gì cũng dội tới tay. Cần giao việc & dẫn đội cho vững.", links: [{ label: "Đọc chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
+    { id: "ai-nhanvien", icon: "💼", title: "Nhân viên văn phòng", btn: "Tôi là nhân viên văn phòng", pain: "Muốn phát triển bản thân, giao tiếp tốt hơn và đi nhanh hơn trong sự nghiệp.", links: [{ label: "Đọc chủ đề Phát triển bản thân →", href: "/phat-trien-ban-than" }] },
+    { id: "ai-ld", icon: "🎓", title: "Người làm nghề L&D / HR", btn: "Tôi là người L&D / HR", pain: "Bạn làm đào tạo / nhân sự và muốn hiểu nghề sâu hơn — có phương pháp bài bản, không mò mẫm.", links: [{ label: "Đọc chủ đề Nghề L&D →", href: "/nghe-ld" }] },
   ];
 
   // Hệ sinh thái (mục có sẵn + mục sắp có, như lưới sản phẩm của vanhongteacher)
   const ecosystem = [
     { icon: "🎓", title: "Khóa học", desc: "Các khóa nâng cao năng lực quản lý & kỹ năng thiết yếu.", href: "/courses", soon: false },
-    { icon: "📝", title: "Trắc nghiệm", desc: "Bài tự chẩn đoán “Bạn đang GÁNH hay đang DẪN DẮT?”.", href: "#", soon: true },
-    { icon: "📘", title: "Ebook", desc: "Cẩm nang & sách ngắn, áp dụng được ngay.", href: "#", soon: true },
-    { icon: "🧰", title: "Học liệu & công cụ", desc: "Biểu mẫu, checklist, khung năng lực dùng liền.", href: "#", soon: true },
+    { icon: "📘", title: "Ebook & Cẩm nang", desc: "Sách ngắn, cẩm nang áp dụng được ngay.", href: "#", soon: true },
+    { icon: "📝", title: "Trắc nghiệm", desc: "Bài tự chẩn đoán “GÁNH hay DẪN DẮT?” và hơn thế.", href: "#", soon: true },
+    { icon: "🧾", title: "Biểu mẫu & Form", desc: "Form giao việc, khung năng lực, đánh giá — điền là dùng.", href: "#", soon: true },
+    { icon: "✅", title: "Checklist", desc: "Danh sách kiểm việc cho từng tình huống quản lý.", href: "#", soon: true },
+    { icon: "📖", title: "Truyện tranh quản trị", desc: "Bài học quản lý kể bằng truyện tranh — dễ nhớ, dễ ngấm.", href: "#", soon: true },
+    { icon: "🧩", title: "Case study & Tình huống", desc: "Tình huống quản trị thật để mổ xẻ và rút bài học.", href: "#", soon: true },
+    { icon: "🤖", title: "Thư viện Prompt AI", desc: "Prompt dùng AI để giao việc, viết đánh giá, phản hồi nhanh.", href: "#", soon: true },
+    { icon: "🎬", title: "Video ngắn", desc: "Bài giảng video ngắn, xem lúc rảnh, áp dụng liền.", href: "#", soon: true },
     { icon: "✍️", title: "Blog", desc: "Chia sẻ thật từ trải nghiệm quản lý & đào tạo.", href: "/blog", soon: false },
     { icon: "👥", title: "Cộng đồng", desc: "Nơi hỏi–đáp cùng chủ doanh nghiệp & quản lý.", href: "/community", soon: false },
+    { icon: "💎", title: "Membership", desc: "Gói hội viên: học liệu mới + đồng hành hàng tháng.", href: "#", soon: true },
   ];
 
   return (
@@ -370,7 +377,7 @@ export default function HomePage() {
               {audiences.map((a) => (
                 <a key={a.id} href={`#${a.id}`}
                   className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold border border-white/10 bg-white/5 text-gray-200 hover:border-[#FBBF24] hover:text-white hover:bg-[#FBBF24]/10 transition-all">
-                  <span>{a.icon}</span> {a.title === "Chủ doanh nghiệp SME" ? "Tôi là chủ DN SME" : a.title === "Chủ doanh nghiệp 1 người" ? "Tôi là chủ DN 1 người" : a.title === "Quản lý cấp trung" ? "Tôi là quản lý cấp trung" : "Tôi là nhân viên văn phòng"}
+                  <span>{a.icon}</span> {a.btn}
                 </a>
               ))}
             </div>

@@ -260,12 +260,31 @@ export default function HomePage() {
   };
 
   const navLinks = [
-    { label: "Về Hà", href: "/about" },
-    { label: "Chương trình", href: "/nguoi-tat-den-cuoi-cung" },
-    { label: "4 chủ đề", href: "#silos" },
-    { label: "Khóa học", href: "#courses" },
+    { label: "Hệ sinh thái", href: "#he-sinh-thai" },
+    { label: "Trắc nghiệm", href: "#he-sinh-thai" },
+    { label: "Ebook", href: "#he-sinh-thai" },
+    { label: "Khóa học", href: "/courses" },
+    { label: "Học liệu & công cụ", href: "#he-sinh-thai" },
     { label: "Blog", href: "/blog" },
-    { label: "Cộng đồng", href: "/community" },
+    { label: "Về Hà", href: "/about" },
+  ];
+
+  // Lối đi theo từng nhóm khách (như logic phân khúc của vanhongteacher)
+  const audiences = [
+    { id: "ai-sme", icon: "🏢", title: "Chủ doanh nghiệp SME", pain: "Doanh nghiệp phụ thuộc vào bạn — nghỉ một ngày là việc dồn ứ. Bạn cần đội tự chạy.", cta: "Xem chương trình chủ lực →", href: "/nguoi-tat-den-cuoi-cung" },
+    { id: "ai-solo", icon: "🧑‍💻", title: "Chủ doanh nghiệp 1 người", pain: "Bạn ôm hết từ A đến Z. Cần đóng gói năng lực thành hệ thống để nhân bản chính mình.", cta: "Xem lối thoát ôm việc →", href: "/nguoi-tat-den-cuoi-cung" },
+    { id: "ai-quanly", icon: "📋", title: "Quản lý cấp trung", pain: "Kẹp giữa sếp và nhân viên, việc gì cũng dội tới tay. Cần giao việc & dẫn đội cho vững.", cta: "Đọc chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" },
+    { id: "ai-nhanvien", icon: "💼", title: "Nhân viên văn phòng", pain: "Muốn phát triển bản thân, giao tiếp tốt hơn và đi nhanh hơn trong sự nghiệp.", cta: "Đọc chủ đề Phát triển bản thân →", href: "/phat-trien-ban-than" },
+  ];
+
+  // Hệ sinh thái (mục có sẵn + mục sắp có, như lưới sản phẩm của vanhongteacher)
+  const ecosystem = [
+    { icon: "🎓", title: "Khóa học", desc: "Các khóa nâng cao năng lực quản lý & kỹ năng thiết yếu.", href: "/courses", soon: false },
+    { icon: "📝", title: "Trắc nghiệm", desc: "Bài tự chẩn đoán “Bạn đang GÁNH hay đang DẪN DẮT?”.", href: "#", soon: true },
+    { icon: "📘", title: "Ebook", desc: "Cẩm nang & sách ngắn, áp dụng được ngay.", href: "#", soon: true },
+    { icon: "🧰", title: "Học liệu & công cụ", desc: "Biểu mẫu, checklist, khung năng lực dùng liền.", href: "#", soon: true },
+    { icon: "✍️", title: "Blog", desc: "Chia sẻ thật từ trải nghiệm quản lý & đào tạo.", href: "/blog", soon: false },
+    { icon: "👥", title: "Cộng đồng", desc: "Nơi hỏi–đáp cùng chủ doanh nghiệp & quản lý.", href: "/community", soon: false },
   ];
 
   return (
@@ -283,22 +302,22 @@ export default function HomePage() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-5">
             {navLinks.map((l) => (
-              <a key={l.label} href={l.href} className="text-sm text-gray-400 hover:text-white transition-colors">{l.label}</a>
+              <a key={l.label} href={l.href} className="text-[13px] text-gray-400 hover:text-white transition-colors whitespace-nowrap">{l.label}</a>
             ))}
           </div>
 
           {/* Right */}
-          <div className="hidden md:flex items-center gap-3">
-            <Link href="/login" className="text-sm text-gray-400 hover:text-white transition-colors">Đăng nhập</Link>
-            <button onClick={() => setShowLeadModal(true)} className="btn-green text-sm py-2 px-5">
-              <Gift size={14} /> Nhận cẩm nang miễn phí
+          <div className="hidden lg:flex items-center gap-3">
+            <Link href="/login" className="text-[13px] text-gray-400 hover:text-white transition-colors">Đăng nhập</Link>
+            <button onClick={() => setShowLeadModal(true)} className="btn-green text-[13px] py-2 px-4 whitespace-nowrap">
+              <Gift size={14} /> Nhận cẩm nang
             </button>
           </div>
 
           {/* Mobile hamburger */}
-          <button onClick={() => setMobileMenu(!mobileMenu)} className="md:hidden text-gray-400 p-2">
+          <button onClick={() => setMobileMenu(!mobileMenu)} className="lg:hidden text-gray-400 p-2">
             {mobileMenu ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
@@ -344,10 +363,19 @@ export default function HomePage() {
             Mình là {siteConfig.owner.name}: MBA, nhiều năm đào tạo trong doanh nghiệp, vẫn đang ngồi đúng cái ghế quản lý áp lực đó — và viết lại những gì thật sự dùng được.
           </p>
 
-          {/* CTA */}
-          <div className="flex justify-center">
-            <button onClick={() => setShowLeadModal(true)} className="btn-green text-sm sm:text-base py-3 sm:py-3.5 px-5 sm:px-8 justify-center">
-              <Download size={16} /> Nhận cẩm nang miễn phí
+          {/* Phân nhóm khách — chọn lối đi */}
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs sm:text-sm text-gray-500 mb-3">Bạn đang ở vai trò nào? Chọn để vào thẳng nội dung dành riêng cho bạn:</p>
+            <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3">
+              {audiences.map((a) => (
+                <a key={a.id} href={`#${a.id}`}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold border border-white/10 bg-white/5 text-gray-200 hover:border-[#FBBF24] hover:text-white hover:bg-[#FBBF24]/10 transition-all">
+                  <span>{a.icon}</span> {a.title === "Chủ doanh nghiệp SME" ? "Tôi là chủ DN SME" : a.title === "Chủ doanh nghiệp 1 người" ? "Tôi là chủ DN 1 người" : a.title === "Quản lý cấp trung" ? "Tôi là quản lý cấp trung" : "Tôi là nhân viên văn phòng"}
+                </a>
+              ))}
+            </div>
+            <button onClick={() => setShowLeadModal(true)} className="mt-5 inline-flex items-center gap-2 text-sm text-[#FBBF24] hover:underline">
+              <Download size={15} /> Hoặc nhận trước bộ cẩm nang miễn phí
             </button>
           </div>
 
@@ -356,6 +384,53 @@ export default function HomePage() {
             <span className="flex items-center gap-1.5"><BookOpen size={14} className="text-[#FBBF24]" /> MBA</span>
             <span className="flex items-center gap-1.5"><Briefcase size={14} className="text-[#84CC16]" /> Nhiều năm đào tạo</span>
             <span className="flex items-center gap-1.5"><Heart size={14} className="text-[#FBBF24]" /> Vẫn đang làm quản lý</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ BẠN LÀ AI — lối đi theo nhóm ═══ */}
+      <section className="py-12 sm:py-20 px-4 sm:px-6 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10 sm:mb-14">
+            <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">Bạn là <span className="text-[#FBBF24]">ai</span>?</h2>
+            <p className="text-gray-400 max-w-xl mx-auto">Mỗi nhóm có một lối đi riêng. Chọn đúng vai trò của bạn để vào thẳng nội dung hợp nhất.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {audiences.map((a) => (
+              <a key={a.id} id={a.id} href={a.href}
+                className="group block bg-[#111] border border-white/5 rounded-2xl p-6 sm:p-7 hover:border-[#FBBF24]/40 transition-all scroll-mt-24">
+                <div className="text-3xl mb-3">{a.icon}</div>
+                <h3 className="text-lg font-bold mb-2">{a.title}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed mb-4">{a.pain}</p>
+                <span className="text-sm font-semibold text-[#FBBF24] inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">{a.cta}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ HỆ SINH THÁI ═══ */}
+      <section id="he-sinh-thai" className="py-12 sm:py-20 px-4 sm:px-6 border-t border-white/5 scroll-mt-16">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10 sm:mb-14">
+            <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">Hệ sinh thái <span className="text-[#FBBF24]">Hà Bùi</span></h2>
+            <p className="text-gray-400 max-w-xl mx-auto">Mọi thứ bạn cần để quản trị tốt hơn — học, thực hành và áp dụng ngay.</p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+            {ecosystem.map((c) => c.soon ? (
+              <div key={c.title} className="relative bg-[#111] border border-white/5 rounded-2xl p-5 opacity-70">
+                <span className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FBBF24]/15 text-[#FBBF24]">SẮP CÓ</span>
+                <div className="text-2xl mb-2">{c.icon}</div>
+                <h3 className="font-bold text-sm mb-1">{c.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">{c.desc}</p>
+              </div>
+            ) : (
+              <a key={c.title} href={c.href} className="group block bg-[#111] border border-white/5 rounded-2xl p-5 hover:border-[#FBBF24]/40 transition-all">
+                <div className="text-2xl mb-2">{c.icon}</div>
+                <h3 className="font-bold text-sm mb-1 group-hover:text-[#FBBF24] transition-colors">{c.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">{c.desc}</p>
+              </a>
+            ))}
           </div>
         </div>
       </section>

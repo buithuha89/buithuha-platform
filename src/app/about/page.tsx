@@ -40,8 +40,8 @@ const principles = [
     body: "Hà không có công thức nào kỳ diệu. Cuộc đời mỗi người khác nhau — bí kíp của người này có khi là bẫy của người kia.",
   },
   {
-    title: "Không hứa thay đổi sau 30 ngày",
-    body: "Chuyển hóa thật là hành trình của riêng mỗi người. Hà chỉ chia sẻ cách Hà đã đi qua — bạn đi qua theo cách của bạn.",
+    title: "Không hứa phép màu, nhưng có lộ trình",
+    body: "Mình không hứa đổi đời sau một đêm. Mình đưa bạn một lộ trình rõ ràng, phương pháp bài bản, và đi cùng bạn cho tới khi bạn làm được.",
   },
   {
     title: "Cụ thể, không trừu tượng",

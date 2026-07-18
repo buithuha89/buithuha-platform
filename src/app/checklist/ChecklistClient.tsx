@@ -123,7 +123,7 @@ export default function ChecklistClient() {
           <div className="head">
             <span className="eyebrow">Checklist quản lý</span>
             <h1>6 checklist dùng được ngay cho người quản lý</h1>
-            <p className="lead">Không phải lý thuyết — đây là những việc cụ thể cần làm, đúc kết từ 15 năm mình đào tạo và trực tiếp quản lý. Tick ngay trên trang khi bạn dùng, hoặc tải trọn bộ về để in và dùng lại.</p>
+            <p className="lead">Không phải lý thuyết — đây là những việc cụ thể cần làm, đúc kết từ 15 năm tôi đào tạo và trực tiếp quản lý. Tick ngay trên trang khi bạn dùng, hoặc tải trọn bộ về để in và dùng lại.</p>
           </div>
 
           <div className="body">
@@ -150,8 +150,8 @@ export default function ChecklistClient() {
               desc="Nhận trọn bộ 6 checklist bản PDF gọn gàng để in ra, dán lên bàn và dùng mỗi khi cần — miễn phí."
               btnLabel="Nhận trọn bộ PDF miễn phí"
               modalTitle="Nhận trọn bộ 6 checklist (PDF)"
-              modalDesc="Để lại email, mình gửi bạn bản PDF trọn bộ 6 checklist quản lý này."
-              doneMsg="Mình sẽ gửi bộ checklist tới email của bạn sớm — nhớ kiểm tra cả mục Spam nhé."
+              modalDesc="Để lại email, tôi gửi bạn bản PDF trọn bộ 6 checklist quản lý này."
+              doneMsg="Tôi sẽ gửi bộ checklist tới email của bạn sớm — nhớ kiểm tra cả mục Spam nhé."
             />
           </div>
         </div>

@@ -110,14 +110,14 @@ export default function ThuaNhanSaiClient() {
           <div className="body">
             <div className="card">
               <p className="intro">
-                Cuốn sách này bắt đầu bằng một cuộc họp. Mình đứng trước hơn 30 người, bị hỏi về một con số mình vừa
-                trình bày — và mình đã buột ra đúng cái câu tệ nhất có thể nói: <i>“Để em xem lại và báo cáo sau ạ.”</i>{" "}
-                Hôm đó mình hiểu ra một điều mà trước đó không ai nói cho mình biết: <b>không phải sai lầm giết chết uy
+                Cuốn sách này bắt đầu bằng một cuộc họp. Tôi đứng trước hơn 30 người, bị hỏi về một con số tôi vừa
+                trình bày — và tôi đã buột ra đúng cái câu tệ nhất có thể nói: <i>“Để em xem lại và báo cáo sau ạ.”</i>{" "}
+                Hôm đó tôi hiểu ra một điều mà trước đó không ai nói cho tôi biết: <b>không phải sai lầm giết chết uy
                 tín, mà là cách bạn phản ứng với sai lầm.</b>
               </p>
               <p className="intro" style={{ marginTop: 12 }}>
                 Bạn không cần trở thành người hoàn hảo. Bạn chỉ cần xử lý sai lầm tốt hơn 95% người xung quanh — và đó
-                là một kỹ năng học được, luyện được, đo được. Đây là bản đúc kết mình dùng cho chính mình và trong hàng
+                là một kỹ năng học được, luyện được, đo được. Đây là bản đúc kết tôi dùng cho bản thân và trong hàng
                 trăm buổi đào tạo nhân sự.
               </p>
             </div>
@@ -172,9 +172,9 @@ export default function ThuaNhanSaiClient() {
 
             <div className="card">
               <p className="intro" style={{ fontSize: 15 }}>
-                Mình viết cuốn này từ nhiều năm làm L&amp;D — và từ chính những lần đứng hình như vậy. Mỗi kỹ thuật
+                Tôi viết cuốn này từ nhiều năm làm L&amp;D — và từ chính những lần đứng hình như vậy. Mỗi kỹ thuật
                 trong sách đều đã được dùng thật trong môi trường doanh nghiệp Việt Nam, không có lý thuyết nào chưa
-                được ứng dụng. Là người đến giờ vẫn đang trực tiếp quản lý mỗi ngày, mình viết ra thứ mình vẫn dùng.
+                được ứng dụng. Là người đến giờ vẫn đang trực tiếp quản lý mỗi ngày, tôi viết ra thứ tôi vẫn dùng.
               </p>
             </div>
           </div>

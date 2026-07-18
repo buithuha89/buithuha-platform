@@ -362,7 +362,7 @@ export default function LandingClient() {
           <span className="lbl">Vì sao tôi làm điều này</span>
           <div className="why">
             <h2>Tôi không tin bạn cần cố gắng nhiều hơn. Tôi tin bạn cần thôi ôm hết.</h2>
-            <p>Tôi đi qua đúng cái vòng đó: giỏi nên ôm, ôm nên kẹt, kẹt nên chẳng ai lớn lên được bên cạnh mình. Càng chăm, doanh nghiệp càng phụ thuộc vào một người — và người đó kiệt sức.</p>
+            <p>Tôi đi qua đúng cái vòng đó: giỏi nên ôm, ôm nên kẹt, kẹt nên chẳng ai lớn lên được bên cạnh tôi. Càng chăm, doanh nghiệp càng phụ thuộc vào một người — và người đó kiệt sức.</p>
             <p>Mười lăm năm đào tạo quản lý, tới giờ vẫn <b>đang trực tiếp ngồi ghế nóng</b>, tôi thấy sự thật này lặp đi lặp lại: người chủ không thiếu năng lực — họ thiếu <b>một cách vận hành để năng lực đó chảy ra khỏi đầu mình</b>, thành quy trình, thành người, thành hệ thống.</p>
             <p>Tôi dựng 6 khóa này để trao lại đúng cách làm đó — gọn, thật, dùng được ngay — để bạn thôi phải là người tắt đèn cuối cùng.</p>
             <div className="sig">— Hà Bùi</div>

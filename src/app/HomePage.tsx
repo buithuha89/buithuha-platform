@@ -143,7 +143,7 @@ const valueBar = [
 
 const faqs = [
   {
-    q: "Bạn có phải coach chuyên nghiệp không?",
+    q: "Hà có phải coach chuyên nghiệp không?",
     a: "Tôi chưa từng tự nhận là coach và cũng chưa qua chứng chỉ coach quốc tế. Tôi là người đào tạo nhiều năm, hiện vẫn trực tiếp làm quản lý, đã học MBA và là người thích chiêm nghiệm. Những gì chia sẻ ở đây là trải nghiệm thật của tôi — không phải lý thuyết tham khảo.",
   },
   {
@@ -151,12 +151,12 @@ const faqs = [
     a: "Người đi làm muốn phát triển bản thân, người lần đầu lên quản lý, quản lý cấp trung, doanh chủ SME, và người làm nghề L&D / HR / Trainer. Nếu bạn đang tìm câu trả lời cho 'mình là ai, mình muốn gì, mình dẫn dắt như thế nào' — thì đây là nơi dành cho bạn.",
   },
   {
-    q: "Cách tiếp cận của bạn khác gì các chương trình khác trên thị trường?",
+    q: "Cách tiếp cận của Hà khác gì các chương trình khác trên thị trường?",
     a: "Tôi không bán 'công thức thần kỳ' hay lý thuyết suông. Tôi chia sẻ phương pháp luận có hệ thống (từ background MBA + đào tạo), kết hợp với trải nghiệm thực chiến (hiện vẫn đang trực tiếp làm quản lý), và quan trọng nhất là sự đồng cảm — vì tôi đang đi qua chính những nỗi đau đó.",
   },
   {
     q: "Khóa học bao nhiêu tiền? Có cam kết kết quả không?",
-    a: "Các khóa học chính đang được hoàn thiện. Bạn có thể đăng ký nhận thông báo sớm để được ưu đãi early-bird. Mình không cam kết 'thay đổi cuộc đời sau 30 ngày' — vì sự chuyển hóa là hành trình của riêng mỗi người. Mình chỉ hứa sẽ đi cùng bạn một đoạn đường tử tế.",
+    a: "Các khóa học chính đang được hoàn thiện. Bạn có thể đăng ký nhận thông báo sớm để được ưu đãi early-bird. Tôi không cam kết 'thay đổi cuộc đời sau 30 ngày' — vì sự chuyển hóa là hành trình của riêng mỗi người. Tôi chỉ hứa sẽ đi cùng bạn một đoạn đường tử tế.",
   },
   {
     q: "Nếu bạn thấy không hợp với cách chia sẻ của tôi thì sao?",
@@ -176,7 +176,7 @@ const freeOfferItems = [
   {
     icon: Compass,
     title: "Phần 1: 7 câu hỏi tự nhìn vào bản thân",
-    desc: "Bộ câu hỏi tôi dùng cho chính mình và đã chia sẻ với một số học viên.",
+    desc: "Bộ câu hỏi tôi dùng cho bản thân và đã chia sẻ với một số học viên.",
   },
   {
     icon: BookOpen,
@@ -186,7 +186,7 @@ const freeOfferItems = [
   {
     icon: Layers,
     title: "Phần 3: Bản đồ tự đánh giá 4 mảng",
-    desc: "4 mảng: sự nghiệp / quan hệ / sức khỏe / bản thân. Cách Hà review mỗi quý.",
+    desc: "4 mảng: sự nghiệp / quan hệ / sức khỏe / bản thân. Cách tôi review mỗi quý.",
   },
 ];
 
@@ -367,7 +367,7 @@ export default function HomePage() {
           <p className="text-sm sm:text-lg text-[#6E6455] max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
             Nơi dành cho <strong className="text-[#221E18]">quản lý mới lên, quản lý cấp trung, chủ doanh nghiệp nhỏ và người làm một mình</strong> —
             học cách xây đội nhóm, giao việc và vận hành bằng hệ thống, thay vì gồng bằng sức.
-            Mình là {siteConfig.owner.name}: MBA, nhiều năm đào tạo trong doanh nghiệp, vẫn đang ngồi đúng cái ghế quản lý áp lực đó — và viết lại những gì thật sự dùng được.
+            Tôi là {siteConfig.owner.name}: MBA, nhiều năm đào tạo trong doanh nghiệp, vẫn đang ngồi đúng cái ghế quản lý áp lực đó — và viết lại những gì thật sự dùng được.
           </p>
 
           {/* Phân nhóm khách — chọn lối đi */}
@@ -499,7 +499,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">
-              4 chủ đề <span className="text-[#B8791A]">Hà viết</span>
+              4 chủ đề <span className="text-[#B8791A]">tôi viết</span>
             </h2>
             <p className="text-[#6E6455]">Không phải &quot;4 bước thành công&quot;. Đây là 4 mảng Hà có chuyện thật để kể.</p>
           </div>
@@ -632,7 +632,7 @@ export default function HomePage() {
       <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[#F1EADD]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Hà viết cho <span className="text-[#84CC16]">ai</span>?
+            Tôi viết cho <span className="text-[#84CC16]">ai</span>?
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -757,7 +757,7 @@ export default function HomePage() {
               <span className="text-[#B8791A]">&quot;7 câu hỏi tự nhìn vào bản thân&quot;</span>
             </h2>
             <p className="text-[#6E6455] max-w-2xl mx-auto">
-              Bộ câu hỏi tôi dùng cho chính mình và một số học viên. Miễn phí, chỉ cần email để tôi gửi cẩm nang.
+              Bộ câu hỏi tôi dùng cho bản thân và một số học viên. Miễn phí, chỉ cần email để tôi gửi cẩm nang.
             </p>
           </div>
 
@@ -781,7 +781,7 @@ export default function HomePage() {
 
               <div className="space-y-2 text-sm text-[#6E6455]">
                 <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> File PDF, đọc trên điện thoại được</div>
-                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Mỗi tuần Hà gửi 1 email ngắn, không spam</div>
+                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Mỗi tuần tôi gửi 1 email ngắn, không spam</div>
                 <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Hủy đăng ký bất cứ lúc nào</div>
               </div>
             </div>
@@ -912,7 +912,7 @@ export default function HomePage() {
             {/* Col 4: Newsletter */}
             <div>
               <h4 className="font-bold text-sm mb-4">Đăng ký nhận tin</h4>
-              <p className="text-xs text-[#8A7F6D] mb-3">Mỗi tuần Hà gửi 1 email chia sẻ ngắn — không spam, không bán hàng cứng.</p>
+              <p className="text-xs text-[#8A7F6D] mb-3">Mỗi tuần tôi gửi 1 email chia sẻ ngắn — không spam, không bán hàng cứng.</p>
               <button onClick={() => setShowLeadModal(true)} className="btn-green text-xs py-2 px-3 inline-flex">
                 <Mail size={12} /> Đăng ký nhận tin
               </button>

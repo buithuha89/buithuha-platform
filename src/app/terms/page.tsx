@@ -118,7 +118,7 @@ const sections = [
       {
         subtitle: "6.1. Quyền của nền tảng",
         list: [
-          "Quản lý, vận hành và phát triển Nền tảng theo định hướng của mình",
+          "Quản lý, vận hành và phát triển Nền tảng theo định hướng của chúng tôi",
           "Tạm khoá hoặc chấm dứt tài khoản người dùng vi phạm điều khoản",
           "Thay đổi, cập nhật hoặc ngừng cung cấp bất kỳ tính năng hoặc dịch vụ nào sau khi thông báo hợp lý",
           "Thu thập và sử dụng dữ liệu người dùng theo Chính sách Bảo mật đã công bố",

@@ -22,22 +22,22 @@ const data: SiloData = {
   title: "Giao tiếp & Quan hệ",
   subtitle: "Trong gia đình, và ở chỗ làm",
   intro:
-    "Đa số chuyện trong đời mình đều liên quan đến giao tiếp. Cãi nhau với chồng. Khó nói với con. Mệt mỏi với đồng nghiệp. Sếp không hiểu mình. Mình không hiểu nhân viên. Mình viết ở đây những gì mình đã rút ra được — sau nhiều năm vướng đi vướng lại.",
+    "Đa số chuyện trong đời tôi đều liên quan đến giao tiếp. Cãi nhau với chồng. Khó nói với con. Mệt mỏi với đồng nghiệp. Sếp không hiểu tôi. Tôi không hiểu nhân viên. Tôi viết ở đây những gì tôi đã rút ra được — sau nhiều năm vướng đi vướng lại.",
   story: {
     heading: "Có những chuyện kéo dài nhiều năm chỉ vì một câu không nói ra",
     paragraphs: [
-      "Có lần mình cãi nhau với người trong gia đình, đóng cửa phòng và ngồi yên. Mãi nhiều tháng sau mình mới hiểu: chuyện chính không phải điều người ta nói — mà là điều cả hai bên không nói ra được.",
-      "Đi làm cũng vậy. Một anh đồng nghiệp cũ của mình, mỗi lần họp đều cãi với mình. Sau này mới biết, anh ấy không cãi mình — anh ấy đang cãi một nỗi sợ trong chính anh ấy mà mình tình cờ chạm phải.",
-      "Mình không có công thức giao tiếp nào. Mình chỉ có những bài học rút ra từ việc làm sai, làm lại, và đứng lùi một bước để nhìn cho rõ.",
+      "Có lần tôi cãi nhau với người trong gia đình, đóng cửa phòng và ngồi yên. Mãi nhiều tháng sau tôi mới hiểu: chuyện chính không phải điều người ta nói — mà là điều cả hai bên không nói ra được.",
+      "Đi làm cũng vậy. Một anh đồng nghiệp cũ của tôi, mỗi lần họp đều cãi với tôi. Sau này mới biết, anh ấy không cãi tôi — anh ấy đang cãi một nỗi sợ trong chính anh ấy mà tôi tình cờ chạm phải.",
+      "Tôi không có công thức giao tiếp nào. Tôi chỉ có những bài học rút ra từ việc làm sai, làm lại, và đứng lùi một bước để nhìn cho rõ.",
     ],
   },
   topics: [
-    { icon: "MessageSquare", title: "Cách nói điều khó nói", desc: "Khi cần phản hồi nhân viên, từ chối một đề nghị, hoặc thẳng thắn với người thân — mình thường chuẩn bị thế nào." },
-    { icon: "Ear", title: "Lắng nghe mà không cắt ngang", desc: "Nghe ai đó nói trong khi não mình đang chuẩn bị câu trả lời — đó không phải lắng nghe. Mình chia sẻ cách tập lại từ đầu." },
+    { icon: "MessageSquare", title: "Cách nói điều khó nói", desc: "Khi cần phản hồi nhân viên, từ chối một đề nghị, hoặc thẳng thắn với người thân — tôi thường chuẩn bị thế nào." },
+    { icon: "Ear", title: "Lắng nghe mà không cắt ngang", desc: "Nghe ai đó nói trong khi não mình đang chuẩn bị câu trả lời — đó không phải lắng nghe. Tôi chia sẻ cách tập lại từ đầu." },
     { icon: "Frown", title: "Khi xung đột không tránh được", desc: "Có những xung đột là dấu hiệu mối quan hệ đang lành lại, không phải đang vỡ. Cách phân biệt và cách đi qua." },
     { icon: "Home", title: "Giao tiếp trong gia đình", desc: "Với vợ/chồng, với con, với cha mẹ. Khác hẳn giao tiếp ở chỗ làm — và khó hơn nhiều." },
-    { icon: "Users", title: "Khi đồng nghiệp khó hợp tác", desc: "3 câu hỏi mình tự đặt cho mình trước khi đi nói chuyện với đồng nghiệp khó." },
-    { icon: "HeartHandshake", title: "Làm lành sau khi nói lời tổn thương", desc: "Ai cũng có lúc lỡ lời. Cách mình thường dùng để nối lại — không phải xin lỗi đại." },
+    { icon: "Users", title: "Khi đồng nghiệp khó hợp tác", desc: "3 câu hỏi tôi tự đặt cho bản thân trước khi đi nói chuyện với đồng nghiệp khó." },
+    { icon: "HeartHandshake", title: "Làm lành sau khi nói lời tổn thương", desc: "Ai cũng có lúc lỡ lời. Cách tôi thường dùng để nối lại — không phải xin lỗi đại." },
   ],
   audience: [
     "Bạn đang vướng một mối quan hệ trong gia đình hoặc ở công ty mà chưa biết cách gỡ",
@@ -47,7 +47,7 @@ const data: SiloData = {
   ],
   cta: {
     heading: "Bắt đầu từ cẩm nang miễn phí",
-    body: "Cẩm nang \"7 câu hỏi tự nhìn vào bản thân\" là điểm khởi đầu mình gợi ý cho mọi người. Hiểu mình trước, rồi mới nói chuyện với người được.",
+    body: "Cẩm nang \"7 câu hỏi tự nhìn vào bản thân\" là điểm khởi đầu tôi gợi ý cho mọi người. Hiểu mình trước, rồi mới nói chuyện với người được.",
   },
 };
 

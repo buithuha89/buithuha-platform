@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 const background = [
-  { icon: GraduationCap, label: "MBA", desc: "Nền tảng phương pháp luận Hà mang theo trong mọi việc" },
+  { icon: GraduationCap, label: "MBA", desc: "Nền tảng phương pháp luận tôi mang theo trong mọi việc" },
   { icon: Briefcase, label: "Nhiều năm đào tạo", desc: "Làm L&D / đào tạo trong doanh nghiệp" },
   { icon: Award, label: "Vẫn đang làm quản lý", desc: "Đang ngồi trong ghế leader — hiểu áp lực từ bên trong" },
   { icon: PenLine, label: "Đọc và viết hàng ngày", desc: "Thích chiêm nghiệm, ghi chép, và chia sẻ" },
@@ -37,19 +37,19 @@ const background = [
 const principles = [
   {
     title: "Không bán bí kíp",
-    body: "Hà không có công thức nào kỳ diệu. Cuộc đời mỗi người khác nhau — bí kíp của người này có khi là bẫy của người kia.",
+    body: "Tôi không có công thức nào kỳ diệu. Cuộc đời mỗi người khác nhau — bí kíp của người này có khi là bẫy của người kia.",
   },
   {
     title: "Không hứa phép màu, nhưng có lộ trình",
-    body: "Mình không hứa đổi đời sau một đêm. Mình đưa bạn một lộ trình rõ ràng, phương pháp bài bản, và đi cùng bạn cho tới khi bạn làm được.",
+    body: "Tôi không hứa đổi đời sau một đêm. Tôi đưa bạn một lộ trình rõ ràng, phương pháp bài bản, và đi cùng bạn cho tới khi bạn làm được.",
   },
   {
     title: "Cụ thể, không trừu tượng",
-    body: "Hà viết về tình huống thật, có bối cảnh, có ngày tháng. Tránh nói chuyện chung chung kiểu motivational poster.",
+    body: "Tôi viết về tình huống thật, có bối cảnh, có ngày tháng. Tránh nói chuyện chung chung kiểu motivational poster.",
   },
   {
     title: "Học từ sai lầm, không chỉ thành công",
-    body: "Bài học giá trị nhất Hà có được đến từ những lần làm sai. Hà chia sẻ cả hai — đặc biệt là những lần sai.",
+    body: "Bài học giá trị nhất tôi có được đến từ những lần làm sai. Tôi chia sẻ cả hai — đặc biệt là những lần sai.",
   },
 ];
 
@@ -107,13 +107,13 @@ export default function AboutPage() {
                 <Heart size={14} /> Về Hà
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight">
-                Mình là <span className="text-[#FBBF24]">{siteConfig.owner.name}</span>
+                Tôi là <span className="text-[#FBBF24]">{siteConfig.owner.name}</span>
               </h1>
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                <strong className="text-white">MBA Quản trị Kinh doanh · 15 năm đào tạo quản lý cho Vingroup, FPT Telecom, TokyoLife</strong> — và mình vẫn đang trực tiếp quản lý nhân sự mỗi ngày. Hơn <strong className="text-white">10.000 học viên</strong> và <strong className="text-white">350+ chương trình</strong> đã đi qua tay mình.
+                <strong className="text-white">MBA Quản trị Kinh doanh · 15 năm đào tạo quản lý cho Vingroup, FPT Telecom, TokyoLife</strong> — và tôi vẫn đang trực tiếp quản lý nhân sự mỗi ngày. Hơn <strong className="text-white">10.000 học viên</strong> và <strong className="text-white">350+ chương trình</strong> đã đi qua tay tôi.
               </p>
               <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-                Mình không phải diễn giả truyền cảm hứng hay coach bán “công thức thần kỳ”. Mình là người <strong className="text-gray-200">đang làm thật</strong> — rồi đóng gói lại đúng cái dùng được thành <strong className="text-gray-200">phương pháp bài bản</strong>. Ở đây có nội dung miễn phí để đọc, và có những <strong className="text-gray-200">khóa học chuyên sâu</strong> cho ai muốn đi xa hơn cùng mình.
+                Tôi không phải diễn giả truyền cảm hứng hay coach bán “công thức thần kỳ”. Tôi là người <strong className="text-gray-200">đang làm thật</strong> — rồi đóng gói lại đúng cái dùng được thành <strong className="text-gray-200">phương pháp bài bản</strong>. Ở đây có nội dung miễn phí để đọc, và có những <strong className="text-gray-200">khóa học chuyên sâu</strong> cho ai muốn đi xa hơn cùng tôi.
               </p>
             </div>
           </div>
@@ -124,17 +124,17 @@ export default function AboutPage() {
       <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[#0d0d0d]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold mb-8">
-            Tại sao mình mở <span className="text-[#FBBF24]">{siteConfig.name}</span>?
+            Tại sao tôi mở <span className="text-[#FBBF24]">{siteConfig.name}</span>?
           </h2>
 
           <div className="space-y-5 text-base text-gray-300 leading-relaxed">
             <p>
-              Nhiều năm đi làm, có lúc mình ngồi yên và nhận ra: những điều mình rút ra được từ trải nghiệm — không có chỗ
+              Nhiều năm đi làm, có lúc tôi ngồi yên và nhận ra: những điều tôi rút ra được từ trải nghiệm — không có chỗ
               nào để chia sẻ một cách tử tế. Một số chia sẻ qua các buổi đào tạo, nhưng bay đi rất nhanh. Một số ghi trong
-              sổ tay, nhưng chỉ mình mình đọc.
+              sổ tay, nhưng chỉ mình tôi đọc.
             </p>
             <p>
-              Mình thấy có nhiều bạn trẻ — và cả các quản lý lâu năm — đang vướng những điều mà mình đã từng vướng. Cãi nhau
+              Tôi thấy có nhiều bạn trẻ — và cả các quản lý lâu năm — đang vướng những điều mà tôi đã từng vướng. Cãi nhau
               với người thân yêu. Lần đầu lên quản lý không biết bắt đầu thế nào. Đi làm vài năm rồi mà nhìn lại thấy mình
               đứng yên. Mở doanh nghiệp nhỏ mà team không theo kịp.
             </p>
@@ -143,9 +143,9 @@ export default function AboutPage() {
               với văn hóa Việt, gia đình Việt, công sở Việt.
             </p>
             <p>
-              <strong className="text-white">{siteConfig.name} là nơi mình ghi lại những điều đó.</strong> Không hứa hẹn màu mè,
-              không lý thuyết cao siêu. Phần lớn ở đây miễn phí để đọc — còn nếu bạn muốn đi sâu theo lộ trình, mình có những
-              khóa học được đóng gói kỹ, đúc kết từ chính việc mình đang làm mỗi ngày.
+              <strong className="text-white">{siteConfig.name} là nơi tôi ghi lại những điều đó.</strong> Không hứa hẹn màu mè,
+              không lý thuyết cao siêu. Phần lớn ở đây miễn phí để đọc — còn nếu bạn muốn đi sâu theo lộ trình, tôi có những
+              khóa học được đóng gói kỹ, đúc kết từ chính việc tôi đang làm mỗi ngày.
             </p>
           </div>
         </div>
@@ -155,7 +155,7 @@ export default function AboutPage() {
       <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-10 sm:mb-14">
-            Mình mang theo những gì khi <span className="text-[#FBBF24]">chia sẻ</span>?
+            Tôi mang theo những gì khi <span className="text-[#FBBF24]">chia sẻ</span>?
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -174,8 +174,8 @@ export default function AboutPage() {
           </div>
 
           <blockquote className="mt-10 max-w-2xl mx-auto border-l-2 border-[#FBBF24] pl-5 italic text-gray-300 text-base sm:text-lg leading-relaxed">
-            &quot;Mình không phải coach kiểu diễn giả truyền cảm hứng. Mình là người vẫn đang trực tiếp làm quản lý —
-            và chia sẻ lại đúng những gì mình dùng được thật.&quot;
+            &quot;Tôi không phải coach kiểu diễn giả truyền cảm hứng. Tôi là người vẫn đang trực tiếp làm quản lý —
+            và chia sẻ lại đúng những gì tôi dùng được thật.&quot;
           </blockquote>
         </div>
       </section>
@@ -184,10 +184,10 @@ export default function AboutPage() {
       <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[#0d0d0d]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-4">
-            4 nguyên tắc khi <span className="text-[#84CC16]">Hà viết và chia sẻ</span>
+            4 nguyên tắc khi <span className="text-[#84CC16]">tôi viết và chia sẻ</span>
           </h2>
           <p className="text-center text-gray-400 mb-10 sm:mb-14 max-w-2xl mx-auto">
-            Không phải tuyên ngôn. Đây là cách Hà thật sự xuất hiện trong từng bài viết, từng buổi đào tạo.
+            Không phải tuyên ngôn. Đây là cách tôi thật sự xuất hiện trong từng bài viết, từng buổi đào tạo.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -272,7 +272,7 @@ export default function AboutPage() {
             Bắt đầu từ <span className="text-[#FBBF24]">một email</span>
           </h2>
           <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-            Nếu bạn thấy hợp với cách Hà viết, đăng ký nhận cẩm nang miễn phí và bài viết hàng tuần.
+            Nếu bạn thấy hợp với cách tôi viết, đăng ký nhận cẩm nang miễn phí và bài viết hàng tuần.
             Hủy bất cứ lúc nào.
           </p>
 

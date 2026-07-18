@@ -7,7 +7,7 @@ import LeadCTA from "@/components/resource/LeadCTA";
 const EBOOK = {
   title: "7 câu hỏi tự nhìn vào bản thân",
   subtitle: "Bộ câu hỏi tự vấn dành cho người quản lý và chủ doanh nghiệp đang thấy mình ôm quá nhiều việc — dành ra 20 phút ngồi thật với chính mình.",
-  intro: "Mình viết 7 câu hỏi này không phải để bạn có thêm một bài tập phải làm cho xong, mà để bạn có một buổi ngồi thật yên với chính mình. Là người đến giờ vẫn đang trực tiếp quản lý mỗi ngày, mình hiểu cái vòng lặp “thôi để mình làm cho nhanh” nó cuốn người ta đi thế nào — và cũng hiểu rằng thứ giữ mình ở lại trong vòng lặp đó thường không phải là khối lượng việc, mà là một điều gì đó bên trong mình mà mình chưa nhìn thẳng. Bạn không cần trả lời hết trong một lần, cũng không cần trả lời cho hay. Chọn câu nào chạm vào bạn nhất, viết ra thật lòng — không ai đọc ngoài bạn. Nhìn rõ mình đang vận hành thế nào là bước đầu tiên, và thường là bước khó nhất, để thay đổi nó.",
+  intro: "Tôi viết 7 câu hỏi này không phải để bạn có thêm một bài tập phải làm cho xong, mà để bạn có một buổi ngồi thật yên với chính mình. Là người đến giờ vẫn đang trực tiếp quản lý mỗi ngày, tôi hiểu cái vòng lặp “thôi để mình làm cho nhanh” nó cuốn người ta đi thế nào — và cũng hiểu rằng thứ giữ mình ở lại trong vòng lặp đó thường không phải là khối lượng việc, mà là một điều gì đó bên trong mình mà mình chưa nhìn thẳng. Bạn không cần trả lời hết trong một lần, cũng không cần trả lời cho hay. Chọn câu nào chạm vào bạn nhất, viết ra thật lòng — không ai đọc ngoài bạn. Nhìn rõ mình đang vận hành thế nào là bước đầu tiên, và thường là bước khó nhất, để thay đổi nó.",
   questions: [
     {
       q: "Tuần vừa rồi, có việc nào bạn tự tay làm chỉ vì “mình làm cho nhanh”? Hãy liệt kê ra 3 việc như vậy.",
@@ -19,7 +19,7 @@ const EBOOK = {
     },
     {
       q: "Lần gần nhất bạn giao việc, bạn giao “đầu việc” hay giao cả kết quả và quyền quyết định?",
-      guide: "Giao đầu việc là: “Em làm cái này, cái này, rồi hỏi lại chị.” Giao kết quả là: “Chị cần đạt được điều này, em tự chọn cách làm và chịu trách nhiệm với nó.” Nếu mọi quyết định vẫn phải chạy qua tay bạn, thì bạn chưa uỷ quyền — bạn chỉ đang chia nhỏ việc chân tay ra, và người ta vẫn phụ thuộc vào bạn y hệt như cũ.",
+      guide: "Giao đầu việc là: “Em làm cái này, cái này, rồi hỏi lại tôi.” Giao kết quả là: “Tôi cần đạt được điều này, em tự chọn cách làm và chịu trách nhiệm với nó.” Nếu mọi quyết định vẫn phải chạy qua tay bạn, thì bạn chưa uỷ quyền — bạn chỉ đang chia nhỏ việc chân tay ra, và người ta vẫn phụ thuộc vào bạn y hệt như cũ.",
     },
     {
       q: "Nếu ngày mai bạn phải nghỉ hai tuần, không điện thoại, không email — việc gì trong công ty sẽ đứng lại?",
@@ -82,8 +82,8 @@ export default function EbookClient() {
               desc="Nhận bản PDF đẹp của “7 câu hỏi tự nhìn vào bản thân” — có chỗ để bạn viết câu trả lời, in ra và ngồi thật với chính mình."
               btnLabel="Tải bản PDF miễn phí"
               modalTitle="Nhận bản PDF ebook"
-              modalDesc="Để lại email, mình gửi bạn bản PDF “7 câu hỏi tự nhìn vào bản thân” có chỗ viết câu trả lời."
-              doneMsg="Mình sẽ gửi bản PDF tới email của bạn sớm — nhớ kiểm tra cả mục Spam nhé."
+              modalDesc="Để lại email, tôi gửi bạn bản PDF “7 câu hỏi tự nhìn vào bản thân” có chỗ viết câu trả lời."
+              doneMsg="Tôi sẽ gửi bản PDF tới email của bạn sớm — nhớ kiểm tra cả mục Spam nhé."
             />
           </div>
         </div>

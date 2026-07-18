@@ -118,11 +118,11 @@ export default function BieuMauClient() {
 
             <LeadCTA
               title="Nhận bản chỉnh sửa được"
-              desc="Mình gửi bạn trọn bộ 5 biểu mẫu ở bản Word/Excel điền được ngay, để dùng cho đội của bạn — miễn phí."
+              desc="Tôi gửi bạn trọn bộ 5 biểu mẫu ở bản Word/Excel điền được ngay, để dùng cho đội của bạn — miễn phí."
               btnLabel="Nhận bộ biểu mẫu miễn phí"
               modalTitle="Nhận trọn bộ 5 biểu mẫu"
-              modalDesc="Để lại email, mình gửi bạn bản chỉnh sửa được (Word/Excel) của 5 biểu mẫu này."
-              doneMsg="Mình sẽ gửi bộ biểu mẫu tới email của bạn sớm — nhớ kiểm tra cả mục Spam nhé."
+              modalDesc="Để lại email, tôi gửi bạn bản chỉnh sửa được (Word/Excel) của 5 biểu mẫu này."
+              doneMsg="Tôi sẽ gửi bộ biểu mẫu tới email của bạn sớm — nhớ kiểm tra cả mục Spam nhé."
             />
           </div>
         </div>

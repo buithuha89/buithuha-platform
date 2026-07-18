@@ -82,7 +82,7 @@ export default function LeadCTA({
                   <button className="go" type="submit" disabled={status === "loading"}>
                     {status === "loading" ? "Đang gửi..." : btnLabel}
                   </button>
-                  <p className="fine">Mình chỉ dùng email để gửi tài liệu &amp; nội dung hữu ích. Không spam.</p>
+                  <p className="fine">Tôi chỉ dùng email để gửi tài liệu &amp; nội dung hữu ích. Không spam.</p>
                 </form>
               </>
             )}

@@ -109,11 +109,28 @@ export async function POST(req: NextRequest) {
                 list_id: defaultList.id,
                 added_at: new Date().toISOString(),
               });
+              // Bắn trigger automation "subscribed_to_list" — lắp sẵn cho chuỗi nuôi dưỡng.
+              // Nếu chưa có automation nào active thì hàm này không làm gì (an toàn).
+              try {
+                const { onSubscribedToList } = await import("@/lib/email/automation-triggers");
+                await onSubscribedToList(admin, newSub.id, defaultList.id);
+              } catch (e) {
+                console.error("[Register] automation trigger error:", e);
+              }
             }
           }
         }
       } catch (e) {
         console.error("Subscriber sync error:", e);
+      }
+
+      // Cách A: email chào mừng + giao tài liệu, gửi ngay qua SES.
+      // Bọc try/catch để không bao giờ chặn việc đăng ký nếu email lỗi.
+      try {
+        const { sendLeadMagnetWelcomeEmail } = await import("@/lib/email/transactional");
+        await sendLeadMagnetWelcomeEmail(cleanEmail, full_name?.trim() || "");
+      } catch (e) {
+        console.error("[Register] welcome email error:", e);
       }
     }
 

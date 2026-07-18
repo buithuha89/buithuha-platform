@@ -98,6 +98,29 @@ export async function sendWelcomeEmail(to: string, name: string) {
   );
 }
 
+/**
+ * Email chào mừng + giao tài liệu khi khách đăng ký nhận sản phẩm mồi miễn phí.
+ * Gửi ngay qua SES từ route đăng ký (khi newsletter_opt_in = true).
+ */
+export async function sendLeadMagnetWelcomeEmail(to: string, name: string) {
+  const baseUrl = getBaseUrl();
+  const hi = name?.trim() ? `, ${escapeHtml(name.trim())}` : "";
+  return sesSendEmail(
+    to,
+    "Tài liệu của bạn đây — cùng một lời chào từ Hà",
+    baseTemplate(`
+      <h1>Cảm ơn bạn đã đăng ký${hi}!</h1>
+      <p>Bạn có thể mở lại toàn bộ tài liệu miễn phí — trắc nghiệm, checklist, biểu mẫu và ebook — tại một nơi:</p>
+      <a href="${baseUrl}/#he-sinh-thai" class="btn">Mở kho tài liệu miễn phí →</a>
+      <div class="divider"></div>
+      <p>Tôi là <span class="highlight">Hà</span> — làm đào tạo nhiều năm và đến giờ vẫn đang trực tiếp làm quản lý mỗi ngày. Những gì tôi chia sẻ đều là thứ tôi đang dùng thật, không phải lý thuyết.</p>
+      <p>Mỗi tuần tôi gửi bạn một email ngắn: một <span class="highlight">câu chuyện thật</span>, một <span class="highlight">mô hình chuẩn</span>, hoặc một <span class="highlight">hướng dẫn thực hành cụ thể</span> — áp dụng được ngay. Không spam.</p>
+      <p style="margin:0;">Có câu hỏi gì, bạn cứ trả lời thẳng email này — tôi đọc tất cả.</p>
+      <p style="margin:8px 0 0; color:#6b7280; font-size:13px;">— Hà</p>
+    `),
+  );
+}
+
 export async function sendPurchaseConfirmation(
   to: string,
   name: string,

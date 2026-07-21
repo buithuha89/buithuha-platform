@@ -383,14 +383,13 @@ export default function HomePage() {
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-4 sm:mb-6">
-            Dẫn dắt đội nhóm, vận hành công việc — <span className="text-[var(--accent-hover)]">mà không phải ôm hết một mình</span>
+            Đi làm giỏi rồi, sao vẫn thấy mình <span className="text-[var(--accent-hover)]">mãi “gồng”?</span>
           </h1>
 
           {/* Sub-headline */}
           <p className="text-sm sm:text-lg text-[var(--fg-muted)] max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
-            Dù bạn là <strong className="text-[var(--fg)]">nhân viên văn phòng muốn giỏi hơn, người làm L&amp;D/HR, quản lý mới lên hay cấp trung, hay chủ doanh nghiệp đang một mình gánh việc</strong> —
-            ở đây là những kỹ năng quản trị và kỹ năng thiết yếu thật sự dùng được ở chỗ làm: giao tiếp, xử lý việc, dẫn dắt và vận hành — thay vì tự mò hay gồng bằng sức.
-            Tôi là {siteConfig.owner.name}: MBA, nhiều năm đào tạo trong doanh nghiệp, vẫn đang ngồi đúng cái ghế quản lý áp lực đó — và viết lại những gì thật sự dùng được.
+            Vì không ai chỉ bạn những thứ thật sự quyết định ở chỗ làm: <strong className="text-[var(--fg)]">nói chuyện khó mà không mất lòng, giao việc không phải làm lại, nhận sai mà vẫn giữ uy</strong>. Đây là nơi học những điều đó — cho nhân viên văn phòng, người làm L&amp;D/HR, quản lý mới lên hay cấp trung, và chủ doanh nghiệp đang một mình gánh việc.
+            Tôi là {siteConfig.owner.name} — MBA, 15 năm đào tạo ở Vingroup, FPT, TokyoLife, hơn 10.000 học viên, và đến giờ vẫn trực tiếp quản lý mỗi ngày.
           </p>
 
           {/* Phân nhóm khách — chọn lối đi */}

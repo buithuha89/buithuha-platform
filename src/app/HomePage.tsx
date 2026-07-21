@@ -395,8 +395,8 @@ export default function HomePage() {
           {/* CTA chính ngay dưới hook */}
           <div className="mb-8 sm:mb-10 flex flex-col items-center gap-2.5">
             <a href="/trac-nghiem"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-bold text-white transition-all hover:-translate-y-0.5"
-              style={{ background: "var(--warn)" }}>
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-bold transition-all hover:-translate-y-0.5"
+              style={{ background: "var(--warn)", color: "var(--accent-fg)" }}>
               Làm thử trắc nghiệm 2 phút — bạn đang GÁNH hay DẪN DẮT?
               <ArrowRight size={17} />
             </a>

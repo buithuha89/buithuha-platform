@@ -54,17 +54,17 @@ const principles = [
 ];
 
 const silos = [
-  { num: 1, icon: MessageSquare, color: "#FBBF24", href: "/giao-tiep", title: "Giao tiếp & Quan hệ" },
-  { num: 2, icon: Compass, color: "#84CC16", href: "/phat-trien-ban-than", title: "Phát triển bản thân" },
-  { num: 3, icon: BookOpen, color: "#FBBF24", href: "/nghe-ld", title: "Nghề L&D" },
-  { num: 4, icon: Award, color: "#84CC16", href: "/lanh-dao-quan-ly", title: "Lãnh đạo & Quản lý" },
+  { num: 1, icon: MessageSquare, color: "var(--warn)", href: "/giao-tiep", title: "Giao tiếp & Quan hệ" },
+  { num: 2, icon: Compass, color: "var(--cat-lime)", href: "/phat-trien-ban-than", title: "Phát triển bản thân" },
+  { num: 3, icon: BookOpen, color: "var(--warn)", href: "/nghe-ld", title: "Nghề L&D" },
+  { num: 4, icon: Award, color: "var(--cat-lime)", href: "/lanh-dao-quan-ly", title: "Lãnh đạo & Quản lý" },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#0a0a0a] min-h-screen text-white">
+    <div className="bg-[var(--bg)] min-h-screen text-white">
       {/* HEADER nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/92 backdrop-blur-xl border-b border-white/5">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)]/92 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-16">
           <Link href="/" className="flex items-center gap-2.5">
             <Image src={siteConfig.owner.avatar} alt={siteConfig.owner.name} width={36} height={36} sizes="36px" className="w-9 h-9 rounded-lg object-cover" />
@@ -96,18 +96,18 @@ export default function AboutPage() {
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center"
                   style={{ background: "linear-gradient(transparent, rgba(0,0,0,0.85))" }}>
                   <div className="text-lg font-bold">{siteConfig.owner.name}</div>
-                  <div className="text-sm text-[#FBBF24]">{siteConfig.name}</div>
+                  <div className="text-sm text-[var(--warn)]">{siteConfig.name}</div>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-3 space-y-5">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium"
-                style={{ background: "rgba(251,191,36,0.1)", border: "1px solid rgba(251,191,36,0.25)", color: "#FBBF24" }}>
+                style={{ background: "rgb(var(--warn-rgb) / 0.1)", border: "1px solid rgb(var(--warn-rgb) / 0.25)", color: "var(--warn)" }}>
                 <Heart size={14} /> Về Hà
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight">
-                Tôi là <span className="text-[#FBBF24]">{siteConfig.owner.name}</span>
+                Tôi là <span className="text-[var(--warn)]">{siteConfig.owner.name}</span>
               </h1>
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                 <strong className="text-white">MBA Quản trị Kinh doanh · 15 năm đào tạo quản lý cho Vingroup, FPT Telecom, TokyoLife</strong> — và tôi vẫn đang trực tiếp quản lý nhân sự mỗi ngày. Hơn <strong className="text-white">10.000 học viên</strong> và <strong className="text-white">350+ chương trình</strong> đã đi qua tay tôi.
@@ -121,10 +121,10 @@ export default function AboutPage() {
       </section>
 
       {/* ═══ STORY ═══ */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[#0d0d0d]">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[var(--bg-alt)]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold mb-8">
-            Tại sao tôi mở <span className="text-[#FBBF24]">{siteConfig.name}</span>?
+            Tại sao tôi mở <span className="text-[var(--warn)]">{siteConfig.name}</span>?
           </h2>
 
           <div className="space-y-5 text-base text-gray-300 leading-relaxed">
@@ -155,15 +155,15 @@ export default function AboutPage() {
       <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-10 sm:mb-14">
-            Tôi mang theo những gì khi <span className="text-[#FBBF24]">chia sẻ</span>?
+            Tôi mang theo những gì khi <span className="text-[var(--warn)]">chia sẻ</span>?
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {background.map((b, i) => (
-              <div key={i} className="flex gap-4 bg-[#111] border border-white/5 rounded-2xl p-6">
+              <div key={i} className="flex gap-4 bg-[var(--surface)] border border-white/5 rounded-2xl p-6">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
-                  style={{ background: "rgba(251,191,36,0.1)" }}>
-                  <b.icon size={22} className="text-[#FBBF24]" />
+                  style={{ background: "rgb(var(--warn-rgb) / 0.1)" }}>
+                  <b.icon size={22} className="text-[var(--warn)]" />
                 </div>
                 <div>
                   <h3 className="font-bold text-base mb-1">{b.label}</h3>
@@ -173,7 +173,7 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <blockquote className="mt-10 max-w-2xl mx-auto border-l-2 border-[#FBBF24] pl-5 italic text-gray-300 text-base sm:text-lg leading-relaxed">
+          <blockquote className="mt-10 max-w-2xl mx-auto border-l-2 border-[var(--warn)] pl-5 italic text-gray-300 text-base sm:text-lg leading-relaxed">
             &quot;Tôi không phải coach kiểu diễn giả truyền cảm hứng. Tôi là người vẫn đang trực tiếp làm quản lý —
             và chia sẻ lại đúng những gì tôi dùng được thật.&quot;
           </blockquote>
@@ -181,10 +181,10 @@ export default function AboutPage() {
       </section>
 
       {/* ═══ PRINCIPLES — Cách Hà làm việc ═══ */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[#0d0d0d]">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[var(--bg-alt)]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-4">
-            4 nguyên tắc khi <span className="text-[#84CC16]">tôi viết và chia sẻ</span>
+            4 nguyên tắc khi <span className="text-[var(--cat-lime)]">tôi viết và chia sẻ</span>
           </h2>
           <p className="text-center text-gray-400 mb-10 sm:mb-14 max-w-2xl mx-auto">
             Không phải tuyên ngôn. Đây là cách tôi thật sự xuất hiện trong từng bài viết, từng buổi đào tạo.
@@ -192,8 +192,8 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {principles.map((p, i) => (
-              <div key={i} className="bg-[#111] border border-white/5 rounded-2xl p-6">
-                <h3 className="font-bold text-base mb-3 text-[#84CC16]">{p.title}</h3>
+              <div key={i} className="bg-[var(--surface)] border border-white/5 rounded-2xl p-6">
+                <h3 className="font-bold text-base mb-3 text-[var(--cat-lime)]">{p.title}</h3>
                 <p className="text-sm text-gray-400 leading-relaxed">{p.body}</p>
               </div>
             ))}
@@ -205,13 +205,13 @@ export default function AboutPage() {
       <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-10 sm:mb-14">
-            4 chủ đề Hà <span className="text-[#FBBF24]">đang viết</span>
+            4 chủ đề Hà <span className="text-[var(--warn)]">đang viết</span>
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {silos.map((s) => (
               <Link key={s.num} href={s.href}
-                className="flex items-center gap-4 bg-[#111] border border-white/5 rounded-2xl p-5 hover:border-white/10 transition-colors group">
+                className="flex items-center gap-4 bg-[var(--surface)] border border-white/5 rounded-2xl p-5 hover:border-white/10 transition-colors group">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
                   style={{ background: `${s.color}20` }}>
                   <s.icon size={22} style={{ color: s.color }} />
@@ -228,10 +228,10 @@ export default function AboutPage() {
       </section>
 
       {/* ═══ CONNECT ═══ */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[#0d0d0d]">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[var(--bg-alt)]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-extrabold mb-4">
-            Kết nối với <span className="text-[#FBBF24]">Hà</span>
+            Kết nối với <span className="text-[var(--warn)]">Hà</span>
           </h2>
           <p className="text-gray-400 mb-10 max-w-xl mx-auto">
             Hà đọc và phản hồi mọi tin nhắn — không hứa trong vòng 1 giờ, nhưng sẽ đọc và trả lời khi có thời gian.
@@ -239,22 +239,22 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
             <a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer"
-              className="bg-[#111] border border-white/5 rounded-2xl p-6 hover:border-[#1877F2]/30 transition-colors group">
+              className="bg-[var(--surface)] border border-white/5 rounded-2xl p-6 hover:border-[#1877F2]/30 transition-colors group">
               <div className="text-[#1877F2] mx-auto mb-3 w-7 h-7"><FacebookIcon size={28} /></div>
               <div className="font-bold text-sm mb-1">Facebook</div>
               <div className="text-xs text-gray-500">Bài viết hàng tuần</div>
             </a>
 
             <Link href="/register"
-              className="bg-[#111] border border-white/5 rounded-2xl p-6 hover:border-[#FBBF24]/30 transition-colors group">
-              <Mail size={28} className="text-[#FBBF24] mx-auto mb-3" />
+              className="bg-[var(--surface)] border border-white/5 rounded-2xl p-6 hover:border-[var(--warn)]/30 transition-colors group">
+              <Mail size={28} className="text-[var(--warn)] mx-auto mb-3" />
               <div className="font-bold text-sm mb-1">Newsletter</div>
               <div className="text-xs text-gray-500">Mỗi tuần 1 email ngắn</div>
             </Link>
 
             <Link href="/community"
-              className="bg-[#111] border border-white/5 rounded-2xl p-6 hover:border-[#84CC16]/30 transition-colors group">
-              <Coffee size={28} className="text-[#84CC16] mx-auto mb-3" />
+              className="bg-[var(--surface)] border border-white/5 rounded-2xl p-6 hover:border-[var(--cat-lime)]/30 transition-colors group">
+              <Coffee size={28} className="text-[var(--cat-lime)] mx-auto mb-3" />
               <div className="font-bold text-sm mb-1">Cộng đồng</div>
               <div className="text-xs text-gray-500">Chia sẻ và hỏi đáp</div>
             </Link>
@@ -265,11 +265,11 @@ export default function AboutPage() {
       {/* ═══ FINAL CTA ═══ */}
       <section className="py-12 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5"
-          style={{ background: "radial-gradient(circle at center, #FBBF24, transparent 60%)" }} />
+          style={{ background: "radial-gradient(circle at center, var(--warn), transparent 60%)" }} />
 
         <div className="relative max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-4xl font-extrabold mb-4">
-            Bắt đầu từ <span className="text-[#FBBF24]">một email</span>
+            Bắt đầu từ <span className="text-[var(--warn)]">một email</span>
           </h2>
           <p className="text-gray-400 mb-8 max-w-lg mx-auto">
             Nếu bạn thấy hợp với cách tôi viết, đăng ký nhận cẩm nang miễn phí và bài viết hàng tuần.

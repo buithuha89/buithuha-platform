@@ -52,30 +52,30 @@ const SOURCE_CONFIG: Record<
 > = {
   purchase: {
     label: "Mua",
-    bg: "rgba(212,168,67,0.1)",
-    color: "#D4A843",
-    border: "rgba(212,168,67,0.2)",
+    bg: "rgb(var(--accent-rgb) / 0.1)",
+    color: "var(--accent)",
+    border: "rgb(var(--accent-rgb) / 0.2)",
     icon: ShoppingCart,
   },
   admin: {
     label: "Admin",
-    bg: "rgba(59,130,246,0.1)",
-    color: "#3b82f6",
-    border: "rgba(59,130,246,0.2)",
+    bg: "rgb(var(--info-rgb) / 0.1)",
+    color: "var(--info)",
+    border: "rgb(var(--info-rgb) / 0.2)",
     icon: Shield,
   },
   gift: {
     label: "Tặng",
     bg: "rgba(168,85,247,0.1)",
-    color: "#a855f7",
+    color: "var(--cat-purple)",
     border: "rgba(168,85,247,0.2)",
     icon: Gift,
   },
   free: {
     label: "Miễn phí",
-    bg: "rgba(107,114,128,0.1)",
-    color: "#6b7280",
-    border: "rgba(107,114,128,0.2)",
+    bg: "rgb(var(--neutral-rgb) / 0.1)",
+    color: "var(--fg-subtle)",
+    border: "rgb(var(--neutral-rgb) / 0.2)",
     icon: BookOpen,
   },
 };
@@ -177,9 +177,9 @@ export default async function AdminEnrollmentsPage({
           <div
             className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm"
             style={{
-              background: "rgba(239,68,68,0.08)",
-              border: "1px solid rgba(239,68,68,0.2)",
-              color: "#ef4444",
+              background: "rgb(var(--danger-rgb) / 0.08)",
+              border: "1px solid rgb(var(--danger-rgb) / 0.2)",
+              color: "var(--danger)",
             }}
           >
             <AlertCircle size={16} />
@@ -190,9 +190,9 @@ export default async function AdminEnrollmentsPage({
           <div
             className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm"
             style={{
-              background: "rgba(212,168,67,0.08)",
-              border: "1px solid rgba(212,168,67,0.2)",
-              color: "#D4A843",
+              background: "rgb(var(--accent-rgb) / 0.08)",
+              border: "1px solid rgb(var(--accent-rgb) / 0.2)",
+              color: "var(--accent)",
             }}
           >
             <CheckCircle2 size={16} />
@@ -204,9 +204,9 @@ export default async function AdminEnrollmentsPage({
           <div
             className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm"
             style={{
-              background: "rgba(245,158,11,0.08)",
-              border: "1px solid rgba(245,158,11,0.2)",
-              color: "#f59e0b",
+              background: "rgb(var(--warn-rgb) / 0.08)",
+              border: "1px solid rgb(var(--warn-rgb) / 0.2)",
+              color: "var(--warn)",
             }}
           >
             <AlertCircle size={16} />
@@ -219,9 +219,9 @@ export default async function AdminEnrollmentsPage({
           <div className="flex items-center gap-3 mb-5">
             <div
               className="w-9 h-9 rounded-xl flex items-center justify-center"
-              style={{ background: "rgba(212,168,67,0.12)" }}
+              style={{ background: "rgb(var(--accent-rgb) / 0.12)" }}
             >
-              <UserPlus size={17} className="text-[#D4A843]" />
+              <UserPlus size={17} className="text-[var(--accent)]" />
             </div>
             <div>
               <h2 className="text-sm font-semibold text-white">Cấp quyền khoá học</h2>
@@ -248,13 +248,13 @@ export default async function AdminEnrollmentsPage({
                 {(products ?? []).map((p) => (
                   <label
                     key={p.id}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-[#2a2a2a] hover:border-[#D4A843]/40 hover:bg-[#D4A843]/5 transition-all cursor-pointer group"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-[var(--border)] hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/5 transition-all cursor-pointer group"
                   >
                     <input
                       type="checkbox"
                       name="product_ids"
                       value={p.id}
-                      className="w-4 h-4 rounded border-gray-600 bg-[#1a1a1a] text-[#D4A843] focus:ring-[#D4A843]/50 focus:ring-offset-0 accent-[#D4A843]"
+                      className="w-4 h-4 rounded border-gray-600 bg-[var(--surface)] text-[var(--accent)] focus:ring-[var(--accent)]/50 focus:ring-offset-0 accent-[var(--accent)]"
                     />
                     <div className="flex-1 min-w-0">
                       <span className="text-sm text-gray-300 group-hover:text-white transition-colors truncate block">
@@ -264,7 +264,7 @@ export default async function AdminEnrollmentsPage({
                     {p.price === 0 && (
                       <span
                         className="text-[10px] font-semibold px-1.5 py-0.5 rounded"
-                        style={{ background: "rgba(107,114,128,0.15)", color: "#9ca3af" }}
+                        style={{ background: "rgb(var(--neutral-rgb) / 0.15)", color: "var(--fg-muted)" }}
                       >
                         Miễn phí
                       </span>
@@ -294,7 +294,7 @@ export default async function AdminEnrollmentsPage({
           {/* Header */}
           <div
             className="flex items-center justify-between px-5 py-3"
-            style={{ borderBottom: "1px solid #2a2a2a" }}
+            style={{ borderBottom: "1px solid var(--border)" }}
           >
             <span className="text-xs text-gray-500">
               <span className="text-white font-medium">{totalEnrollments}</span> enrollment
@@ -312,7 +312,7 @@ export default async function AdminEnrollmentsPage({
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                  <tr style={{ borderBottom: "1px solid var(--border)" }}>
                     {["Học viên", "Khoá học", "Nguồn", "Ngày cấp", "Hành động"].map(
                       (col) => (
                         <th
@@ -332,7 +332,7 @@ export default async function AdminEnrollmentsPage({
                       className="hover:bg-white/[0.02] transition-colors"
                       style={{
                         borderBottom:
-                          idx < rows.length - 1 ? "1px solid #1f1f1f" : "none",
+                          idx < rows.length - 1 ? "1px solid var(--surface-2)" : "none",
                       }}
                     >
                       {/* Học viên */}
@@ -386,20 +386,20 @@ export default async function AdminEnrollmentsPage({
           {totalPages > 1 && (
             <div
               className="flex items-center justify-center gap-4 px-4 py-3"
-              style={{ borderTop: "1px solid #2a2a2a" }}
+              style={{ borderTop: "1px solid var(--border)" }}
             >
               {safePage > 1 ? (
                 <Link
                   href={buildPageUrl(safePage - 1)}
                   className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-white transition-colors"
-                  style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                 >
                   ← Trước
                 </Link>
               ) : (
                 <span
                   className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 cursor-not-allowed"
-                  style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                 >
                   ← Trước
                 </span>
@@ -413,14 +413,14 @@ export default async function AdminEnrollmentsPage({
                 <Link
                   href={buildPageUrl(safePage + 1)}
                   className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-white transition-colors"
-                  style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                 >
                   Tiếp →
                 </Link>
               ) : (
                 <span
                   className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 cursor-not-allowed"
-                  style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                 >
                   Tiếp →
                 </span>

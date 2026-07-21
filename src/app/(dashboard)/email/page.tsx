@@ -9,11 +9,11 @@ import {
 } from "lucide-react";
 
 const statusConfig: Record<string, { label: string; color: string; bg: string }> = {
-  draft: { label: "Bản nháp", color: "#6b7280", bg: "rgba(107,114,128,0.1)" },
-  scheduled: { label: "Đã lên lịch", color: "#3b82f6", bg: "rgba(59,130,246,0.1)" },
-  sending: { label: "Đang gửi", color: "#f59e0b", bg: "rgba(245,158,11,0.1)" },
-  sent: { label: "Đã gửi", color: "#D4A843", bg: "rgba(212,168,67,0.1)" },
-  paused: { label: "Tạm dừng", color: "#ef4444", bg: "rgba(239,68,68,0.1)" },
+  draft: { label: "Bản nháp", color: "var(--fg-subtle)", bg: "rgb(var(--neutral-rgb) / 0.1)" },
+  scheduled: { label: "Đã lên lịch", color: "var(--info)", bg: "rgb(var(--info-rgb) / 0.1)" },
+  sending: { label: "Đang gửi", color: "var(--warn)", bg: "rgb(var(--warn-rgb) / 0.1)" },
+  sent: { label: "Đã gửi", color: "var(--accent)", bg: "rgb(var(--accent-rgb) / 0.1)" },
+  paused: { label: "Tạm dừng", color: "var(--danger)", bg: "rgb(var(--danger-rgb) / 0.1)" },
 };
 
 export default async function EmailPage() {
@@ -61,11 +61,11 @@ export default async function EmailPage() {
   const avgClickRate = totalRecipients > 0 ? ((totalClicked / totalRecipients) * 100).toFixed(1) : "0.0";
 
   const stats = [
-    { label: "Tổng subscribers", value: total.toLocaleString("vi-VN"), sub: `${active} đang hoạt động`, icon: Users, color: "#D4A843" },
-    { label: "Email đã gửi", value: totalSent.toLocaleString("vi-VN"), sub: `${campaignList.length} campaigns`, icon: Send, color: "#3b82f6" },
-    { label: "Open rate TB", value: `${avgOpenRate}%`, sub: `${totalOpened.toLocaleString("vi-VN")} lượt mở`, icon: Eye, color: "#f59e0b" },
-    { label: "Click rate TB", value: `${avgClickRate}%`, sub: `${totalClicked.toLocaleString("vi-VN")} lượt click`, icon: MousePointer, color: "#8b5cf6" },
-    { label: "Active Automations", value: automations.toLocaleString("vi-VN"), sub: "workflows đang chạy", icon: Workflow, color: "#14b8a6" },
+    { label: "Tổng subscribers", value: total.toLocaleString("vi-VN"), sub: `${active} đang hoạt động`, icon: Users, color: "var(--accent)" },
+    { label: "Email đã gửi", value: totalSent.toLocaleString("vi-VN"), sub: `${campaignList.length} campaigns`, icon: Send, color: "var(--info)" },
+    { label: "Open rate TB", value: `${avgOpenRate}%`, sub: `${totalOpened.toLocaleString("vi-VN")} lượt mở`, icon: Eye, color: "var(--warn)" },
+    { label: "Click rate TB", value: `${avgClickRate}%`, sub: `${totalClicked.toLocaleString("vi-VN")} lượt click`, icon: MousePointer, color: "var(--cat-violet)" },
+    { label: "Active Automations", value: automations.toLocaleString("vi-VN"), sub: "workflows đang chạy", icon: Workflow, color: "var(--cat-teal)" },
   ];
 
   return (
@@ -84,7 +84,7 @@ export default async function EmailPage() {
                   style={{ background: s.color + "20" }}>
                   <s.icon size={18} style={{ color: s.color }} />
                 </div>
-                <TrendingUp size={14} className="text-[#D4A843]" />
+                <TrendingUp size={14} className="text-[var(--accent)]" />
               </div>
               <div className="text-2xl font-bold text-white mb-0.5">{s.value}</div>
               <div className="text-xs text-gray-500">{s.label}</div>
@@ -102,7 +102,7 @@ export default async function EmailPage() {
               <div className="flex items-center gap-2">
                 <Link
                   href="/email/campaigns"
-                  className="text-xs text-[#9ca3af] hover:text-white transition-colors flex items-center gap-1"
+                  className="text-xs text-[var(--fg-muted)] hover:text-white transition-colors flex items-center gap-1"
                 >
                   Xem tất cả <ArrowRight size={12} />
                 </Link>
@@ -118,8 +118,8 @@ export default async function EmailPage() {
             {recentCampaigns.length === 0 ? (
               <div className="card-dark p-10 text-center">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3"
-                  style={{ background: "rgba(59,130,246,0.1)" }}>
-                  <Inbox size={24} className="text-[#3b82f6]" />
+                  style={{ background: "rgb(var(--info-rgb) / 0.1)" }}>
+                  <Inbox size={24} className="text-[var(--info)]" />
                 </div>
                 <p className="text-white font-medium mb-1">Chưa có campaign nào</p>
                 <p className="text-gray-500 text-sm">Tạo campaign đầu tiên để bắt đầu gửi email đến subscribers.</p>
@@ -128,7 +128,7 @@ export default async function EmailPage() {
               <div className="card-dark overflow-hidden">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                    <tr style={{ borderBottom: "1px solid var(--border)" }}>
                       <th className="text-left text-xs text-gray-500 font-medium px-4 py-3">Tiêu đề</th>
                       <th className="text-right text-xs text-gray-500 font-medium px-4 py-3">Gửi</th>
                       <th className="text-right text-xs text-gray-500 font-medium px-4 py-3">Open %</th>
@@ -149,11 +149,11 @@ export default async function EmailPage() {
                           : "Bản nháp";
                       return (
                         <tr key={c.id}
-                          style={{ borderBottom: i < recentCampaigns.length - 1 ? "1px solid #2a2a2a" : "none" }}
-                          className="hover:bg-[#1f1f1f] transition-colors cursor-pointer">
+                          style={{ borderBottom: i < recentCampaigns.length - 1 ? "1px solid var(--border)" : "none" }}
+                          className="hover:bg-[var(--surface-2)] transition-colors cursor-pointer">
                           <td className="px-4 py-3">
                             <div className="flex items-center gap-2">
-                              <Mail size={13} className="text-[#3b82f6] shrink-0" />
+                              <Mail size={13} className="text-[var(--info)] shrink-0" />
                               <div>
                                 <div className="text-white text-sm font-medium leading-tight">{c.name || c.subject}</div>
                                 <div className="text-[11px] text-gray-500 mt-0.5">{dateLabel}</div>
@@ -165,12 +165,12 @@ export default async function EmailPage() {
                           </td>
                           <td className="px-4 py-3 text-right">
                             {denom > 0 ? (
-                              <span className="text-[#D4A843] font-medium">{openRate}%</span>
+                              <span className="text-[var(--accent)] font-medium">{openRate}%</span>
                             ) : <span className="text-gray-500">{"—"}</span>}
                           </td>
                           <td className="px-4 py-3 text-right">
                             {denom > 0 ? (
-                              <span className="text-[#3b82f6] font-medium">{clickRate}%</span>
+                              <span className="text-[var(--info)] font-medium">{clickRate}%</span>
                             ) : <span className="text-gray-500">{"—"}</span>}
                           </td>
                           <td className="px-4 py-3 text-right">
@@ -197,7 +197,7 @@ export default async function EmailPage() {
                 <h3 className="font-semibold text-white text-sm">Subscribers</h3>
                 <Link
                   href="/email/subscribers"
-                  className="text-[11px] text-[#D4A843] hover:underline"
+                  className="text-[11px] text-[var(--accent)] hover:underline"
                 >
                   Quản lý
                 </Link>
@@ -210,58 +210,58 @@ export default async function EmailPage() {
                 </div>
               ) : (
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 p-3 rounded-lg" style={{ background: "#222" }}>
-                    <UserCheck size={14} className="text-[#D4A843]" />
+                  <div className="flex items-center gap-3 p-3 rounded-lg" style={{ background: "var(--surface-2)" }}>
+                    <UserCheck size={14} className="text-[var(--accent)]" />
                     <div className="flex-1">
                       <div className="text-white text-xs font-medium">Đang hoạt động</div>
                       <div className="text-[11px] text-gray-500">{active.toLocaleString("vi-VN")} subscribers</div>
                     </div>
-                    <span className="text-xs font-medium text-[#D4A843]">
+                    <span className="text-xs font-medium text-[var(--accent)]">
                       {total > 0 ? ((active / total) * 100).toFixed(0) : 0}%
                     </span>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg" style={{ background: "#222" }}>
-                    <UserMinus size={14} className="text-[#f59e0b]" />
+                  <div className="flex items-center gap-3 p-3 rounded-lg" style={{ background: "var(--surface-2)" }}>
+                    <UserMinus size={14} className="text-[var(--warn)]" />
                     <div className="flex-1">
                       <div className="text-white text-xs font-medium">Huỷ đăng ký</div>
                       <div className="text-[11px] text-gray-500">{unsubscribed.toLocaleString("vi-VN")} subscribers</div>
                     </div>
-                    <span className="text-xs font-medium text-[#f59e0b]">
+                    <span className="text-xs font-medium text-[var(--warn)]">
                       {total > 0 ? ((unsubscribed / total) * 100).toFixed(0) : 0}%
                     </span>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg" style={{ background: "#222" }}>
-                    <AlertTriangle size={14} className="text-[#ef4444]" />
+                  <div className="flex items-center gap-3 p-3 rounded-lg" style={{ background: "var(--surface-2)" }}>
+                    <AlertTriangle size={14} className="text-[var(--danger)]" />
                     <div className="flex-1">
                       <div className="text-white text-xs font-medium">Bounce rate</div>
                       <div className="text-[11px] text-gray-500">{bounced.toLocaleString("vi-VN")} bounced</div>
                     </div>
-                    <span className="text-xs font-medium text-[#ef4444]">{bounceRate}%</span>
+                    <span className="text-xs font-medium text-[var(--danger)]">{bounceRate}%</span>
                   </div>
 
                   {/* Visual bar breakdown */}
                   {total > 0 && (
                     <div className="mt-2">
-                      <div className="h-2 rounded-full flex overflow-hidden" style={{ background: "#333" }}>
+                      <div className="h-2 rounded-full flex overflow-hidden" style={{ background: "var(--surface-3)" }}>
                         <div
                           className="h-full"
                           style={{
                             width: `${(active / total) * 100}%`,
-                            background: "#D4A843",
+                            background: "var(--accent)",
                           }}
                         />
                         <div
                           className="h-full"
                           style={{
                             width: `${(unsubscribed / total) * 100}%`,
-                            background: "#f59e0b",
+                            background: "var(--warn)",
                           }}
                         />
                         <div
                           className="h-full"
                           style={{
                             width: `${(bounced / total) * 100}%`,
-                            background: "#ef4444",
+                            background: "var(--danger)",
                           }}
                         />
                       </div>
@@ -296,7 +296,7 @@ export default async function EmailPage() {
                 </div>
                 <div className="flex gap-2">
                   <button className="flex-1 py-2 text-xs rounded-lg font-medium text-gray-400 transition-colors"
-                    style={{ background: "#222", border: "1px solid #2a2a2a" }}>
+                    style={{ background: "var(--surface-2)", border: "1px solid var(--border)" }}>
                     <Clock size={12} className="inline mr-1" /> Lên lịch
                   </button>
                   <button className="btn-green flex-1 text-xs py-2 justify-center flex items-center gap-1">
@@ -307,9 +307,9 @@ export default async function EmailPage() {
             </div>
 
             {/* Automations quick link */}
-            <Link href="/email/automations" className="card-dark p-4 flex items-center gap-3 hover:bg-[#1f1f1f] transition-colors">
+            <Link href="/email/automations" className="card-dark p-4 flex items-center gap-3 hover:bg-[var(--surface-2)] transition-colors">
               <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "rgba(20,184,166,0.1)" }}>
-                <Workflow size={18} className="text-[#14b8a6]" />
+                <Workflow size={18} className="text-[var(--cat-teal)]" />
               </div>
               <div className="flex-1">
                 <div className="text-white text-sm font-medium">Automations</div>
@@ -319,10 +319,10 @@ export default async function EmailPage() {
             </Link>
 
             {/* Tips */}
-            <div className="card-dark p-4" style={{ borderColor: "rgba(212,168,67,0.2)" }}>
+            <div className="card-dark p-4" style={{ borderColor: "rgb(var(--accent-rgb) / 0.2)" }}>
               <div className="flex items-center gap-2 mb-2">
-                <CheckCircle size={14} className="text-[#D4A843]" />
-                <span className="text-xs font-semibold text-[#D4A843]">Best practices</span>
+                <CheckCircle size={14} className="text-[var(--accent)]" />
+                <span className="text-xs font-semibold text-[var(--accent)]">Best practices</span>
               </div>
               <ul className="text-xs text-gray-400 space-y-1.5">
                 <li>- Gửi vào 7-9h sáng hoặc 7-9h tối</li>

@@ -409,7 +409,7 @@ export default function VideoPlayer({
     <div
       ref={containerRef}
       className="rounded-xl overflow-hidden select-none"
-      style={{ border: "1px solid #2a2a2a", background: "#000" }}
+      style={{ border: "1px solid var(--border)", background: "#000" }}
     >
       {/* Video area */}
       <div
@@ -452,8 +452,8 @@ export default function VideoPlayer({
 
         {/* Loading state */}
         {!ready && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-[#111]">
-            <div className="w-8 h-8 border-2 border-[#D4A843] border-t-transparent rounded-full animate-spin mb-3" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-[var(--surface)]">
+            <div className="w-8 h-8 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin mb-3" />
             <p className="text-xs text-gray-500">
               {title ?? "Đang tải video..."}
             </p>
@@ -466,7 +466,7 @@ export default function VideoPlayer({
             className="absolute top-4 left-1/2 -translate-x-1/2 z-30 pointer-events-none"
             style={{ animation: "fadeSlideIn 0.3s ease-out" }}
           >
-            <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#22c55e]/90 backdrop-blur-sm text-white text-sm font-medium shadow-lg">
+            <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[var(--success)]/90 backdrop-blur-sm text-white text-sm font-medium shadow-lg">
               <span>&#x2705;</span>
               <span>{nextLessonUrl ? "Hoàn thành! Đang chuyển bài..." : "Bài học đã hoàn thành!"}</span>
             </div>
@@ -478,7 +478,7 @@ export default function VideoPlayer({
             className="absolute top-4 left-1/2 -translate-x-1/2 z-30 pointer-events-none"
             style={{ animation: "fadeSlideIn 0.3s ease-out" }}
           >
-            <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#3b82f6]/90 backdrop-blur-sm text-white text-sm font-medium shadow-lg">
+            <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[var(--info)]/90 backdrop-blur-sm text-white text-sm font-medium shadow-lg">
               <span>&#x25B6;</span>
               <span>Tiếp tục từ {resumeToast}</span>
             </div>
@@ -527,10 +527,10 @@ export default function VideoPlayer({
             onClick={seek}
           >
             <div
-              className="h-full bg-[#22c55e] rounded-full relative"
+              className="h-full bg-[var(--success)] rounded-full relative"
               style={{ width: `${progress}%` }}
             >
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#22c55e] scale-0 group-hover:scale-100 transition-transform" />
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[var(--success)] scale-0 group-hover:scale-100 transition-transform" />
             </div>
           </div>
 
@@ -540,7 +540,7 @@ export default function VideoPlayer({
             <button
               onClick={togglePlay}
               aria-label={playing ? "Tạm dừng" : "Phát video"}
-              className="p-1 hover:text-[#D4A843] transition-colors"
+              className="p-1 hover:text-[var(--accent)] transition-colors"
             >
               {playing ? <Pause size={18} /> : <Play size={18} />}
             </button>
@@ -551,7 +551,7 @@ export default function VideoPlayer({
               <button
                 onClick={toggleMute}
                 aria-label={muted ? "Bật âm thanh" : "Tắt âm thanh"}
-                className="p-1 hover:text-[#D4A843] transition-colors"
+                className="p-1 hover:text-[var(--accent)] transition-colors"
               >
                 {muted || volume === 0 ? (
                   <VolumeX size={16} />
@@ -565,7 +565,7 @@ export default function VideoPlayer({
                 max={100}
                 value={muted ? 0 : volume}
                 onChange={(e) => changeVolume(Number(e.target.value))}
-                className="w-16 [@media(hover:hover)]:w-0 [@media(hover:hover)]:group-hover/vol:w-16 transition-all duration-200 h-1 accent-[#D4A843] cursor-pointer"
+                className="w-16 [@media(hover:hover)]:w-0 [@media(hover:hover)]:group-hover/vol:w-16 transition-all duration-200 h-1 accent-[var(--accent)] cursor-pointer"
               />
             </div>
 
@@ -592,7 +592,7 @@ export default function VideoPlayer({
               </button>
               {showSpeed && (
                 <div
-                  className="absolute bottom-full right-0 mb-1 bg-[#1a1a1a] border border-[#333] rounded-lg py-1 min-w-[90px] shadow-xl"
+                  className="absolute bottom-full right-0 mb-1 bg-[var(--surface)] border border-[var(--border-strong)] rounded-lg py-1 min-w-[90px] shadow-xl"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="px-3 py-1 text-[10px] text-gray-500 font-medium uppercase tracking-wider">
@@ -604,7 +604,7 @@ export default function VideoPlayer({
                       onClick={() => changeSpeed(s)}
                       className={`w-full text-left px-3 py-1.5 text-xs transition-colors ${
                         speed === s
-                          ? "text-[#D4A843] font-semibold bg-[#D4A843]/10"
+                          ? "text-[var(--accent)] font-semibold bg-[var(--accent)]/10"
                           : "text-gray-300 hover:text-white hover:bg-white/5"
                       }`}
                     >
@@ -619,7 +619,7 @@ export default function VideoPlayer({
             <button
               onClick={toggleFullscreen}
               aria-label={isFullscreen ? "Thoát toàn màn hình" : "Toàn màn hình"}
-              className="p-1 hover:text-[#D4A843] transition-colors"
+              className="p-1 hover:text-[var(--accent)] transition-colors"
             >
               {isFullscreen ? (
                 <Minimize size={16} />

@@ -46,8 +46,8 @@ export default function DateRangePicker({
             }}
             className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
               active
-                ? "bg-[#D4A843]/20 text-[#D4A843] border-[#D4A843]/30"
-                : "bg-[#1a1a1a] text-gray-400 border-[#2a2a2a] hover:bg-[#222]"
+                ? "bg-[var(--accent)]/20 text-[var(--accent)] border-[var(--accent)]/30"
+                : "bg-[var(--surface)] text-gray-400 border-[var(--border)] hover:bg-[var(--surface-2)]"
             }`}
           >
             {preset.label}
@@ -60,14 +60,14 @@ export default function DateRangePicker({
         type="date"
         value={from}
         onChange={(e) => onChange(e.target.value, to)}
-        className="bg-[#151515] border border-[#2a2a2a] text-white rounded-lg px-3 py-1.5 text-sm"
+        className="bg-[var(--surface)] border border-[var(--border)] text-white rounded-lg px-3 py-1.5 text-sm"
       />
       <span className="text-gray-500 text-sm">–</span>
       <input
         type="date"
         value={to}
         onChange={(e) => onChange(from, e.target.value)}
-        className="bg-[#151515] border border-[#2a2a2a] text-white rounded-lg px-3 py-1.5 text-sm"
+        className="bg-[var(--surface)] border border-[var(--border)] text-white rounded-lg px-3 py-1.5 text-sm"
       />
 
       {/* GroupBy toggle */}
@@ -76,8 +76,8 @@ export default function DateRangePicker({
           onClick={() => onGroupByChange("day")}
           className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
             groupBy === "day"
-              ? "bg-[#D4A843]/20 text-[#D4A843] border-[#D4A843]/30"
-              : "bg-[#1a1a1a] text-gray-400 border-[#2a2a2a] hover:bg-[#222]"
+              ? "bg-[var(--accent)]/20 text-[var(--accent)] border-[var(--accent)]/30"
+              : "bg-[var(--surface)] text-gray-400 border-[var(--border)] hover:bg-[var(--surface-2)]"
           }`}
         >
           Theo ngày
@@ -86,8 +86,8 @@ export default function DateRangePicker({
           onClick={() => onGroupByChange("month")}
           className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
             groupBy === "month"
-              ? "bg-[#D4A843]/20 text-[#D4A843] border-[#D4A843]/30"
-              : "bg-[#1a1a1a] text-gray-400 border-[#2a2a2a] hover:bg-[#222]"
+              ? "bg-[var(--accent)]/20 text-[var(--accent)] border-[var(--accent)]/30"
+              : "bg-[var(--surface)] text-gray-400 border-[var(--border)] hover:bg-[var(--surface-2)]"
           }`}
         >
           Theo tháng
@@ -96,7 +96,7 @@ export default function DateRangePicker({
 
       {/* Export button */}
       <button
-        className="ml-auto px-4 py-1.5 text-sm rounded-lg border border-[#D4A843]/30 bg-[#D4A843]/10 text-[#D4A843] hover:bg-[#D4A843]/20 transition-colors"
+        className="ml-auto px-4 py-1.5 text-sm rounded-lg border border-[var(--accent)]/30 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20 transition-colors"
         onClick={() => {
           // Placeholder - no functionality
         }}

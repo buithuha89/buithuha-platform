@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const data: SiloData = {
   slug: "nghe-l-and-d",
   num: 3,
-  color: "#FBBF24",
+  color: "var(--warn)",
   title: "Nghề L&D",
   subtitle: "Cho người làm Học & Phát triển trong doanh nghiệp",
   intro:

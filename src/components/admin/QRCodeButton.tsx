@@ -45,7 +45,7 @@ export default function QRCodeButton({
     <>
       <button
         onClick={() => setOpen(true)}
-        className="p-1.5 rounded-lg transition-all hover:bg-[#D4A843]/10 text-gray-500 hover:text-[#D4A843]"
+        className="p-1.5 rounded-lg transition-all hover:bg-[var(--accent)]/10 text-gray-500 hover:text-[var(--accent)]"
         title="Xem mã QR thanh toán"
       >
         <QrCode size={16} />
@@ -60,8 +60,8 @@ export default function QRCodeButton({
           <div
             className="relative w-full max-w-md rounded-2xl p-6 space-y-4"
             style={{
-              background: "#141414",
-              border: "1px solid rgba(212,168,67,0.2)",
+              background: "var(--surface)",
+              border: "1px solid rgb(var(--accent-rgb) / 0.2)",
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -80,7 +80,7 @@ export default function QRCodeButton({
               </h3>
               <p className="text-sm text-gray-400 mt-1">
                 Đơn hàng{" "}
-                <span className="font-mono text-[#D4A843]">{orderCode}</span>
+                <span className="font-mono text-[var(--accent)]">{orderCode}</span>
               </p>
             </div>
 
@@ -105,8 +105,8 @@ export default function QRCodeButton({
             <div
               className="rounded-xl p-4 space-y-2.5"
               style={{
-                background: "#1a1a1a",
-                border: "1px solid #2a2a2a",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
               }}
             >
               <DetailRow
@@ -148,7 +148,7 @@ export default function QRCodeButton({
             {(customerName || customerEmail || customerPhone) && (
               <div
                 className="rounded-xl p-4 space-y-1.5"
-                style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
               >
                 <p className="text-xs text-gray-500 font-medium mb-2">
                   Thông tin khách hàng
@@ -174,9 +174,9 @@ export default function QRCodeButton({
                 }}
                 className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all"
                 style={{
-                  background: "rgba(212,168,67,0.1)",
-                  color: "#D4A843",
-                  border: "1px solid rgba(212,168,67,0.2)",
+                  background: "rgb(var(--accent-rgb) / 0.1)",
+                  color: "var(--accent)",
+                  border: "1px solid rgb(var(--accent-rgb) / 0.2)",
                 }}
               >
                 {copied === "all" ? (
@@ -194,9 +194,9 @@ export default function QRCodeButton({
                 download={`QR-${orderCode}.png`}
                 className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all"
                 style={{
-                  background: "rgba(59,130,246,0.1)",
-                  color: "#3b82f6",
-                  border: "1px solid rgba(59,130,246,0.2)",
+                  background: "rgb(var(--info-rgb) / 0.1)",
+                  color: "var(--info)",
+                  border: "1px solid rgb(var(--info-rgb) / 0.2)",
                 }}
               >
                 <QrCode size={15} /> Tải QR
@@ -228,7 +228,7 @@ function DetailRow({
       <div className="flex items-center gap-2">
         <span
           className={`text-sm font-medium ${
-            highlight ? "text-[#D4A843]" : "text-white"
+            highlight ? "text-[var(--accent)]" : "text-white"
           }`}
         >
           {value}

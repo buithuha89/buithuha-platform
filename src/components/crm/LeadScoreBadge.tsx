@@ -4,10 +4,10 @@ interface LeadScoreBadgeProps {
 }
 
 function getScoreInfo(score: number): { label: string; color: string } {
-  if (score <= 25) return { label: "Lạnh", color: "#6b7280" };
-  if (score <= 50) return { label: "Ấm", color: "#3b82f6" };
-  if (score <= 75) return { label: "Nóng", color: "#f59e0b" };
-  return { label: "Rất nóng", color: "#ef4444" };
+  if (score <= 25) return { label: "Lạnh", color: "var(--fg-subtle)" };
+  if (score <= 50) return { label: "Ấm", color: "var(--info)" };
+  if (score <= 75) return { label: "Nóng", color: "var(--warn)" };
+  return { label: "Rất nóng", color: "var(--danger)" };
 }
 
 export default function LeadScoreBadge({

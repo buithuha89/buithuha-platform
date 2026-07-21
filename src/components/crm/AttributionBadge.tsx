@@ -63,9 +63,9 @@ const SOURCE_COLORS: Record<string, string> = {
   google: "#4285F4",
   google_ads: "#4285F4",
   tiktok: "#ff0050",
-  organic: "#22c55e",
-  direct: "#6b7280",
-  referral: "#a855f7",
+  organic: "var(--success)",
+  direct: "var(--fg-subtle)",
+  referral: "var(--cat-purple)",
 };
 
 export default function AttributionBadge({
@@ -76,8 +76,8 @@ export default function AttributionBadge({
   if (!source && !medium && !campaign) return null;
 
   const sourceColor = source
-    ? SOURCE_COLORS[source.toLowerCase()] || "#6b7280"
-    : "#6b7280";
+    ? SOURCE_COLORS[source.toLowerCase()] || "var(--fg-subtle)"
+    : "var(--fg-subtle)";
 
   return (
     <div className="flex items-center gap-1.5 flex-wrap">
@@ -95,14 +95,14 @@ export default function AttributionBadge({
       )}
 
       {medium && (
-        <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-[#2a2a2a] text-gray-300">
+        <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-[var(--border)] text-gray-300">
           <Megaphone size={10} />
           <span>{medium}</span>
         </span>
       )}
 
       {campaign && (
-        <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-[#2a2a2a] text-gray-400">
+        <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-[var(--border)] text-gray-400">
           <Tag size={10} />
           <span>{campaign}</span>
         </span>

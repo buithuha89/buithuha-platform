@@ -66,32 +66,32 @@ function formatVND(amount: number): string {
 /* ---------- Status & Source Config ---------- */
 
 const statusConfig: Record<string, { label: string; color: string; bg: string; border: string }> = {
-  new:          { label: "Mới",         color: "#3b82f6", bg: "rgba(59,130,246,0.1)",  border: "rgba(59,130,246,0.25)" },
-  contacted:    { label: "Đã liên hệ",  color: "#f59e0b", bg: "rgba(245,158,11,0.1)", border: "rgba(245,158,11,0.25)" },
-  qualified:    { label: "Tiềm năng",   color: "#a855f7", bg: "rgba(168,85,247,0.1)", border: "rgba(168,85,247,0.25)" },
-  negotiation:  { label: "Đàm phán",    color: "#f97316", bg: "rgba(249,115,22,0.1)", border: "rgba(249,115,22,0.25)" },
-  won:          { label: "Thành công",   color: "#D4A843", bg: "rgba(212,168,67,0.1)",  border: "rgba(212,168,67,0.25)" },
-  lost:         { label: "Mất",         color: "#ef4444", bg: "rgba(239,68,68,0.1)",  border: "rgba(239,68,68,0.25)" },
-  churned:      { label: "Rời bỏ",      color: "#6b7280", bg: "rgba(107,114,128,0.1)", border: "rgba(107,114,128,0.25)" },
+  new:          { label: "Mới",         color: "var(--info)", bg: "rgb(var(--info-rgb) / 0.1)",  border: "rgb(var(--info-rgb) / 0.25)" },
+  contacted:    { label: "Đã liên hệ",  color: "var(--warn)", bg: "rgb(var(--warn-rgb) / 0.1)", border: "rgb(var(--warn-rgb) / 0.25)" },
+  qualified:    { label: "Tiềm năng",   color: "var(--cat-purple)", bg: "rgba(168,85,247,0.1)", border: "rgba(168,85,247,0.25)" },
+  negotiation:  { label: "Đàm phán",    color: "var(--cat-orange)", bg: "rgba(249,115,22,0.1)", border: "rgba(249,115,22,0.25)" },
+  won:          { label: "Thành công",   color: "var(--accent)", bg: "rgb(var(--accent-rgb) / 0.1)",  border: "rgb(var(--accent-rgb) / 0.25)" },
+  lost:         { label: "Mất",         color: "var(--danger)", bg: "rgb(var(--danger-rgb) / 0.1)",  border: "rgb(var(--danger-rgb) / 0.25)" },
+  churned:      { label: "Rời bỏ",      color: "var(--fg-subtle)", bg: "rgb(var(--neutral-rgb) / 0.1)", border: "rgb(var(--neutral-rgb) / 0.25)" },
 };
 
 const sourceConfig: Record<string, { label: string; color: string; bg: string }> = {
-  manual:   { label: "Thủ công",   color: "#6b7280", bg: "rgba(107,114,128,0.1)" },
-  import:   { label: "Import",    color: "#8b5cf6", bg: "rgba(139,92,246,0.1)" },
-  website:  { label: "Website",   color: "#3b82f6", bg: "rgba(59,130,246,0.1)" },
-  referral: { label: "Giới thiệu", color: "#D4A843", bg: "rgba(212,168,67,0.1)" },
-  ads:      { label: "Quảng cáo", color: "#f59e0b", bg: "rgba(245,158,11,0.1)" },
-  social:   { label: "MXH",       color: "#ec4899", bg: "rgba(236,72,153,0.1)" },
+  manual:   { label: "Thủ công",   color: "var(--fg-subtle)", bg: "rgb(var(--neutral-rgb) / 0.1)" },
+  import:   { label: "Import",    color: "var(--cat-violet)", bg: "rgba(139,92,246,0.1)" },
+  website:  { label: "Website",   color: "var(--info)", bg: "rgb(var(--info-rgb) / 0.1)" },
+  referral: { label: "Giới thiệu", color: "var(--accent)", bg: "rgb(var(--accent-rgb) / 0.1)" },
+  ads:      { label: "Quảng cáo", color: "var(--warn)", bg: "rgb(var(--warn-rgb) / 0.1)" },
+  social:   { label: "MXH",       color: "var(--cat-pink)", bg: "rgba(236,72,153,0.1)" },
 };
 
 const journeyStageConfig: Record<string, { label: string; color: string }> = {
-  visitor:      { label: "Khách ghé",    color: "#6b7280" },
-  lead:         { label: "Lead",         color: "#3b82f6" },
-  contacted:    { label: "Đã liên hệ",  color: "#f59e0b" },
-  qualified:    { label: "Tiềm năng",   color: "#a855f7" },
-  negotiation:  { label: "Đàm phán",    color: "#f97316" },
-  customer:     { label: "Khách hàng",  color: "#D4A843" },
-  advocate:     { label: "Đại sứ",      color: "#22c55e" },
+  visitor:      { label: "Khách ghé",    color: "var(--fg-subtle)" },
+  lead:         { label: "Lead",         color: "var(--info)" },
+  contacted:    { label: "Đã liên hệ",  color: "var(--warn)" },
+  qualified:    { label: "Tiềm năng",   color: "var(--cat-purple)" },
+  negotiation:  { label: "Đàm phán",    color: "var(--cat-orange)" },
+  customer:     { label: "Khách hàng",  color: "var(--accent)" },
+  advocate:     { label: "Đại sứ",      color: "var(--success)" },
 };
 
 /* ---------- Page ---------- */
@@ -150,11 +150,11 @@ export default async function CRMContactsPage({
     .eq("status", "won");
 
   const stats = [
-    { label: "Tổng KH", value: totalCount ?? 0, icon: Users, color: "#3b82f6" },
-    { label: "Mới", value: newCount ?? 0, icon: UserPlus, color: "#60a5fa" },
-    { label: "Đã liên hệ", value: contactedCount ?? 0, icon: Phone, color: "#f59e0b" },
-    { label: "Tiềm năng", value: qualifiedCount ?? 0, icon: CheckCircle, color: "#a855f7" },
-    { label: "Thành công", value: wonCount ?? 0, icon: CheckCircle, color: "#D4A843" },
+    { label: "Tổng KH", value: totalCount ?? 0, icon: Users, color: "var(--info)" },
+    { label: "Mới", value: newCount ?? 0, icon: UserPlus, color: "var(--info)" },
+    { label: "Đã liên hệ", value: contactedCount ?? 0, icon: Phone, color: "var(--warn)" },
+    { label: "Tiềm năng", value: qualifiedCount ?? 0, icon: CheckCircle, color: "var(--cat-purple)" },
+    { label: "Thành công", value: wonCount ?? 0, icon: CheckCircle, color: "var(--accent)" },
   ];
 
   // Fetch order data for contacts (match by email)
@@ -234,14 +234,14 @@ export default async function CRMContactsPage({
             key={i}
             className="flex items-center gap-3 p-3 rounded-xl text-sm"
             style={{
-              background: n.type === "success" ? "rgba(212,168,67,0.08)" : "rgba(239,68,68,0.08)",
-              border: `1px solid ${n.type === "success" ? "rgba(212,168,67,0.2)" : "rgba(239,68,68,0.2)"}`,
+              background: n.type === "success" ? "rgb(var(--accent-rgb) / 0.08)" : "rgb(var(--danger-rgb) / 0.08)",
+              border: `1px solid ${n.type === "success" ? "rgb(var(--accent-rgb) / 0.2)" : "rgb(var(--danger-rgb) / 0.2)"}`,
             }}
           >
             {n.type === "success" ? (
-              <CheckCircle size={16} className="text-[#D4A843] shrink-0" />
+              <CheckCircle size={16} className="text-[var(--accent)] shrink-0" />
             ) : (
-              <XCircle size={16} className="text-[#ef4444] shrink-0" />
+              <XCircle size={16} className="text-[var(--danger)] shrink-0" />
             )}
             <span className={n.type === "success" ? "text-amber-300" : "text-red-300"}>
               {n.message}
@@ -313,14 +313,14 @@ export default async function CRMContactsPage({
             </div>
           </form>
           {/* Sync Button */}
-          <div className="mt-3 pt-3 border-t border-[#2a2a2a] flex items-center justify-between">
+          <div className="mt-3 pt-3 border-t border-[var(--border)] flex items-center justify-between">
             <p className="text-xs text-gray-500">
               Đồng bộ khách hàng từ đơn hàng và tài khoản đăng ký vào CRM.
             </p>
             <form action={syncContactsFromOrders}>
               <button
                 type="submit"
-                className="px-4 py-2 text-sm font-medium rounded-lg flex items-center gap-2 border border-[#2a2a2a] text-gray-300 hover:text-white hover:border-[#D4A843] transition-colors"
+                className="px-4 py-2 text-sm font-medium rounded-lg flex items-center gap-2 border border-[var(--border)] text-gray-300 hover:text-white hover:border-[var(--accent)] transition-colors"
               >
                 <RefreshCw size={14} />
                 Đồng bộ
@@ -332,7 +332,7 @@ export default async function CRMContactsPage({
         {/* Add Contact Form */}
         <div className="card-dark p-5">
           <div className="flex items-center gap-2 mb-4">
-            <UserPlus size={16} className="text-[#D4A843]" />
+            <UserPlus size={16} className="text-[var(--accent)]" />
             <h3 className="font-semibold text-white text-sm">Thêm khách hàng mới</h3>
           </div>
           <form action={createContact}>
@@ -406,12 +406,12 @@ export default async function CRMContactsPage({
         {/* Import Section */}
         <details className="card-dark">
           <summary className="p-4 cursor-pointer flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">
-            <FileUp size={16} className="text-[#a855f7]" />
+            <FileUp size={16} className="text-[var(--cat-purple)]" />
             Import hàng loạt (CSV)
           </summary>
           <div className="px-4 pb-4">
             <p className="text-xs text-gray-500 mb-3">
-              Nhập mỗi dòng theo format: <code className="text-gray-400 bg-[#1a1a1a] px-1.5 py-0.5 rounded">Tên, Email, SĐT</code>
+              Nhập mỗi dòng theo format: <code className="text-gray-400 bg-[var(--surface)] px-1.5 py-0.5 rounded">Tên, Email, SĐT</code>
             </p>
             <form action={importContacts}>
               <textarea
@@ -434,16 +434,16 @@ export default async function CRMContactsPage({
         {error && (
           <div
             className="flex items-center gap-3 p-3 rounded-xl text-sm"
-            style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)" }}
+            style={{ background: "rgb(var(--danger-rgb) / 0.08)", border: "1px solid rgb(var(--danger-rgb) / 0.2)" }}
           >
-            <AlertCircle size={16} className="text-[#ef4444] shrink-0" />
+            <AlertCircle size={16} className="text-[var(--danger)] shrink-0" />
             <span className="text-red-300">Lỗi khi tải dữ liệu: {error.message}</span>
           </div>
         )}
 
         {/* Contacts Table */}
         <div className="card-dark overflow-hidden">
-          <div className="flex items-center justify-between p-4 border-b border-[#2a2a2a]">
+          <div className="flex items-center justify-between p-4 border-b border-[var(--border)]">
             <h3 className="font-semibold text-white text-sm">
               Danh sách khách hàng
             </h3>
@@ -454,7 +454,7 @@ export default async function CRMContactsPage({
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                <tr style={{ borderBottom: "1px solid var(--border)" }}>
                   {["Tên", "Email", "SĐT", "Trạng thái", "Giai đoạn", "Điểm", "Phụ trách", "Đơn hàng", "Doanh thu", "Nguồn", "Ngày tạo"].map((col) => (
                     <th
                       key={col}
@@ -485,7 +485,7 @@ export default async function CRMContactsPage({
                         key={contact.id}
                         className="transition-colors hover:bg-white/[0.02]"
                         style={{
-                          borderBottom: idx < contacts.length - 1 ? "1px solid #2a2a2a" : "none",
+                          borderBottom: idx < contacts.length - 1 ? "1px solid var(--border)" : "none",
                         }}
                       >
                         {/* Name */}
@@ -665,7 +665,7 @@ export default async function CRMContactsPage({
 
           {/* Footer */}
           {contacts.length > 0 && (
-            <div className="px-4 py-3 border-t border-[#2a2a2a] flex items-center justify-between">
+            <div className="px-4 py-3 border-t border-[var(--border)] flex items-center justify-between">
               <p className="text-xs text-gray-500">
                 Hiển thị <span className="text-white font-semibold">{contacts.length}</span> khách hàng
                 {(q || statusFilter || journeyStageFilter) && " (đã lọc)"}
@@ -673,7 +673,7 @@ export default async function CRMContactsPage({
               {(q || statusFilter || journeyStageFilter) && (
                 <Link
                   href="/crm/contacts"
-                  className="text-xs text-[#D4A843] hover:underline"
+                  className="text-xs text-[var(--accent)] hover:underline"
                 >
                   Xoá bộ lọc
                 </Link>

@@ -5,9 +5,9 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
 const CSS = `
-.ndtc{--paper:#F7F3EC;--surf:#FFFDF9;--surf2:#F1EADD;--ink:#221E18;--muted:#6E6455;--muted2:#8A7F6D;
---line:#E7DECE;--line-2:#F0E9DB;--night:#14171C;--night-2:#1E232B;
---gold:#CC8A22;--gold-b:#E4A93A;--gold-d:#A9741A;--gold-tint:#F6EAD1;--gold-line:#E7CE9C;
+.ndtc{--paper:var(--bg);--surf:var(--surface);--surf2:var(--bg-alt);--ink:var(--fg);--muted:var(--fg-muted);--muted2:var(--fg-subtle);
+--line:var(--border);--line-2:#F0E9DB;--night:#14171C;--night-2:#1E232B;
+--gold:var(--accent-hover);--gold-b:#E4A93A;--gold-d:var(--accent-hover);--gold-tint:#F6EAD1;--gold-line:#E7CE9C;
 --teal:#0C6070;--teal-d:#084451;--teal-tint:#E4EEEF;--teal-line:#BAD7DB;
 --pain:#B4530A;--pain-tint:#FAEBDD;--pain-line:#ECCBA8;
 --f:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -38,7 +38,7 @@ transition:transform .12s ease,background .15s ease,filter .15s ease}
 .ndtc .nav .btn{padding:11px 22px;font-size:13px}
 
 /* HERO — night + lamp */
-.ndtc .hero{background:var(--night);color:#F3EEE4;padding:80px 0 74px;position:relative;overflow:hidden}
+.ndtc .hero{background:var(--night);color:var(--bg-alt);padding:80px 0 74px;position:relative;overflow:hidden}
 .ndtc .hero::after{content:"";position:absolute;left:-120px;top:-140px;width:620px;height:520px;
 background:radial-gradient(ellipse at center,rgba(224,169,58,.22),rgba(224,169,58,.05) 44%,transparent 68%);pointer-events:none}
 .ndtc .hero .wrap{position:relative;text-align:center}
@@ -132,7 +132,7 @@ background:radial-gradient(ellipse at center,rgba(224,169,58,.22),rgba(224,169,5
 .ndtc .obj .a b{color:var(--ink)}
 
 /* POSITIONING — night + lamp glow */
-.ndtc .posn{margin-top:12px;background:var(--night);color:#F3EEE4;border-radius:18px;padding:40px 36px;position:relative;overflow:hidden}
+.ndtc .posn{margin-top:12px;background:var(--night);color:var(--bg-alt);border-radius:18px;padding:40px 36px;position:relative;overflow:hidden}
 .ndtc .posn::before{content:"";position:absolute;left:-70px;top:-90px;width:440px;height:340px;background:radial-gradient(ellipse,rgba(224,169,58,.2),transparent 66%);pointer-events:none;z-index:0}
 .ndtc .posn>*{position:relative;z-index:1}
 .ndtc .posn .k{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-b);font-weight:800;margin-bottom:14px;display:block}
@@ -232,15 +232,15 @@ background:rgba(247,243,236,.94);backdrop-filter:blur(10px);border-top:1px solid
 
 /* MODAL */
 .ndtc-ov{position:fixed;inset:0;z-index:60;background:rgba(20,23,28,.6);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:18px}
-.ndtc-modal{position:relative;width:100%;max-width:420px;background:#FFFDF9;border-radius:16px;padding:30px 28px;box-shadow:0 30px 80px rgba(0,0,0,.32);font-family:"Be Vietnam Pro",system-ui,sans-serif;color:#221E18}
+.ndtc-modal{position:relative;width:100%;max-width:420px;background:var(--surface);border-radius:16px;padding:30px 28px;box-shadow:0 30px 80px rgba(0,0,0,.32);font-family:"Be Vietnam Pro",system-ui,sans-serif;color:var(--fg)}
 .ndtc-modal h3{margin:0 0 5px;font-size:21px;font-weight:800;letter-spacing:-.02em}
-.ndtc-modal .desc{margin:0 0 18px;font-size:14px;color:#6E6455}
+.ndtc-modal .desc{margin:0 0 18px;font-size:14px;color:var(--fg-muted)}
 .ndtc-modal label{display:block;font-size:13.5px;font-weight:600;margin:0 0 5px}
-.ndtc-modal input{width:100%;padding:11px 13px;border:1px solid #E0D7C7;border-radius:8px;font-size:15px;margin-bottom:13px;font-family:inherit;color:#221E18;background:#fff}
-.ndtc-modal input:focus{outline:2px solid #CC8A22;outline-offset:1px;border-color:#CC8A22}
+.ndtc-modal input{width:100%;padding:11px 13px;border:1px solid var(--border-strong);border-radius:8px;font-size:15px;margin-bottom:13px;font-family:inherit;color:var(--fg);background:#fff}
+.ndtc-modal input:focus{outline:2px solid var(--accent-hover);outline-offset:1px;border-color:var(--accent-hover)}
 .ndtc-modal .go{width:100%;background:#E4A93A;color:#231A08;border:0;padding:14px;border-radius:8px;font-weight:800;font-size:15.5px;cursor:pointer;font-family:inherit;text-transform:uppercase;letter-spacing:.02em}
 .ndtc-modal .go:disabled{opacity:.6}
-.ndtc-modal .x{position:absolute;top:12px;right:14px;border:0;background:none;font-size:22px;cursor:pointer;color:#8A7F6D;line-height:1}
+.ndtc-modal .x{position:absolute;top:12px;right:14px;border:0;background:none;font-size:22px;cursor:pointer;color:var(--fg-subtle);line-height:1}
 .ndtc-modal .err{background:#FAEBDD;border:1px solid #ECCBA8;color:#B4530A;padding:9px 12px;border-radius:8px;font-size:13.5px;margin-bottom:12px}
 .ndtc-modal .ok{text-align:center;padding:14px 0}
 .ndtc-modal .ok .big{font-size:44px;line-height:1}
@@ -290,18 +290,19 @@ export default function LandingClient() {
     setStatus("loading");
     setErr("");
     try {
-      const res = await fetch("/api/auth/register", {
+      const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           full_name: form.name,
           email: form.email,
           phone: form.phone,
-          password: crypto.randomUUID().slice(0, 12) + "Aa1",
-          newsletter_opt_in: true,
+          // Tách nguồn để phân biệt người giữ chỗ (quan tâm cao) và người chỉ nhận cẩm nang.
+          source: mode === "hold" ? "giu_cho" : "cam_nang",
+          tags: mode === "hold" ? ["giu-cho-ntdcc"] : ["cam-nang-ntdcc"],
         }),
       });
-      const d = await res.json();
+      const d = await res.json().catch(() => ({}));
       if (res.ok && d.success) setStatus("done");
       else { setErr(d.error || "Có lỗi xảy ra. Vui lòng thử lại."); setStatus("idle"); }
     } catch {
@@ -502,7 +503,7 @@ export default function LandingClient() {
           <div className="posn">
             <span className="k">Cùng một hệ thống — một mức giá khác hẳn</span>
             <h3>Cùng năng lực “giải phóng người&nbsp;chủ” mà nhiều nơi dạy offline vài chục triệu — tôi đóng gói online để bạn học trọn đời.</h3>
-            <p>Tôi không mở lớp offline chục triệu. Tôi lấy đúng 6 năng lực cốt lõi đúc kết từ 15 năm đứng lớp cho Vingroup, FPT Telecom, TokyoLife, gói thành khóa online kèm biểu mẫu dùng ngay — để một người chủ trả <b style={{ color: "#fff" }}>một lần</b>, <b style={{ color: "#fff" }}>dùng trọn đời</b>, không phải bỏ việc đi học xa.</p>
+            <p>Tôi không mở lớp offline chục triệu. Tôi lấy đúng 6 năng lực cốt lõi đúc kết từ 15 năm đứng lớp cho Vingroup, FPT Telecom, TokyoLife, gói thành khóa online kèm biểu mẫu dùng ngay — để một người chủ trả <b style={{ color: "var(--fg)" }}>một lần</b>, <b style={{ color: "var(--fg)" }}>dùng trọn đời</b>, không phải bỏ việc đi học xa.</p>
             <div className="line">
               <span className="strike">Giá trị thật 6.900.000đ</span>
               <span className="to">→</span>

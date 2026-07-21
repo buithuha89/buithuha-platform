@@ -52,7 +52,7 @@ function MenuButton({
       title={title}
       className={`p-1.5 rounded transition-colors ${
         active
-          ? "bg-[#D4A843]/20 text-[#D4A843]"
+          ? "bg-[var(--accent)]/20 text-[var(--accent)]"
           : "text-gray-400 hover:text-white hover:bg-white/10"
       } ${disabled ? "opacity-30 cursor-not-allowed" : ""}`}
     >
@@ -76,7 +76,7 @@ export default function RichTextEditor({
       Underline,
       Link.configure({
         openOnClick: false,
-        HTMLAttributes: { class: "text-[#D4A843] underline hover:text-[#e8c066]" },
+        HTMLAttributes: { class: "text-[var(--accent)] underline hover:text-[#e8c066]" },
       }),
       Image.configure({
         HTMLAttributes: { class: "rounded-lg max-w-full my-4" },
@@ -153,12 +153,12 @@ export default function RichTextEditor({
   return (
     <div
       className="rounded-xl overflow-hidden"
-      style={{ background: "#151515", border: "1px solid #2a2a2a" }}
+      style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
     >
       {/* Toolbar */}
       <div
         className="flex flex-wrap items-center gap-0.5 px-2 py-1.5"
-        style={{ borderBottom: "1px solid #2a2a2a", background: "#1a1a1a" }}
+        style={{ borderBottom: "1px solid var(--border)", background: "var(--surface)" }}
       >
         {/* Text formatting */}
         <MenuButton
@@ -190,7 +190,7 @@ export default function RichTextEditor({
           <Strikethrough size={15} />
         </MenuButton>
 
-        <div className="w-px h-5 bg-[#2a2a2a] mx-1" />
+        <div className="w-px h-5 bg-[var(--border)] mx-1" />
 
         {/* Headings */}
         <MenuButton
@@ -212,7 +212,7 @@ export default function RichTextEditor({
           <Heading3 size={15} />
         </MenuButton>
 
-        <div className="w-px h-5 bg-[#2a2a2a] mx-1" />
+        <div className="w-px h-5 bg-[var(--border)] mx-1" />
 
         {/* Lists */}
         <MenuButton
@@ -230,7 +230,7 @@ export default function RichTextEditor({
           <ListOrdered size={15} />
         </MenuButton>
 
-        <div className="w-px h-5 bg-[#2a2a2a] mx-1" />
+        <div className="w-px h-5 bg-[var(--border)] mx-1" />
 
         {/* Block elements */}
         <MenuButton
@@ -254,7 +254,7 @@ export default function RichTextEditor({
           <Minus size={15} />
         </MenuButton>
 
-        <div className="w-px h-5 bg-[#2a2a2a] mx-1" />
+        <div className="w-px h-5 bg-[var(--border)] mx-1" />
 
         {/* Media */}
         <MenuButton onClick={addLink} active={editor.isActive("link")} title="Thêm link">
@@ -264,7 +264,7 @@ export default function RichTextEditor({
           <ImageIcon size={15} />
         </MenuButton>
 
-        <div className="w-px h-5 bg-[#2a2a2a] mx-1" />
+        <div className="w-px h-5 bg-[var(--border)] mx-1" />
 
         {/* Undo/Redo */}
         <MenuButton
@@ -340,15 +340,15 @@ export default function RichTextEditor({
           margin-bottom: 0.25rem;
         }
         .ProseMirror blockquote {
-          border-left: 3px solid #D4A843;
+          border-left: 3px solid var(--accent);
           padding-left: 1rem;
           color: #aaa;
           font-style: italic;
           margin: 1rem 0;
         }
         .ProseMirror pre {
-          background: #1a1a1a;
-          border: 1px solid #2a2a2a;
+          background: var(--surface);
+          border: 1px solid var(--border);
           border-radius: 0.5rem;
           padding: 0.75rem 1rem;
           font-family: monospace;
@@ -357,7 +357,7 @@ export default function RichTextEditor({
           margin: 1rem 0;
         }
         .ProseMirror code {
-          background: #2a2a2a;
+          background: var(--border);
           padding: 0.15rem 0.35rem;
           border-radius: 0.25rem;
           font-size: 0.85rem;
@@ -370,11 +370,11 @@ export default function RichTextEditor({
         }
         .ProseMirror hr {
           border: none;
-          border-top: 1px solid #2a2a2a;
+          border-top: 1px solid var(--border);
           margin: 1.5rem 0;
         }
         .ProseMirror a {
-          color: #D4A843;
+          color: var(--accent);
           text-decoration: underline;
         }
         .ProseMirror a:hover {

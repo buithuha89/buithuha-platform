@@ -44,14 +44,14 @@ function BuyGate() {
           <h3>Hết phần đọc thử — phần hay nhất bắt đầu ngay sau đây</h3>
           <p>
             Đăng nhập để mở trọn bộ 61 trang: đúng câu Minh nên nói trong tình huống trên, 12 kịch bản mô phỏng,
-            bộ công cụ ngôn ngữ và lộ trình 30 ngày. Trọn bộ chỉ <b style={{ color: "#fff" }}>{PRICE}</b>.
+            bộ công cụ ngôn ngữ và lộ trình 30 ngày. Trọn bộ chỉ <b style={{ color: "var(--fg)" }}>{PRICE}</b>.
           </p>
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
             <Link className="btn" href={`/login?redirect=${SLUG}`}>Đăng nhập để mua</Link>
             <Link
               className="btn"
               href="/register"
-              style={{ background: "transparent", color: "#F3EEE4", boxShadow: "none", border: "1px solid #4A4A44" }}
+              style={{ background: "transparent", color: "var(--bg-alt)", boxShadow: "none", border: "1px solid #4A4A44" }}
             >
               Tạo tài khoản miễn phí
             </Link>
@@ -102,8 +102,8 @@ export default function ThuaNhanSaiClient() {
               và lãnh đạo cấp cao.
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginTop: 16 }}>
-              <span style={{ fontSize: 20, fontWeight: 800, color: "#A9741A" }}>{PRICE}</span>
-              <span style={{ fontSize: 13.5, color: "#6E6455" }}>· Đọc thử 15 trang miễn phí bên dưới</span>
+              <span style={{ fontSize: 20, fontWeight: 800, color: "var(--accent-hover)" }}>{PRICE}</span>
+              <span style={{ fontSize: 13.5, color: "var(--fg-muted)" }}>· Đọc thử 15 trang miễn phí bên dưới</span>
             </div>
           </div>
 
@@ -140,7 +140,7 @@ export default function ThuaNhanSaiClient() {
                 {FOR_WHOM.map((it, i) => (
                   <li key={i}>
                     <div style={{ fontWeight: 800, fontSize: 15.5 }}>{it.who}</div>
-                    <div style={{ color: "#6E6455", fontSize: 14.4, marginTop: 3 }}>{it.fear}</div>
+                    <div style={{ color: "var(--fg-muted)", fontSize: 14.4, marginTop: 3 }}>{it.fear}</div>
                   </li>
                 ))}
               </ul>
@@ -152,7 +152,7 @@ export default function ThuaNhanSaiClient() {
                 Miễn phí phần mở đầu + Chương 1 + mở màn Chương 2 (tình huống “con số sai giữa cuộc họp”).
                 Phần còn lại mở khoá khi mua.
               </p>
-              <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid #E7DECE", background: "#fff" }}>
+              <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid var(--border)", background: "var(--surface)" }}>
                 <iframe
                   src={`${PREVIEW_PDF}#view=FitH`}
                   title="Đọc thử: Nghệ thuật thừa nhận sai (15 trang đầu)"
@@ -161,7 +161,7 @@ export default function ThuaNhanSaiClient() {
               </div>
               <p style={{ fontSize: 13, color: "#9A8E7B", marginTop: 10, marginBottom: 0 }}>
                 Không xem được trên máy của bạn?{" "}
-                <a href={PREVIEW_PDF} target="_blank" rel="noopener noreferrer" style={{ color: "#A9741A", fontWeight: 600 }}>
+                <a href={PREVIEW_PDF} target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent-hover)", fontWeight: 600 }}>
                   Mở bản đọc thử ở tab mới
                 </a>
                 .

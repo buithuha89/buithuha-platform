@@ -161,8 +161,8 @@ export default function NotificationsPage() {
                 onClick={() => setFilter(f.key)}
                 className={`text-xs px-3 py-1.5 rounded-lg transition-colors ${
                   filter === f.key
-                    ? "bg-[#D4A843] text-black font-medium"
-                    : "bg-[#1a1a1a] text-gray-400 hover:text-white hover:bg-[#2a2a2a]"
+                    ? "bg-[var(--accent)] text-black font-medium"
+                    : "bg-[var(--surface)] text-gray-400 hover:text-white hover:bg-[var(--border)]"
                 }`}
               >
                 {f.label}
@@ -172,7 +172,7 @@ export default function NotificationsPage() {
           {hasUnread && (
             <button
               onClick={markAllRead}
-              className="text-xs text-[#D4A843] hover:underline flex items-center gap-1 shrink-0"
+              className="text-xs text-[var(--accent)] hover:underline flex items-center gap-1 shrink-0"
             >
               <CheckCheck size={14} /> Đã đọc tất cả
             </button>
@@ -213,7 +213,7 @@ export default function NotificationsPage() {
                   key={key}
                   className="card-dark overflow-hidden transition-colors"
                   style={{
-                    borderLeft: n.read ? "none" : "3px solid #D4A843",
+                    borderLeft: n.read ? "none" : "3px solid var(--accent)",
                   }}
                 >
                   {/* Clickable header */}
@@ -224,7 +224,7 @@ export default function NotificationsPage() {
                     <div className="shrink-0 mt-0.5">
                       <Icon
                         size={20}
-                        className={n.read ? "text-gray-500" : n.is_broadcast ? "text-blue-400" : "text-[#D4A843]"}
+                        className={n.read ? "text-gray-500" : n.is_broadcast ? "text-blue-400" : "text-[var(--accent)]"}
                       />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -242,7 +242,7 @@ export default function NotificationsPage() {
                           {n.title}
                         </h3>
                         {!n.read && (
-                          <span className="w-2 h-2 rounded-full bg-[#D4A843] shrink-0" />
+                          <span className="w-2 h-2 rounded-full bg-[var(--accent)] shrink-0" />
                         )}
                       </div>
                       <p className={`text-xs text-gray-400 mt-0.5 leading-relaxed ${isExpanded ? "" : "line-clamp-2"}`}>
@@ -284,7 +284,7 @@ export default function NotificationsPage() {
                             </span>
                           )}
                           {!n.is_broadcast && (
-                            <span className="px-1.5 py-0.5 rounded bg-[#D4A843]/10 text-[#D4A843] border border-[#D4A843]/20">
+                            <span className="px-1.5 py-0.5 rounded bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20">
                               Cá nhân
                             </span>
                           )}
@@ -294,7 +294,7 @@ export default function NotificationsPage() {
                         {n.link && (
                           <a
                             href={n.link}
-                            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#D4A843] hover:underline mt-1"
+                            className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--accent)] hover:underline mt-1"
                           >
                             <ExternalLink size={12} />
                             Xem chi tiết

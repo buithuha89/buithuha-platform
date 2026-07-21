@@ -55,7 +55,7 @@ export default function AutomationEditorPage() {
   return (
     <div className="h-screen flex flex-col">
       {/* Top toolbar */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-[#2a2a2a] bg-[#0a0a0a]">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--border)] bg-[var(--bg)]">
         <div className="flex items-center gap-3">
           <Link href="/email/automations" className="text-gray-400 hover:text-white">
             <ArrowLeft size={18} />
@@ -68,14 +68,14 @@ export default function AutomationEditorPage() {
           <StatusBadge status={automation.status} />
         </div>
         <div className="flex items-center gap-2">
-          {hasChanges && <span className="text-xs text-[#f59e0b]">Chưa lưu</span>}
+          {hasChanges && <span className="text-xs text-[var(--warn)]">Chưa lưu</span>}
           <button onClick={() => handleSave(automation.flow_definition)} disabled={saving}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[#D4A843] text-black">
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--accent)] text-black">
             <Save size={13} />
             {saving ? "Đang lưu..." : "Lưu"}
           </button>
           <button onClick={handleToggleStatus}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-[#333] text-gray-300 hover:text-white">
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border-strong)] text-gray-300 hover:text-white">
             {automation.status === "active" ? <><Pause size={13} /> Tạm dừng</> : <><Play size={13} /> Kích hoạt</>}
           </button>
         </div>
@@ -98,10 +98,10 @@ export default function AutomationEditorPage() {
 
 function StatusBadge({ status }: { status: string }) {
   const config: Record<string, { label: string; color: string }> = {
-    draft: { label: "Bản nháp", color: "#6b7280" },
-    active: { label: "Đang hoạt động", color: "#22c55e" },
-    paused: { label: "Tạm dừng", color: "#f59e0b" },
-    archived: { label: "Đã lưu trữ", color: "#ef4444" },
+    draft: { label: "Bản nháp", color: "var(--fg-subtle)" },
+    active: { label: "Đang hoạt động", color: "var(--success)" },
+    paused: { label: "Tạm dừng", color: "var(--warn)" },
+    archived: { label: "Đã lưu trữ", color: "var(--danger)" },
   };
   const c = config[status] || config.draft;
   return (
@@ -113,7 +113,7 @@ function StatusBadge({ status }: { status: string }) {
 
 function LoadingSkeleton() {
   return (
-    <div className="h-screen flex items-center justify-center bg-[#0a0a0a]">
+    <div className="h-screen flex items-center justify-center bg-[var(--bg)]">
       <div className="animate-pulse text-gray-500">Đang tải...</div>
     </div>
   );
@@ -121,10 +121,10 @@ function LoadingSkeleton() {
 
 function NotFound() {
   return (
-    <div className="h-screen flex items-center justify-center bg-[#0a0a0a]">
+    <div className="h-screen flex items-center justify-center bg-[var(--bg)]">
       <div className="text-center">
         <p className="text-gray-400">Không tìm thấy automation</p>
-        <Link href="/email/automations" className="text-[#D4A843] text-sm mt-2 inline-block">← Quay lại</Link>
+        <Link href="/email/automations" className="text-[var(--accent)] text-sm mt-2 inline-block">← Quay lại</Link>
       </div>
     </div>
   );

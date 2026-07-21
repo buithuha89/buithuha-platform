@@ -160,7 +160,7 @@ export default function GoogleDrivePlayer({
     <div
       ref={containerRef}
       className="rounded-xl overflow-hidden select-none relative"
-      style={{ border: "1px solid #2a2a2a", background: "#000" }}
+      style={{ border: "1px solid var(--border)", background: "#000" }}
     >
       {/* Video area — block right-click */}
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
@@ -212,7 +212,7 @@ export default function GoogleDrivePlayer({
             className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/70 hover:bg-black/50 transition-colors cursor-pointer group"
             aria-label="Phát video"
           >
-            <div className="w-16 h-16 rounded-full bg-[#D4A843]/90 group-hover:bg-[#D4A843] flex items-center justify-center transition-colors shadow-lg">
+            <div className="w-16 h-16 rounded-full bg-[var(--accent)]/90 group-hover:bg-[var(--accent)] flex items-center justify-center transition-colors shadow-lg">
               <svg
                 viewBox="0 0 24 24"
                 fill="white"
@@ -231,8 +231,8 @@ export default function GoogleDrivePlayer({
 
         {/* Loading state */}
         {!loaded && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-[#111]">
-            <div className="w-8 h-8 border-2 border-[#D4A843] border-t-transparent rounded-full animate-spin mb-3" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-[var(--surface)]">
+            <div className="w-8 h-8 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin mb-3" />
             <p className="text-xs text-gray-500">
               {title ?? "Đang tải video..."}
             </p>
@@ -245,7 +245,7 @@ export default function GoogleDrivePlayer({
             className="absolute top-4 left-1/2 -translate-x-1/2 z-30 pointer-events-none"
             style={{ animation: "fadeSlideIn 0.3s ease-out" }}
           >
-            <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#22c55e]/90 backdrop-blur-sm text-white text-sm font-medium shadow-lg">
+            <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[var(--success)]/90 backdrop-blur-sm text-white text-sm font-medium shadow-lg">
               <span>&#x2705;</span>
               <span>
                 {nextLessonUrl
@@ -273,14 +273,14 @@ export default function GoogleDrivePlayer({
       {loaded && (
         <div
           className="flex items-center gap-3 px-3 py-2"
-          style={{ background: "#111", borderTop: "1px solid #1f1f1f" }}
+          style={{ background: "var(--surface)", borderTop: "1px solid var(--surface-2)" }}
         >
           {/* Progress bar */}
           {durationSec && durationSec > 0 ? (
             <>
               <div className="flex-1 h-1 bg-white/10 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-[#22c55e] rounded-full transition-all duration-1000"
+                  className="h-full bg-[var(--success)] rounded-full transition-all duration-1000"
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -301,7 +301,7 @@ export default function GoogleDrivePlayer({
           <button
             onClick={toggleFullscreen}
             aria-label={isFullscreen ? "Thoát toàn màn hình" : "Toàn màn hình"}
-            className="p-1 text-gray-400 hover:text-[#D4A843] transition-colors"
+            className="p-1 text-gray-400 hover:text-[var(--accent)] transition-colors"
           >
             {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
           </button>

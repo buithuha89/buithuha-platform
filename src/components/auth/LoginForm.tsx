@@ -99,7 +99,7 @@ export default function LoginForm() {
           role="alert"
           aria-live="assertive"
           className="p-3 rounded-lg text-sm text-red-400 border border-red-400/20"
-          style={{ background: "rgba(239,68,68,0.08)" }}
+          style={{ background: "rgb(var(--danger-rgb) / 0.08)" }}
         >
           {error}
         </div>
@@ -111,11 +111,11 @@ export default function LoginForm() {
           aria-live="assertive"
           className="p-4 rounded-lg text-sm border"
           style={{
-            background: "rgba(212,168,67,0.08)",
-            borderColor: "rgba(212,168,67,0.25)",
+            background: "rgb(var(--accent-rgb) / 0.08)",
+            borderColor: "rgb(var(--accent-rgb) / 0.25)",
           }}
         >
-          <p className="text-[#D4A843] font-medium mb-2">
+          <p className="text-[var(--accent)] font-medium mb-2">
             Email chưa được xác nhận
           </p>
           <p className="text-gray-400 mb-3">
@@ -133,9 +133,9 @@ export default function LoginForm() {
               disabled={resending}
               className="text-sm font-medium px-4 py-2 rounded-lg transition-all disabled:opacity-50"
               style={{
-                background: "rgba(212,168,67,0.15)",
-                color: "#D4A843",
-                border: "1px solid rgba(212,168,67,0.3)",
+                background: "rgb(var(--accent-rgb) / 0.15)",
+                color: "var(--accent)",
+                border: "1px solid rgb(var(--accent-rgb) / 0.3)",
               }}
             >
               {resending ? "Đang gửi..." : "Gửi lại email xác nhận"}
@@ -160,7 +160,7 @@ export default function LoginForm() {
       </div>
 
       <div className="flex items-center justify-end">
-        <Link href="/forgot-password" className="text-sm text-[#D4A843] hover:underline">
+        <Link href="/forgot-password" className="text-sm text-[var(--accent)] hover:underline">
           Quên mật khẩu?
         </Link>
       </div>

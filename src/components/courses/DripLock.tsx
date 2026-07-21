@@ -25,23 +25,23 @@ export default function DripLock({
   const formattedDate = formatDripDate(new Date(unlockDate));
 
   return (
-    <div className="relative rounded-xl overflow-hidden border border-[#2a2a2a] bg-[#0a0a0a]">
+    <div className="relative rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--bg)]">
       {/* Blurred placeholder to hint there is content behind the lock */}
-      <div className="aspect-video bg-[#111] flex items-center justify-center">
-        <div className="absolute inset-0 backdrop-blur-sm bg-[#0a0a0a]/80" />
+      <div className="aspect-video bg-[var(--surface)] flex items-center justify-center">
+        <div className="absolute inset-0 backdrop-blur-sm bg-[var(--bg)]/80" />
 
         {/* Lock content */}
         <div className="relative z-10 flex flex-col items-center gap-4 px-6 py-10 text-center max-w-md">
           {/* Animated lock icon */}
-          <div className="w-16 h-16 rounded-full bg-[#D4A843]/10 border border-[#D4A843]/20 flex items-center justify-center animate-pulse">
-            <Lock size={28} className="text-[#D4A843]" />
+          <div className="w-16 h-16 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center animate-pulse">
+            <Lock size={28} className="text-[var(--accent)]" />
           </div>
 
           {/* Lesson title */}
           <p className="text-sm text-gray-500 line-clamp-1">{lessonTitle}</p>
 
           {/* Countdown message */}
-          <h3 className="text-lg font-semibold text-[#f5f5f5]">
+          <h3 className="text-lg font-semibold text-[var(--fg)]">
             {daysRemaining === 1
               ? "Bài học sẽ mở khoá sau 1 ngày"
               : `Bài học sẽ mở khoá sau ${daysRemaining} ngày`}
@@ -50,7 +50,7 @@ export default function DripLock({
           {/* Exact date */}
           <p className="text-sm text-gray-400">
             Mở khoá vào ngày{" "}
-            <span className="text-[#D4A843] font-medium">{formattedDate}</span>
+            <span className="text-[var(--accent)] font-medium">{formattedDate}</span>
           </p>
 
           {/* Subtle tip */}

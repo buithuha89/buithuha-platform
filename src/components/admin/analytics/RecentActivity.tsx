@@ -45,11 +45,11 @@ const icons: Record<ActivityItem["type"], React.ReactNode> = {
 function SkeletonItem() {
   return (
     <div className="flex items-start gap-3 p-3 rounded-lg animate-pulse">
-      <div className="w-2.5 h-2.5 rounded-full bg-[#2a2a2a] mt-1.5 shrink-0" />
-      <div className="w-4 h-4 rounded bg-[#2a2a2a] mt-0.5 shrink-0" />
+      <div className="w-2.5 h-2.5 rounded-full bg-[var(--border)] mt-1.5 shrink-0" />
+      <div className="w-4 h-4 rounded bg-[var(--border)] mt-0.5 shrink-0" />
       <div className="flex-1 space-y-2">
-        <div className="h-4 bg-[#2a2a2a] rounded w-3/4" />
-        <div className="h-3 bg-[#2a2a2a] rounded w-1/4" />
+        <div className="h-4 bg-[var(--border)] rounded w-3/4" />
+        <div className="h-3 bg-[var(--border)] rounded w-1/4" />
       </div>
     </div>
   );
@@ -66,14 +66,14 @@ export default function RecentActivity({
       </h3>
 
       <div
-        className="space-y-1 max-h-[480px] overflow-y-auto border-l border-[#2a2a2a] ml-1"
+        className="space-y-1 max-h-[480px] overflow-y-auto border-l border-[var(--border)] ml-1"
       >
         {loading
           ? Array.from({ length: 5 }).map((_, i) => <SkeletonItem key={i} />)
           : activities.slice(0, 10).map((item, index) => (
               <div
                 key={index}
-                className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#1a1a1a] transition-colors relative"
+                className="flex items-start gap-3 p-3 rounded-lg hover:bg-[var(--surface)] transition-colors relative"
               >
                 {/* Colored dot */}
                 <div

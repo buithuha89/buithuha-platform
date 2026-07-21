@@ -105,9 +105,9 @@ export default function BulkEnrollForm({
       <div className="flex items-center gap-3 mb-5">
         <div
           className="w-9 h-9 rounded-xl flex items-center justify-center"
-          style={{ background: "rgba(59,130,246,0.12)" }}
+          style={{ background: "rgb(var(--info-rgb) / 0.12)" }}
         >
-          <Users size={17} className="text-[#3b82f6]" />
+          <Users size={17} className="text-[var(--info)]" />
         </div>
         <div>
           <h2 className="text-sm font-semibold text-white">
@@ -169,18 +169,18 @@ export default function BulkEnrollForm({
                 className="flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer group transition-all"
                 style={{
                   backgroundColor: selectedCourses.has(c.id)
-                    ? "rgba(59,130,246,0.06)"
+                    ? "rgb(var(--info-rgb) / 0.06)"
                     : undefined,
                   border: selectedCourses.has(c.id)
-                    ? "1px solid rgba(59,130,246,0.25)"
-                    : "1px solid #2a2a2a",
+                    ? "1px solid rgb(var(--info-rgb) / 0.25)"
+                    : "1px solid var(--border)",
                 }}
               >
                 <input
                   type="checkbox"
                   checked={selectedCourses.has(c.id)}
                   onChange={() => toggleCourse(c.id)}
-                  className="w-4 h-4 rounded border-gray-600 bg-[#1a1a1a] accent-[#3b82f6]"
+                  className="w-4 h-4 rounded border-gray-600 bg-[var(--surface)] accent-[var(--info)]"
                 />
                 <span className="text-sm text-gray-300 group-hover:text-white transition-colors truncate flex-1">
                   {c.title}
@@ -189,8 +189,8 @@ export default function BulkEnrollForm({
                   <span
                     className="text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0"
                     style={{
-                      background: "rgba(107,114,128,0.15)",
-                      color: "#9ca3af",
+                      background: "rgb(var(--neutral-rgb) / 0.15)",
+                      color: "var(--fg-muted)",
                     }}
                   >
                     Miễn phí
@@ -206,9 +206,9 @@ export default function BulkEnrollForm({
           <div
             className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm"
             style={{
-              background: "rgba(239,68,68,0.08)",
-              border: "1px solid rgba(239,68,68,0.2)",
-              color: "#ef4444",
+              background: "rgb(var(--danger-rgb) / 0.08)",
+              border: "1px solid rgb(var(--danger-rgb) / 0.2)",
+              color: "var(--danger)",
             }}
           >
             <XCircle size={15} />
@@ -220,7 +220,7 @@ export default function BulkEnrollForm({
         {result && (
           <div
             className="p-4 rounded-xl space-y-3"
-            style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+            style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
           >
             <h4 className="text-sm font-semibold text-white">
               Kết quả cấp quyền

@@ -292,12 +292,12 @@ export default function SalesPageTemplate({
   const priceBlock = (
     <div className="flex items-center gap-3 flex-wrap">
       {isFree ? (
-        <span className="text-3xl font-bold text-[#22c55e]">
+        <span className="text-3xl font-bold text-[var(--success)]">
           Miễn phí
         </span>
       ) : (
         <>
-          <span className="text-3xl sm:text-4xl font-bold text-[#D4A843]">
+          <span className="text-3xl sm:text-4xl font-bold text-[var(--accent)]">
             {formatPrice(displayPrice)}
           </span>
           {hasSale && (
@@ -308,9 +308,9 @@ export default function SalesPageTemplate({
               <span
                 className="text-sm font-bold px-2.5 py-1 rounded-full"
                 style={{
-                  background: "rgba(239,68,68,0.15)",
-                  color: "#ef4444",
-                  border: "1px solid rgba(239,68,68,0.3)",
+                  background: "rgb(var(--danger-rgb) / 0.15)",
+                  color: "var(--danger)",
+                  border: "1px solid rgb(var(--danger-rgb) / 0.3)",
                 }}
               >
                 -{discount}%
@@ -323,7 +323,7 @@ export default function SalesPageTemplate({
   );
 
   return (
-    <div className="min-h-screen" style={{ background: "#0a0a0a" }}>
+    <div className="min-h-screen" style={{ background: "var(--bg)" }}>
       {/* ═══════════════════════════════════════════════
           SECTION 1: HERO
       ═══════════════════════════════════════════════ */}
@@ -341,7 +341,7 @@ export default function SalesPageTemplate({
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.85) 60%, #0a0a0a 100%)",
+                  "linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.85) 60%, var(--bg) 100%)",
               }}
             />
           </div>
@@ -365,21 +365,21 @@ export default function SalesPageTemplate({
             {/* Stats */}
             <div className="flex flex-wrap items-center justify-center gap-6 mb-8 text-sm sm:text-base text-gray-400">
               <span className="flex items-center gap-2">
-                <BookOpen size={18} className="text-[#D4A843]" />
+                <BookOpen size={18} className="text-[var(--accent)]" />
                 {sortedChapters.length} chương
               </span>
               <span className="flex items-center gap-2">
-                <PlayCircle size={18} className="text-[#D4A843]" />
+                <PlayCircle size={18} className="text-[var(--accent)]" />
                 {totalLessons} bài học
               </span>
               {totalDuration > 0 && (
                 <span className="flex items-center gap-2">
-                  <Clock size={18} className="text-[#D4A843]" />
+                  <Clock size={18} className="text-[var(--accent)]" />
                   {formatTotalDuration(totalDuration)}
                 </span>
               )}
               <span className="flex items-center gap-2">
-                <Award size={18} className="text-[#D4A843]" />
+                <Award size={18} className="text-[var(--accent)]" />
                 Chứng chỉ hoàn thành
               </span>
             </div>
@@ -397,7 +397,7 @@ export default function SalesPageTemplate({
 
             {/* Trust badge */}
             <div className="mt-6 flex items-center justify-center gap-2 text-sm text-gray-500">
-              <ShieldCheck size={16} className="text-[#22c55e]" />
+              <ShieldCheck size={16} className="text-[var(--success)]" />
               <span>
                 Hoàn tiền trong {guaranteeDays} ngày nếu không hài lòng
               </span>
@@ -409,7 +409,7 @@ export default function SalesPageTemplate({
       {/* ═══════════════════════════════════════════════
           SECTION 2: PAIN POINTS
       ═══════════════════════════════════════════════ */}
-      <section className="py-16 sm:py-20" style={{ background: "#0d0d0d" }}>
+      <section className="py-16 sm:py-20" style={{ background: "var(--bg-alt)" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-3">
             Bạn có đang gặp vấn đề này?
@@ -424,8 +424,8 @@ export default function SalesPageTemplate({
                 key={i}
                 className="rounded-xl p-5 sm:p-6 transition-colors"
                 style={{
-                  background: "#151515",
-                  border: "1px solid #2a2a2a",
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
                 }}
               >
                 <div className="text-3xl mb-3">{point.icon}</div>
@@ -444,7 +444,7 @@ export default function SalesPageTemplate({
       {/* ═══════════════════════════════════════════════
           SECTION 3: SOLUTION / BENEFITS
       ═══════════════════════════════════════════════ */}
-      <section className="py-16 sm:py-20" style={{ background: "#0a0a0a" }}>
+      <section className="py-16 sm:py-20" style={{ background: "var(--bg)" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-3">
             Khoá học này sẽ giúp bạn...
@@ -459,8 +459,8 @@ export default function SalesPageTemplate({
                 key={i}
                 className="rounded-xl p-5 sm:p-6 transition-colors"
                 style={{
-                  background: "#111",
-                  border: "1px solid rgba(212,168,67,0.15)",
+                  background: "var(--surface)",
+                  border: "1px solid rgb(var(--accent-rgb) / 0.15)",
                 }}
               >
                 <div className="text-3xl mb-3">{benefit.icon}</div>
@@ -479,7 +479,7 @@ export default function SalesPageTemplate({
       {/* ═══════════════════════════════════════════════
           SECTION 4: CURRICULUM
       ═══════════════════════════════════════════════ */}
-      <section className="py-16 sm:py-20" style={{ background: "#0d0d0d" }}>
+      <section className="py-16 sm:py-20" style={{ background: "var(--bg-alt)" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-3">
             Nội dung khoá học
@@ -492,7 +492,7 @@ export default function SalesPageTemplate({
           {sortedChapters.length === 0 ? (
             <div
               className="rounded-xl p-10 text-center"
-              style={{ background: "#151515", border: "1px solid #2a2a2a" }}
+              style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
             >
               <BookOpen size={40} className="text-gray-500 mx-auto mb-3" />
               <h3 className="font-bold text-white mb-1">
@@ -517,8 +517,8 @@ export default function SalesPageTemplate({
                     key={chapter.id}
                     className="rounded-xl overflow-hidden"
                     style={{
-                      background: "#151515",
-                      border: "1px solid #2a2a2a",
+                      background: "var(--surface)",
+                      border: "1px solid var(--border)",
                     }}
                   >
                     {/* Chapter header */}
@@ -530,8 +530,8 @@ export default function SalesPageTemplate({
                         <span
                           className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold shrink-0"
                           style={{
-                            background: "rgba(212,168,67,0.12)",
-                            color: "#D4A843",
+                            background: "rgb(var(--accent-rgb) / 0.12)",
+                            color: "var(--accent)",
                           }}
                         >
                           {chIdx + 1}
@@ -562,7 +562,7 @@ export default function SalesPageTemplate({
                     {isExpanded && (
                       <div
                         className="px-4 pb-3 space-y-0.5"
-                        style={{ borderTop: "1px solid #1f1f1f" }}
+                        style={{ borderTop: "1px solid var(--surface-2)" }}
                       >
                         {chapter.lessons.map((lesson) => (
                           <div
@@ -572,7 +572,7 @@ export default function SalesPageTemplate({
                             {lesson.is_free ? (
                               <PlayCircle
                                 size={16}
-                                className="text-[#22c55e] shrink-0"
+                                className="text-[var(--success)] shrink-0"
                               />
                             ) : (
                               <Lock
@@ -593,9 +593,9 @@ export default function SalesPageTemplate({
                               <span
                                 className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                                 style={{
-                                  background: "rgba(34,197,94,0.12)",
-                                  color: "#22c55e",
-                                  border: "1px solid rgba(34,197,94,0.25)",
+                                  background: "rgb(var(--success-rgb) / 0.12)",
+                                  color: "var(--success)",
+                                  border: "1px solid rgb(var(--success-rgb) / 0.25)",
                                 }}
                               >
                                 Miễn phí
@@ -604,9 +604,9 @@ export default function SalesPageTemplate({
                               <span
                                 className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                                 style={{
-                                  background: "rgba(212,168,67,0.12)",
-                                  color: "#D4A843",
-                                  border: "1px solid rgba(212,168,67,0.25)",
+                                  background: "rgb(var(--accent-rgb) / 0.12)",
+                                  color: "var(--accent)",
+                                  border: "1px solid rgb(var(--accent-rgb) / 0.25)",
                                 }}
                               >
                                 Pro
@@ -643,7 +643,7 @@ export default function SalesPageTemplate({
       {/* ═══════════════════════════════════════════════
           SECTION 5: INSTRUCTOR
       ═══════════════════════════════════════════════ */}
-      <section className="py-16 sm:py-20" style={{ background: "#0a0a0a" }}>
+      <section className="py-16 sm:py-20" style={{ background: "var(--bg)" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-10">
             Giảng viên
@@ -652,8 +652,8 @@ export default function SalesPageTemplate({
           <div
             className="rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6"
             style={{
-              background: "#111",
-              border: "1px solid #2a2a2a",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
             }}
           >
             {/* Avatar */}
@@ -662,7 +662,7 @@ export default function SalesPageTemplate({
                 src={usedInstructor.avatar}
                 alt={usedInstructor.name}
                 className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover"
-                style={{ border: "3px solid #D4A843" }}
+                style={{ border: "3px solid var(--accent)" }}
               />
             </div>
 
@@ -682,7 +682,7 @@ export default function SalesPageTemplate({
       {/* ═══════════════════════════════════════════════
           SECTION 6: TESTIMONIALS / SOCIAL PROOF
       ═══════════════════════════════════════════════ */}
-      <section className="py-16 sm:py-20" style={{ background: "#0d0d0d" }}>
+      <section className="py-16 sm:py-20" style={{ background: "var(--bg-alt)" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           {testimonials && testimonials.length > 0 ? (
             <>
@@ -699,12 +699,12 @@ export default function SalesPageTemplate({
                     key={i}
                     className="rounded-xl p-5 sm:p-6"
                     style={{
-                      background: "#151515",
-                      border: "1px solid #2a2a2a",
+                      background: "var(--surface)",
+                      border: "1px solid var(--border)",
                     }}
                   >
                     {/* Stars */}
-                    <div className="flex gap-0.5 mb-3 text-[#D4A843]">
+                    <div className="flex gap-0.5 mb-3 text-[var(--accent)]">
                       {Array.from({ length: 5 }).map((_, s) => (
                         <svg
                           key={s}
@@ -734,8 +734,8 @@ export default function SalesPageTemplate({
                         <div
                           className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold"
                           style={{
-                            background: "rgba(212,168,67,0.15)",
-                            color: "#D4A843",
+                            background: "rgb(var(--accent-rgb) / 0.15)",
+                            color: "var(--accent)",
                           }}
                         >
                           {t.name.charAt(0)}
@@ -758,11 +758,11 @@ export default function SalesPageTemplate({
               <div
                 className="inline-flex items-center gap-3 rounded-full px-6 py-3"
                 style={{
-                  background: "rgba(212,168,67,0.08)",
-                  border: "1px solid rgba(212,168,67,0.2)",
+                  background: "rgb(var(--accent-rgb) / 0.08)",
+                  border: "1px solid rgb(var(--accent-rgb) / 0.2)",
                 }}
               >
-                <Users size={20} className="text-[#D4A843]" />
+                <Users size={20} className="text-[var(--accent)]" />
                 <span className="text-base font-semibold text-white">
                   1,300+ học viên đã tham gia
                 </span>
@@ -778,7 +778,7 @@ export default function SalesPageTemplate({
       {/* ═══════════════════════════════════════════════
           SECTION 7: FAQ
       ═══════════════════════════════════════════════ */}
-      <section className="py-16 sm:py-20" style={{ background: "#0a0a0a" }}>
+      <section className="py-16 sm:py-20" style={{ background: "var(--bg)" }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-10">
             Câu hỏi thường gặp
@@ -792,8 +792,8 @@ export default function SalesPageTemplate({
                   key={i}
                   className="rounded-xl overflow-hidden"
                   style={{
-                    background: "#151515",
-                    border: "1px solid #2a2a2a",
+                    background: "var(--surface)",
+                    border: "1px solid var(--border)",
                   }}
                 >
                   <button
@@ -812,7 +812,7 @@ export default function SalesPageTemplate({
                   {isOpen && (
                     <div
                       className="px-5 pb-4"
-                      style={{ borderTop: "1px solid #1f1f1f" }}
+                      style={{ borderTop: "1px solid var(--surface-2)" }}
                     >
                       <p className="text-sm text-gray-400 leading-relaxed pt-3">
                         {faq.answer}
@@ -833,7 +833,7 @@ export default function SalesPageTemplate({
         className="py-16 sm:py-24"
         style={{
           background:
-            "linear-gradient(180deg, #0d0d0d 0%, rgba(212,168,67,0.05) 50%, #0d0d0d 100%)",
+            "linear-gradient(180deg, var(--bg-alt) 0%, rgb(var(--accent-rgb) / 0.05) 50%, var(--bg-alt) 100%)",
         }}
       >
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
@@ -863,12 +863,12 @@ export default function SalesPageTemplate({
           <div
             className="inline-flex items-center gap-2 rounded-full px-5 py-2.5"
             style={{
-              background: "rgba(34,197,94,0.08)",
-              border: "1px solid rgba(34,197,94,0.2)",
+              background: "rgb(var(--success-rgb) / 0.08)",
+              border: "1px solid rgb(var(--success-rgb) / 0.2)",
             }}
           >
-            <ShieldCheck size={18} className="text-[#22c55e]" />
-            <span className="text-sm font-medium text-[#22c55e]">
+            <ShieldCheck size={18} className="text-[var(--success)]" />
+            <span className="text-sm font-medium text-[var(--success)]">
               Cam kết hoàn tiền 100% trong {guaranteeDays} ngày
             </span>
           </div>
@@ -884,18 +884,18 @@ export default function SalesPageTemplate({
           background: "rgba(10,10,10,0.95)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
-          borderTop: "1px solid #1a1a1a",
+          borderTop: "1px solid var(--surface)",
         }}
       >
         <div className="flex items-center justify-between px-4 py-3">
           <div>
             {isFree ? (
-              <span className="text-base font-bold text-[#22c55e]">
+              <span className="text-base font-bold text-[var(--success)]">
                 Miễn phí
               </span>
             ) : (
               <div className="flex items-baseline gap-2">
-                <span className="text-base font-bold text-[#D4A843]">
+                <span className="text-base font-bold text-[var(--accent)]">
                   {formatPrice(displayPrice)}
                 </span>
                 {hasSale && (

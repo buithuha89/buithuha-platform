@@ -50,9 +50,9 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
     {
       name: "X",
       href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
-      color: "#fff",
-      bg: "rgba(255,255,255,0.06)",
-      border: "rgba(255,255,255,0.15)",
+      color: "var(--fg)",
+      bg: "rgb(var(--overlay-rgb) / 0.06)",
+      border: "rgb(var(--overlay-rgb) / 0.15)",
       icon: (
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -115,9 +115,9 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
           onClick={copyLink}
           className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium transition-all hover:scale-[1.03] active:scale-[0.98]"
           style={{
-            background: copied ? "rgba(34,197,94,0.1)" : "rgba(255,255,255,0.06)",
-            color: copied ? "#22c55e" : "#9ca3af",
-            border: `1px solid ${copied ? "rgba(34,197,94,0.25)" : "rgba(255,255,255,0.1)"}`,
+            background: copied ? "rgb(var(--success-rgb) / 0.1)" : "rgb(var(--overlay-rgb) / 0.06)",
+            color: copied ? "var(--success)" : "var(--fg-muted)",
+            border: `1px solid ${copied ? "rgb(var(--success-rgb) / 0.25)" : "rgb(var(--overlay-rgb) / 0.1)"}`,
           }}
           title="Sao chép link"
         >

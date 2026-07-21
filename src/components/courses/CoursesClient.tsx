@@ -44,32 +44,32 @@ const CATEGORIES: {
     title: "Giao tiếp & Quan hệ",
     subtitle: "Kết nối, thấu hiểu và hợp tác — trong gia đình và ở chỗ làm",
     icon: Heart,
-    color: "#14b8a6",
+    color: "var(--cat-teal)",
   },
   {
     key: "personal_development",
     title: "Phát triển bản thân",
     subtitle: "Hiểu mình, đặt mục tiêu và tự nhìn lại để đi đúng hướng",
     icon: Sparkles,
-    color: "#22c55e",
+    color: "var(--success)",
   },
   {
     key: "ld",
     title: "Nghề L&D",
     subtitle: "Cho người làm Học & Phát triển trong doanh nghiệp",
     icon: GraduationCap,
-    color: "#3b82f6",
+    color: "var(--info)",
   },
   {
     key: "leadership",
     title: "Lãnh đạo & Quản lý",
     subtitle: "Cho quản lý cấp trung và doanh chủ SME",
     icon: Target,
-    color: "#a855f7",
+    color: "var(--cat-purple)",
   },
 ];
 
-const PLACEHOLDER_COLORS = ["#D4A843", "#3b82f6", "#a855f7", "#f59e0b", "#ec4899", "#06b6d4"];
+const PLACEHOLDER_COLORS = ["var(--accent)", "var(--info)", "var(--cat-purple)", "var(--warn)", "var(--cat-pink)", "var(--cat-cyan)"];
 
 function formatPrice(p: number) {
   return p.toLocaleString("vi-VN") + "đ";
@@ -106,7 +106,7 @@ function CourseCard({
     // @ts-expect-error -- polymorphic wrapper
     <Wrapper key={course.id} {...wrapperProps}>
       {/* Thumbnail */}
-      <div className="relative aspect-video bg-[#1a1a1a] overflow-hidden">
+      <div className="relative aspect-video bg-[var(--surface)] overflow-hidden">
         {course.thumbnail ? (
           <Image
             src={course.thumbnail}
@@ -131,15 +131,15 @@ function CourseCard({
               <Clock size={11} /> Sắp ra mắt
             </span>
           ) : isFree ? (
-            <span className="px-2 py-1 rounded-md text-[11px] font-semibold bg-[#22c55e] text-white">
+            <span className="px-2 py-1 rounded-md text-[11px] font-semibold bg-[var(--success)] text-white">
               Miễn phí
             </span>
           ) : isEnrolled ? (
-            <span className="px-2 py-1 rounded-md text-[11px] font-semibold bg-[#22c55e]/90 text-white">
+            <span className="px-2 py-1 rounded-md text-[11px] font-semibold bg-[var(--success)]/90 text-white">
               Đã đăng ký
             </span>
           ) : (
-            <span className="px-2 py-1 rounded-md text-[11px] font-semibold bg-[#f59e0b] text-black">
+            <span className="px-2 py-1 rounded-md text-[11px] font-semibold bg-[var(--warn)] text-black">
               Cần mua
             </span>
           )}
@@ -148,7 +148,7 @@ function CourseCard({
         {/* Progress overlay */}
         {course.progress > 0 && !isComingSoon && (
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/40">
-            <div className="h-full bg-[#22c55e]" style={{ width: `${course.progress}%` }} />
+            <div className="h-full bg-[var(--success)]" style={{ width: `${course.progress}%` }} />
           </div>
         )}
       </div>
@@ -178,7 +178,7 @@ function CourseCard({
             </span>
           )}
           {course.progress > 0 && !isComingSoon && (
-            <span className="flex items-center gap-1 text-[#22c55e]">
+            <span className="flex items-center gap-1 text-[var(--success)]">
               <CheckCircle size={11} /> {course.progress}%
             </span>
           )}
@@ -192,16 +192,16 @@ function CourseCard({
             {isComingSoon ? (
               <span className="text-xs text-gray-500 italic">Đang chuẩn bị</span>
             ) : isFree ? (
-              <span className="text-sm font-bold text-[#22c55e]">Miễn phí</span>
+              <span className="text-sm font-bold text-[var(--success)]">Miễn phí</span>
             ) : isEnrolled ? (
               <span className="text-xs text-gray-400">Đã sở hữu</span>
             ) : hasSale ? (
               <div className="flex items-center gap-2">
-                <span className="text-sm font-bold text-[#f59e0b]">{formatPrice(course.sale_price!)}</span>
+                <span className="text-sm font-bold text-[var(--warn)]">{formatPrice(course.sale_price!)}</span>
                 <span className="text-xs text-gray-400 line-through">{formatPrice(course.price)}</span>
               </div>
             ) : (
-              <span className="text-sm font-bold text-[#f59e0b]">{formatPrice(course.price)}</span>
+              <span className="text-sm font-bold text-[var(--warn)]">{formatPrice(course.price)}</span>
             )}
           </div>
 
@@ -326,7 +326,7 @@ export default function CoursesClient({ courses }: { courses: CourseItem[] }) {
             icon={GraduationCap}
             title="Khoá học của tôi"
             subtitle={`Bạn có quyền truy cập ${myCourses.length} khoá học`}
-            iconColor="#22c55e"
+            iconColor="var(--success)"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
             {myCourses.map((course, idx) => (
@@ -371,7 +371,7 @@ export default function CoursesClient({ courses }: { courses: CourseItem[] }) {
             icon={BookOpen}
             title="Tất cả khoá học"
             subtitle="Khám phá các khoá học chất lượng"
-            iconColor="#D4A843"
+            iconColor="var(--accent)"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
             {uncategorized.map((course, idx) => (
@@ -388,7 +388,7 @@ export default function CoursesClient({ courses }: { courses: CourseItem[] }) {
             icon={Clock}
             title="Khoá học sắp ra mắt"
             subtitle="Những khoá học đang được chuẩn bị, hãy chờ đón!"
-            iconColor="#a855f7"
+            iconColor="var(--cat-purple)"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
             {comingSoonCourses.map((course, idx) => (

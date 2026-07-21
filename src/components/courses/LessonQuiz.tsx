@@ -264,15 +264,15 @@ export default function LessonQuiz({ lessonId }: LessonQuizProps) {
           <div className="flex items-center gap-3">
             <div
               className="w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{ background: "rgba(34,197,94,0.15)" }}
+              style={{ background: "rgb(var(--success-rgb) / 0.15)" }}
             >
-              <Trophy size={16} className="text-[#22c55e]" />
+              <Trophy size={16} className="text-[var(--success)]" />
             </div>
             <div>
               <h3 className="text-sm font-semibold text-white">
                 {quiz.title}
               </h3>
-              <p className="text-xs text-[#22c55e] flex items-center gap-1 mt-0.5">
+              <p className="text-xs text-[var(--success)] flex items-center gap-1 mt-0.5">
                 <CheckCircle2 size={12} />
                 Đã hoàn thành — Điểm cao nhất: {bestAttempt.score}%
               </p>
@@ -295,7 +295,7 @@ export default function LessonQuiz({ lessonId }: LessonQuizProps) {
       <div className="p-4 border-b border-white/[0.06]">
         <div className="flex items-center justify-between mb-1">
           <div className="flex items-center gap-2">
-            <ClipboardCheck size={16} className="text-[#D4A843]" />
+            <ClipboardCheck size={16} className="text-[var(--accent)]" />
             <h3 className="text-sm font-semibold text-white">{quiz.title}</h3>
           </div>
           {/* Countdown timer */}
@@ -335,7 +335,7 @@ export default function LessonQuiz({ lessonId }: LessonQuizProps) {
             <div key={question.id} className="space-y-2.5">
               {/* Question text */}
               <p className="text-sm text-white font-medium">
-                <span className="text-[#D4A843] mr-1.5">
+                <span className="text-[var(--accent)] mr-1.5">
                   Câu {qIndex + 1}.
                 </span>
                 {question.question_text}
@@ -349,7 +349,7 @@ export default function LessonQuiz({ lessonId }: LessonQuizProps) {
                       <p className="text-sm text-gray-300 whitespace-pre-wrap">
                         {textAnswers[question.id] || "(Chưa trả lời)"}
                       </p>
-                      <p className="text-xs text-[#D4A843] mt-2 flex items-center gap-1.5">
+                      <p className="text-xs text-[var(--accent)] mt-2 flex items-center gap-1.5">
                         <CheckCircle2 size={12} />
                         Đã gửi câu trả lời
                       </p>
@@ -360,7 +360,7 @@ export default function LessonQuiz({ lessonId }: LessonQuizProps) {
                       value={textAnswers[question.id] || ""}
                       onChange={(e) => setTextAnswers(prev => ({...prev, [question.id]: e.target.value}))}
                       className="w-full p-3 rounded-lg text-sm text-white placeholder-gray-500 resize-none"
-                      style={{ background: '#1a1a1a', border: '1px solid #333', minHeight: '100px' }}
+                      style={{ background: 'var(--surface)', border: '1px solid #333', minHeight: '100px' }}
                       rows={4}
                     />
                   )}
@@ -382,18 +382,18 @@ export default function LessonQuiz({ lessonId }: LessonQuizProps) {
 
                   if (result) {
                     if (isCorrect) {
-                      borderColor = "border-[#22c55e]/40";
-                      bgColor = "bg-[#22c55e]/10";
-                      textColor = "text-[#22c55e]";
+                      borderColor = "border-[var(--success)]/40";
+                      bgColor = "bg-[var(--success)]/10";
+                      textColor = "text-[var(--success)]";
                     } else if (isWrong) {
                       borderColor = "border-red-500/40";
                       bgColor = "bg-red-500/10";
                       textColor = "text-red-400";
                     }
                   } else if (isSelected) {
-                    borderColor = "border-[#D4A843]/40";
-                    bgColor = "bg-[#D4A843]/10";
-                    textColor = "text-[#D4A843]";
+                    borderColor = "border-[var(--accent)]/40";
+                    bgColor = "bg-[var(--accent)]/10";
+                    textColor = "text-[var(--accent)]";
                   }
 
                   return (
@@ -406,7 +406,7 @@ export default function LessonQuiz({ lessonId }: LessonQuizProps) {
                       className={`w-full text-left px-3 py-2.5 rounded-lg border ${borderColor} ${bgColor} transition-all flex items-center gap-2.5 group ${
                         result
                           ? "cursor-default"
-                          : "hover:border-[#D4A843]/30 hover:bg-[#D4A843]/5 cursor-pointer"
+                          : "hover:border-[var(--accent)]/30 hover:bg-[var(--accent)]/5 cursor-pointer"
                       }`}
                     >
                       {/* Radio indicator */}
@@ -414,13 +414,13 @@ export default function LessonQuiz({ lessonId }: LessonQuizProps) {
                         className={`w-4 h-4 rounded-full border-2 flex-shrink-0 flex items-center justify-center ${
                           result
                             ? isCorrect
-                              ? "border-[#22c55e]"
+                              ? "border-[var(--success)]"
                               : isWrong
                                 ? "border-red-500"
                                 : "border-white/20"
                             : isSelected
-                              ? "border-[#D4A843]"
-                              : "border-white/20 group-hover:border-[#D4A843]/50"
+                              ? "border-[var(--accent)]"
+                              : "border-white/20 group-hover:border-[var(--accent)]/50"
                         }`}
                       >
                         {(isSelected || (result && isCorrect)) && (
@@ -428,11 +428,11 @@ export default function LessonQuiz({ lessonId }: LessonQuizProps) {
                             className={`w-2 h-2 rounded-full ${
                               result
                                 ? isCorrect
-                                  ? "bg-[#22c55e]"
+                                  ? "bg-[var(--success)]"
                                   : isWrong
                                     ? "bg-red-500"
                                     : ""
-                                : "bg-[#D4A843]"
+                                : "bg-[var(--accent)]"
                             }`}
                           />
                         )}
@@ -447,7 +447,7 @@ export default function LessonQuiz({ lessonId }: LessonQuizProps) {
                       {result && isCorrect && (
                         <CheckCircle2
                           size={14}
-                          className="text-[#22c55e] ml-auto flex-shrink-0"
+                          className="text-[var(--success)] ml-auto flex-shrink-0"
                         />
                       )}
                       {result && isWrong && (
@@ -480,19 +480,19 @@ export default function LessonQuiz({ lessonId }: LessonQuizProps) {
           role="alert"
           className={`mx-4 mb-3 rounded-lg px-4 py-3 flex items-center gap-3 ${
             result.passed
-              ? "bg-[#22c55e]/10 border border-[#22c55e]/20"
+              ? "bg-[var(--success)]/10 border border-[var(--success)]/20"
               : "bg-red-500/10 border border-red-500/20"
           }`}
         >
           {result.passed ? (
-            <Trophy size={20} className="text-[#22c55e] flex-shrink-0" />
+            <Trophy size={20} className="text-[var(--success)] flex-shrink-0" />
           ) : (
             <XCircle size={20} className="text-red-400 flex-shrink-0" />
           )}
           <div>
             <p
               className={`text-sm font-semibold ${
-                result.passed ? "text-[#22c55e]" : "text-red-400"
+                result.passed ? "text-[var(--success)]" : "text-red-400"
               }`}
             >
               {result.passed ? "Chúc mừng! Bạn đã vượt qua!" : "Chưa đạt"}
@@ -521,8 +521,8 @@ export default function LessonQuiz({ lessonId }: LessonQuizProps) {
             disabled={submitting}
             className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-40"
             style={{
-              background: "linear-gradient(135deg, #D4A843, #b8912e)",
-              color: "#0a0a0a",
+              background: "linear-gradient(135deg, var(--accent), #b8912e)",
+              color: "var(--bg)",
             }}
           >
             {submitting ? (

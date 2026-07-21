@@ -62,8 +62,8 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
     <div
       className="rounded-lg border px-4 py-3 shadow-lg"
       style={{
-        backgroundColor: '#1a1a1a',
-        borderColor: '#2a2a2a',
+        backgroundColor: 'var(--surface)',
+        borderColor: 'var(--border)',
       }}
     >
       <p className="mb-2 text-sm font-medium text-white">{label}</p>
@@ -111,18 +111,18 @@ export default function RevenueChart({ data, groupBy, loading }: RevenueChartPro
             data={data}
             margin={{ top: 10, right: 10, left: 10, bottom: 0 }}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
             <XAxis
               dataKey="date"
               tickFormatter={(value) => formatDate(value, groupBy)}
-              tick={{ fill: '#6b7280', fontSize: 12 }}
-              axisLine={{ stroke: '#2a2a2a' }}
+              tick={{ fill: 'var(--fg-subtle)', fontSize: 12 }}
+              axisLine={{ stroke: 'var(--border)' }}
               tickLine={false}
             />
             <YAxis
               yAxisId="left"
               tickFormatter={formatAbbreviatedVND}
-              tick={{ fill: '#6b7280', fontSize: 12 }}
+              tick={{ fill: 'var(--fg-subtle)', fontSize: 12 }}
               axisLine={false}
               tickLine={false}
               width={60}
@@ -130,14 +130,14 @@ export default function RevenueChart({ data, groupBy, loading }: RevenueChartPro
             <YAxis
               yAxisId="right"
               orientation="right"
-              tick={{ fill: '#6b7280', fontSize: 12 }}
+              tick={{ fill: 'var(--fg-subtle)', fontSize: 12 }}
               axisLine={false}
               tickLine={false}
               width={40}
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend
-              wrapperStyle={{ color: '#6b7280', fontSize: 12, paddingTop: 8 }}
+              wrapperStyle={{ color: 'var(--fg-subtle)', fontSize: 12, paddingTop: 8 }}
               formatter={(value) =>
                 value === 'revenue' ? 'Doanh thu' : 'Đơn hàng'
               }
@@ -146,7 +146,7 @@ export default function RevenueChart({ data, groupBy, loading }: RevenueChartPro
               yAxisId="left"
               dataKey="revenue"
               name="revenue"
-              fill="#D4A843"
+              fill="var(--accent)"
               radius={[4, 4, 0, 0]}
               barSize={groupBy === 'day' ? 20 : 40}
             />
@@ -155,9 +155,9 @@ export default function RevenueChart({ data, groupBy, loading }: RevenueChartPro
               type="monotone"
               dataKey="orders"
               name="orders"
-              stroke="#3b82f6"
+              stroke="var(--info)"
               strokeWidth={2}
-              dot={{ fill: '#3b82f6', r: 3 }}
+              dot={{ fill: 'var(--info)', r: 3 }}
               activeDot={{ r: 5 }}
             />
           </ComposedChart>

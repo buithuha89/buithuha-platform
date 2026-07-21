@@ -334,9 +334,9 @@ export default function AnalyticsDashboard() {
           disabled={refreshing}
           className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-colors"
           style={{
-            background: "rgba(212,168,67,0.1)",
-            color: "#D4A843",
-            border: "1px solid rgba(212,168,67,0.2)",
+            background: "rgb(var(--accent-rgb) / 0.1)",
+            color: "var(--accent)",
+            border: "1px solid rgb(var(--accent-rgb) / 0.2)",
           }}
         >
           <RefreshCw size={13} className={refreshing ? "animate-spin" : ""} />

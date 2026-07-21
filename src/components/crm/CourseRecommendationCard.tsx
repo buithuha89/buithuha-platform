@@ -13,10 +13,10 @@ interface CourseRecommendationCardProps {
 }
 
 const STATUS_STYLES: Record<string, { bg: string; text: string; label: string }> = {
-  suggested: { bg: "#3b82f61a", text: "#3b82f6", label: "Đề xuất" },
-  sent: { bg: "#f59e0b1a", text: "#f59e0b", label: "Đã gửi" },
-  accepted: { bg: "#22c55e1a", text: "#22c55e", label: "Chấp nhận" },
-  declined: { bg: "#ef44441a", text: "#ef4444", label: "Từ chối" },
+  suggested: { bg: "#3b82f61a", text: "var(--info)", label: "Đề xuất" },
+  sent: { bg: "#f59e0b1a", text: "var(--warn)", label: "Đã gửi" },
+  accepted: { bg: "#22c55e1a", text: "var(--success)", label: "Chấp nhận" },
+  declined: { bg: "#ef44441a", text: "var(--danger)", label: "Từ chối" },
 };
 
 function formatVND(amount: number): string {
@@ -33,9 +33,9 @@ export default function CourseRecommendationCard({
   const statusStyle = STATUS_STYLES[recommendation.status] || STATUS_STYLES.suggested;
 
   return (
-    <div className="flex items-start gap-3 p-3 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a]">
+    <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--surface)] border border-[var(--border)]">
       {/* Thumbnail */}
-      <div className="flex-shrink-0 w-10 h-10 rounded overflow-hidden bg-[#2a2a2a]">
+      <div className="flex-shrink-0 w-10 h-10 rounded overflow-hidden bg-[var(--border)]">
         {recommendation.product_thumbnail ? (
           <img
             src={recommendation.product_thumbnail}
@@ -66,7 +66,7 @@ export default function CourseRecommendationCard({
           </span>
         </div>
 
-        <p className="text-xs text-[#D4A843] font-medium mt-0.5">
+        <p className="text-xs text-[var(--accent)] font-medium mt-0.5">
           {formatVND(recommendation.product_price)}
         </p>
 
@@ -82,12 +82,12 @@ export default function CourseRecommendationCard({
             <span className="text-[10px] text-gray-500">Điểm phù hợp</span>
             <span className="text-[10px] text-gray-400">{recommendation.score}%</span>
           </div>
-          <div className="w-full h-1.5 rounded-full bg-[#2a2a2a]">
+          <div className="w-full h-1.5 rounded-full bg-[var(--border)]">
             <div
               className="h-full rounded-full transition-all"
               style={{
                 width: `${Math.min(Math.max(recommendation.score, 0), 100)}%`,
-                backgroundColor: "#D4A843",
+                backgroundColor: "var(--accent)",
               }}
             />
           </div>

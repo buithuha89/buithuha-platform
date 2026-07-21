@@ -90,9 +90,9 @@ export default async function LeaderboardPage() {
         {/* My Stats */}
         <div className="grid grid-cols-3 gap-4">
           {[
-            { icon: Trophy, label: "Xếp hạng", value: `#${myRank}`, color: "#f59e0b" },
-            { icon: Zap, label: "XP của tôi", value: myXp.toLocaleString("vi-VN"), color: "#D4A843" },
-            { icon: Flame, label: "Streak hiện tại", value: `${myStreak} ngày`, color: "#ef4444" },
+            { icon: Trophy, label: "Xếp hạng", value: `#${myRank}`, color: "var(--warn)" },
+            { icon: Zap, label: "XP của tôi", value: myXp.toLocaleString("vi-VN"), color: "var(--accent)" },
+            { icon: Flame, label: "Streak hiện tại", value: `${myStreak} ngày`, color: "var(--danger)" },
           ].map((s, i) => (
             <div key={i} className="card-dark p-4 flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: s.color + "20" }}>
@@ -114,7 +114,7 @@ export default async function LeaderboardPage() {
               {[top3[1], top3[0], top3[2]].map((l, i) => {
                 if (!l) return <div key={i} className="w-24" />;
                 const heights = [80, 110, 60];
-                const colors = ["#9ca3af", "#f59e0b", "#cd7f32"];
+                const colors = ["var(--fg-muted)", "var(--warn)", "#cd7f32"];
                 const positions = [2, 1, 3];
                 const isMe = l.id === user?.id;
                 return (
@@ -124,13 +124,13 @@ export default async function LeaderboardPage() {
                       src={l.avatar_url}
                       initials={initials(l.full_name ?? "?")}
                       size={48}
-                      gradient={isMe ? "linear-gradient(135deg,#D4A843,#059669)" : `linear-gradient(135deg,${colors[i]},${colors[i]}88)`}
+                      gradient={isMe ? "linear-gradient(135deg,var(--accent),var(--cat-emerald))" : `linear-gradient(135deg,${colors[i]},${colors[i]}88)`}
                     />
                     <div className="text-xs font-medium text-white text-center">
                       {(l.full_name ?? "?").split(" ").slice(-1)[0]}
-                      {isMe && <span className="ml-1 text-[#D4A843]">(bạn)</span>}
+                      {isMe && <span className="ml-1 text-[var(--accent)]">(bạn)</span>}
                     </div>
-                    <div className="text-xs text-[#D4A843] font-bold">
+                    <div className="text-xs text-[var(--accent)] font-bold">
                       {(l.xp ?? 0).toLocaleString("vi-VN")} XP
                     </div>
                     <div
@@ -152,10 +152,10 @@ export default async function LeaderboardPage() {
 
         {/* Full Leaderboard Table */}
         <div className="card-dark">
-          <div className="p-4 border-b border-[#2a2a2a]">
+          <div className="p-4 border-b border-[var(--border)]">
             <h3 className="text-sm font-semibold text-white">Xếp hạng toàn thời gian</h3>
           </div>
-          <div className="divide-y divide-[#1f1f1f]">
+          <div className="divide-y divide-[var(--surface-2)]">
             {leadersList.length === 0 && (
               <div className="p-8 text-center text-gray-500 text-sm">
                 Chưa có dữ liệu xếp hạng. Bắt đầu học để tích XP!
@@ -168,11 +168,11 @@ export default async function LeaderboardPage() {
               return (
                 <div
                   key={l.id}
-                  className={`flex items-center gap-4 p-4 transition-colors ${isMe ? "bg-[#D4A843]/5" : "hover:bg-white/2"}`}
+                  className={`flex items-center gap-4 p-4 transition-colors ${isMe ? "bg-[var(--accent)]/5" : "hover:bg-white/2"}`}
                 >
                   <div
                     className="w-6 text-center text-sm font-bold"
-                    style={{ color: rank <= 3 ? "#f59e0b" : "#6b7280" }}
+                    style={{ color: rank <= 3 ? "var(--warn)" : "var(--fg-subtle)" }}
                   >
                     {rank}
                   </div>
@@ -181,11 +181,11 @@ export default async function LeaderboardPage() {
                     src={l.avatar_url}
                     initials={initials(name)}
                     size={36}
-                    gradient={isMe ? "linear-gradient(135deg,#D4A843,#059669)" : "linear-gradient(135deg,#3b82f6,#1d4ed8)"}
+                    gradient={isMe ? "linear-gradient(135deg,var(--accent),var(--cat-emerald))" : "linear-gradient(135deg,var(--info),var(--cat-blue))"}
                   />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className={`text-sm font-medium ${isMe ? "text-[#D4A843]" : "text-white"}`}>
+                      <span className={`text-sm font-medium ${isMe ? "text-[var(--accent)]" : "text-white"}`}>
                         {name}
                       </span>
                       {isMe && <span className="badge-green text-[10px]">Bạn</span>}
@@ -198,7 +198,7 @@ export default async function LeaderboardPage() {
                   <div className="flex items-center gap-1.5 text-xs text-orange-400">
                     <Flame size={12} /> {l.streak ?? 0} ngày
                   </div>
-                  <div className="text-sm font-bold text-[#D4A843] w-24 text-right">
+                  <div className="text-sm font-bold text-[var(--accent)] w-24 text-right">
                     {(l.xp ?? 0).toLocaleString("vi-VN")} XP
                   </div>
                 </div>
@@ -209,7 +209,7 @@ export default async function LeaderboardPage() {
             {myProfile && !leadersList.some((l) => l.id === user?.id) && (
               <>
                 <div className="p-2 text-center text-xs text-gray-700">• • •</div>
-                <div className="flex items-center gap-4 p-4 bg-[#D4A843]/5">
+                <div className="flex items-center gap-4 p-4 bg-[var(--accent)]/5">
                   <div className="w-6 text-center text-sm font-bold text-gray-400">{myRank}</div>
                   <div className="text-lg w-6 text-center">{rankBadge(myRank)}</div>
                   {myAvatarUrl ? (
@@ -217,14 +217,14 @@ export default async function LeaderboardPage() {
                   ) : (
                     <div
                       className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
-                      style={{ background: "linear-gradient(135deg,#D4A843,#059669)" }}
+                      style={{ background: "linear-gradient(135deg,var(--accent),var(--cat-emerald))" }}
                     >
                       {initials(myName)}
                     </div>
                   )}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-[#D4A843]">{myName}</span>
+                      <span className="text-sm font-medium text-[var(--accent)]">{myName}</span>
                       <span className="badge-green text-[10px]">Bạn</span>
                     </div>
                     <div className="text-xs text-gray-500">{levelTitle(myLevel)} • Level {myLevel}</div>
@@ -232,7 +232,7 @@ export default async function LeaderboardPage() {
                   <div className="flex items-center gap-1.5 text-xs text-orange-400">
                     <Flame size={12} /> {myStreak} ngày
                   </div>
-                  <div className="text-sm font-bold text-[#D4A843] w-24 text-right">
+                  <div className="text-sm font-bold text-[var(--accent)] w-24 text-right">
                     {myXp.toLocaleString("vi-VN")} XP
                   </div>
                 </div>

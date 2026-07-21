@@ -53,15 +53,15 @@ export default function DeleteCouponButton({ couponId, couponCode }: Props) {
         title="Xoá mã giảm giá"
         className="p-1.5 rounded-lg transition-all hover:scale-110"
         style={{
-          color: "#6b7280",
+          color: "var(--fg-subtle)",
           background: "transparent",
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.color = "#ef4444";
-          e.currentTarget.style.background = "rgba(239,68,68,0.1)";
+          e.currentTarget.style.color = "var(--danger)";
+          e.currentTarget.style.background = "rgb(var(--danger-rgb) / 0.1)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.color = "#6b7280";
+          e.currentTarget.style.color = "var(--fg-subtle)";
           e.currentTarget.style.background = "transparent";
         }}
       >
@@ -75,7 +75,7 @@ export default function DeleteCouponButton({ couponId, couponCode }: Props) {
         >
           <div
             className="card-dark p-6 max-w-md w-full relative"
-            style={{ border: "1px solid rgba(239,68,68,0.3)" }}
+            style={{ border: "1px solid rgb(var(--danger-rgb) / 0.3)" }}
           >
             <button
               onClick={() => {
@@ -90,7 +90,7 @@ export default function DeleteCouponButton({ couponId, couponCode }: Props) {
             <div className="flex items-center gap-3 mb-4">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(239,68,68,0.15)" }}
+                style={{ background: "rgb(var(--danger-rgb) / 0.15)" }}
               >
                 <AlertTriangle size={20} className="text-red-400" />
               </div>
@@ -107,7 +107,7 @@ export default function DeleteCouponButton({ couponId, couponCode }: Props) {
             {result === "success" ? (
               <div
                 className="flex items-center gap-2 p-3 rounded-lg text-sm text-amber-400 border border-amber-400/20"
-                style={{ background: "rgba(212,168,67,0.08)" }}
+                style={{ background: "rgb(var(--accent-rgb) / 0.08)" }}
               >
                 <CheckCircle2 size={16} />
                 Đã xoá mã giảm giá thành công
@@ -115,7 +115,7 @@ export default function DeleteCouponButton({ couponId, couponCode }: Props) {
             ) : result === "error" ? (
               <div
                 className="p-3 rounded-lg text-sm text-red-400 border border-red-400/20"
-                style={{ background: "rgba(239,68,68,0.08)" }}
+                style={{ background: "rgb(var(--danger-rgb) / 0.08)" }}
               >
                 {errorMsg}
               </div>
@@ -124,8 +124,8 @@ export default function DeleteCouponButton({ couponId, couponCode }: Props) {
                 <div
                   className="rounded-lg p-4 mb-4"
                   style={{
-                    background: "#1a1a1a",
-                    border: "1px solid #2a2a2a",
+                    background: "var(--surface)",
+                    border: "1px solid var(--border)",
                   }}
                 >
                   <p className="text-sm text-gray-300">
@@ -143,9 +143,9 @@ export default function DeleteCouponButton({ couponId, couponCode }: Props) {
                     disabled={loading}
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors disabled:opacity-50"
                     style={{
-                      background: "rgba(239,68,68,0.15)",
-                      color: "#ef4444",
-                      border: "1px solid rgba(239,68,68,0.4)",
+                      background: "rgb(var(--danger-rgb) / 0.15)",
+                      color: "var(--danger)",
+                      border: "1px solid rgb(var(--danger-rgb) / 0.4)",
                     }}
                   >
                     {loading ? (
@@ -159,7 +159,7 @@ export default function DeleteCouponButton({ couponId, couponCode }: Props) {
                     onClick={() => setShowConfirm(false)}
                     className="px-4 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:text-white transition-colors"
                     style={{
-                      background: "#1f1f1f",
+                      background: "var(--surface-2)",
                       border: "1px solid #333",
                     }}
                   >

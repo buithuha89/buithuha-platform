@@ -143,18 +143,18 @@ function ProfileTab({
     return (
       <div className="space-y-6">
         <div className="card-dark p-6 animate-pulse">
-          <div className="h-5 w-32 bg-[#2a2a2a] rounded mb-4" />
+          <div className="h-5 w-32 bg-[var(--border)] rounded mb-4" />
           <div className="flex items-center gap-5">
-            <div className="w-20 h-20 rounded-full bg-[#2a2a2a]" />
-            <div className="h-8 w-24 bg-[#2a2a2a] rounded" />
+            <div className="w-20 h-20 rounded-full bg-[var(--border)]" />
+            <div className="h-8 w-24 bg-[var(--border)] rounded" />
           </div>
         </div>
         <div className="card-dark p-6 animate-pulse">
-          <div className="h-5 w-40 bg-[#2a2a2a] rounded mb-4" />
+          <div className="h-5 w-40 bg-[var(--border)] rounded mb-4" />
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="h-10 bg-[#2a2a2a] rounded" />
-            <div className="h-10 bg-[#2a2a2a] rounded" />
-            <div className="h-10 bg-[#2a2a2a] rounded" />
+            <div className="h-10 bg-[var(--border)] rounded" />
+            <div className="h-10 bg-[var(--border)] rounded" />
+            <div className="h-10 bg-[var(--border)] rounded" />
           </div>
         </div>
       </div>
@@ -165,8 +165,8 @@ function ProfileTab({
     <div className="space-y-6">
       {saved && (
         <div
-          className="p-3 rounded-lg text-sm text-[#D4A843] border border-[#D4A843]/20"
-          style={{ background: "rgba(212,168,67,0.08)" }}
+          className="p-3 rounded-lg text-sm text-[var(--accent)] border border-[var(--accent)]/20"
+          style={{ background: "rgb(var(--accent-rgb) / 0.08)" }}
         >
           ✓ Đã lưu thay đổi thành công!
         </div>
@@ -174,7 +174,7 @@ function ProfileTab({
       {error && (
         <div
           className="p-3 rounded-lg text-sm text-red-400 border border-red-400/20"
-          style={{ background: "rgba(239,68,68,0.08)" }}
+          style={{ background: "rgb(var(--danger-rgb) / 0.08)" }}
         >
           {error}
         </div>
@@ -189,14 +189,14 @@ function ProfileTab({
           ) : (
             <div
               className="w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold text-white shrink-0"
-              style={{ background: "linear-gradient(135deg, #D4A843, #059669)" }}
+              style={{ background: "linear-gradient(135deg, var(--accent), var(--cat-emerald))" }}
             >
               {initials}
             </div>
           )}
           <div>
-            <label htmlFor="avatarUpload" className="px-3 py-1.5 rounded-lg text-sm font-medium mb-2 inline-flex cursor-pointer hover:bg-[#333] transition-colors"
-              style={{ background: "#2a2a2a", color: "#9ca3af" }}>
+            <label htmlFor="avatarUpload" className="px-3 py-1.5 rounded-lg text-sm font-medium mb-2 inline-flex cursor-pointer hover:bg-[var(--surface-3)] transition-colors"
+              style={{ background: "var(--border)", color: "var(--fg-muted)" }}>
               {uploadingAvatar ? "Đang tải..." : "Tải ảnh lên"}
               <input id="avatarUpload" type="file" accept="image/*" className="hidden" onChange={handleAvatarUpload} disabled={uploadingAvatar} />
             </label>
@@ -296,11 +296,11 @@ function ProfileTab({
       {/* Zalo link */}
       <div className="card-dark p-6">
         <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
-          <MessageCircle size={16} className="text-[#D4A843]" /> Liên kết Zalo
+          <MessageCircle size={16} className="text-[var(--accent)]" /> Liên kết Zalo
         </h3>
         {zaloLinked ? (
           <div className="space-y-3">
-            <div className="flex items-center gap-2 text-sm text-[#22c55e]">
+            <div className="flex items-center gap-2 text-sm text-[var(--success)]">
               <Link2 size={14} />
               <span>Đã liên kết với Zalo</span>
             </div>
@@ -331,7 +331,7 @@ function ProfileTab({
             <p className="text-sm text-gray-400">
               Liên kết tài khoản Zalo để nhận thông báo đơn hàng, bài học mới và nhắc nhở học tập qua Zalo.
             </p>
-            <div className="p-3 rounded-lg text-xs text-gray-400 space-y-2" style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}>
+            <div className="p-3 rounded-lg text-xs text-gray-400 space-y-2" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
               <p className="font-medium text-gray-300">Cách liên kết:</p>
               <ol className="list-decimal list-inside space-y-1">
                 <li>Mở Zalo và tìm kiếm OA &quot;Hà Bùi Academy&quot;</li>
@@ -401,7 +401,7 @@ function NotificationsTab() {
                   aria-checked={prefs[item.key]}
                   aria-label={item.label}
                   className="shrink-0 w-11 h-6 rounded-full transition-all duration-200 relative"
-                  style={{ background: prefs[item.key] ? "#D4A843" : "#333" }}
+                  style={{ background: prefs[item.key] ? "var(--accent)" : "#333" }}
                 >
                   <div
                     className="bg-white rounded-full absolute top-[3px] transition-all duration-200"
@@ -520,8 +520,8 @@ function SecurityTab() {
           <p className="text-sm text-gray-400">Đang tải...</p>
         ) : isOAuthOnly ? (
           <div
-            className="flex items-center gap-2 p-3 rounded-lg text-sm text-[#D4A843] border border-[#D4A843]/20"
-            style={{ background: "rgba(212,168,67,0.08)" }}
+            className="flex items-center gap-2 p-3 rounded-lg text-sm text-[var(--accent)] border border-[var(--accent)]/20"
+            style={{ background: "rgb(var(--accent-rgb) / 0.08)" }}
           >
             <Shield size={15} className="shrink-0" />
             <span>
@@ -532,8 +532,8 @@ function SecurityTab() {
           <>
             {pwSuccess && (
               <div
-                className="flex items-center gap-2 p-3 rounded-lg text-sm text-[#D4A843] border border-[#D4A843]/20 mb-4"
-                style={{ background: "rgba(212,168,67,0.08)" }}
+                className="flex items-center gap-2 p-3 rounded-lg text-sm text-[var(--accent)] border border-[var(--accent)]/20 mb-4"
+                style={{ background: "rgb(var(--accent-rgb) / 0.08)" }}
               >
                 <Check size={15} />
                 Đã cập nhật mật khẩu thành công!
@@ -542,7 +542,7 @@ function SecurityTab() {
             {pwError && (
               <div
                 className="p-3 rounded-lg text-sm text-red-400 border border-red-400/20 mb-4"
-                style={{ background: "rgba(239,68,68,0.08)" }}
+                style={{ background: "rgb(var(--danger-rgb) / 0.08)" }}
               >
                 {pwError}
               </div>
@@ -625,14 +625,14 @@ function SecurityTab() {
       </div>
 
       {/* Danger zone */}
-      <div className="card-dark p-6" style={{ borderColor: "rgba(239,68,68,0.2)" }}>
+      <div className="card-dark p-6" style={{ borderColor: "rgb(var(--danger-rgb) / 0.2)" }}>
         <h3 className="font-semibold text-red-400 mb-2">Vùng nguy hiểm</h3>
         <p className="text-xs text-gray-400 mb-4">Hành động này không thể hoàn tác. Tất cả dữ liệu của bạn sẽ bị xoá vĩnh viễn.</p>
 
         {deleteError && (
           <div
             className="p-3 rounded-lg text-sm text-red-400 border border-red-400/20 mb-4"
-            style={{ background: "rgba(239,68,68,0.08)" }}
+            style={{ background: "rgb(var(--danger-rgb) / 0.08)" }}
           >
             {deleteError}
           </div>
@@ -648,7 +648,7 @@ function SecurityTab() {
         ) : (
           <div
             className="p-4 rounded-lg border border-red-900/50 space-y-3"
-            style={{ background: "rgba(239,68,68,0.05)" }}
+            style={{ background: "rgb(var(--danger-rgb) / 0.05)" }}
           >
             <div className="flex items-start gap-2 text-sm text-red-300">
               <AlertTriangle size={16} className="shrink-0 mt-0.5" />
@@ -720,7 +720,7 @@ function BillingTab() {
         ) : (
           <div className="space-y-3">
             {orders.map((o) => (
-              <div key={o.id} className="flex items-center justify-between p-3 rounded-lg" style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}>
+              <div key={o.id} className="flex items-center justify-between p-3 rounded-lg" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
                 <div>
                   <div className="text-sm font-medium text-white">{o.product?.title ?? "Khoá học"}</div>
                   <div className="text-xs text-gray-500 mt-0.5">
@@ -729,7 +729,7 @@ function BillingTab() {
                 </div>
                 <div className="text-right">
                   <div className="text-sm font-bold text-white">{o.amount.toLocaleString("vi-VN")}đ</div>
-                  <div className={`text-[10px] font-medium ${o.status === "paid" ? "text-[#22c55e]" : o.status === "pending" ? "text-[#f59e0b]" : "text-gray-500"}`}>
+                  <div className={`text-[10px] font-medium ${o.status === "paid" ? "text-[var(--success)]" : o.status === "pending" ? "text-[var(--warn)]" : "text-gray-500"}`}>
                     {o.status === "paid" ? "Đã thanh toán" : o.status === "pending" ? "Chờ thanh toán" : o.status}
                   </div>
                 </div>
@@ -763,8 +763,8 @@ export default function SettingsPage({
               className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all shrink-0"
               style={
                 active === tab.id
-                  ? { background: "rgba(212,168,67,0.1)", color: "#D4A843", border: "1px solid rgba(212,168,67,0.25)" }
-                  : { color: "#9ca3af", background: "#1a1a1a", border: "1px solid #2a2a2a" }
+                  ? { background: "rgb(var(--accent-rgb) / 0.1)", color: "var(--accent)", border: "1px solid rgb(var(--accent-rgb) / 0.25)" }
+                  : { color: "var(--fg-muted)", background: "var(--surface)", border: "1px solid var(--border)" }
               }
             >
               <tab.icon size={14} />
@@ -784,8 +784,8 @@ export default function SettingsPage({
                   className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all group"
                   style={
                     active === tab.id
-                      ? { background: "rgba(212,168,67,0.1)", color: "#D4A843" }
-                      : { color: "#9ca3af" }
+                      ? { background: "rgb(var(--accent-rgb) / 0.1)", color: "var(--accent)" }
+                      : { color: "var(--fg-muted)" }
                   }
                 >
                   <div className="flex items-center gap-2.5">
@@ -794,7 +794,7 @@ export default function SettingsPage({
                   </div>
                   <ChevronRight
                     size={14}
-                    className={active === tab.id ? "text-[#D4A843]" : "text-gray-500 group-hover:text-gray-400"}
+                    className={active === tab.id ? "text-[var(--accent)]" : "text-gray-500 group-hover:text-gray-400"}
                   />
                 </button>
               ))}

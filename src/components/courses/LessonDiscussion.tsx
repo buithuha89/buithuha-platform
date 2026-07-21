@@ -74,10 +74,10 @@ function getLevelBadge(level: number | null): string | null {
 }
 
 function getLevelColor(level: number | null): string {
-  if (!level || level < 5) return "#6b7280";
-  if (level < 10) return "#3b82f6";
-  if (level < 20) return "#8b5cf6";
-  return "#D4A843";
+  if (!level || level < 5) return "var(--fg-subtle)";
+  if (level < 10) return "var(--info)";
+  if (level < 20) return "var(--cat-violet)";
+  return "var(--accent)";
 }
 
 /* ---------- Avatar component ---------- */
@@ -94,7 +94,7 @@ function UserAvatar({
       src={profile?.avatar_url}
       initials={getInitials(profile?.full_name ?? null)}
       size={size}
-      gradient="linear-gradient(135deg, #D4A843, #b8912e)"
+      gradient="linear-gradient(135deg, var(--accent), #b8912e)"
     />
   );
 }
@@ -107,7 +107,7 @@ function ReplyItem({ reply }: { reply: Discussion }) {
       <UserAvatar profile={reply.profiles} size={24} />
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-0.5">
-          <span className="text-xs font-medium text-[#f5f5f5]">
+          <span className="text-xs font-medium text-[var(--fg)]">
             {reply.profiles?.full_name ?? "Thành viên"}
           </span>
           {reply.profiles?.level != null && getLevelBadge(reply.profiles.level) && (
@@ -209,14 +209,14 @@ function DiscussionThread({
   return (
     <div
       className="rounded-xl p-4 space-y-3"
-      style={{ background: "#161616", border: "1px solid #222" }}
+      style={{ background: "var(--surface)", border: "1px solid #222" }}
     >
       {/* Main discussion */}
       <div className="flex items-start gap-3">
         <UserAvatar profile={discussion.profiles} size={36} />
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-sm font-medium text-[#f5f5f5]">
+            <span className="text-sm font-medium text-[var(--fg)]">
               {discussion.profiles?.full_name ?? "Thành viên"}
             </span>
             {discussion.profiles?.level != null &&
@@ -236,10 +236,10 @@ function DiscussionThread({
               {timeAgo(discussion.created_at)}
             </span>
             {discussion.is_pinned && (
-              <Pin size={10} className="text-[#D4A843]" />
+              <Pin size={10} className="text-[var(--accent)]" />
             )}
             {discussion.is_resolved && (
-              <CheckCircle2 size={12} className="text-[#22c55e]" />
+              <CheckCircle2 size={12} className="text-[var(--success)]" />
             )}
           </div>
           <p className="text-sm text-gray-300 whitespace-pre-line break-words leading-relaxed">
@@ -252,7 +252,7 @@ function DiscussionThread({
       <div className="flex items-center gap-4 ml-12">
         <button
           onClick={() => setShowReplyBox(!showReplyBox)}
-          className="flex items-center gap-1.5 text-[11px] text-gray-500 hover:text-[#D4A843] transition-colors"
+          className="flex items-center gap-1.5 text-[11px] text-gray-500 hover:text-[var(--accent)] transition-colors"
         >
           <Reply size={12} />
           Trả lời
@@ -261,7 +261,7 @@ function DiscussionThread({
         {replyCount > 0 && (
           <button
             onClick={handleToggleReplies}
-            className="flex items-center gap-1.5 text-[11px] text-gray-500 hover:text-[#D4A843] transition-colors"
+            className="flex items-center gap-1.5 text-[11px] text-gray-500 hover:text-[var(--accent)] transition-colors"
           >
             {showReplies ? (
               <ChevronUp size={12} />
@@ -280,7 +280,7 @@ function DiscussionThread({
             value={replyContent}
             onChange={(e) => setReplyContent(e.target.value)}
             placeholder="Viết phản hồi..."
-            className="w-full bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-[#f5f5f5] placeholder-gray-600 focus:outline-none focus:border-[#D4A843]/50 resize-none transition-colors"
+            className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-[var(--fg)] placeholder-gray-600 focus:outline-none focus:border-[var(--accent)]/50 resize-none transition-colors"
             rows={2}
             maxLength={5000}
           />
@@ -298,7 +298,7 @@ function DiscussionThread({
             <button
               type="submit"
               disabled={submittingReply || !replyContent.trim()}
-              className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg bg-[#D4A843] text-black hover:bg-[#c49a3a] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg bg-[var(--accent)] text-black hover:bg-[var(--accent-hover)] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               {submittingReply ? (
                 <Loader2 size={12} className="animate-spin" />
@@ -313,7 +313,7 @@ function DiscussionThread({
 
       {/* Replies list */}
       {showReplies && (
-        <div className="ml-12 border-l-2 border-[#2a2a2a] pl-3">
+        <div className="ml-12 border-l-2 border-[var(--border)] pl-3">
           {loadingReplies ? (
             <div className="flex items-center justify-center py-4">
               <Loader2 size={16} className="animate-spin text-gray-500" />
@@ -323,7 +323,7 @@ function DiscussionThread({
               Chưa có phản hồi nào.
             </p>
           ) : (
-            <div className="divide-y divide-[#1a1a1a]">
+            <div className="divide-y divide-[var(--surface)]">
               {replies.map((reply) => (
                 <ReplyItem key={reply.id} reply={reply} />
               ))}
@@ -395,7 +395,7 @@ export default function LessonDiscussion({ lessonId }: LessonDiscussionProps) {
   return (
     <div
       className="rounded-xl overflow-hidden"
-      style={{ background: "#111", border: "1px solid #1e1e1e" }}
+      style={{ background: "var(--surface)", border: "1px solid #1e1e1e" }}
     >
       {/* Header */}
       <button
@@ -403,12 +403,12 @@ export default function LessonDiscussion({ lessonId }: LessonDiscussionProps) {
         className="w-full flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors"
       >
         <div className="flex items-center gap-2.5">
-          <MessageSquare size={16} className="text-[#D4A843]" />
-          <h3 className="font-semibold text-[#f5f5f5] text-sm">
+          <MessageSquare size={16} className="text-[var(--accent)]" />
+          <h3 className="font-semibold text-[var(--fg)] text-sm">
             Thảo luận bài học
           </h3>
           {discussions.length > 0 && (
-            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#D4A843]/15 text-[#D4A843] font-medium">
+            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[var(--accent)]/15 text-[var(--accent)] font-medium">
               {discussions.length}
             </span>
           )}
@@ -428,7 +428,7 @@ export default function LessonDiscussion({ lessonId }: LessonDiscussionProps) {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="Đặt câu hỏi hoặc chia sẻ ý kiến về bài học này..."
-              className="w-full bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg px-3 py-2.5 text-sm text-[#f5f5f5] placeholder-gray-600 focus:outline-none focus:border-[#D4A843]/50 resize-none transition-colors"
+              className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-lg px-3 py-2.5 text-sm text-[var(--fg)] placeholder-gray-600 focus:outline-none focus:border-[var(--accent)]/50 resize-none transition-colors"
               rows={3}
               maxLength={5000}
             />
@@ -444,7 +444,7 @@ export default function LessonDiscussion({ lessonId }: LessonDiscussionProps) {
               <button
                 type="submit"
                 disabled={submitting || !content.trim()}
-                className="flex items-center gap-1.5 text-xs font-medium px-4 py-2 rounded-lg bg-[#D4A843] text-black hover:bg-[#c49a3a] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center gap-1.5 text-xs font-medium px-4 py-2 rounded-lg bg-[var(--accent)] text-black hover:bg-[var(--accent-hover)] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 {submitting ? (
                   <Loader2 size={12} className="animate-spin" />

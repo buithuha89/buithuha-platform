@@ -86,10 +86,10 @@ export function useSearchShortcut(onOpen: () => void): void {
 function SkeletonRow() {
   return (
     <div className="flex items-center gap-3 px-4 py-3 animate-pulse">
-      <div className="w-8 h-8 rounded-lg" style={{ background: "#2a2a2a" }} />
+      <div className="w-8 h-8 rounded-lg" style={{ background: "var(--border)" }} />
       <div className="flex-1 space-y-1.5">
-        <div className="h-3 rounded" style={{ background: "#2a2a2a", width: "60%" }} />
-        <div className="h-2.5 rounded" style={{ background: "#222", width: "40%" }} />
+        <div className="h-3 rounded" style={{ background: "var(--border)", width: "60%" }} />
+        <div className="h-2.5 rounded" style={{ background: "var(--surface-2)", width: "40%" }} />
       </div>
     </div>
   );
@@ -114,15 +114,15 @@ function ResultRow({ item, selected, onSelect }: ResultRowProps) {
       onMouseDown={onSelect}
       className="w-full flex items-center gap-3 px-4 py-3 text-left transition-colors"
       style={{
-        background: selected ? "#1f1f1f" : "transparent",
-        borderLeft: selected ? "2px solid #D4A843" : "2px solid transparent",
+        background: selected ? "var(--surface-2)" : "transparent",
+        borderLeft: selected ? "2px solid var(--accent)" : "2px solid transparent",
       }}
     >
       <span
         className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
-        style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+        style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
       >
-        <Icon size={15} className="text-[#D4A843]" />
+        <Icon size={15} className="text-[var(--accent)]" />
       </span>
       <span className="flex-1 min-w-0">
         <span className="block text-sm font-medium text-white truncate">{item.title}</span>
@@ -273,12 +273,12 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
       >
         <div
           className="rounded-2xl overflow-hidden shadow-2xl"
-          style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+          style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
         >
           {/* Search input */}
           <div
             className="flex items-center gap-3 px-4"
-            style={{ borderBottom: "1px solid #2a2a2a" }}
+            style={{ borderBottom: "1px solid var(--border)" }}
           >
             <Search size={18} className="flex-shrink-0 text-gray-500" />
             <input
@@ -302,7 +302,7 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
             )}
             <kbd
               className="flex-shrink-0 text-[10px] text-gray-500 px-1.5 py-0.5 rounded"
-              style={{ background: "#2a2a2a" }}
+              style={{ background: "var(--border)" }}
             >
               Esc để đóng
             </kbd>
@@ -324,7 +324,7 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
               <div className="py-2">
                 <p
                   className="px-4 py-2 text-[11px] font-semibold uppercase tracking-wider"
-                  style={{ color: "#555" }}
+                  style={{ color: "var(--fg-subtle)" }}
                 >
                   Tìm kiếm gần đây
                 </p>
@@ -334,9 +334,9 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
                     onMouseDown={() => runRecent(term)}
                     className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors"
                     style={{
-                      background: selectedIndex === i ? "#1f1f1f" : "transparent",
+                      background: selectedIndex === i ? "var(--surface-2)" : "transparent",
                       borderLeft:
-                        selectedIndex === i ? "2px solid #D4A843" : "2px solid transparent",
+                        selectedIndex === i ? "2px solid var(--accent)" : "2px solid transparent",
                     }}
                   >
                     <Clock size={14} className="flex-shrink-0 text-gray-500" />
@@ -362,7 +362,7 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
                     <div key={type}>
                       <p
                         className="px-4 py-2 text-[11px] font-semibold uppercase tracking-wider"
-                        style={{ color: "#555" }}
+                        style={{ color: "var(--fg-subtle)" }}
                       >
                         {meta.label}
                       </p>
@@ -398,15 +398,15 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
             style={{ borderTop: "1px solid #222" }}
           >
             <span>
-              <kbd className="px-1 py-0.5 rounded text-[10px]" style={{ background: "#2a2a2a" }}>↑↓</kbd>
+              <kbd className="px-1 py-0.5 rounded text-[10px]" style={{ background: "var(--border)" }}>↑↓</kbd>
               &nbsp;di chuyển
             </span>
             <span>
-              <kbd className="px-1 py-0.5 rounded text-[10px]" style={{ background: "#2a2a2a" }}>↵</kbd>
+              <kbd className="px-1 py-0.5 rounded text-[10px]" style={{ background: "var(--border)" }}>↵</kbd>
               &nbsp;chọn
             </span>
             <span>
-              <kbd className="px-1 py-0.5 rounded text-[10px]" style={{ background: "#2a2a2a" }}>Esc</kbd>
+              <kbd className="px-1 py-0.5 rounded text-[10px]" style={{ background: "var(--border)" }}>Esc</kbd>
               &nbsp;đóng
             </span>
           </div>

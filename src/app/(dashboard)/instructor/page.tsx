@@ -61,28 +61,28 @@ export default function InstructorDashboardPage() {
       label: "Khoá học",
       value: courses.length,
       icon: BookOpen,
-      color: "#D4A843",
-      bg: "rgba(212,168,67,0.1)",
+      color: "var(--accent)",
+      bg: "rgb(var(--accent-rgb) / 0.1)",
     },
     {
       label: "Học viên",
       value: totalStudents,
       icon: Users,
-      color: "#3b82f6",
-      bg: "rgba(59,130,246,0.1)",
+      color: "var(--info)",
+      bg: "rgb(var(--info-rgb) / 0.1)",
     },
     {
       label: "Bài chờ chấm",
       value: pendingCount,
       icon: ClipboardCheck,
-      color: "#f59e0b",
-      bg: "rgba(245,158,11,0.1)",
+      color: "var(--warn)",
+      bg: "rgb(var(--warn-rgb) / 0.1)",
     },
     {
       label: "Câu hỏi mới",
       value: questionCount,
       icon: MessageSquare,
-      color: "#a855f7",
+      color: "var(--cat-purple)",
       bg: "rgba(168,85,247,0.1)",
     },
   ];
@@ -136,16 +136,16 @@ export default function InstructorDashboardPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <Link
                   href="/instructor/submissions"
-                  className="card-dark p-4 hover:bg-[#222] transition-all duration-150 group cursor-pointer flex items-center justify-between"
+                  className="card-dark p-4 hover:bg-[var(--surface-2)] transition-all duration-150 group cursor-pointer flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className="w-9 h-9 rounded-xl flex items-center justify-center"
-                      style={{ background: "rgba(245,158,11,0.1)" }}
+                      style={{ background: "rgb(var(--warn-rgb) / 0.1)" }}
                     >
                       <ClipboardCheck
                         size={18}
-                        style={{ color: "#f59e0b" }}
+                        style={{ color: "var(--warn)" }}
                       />
                     </div>
                     <div>
@@ -159,20 +159,20 @@ export default function InstructorDashboardPage() {
                   </div>
                   <ArrowRight
                     size={16}
-                    className="text-gray-500 group-hover:text-[#D4A843] transition-colors"
+                    className="text-gray-500 group-hover:text-[var(--accent)] transition-colors"
                   />
                 </Link>
 
                 <Link
                   href="/instructor/courses"
-                  className="card-dark p-4 hover:bg-[#222] transition-all duration-150 group cursor-pointer flex items-center justify-between"
+                  className="card-dark p-4 hover:bg-[var(--surface-2)] transition-all duration-150 group cursor-pointer flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className="w-9 h-9 rounded-xl flex items-center justify-center"
-                      style={{ background: "rgba(212,168,67,0.1)" }}
+                      style={{ background: "rgb(var(--accent-rgb) / 0.1)" }}
                     >
-                      <BookOpen size={18} style={{ color: "#D4A843" }} />
+                      <BookOpen size={18} style={{ color: "var(--accent)" }} />
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-white group-hover:text-white">
@@ -185,20 +185,20 @@ export default function InstructorDashboardPage() {
                   </div>
                   <ArrowRight
                     size={16}
-                    className="text-gray-500 group-hover:text-[#D4A843] transition-colors"
+                    className="text-gray-500 group-hover:text-[var(--accent)] transition-colors"
                   />
                 </Link>
 
                 <Link
                   href="/instructor/students"
-                  className="card-dark p-4 hover:bg-[#222] transition-all duration-150 group cursor-pointer flex items-center justify-between"
+                  className="card-dark p-4 hover:bg-[var(--surface-2)] transition-all duration-150 group cursor-pointer flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className="w-9 h-9 rounded-xl flex items-center justify-center"
-                      style={{ background: "rgba(59,130,246,0.1)" }}
+                      style={{ background: "rgb(var(--info-rgb) / 0.1)" }}
                     >
-                      <Users size={18} style={{ color: "#3b82f6" }} />
+                      <Users size={18} style={{ color: "var(--info)" }} />
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-white group-hover:text-white">
@@ -211,20 +211,20 @@ export default function InstructorDashboardPage() {
                   </div>
                   <ArrowRight
                     size={16}
-                    className="text-gray-500 group-hover:text-[#3b82f6] transition-colors"
+                    className="text-gray-500 group-hover:text-[var(--info)] transition-colors"
                   />
                 </Link>
 
                 <Link
                   href="/instructor/questions"
-                  className="card-dark p-4 hover:bg-[#222] transition-all duration-150 group cursor-pointer flex items-center justify-between"
+                  className="card-dark p-4 hover:bg-[var(--surface-2)] transition-all duration-150 group cursor-pointer flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className="w-9 h-9 rounded-xl flex items-center justify-center"
                       style={{ background: "rgba(168,85,247,0.1)" }}
                     >
-                      <MessageSquare size={18} style={{ color: "#a855f7" }} />
+                      <MessageSquare size={18} style={{ color: "var(--cat-purple)" }} />
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-white group-hover:text-white">
@@ -237,7 +237,7 @@ export default function InstructorDashboardPage() {
                   </div>
                   <ArrowRight
                     size={16}
-                    className="text-gray-500 group-hover:text-[#a855f7] transition-colors"
+                    className="text-gray-500 group-hover:text-[var(--cat-purple)] transition-colors"
                   />
                 </Link>
               </div>
@@ -252,18 +252,18 @@ export default function InstructorDashboardPage() {
                   </h3>
                   <Link
                     href="/instructor/courses"
-                    className="text-xs text-[#D4A843] hover:underline flex items-center gap-1"
+                    className="text-xs text-[var(--accent)] hover:underline flex items-center gap-1"
                   >
                     Xem tất cả <ArrowRight size={12} />
                   </Link>
                 </div>
-                <div className="card-dark divide-y divide-[#2a2a2a]">
+                <div className="card-dark divide-y divide-[var(--border)]">
                   {courses.slice(0, 5).map((course) => (
                     <div
                       key={course.id}
                       className="flex items-center gap-3 p-4"
                     >
-                      <div className="w-10 h-10 rounded-lg bg-[#2a2a2a] shrink-0 overflow-hidden">
+                      <div className="w-10 h-10 rounded-lg bg-[var(--border)] shrink-0 overflow-hidden">
                         {course.thumbnail && (
                           <img
                             src={course.thumbnail}
@@ -282,7 +282,7 @@ export default function InstructorDashboardPage() {
                       </div>
                       <Link
                         href={`/instructor/submissions?product_id=${course.id}`}
-                        className="text-xs text-[#D4A843] hover:underline shrink-0"
+                        className="text-xs text-[var(--accent)] hover:underline shrink-0"
                       >
                         Xem bài nộp
                       </Link>

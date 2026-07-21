@@ -356,7 +356,7 @@ export default function AdminFeaturedCoursesPage() {
                 }`}
               >
                 {/* Thumbnail */}
-                <div className="w-14 h-14 rounded-lg bg-[#222] overflow-hidden shrink-0">
+                <div className="w-14 h-14 rounded-lg bg-[var(--surface-2)] overflow-hidden shrink-0">
                   {item.products?.thumbnail ? (
                     <Image
                       src={item.products.thumbnail}
@@ -387,7 +387,7 @@ export default function AdminFeaturedCoursesPage() {
                       {item.highlight_text}
                     </p>
                   )}
-                  <p className="text-[11px] text-[#D4A843] mt-0.5">
+                  <p className="text-[11px] text-[var(--accent)] mt-0.5">
                     {formatPrice(
                       item.products?.sale_price || item.products?.price
                     )}

@@ -221,7 +221,7 @@ export default async function CourseDetailPage({
           </p>
           <a
             href="/courses"
-            className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-[#D4A843] hover:underline"
+            className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-[var(--accent)] hover:underline"
           >
             ← Quay lại danh sách khoá học
           </a>
@@ -429,9 +429,9 @@ export default async function CourseDetailPage({
               href={`/courses/${product.slug}?preview=1`}
               className="flex items-center justify-center gap-2 rounded-xl p-3 text-sm font-medium transition-all hover:scale-[1.01]"
               style={{
-                background: "rgba(59,130,246,0.1)",
-                border: "1px solid rgba(59,130,246,0.25)",
-                color: "#60a5fa",
+                background: "rgb(var(--info-rgb) / 0.1)",
+                border: "1px solid rgb(var(--info-rgb) / 0.25)",
+                color: "var(--info)",
               }}
             >
               <BookOpen size={16} />
@@ -446,17 +446,17 @@ export default async function CourseDetailPage({
             <div
               className="rounded-xl p-6 text-center"
               style={{
-                background: "rgba(212,168,67,0.08)",
-                border: "1px solid rgba(212,168,67,0.25)",
+                background: "rgb(var(--accent-rgb) / 0.08)",
+                border: "1px solid rgb(var(--accent-rgb) / 0.25)",
               }}
             >
-              <Lock size={28} className="text-[#D4A843] mx-auto mb-3" />
+              <Lock size={28} className="text-[var(--accent)] mx-auto mb-3" />
               <h3 className="text-lg font-bold text-white mb-2">
                 Khoá học dành cho {tierLabels[productTierRequired!] ?? productTierRequired}
               </h3>
               <p className="text-sm text-gray-400 mb-4">
                 Khoá học này yêu cầu gói{" "}
-                <span className="font-semibold text-[#D4A843]">
+                <span className="font-semibold text-[var(--accent)]">
                   {tierLabels[productTierRequired!] ?? productTierRequired}
                 </span>{" "}
                 trở lên. Gói hiện tại của bạn là{" "}
@@ -469,7 +469,7 @@ export default async function CourseDetailPage({
                 href="/pricing"
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-medium text-black transition-all hover:scale-[1.02]"
                 style={{
-                  background: "linear-gradient(135deg, #D4A843, #B8922E)",
+                  background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
                 }}
               >
                 Nâng cấp ngay
@@ -608,7 +608,7 @@ export default async function CourseDetailPage({
   // ─── Sidebar content ─────────────────────
   const sidebarContent = (
     <>
-      <div className="p-4 border-b border-[#2a2a2a] hidden lg:block">
+      <div className="p-4 border-b border-[var(--border)] hidden lg:block">
         <h3 className="font-semibold text-white text-sm">
           Nội dung khoá học
         </h3>
@@ -633,13 +633,13 @@ export default async function CourseDetailPage({
           chapterLessons.length > 0;
 
         return (
-          <div key={chapter.id} className="border-b border-[#1f1f1f]">
-            <div className="flex items-center justify-between p-3 bg-[#0d0d0d]">
+          <div key={chapter.id} className="border-b border-[var(--surface-2)]">
+            <div className="flex items-center justify-between p-3 bg-[var(--bg-alt)]">
               <div className="flex items-center gap-2">
                 {allCompleted && (
                   <CheckCircle
                     size={12}
-                    className="text-[#22c55e] shrink-0"
+                    className="text-[var(--success)] shrink-0"
                   />
                 )}
                 <span className="text-xs font-semibold text-gray-300">
@@ -668,19 +668,19 @@ export default async function CourseDetailPage({
                   }
                   className={`flex items-center gap-3 px-4 py-2.5 transition-colors
                     ${isAccessible ? "cursor-pointer" : "cursor-not-allowed opacity-60"}
-                    ${isActive && !locked ? "bg-[#D4A843]/10" : isAccessible ? "hover:bg-white/3" : ""}`}
+                    ${isActive && !locked ? "bg-[var(--accent)]/10" : isAccessible ? "hover:bg-white/3" : ""}`}
                 >
                   {locked ? (
                     <Lock size={14} className="text-gray-500 shrink-0" />
                   ) : isDone ? (
                     <CheckCircle
                       size={14}
-                      className="text-[#22c55e] shrink-0"
+                      className="text-[var(--success)] shrink-0"
                     />
                   ) : (
                     <PlayCircle
                       size={14}
-                      className={`shrink-0 ${isActive ? "text-[#D4A843]" : "text-gray-500"}`}
+                      className={`shrink-0 ${isActive ? "text-[var(--accent)]" : "text-gray-500"}`}
                     />
                   )}
                   <div className="flex-1 min-w-0">
@@ -689,7 +689,7 @@ export default async function CourseDetailPage({
                         locked
                           ? "text-gray-500"
                           : isActive
-                            ? "text-[#D4A843] font-medium"
+                            ? "text-[var(--accent)] font-medium"
                             : isDone
                               ? "text-gray-500 line-through"
                               : "text-gray-300"
@@ -707,8 +707,8 @@ export default async function CourseDetailPage({
                     <span
                       className="text-[9px] px-1.5 py-0.5 rounded font-medium shrink-0"
                       style={{
-                        background: "rgba(34,197,94,0.1)",
-                        color: "#22c55e",
+                        background: "rgb(var(--success-rgb) / 0.1)",
+                        color: "var(--success)",
                       }}
                     >
                       Free
@@ -728,12 +728,12 @@ export default async function CourseDetailPage({
               href={`/certificate/${slug}`}
               className="block rounded-lg p-3 text-center transition-all hover:scale-[1.02]"
               style={{
-                background: "rgba(212,168,67,0.1)",
-                border: "1px solid rgba(212,168,67,0.3)",
+                background: "rgb(var(--accent-rgb) / 0.1)",
+                border: "1px solid rgb(var(--accent-rgb) / 0.3)",
               }}
             >
-              <Award size={22} className="text-[#D4A843] mx-auto mb-1.5" />
-              <p className="text-xs font-bold text-[#D4A843] mb-0.5">
+              <Award size={22} className="text-[var(--accent)] mx-auto mb-1.5" />
+              <p className="text-xs font-bold text-[var(--accent)] mb-0.5">
                 Xem chứng chỉ hoàn thành
               </p>
               <p className="text-[10px] text-gray-500">
@@ -744,15 +744,15 @@ export default async function CourseDetailPage({
             <div
               className="rounded-lg p-3 text-center"
               style={{
-                background: "rgba(245,158,11,0.08)",
-                border: "1px solid rgba(245,158,11,0.2)",
+                background: "rgb(var(--warn-rgb) / 0.08)",
+                border: "1px solid rgb(var(--warn-rgb) / 0.2)",
               }}
             >
               <Award
                 size={20}
-                className="text-[#f59e0b] mx-auto mb-1.5"
+                className="text-[var(--warn)] mx-auto mb-1.5"
               />
-              <p className="text-xs font-medium text-[#f59e0b] mb-0.5">
+              <p className="text-xs font-medium text-[var(--warn)] mb-0.5">
                 Chứng chỉ hoàn thành
               </p>
               <p className="text-[10px] text-gray-500">
@@ -777,8 +777,8 @@ export default async function CourseDetailPage({
           <div
             className="rounded-2xl p-8 max-w-md w-full"
             style={{
-              background: "rgba(245,158,11,0.06)",
-              border: "1px solid rgba(245,158,11,0.2)",
+              background: "rgb(var(--warn-rgb) / 0.06)",
+              border: "1px solid rgb(var(--warn-rgb) / 0.2)",
             }}
           >
             <div className="text-4xl mb-4">&#x1F512;</div>
@@ -793,7 +793,7 @@ export default async function CourseDetailPage({
                 href={`/courses/${slug}?lesson=${nextUncompletedLesson.id}`}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium text-black transition-all hover:scale-[1.02]"
                 style={{
-                  background: "linear-gradient(135deg, #D4A843, #B8922E)",
+                  background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
                 }}
               >
                 <PlayCircle size={16} />
@@ -841,7 +841,7 @@ export default async function CourseDetailPage({
             <div className="mb-4 sm:mb-5">
               <div
                 className="rounded-xl overflow-hidden relative"
-                style={{ border: "1px solid #2a2a2a" }}
+                style={{ border: "1px solid var(--border)" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -898,7 +898,7 @@ export default async function CourseDetailPage({
                           href={part}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#D4A843] underline underline-offset-2 hover:text-[#B8922E] break-all transition-colors"
+                          className="text-[var(--accent)] underline underline-offset-2 hover:text-[var(--accent-hover)] break-all transition-colors"
                         >
                           {part}
                         </a>
@@ -915,7 +915,7 @@ export default async function CourseDetailPage({
           {currentLesson.attachments && currentLesson.attachments.length > 0 && (
             <div className="card-dark p-4 sm:p-5 mb-4 sm:mb-5">
               <h3 className="flex items-center gap-2 text-sm font-semibold text-white mb-3">
-                <Paperclip size={16} className="text-[#D4A843]" />
+                <Paperclip size={16} className="text-[var(--accent)]" />
                 Tài liệu đính kèm
               </h3>
               <div className="space-y-2">
@@ -929,15 +929,15 @@ export default async function CourseDetailPage({
                       rel="noopener noreferrer"
                       {...(!isLink ? { download: true } : {})}
                       className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group"
-                      style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid #2a2a2a' }}
+                      style={{ background: 'rgb(var(--overlay-rgb) / 0.02)', border: '1px solid var(--border)' }}
                     >
                       {isLink ? (
-                        <LinkIcon size={16} className="text-[#D4A843] shrink-0" />
+                        <LinkIcon size={16} className="text-[var(--accent)] shrink-0" />
                       ) : (
                         <AttachmentFileIcon type={att.type} />
                       )}
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm text-gray-300 truncate group-hover:text-[#D4A843] transition-colors">
+                        <p className="text-sm text-gray-300 truncate group-hover:text-[var(--accent)] transition-colors">
                           {isLink ? friendlyAttachmentName(att.name, att.url) : att.name}
                         </p>
                         {isLink && att.name !== friendlyAttachmentName(att.name, att.url) && (
@@ -948,9 +948,9 @@ export default async function CourseDetailPage({
                         )}
                       </div>
                       {isLink ? (
-                        <ExternalLink size={14} className="text-gray-500 group-hover:text-[#D4A843] shrink-0 transition-colors" />
+                        <ExternalLink size={14} className="text-gray-500 group-hover:text-[var(--accent)] shrink-0 transition-colors" />
                       ) : (
-                        <Download size={14} className="text-gray-500 group-hover:text-[#D4A843] shrink-0 transition-colors" />
+                        <Download size={14} className="text-gray-500 group-hover:text-[var(--accent)] shrink-0 transition-colors" />
                       )}
                     </a>
                   );
@@ -973,7 +973,7 @@ export default async function CourseDetailPage({
                     className="rounded-full object-cover"
                   />
                 ) : (
-                  <div className="w-16 h-16 rounded-full bg-[#D4A843]/20 flex items-center justify-center text-[#D4A843] text-xl font-bold shrink-0">
+                  <div className="w-16 h-16 rounded-full bg-[var(--accent)]/20 flex items-center justify-center text-[var(--accent)] text-xl font-bold shrink-0">
                     {(instructor.full_name || "?")[0]}
                   </div>
                 )}
@@ -994,7 +994,7 @@ export default async function CourseDetailPage({
                 <span className="text-sm font-medium text-white">
                   Tiến độ khoá học
                 </span>
-                <span className="text-sm font-bold text-[#22c55e]">
+                <span className="text-sm font-bold text-[var(--success)]">
                   {progressPct}%
                 </span>
               </div>
@@ -1013,7 +1013,7 @@ export default async function CourseDetailPage({
           {/* Quiz */}
           <div className="mb-4 sm:mb-5">
             <h3 className="flex items-center gap-2 text-sm font-semibold text-white mb-3">
-              <ClipboardCheck size={16} className="text-[#D4A843]" />
+              <ClipboardCheck size={16} className="text-[var(--accent)]" />
               Bài kiểm tra
             </h3>
             <LessonQuiz lessonId={currentLesson.id} />

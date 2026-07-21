@@ -100,11 +100,11 @@ export default async function RelatedPosts({
           <Link
             key={post.id}
             href={`/blog/${post.slug}`}
-            className="group rounded-xl border border-white/10 bg-white/5 overflow-hidden transition-colors hover:border-[#D4A843]/30 hover:bg-white/[0.07]"
+            className="group rounded-xl border border-white/10 bg-white/5 overflow-hidden transition-colors hover:border-[var(--accent)]/30 hover:bg-white/[0.07]"
           >
             {/* Thumbnail */}
             {post.thumbnail ? (
-              <div className="relative aspect-[16/9] bg-[#1a1a1a]">
+              <div className="relative aspect-[16/9] bg-[var(--surface)]">
                 <Image
                   src={post.thumbnail}
                   alt={post.title}
@@ -114,7 +114,7 @@ export default async function RelatedPosts({
                 />
               </div>
             ) : (
-              <div className="aspect-[16/9] bg-[#1a1a1a] flex items-center justify-center">
+              <div className="aspect-[16/9] bg-[var(--surface)] flex items-center justify-center">
                 <span className="text-3xl text-gray-500">&#x1f4dd;</span>
               </div>
             )}
@@ -123,13 +123,13 @@ export default async function RelatedPosts({
             <div className="p-4">
               {/* Category badge */}
               {post.category && (
-                <span className="inline-block text-[10px] font-semibold uppercase tracking-wider text-[#D4A843] bg-[#D4A843]/10 px-2 py-0.5 rounded-full mb-2">
+                <span className="inline-block text-[10px] font-semibold uppercase tracking-wider text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-0.5 rounded-full mb-2">
                   {post.category}
                 </span>
               )}
 
               {/* Title */}
-              <h3 className="text-sm font-semibold text-white leading-snug mb-1.5 line-clamp-2 group-hover:text-[#D4A843] transition-colors">
+              <h3 className="text-sm font-semibold text-white leading-snug mb-1.5 line-clamp-2 group-hover:text-[var(--accent)] transition-colors">
                 {post.title}
               </h3>
 

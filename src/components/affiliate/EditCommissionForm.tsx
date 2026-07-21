@@ -18,7 +18,7 @@ export default function EditCommissionForm({
       <button
         type="button"
         onClick={() => setEditing(true)}
-        className="inline-flex items-center gap-1 text-gray-400 hover:text-[#f59e0b] transition-colors group"
+        className="inline-flex items-center gap-1 text-gray-400 hover:text-[var(--warn)] transition-colors group"
         title="Chỉnh sửa tỷ lệ hoa hồng"
       >
         <span className="font-medium">{currentRate}%</span>
@@ -42,7 +42,7 @@ export default function EditCommissionForm({
       <span className="text-xs text-gray-500">%</span>
       <button
         type="submit"
-        className="text-[#D4A843] hover:text-amber-400 transition-colors p-0.5"
+        className="text-[var(--accent)] hover:text-amber-400 transition-colors p-0.5"
         title="Lưu"
       >
         <Check size={14} />

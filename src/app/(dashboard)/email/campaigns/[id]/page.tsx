@@ -62,18 +62,18 @@ const VARIABLES = [
 ];
 
 const CATEGORY_LABELS: Record<string, { label: string; color: string }> = {
-  marketing: { label: "Marketing", color: "#D4A843" },
-  newsletter: { label: "Newsletter", color: "#3b82f6" },
-  transactional: { label: "Transactional", color: "#f59e0b" },
-  other: { label: "Khac", color: "#6b7280" },
+  marketing: { label: "Marketing", color: "var(--accent)" },
+  newsletter: { label: "Newsletter", color: "var(--info)" },
+  transactional: { label: "Transactional", color: "var(--warn)" },
+  other: { label: "Khac", color: "var(--fg-subtle)" },
 };
 
 const STATUS_CONFIG: Record<string, { label: string; color: string }> = {
-  draft: { label: "Nhap", color: "#6b7280" },
-  scheduled: { label: "Da len lich", color: "#3b82f6" },
-  sending: { label: "Dang gui", color: "#f59e0b" },
-  sent: { label: "Da gui", color: "#D4A843" },
-  paused: { label: "Tam dung", color: "#f97316" },
+  draft: { label: "Nhap", color: "var(--fg-subtle)" },
+  scheduled: { label: "Da len lich", color: "var(--info)" },
+  sending: { label: "Dang gui", color: "var(--warn)" },
+  sent: { label: "Da gui", color: "var(--accent)" },
+  paused: { label: "Tam dung", color: "var(--cat-orange)" },
 };
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
@@ -289,7 +289,7 @@ export default function EditCampaignPage() {
       <div>
         <TopBar title="Dang tai..." />
         <div className="flex items-center justify-center py-32">
-          <Loader2 size={28} className="animate-spin text-[#D4A843]" />
+          <Loader2 size={28} className="animate-spin text-[var(--accent)]" />
         </div>
       </div>
     );
@@ -319,7 +319,7 @@ export default function EditCampaignPage() {
             {campaign.status === "sending" && (
               <button
                 onClick={() => router.push(`/email/campaigns/${campaignId}/sending`)}
-                className="flex items-center gap-1.5 text-xs text-[#f59e0b] hover:underline"
+                className="flex items-center gap-1.5 text-xs text-[var(--warn)] hover:underline"
               >
                 <Play size={12} /> Xem tien do
               </button>
@@ -333,11 +333,11 @@ export default function EditCampaignPage() {
               <div className="text-xs text-gray-500 mt-1">Da gui</div>
             </div>
             <div className="stat-card text-center">
-              <div className="text-2xl font-bold" style={{ color: "#D4A843" }}>{openRate}%</div>
+              <div className="text-2xl font-bold" style={{ color: "var(--accent)" }}>{openRate}%</div>
               <div className="text-xs text-gray-500 mt-1">Open rate</div>
             </div>
             <div className="stat-card text-center">
-              <div className="text-2xl font-bold" style={{ color: "#3b82f6" }}>{clickRate}%</div>
+              <div className="text-2xl font-bold" style={{ color: "var(--info)" }}>{clickRate}%</div>
               <div className="text-xs text-gray-500 mt-1">Click rate</div>
             </div>
             <div className="stat-card text-center">
@@ -371,7 +371,7 @@ export default function EditCampaignPage() {
             {campaign.html_content && (
               <button
                 onClick={() => setPreviewOpen(true)}
-                className="flex items-center gap-1.5 text-xs text-[#D4A843] hover:underline"
+                className="flex items-center gap-1.5 text-xs text-[var(--accent)] hover:underline"
               >
                 <Eye size={12} /> Xem noi dung email
               </button>
@@ -383,7 +383,7 @@ export default function EditCampaignPage() {
             <button
               onClick={() => router.push("/email/campaigns")}
               className="px-4 py-2 rounded-lg text-sm text-gray-400 hover:text-white transition-colors"
-              style={{ border: "1px solid #2a2a2a" }}
+              style={{ border: "1px solid var(--border)" }}
             >
               Quay lai
             </button>
@@ -391,7 +391,7 @@ export default function EditCampaignPage() {
               <button
                 onClick={() => router.push(`/email/campaigns/${campaignId}/analytics`)}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium"
-                style={{ background: "rgba(212,168,67,0.12)", color: "#D4A843", border: "1px solid rgba(212,168,67,0.3)" }}
+                style={{ background: "rgb(var(--accent-rgb) / 0.12)", color: "var(--accent)", border: "1px solid rgb(var(--accent-rgb) / 0.3)" }}
               >
                 <BarChart3 size={14} /> Xem analytics
               </button>
@@ -429,29 +429,29 @@ export default function EditCampaignPage() {
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all shrink-0"
                   style={{
-                    background: i < step ? "#D4A843" : i === step ? "rgba(212,168,67,0.15)" : "#252525",
-                    color: i < step ? "white" : i === step ? "#D4A843" : "#6b7280",
-                    border: i === step ? "2px solid #D4A843" : "2px solid transparent",
+                    background: i < step ? "var(--accent)" : i === step ? "rgb(var(--accent-rgb) / 0.15)" : "var(--surface-3)",
+                    color: i < step ? "white" : i === step ? "var(--accent)" : "var(--fg-subtle)",
+                    border: i === step ? "2px solid var(--accent)" : "2px solid transparent",
                   }}
                 >
                   {i < step ? <Check size={14} /> : i + 1}
                 </div>
                 <span
                   className="text-xs font-medium hidden sm:inline whitespace-nowrap"
-                  style={{ color: i <= step ? "white" : "#6b7280" }}
+                  style={{ color: i <= step ? "white" : "var(--fg-subtle)" }}
                 >
                   {s.label}
                 </span>
               </button>
               {i < STEPS.length - 1 && (
-                <div className="flex-1 h-px mx-3" style={{ background: i < step ? "#D4A843" : "#2a2a2a" }} />
+                <div className="flex-1 h-px mx-3" style={{ background: i < step ? "var(--accent)" : "var(--border)" }} />
               )}
             </div>
           ))}
         </div>
 
         {saveMsg && (
-          <div className="flex items-center gap-2 text-xs" style={{ color: saveMsg.includes("Loi") ? "#ef4444" : "#D4A843" }}>
+          <div className="flex items-center gap-2 text-xs" style={{ color: saveMsg.includes("Loi") ? "var(--danger)" : "var(--accent)" }}>
             {saving ? <Loader2 size={12} className="animate-spin" /> : <Check size={12} />}
             {saveMsg}
           </div>
@@ -461,7 +461,7 @@ export default function EditCampaignPage() {
         {step === 0 && (
           <div className="card-dark p-6 space-y-5">
             <h2 className="text-white font-semibold text-base flex items-center gap-2">
-              <FileText size={18} className="text-[#D4A843]" /> Thong tin co ban
+              <FileText size={18} className="text-[var(--accent)]" /> Thong tin co ban
             </h2>
             <div>
               <label className="block text-xs font-medium text-gray-400 mb-1.5">Ten campaign *</label>
@@ -493,7 +493,7 @@ export default function EditCampaignPage() {
         {step === 1 && (
           <div className="card-dark p-6 space-y-5">
             <h2 className="text-white font-semibold text-base flex items-center gap-2">
-              <Users size={18} className="text-[#D4A843]" /> Nguoi nhan
+              <Users size={18} className="text-[var(--accent)]" /> Nguoi nhan
             </h2>
             <div>
               <label className="block text-xs font-medium text-gray-400 mb-1.5">Chon danh sach</label>
@@ -505,8 +505,8 @@ export default function EditCampaignPage() {
               </select>
             </div>
             {subscriberCount !== null && (
-              <div className="flex items-center gap-3 p-4 rounded-lg" style={{ background: "rgba(212,168,67,0.06)", border: "1px solid rgba(212,168,67,0.15)" }}>
-                <Users size={18} className="text-[#D4A843]" />
+              <div className="flex items-center gap-3 p-4 rounded-lg" style={{ background: "rgb(var(--accent-rgb) / 0.06)", border: "1px solid rgb(var(--accent-rgb) / 0.15)" }}>
+                <Users size={18} className="text-[var(--accent)]" />
                 <div>
                   <p className="text-white text-sm font-medium">{subscriberCount.toLocaleString("vi-VN")} nguoi nhan</p>
                   <p className="text-xs text-gray-500">{listId ? "Trong danh sach da chon" : "Tat ca subscribers"}</p>
@@ -524,9 +524,9 @@ export default function EditCampaignPage() {
                 onClick={() => setContentMode("template")}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors"
                 style={{
-                  background: contentMode === "template" ? "rgba(212,168,67,0.12)" : "#1f1f1f",
-                  color: contentMode === "template" ? "#D4A843" : "#9ca3af",
-                  border: contentMode === "template" ? "1px solid rgba(212,168,67,0.3)" : "1px solid #2a2a2a",
+                  background: contentMode === "template" ? "rgb(var(--accent-rgb) / 0.12)" : "var(--surface-2)",
+                  color: contentMode === "template" ? "var(--accent)" : "var(--fg-muted)",
+                  border: contentMode === "template" ? "1px solid rgb(var(--accent-rgb) / 0.3)" : "1px solid var(--border)",
                 }}
               >
                 <Layout size={15} /> Chon template
@@ -535,9 +535,9 @@ export default function EditCampaignPage() {
                 onClick={() => setContentMode("custom")}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors"
                 style={{
-                  background: contentMode === "custom" ? "rgba(212,168,67,0.12)" : "#1f1f1f",
-                  color: contentMode === "custom" ? "#D4A843" : "#9ca3af",
-                  border: contentMode === "custom" ? "1px solid rgba(212,168,67,0.3)" : "1px solid #2a2a2a",
+                  background: contentMode === "custom" ? "rgb(var(--accent-rgb) / 0.12)" : "var(--surface-2)",
+                  color: contentMode === "custom" ? "var(--accent)" : "var(--fg-muted)",
+                  border: contentMode === "custom" ? "1px solid rgb(var(--accent-rgb) / 0.3)" : "1px solid var(--border)",
                 }}
               >
                 <Sparkles size={15} /> Viet moi
@@ -557,10 +557,10 @@ export default function EditCampaignPage() {
                       const cat = CATEGORY_LABELS[tpl.category] ?? CATEGORY_LABELS.other;
                       return (
                         <div key={tpl.id} onClick={() => selectTemplate(tpl)} className="rounded-lg p-4 cursor-pointer transition-all"
-                          style={{ background: selectedTemplate === tpl.id ? "rgba(212,168,67,0.08)" : "#252525", border: selectedTemplate === tpl.id ? "2px solid #D4A843" : "2px solid #333" }}>
+                          style={{ background: selectedTemplate === tpl.id ? "rgb(var(--accent-rgb) / 0.08)" : "var(--surface-3)", border: selectedTemplate === tpl.id ? "2px solid var(--accent)" : "2px solid #333" }}>
                           <div className="flex items-start justify-between mb-2">
                             <h4 className="text-white text-sm font-medium truncate flex-1">{tpl.name}</h4>
-                            {selectedTemplate === tpl.id && <Check size={14} className="text-[#D4A843] shrink-0 ml-2" />}
+                            {selectedTemplate === tpl.id && <Check size={14} className="text-[var(--accent)] shrink-0 ml-2" />}
                           </div>
                           <p className="text-xs text-gray-500 truncate mb-2">{tpl.subject}</p>
                           <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ background: cat.color + "18", color: cat.color }}>{cat.label}</span>
@@ -576,7 +576,7 @@ export default function EditCampaignPage() {
               <div className="flex items-center justify-between">
                 <h3 className="text-white font-semibold text-sm">Noi dung HTML</h3>
                 <button onClick={() => setPreviewOpen(true)} disabled={!htmlContent}
-                  className="flex items-center gap-1.5 text-xs text-[#D4A843] hover:underline disabled:opacity-40">
+                  className="flex items-center gap-1.5 text-xs text-[var(--accent)] hover:underline disabled:opacity-40">
                   <Eye size={12} /> Xem truoc
                 </button>
               </div>
@@ -585,8 +585,8 @@ export default function EditCampaignPage() {
                 <div className="flex flex-wrap gap-1.5">
                   {VARIABLES.map((v) => (
                     <button key={v.label} type="button" onClick={() => insertVariable(v.label)}
-                      className="px-2 py-1 rounded text-xs font-mono transition-colors hover:bg-[#333]"
-                      style={{ background: "#252525", color: "#D4A843", border: "1px solid #333" }} title={v.desc}>
+                      className="px-2 py-1 rounded text-xs font-mono transition-colors hover:bg-[var(--surface-3)]"
+                      style={{ background: "var(--surface-3)", color: "var(--accent)", border: "1px solid #333" }} title={v.desc}>
                       {v.label}
                     </button>
                   ))}
@@ -612,7 +612,7 @@ export default function EditCampaignPage() {
           <div className="space-y-4">
             <div className="card-dark p-6 space-y-4">
               <h2 className="text-white font-semibold text-base flex items-center gap-2">
-                <Send size={18} className="text-[#D4A843]" /> Xem lai campaign
+                <Send size={18} className="text-[var(--accent)]" /> Xem lai campaign
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div><p className="text-[11px] text-gray-500 mb-0.5">Ten campaign</p><p className="text-white text-sm">{name || "--"}</p></div>
@@ -625,7 +625,7 @@ export default function EditCampaignPage() {
                 </div>
               </div>
               {htmlContent && (
-                <button onClick={() => setPreviewOpen(true)} className="flex items-center gap-1.5 text-xs text-[#D4A843] hover:underline">
+                <button onClick={() => setPreviewOpen(true)} className="flex items-center gap-1.5 text-xs text-[var(--accent)] hover:underline">
                   <Eye size={12} /> Xem truoc email
                 </button>
               )}
@@ -634,24 +634,24 @@ export default function EditCampaignPage() {
             {/* Test email */}
             <div className="card-dark p-5 space-y-3">
               <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                <Mail size={15} className="text-[#3b82f6]" /> Gui email test
+                <Mail size={15} className="text-[var(--info)]" /> Gui email test
               </h3>
               <div className="flex gap-2">
                 <input type="email" value={testEmail} onChange={(e) => setTestEmail(e.target.value)}
                   placeholder="your@email.com" className="input-dark flex-1 text-sm" />
                 <button onClick={sendTest} disabled={testSending || !testEmail}
                   className="px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2"
-                  style={{ background: "rgba(59,130,246,0.12)", color: "#3b82f6", border: "1px solid rgba(59,130,246,0.3)" }}>
+                  style={{ background: "rgb(var(--info-rgb) / 0.12)", color: "var(--info)", border: "1px solid rgb(var(--info-rgb) / 0.3)" }}>
                   {testSending ? <Loader2 size={13} className="animate-spin" /> : <Send size={13} />} Gui test
                 </button>
               </div>
-              {testResult && <p className="text-xs" style={{ color: testResult.ok ? "#D4A843" : "#ef4444" }}>{testResult.msg}</p>}
+              {testResult && <p className="text-xs" style={{ color: testResult.ok ? "var(--accent)" : "var(--danger)" }}>{testResult.msg}</p>}
             </div>
 
             {/* Schedule */}
             <div className="card-dark p-5 space-y-4">
               <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                <Clock size={15} className="text-[#f59e0b]" /> Len lich gui
+                <Clock size={15} className="text-[var(--warn)]" /> Len lich gui
               </h3>
               <div className="flex items-center gap-3">
                 <input type="datetime-local" value={scheduledAt} onChange={(e) => setScheduledAt(e.target.value)} className="input-dark text-sm flex-1" />
@@ -664,7 +664,7 @@ export default function EditCampaignPage() {
               {scheduledAt && (
                 <button onClick={async () => { await saveDraft(); router.push("/email/campaigns"); }}
                   className="px-6 py-3 rounded-lg text-sm font-medium flex items-center gap-2"
-                  style={{ background: "rgba(59,130,246,0.12)", color: "#3b82f6", border: "1px solid rgba(59,130,246,0.3)" }}>
+                  style={{ background: "rgb(var(--info-rgb) / 0.12)", color: "var(--info)", border: "1px solid rgb(var(--info-rgb) / 0.3)" }}>
                   <Clock size={15} /> Len lich gui
                 </button>
               )}
@@ -681,7 +681,7 @@ export default function EditCampaignPage() {
         <div className="flex items-center justify-between pt-2">
           <button onClick={() => goToStep(Math.max(0, step - 1))} disabled={step === 0}
             className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-gray-400 hover:text-white transition-colors disabled:opacity-30"
-            style={{ border: "1px solid #2a2a2a" }}>
+            style={{ border: "1px solid var(--border)" }}>
             <ChevronLeft size={15} /> Quay lai
           </button>
           {step < STEPS.length - 1 && (

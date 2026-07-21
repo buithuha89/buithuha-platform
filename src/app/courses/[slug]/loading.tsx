@@ -22,7 +22,7 @@ export default function Loading() {
           </div>
 
           {/* Progress card */}
-          <div className="rounded-xl p-4 space-y-2" style={{ background: "#151515", border: "1px solid #2a2a2a" }}>
+          <div className="rounded-xl p-4 space-y-2" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
             <div className="flex justify-between">
               <div className="h-3 bg-zinc-800 rounded w-32" />
               <div className="h-3 bg-zinc-800 rounded w-10" />
@@ -38,7 +38,7 @@ export default function Loading() {
           <div className="space-y-3">
             <div className="h-4 bg-zinc-800 rounded w-24" />
             {[1, 2].map((i) => (
-              <div key={i} className="rounded-xl p-4 space-y-2" style={{ background: "#151515", border: "1px solid #2a2a2a" }}>
+              <div key={i} className="rounded-xl p-4 space-y-2" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
                 <div className="flex gap-3">
                   <div className="w-8 h-8 rounded-full bg-zinc-800 shrink-0" />
                   <div className="flex-1 space-y-2">
@@ -54,19 +54,19 @@ export default function Loading() {
 
         {/* Sidebar */}
         <aside
-          className="w-80 shrink-0 border-l border-[#2a2a2a] overflow-y-auto"
-          style={{ background: "#111" }}
+          className="w-80 shrink-0 border-l border-[var(--border)] overflow-y-auto"
+          style={{ background: "var(--surface)" }}
         >
           {/* Sidebar header */}
-          <div className="p-4 border-b border-[#2a2a2a] space-y-1">
+          <div className="p-4 border-b border-[var(--border)] space-y-1">
             <div className="h-4 bg-zinc-800 rounded w-36" />
             <div className="h-3 bg-zinc-800 rounded w-24" />
           </div>
 
           {/* Chapter + lesson list */}
           {[1, 2, 3].map((ch) => (
-            <div key={ch} className="border-b border-[#1f1f1f]">
-              <div className="flex items-center justify-between p-3 bg-[#0d0d0d]">
+            <div key={ch} className="border-b border-[var(--surface-2)]">
+              <div className="flex items-center justify-between p-3 bg-[var(--bg-alt)]">
                 <div className="h-3 bg-zinc-800 rounded w-28" />
                 <div className="h-3 bg-zinc-800 rounded w-8" />
               </div>

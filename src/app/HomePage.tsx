@@ -46,7 +46,7 @@ const painPoints = [
 /* 4 chủ đề Hà viết */
 const silos = [
   {
-    num: 1, icon: MessageSquare, color: "#FBBF24",
+    num: 1, icon: MessageSquare, color: "var(--warn)",
     href: "/giao-tiep",
     title: "GIAO TIẾP & QUAN HỆ",
     subtitle: "Trong gia đình và ở chỗ làm",
@@ -59,7 +59,7 @@ const silos = [
     quote: "Hiểu nhau cần thời gian. Cãi nhau thì chỉ cần một câu sai",
   },
   {
-    num: 2, icon: Compass, color: "#84CC16",
+    num: 2, icon: Compass, color: "var(--cat-lime)",
     href: "/phat-trien-ban-than",
     title: "PHÁT TRIỂN BẢN THÂN",
     subtitle: "Hiểu mình rồi mới biết đi đâu",
@@ -72,7 +72,7 @@ const silos = [
     quote: "Mình chưa biết mình muốn gì thì không ai giúp được",
   },
   {
-    num: 3, icon: BookOpen, color: "#FBBF24",
+    num: 3, icon: BookOpen, color: "var(--warn)",
     href: "/nghe-ld",
     title: "NGHỀ L&D",
     subtitle: "Cho người làm Học & Phát triển trong doanh nghiệp",
@@ -85,7 +85,7 @@ const silos = [
     quote: "Người dạy giỏi là người vẫn còn đang học",
   },
   {
-    num: 4, icon: Award, color: "#84CC16",
+    num: 4, icon: Award, color: "var(--cat-lime)",
     href: "/lanh-dao-quan-ly",
     title: "LÃNH ĐẠO & QUẢN LÝ",
     subtitle: "Cho quản lý cấp trung và doanh chủ SME",
@@ -278,27 +278,50 @@ export default function HomePage() {
     { id: "ai-ld", icon: "🎓", title: "Người làm nghề L&D / HR", btn: "Tôi làm L&D / HR", pain: "Bạn làm đào tạo / nhân sự và muốn hiểu nghề sâu hơn — có phương pháp bài bản, không mò mẫm.", links: [{ label: "Đọc chủ đề Nghề L&D →", href: "/nghe-ld" }] },
   ];
 
-  // Hệ sinh thái (mục có sẵn + mục sắp có, như lưới sản phẩm của vanhongteacher)
-  const ecosystem = [
-    { icon: "🎓", title: "Khóa học", desc: "Các khóa nâng cao năng lực quản lý & kỹ năng thiết yếu.", href: "/courses", soon: false },
-    { icon: "📘", title: "Ebook & Cẩm nang", desc: "Sách ngắn, cẩm nang áp dụng được ngay.", href: "/ebook", soon: false },
-    { icon: "📝", title: "Trắc nghiệm", desc: "Bài tự chẩn đoán “GÁNH hay DẪN DẮT?” — 2 phút, có kết quả riêng.", href: "/trac-nghiem", soon: false },
-    { icon: "🧾", title: "Biểu mẫu & Form", desc: "Form giao việc, khung năng lực, đánh giá — điền là dùng.", href: "/bieu-mau", soon: false },
-    { icon: "✅", title: "Checklist", desc: "Danh sách kiểm việc cho từng tình huống quản lý.", href: "/checklist", soon: false },
-    { icon: "📖", title: "Truyện tranh quản trị", desc: "Bài học quản lý kể bằng truyện tranh — dễ nhớ, dễ ngấm.", href: "#", soon: true },
-    { icon: "🧩", title: "Case study & Tình huống", desc: "Tình huống quản trị thật để mổ xẻ và rút bài học.", href: "#", soon: true },
-    { icon: "🤖", title: "Thư viện Prompt AI", desc: "Prompt dùng AI để giao việc, viết đánh giá, phản hồi nhanh.", href: "#", soon: true },
-    { icon: "🎬", title: "Video ngắn", desc: "Bài giảng video ngắn, xem lúc rảnh, áp dụng liền.", href: "#", soon: true },
-    { icon: "✍️", title: "Blog", desc: "Chia sẻ thật từ trải nghiệm quản lý & đào tạo.", href: "/blog", soon: false },
-    { icon: "👥", title: "Cộng đồng", desc: "Nơi hỏi–đáp cùng chủ doanh nghiệp & quản lý.", href: "/community", soon: false },
-    { icon: "💎", title: "Membership", desc: "Gói hội viên: học liệu mới + đồng hành hàng tháng.", href: "#", soon: true },
+  // Hệ sinh thái — chia 3 tầng theo mức cam kết: nếm thử miễn phí → học sâu trả phí → đồng hành
+  const ecosystemTiers = [
+    {
+      badge: "Miễn phí",
+      heading: "Nếm thử — để bạn tin",
+      sub: "Đọc, làm, tự chẩn đoán. Đủ để bạn hiểu cách tôi làm việc.",
+      color: "var(--success)",
+      items: [
+        { icon: "📝", title: "Trắc nghiệm", desc: "Tự chẩn đoán “GÁNH hay DẪN DẮT?” — 2 phút, có kết quả riêng.", href: "/trac-nghiem" },
+        { icon: "✍️", title: "Blog & Tình huống", desc: "Chia sẻ thật và tình huống quản trị từ trải nghiệm.", href: "/blog" },
+        { icon: "🧾", title: "Biểu mẫu & Checklist", desc: "Vài mẫu giao việc, đánh giá, kiểm việc để bạn bắt đầu.", href: "/bieu-mau" },
+        { icon: "📘", title: "Ebook mồi", desc: "Cẩm nang ngắn, đọc là áp dụng được ngay.", href: "/ebook" },
+      ],
+    },
+    {
+      badge: "Trả phí",
+      heading: "Học sâu — làm được thật",
+      sub: "Trọn bộ phương pháp, công cụ và tình huống có phân tích.",
+      color: "var(--accent-hover)",
+      items: [
+        { icon: "🎓", title: "Khóa học", desc: "Khóa nâng cao năng lực quản lý & kỹ năng thiết yếu.", href: "/courses" },
+        { icon: "📕", title: "Ebook chuyên sâu", desc: "Sách đầy đủ như “Nghệ thuật thừa nhận sai” — đọc thử rồi mua.", href: "/ebook/nghe-thuat-thua-nhan-sai" },
+        { icon: "🧰", title: "Bộ công cụ & Prompt AI", desc: "Trọn bộ biểu mẫu và prompt dùng ngay — đi kèm khóa học.", href: "/courses" },
+        { icon: "🧩", title: "Thư viện Case study", desc: "Tình huống quản trị thật, có phân tích và bài học.", href: "#", soon: true },
+      ],
+    },
+    {
+      badge: "Đồng hành",
+      heading: "Đi cùng bạn — 1 kèm 1 và cho tổ chức",
+      sub: "Có tôi ở bên khi bạn bắt tay vào làm.",
+      color: "var(--warn)",
+      items: [
+        { icon: "🧭", title: "Tư vấn 1-1", desc: "Tư vấn nghề nghiệp & lộ trình cho người mới ra trường, L&D mới vào nghề, quản lý mới lên.", href: "/tu-van-1-1" },
+        { icon: "🏢", title: "Đào tạo doanh nghiệp", desc: "Kỹ năng văn phòng & năng lực quản trị cho doanh nghiệp lớn và SME.", href: "/dao-tao-doanh-nghiep" },
+        { icon: "👥", title: "Hội viên & Cộng đồng", desc: "Hỏi–đáp cùng chủ doanh nghiệp & quản lý; quyền lợi hội viên.", href: "/community" },
+      ],
+    },
   ];
 
   return (
-    <div className="bg-[#F7F3EC] min-h-screen text-[#221E18] overflow-x-hidden">
+    <div className="bg-[var(--bg)] min-h-screen text-[var(--fg)] overflow-x-hidden">
 
       {/* ═══ HEADER ═══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F7F3EC]/92 backdrop-blur-xl border-b border-[#E7DECE]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)]/92 backdrop-blur-xl border-b border-[var(--border)]">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5">
@@ -311,32 +334,32 @@ export default function HomePage() {
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-x-[18px]">
             {navLinks.map((l) => (
-              <a key={l.label} href={l.href} className="text-[15px] font-semibold text-[#3A3428] hover:text-[#B8791A] transition-colors whitespace-nowrap">{l.label}</a>
+              <a key={l.label} href={l.href} className="text-[15px] font-semibold text-[var(--fg)] hover:text-[var(--accent-hover)] transition-colors whitespace-nowrap">{l.label}</a>
             ))}
           </div>
 
           {/* Right */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link href="/login" className="text-[13px] text-[#6E6455] hover:text-[#221E18] transition-colors">Đăng nhập</Link>
+            <Link href="/login" className="text-[13px] text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">Đăng nhập</Link>
             <button onClick={() => setShowLeadModal(true)} className="btn-green text-[13px] py-2 px-4 whitespace-nowrap">
               <Gift size={14} /> Nhận cẩm nang
             </button>
           </div>
 
           {/* Mobile hamburger */}
-          <button onClick={() => setMobileMenu(!mobileMenu)} className="lg:hidden text-[#6E6455] p-2">
+          <button onClick={() => setMobileMenu(!mobileMenu)} className="lg:hidden text-[var(--fg-muted)] p-2">
             {mobileMenu ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
         {/* Mobile menu */}
         {mobileMenu && (
-          <div className="md:hidden bg-white border-t border-[#E7DECE] px-4 py-4 space-y-3">
+          <div className="md:hidden bg-white border-t border-[var(--border)] px-4 py-4 space-y-3">
             {navLinks.map((l) => (
-              <a key={l.label} href={l.href} onClick={() => setMobileMenu(false)} className="block text-[15px] font-semibold text-[#3A3428] py-2">{l.label}</a>
+              <a key={l.label} href={l.href} onClick={() => setMobileMenu(false)} className="block text-[15px] font-semibold text-[var(--fg)] py-2">{l.label}</a>
             ))}
             <div className="flex gap-3 pt-2">
-              <Link href="/login" className="text-sm text-[#6E6455]">Đăng nhập</Link>
+              <Link href="/login" className="text-sm text-[var(--fg-muted)]">Đăng nhập</Link>
               <button onClick={() => { setShowLeadModal(true); setMobileMenu(false); }} className="btn-green text-sm py-2 px-4">
                 <Gift size={14} /> Nhận cẩm nang
               </button>
@@ -349,69 +372,69 @@ export default function HomePage() {
       <section className="pt-24 sm:pt-36 pb-12 sm:pb-24 relative">
         {/* Glow */}
         <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full opacity-15 blur-[80px] pointer-events-none"
-          style={{ background: "radial-gradient(circle, #FBBF24, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, var(--warn), transparent 70%)" }} />
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-5 sm:mb-8 text-xs sm:text-sm font-medium"
-            style={{ background: "rgba(251,191,36,0.1)", border: "1px solid rgba(251,191,36,0.25)", color: "#B8791A" }}>
+            style={{ background: "rgb(var(--warn-rgb) / 0.1)", border: "1px solid rgb(var(--warn-rgb) / 0.25)", color: "var(--accent-hover)" }}>
             <Heart size={14} /> Học viện Quản trị &amp; Kỹ năng thiết yếu
           </div>
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-4 sm:mb-6">
-            Dẫn dắt đội nhóm, vận hành công việc — <span className="text-[#B8791A]">mà không phải ôm hết một mình</span>
+            Dẫn dắt đội nhóm, vận hành công việc — <span className="text-[var(--accent-hover)]">mà không phải ôm hết một mình</span>
           </h1>
 
           {/* Sub-headline */}
-          <p className="text-sm sm:text-lg text-[#6E6455] max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
-            Nơi dành cho <strong className="text-[#221E18]">quản lý mới lên, quản lý cấp trung, chủ doanh nghiệp nhỏ và người làm một mình</strong> —
+          <p className="text-sm sm:text-lg text-[var(--fg-muted)] max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
+            Nơi dành cho <strong className="text-[var(--fg)]">quản lý mới lên, quản lý cấp trung, chủ doanh nghiệp nhỏ và người làm một mình</strong> —
             học cách xây đội nhóm, giao việc và vận hành bằng hệ thống, thay vì gồng bằng sức.
             Tôi là {siteConfig.owner.name}: MBA, nhiều năm đào tạo trong doanh nghiệp, vẫn đang ngồi đúng cái ghế quản lý áp lực đó — và viết lại những gì thật sự dùng được.
           </p>
 
           {/* Phân nhóm khách — chọn lối đi */}
           <div className="max-w-3xl mx-auto">
-            <p className="text-xs sm:text-sm text-[#8A7F6D] mb-3">Bạn đang ở vai trò nào? Chọn để vào thẳng nội dung dành riêng cho bạn:</p>
+            <p className="text-xs sm:text-sm text-[var(--fg-subtle)] mb-3">Bạn đang ở vai trò nào? Chọn để vào thẳng nội dung dành riêng cho bạn:</p>
             <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3">
               {audiences.map((a) => (
                 <a key={a.id} href={`#${a.id}`}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold border border-[#E0D7C7] bg-[#F1EADD] text-[#3A3428] hover:border-[#CC8A22] hover:text-[#221E18] hover:bg-[#FBBF24]/20 transition-all">
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold border border-[var(--border-strong)] bg-[var(--bg-alt)] text-[var(--fg)] hover:border-[var(--accent-hover)] hover:text-[var(--fg)] hover:bg-[var(--warn)]/20 transition-all">
                   <span>{a.icon}</span> {a.btn}
                 </a>
               ))}
             </div>
-            <button onClick={() => setShowLeadModal(true)} className="mt-5 inline-flex items-center gap-2 text-sm text-[#B8791A] hover:underline">
+            <button onClick={() => setShowLeadModal(true)} className="mt-5 inline-flex items-center gap-2 text-sm text-[var(--accent-hover)] hover:underline">
               <Download size={15} /> Hoặc nhận trước bộ cẩm nang miễn phí
             </button>
           </div>
 
           {/* Trust bar */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 mt-8 sm:mt-12 text-xs sm:text-sm text-[#8A7F6D]">
-            <span className="flex items-center gap-1.5"><BookOpen size={14} className="text-[#B8791A]" /> MBA</span>
-            <span className="flex items-center gap-1.5"><Briefcase size={14} className="text-[#84CC16]" /> Nhiều năm đào tạo</span>
-            <span className="flex items-center gap-1.5"><Heart size={14} className="text-[#B8791A]" /> Vẫn đang làm quản lý</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 mt-8 sm:mt-12 text-xs sm:text-sm text-[var(--fg-subtle)]">
+            <span className="flex items-center gap-1.5"><BookOpen size={14} className="text-[var(--accent-hover)]" /> MBA</span>
+            <span className="flex items-center gap-1.5"><Briefcase size={14} className="text-[var(--cat-lime)]" /> Nhiều năm đào tạo</span>
+            <span className="flex items-center gap-1.5"><Heart size={14} className="text-[var(--accent-hover)]" /> Vẫn đang làm quản lý</span>
           </div>
         </div>
       </section>
 
       {/* ═══ BẠN LÀ AI — lối đi theo nhóm ═══ */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 border-t border-[#E7DECE]">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 border-t border-[var(--border)]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 sm:mb-14">
-            <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">Bạn là <span className="text-[#B8791A]">ai</span>?</h2>
-            <p className="text-[#6E6455] max-w-xl mx-auto">Mỗi nhóm có một lối đi riêng. Chọn đúng vai trò của bạn để vào thẳng nội dung hợp nhất.</p>
+            <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">Bạn là <span className="text-[var(--accent-hover)]">ai</span>?</h2>
+            <p className="text-[var(--fg-muted)] max-w-xl mx-auto">Mỗi nhóm có một lối đi riêng. Chọn đúng vai trò của bạn để vào thẳng nội dung hợp nhất.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {audiences.map((a) => (
               <div key={a.id} id={a.id}
-                className="bg-white border border-[#E7DECE] rounded-2xl p-6 sm:p-7 hover:border-[#FBBF24]/40 transition-all scroll-mt-24">
+                className="bg-white border border-[var(--border)] rounded-2xl p-6 sm:p-7 hover:border-[var(--warn)]/40 transition-all scroll-mt-24">
                 <div className="text-3xl mb-3">{a.icon}</div>
                 <h3 className="text-lg font-bold mb-2">{a.title}</h3>
-                <p className="text-sm text-[#6E6455] leading-relaxed mb-4">{a.pain}</p>
+                <p className="text-sm text-[var(--fg-muted)] leading-relaxed mb-4">{a.pain}</p>
                 <div className="flex flex-col gap-2">
                   {a.links.map((lk) => (
-                    <a key={lk.href} href={lk.href} className="text-sm font-semibold text-[#B8791A] inline-flex items-center gap-1.5 hover:gap-2.5 transition-all w-fit">{lk.label}</a>
+                    <a key={lk.href} href={lk.href} className="text-sm font-semibold text-[var(--accent-hover)] inline-flex items-center gap-1.5 hover:gap-2.5 transition-all w-fit">{lk.label}</a>
                   ))}
                 </div>
               </div>
@@ -421,25 +444,39 @@ export default function HomePage() {
       </section>
 
       {/* ═══ HỆ SINH THÁI ═══ */}
-      <section id="he-sinh-thai" className="py-12 sm:py-20 px-4 sm:px-6 border-t border-[#E7DECE] scroll-mt-16">
+      <section id="he-sinh-thai" className="py-12 sm:py-20 px-4 sm:px-6 border-t border-[var(--border)] scroll-mt-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 sm:mb-14">
-            <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">Hệ sinh thái <span className="text-[#B8791A]">Hà Bùi</span></h2>
-            <p className="text-[#6E6455] max-w-xl mx-auto">Mọi thứ bạn cần để quản trị tốt hơn — học, thực hành và áp dụng ngay.</p>
+            <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">Hệ sinh thái <span className="text-[var(--accent-hover)]">Hà Bùi</span></h2>
+            <p className="text-[var(--fg-muted)] max-w-xl mx-auto">Mọi thứ bạn cần để quản trị tốt hơn — học, thực hành và áp dụng ngay.</p>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-            {ecosystem.map((c) => c.soon ? (
-              <div key={c.title} className="block bg-white border border-[#E7DECE] rounded-2xl p-5 transition-all">
-                <div className="text-2xl mb-2">{c.icon}</div>
-                <h3 className="font-bold text-sm mb-1">{c.title}</h3>
-                <p className="text-xs text-[#8A7F6D] leading-relaxed">{c.desc}</p>
+          <div className="space-y-10 sm:space-y-12">
+            {ecosystemTiers.map((tier) => (
+              <div key={tier.badge}>
+                <div className="flex items-baseline gap-3 mb-4 flex-wrap">
+                  <span className="text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full whitespace-nowrap"
+                    style={{ color: tier.color, border: `1.5px solid ${tier.color}` }}>
+                    {tier.badge}
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-extrabold">{tier.heading}</h3>
+                  <span className="text-sm text-[var(--fg-muted)] hidden sm:inline">— {tier.sub}</span>
+                </div>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                  {tier.items.map((c) => "soon" in c && c.soon ? (
+                    <div key={c.title} className="block bg-white border border-[var(--border)] rounded-2xl p-5">
+                      <div className="text-2xl mb-2">{c.icon}</div>
+                      <h4 className="font-bold text-sm mb-1">{c.title}</h4>
+                      <p className="text-xs text-[var(--fg-subtle)] leading-relaxed">{c.desc}</p>
+                    </div>
+                  ) : (
+                    <a key={c.title} href={c.href} className="group block bg-white border border-[var(--border)] rounded-2xl p-5 hover:border-[var(--warn)]/40 transition-all">
+                      <div className="text-2xl mb-2">{c.icon}</div>
+                      <h4 className="font-bold text-sm mb-1 group-hover:text-[var(--accent-hover)] transition-colors">{c.title}</h4>
+                      <p className="text-xs text-[var(--fg-subtle)] leading-relaxed">{c.desc}</p>
+                    </a>
+                  ))}
+                </div>
               </div>
-            ) : (
-              <a key={c.title} href={c.href} className="group block bg-white border border-[#E7DECE] rounded-2xl p-5 hover:border-[#FBBF24]/40 transition-all">
-                <div className="text-2xl mb-2">{c.icon}</div>
-                <h3 className="font-bold text-sm mb-1 group-hover:text-[#B8791A] transition-colors">{c.title}</h3>
-                <p className="text-xs text-[#8A7F6D] leading-relaxed">{c.desc}</p>
-              </a>
             ))}
           </div>
         </div>
@@ -449,19 +486,19 @@ export default function HomePage() {
       <section className="py-12 sm:py-24 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Có thể bạn đang <span className="text-[#B8791A]">gặp một trong những điều này</span></h2>
+            Có thể bạn đang <span className="text-[var(--accent-hover)]">gặp một trong những điều này</span></h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             {painPoints.map((p, i) => (
-              <div key={i} className="bg-white border border-[#E7DECE] rounded-2xl p-6 hover:border-[#FBBF24]/20 transition-colors">
+              <div key={i} className="bg-white border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--warn)]/20 transition-colors">
                 <div className="text-3xl mb-3">{p.emoji}</div>
                 <h3 className="text-lg font-bold mb-2">{p.title}</h3>
-                <p className="text-sm text-[#6E6455] leading-relaxed">{p.desc}</p>
+                <p className="text-sm text-[var(--fg-muted)] leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-center mt-10 text-[#6E6455]">
+          <p className="text-center mt-10 text-[var(--fg-muted)]">
             Tôi đã từng ở những chỗ này. Không có lối thoát thần kỳ — nhưng có phương pháp, có trải nghiệm thật, và những điều tôi rút ra được để đi qua.
           </p>
         </div>
@@ -470,22 +507,22 @@ export default function HomePage() {
       {/* ═══ FLAGSHIP PROGRAM BANNER ═══ */}
       <section className="py-10 sm:py-16 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="relative overflow-hidden rounded-3xl border border-[#FBBF24]/25 p-8 sm:p-12 text-center"
-            style={{ background: "linear-gradient(135deg,#FFFDF9,#F6EAD1)" }}>
+          <div className="relative overflow-hidden rounded-3xl border border-[var(--warn)]/25 p-8 sm:p-12 text-center"
+            style={{ background: "linear-gradient(135deg,var(--surface),#F6EAD1)" }}>
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[420px] h-[220px] rounded-full opacity-10 blur-[70px] pointer-events-none"
-              style={{ background: "radial-gradient(circle,#FBBF24,transparent 70%)" }} />
+              style={{ background: "radial-gradient(circle,var(--warn),transparent 70%)" }} />
             <div className="relative">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-5 text-xs font-bold"
-                style={{ background: "rgba(251,191,36,0.12)", border: "1px solid rgba(251,191,36,0.25)", color: "#B8791A" }}>
+                style={{ background: "rgb(var(--warn-rgb) / 0.12)", border: "1px solid rgb(var(--warn-rgb) / 0.25)", color: "var(--accent-hover)" }}>
                 ⭐ Chương trình chủ lực
               </div>
               <h2 className="text-2xl sm:text-4xl font-extrabold mb-4">
                 Người Tắt Đèn Cuối Cùng
               </h2>
-              <p className="text-[#4A4234] max-w-2xl mx-auto mb-2 leading-relaxed">
-                Chương trình <span className="text-[#B8791A] font-semibold">180 ngày nâng cao năng lực quản lý</span> — để công việc chạy mà không phải qua tay bạn.
+              <p className="text-[var(--fg-muted)] max-w-2xl mx-auto mb-2 leading-relaxed">
+                Chương trình <span className="text-[var(--accent-hover)] font-semibold">180 ngày nâng cao năng lực quản lý</span> — để công việc chạy mà không phải qua tay bạn.
               </p>
-              <p className="text-sm text-[#8A7F6D] mb-7">Dành cho chủ doanh nghiệp SME · quản lý lâu năm · người làm một mình</p>
+              <p className="text-sm text-[var(--fg-subtle)] mb-7">Dành cho chủ doanh nghiệp SME · quản lý lâu năm · người làm một mình</p>
               <Link href="/nguoi-tat-den-cuoi-cung" className="btn-green text-base py-3.5 px-8 inline-flex justify-center">
                 Tìm hiểu chương trình <ArrowRight size={18} />
               </Link>
@@ -495,19 +532,19 @@ export default function HomePage() {
       </section>
 
       {/* ═══ SECTION 3: 4 SILO ═══ */}
-      <section id="silos" className="py-12 sm:py-24 px-4 sm:px-6 bg-[#F1EADD]">
+      <section id="silos" className="py-12 sm:py-24 px-4 sm:px-6 bg-[var(--bg-alt)]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">
-              4 chủ đề <span className="text-[#B8791A]">tôi viết</span>
+              4 chủ đề <span className="text-[var(--accent-hover)]">tôi viết</span>
             </h2>
-            <p className="text-[#6E6455]">Không phải &quot;4 bước thành công&quot;. Đây là 4 mảng Hà có chuyện thật để kể.</p>
+            <p className="text-[var(--fg-muted)]">Không phải &quot;4 bước thành công&quot;. Đây là 4 mảng Hà có chuyện thật để kể.</p>
           </div>
 
           <div className="space-y-5">
             {silos.map((s) => (
               <Link key={s.num} href={s.href}
-                className="block bg-white border border-[#E7DECE] rounded-2xl p-6 sm:p-8 relative overflow-hidden hover:border-[#E0D7C7] transition-colors group">
+                className="block bg-white border border-[var(--border)] rounded-2xl p-6 sm:p-8 relative overflow-hidden hover:border-[var(--border-strong)] transition-colors group">
                 {/* Number bg */}
                 <div className="absolute top-4 right-6 text-[80px] font-extrabold leading-none opacity-5" style={{ color: s.color }}>
                   {s.num}
@@ -525,12 +562,12 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <p className="text-[#4A4234] font-medium mb-4">{s.subtitle}</p>
+                  <p className="text-[var(--fg-muted)] font-medium mb-4">{s.subtitle}</p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
                     {s.points.map((pt, j) => (
-                      <div key={j} className="flex items-start gap-2 text-sm text-[#6E6455]">
-                        <CheckCircle size={15} className="text-[#22c55e] shrink-0 mt-0.5" />
+                      <div key={j} className="flex items-start gap-2 text-sm text-[var(--fg-muted)]">
+                        <CheckCircle size={15} className="text-[var(--success)] shrink-0 mt-0.5" />
                         <span>{pt}</span>
                       </div>
                     ))}
@@ -558,13 +595,13 @@ export default function HomePage() {
       <section id="about" className="py-12 sm:py-24 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            <span className="text-[#B8791A]">{siteConfig.owner.name}</span> là ai?
+            <span className="text-[var(--accent-hover)]">{siteConfig.owner.name}</span> là ai?
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
             {/* Photo */}
             <div className="lg:col-span-2">
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden relative border border-[#E0D7C7]">
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden relative border border-[var(--border-strong)]">
                 <Image
                   src={siteConfig.owner.avatar}
                   alt={siteConfig.owner.name}
@@ -575,7 +612,7 @@ export default function HomePage() {
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center"
                   style={{ background: "linear-gradient(transparent, rgba(0,0,0,0.85))" }}>
                   <div className="text-lg font-bold">{siteConfig.owner.name}</div>
-                  <div className="text-sm text-[#B8791A]">{siteConfig.owner.title}</div>
+                  <div className="text-sm text-[var(--accent-hover)]">{siteConfig.owner.title}</div>
                 </div>
               </div>
             </div>
@@ -583,10 +620,10 @@ export default function HomePage() {
             {/* Bio */}
             <div className="lg:col-span-3 space-y-5">
               <h3 className="text-xl sm:text-2xl font-bold leading-snug">
-                Vẫn đang làm <span className="text-[#B8791A]">đào tạo và quản lý</span> — đã học xong MBA
+                Vẫn đang làm <span className="text-[var(--accent-hover)]">đào tạo và quản lý</span> — đã học xong MBA
               </h3>
 
-              <p className="text-[#6E6455] leading-relaxed">
+              <p className="text-[var(--fg-muted)] leading-relaxed">
                 Tôi làm đào tạo trong doanh nghiệp đã nhiều năm. Song song đó, tôi vẫn đang trực tiếp làm quản lý — lead team,
                 chịu áp lực kẹp giữa sếp và nhân viên. Sau khi học MBA xong, tôi dành thời gian đọc, viết, ghi lại những gì tôi làm mỗi ngày.
                 Hà Bùi Academy là nơi tôi tập hợp những thứ đó.
@@ -601,24 +638,24 @@ export default function HomePage() {
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <span className="text-lg shrink-0">{item.icon}</span>
-                    <span className="text-sm text-[#4A4234]">{item.text}</span>
+                    <span className="text-sm text-[var(--fg-muted)]">{item.text}</span>
                   </div>
                 ))}
               </div>
 
-              <blockquote className="border-l-2 border-[#FBBF24] pl-4 italic text-[#6E6455] text-sm">
+              <blockquote className="border-l-2 border-[var(--warn)] pl-4 italic text-[var(--fg-muted)] text-sm">
                 &quot;Tôi không phải coach kiểu diễn giả truyền cảm hứng. Tôi là người vẫn đang trực tiếp làm quản lý —
                 và chia sẻ lại đúng những gì tôi dùng được thật.&quot;
               </blockquote>
 
               <div className="flex flex-wrap gap-3">
                 <Link href="/about"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-[#FBBF24]/30 text-[#B8791A] hover:bg-[#FBBF24]/5 transition-colors">
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-[var(--warn)]/30 text-[var(--accent-hover)] hover:bg-[var(--warn)]/5 transition-colors">
                   Đọc thêm về Hà <ArrowRight size={15} />
                 </Link>
                 <a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all hover:scale-[1.02]"
-                  style={{ background: "#1877F2", color: "#fff" }}>
+                  style={{ background: "#1877F2", color: "var(--fg)" }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                   Nhắn cho Hà qua Facebook
                 </a>
@@ -629,21 +666,21 @@ export default function HomePage() {
       </section>
 
       {/* ═══ SECTION 5: WHO IS THIS FOR ═══ */}
-      <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[#F1EADD]">
+      <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[var(--bg-alt)]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Tôi viết cho <span className="text-[#84CC16]">ai</span>?
+            Tôi viết cho <span className="text-[var(--cat-lime)]">ai</span>?
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {targetAudience.map((t, i) => (
-              <div key={i} className="bg-white border border-[#E7DECE] rounded-2xl p-6 hover:border-[#84CC16]/20 transition-colors">
+              <div key={i} className="bg-white border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--cat-lime)]/20 transition-colors">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
                   style={{ background: "rgba(132,204,22,0.1)" }}>
-                  <t.icon size={20} className="text-[#84CC16]" />
+                  <t.icon size={20} className="text-[var(--cat-lime)]" />
                 </div>
                 <h3 className="font-bold mb-2">{t.title}</h3>
-                <p className="text-sm text-[#6E6455] leading-relaxed">{t.desc}</p>
+                <p className="text-sm text-[var(--fg-muted)] leading-relaxed">{t.desc}</p>
               </div>
             ))}
           </div>
@@ -655,19 +692,19 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">
-              Chương trình của <span className="text-[#B8791A]">{siteConfig.name}</span>
+              Chương trình của <span className="text-[var(--accent-hover)]">{siteConfig.name}</span>
             </h2>
-            <p className="text-[#6E6455]">Đang được hoàn thiện — đăng ký nhận thông báo sớm để được ưu tiên</p>
+            <p className="text-[var(--fg-muted)]">Đang được hoàn thiện — đăng ký nhận thông báo sớm để được ưu tiên</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {dynamicCourses.map((c, i) => (
-              <div key={c.slug ?? i} className="bg-white border border-[#E7DECE] rounded-2xl overflow-hidden flex flex-col hover:border-[#FBBF24]/20 transition-colors">
+              <div key={c.slug ?? i} className="bg-white border border-[var(--border)] rounded-2xl overflow-hidden flex flex-col hover:border-[var(--warn)]/20 transition-colors">
                 {c.thumbnail && !c._static && (
-                  <div className="relative aspect-video bg-[#F1EADD] overflow-hidden">
+                  <div className="relative aspect-video bg-[var(--bg-alt)] overflow-hidden">
                     <Image src={c.thumbnail} alt={c.title} fill sizes="(max-width: 640px) 100vw, 50vw" className="object-cover" />
                     {c.price > 0 && c.sale_price !== null && c.sale_price < c.price && (
-                      <span className="absolute top-3 right-3 px-2 py-1 rounded-md text-[11px] font-bold bg-red-500 text-[#221E18]">
+                      <span className="absolute top-3 right-3 px-2 py-1 rounded-md text-[11px] font-bold bg-red-500 text-[var(--fg)]">
                         -{Math.round(((c.price - c.sale_price) / c.price) * 100)}%
                       </span>
                     )}
@@ -684,22 +721,22 @@ export default function HomePage() {
                       {c.badge && (
                         <span className="text-xs font-bold px-2 py-0.5 rounded-md"
                           style={{
-                            background: c.badge === "Sắp ra mắt" ? "rgba(132,204,22,0.1)" : c.badge === "Miễn phí" ? "rgba(34,197,94,0.1)" : "rgba(251,191,36,0.1)",
-                            color: c.badge === "Sắp ra mắt" ? "#84CC16" : c.badge === "Miễn phí" ? "#22c55e" : "#B8791A",
+                            background: c.badge === "Sắp ra mắt" ? "rgba(132,204,22,0.1)" : c.badge === "Miễn phí" ? "rgb(var(--success-rgb) / 0.1)" : "rgb(var(--warn-rgb) / 0.1)",
+                            color: c.badge === "Sắp ra mắt" ? "var(--cat-lime)" : c.badge === "Miễn phí" ? "var(--success)" : "var(--accent-hover)",
                           }}>
                           {c.badge}
                         </span>
                       )}
                     </div>
                   </div>
-                  <p className="text-sm text-[#6E6455] leading-relaxed mb-4 flex-1">{c.desc}</p>
-                  <div className="text-xs text-[#8A7F6D] mb-4">{c.stats}</div>
+                  <p className="text-sm text-[var(--fg-muted)] leading-relaxed mb-4 flex-1">{c.desc}</p>
+                  <div className="text-xs text-[var(--fg-subtle)] mb-4">{c.stats}</div>
                   {c.slug ? (
                     <Link href={`/courses/${c.slug}`} className="btn-green text-sm py-2.5 justify-center">
                       Xem chi tiết <ArrowRight size={15} />
                     </Link>
                   ) : (
-                    <button onClick={() => setShowLeadModal(true)} className="inline-flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-bold border border-[#84CC16]/30 text-[#84CC16] hover:bg-[#84CC16]/5 transition-colors">
+                    <button onClick={() => setShowLeadModal(true)} className="inline-flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-bold border border-[var(--cat-lime)]/30 text-[var(--cat-lime)] hover:bg-[var(--cat-lime)]/5 transition-colors">
                       Đăng ký nhận thông báo <ArrowRight size={15} />
                     </button>
                   )}
@@ -709,7 +746,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/courses" className="inline-flex items-center gap-2 text-sm font-medium text-[#B8791A] hover:text-[#FFD814] transition-colors">
+            <Link href="/courses" className="inline-flex items-center gap-2 text-sm font-medium text-[var(--accent-hover)] hover:text-[var(--accent)] transition-colors">
               Xem tất cả chương trình <ArrowRight size={15} />
             </Link>
           </div>
@@ -717,24 +754,24 @@ export default function HomePage() {
       </section>
 
       {/* ═══ SECTION 7: 4 GIÁ TRỊ CỐT LÕI (thay testimonials số bịa) ═══ */}
-      <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[#F1EADD]">
+      <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[var(--bg-alt)]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-4">
-            4 thứ Hà có để <span className="text-[#84CC16]">chia sẻ với bạn</span>
+            4 thứ Hà có để <span className="text-[var(--cat-lime)]">chia sẻ với bạn</span>
           </h2>
-          <p className="text-center text-[#6E6455] mb-14 max-w-2xl mx-auto">
+          <p className="text-center text-[var(--fg-muted)] mb-14 max-w-2xl mx-auto">
             Không phải khẩu hiệu. Đây là 4 thứ Hà thực sự đã có và đang làm.
           </p>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {valueBar.map((v, i) => (
-              <div key={i} className="text-center bg-white border border-[#E7DECE] rounded-2xl py-8 px-4 hover:border-[#FBBF24]/20 transition-colors">
+              <div key={i} className="text-center bg-white border border-[var(--border)] rounded-2xl py-8 px-4 hover:border-[var(--warn)]/20 transition-colors">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4"
-                  style={{ background: "rgba(251,191,36,0.1)" }}>
-                  <v.icon size={22} className="text-[#B8791A]" />
+                  style={{ background: "rgb(var(--warn-rgb) / 0.1)" }}>
+                  <v.icon size={22} className="text-[var(--accent-hover)]" />
                 </div>
                 <div className="text-lg font-extrabold mb-1">{v.label}</div>
-                <div className="text-xs text-[#8A7F6D]">{v.desc}</div>
+                <div className="text-xs text-[var(--fg-subtle)]">{v.desc}</div>
               </div>
             ))}
           </div>
@@ -745,18 +782,18 @@ export default function HomePage() {
       {/* ═══ SECTION 8: FREE OFFER ═══ */}
       <section id="free-offer" className="py-12 sm:py-24 px-4 sm:px-6 relative overflow-hidden scroll-mt-20">
         <div className="absolute inset-0 opacity-10"
-          style={{ background: "radial-gradient(ellipse at center, #FBBF24, transparent 70%)" }} />
+          style={{ background: "radial-gradient(ellipse at center, var(--warn), transparent 70%)" }} />
 
         <div className="relative max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4 text-sm font-bold"
-              style={{ background: "rgba(251,191,36,0.15)", color: "#B8791A" }}>
+              style={{ background: "rgb(var(--warn-rgb) / 0.15)", color: "var(--accent-hover)" }}>
               <Gift size={16} /> CẨM NANG MIỄN PHÍ
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">
-              <span className="text-[#B8791A]">&quot;7 câu hỏi tự nhìn vào bản thân&quot;</span>
+              <span className="text-[var(--accent-hover)]">&quot;7 câu hỏi tự nhìn vào bản thân&quot;</span>
             </h2>
-            <p className="text-[#6E6455] max-w-2xl mx-auto">
+            <p className="text-[var(--fg-muted)] max-w-2xl mx-auto">
               Bộ câu hỏi tôi dùng cho bản thân và một số học viên. Miễn phí, chỉ cần email để tôi gửi cẩm nang.
             </p>
           </div>
@@ -767,38 +804,38 @@ export default function HomePage() {
               <h3 className="text-xl font-bold">Bên trong cẩm nang có gì?</h3>
 
               {freeOfferItems.map((item, i) => (
-                <div key={i} className="flex gap-4 bg-white border border-[#E7DECE] rounded-xl p-4">
+                <div key={i} className="flex gap-4 bg-white border border-[var(--border)] rounded-xl p-4">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-                    style={{ background: "rgba(251,191,36,0.1)" }}>
-                    <item.icon size={18} className="text-[#B8791A]" />
+                    style={{ background: "rgb(var(--warn-rgb) / 0.1)" }}>
+                    <item.icon size={18} className="text-[var(--accent-hover)]" />
                   </div>
                   <div>
                     <h4 className="font-bold text-sm mb-1">{item.title}</h4>
-                    <p className="text-xs text-[#6E6455] leading-relaxed">{item.desc}</p>
+                    <p className="text-xs text-[var(--fg-muted)] leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
 
-              <div className="space-y-2 text-sm text-[#6E6455]">
-                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> File PDF, đọc trên điện thoại được</div>
-                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Mỗi tuần tôi gửi 1 email ngắn, không spam</div>
-                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[#22c55e]" /> Hủy đăng ký bất cứ lúc nào</div>
+              <div className="space-y-2 text-sm text-[var(--fg-muted)]">
+                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[var(--success)]" /> File PDF, đọc trên điện thoại được</div>
+                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[var(--success)]" /> Mỗi tuần tôi gửi 1 email ngắn, không spam</div>
+                <div className="flex items-center gap-2"><CheckCircle size={14} className="text-[var(--success)]" /> Hủy đăng ký bất cứ lúc nào</div>
               </div>
             </div>
 
             {/* Right - CTA box */}
-            <div className="bg-white border-2 border-[#FBBF24]/30 rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center text-center">
-              <Gift size={40} className="text-[#B8791A] mb-4" />
+            <div className="bg-white border-2 border-[var(--warn)]/30 rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center text-center">
+              <Gift size={40} className="text-[var(--accent-hover)] mb-4" />
               <h3 className="text-xl font-bold mb-3">Nhận cẩm nang</h3>
-              <p className="text-sm text-[#6E6455] mb-6 leading-relaxed">
+              <p className="text-sm text-[var(--fg-muted)] mb-6 leading-relaxed">
                 Đăng ký miễn phí. Cẩm nang gửi qua email trong vài phút.
               </p>
 
               {formStatus === "verify" ? (
                 <div className="w-full">
-                  <CheckCircle size={48} className="text-[#22c55e] mx-auto mb-4" />
+                  <CheckCircle size={48} className="text-[var(--success)] mx-auto mb-4" />
                   <h4 className="text-lg font-bold mb-2">Cảm ơn bạn đã đăng ký</h4>
-                  <p className="text-sm text-[#6E6455] mb-4">Vui lòng kiểm tra email để xác thực tài khoản, sau đó đăng nhập để nhận cẩm nang.</p>
+                  <p className="text-sm text-[var(--fg-muted)] mb-4">Vui lòng kiểm tra email để xác thực tài khoản, sau đó đăng nhập để nhận cẩm nang.</p>
                   <Link href="/login" className="btn-green w-full justify-center py-3 text-base">
                     Đăng nhập <ArrowRight size={18} />
                   </Link>
@@ -809,7 +846,7 @@ export default function HomePage() {
                 </button>
               )}
 
-              <div className="mt-4 flex items-center justify-center gap-4 text-[10px] text-[#8A7F6D]">
+              <div className="mt-4 flex items-center justify-center gap-4 text-[10px] text-[var(--fg-subtle)]">
                 <span className="flex items-center gap-1"><Shield size={10} /> Email bảo mật</span>
                 <span className="flex items-center gap-1"><Mail size={10} /> Gửi trong vài phút</span>
               </div>
@@ -819,24 +856,24 @@ export default function HomePage() {
       </section>
 
       {/* ═══ SECTION 9: FAQ ═══ */}
-      <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[#F1EADD]">
+      <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[var(--bg-alt)]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Câu hỏi <span className="text-[#B8791A]">thường gặp</span>
+            Câu hỏi <span className="text-[var(--accent-hover)]">thường gặp</span>
           </h2>
 
           <div className="space-y-3">
             {faqs.map((f, i) => (
-              <div key={i} className="bg-white border border-[#E7DECE] rounded-xl overflow-hidden">
+              <div key={i} className="bg-white border border-[var(--border)] rounded-xl overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-5 text-left hover:bg-white/2 transition-colors"
                 >
                   <span className="font-semibold text-sm sm:text-base pr-4">{f.q}</span>
-                  <ChevronDown size={18} className={`shrink-0 text-[#6E6455] transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
+                  <ChevronDown size={18} className={`shrink-0 text-[var(--fg-muted)] transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
                 </button>
                 {openFaq === i && (
-                  <div className="px-5 pb-5 text-sm text-[#6E6455] leading-relaxed border-t border-[#E7DECE] pt-4">
+                  <div className="px-5 pb-5 text-sm text-[var(--fg-muted)] leading-relaxed border-t border-[var(--border)] pt-4">
                     {f.a}
                   </div>
                 )}
@@ -849,13 +886,13 @@ export default function HomePage() {
       {/* ═══ SECTION 10: FINAL CTA ═══ */}
       <section className="py-12 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5"
-          style={{ background: "radial-gradient(circle at center, #FBBF24, transparent 60%)" }} />
+          style={{ background: "radial-gradient(circle at center, var(--warn), transparent 60%)" }} />
 
         <div className="relative max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-4xl font-extrabold mb-4">
-            Bắt đầu từ <span className="text-[#B8791A]">một email</span>
+            Bắt đầu từ <span className="text-[var(--accent-hover)]">một email</span>
           </h2>
-          <p className="text-[#6E6455] mb-8 max-w-lg mx-auto">
+          <p className="text-[var(--fg-muted)] mb-8 max-w-lg mx-auto">
             Không hứa hẹn viển vông — chỉ là phương pháp thật, trải nghiệm thật, dùng được ngay. Bạn thử một đoạn, thấy hợp thì tôi đi cùng bạn một đoạn nữa.
           </p>
 
@@ -864,15 +901,15 @@ export default function HomePage() {
               <Download size={18} /> Nhận cẩm nang miễn phí
             </button>
             <a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 py-3.5 px-8 rounded-lg text-base font-semibold border border-[#E0D7C7] hover:border-[#CC8A22] transition-colors">
-              <MessageCircle size={16} className="text-[#B8791A]" /> Nhắn cho Hà
+              className="inline-flex items-center justify-center gap-3 py-3.5 px-8 rounded-lg text-base font-semibold border border-[var(--border-strong)] hover:border-[var(--accent-hover)] transition-colors">
+              <MessageCircle size={16} className="text-[var(--accent-hover)]" /> Nhắn cho Hà
             </a>
           </div>
         </div>
       </section>
 
       {/* ═══ FOOTER ═══ */}
-      <footer className="border-t border-[#E7DECE] py-12 pb-24 px-4 sm:px-6">
+      <footer className="border-t border-[var(--border)] py-12 pb-24 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
             {/* Col 1: About */}
@@ -881,49 +918,49 @@ export default function HomePage() {
                 <Image src={siteConfig.owner.avatar} alt={siteConfig.owner.name} width={32} height={32} sizes="32px" className="w-8 h-8 rounded-lg object-cover" />
                 <span className="font-bold text-sm">{siteConfig.name}</span>
               </div>
-              <ul className="space-y-2 text-sm text-[#8A7F6D]">
-                <li><Link href="/about" className="hover:text-[#221E18] transition-colors">Về Hà</Link></li>
-                <li><Link href="/blog" className="hover:text-[#221E18] transition-colors">Blog</Link></li>
-                <li><a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer" className="hover:text-[#221E18] transition-colors">Liên hệ</a></li>
+              <ul className="space-y-2 text-sm text-[var(--fg-subtle)]">
+                <li><Link href="/about" className="hover:text-[var(--fg)] transition-colors">Về Hà</Link></li>
+                <li><Link href="/blog" className="hover:text-[var(--fg)] transition-colors">Blog</Link></li>
+                <li><a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--fg)] transition-colors">Liên hệ</a></li>
               </ul>
             </div>
 
             {/* Col 2: 4 chủ đề */}
             <div>
               <h4 className="font-bold text-sm mb-4">4 chủ đề</h4>
-              <ul className="space-y-2 text-sm text-[#8A7F6D]">
-                <li><Link href="/giao-tiep" className="hover:text-[#221E18] transition-colors">Giao tiếp &amp; Quan hệ</Link></li>
-                <li><Link href="/phat-trien-ban-than" className="hover:text-[#221E18] transition-colors">Phát triển bản thân</Link></li>
-                <li><Link href="/nghe-ld" className="hover:text-[#221E18] transition-colors">Nghề L&amp;D</Link></li>
-                <li><Link href="/lanh-dao-quan-ly" className="hover:text-[#221E18] transition-colors">Lãnh đạo &amp; Quản lý</Link></li>
+              <ul className="space-y-2 text-sm text-[var(--fg-subtle)]">
+                <li><Link href="/giao-tiep" className="hover:text-[var(--fg)] transition-colors">Giao tiếp &amp; Quan hệ</Link></li>
+                <li><Link href="/phat-trien-ban-than" className="hover:text-[var(--fg)] transition-colors">Phát triển bản thân</Link></li>
+                <li><Link href="/nghe-ld" className="hover:text-[var(--fg)] transition-colors">Nghề L&amp;D</Link></li>
+                <li><Link href="/lanh-dao-quan-ly" className="hover:text-[var(--fg)] transition-colors">Lãnh đạo &amp; Quản lý</Link></li>
               </ul>
             </div>
 
             {/* Col 3: Links */}
             <div>
               <h4 className="font-bold text-sm mb-4">Khám phá</h4>
-              <ul className="space-y-2 text-sm text-[#8A7F6D]">
-                <li><Link href="/community" className="hover:text-[#221E18] transition-colors">Cộng đồng</Link></li>
-                <li><Link href="/events" className="hover:text-[#221E18] transition-colors">Sự kiện</Link></li>
-                <li><Link href="/courses" className="hover:text-[#221E18] transition-colors">Chương trình</Link></li>
+              <ul className="space-y-2 text-sm text-[var(--fg-subtle)]">
+                <li><Link href="/community" className="hover:text-[var(--fg)] transition-colors">Cộng đồng</Link></li>
+                <li><Link href="/events" className="hover:text-[var(--fg)] transition-colors">Sự kiện</Link></li>
+                <li><Link href="/courses" className="hover:text-[var(--fg)] transition-colors">Chương trình</Link></li>
               </ul>
             </div>
 
             {/* Col 4: Newsletter */}
             <div>
               <h4 className="font-bold text-sm mb-4">Đăng ký nhận tin</h4>
-              <p className="text-xs text-[#8A7F6D] mb-3">Mỗi tuần tôi gửi 1 email chia sẻ ngắn — không spam, không bán hàng cứng.</p>
+              <p className="text-xs text-[var(--fg-subtle)] mb-3">Mỗi tuần tôi gửi 1 email chia sẻ ngắn — không spam, không bán hàng cứng.</p>
               <button onClick={() => setShowLeadModal(true)} className="btn-green text-xs py-2 px-3 inline-flex">
                 <Mail size={12} /> Đăng ký nhận tin
               </button>
             </div>
           </div>
 
-          <div className="border-t border-[#E7DECE] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8A7F6D]">
+          <div className="border-t border-[var(--border)] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--fg-subtle)]">
             <p>{siteConfig.footer.copyright} | buithuha.com</p>
             <div className="flex gap-4">
-              <Link href="/privacy-policy" className="hover:text-[#221E18] transition-colors">Chính sách bảo mật</Link>
-              <Link href="/terms-of-service" className="hover:text-[#221E18] transition-colors">Điều khoản dịch vụ</Link>
+              <Link href="/privacy-policy" className="hover:text-[var(--fg)] transition-colors">Chính sách bảo mật</Link>
+              <Link href="/terms-of-service" className="hover:text-[var(--fg)] transition-colors">Điều khoản dịch vụ</Link>
             </div>
           </div>
         </div>
@@ -944,89 +981,89 @@ export default function HomePage() {
       {showLeadModal && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => formStatus !== "loading" && setShowLeadModal(false)} />
-          <div className="relative w-full max-w-md bg-white border border-[#FBBF24]/30 rounded-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-md bg-white border border-[var(--warn)]/30 rounded-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
             <button onClick={() => formStatus !== "loading" && setShowLeadModal(false)}
-              className="absolute top-4 right-4 text-[#8A7F6D] hover:text-[#221E18] transition-colors z-10 p-1 rounded-lg hover:bg-[#F1EADD]">
+              className="absolute top-4 right-4 text-[var(--fg-subtle)] hover:text-[var(--fg)] transition-colors z-10 p-1 rounded-lg hover:bg-[var(--bg-alt)]">
               <X size={18} />
             </button>
 
             <div className="absolute top-0 left-0 right-0 h-32 opacity-20 pointer-events-none"
-              style={{ background: "radial-gradient(ellipse at top, #FBBF24, transparent 80%)" }} />
+              style={{ background: "radial-gradient(ellipse at top, var(--warn), transparent 80%)" }} />
 
             <div className="relative p-6 sm:p-8">
               {formStatus === "verify" ? (
                 <div className="text-center py-4">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5"
-                    style={{ background: "rgba(212,168,67,0.1)", border: "1px solid rgba(212,168,67,0.2)" }}>
-                    <Mail size={32} className="text-[#D4A843]" />
+                    style={{ background: "rgb(var(--accent-rgb) / 0.1)", border: "1px solid rgb(var(--accent-rgb) / 0.2)" }}>
+                    <Mail size={32} className="text-[var(--accent)]" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">Kiểm tra email của bạn</h3>
-                  <p className="text-sm text-[#6E6455] mb-2 leading-relaxed">
+                  <p className="text-sm text-[var(--fg-muted)] mb-2 leading-relaxed">
                     Hà đã gửi email xác thực đến:
                   </p>
-                  <p className="text-[#D4A843] font-semibold mb-4">{formData.email}</p>
-                  <p className="text-sm text-[#8A7F6D] mb-6 leading-relaxed">
-                    Vui lòng mở email và nhấn <span className="text-[#4A4234] font-medium">&quot;Xác thực tài khoản&quot;</span> để kích hoạt.
-                    Kiểm tra cả thư mục <span className="text-[#4A4234] font-medium">Spam</span> nếu không thấy.
+                  <p className="text-[var(--accent)] font-semibold mb-4">{formData.email}</p>
+                  <p className="text-sm text-[var(--fg-subtle)] mb-6 leading-relaxed">
+                    Vui lòng mở email và nhấn <span className="text-[var(--fg-muted)] font-medium">&quot;Xác thực tài khoản&quot;</span> để kích hoạt.
+                    Kiểm tra cả thư mục <span className="text-[var(--fg-muted)] font-medium">Spam</span> nếu không thấy.
                   </p>
                   <Link href="/login" className="btn-green w-full justify-center py-3 text-base"
                     onClick={() => setShowLeadModal(false)}>
                     Đã xác thực? Đăng nhập
                   </Link>
-                  <p className="text-xs text-[#8A7F6D] mt-3">Link xác thực có hiệu lực trong 24 giờ.</p>
+                  <p className="text-xs text-[var(--fg-subtle)] mt-3">Link xác thực có hiệu lực trong 24 giờ.</p>
                 </div>
               ) : (
                 <>
                   <div className="text-center mb-6">
                     <Image src={siteConfig.owner.avatar} alt={siteConfig.owner.name} width={56} height={56} sizes="56px" className="w-14 h-14 rounded-2xl mb-3 object-cover inline-block" />
                     <h3 className="text-xl font-bold mb-1">Đăng ký nhận cẩm nang</h3>
-                    <p className="text-sm text-[#6E6455]">
-                      <span className="text-[#B8791A] font-semibold">&quot;7 câu hỏi tự nhìn vào bản thân&quot;</span> — miễn phí
+                    <p className="text-sm text-[var(--fg-muted)]">
+                      <span className="text-[var(--accent-hover)] font-semibold">&quot;7 câu hỏi tự nhìn vào bản thân&quot;</span> — miễn phí
                     </p>
                   </div>
 
                   {formError && (
                     <div className="mb-4 p-3 rounded-lg text-sm text-red-400 border border-red-400/20"
-                      style={{ background: "rgba(239,68,68,0.08)" }}>
+                      style={{ background: "rgb(var(--danger-rgb) / 0.08)" }}>
                       {formError}
                     </div>
                   )}
 
                   <form onSubmit={handleFormSubmit} className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-[#4A4234] mb-1.5">Họ và tên</label>
+                      <label className="block text-sm font-medium text-[var(--fg-muted)] mb-1.5">Họ và tên</label>
                       <input type="text" required value={formData.name}
                         onChange={(e) => setFormData(p => ({ ...p, name: e.target.value }))}
                         className="input-dark w-full" placeholder="Nguyễn Văn A" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[#4A4234] mb-1.5">
-                        Số điện thoại <span className="text-[#8A7F6D] font-normal">(không bắt buộc)</span>
+                      <label className="block text-sm font-medium text-[var(--fg-muted)] mb-1.5">
+                        Số điện thoại <span className="text-[var(--fg-subtle)] font-normal">(không bắt buộc)</span>
                       </label>
                       <input type="tel" value={formData.phone}
                         onChange={(e) => setFormData(p => ({ ...p, phone: e.target.value }))}
                         pattern="^(0|\+84)[0-9]{9}$"
                         title="Nhập số điện thoại hợp lệ (VD: 0912345678)"
                         className="input-dark w-full" placeholder="0912345678" />
-                      <p className="text-[10px] text-[#8A7F6D] mt-1">Để lại nếu muốn Hà hỗ trợ nhanh qua Zalo — có thể bỏ trống.</p>
+                      <p className="text-[10px] text-[var(--fg-subtle)] mt-1">Để lại nếu muốn Hà hỗ trợ nhanh qua Zalo — có thể bỏ trống.</p>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[#4A4234] mb-1.5">Email</label>
+                      <label className="block text-sm font-medium text-[var(--fg-muted)] mb-1.5">Email</label>
                       <input type="email" required value={formData.email}
                         onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))}
                         className="input-dark w-full" placeholder="ban@email.com" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[#4A4234] mb-1.5">Mật khẩu</label>
+                      <label className="block text-sm font-medium text-[var(--fg-muted)] mb-1.5">Mật khẩu</label>
                       <PasswordInput name="popup_password"
                         placeholder="Tối thiểu 8 ký tự"
                         minLength={8} />
                     </div>
 
-                    <p className="text-xs text-[#8A7F6D] pt-1">
+                    <p className="text-xs text-[var(--fg-subtle)] pt-1">
                       Bằng cách đăng ký, bạn đồng ý với{" "}
-                      <Link href="/terms-of-service" className="text-[#D4A843] hover:underline">Điều khoản dịch vụ</Link> và{" "}
-                      <Link href="/privacy-policy" className="text-[#D4A843] hover:underline">Chính sách bảo mật</Link>
+                      <Link href="/terms-of-service" className="text-[var(--accent)] hover:underline">Điều khoản dịch vụ</Link> và{" "}
+                      <Link href="/privacy-policy" className="text-[var(--accent)] hover:underline">Chính sách bảo mật</Link>
                     </p>
                     <button type="submit" disabled={formStatus === "loading"}
                       className="btn-green w-full justify-center py-2.5 mt-2 disabled:opacity-50">
@@ -1038,9 +1075,9 @@ export default function HomePage() {
                     <SocialLoginButtons />
                   </div>
 
-                  <p className="text-center text-sm text-[#8A7F6D] mt-5">
+                  <p className="text-center text-sm text-[var(--fg-subtle)] mt-5">
                     Đã có tài khoản?{" "}
-                    <Link href="/login" className="text-[#D4A843] font-medium hover:underline"
+                    <Link href="/login" className="text-[var(--accent)] font-medium hover:underline"
                       onClick={() => setShowLeadModal(false)}>
                       Đăng nhập
                     </Link>

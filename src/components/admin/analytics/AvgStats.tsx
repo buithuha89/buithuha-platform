@@ -86,21 +86,21 @@ export default function AvgStats({
       value: formatCurrency(totalRevenue / days),
       subtitle: `Trong ${days} ngày`,
       icon: <DollarSign size={18} />,
-      color: "#D4A843",
+      color: "var(--accent)",
     },
     {
       label: "Đơn hàng TB/ngày",
       value: formatDecimal(totalOrders / days),
       subtitle: `Trong ${days} ngày`,
       icon: <ShoppingCart size={18} />,
-      color: "#f59e0b",
+      color: "var(--warn)",
     },
     {
       label: "Học viên mới TB/ngày",
       value: formatDecimal(newUsers / days),
       subtitle: `Trong ${days} ngày`,
       icon: <UserPlus size={18} />,
-      color: "#3b82f6",
+      color: "var(--info)",
     },
   ];
 

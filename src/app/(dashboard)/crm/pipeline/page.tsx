@@ -43,13 +43,13 @@ interface Product {
 // ─── Constants ───────────────────────────────────────────────────────────────
 
 const STAGES = [
-  { key: "lead", label: "Lead", color: "#3b82f6" },
-  { key: "contacted", label: "Đã liên hệ", color: "#f59e0b" },
-  { key: "demo", label: "Demo", color: "#a855f7" },
-  { key: "proposal", label: "Báo giá", color: "#ec4899" },
-  { key: "negotiation", label: "Đàm phán", color: "#f97316" },
-  { key: "won", label: "Thành công", color: "#D4A843" },
-  { key: "lost", label: "Thất bại", color: "#ef4444" },
+  { key: "lead", label: "Lead", color: "var(--info)" },
+  { key: "contacted", label: "Đã liên hệ", color: "var(--warn)" },
+  { key: "demo", label: "Demo", color: "var(--cat-purple)" },
+  { key: "proposal", label: "Báo giá", color: "var(--cat-pink)" },
+  { key: "negotiation", label: "Đàm phán", color: "var(--cat-orange)" },
+  { key: "won", label: "Thành công", color: "var(--accent)" },
+  { key: "lost", label: "Thất bại", color: "var(--danger)" },
 ];
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -94,12 +94,12 @@ function DealCard({ deal, stageColor }: { deal: Deal; stageColor: string }) {
       )}
 
       <div className="flex items-center justify-between mt-2">
-        <span className="text-sm font-bold text-[#D4A843]">
+        <span className="text-sm font-bold text-[var(--accent)]">
           {formatVND(deal.amount)}
         </span>
         <span
           className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full"
-          style={{ background: "rgba(212,168,67,0.1)", color: "#D4A843" }}
+          style={{ background: "rgb(var(--accent-rgb) / 0.1)", color: "var(--accent)" }}
         >
           {deal.probability}%
         </span>
@@ -111,7 +111,7 @@ function DealCard({ deal, stageColor }: { deal: Deal; stageColor: string }) {
         </p>
       )}
 
-      <div className="flex items-center justify-between mt-2 pt-2 border-t border-[#2a2a2a]">
+      <div className="flex items-center justify-between mt-2 pt-2 border-t border-[var(--border)]">
         <span className="text-[11px] text-gray-500 flex items-center gap-1">
           <CalendarDays size={10} />
           {formatDate(deal.expected_close_date)}
@@ -119,7 +119,7 @@ function DealCard({ deal, stageColor }: { deal: Deal; stageColor: string }) {
         {deal.assigned_profile && (
           <div
             className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold text-white"
-            style={{ background: "linear-gradient(135deg, #3b82f6, #1d4ed8)" }}
+            style={{ background: "linear-gradient(135deg, var(--info), var(--cat-blue))" }}
             title={deal.assigned_profile.full_name}
           >
             {getInitials(deal.assigned_profile.full_name)}
@@ -196,11 +196,11 @@ export default async function PipelinePage({
           <div
             className="flex items-center gap-3 p-3 rounded-xl text-sm"
             style={{
-              background: "rgba(212,168,67,0.08)",
-              border: "1px solid rgba(212,168,67,0.2)",
+              background: "rgb(var(--accent-rgb) / 0.08)",
+              border: "1px solid rgb(var(--accent-rgb) / 0.2)",
             }}
           >
-            <CheckCircle2 size={16} className="text-[#D4A843] shrink-0" />
+            <CheckCircle2 size={16} className="text-[var(--accent)] shrink-0" />
             <span className="text-white">{notification}</span>
           </div>
         )}
@@ -210,9 +210,9 @@ export default async function PipelinePage({
           <div className="card-dark p-4 flex items-center gap-3">
             <div
               className="w-9 h-9 rounded-lg flex items-center justify-center"
-              style={{ background: "rgba(59,130,246,0.1)" }}
+              style={{ background: "rgb(var(--info-rgb) / 0.1)" }}
             >
-              <LayoutGrid size={16} className="text-[#3b82f6]" />
+              <LayoutGrid size={16} className="text-[var(--info)]" />
             </div>
             <div>
               <p className="text-xs text-gray-500">Tổng deals</p>
@@ -223,9 +223,9 @@ export default async function PipelinePage({
           <div className="card-dark p-4 flex items-center gap-3">
             <div
               className="w-9 h-9 rounded-lg flex items-center justify-center"
-              style={{ background: "rgba(245,158,11,0.1)" }}
+              style={{ background: "rgb(var(--warn-rgb) / 0.1)" }}
             >
-              <CircleDollarSign size={16} className="text-[#f59e0b]" />
+              <CircleDollarSign size={16} className="text-[var(--warn)]" />
             </div>
             <div>
               <p className="text-xs text-gray-500">Giá trị pipeline</p>
@@ -236,9 +236,9 @@ export default async function PipelinePage({
           <div className="card-dark p-4 flex items-center gap-3">
             <div
               className="w-9 h-9 rounded-lg flex items-center justify-center"
-              style={{ background: "rgba(212,168,67,0.1)" }}
+              style={{ background: "rgb(var(--accent-rgb) / 0.1)" }}
             >
-              <Trophy size={16} className="text-[#D4A843]" />
+              <Trophy size={16} className="text-[var(--accent)]" />
             </div>
             <div>
               <p className="text-xs text-gray-500">Đã thắng</p>
@@ -249,9 +249,9 @@ export default async function PipelinePage({
           <div className="card-dark p-4 flex items-center gap-3">
             <div
               className="w-9 h-9 rounded-lg flex items-center justify-center"
-              style={{ background: "rgba(239,68,68,0.1)" }}
+              style={{ background: "rgb(var(--danger-rgb) / 0.1)" }}
             >
-              <XCircle size={16} className="text-[#ef4444]" />
+              <XCircle size={16} className="text-[var(--danger)]" />
             </div>
             <div>
               <p className="text-xs text-gray-500">Đã mất</p>
@@ -425,7 +425,7 @@ export default async function PipelinePage({
                   ))
                 ) : (
                   <div
-                    className="rounded-lg p-4 text-center text-xs text-gray-500 border border-dashed border-[#2a2a2a]"
+                    className="rounded-lg p-4 text-center text-xs text-gray-500 border border-dashed border-[var(--border)]"
                   >
                     Chưa có deal
                   </div>

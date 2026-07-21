@@ -28,10 +28,10 @@ type AdminGroup = { title: string; items: AdminItem[] };
 
 // Danh mục khoá học khớp 4 chủ đề thương hiệu Hà Bùi Academy
 const courseSubNav: SubNavItem[] = [
-  { href: "/courses?cat=communication", icon: Heart, label: "Giao tiếp & Quan hệ", color: "#14b8a6" },
-  { href: "/courses?cat=personal_development", icon: Sparkles, label: "Phát triển bản thân", color: "#22c55e" },
-  { href: "/courses?cat=ld", icon: GraduationCap, label: "Nghề L&D", color: "#3b82f6" },
-  { href: "/courses?cat=leadership", icon: Target, label: "Lãnh đạo & Quản lý", color: "#a855f7" },
+  { href: "/courses?cat=communication", icon: Heart, label: "Giao tiếp & Quan hệ", color: "var(--cat-teal)" },
+  { href: "/courses?cat=personal_development", icon: Sparkles, label: "Phát triển bản thân", color: "var(--success)" },
+  { href: "/courses?cat=ld", icon: GraduationCap, label: "Nghề L&D", color: "var(--info)" },
+  { href: "/courses?cat=leadership", icon: Target, label: "Lãnh đạo & Quản lý", color: "var(--cat-purple)" },
 ];
 
 // Mục Tổng quan luôn đứng đầu, không thuộc nhóm nào
@@ -195,7 +195,7 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
     editor: "Biên tập viên",
   };
   const tierLabel = isStaff || isInstructor ? (roleLabels[userRole] ?? "Staff") : profile?.tier === "vip" ? "VIP" : profile?.tier === "member" ? "Member" : "Free";
-  const tierColor = isAdmin ? "#ef4444" : isStaff ? "#3b82f6" : isInstructor ? "#8b5cf6" : profile?.tier === "vip" ? "#f59e0b" : profile?.tier === "member" ? "#a855f7" : "#D4A843";
+  const tierColor = isAdmin ? "var(--danger)" : isStaff ? "var(--info)" : isInstructor ? "var(--cat-violet)" : profile?.tier === "vip" ? "var(--warn)" : profile?.tier === "member" ? "var(--cat-purple)" : "var(--accent)";
 
   // Render a single nav item (handles the courses submenu expansion + active state)
   const renderNavItem = (item: NavItem, isCompact: boolean) => {
@@ -230,7 +230,7 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
                 <Link
                   key={sub.href}
                   href={sub.href}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs text-gray-400 hover:text-white hover:bg-[#1a1a1a] transition-colors"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs text-gray-400 hover:text-white hover:bg-[var(--surface)] transition-colors"
                 >
                   <sub.icon size={13} style={{ color: sub.color }} className="shrink-0" />
                   <span className="truncate">{sub.label}</span>
@@ -261,13 +261,13 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
       className="flex flex-col h-screen transition-all duration-300"
       style={{
         width: isMobile ? 260 : isCompact ? 64 : 240,
-        background: "#111111",
-        borderRight: isMobile ? "none" : "1px solid #1f1f1f",
+        background: "var(--bg-alt)",
+        borderRight: isMobile ? "none" : "1px solid var(--surface-2)",
         flexShrink: 0,
       }}
     >
       {/* Logo */}
-      <div className="flex items-center justify-between px-4 h-16 border-b border-[#1f1f1f]">
+      <div className="flex items-center justify-between px-4 h-16 border-b border-[var(--surface-2)]">
         {!isCompact && (
           <Link href="/dashboard" className="flex items-center gap-2.5">
             <Image
@@ -334,7 +334,7 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
         {isInstructor && (
           <div className="mt-6">
             {!isCompact && (
-              <div className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-widest text-[#8b5cf6]">
+              <div className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-widest text-[var(--cat-violet)]">
                 Giảng viên
               </div>
             )}
@@ -350,7 +350,7 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
             return (
               <div key={group.title} className="mt-6">
                 {!isCompact && (
-                  <div className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-widest text-[#f59e0b]">
+                  <div className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-widest text-[var(--warn)]">
                     {group.title}
                   </div>
                 )}
@@ -366,12 +366,12 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
           href={siteConfig.socials.zalo}
           target="_blank"
           rel="noopener noreferrer"
-          className="block mx-3 mb-3 p-3 rounded-xl border border-[#D4A843]/20 hover:bg-[#1a1a1a] transition-colors"
-          style={{ background: "rgba(212,168,67,0.06)" }}
+          className="block mx-3 mb-3 p-3 rounded-xl border border-[var(--accent)]/20 hover:bg-[var(--surface)] transition-colors"
+          style={{ background: "rgb(var(--accent-rgb) / 0.06)" }}
         >
           <div className="flex items-center gap-2 mb-1.5">
-            <Star size={14} className="text-[#D4A843]" />
-            <span className="text-xs font-semibold text-[#D4A843]">Cần tư vấn?</span>
+            <Star size={14} className="text-[var(--accent)]" />
+            <span className="text-xs font-semibold text-[var(--accent)]">Cần tư vấn?</span>
           </div>
           <p className="text-[11px] text-gray-400 mb-2">Tư vấn khoá học phù hợp nhu cầu của bạn</p>
           <span className="btn-green w-full text-xs py-1.5 justify-center inline-flex items-center">Liên hệ tư vấn</span>
@@ -383,7 +383,7 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
         <div className="mx-3 mb-2 px-2">
           <div className="flex items-center justify-between text-[10px] text-gray-500 mb-1">
             <span className="flex items-center gap-1">
-              <Zap size={10} className="text-[#f59e0b]" />
+              <Zap size={10} className="text-[var(--warn)]" />
               Level {profile.level}
             </span>
             <span
@@ -414,7 +414,7 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
       )}
 
       {/* User + Logout */}
-      <div className="border-t border-[#1f1f1f] p-3">
+      <div className="border-t border-[var(--surface-2)] p-3">
         {!isCompact ? (
           <div className="space-y-3">
             <div className="flex items-center gap-3">
@@ -422,7 +422,7 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
                 src={profile?.avatar_url}
                 initials={initials}
                 size={32}
-                gradient="linear-gradient(135deg, #D4A843, #059669)"
+                gradient="linear-gradient(135deg, var(--accent), var(--cat-emerald))"
               />
               <div className="flex-1 min-w-0">
                 <div className="text-sm font-medium text-white truncate">{displayName}</div>
@@ -433,7 +433,7 @@ export default function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
               <button
                 type="submit"
                 className="w-full flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-medium text-gray-400 hover:text-red-400 transition-colors"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid #1f1f1f" }}
+                style={{ background: "rgb(var(--overlay-rgb) / 0.04)", border: "1px solid var(--surface-2)" }}
               >
                 <LogOut size={14} />
                 Đăng xuất

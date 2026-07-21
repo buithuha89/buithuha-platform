@@ -79,14 +79,14 @@ export default async function VerifyCertificatePage({
     return (
       <div
         className="min-h-screen flex items-center justify-center px-4"
-        style={{ background: "#0a0a0a" }}
+        style={{ background: "var(--bg)" }}
       >
         <div className="card-dark p-8 sm:p-10 max-w-md w-full text-center space-y-5">
           <div
             className="w-16 h-16 rounded-full flex items-center justify-center mx-auto"
             style={{
-              background: "rgba(239,68,68,0.12)",
-              border: "2px solid rgba(239,68,68,0.3)",
+              background: "rgb(var(--danger-rgb) / 0.12)",
+              border: "2px solid rgb(var(--danger-rgb) / 0.3)",
             }}
           >
             <XCircle size={32} className="text-red-400" />
@@ -104,7 +104,7 @@ export default async function VerifyCertificatePage({
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm font-medium transition-colors hover:opacity-80"
-            style={{ color: "#D4A843" }}
+            style={{ color: "var(--accent)" }}
           >
             <ExternalLink size={14} />
             Về trang chủ
@@ -124,7 +124,7 @@ export default async function VerifyCertificatePage({
   return (
     <div
       className="min-h-screen flex items-center justify-center px-4 py-12"
-      style={{ background: "#0a0a0a" }}
+      style={{ background: "var(--bg)" }}
     >
       <div className="card-dark p-8 sm:p-10 max-w-lg w-full space-y-6">
         {/* Header */}
@@ -132,11 +132,11 @@ export default async function VerifyCertificatePage({
           <div
             className="w-16 h-16 rounded-full flex items-center justify-center mx-auto"
             style={{
-              background: "rgba(212,168,67,0.12)",
-              border: "2px solid rgba(212,168,67,0.3)",
+              background: "rgb(var(--accent-rgb) / 0.12)",
+              border: "2px solid rgb(var(--accent-rgb) / 0.3)",
             }}
           >
-            <Award size={32} style={{ color: "#D4A843" }} />
+            <Award size={32} style={{ color: "var(--accent)" }} />
           </div>
 
           <div className="space-y-1">
@@ -152,7 +152,7 @@ export default async function VerifyCertificatePage({
         {/* Divider */}
         <div
           className="border-t"
-          style={{ borderColor: "rgba(212,168,67,0.2)" }}
+          style={{ borderColor: "rgb(var(--accent-rgb) / 0.2)" }}
         />
 
         {/* Certificate details */}
@@ -166,13 +166,13 @@ export default async function VerifyCertificatePage({
         {/* Divider */}
         <div
           className="border-t"
-          style={{ borderColor: "rgba(212,168,67,0.2)" }}
+          style={{ borderColor: "rgb(var(--accent-rgb) / 0.2)" }}
         />
 
         {/* Verification badge */}
         <div
           className="flex items-center gap-3 p-4 rounded-lg"
-          style={{ background: "rgba(34,197,94,0.08)" }}
+          style={{ background: "rgb(var(--success-rgb) / 0.08)" }}
         >
           <CheckCircle size={20} className="text-green-400 shrink-0" />
           <p className="text-sm text-green-300">
@@ -186,7 +186,7 @@ export default async function VerifyCertificatePage({
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm font-medium transition-colors hover:opacity-80"
-            style={{ color: "#D4A843" }}
+            style={{ color: "var(--accent)" }}
           >
             <ExternalLink size={14} />
             Về trang chủ Hà Bùi Academy

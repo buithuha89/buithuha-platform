@@ -3,20 +3,127 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ═══════════════════════════════════════════════════════════════════════
+   HỆ MÀU — 2 tầng
+   ───────────────────────────────────────────────────────────────────────
+   :root       → tầng KHÁCH (trang chủ, landing, blog, khoá học, đăng ký)
+                 Nền pastel xanh lá (mộc) + điểm nhấn teal (thuỷ sinh mộc).
+                 Cảm giác: tươi sáng, sạch, hướng phát triển.
+
+   .theme-app  → tầng SAU ĐĂNG NHẬP (học viên + admin)
+                 Nền xanh rêu thẫm, cùng dải teal nhưng sáng hơn để nổi
+                 trên nền tối. Học/xem video lâu không chói mắt.
+
+   Mọi màu trong code trỏ về các biến này. Muốn đổi tông toàn site thì
+   chỉ sửa ở đây, KHÔNG sửa trong từng file component.
+   ═══════════════════════════════════════════════════════════════════════ */
+
 :root {
-  --background: #0a0a0a;
-  --foreground: #f5f5f5;
-  --card: #1a1a1a;
-  --card-foreground: #f5f5f5;
-  --primary: #D4A843;
-  --primary-foreground: #ffffff;
-  --secondary: #1f1f1f;
-  --muted: #1f1f1f;
-  --muted-foreground: #737373;
-  --border: #2a2a2a;
-  --input: #1f1f1f;
-  --ring: #D4A843;
+  /* Nền */
+  --bg: #f4faf6;          /* nền trang — trắng ngả mint */
+  --bg-alt: #eaf3ed;      /* section xen kẽ */
+  --surface: #ffffff;     /* thẻ / card */
+  --surface-2: #f1f7f3;   /* ô nhập liệu, vùng nổi nhẹ */
+  --surface-3: #e6f0ea;   /* vùng nổi hơn nữa */
+
+  /* Viền */
+  --border: #d7e7de;
+  --border-strong: #bfd8c9;
+
+  /* Chữ */
+  --fg: #10241b;          /* chữ chính — xanh rêu rất đậm */
+  --fg-muted: #43614f;    /* chữ phụ */
+  --fg-subtle: #547260;   /* chú thích, placeholder — 5.0:1 trên nền, đạt WCAG AA */
+
+  /* Điểm nhấn — teal (thuỷ) */
+  --accent: #0f766e;
+  --accent-hover: #115e59;
+  --accent-fg: #ffffff;   /* chữ nằm TRÊN nền accent */
+  --accent-rgb: 15 118 110;
+
+  /* Trạng thái */
+  --success: #15803d;   --success-rgb: 21 128 61;
+  --warn: #b45309;      --warn-rgb: 180 83 9;
+  --danger: #b91c1c;    --danger-rgb: 185 28 28;
+  --info: #1d4ed8;      --info-rgb: 29 78 216;
+  --neutral-rgb: 110 136 122;
+
+  /* Lớp phủ hover (bg-white/5 …) — nền sáng thì phủ TỐI */
+  --overlay-rgb: 16 36 27;
+
+  /* Màu CHỦ ĐỀ (thẻ danh mục, biểu đồ). Bản gốc chọn cho nền đen nên rất
+     tươi — trên nền sáng đọc không nổi (chỉ ~2:1). Đây là bản đậm lại,
+     đều đạt tối thiểu 4.5:1 trên nền trắng. */
+  --cat-lime: #3f6212;
+  --cat-purple: #7e22ce;
+  --cat-violet: #6d28d9;
+  --cat-pink: #be185d;
+  --cat-orange: #9a3412;
+  --cat-teal: #0f766e;
+  --cat-emerald: #047857;
+  --cat-cyan: #0e7490;
+  --cat-blue: #1d4ed8;
+
   --radius: 0.75rem;
+
+  /* Tương thích shadcn/ui */
+  --background: var(--bg);
+  --foreground: var(--fg);
+  --card: var(--surface);
+  --card-foreground: var(--fg);
+  --primary: var(--accent);
+  --primary-foreground: var(--accent-fg);
+  --secondary: var(--surface-2);
+  --muted: var(--surface-2);
+  --muted-foreground: var(--fg-subtle);
+  --input: var(--surface-2);
+  --ring: var(--accent);
+}
+
+.theme-app {
+  /* BẮT BUỘC: body đã tính sẵn `color: var(--fg)` theo tầng khách (xanh đậm),
+     và màu chữ thì THỪA KẾ xuống con. Không đặt lại ở đây thì mọi phần tử
+     trong khu tối mà không tự khai màu chữ sẽ ra chữ đậm trên nền đậm. */
+  color: var(--fg);
+  background-color: var(--bg);
+
+  --bg: #0b1512;
+  --bg-alt: #0e1a16;
+  --surface: #132320;
+  --surface-2: #182c27;
+  --surface-3: #20372f;
+
+  --border: #1f3a33;
+  --border-strong: #2b5147;
+
+  --fg: #eaf5ef;
+  --fg-muted: #a6c3b5;
+  --fg-subtle: #7b9a8b;
+
+  --accent: #2dd4bf;
+  --accent-hover: #5eead4;
+  --accent-fg: #04211e;
+  --accent-rgb: 45 212 191;
+
+  --success: #4ade80;   --success-rgb: 74 222 128;
+  --warn: #fbbf24;      --warn-rgb: 251 191 36;
+  --danger: #f87171;    --danger-rgb: 248 113 113;
+  --info: #60a5fa;      --info-rgb: 96 165 250;
+  --neutral-rgb: 123 154 139;
+
+  /* Nền tối thì lớp phủ hover là SÁNG */
+  --overlay-rgb: 255 255 255;
+
+  /* Trên nền xanh rêu thẫm thì màu chủ đề phải tươi trở lại mới nổi */
+  --cat-lime: #a3e635;
+  --cat-purple: #d8b4fe;
+  --cat-violet: #c4b5fd;
+  --cat-pink: #f9a8d4;
+  --cat-orange: #fdba74;
+  --cat-teal: #5eead4;
+  --cat-emerald: #6ee7b7;
+  --cat-cyan: #67e8f9;
+  --cat-blue: #93c5fd;
 }
 
 @layer base {
@@ -24,8 +131,8 @@
 }
 
 body {
-  background-color: #0a0a0a;
-  color: #f5f5f5;
+  background-color: var(--bg);
+  color: var(--fg);
   /* Be Vietnam Pro first (perfect Vietnamese tone-mark rendering), then
      platform system fonts as fallback while the web font is loading. */
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -35,23 +142,90 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════
+   CẦU NỐI TIỆN ÍCH TAILWIND → TOKEN
+   ───────────────────────────────────────────────────────────────────────
+   Code cũ có ~2.900 chỗ dùng text-white / text-gray-* — vốn viết cho nền
+   đen. Trên nền sáng thì chữ trắng = vô hình. Thay vì sửa tay 2.900 chỗ
+   (chắc chắn sót), ta trỏ thẳng các lớp đó về token: nền sáng tự ra chữ
+   đậm, nền tối tự ra chữ trắng.
+
+   Các quy tắc dưới đây KHÔNG nằm trong @layer nên thắng tiện ích Tailwind
+   (vốn ở @layer utilities) — đúng theo thứ tự lớp của CSS cascade layers.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.text-white { color: var(--fg); }
+.hover\:text-white:hover { color: var(--fg); }
+.text-white\/80 { color: rgb(from var(--fg) r g b / 0.8); }
+.text-white\/15 { color: rgb(from var(--fg) r g b / 0.15); }
+
+/* Chữ đen hầu hết nằm trên nút accent → dùng màu chữ-trên-accent */
+.text-black { color: var(--accent-fg); }
+
+.text-gray-200 { color: var(--fg); }
+.text-gray-300 { color: var(--fg-muted); }
+.text-gray-400 { color: var(--fg-muted); }
+.text-gray-500 { color: var(--fg-subtle); }
+.text-gray-600 { color: var(--fg-subtle); }
+.hover\:text-gray-300:hover { color: var(--fg-muted); }
+.hover\:text-gray-400:hover { color: var(--fg-muted); }
+
+.bg-gray-700 { background-color: var(--surface-3); }
+.bg-gray-800 { background-color: var(--surface-2); }
+.border-gray-600 { border-color: var(--border-strong); }
+.border-gray-700 { border-color: var(--border); }
+
+/* bg-white ĐẶC (không có /số) là một tấm thẻ thật, KHÔNG phải lớp phủ.
+   Nó phải thành mặt thẻ: trắng ở tầng khách, xanh rêu ở tầng app. */
+.bg-white     { background-color: var(--surface); }
+.bg-white\/90 { background-color: rgb(from var(--surface) r g b / 0.90); }
+
+/* Từ đây trở xuống mới là lớp phủ hover trong suốt — đảo chiều theo nền */
+.bg-white\/30,
+.hover\:bg-white\/30:hover { background-color: rgb(var(--overlay-rgb) / 0.30); }
+.bg-white\/20,
+.hover\:bg-white\/20:hover { background-color: rgb(var(--overlay-rgb) / 0.20); }
+.bg-white\/15            { background-color: rgb(var(--overlay-rgb) / 0.15); }
+.bg-white\/10,
+.hover\:bg-white\/10:hover { background-color: rgb(var(--overlay-rgb) / 0.10); }
+.hover\:bg-white\/\[0\.07\]:hover { background-color: rgb(var(--overlay-rgb) / 0.07); }
+.bg-white\/5,
+.hover\:bg-white\/5:hover  { background-color: rgb(var(--overlay-rgb) / 0.05); }
+.hover\:bg-white\/\[0\.04\]:hover { background-color: rgb(var(--overlay-rgb) / 0.04); }
+.bg-white\/\[0\.03\],
+.hover\:bg-white\/\[0\.03\]:hover { background-color: rgb(var(--overlay-rgb) / 0.03); }
+.hover\:bg-white\/3:hover  { background-color: rgb(var(--overlay-rgb) / 0.03); }
+.hover\:bg-white\/\[0\.02\]:hover { background-color: rgb(var(--overlay-rgb) / 0.02); }
+.hover\:bg-white\/2:hover  { background-color: rgb(var(--overlay-rgb) / 0.02); }
+
+.border-white\/40,
+.hover\:border-white\/40:hover { border-color: rgb(var(--overlay-rgb) / 0.40); }
+.border-white\/30        { border-color: rgb(var(--overlay-rgb) / 0.30); }
+.border-white\/20,
+.hover\:border-white\/20:hover { border-color: rgb(var(--overlay-rgb) / 0.20); }
+.border-white\/10,
+.hover\:border-white\/10:hover { border-color: rgb(var(--overlay-rgb) / 0.10); }
+.border-white\/\[0\.08\] { border-color: rgb(var(--overlay-rgb) / 0.08); }
+.border-white\/\[0\.06\] { border-color: rgb(var(--overlay-rgb) / 0.06); }
+.border-white\/5         { border-color: rgb(var(--overlay-rgb) / 0.05); }
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #333; border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: #444; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--fg-subtle); }
 
 /* ─── Custom component classes ─── */
 
 .card-dark {
-  background-color: #1a1a1a;
-  border: 1px solid #2a2a2a;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 0.75rem;
 }
 
 .stat-card {
-  background-color: #1a1a1a;
-  border: 1px solid #2a2a2a;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 0.75rem;
   padding: 20px;
 }
@@ -64,13 +238,13 @@ body {
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
-  color: #9ca3af;
+  color: var(--fg-muted);
   cursor: pointer;
   transition: all 0.15s;
   text-decoration: none;
 }
-.sidebar-nav-item:hover { color: white; background: rgba(255,255,255,0.05); }
-.sidebar-nav-item.active { color: #D4A843; background: rgba(212,168,67,0.1); }
+.sidebar-nav-item:hover { color: var(--fg); background: rgb(var(--overlay-rgb) / 0.05); }
+.sidebar-nav-item.active { color: var(--accent); background: rgb(var(--accent-rgb) / 0.12); }
 
 .badge-green {
   display: inline-flex;
@@ -79,9 +253,9 @@ body {
   border-radius: 99px;
   font-size: 11px;
   font-weight: 600;
-  background: rgba(212,168,67,0.12);
-  color: #D4A843;
-  border: 1px solid rgba(212,168,67,0.25);
+  background: rgb(var(--accent-rgb) / 0.12);
+  color: var(--accent);
+  border: 1px solid rgb(var(--accent-rgb) / 0.25);
 }
 
 .badge-gold {
@@ -91,14 +265,14 @@ body {
   border-radius: 99px;
   font-size: 11px;
   font-weight: 600;
-  background: rgba(245,158,11,0.12);
-  color: #f59e0b;
-  border: 1px solid rgba(245,158,11,0.25);
+  background: rgb(var(--warn-rgb) / 0.12);
+  color: var(--warn);
+  border: 1px solid rgb(var(--warn-rgb) / 0.25);
 }
 
 .btn-green {
-  background: #FFD814;
-  color: #131921;
+  background: var(--accent);
+  color: var(--accent-fg);
   font-weight: 700;
   padding: 8px 20px;
   border-radius: 8px;
@@ -111,12 +285,12 @@ body {
   font-size: 14px;
   text-decoration: none;
 }
-.btn-green:hover { background: #F0C400; }
+.btn-green:hover { background: var(--accent-hover); }
 .btn-green:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .btn-success {
-  background: #22c55e;
-  color: white;
+  background: var(--success);
+  color: var(--accent-fg);
   font-weight: 700;
   padding: 8px 20px;
   border-radius: 8px;
@@ -129,12 +303,12 @@ body {
   font-size: 14px;
   text-decoration: none;
 }
-.btn-success:hover { background: #16a34a; }
+.btn-success:hover { filter: brightness(1.1); }
 .btn-success:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .btn-gold {
-  background: linear-gradient(135deg, #FFD814, #FFA41C);
-  color: #131921;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: var(--accent-fg);
   font-weight: 700;
   padding: 8px 20px;
   border-radius: 8px;
@@ -147,12 +321,12 @@ body {
   font-size: 14px;
   text-decoration: none;
 }
-.btn-gold:hover { background: linear-gradient(135deg, #FFA41C, #E8960A); }
+.btn-gold:hover { filter: brightness(1.08); }
 
 .input-dark {
-  background: #1f1f1f;
-  border: 1px solid #2a2a2a;
-  color: white;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--fg);
   border-radius: 8px;
   padding: 8px 12px;
   font-size: 14px;
@@ -161,31 +335,31 @@ body {
   width: 100%;
   font-family: inherit;
 }
-.input-dark:focus { border-color: #D4A843; }
-.input-dark::placeholder { color: #555; }
+.input-dark:focus { border-color: var(--accent); }
+.input-dark::placeholder { color: var(--fg-subtle); }
 
 .notification-bar {
-  background: rgba(26,26,26,0.95);
-  border-bottom: 1px solid #2a2a2a;
+  background: rgb(from var(--surface) r g b / 0.95);
+  border-bottom: 1px solid var(--border);
   backdrop-filter: blur(8px);
 }
 
 .progress-bar {
   height: 4px;
-  background: #2a2a2a;
+  background: var(--surface-3);
   border-radius: 99px;
   overflow: hidden;
 }
 .progress-fill {
   height: 100%;
-  background: #22c55e;
+  background: var(--accent);
   border-radius: 99px;
   transition: width 0.3s ease;
 }
 
 /* Focus-visible — keyboard accessibility */
 :focus-visible {
-  outline: 2px solid #D4A843;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 :focus:not(:focus-visible) {
@@ -218,28 +392,28 @@ body {
 .blink-arrow-delay { animation: blink-arrow 0.8s ease-in-out 0.4s infinite; }
 
 /* ─── Blog content styles (for rendering rich HTML from Novel editor) ───── */
-.blog-content h1 { font-size: 1.75rem; font-weight: 800; color: #fff; margin: 1.75rem 0 0.75rem; line-height: 1.3; }
-.blog-content h2 { font-size: 1.4rem; font-weight: 700; color: #fff; margin: 1.5rem 0 0.6rem; line-height: 1.35; }
-.blog-content h3 { font-size: 1.15rem; font-weight: 700; color: #f3f4f6; margin: 1.25rem 0 0.5rem; line-height: 1.4; }
-.blog-content h4 { font-size: 1rem; font-weight: 600; color: #e5e7eb; margin: 1rem 0 0.4rem; }
-.blog-content p { margin: 0.6rem 0; color: #d1d5db; }
-.blog-content strong { color: #fff; font-weight: 700; }
+.blog-content h1 { font-size: 1.75rem; font-weight: 800; color: var(--fg); margin: 1.75rem 0 0.75rem; line-height: 1.3; }
+.blog-content h2 { font-size: 1.4rem; font-weight: 700; color: var(--fg); margin: 1.5rem 0 0.6rem; line-height: 1.35; }
+.blog-content h3 { font-size: 1.15rem; font-weight: 700; color: var(--fg); margin: 1.25rem 0 0.5rem; line-height: 1.4; }
+.blog-content h4 { font-size: 1rem; font-weight: 600; color: var(--fg); margin: 1rem 0 0.4rem; }
+.blog-content p { margin: 0.6rem 0; color: var(--fg-muted); }
+.blog-content strong { color: var(--fg); font-weight: 700; }
 .blog-content em { font-style: italic; }
-.blog-content s { color: #6b7280; }
+.blog-content s { color: var(--fg-subtle); }
 .blog-content ul { list-style-type: disc; padding-left: 1.5rem; margin: 0.5rem 0; }
 .blog-content ol { list-style-type: decimal; padding-left: 1.5rem; margin: 0.5rem 0; }
-.blog-content li { margin: 0.25rem 0; color: #d1d5db; }
-.blog-content li::marker { color: #6b7280; }
-.blog-content blockquote { border-left: 3px solid #D4A843; padding: 0.75rem 1rem; margin: 1rem 0; color: #9ca3af; font-style: italic; background: rgba(212,168,67,0.04); border-radius: 0 8px 8px 0; }
-.blog-content a { color: #D4A843; text-decoration: underline; text-underline-offset: 3px; }
-.blog-content a:hover { color: #B8922E; }
-.blog-content code { background: #1f1f1f; color: #D4A843; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85em; font-family: 'JetBrains Mono', monospace; border: 1px solid #2a2a2a; }
-.blog-content pre { background: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 10px; padding: 1rem 1.25rem; margin: 1rem 0; overflow-x: auto; }
-.blog-content pre code { background: none; border: none; padding: 0; color: #e5e7eb; font-size: 0.85rem; line-height: 1.6; }
+.blog-content li { margin: 0.25rem 0; color: var(--fg-muted); }
+.blog-content li::marker { color: var(--fg-subtle); }
+.blog-content blockquote { border-left: 3px solid var(--accent); padding: 0.75rem 1rem; margin: 1rem 0; color: var(--fg-muted); font-style: italic; background: rgb(var(--accent-rgb) / 0.05); border-radius: 0 8px 8px 0; }
+.blog-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.blog-content a:hover { color: var(--accent-hover); }
+.blog-content code { background: var(--surface-2); color: var(--accent); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85em; font-family: 'JetBrains Mono', monospace; border: 1px solid var(--border); }
+.blog-content pre { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; margin: 1rem 0; overflow-x: auto; }
+.blog-content pre code { background: none; border: none; padding: 0; color: var(--fg); font-size: 0.85rem; line-height: 1.6; }
 .blog-content img { max-width: 100%; height: auto; border-radius: 10px; margin: 1rem 0; }
-.blog-content hr { border: none; border-top: 1px solid #2a2a2a; margin: 1.5rem 0; }
-.blog-content mark { background: rgba(250,204,21,0.25); color: inherit; padding: 0.1em 0.2em; border-radius: 3px; }
-.blog-content iframe { width: 100%; aspect-ratio: 16/9; border-radius: 10px; margin: 1rem 0; border: 1px solid #2a2a2a; }
+.blog-content hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+.blog-content mark { background: rgb(var(--warn-rgb) / 0.25); color: inherit; padding: 0.1em 0.2em; border-radius: 3px; }
+.blog-content iframe { width: 100%; aspect-ratio: 16/9; border-radius: 10px; margin: 1rem 0; border: 1px solid var(--border); }
 .blog-content ul[data-type="taskList"] { list-style: none; padding-left: 0.25rem; }
 .blog-content ul[data-type="taskList"] li { display: flex; align-items: flex-start; gap: 0.5rem; }
-.blog-content ul[data-type="taskList"] li label input[type="checkbox"] { accent-color: #D4A843; }
+.blog-content ul[data-type="taskList"] li label input[type="checkbox"] { accent-color: var(--accent); }

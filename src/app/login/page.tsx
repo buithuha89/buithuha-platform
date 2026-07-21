@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center p-4"
-      style={{ background: "radial-gradient(ellipse at top, #0d1a12 0%, #0a0a0a 60%)" }}>
+      style={{ background: "radial-gradient(ellipse at top, var(--bg-alt) 0%, var(--bg) 60%)" }}>
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
           <Image src="/images/about/portrait.jpg" alt="Hà Bùi" width={56} height={56} sizes="56px" className="w-14 h-14 rounded-2xl mb-4 object-cover inline-block" />
           <h1 className="text-2xl font-bold text-white">Đăng nhập</h1>
-          <p className="text-gray-400 mt-1 text-sm">Chào mừng trở lại — <span className="text-[#D4A843]">buithuha.com</span></p>
+          <p className="text-gray-400 mt-1 text-sm">Chào mừng trở lại — <span className="text-[var(--accent)]">buithuha.com</span></p>
         </div>
 
         {/* Card */}
@@ -31,7 +31,7 @@ export default function LoginPage() {
 
           <p className="text-center text-sm text-gray-500 mt-5">
             Chưa có tài khoản?{" "}
-            <Link href="/register" className="text-[#D4A843] font-medium hover:underline">Đăng ký miễn phí</Link>
+            <Link href="/register" className="text-[var(--accent)] font-medium hover:underline">Đăng ký miễn phí</Link>
           </p>
         </div>
       </div>

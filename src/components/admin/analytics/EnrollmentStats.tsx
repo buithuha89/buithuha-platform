@@ -110,12 +110,12 @@ export default function EnrollmentStats({
             {completionRate}%
           </span>
         </div>
-        <div className="w-full h-2.5 rounded-full" style={{ backgroundColor: "#2a2a2a" }}>
+        <div className="w-full h-2.5 rounded-full" style={{ backgroundColor: "var(--border)" }}>
           <div
             className="h-2.5 rounded-full transition-all duration-500"
             style={{
               width: `${completionRate}%`,
-              backgroundColor: "#10b981",
+              backgroundColor: "var(--cat-emerald)",
             }}
           />
         </div>
@@ -138,13 +138,13 @@ export default function EnrollmentStats({
                 </div>
                 <div
                   className="w-full h-1.5 rounded-full"
-                  style={{ backgroundColor: "#2a2a2a" }}
+                  style={{ backgroundColor: "var(--border)" }}
                 >
                   <div
                     className="h-1.5 rounded-full transition-all duration-500"
                     style={{
                       width: `${course.completionRate}%`,
-                      backgroundColor: "#10b981",
+                      backgroundColor: "var(--cat-emerald)",
                     }}
                   />
                 </div>

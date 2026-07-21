@@ -239,8 +239,8 @@ export default function ImportSubscribersModal({
         <div
           className="flex items-center justify-between px-5 py-4 sticky top-0 z-10"
           style={{
-            borderBottom: "1px solid #2a2a2a",
-            background: "#1a1a1a",
+            borderBottom: "1px solid var(--border)",
+            background: "var(--surface)",
           }}
         >
           <h2 className="text-white font-semibold text-base">
@@ -262,9 +262,9 @@ export default function ImportSubscribersModal({
             <div
               className="text-sm px-3 py-2 rounded-lg flex items-center gap-2"
               style={{
-                background: "rgba(239,68,68,0.1)",
-                color: "#ef4444",
-                border: "1px solid rgba(239,68,68,0.2)",
+                background: "rgb(var(--danger-rgb) / 0.1)",
+                color: "var(--danger)",
+                border: "1px solid rgb(var(--danger-rgb) / 0.2)",
               }}
             >
               <AlertTriangle size={14} />
@@ -277,13 +277,13 @@ export default function ImportSubscribersModal({
             <div
               className="px-4 py-3 rounded-lg"
               style={{
-                background: "rgba(212,168,67,0.1)",
-                border: "1px solid rgba(212,168,67,0.2)",
+                background: "rgb(var(--accent-rgb) / 0.1)",
+                border: "1px solid rgb(var(--accent-rgb) / 0.2)",
               }}
             >
               <div className="flex items-center gap-2 mb-2">
-                <Check size={16} className="text-[#D4A843]" />
-                <span className="text-[#D4A843] font-semibold text-sm">
+                <Check size={16} className="text-[var(--accent)]" />
+                <span className="text-[var(--accent)] font-semibold text-sm">
                   Import hoàn tất!
                 </span>
               </div>
@@ -296,7 +296,7 @@ export default function ImportSubscribersModal({
                 {result.skipped > 0 && (
                   <>
                     {" "}
-                    <span className="text-[#f59e0b]">
+                    <span className="text-[var(--warn)]">
                       {result.skipped}
                     </span>{" "}
                     bị bỏ qua (email trùng).
@@ -305,7 +305,7 @@ export default function ImportSubscribersModal({
                 {result.errors > 0 && (
                   <>
                     {" "}
-                    <span className="text-[#ef4444]">{result.errors}</span> lỗi.
+                    <span className="text-[var(--danger)]">{result.errors}</span> lỗi.
                   </>
                 )}
               </div>
@@ -328,10 +328,10 @@ export default function ImportSubscribersModal({
                 <div
                   className="rounded-xl p-8 text-center cursor-pointer transition-colors"
                   style={{
-                    border: `2px dashed ${dragOver ? "#D4A843" : "#2a2a2a"}`,
+                    border: `2px dashed ${dragOver ? "var(--accent)" : "var(--border)"}`,
                     background: dragOver
-                      ? "rgba(212,168,67,0.05)"
-                      : "#151515",
+                      ? "rgb(var(--accent-rgb) / 0.05)"
+                      : "var(--surface)",
                   }}
                   onClick={() => fileInputRef.current?.click()}
                   onDragOver={(e) => {
@@ -344,7 +344,7 @@ export default function ImportSubscribersModal({
                   <Upload
                     size={32}
                     className="mx-auto mb-3"
-                    style={{ color: dragOver ? "#D4A843" : "#6b7280" }}
+                    style={{ color: dragOver ? "var(--accent)" : "var(--fg-subtle)" }}
                   />
                   <p className="text-white text-sm font-medium mb-1">
                     Kéo thả file CSV vào đây
@@ -369,11 +369,11 @@ export default function ImportSubscribersModal({
                   <div
                     className="flex items-center gap-3 px-4 py-3 rounded-lg"
                     style={{
-                      background: "#151515",
-                      border: "1px solid #2a2a2a",
+                      background: "var(--surface)",
+                      border: "1px solid var(--border)",
                     }}
                   >
-                    <FileText size={18} className="text-[#D4A843] shrink-0" />
+                    <FileText size={18} className="text-[var(--accent)] shrink-0" />
                     <div className="flex-1 min-w-0">
                       <div className="text-white text-sm font-medium truncate">
                         {file.name}
@@ -482,15 +482,15 @@ export default function ImportSubscribersModal({
                       </h3>
                       <div
                         className="rounded-lg overflow-hidden"
-                        style={{ border: "1px solid #2a2a2a" }}
+                        style={{ border: "1px solid var(--border)" }}
                       >
                         <div className="overflow-x-auto">
                           <table className="w-full text-xs">
                             <thead>
                               <tr
                                 style={{
-                                  borderBottom: "1px solid #2a2a2a",
-                                  background: "#151515",
+                                  borderBottom: "1px solid var(--border)",
+                                  background: "var(--surface)",
                                 }}
                               >
                                 {headers.map((h, i) => (
@@ -500,17 +500,17 @@ export default function ImportSubscribersModal({
                                   >
                                     {h}
                                     {i === columnMapping.email && (
-                                      <span className="text-[#D4A843] ml-1">
+                                      <span className="text-[var(--accent)] ml-1">
                                         (email)
                                       </span>
                                     )}
                                     {i === columnMapping.name && (
-                                      <span className="text-[#3b82f6] ml-1">
+                                      <span className="text-[var(--info)] ml-1">
                                         (tên)
                                       </span>
                                     )}
                                     {i === columnMapping.phone && (
-                                      <span className="text-[#f59e0b] ml-1">
+                                      <span className="text-[var(--warn)] ml-1">
                                         (sđt)
                                       </span>
                                     )}
@@ -598,8 +598,8 @@ export default function ImportSubscribersModal({
                       }}
                       className="flex-1 py-2.5 text-sm font-medium text-gray-400 rounded-lg transition-colors hover:text-white"
                       style={{
-                        background: "#1f1f1f",
-                        border: "1px solid #2a2a2a",
+                        background: "var(--surface-2)",
+                        border: "1px solid var(--border)",
                       }}
                     >
                       Hủy

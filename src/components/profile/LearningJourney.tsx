@@ -32,33 +32,33 @@ const EVENT_CONFIG: Record<
 > = {
   enrollment: {
     icon: BookOpen,
-    color: "#3b82f6",
-    bg: "rgba(59,130,246,0.15)",
+    color: "var(--info)",
+    bg: "rgb(var(--info-rgb) / 0.15)",
   },
   lesson_complete: {
     icon: CheckCircle,
-    color: "#22c55e",
-    bg: "rgba(34,197,94,0.15)",
+    color: "var(--success)",
+    bg: "rgb(var(--success-rgb) / 0.15)",
   },
   course_complete: {
     icon: Trophy,
-    color: "#D4A843",
-    bg: "rgba(212,168,67,0.15)",
+    color: "var(--accent)",
+    bg: "rgb(var(--accent-rgb) / 0.15)",
   },
   quiz_pass: {
     icon: Award,
-    color: "#a855f7",
+    color: "var(--cat-purple)",
     bg: "rgba(168,85,247,0.15)",
   },
   milestone: {
     icon: Flag,
-    color: "#f97316",
+    color: "var(--cat-orange)",
     bg: "rgba(249,115,22,0.15)",
   },
   custom: {
     icon: Star,
-    color: "#6b7280",
-    bg: "rgba(107,114,128,0.15)",
+    color: "var(--fg-subtle)",
+    bg: "rgb(var(--neutral-rgb) / 0.15)",
   },
 };
 
@@ -146,10 +146,10 @@ export default function LearningJourney({ userId }: LearningJourneyProps) {
       <div className="space-y-4">
         {[1, 2, 3].map((i) => (
           <div key={i} className="flex gap-3 animate-pulse">
-            <div className="w-10 h-10 rounded-full bg-[#2a2a2a]" />
+            <div className="w-10 h-10 rounded-full bg-[var(--border)]" />
             <div className="flex-1">
-              <div className="h-4 bg-[#2a2a2a] rounded w-1/3 mb-2" />
-              <div className="h-3 bg-[#2a2a2a] rounded w-1/2" />
+              <div className="h-4 bg-[var(--border)] rounded w-1/3 mb-2" />
+              <div className="h-3 bg-[var(--border)] rounded w-1/2" />
             </div>
           </div>
         ))}
@@ -162,13 +162,13 @@ export default function LearningJourney({ userId }: LearningJourneyProps) {
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-sm font-bold text-white flex items-center gap-2">
-          <Flag size={16} className="text-[#D4A843]" />
+          <Flag size={16} className="text-[var(--accent)]" />
           Hành trình học tập
         </h3>
         {isOwnProfile && (
           <button
             onClick={() => setShowForm(!showForm)}
-            className="flex items-center gap-1.5 text-xs text-[#D4A843] hover:text-[#e5bf5a] transition-colors"
+            className="flex items-center gap-1.5 text-xs text-[var(--accent)] hover:text-[#e5bf5a] transition-colors"
           >
             {showForm ? <X size={14} /> : <Plus size={14} />}
             {showForm ? "Huỷ" : "Thêm cột mốc"}
@@ -188,7 +188,7 @@ export default function LearningJourney({ userId }: LearningJourneyProps) {
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
               placeholder="VD: Hoàn thành Module 1"
-              className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#D4A843] transition-colors"
+              className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[var(--accent)] transition-colors"
               maxLength={200}
               required
             />
@@ -202,7 +202,7 @@ export default function LearningJourney({ userId }: LearningJourneyProps) {
               onChange={(e) => setNewDescription(e.target.value)}
               placeholder="Mô tả thêm về cột mốc này..."
               rows={2}
-              className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg p-3 text-sm text-white placeholder:text-gray-500 resize-none focus:outline-none focus:border-[#D4A843] transition-colors"
+              className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg p-3 text-sm text-white placeholder:text-gray-500 resize-none focus:outline-none focus:border-[var(--accent)] transition-colors"
               maxLength={1000}
             />
           </div>
@@ -215,7 +215,7 @@ export default function LearningJourney({ userId }: LearningJourneyProps) {
               value={newProductId}
               onChange={(e) => setNewProductId(e.target.value)}
               placeholder="ID khoá học (nếu có)"
-              className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#D4A843] transition-colors"
+              className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[var(--accent)] transition-colors"
             />
           </div>
           <div className="flex items-center justify-between">
@@ -225,7 +225,7 @@ export default function LearningJourney({ userId }: LearningJourneyProps) {
                 checked={newIsPublic}
                 onChange={(e) => setNewIsPublic(e.target.checked)}
                 className="w-3.5 h-3.5 rounded"
-                style={{ accentColor: "#D4A843" }}
+                style={{ accentColor: "var(--accent)" }}
               />
               {newIsPublic ? (
                 <span className="flex items-center gap-1">
@@ -268,7 +268,7 @@ export default function LearningJourney({ userId }: LearningJourneyProps) {
       ) : (
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-5 top-5 bottom-5 w-px bg-[#2a2a2a]" />
+          <div className="absolute left-5 top-5 bottom-5 w-px bg-[var(--border)]" />
 
           <div className="space-y-4">
             {events.map((event) => {

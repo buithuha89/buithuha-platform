@@ -92,7 +92,7 @@ function Toggle({
       className={`
         relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full
         transition-colors duration-200
-        ${checked ? "bg-[#D4A843]" : "bg-[#444]"}
+        ${checked ? "bg-[var(--accent)]" : "bg-[var(--surface-3)]"}
         ${disabled ? "opacity-60 cursor-not-allowed" : ""}
       `}
     >
@@ -168,7 +168,7 @@ export default function CookieConsent() {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-[#111] border-t border-[#333]">
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-[var(--surface)] border-t border-[var(--border-strong)]">
       <div className="max-w-4xl mx-auto">
         {/* ── Main banner ── */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -177,7 +177,7 @@ export default function CookieConsent() {
             Xem{" "}
             <a
               href="/privacy-policy"
-              className="text-[#D4A843] hover:underline"
+              className="text-[var(--accent)] hover:underline"
             >
               Chính sách bảo mật
             </a>{" "}
@@ -186,19 +186,19 @@ export default function CookieConsent() {
           <div className="flex gap-3 shrink-0">
             <button
               onClick={() => setShowCustomize((v) => !v)}
-              className="px-4 py-2 text-sm text-[#D4A843] hover:text-white border border-[#D4A843] rounded-lg transition-colors"
+              className="px-4 py-2 text-sm text-[var(--accent)] hover:text-white border border-[var(--accent)] rounded-lg transition-colors"
             >
               Tùy chỉnh
             </button>
             <button
               onClick={declineAll}
-              className="px-4 py-2 text-sm text-gray-400 hover:text-white border border-[#333] rounded-lg transition-colors"
+              className="px-4 py-2 text-sm text-gray-400 hover:text-white border border-[var(--border-strong)] rounded-lg transition-colors"
             >
               Từ chối
             </button>
             <button
               onClick={acceptAll}
-              className="px-4 py-2 text-sm bg-[#D4A843] text-black font-medium rounded-lg hover:bg-[#c49a3a] transition-colors"
+              className="px-4 py-2 text-sm bg-[var(--accent)] text-black font-medium rounded-lg hover:bg-[var(--accent-hover)] transition-colors"
             >
               Chấp nhận
             </button>
@@ -207,7 +207,7 @@ export default function CookieConsent() {
 
         {/* ── Granular customization panel ── */}
         {showCustomize && (
-          <div className="mt-4 pt-4 border-t border-[#333] space-y-4">
+          <div className="mt-4 pt-4 border-t border-[var(--border-strong)] space-y-4">
             {/* Essential */}
             <div className="flex items-center justify-between">
               <div>
@@ -250,7 +250,7 @@ export default function CookieConsent() {
             <div className="flex justify-end">
               <button
                 onClick={saveCustom}
-                className="px-4 py-2 text-sm bg-[#D4A843] text-black font-medium rounded-lg hover:bg-[#c49a3a] transition-colors"
+                className="px-4 py-2 text-sm bg-[var(--accent)] text-black font-medium rounded-lg hover:bg-[var(--accent-hover)] transition-colors"
               >
                 Lưu tùy chọn
               </button>

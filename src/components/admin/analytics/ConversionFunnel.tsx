@@ -24,10 +24,10 @@ export default function ConversionFunnel({
   loading = false,
 }: ConversionFunnelProps) {
   const steps: FunnelStep[] = [
-    { label: "Đăng ký", count: totalUsers, color: "#3b82f6" },
-    { label: "Ghi danh", count: enrolledUsers, color: "#06b6d4" },
-    { label: "Thanh toán", count: paidUsers, color: "#10b981" },
-    { label: "Hoàn thành", count: completedUsers, color: "#D4A843" },
+    { label: "Đăng ký", count: totalUsers, color: "var(--info)" },
+    { label: "Ghi danh", count: enrolledUsers, color: "var(--cat-cyan)" },
+    { label: "Thanh toán", count: paidUsers, color: "var(--cat-emerald)" },
+    { label: "Hoàn thành", count: completedUsers, color: "var(--accent)" },
   ];
 
   const getConversionRate = (current: number, previous: number): string => {

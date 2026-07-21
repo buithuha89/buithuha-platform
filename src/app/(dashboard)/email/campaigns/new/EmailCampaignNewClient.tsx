@@ -57,10 +57,10 @@ const VARIABLES = [
 ];
 
 const CATEGORY_LABELS: Record<string, { label: string; color: string }> = {
-  marketing: { label: "Marketing", color: "#D4A843" },
-  newsletter: { label: "Newsletter", color: "#3b82f6" },
-  transactional: { label: "Transactional", color: "#f59e0b" },
-  other: { label: "Khac", color: "#6b7280" },
+  marketing: { label: "Marketing", color: "var(--accent)" },
+  newsletter: { label: "Newsletter", color: "var(--info)" },
+  transactional: { label: "Transactional", color: "var(--warn)" },
+  other: { label: "Khac", color: "var(--fg-subtle)" },
 };
 
 // ─── Page ───────────────────────────────────────────────────────────────────
@@ -319,16 +319,16 @@ export default function NewCampaignPage() {
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all shrink-0"
                   style={{
-                    background: i < step ? "#D4A843" : i === step ? "rgba(212,168,67,0.15)" : "#252525",
-                    color: i < step ? "white" : i === step ? "#D4A843" : "#6b7280",
-                    border: i === step ? "2px solid #D4A843" : "2px solid transparent",
+                    background: i < step ? "var(--accent)" : i === step ? "rgb(var(--accent-rgb) / 0.15)" : "var(--surface-3)",
+                    color: i < step ? "white" : i === step ? "var(--accent)" : "var(--fg-subtle)",
+                    border: i === step ? "2px solid var(--accent)" : "2px solid transparent",
                   }}
                 >
                   {i < step ? <Check size={14} /> : i + 1}
                 </div>
                 <span
                   className="text-xs font-medium hidden sm:inline whitespace-nowrap"
-                  style={{ color: i <= step ? "white" : "#6b7280" }}
+                  style={{ color: i <= step ? "white" : "var(--fg-subtle)" }}
                 >
                   {s.label}
                 </span>
@@ -336,7 +336,7 @@ export default function NewCampaignPage() {
               {i < STEPS.length - 1 && (
                 <div
                   className="flex-1 h-px mx-3"
-                  style={{ background: i < step ? "#D4A843" : "#2a2a2a" }}
+                  style={{ background: i < step ? "var(--accent)" : "var(--border)" }}
                 />
               )}
             </div>
@@ -345,7 +345,7 @@ export default function NewCampaignPage() {
 
         {/* Save indicator */}
         {saveMsg && (
-          <div className="flex items-center gap-2 text-xs" style={{ color: saveMsg.includes("Loi") ? "#ef4444" : "#D4A843" }}>
+          <div className="flex items-center gap-2 text-xs" style={{ color: saveMsg.includes("Loi") ? "var(--danger)" : "var(--accent)" }}>
             {saving ? <Loader2 size={12} className="animate-spin" /> : <Check size={12} />}
             {saveMsg}
           </div>
@@ -355,7 +355,7 @@ export default function NewCampaignPage() {
         {step === 0 && (
           <div className="card-dark p-6 space-y-5">
             <h2 className="text-white font-semibold text-base flex items-center gap-2">
-              <FileText size={18} className="text-[#D4A843]" />
+              <FileText size={18} className="text-[var(--accent)]" />
               Thong tin co ban
             </h2>
 
@@ -382,7 +382,7 @@ export default function NewCampaignPage() {
               <p className="text-[11px] text-gray-500 mt-1">
                 {subject.length} ky tu
                 {subject.length > 50 && (
-                  <span className="text-[#f59e0b] ml-2">Nen giu duoi 50 ky tu</span>
+                  <span className="text-[var(--warn)] ml-2">Nen giu duoi 50 ky tu</span>
                 )}
               </p>
             </div>
@@ -425,7 +425,7 @@ export default function NewCampaignPage() {
         {step === 1 && (
           <div className="card-dark p-6 space-y-5">
             <h2 className="text-white font-semibold text-base flex items-center gap-2">
-              <Users size={18} className="text-[#D4A843]" />
+              <Users size={18} className="text-[var(--accent)]" />
               Nguoi nhan
             </h2>
 
@@ -454,9 +454,9 @@ export default function NewCampaignPage() {
                 {subscriberCount !== null && (
                   <div
                     className="flex items-center gap-3 p-4 rounded-lg"
-                    style={{ background: "rgba(212,168,67,0.06)", border: "1px solid rgba(212,168,67,0.15)" }}
+                    style={{ background: "rgb(var(--accent-rgb) / 0.06)", border: "1px solid rgb(var(--accent-rgb) / 0.15)" }}
                   >
-                    <Users size={18} className="text-[#D4A843]" />
+                    <Users size={18} className="text-[var(--accent)]" />
                     <div>
                       <p className="text-white text-sm font-medium">
                         {subscriberCount.toLocaleString("vi-VN")} nguoi nhan
@@ -481,9 +481,9 @@ export default function NewCampaignPage() {
                 onClick={() => setContentMode("template")}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors"
                 style={{
-                  background: contentMode === "template" ? "rgba(212,168,67,0.12)" : "#1f1f1f",
-                  color: contentMode === "template" ? "#D4A843" : "#9ca3af",
-                  border: contentMode === "template" ? "1px solid rgba(212,168,67,0.3)" : "1px solid #2a2a2a",
+                  background: contentMode === "template" ? "rgb(var(--accent-rgb) / 0.12)" : "var(--surface-2)",
+                  color: contentMode === "template" ? "var(--accent)" : "var(--fg-muted)",
+                  border: contentMode === "template" ? "1px solid rgb(var(--accent-rgb) / 0.3)" : "1px solid var(--border)",
                 }}
               >
                 <Layout size={15} /> Chon template
@@ -492,9 +492,9 @@ export default function NewCampaignPage() {
                 onClick={() => setContentMode("custom")}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors"
                 style={{
-                  background: contentMode === "custom" ? "rgba(212,168,67,0.12)" : "#1f1f1f",
-                  color: contentMode === "custom" ? "#D4A843" : "#9ca3af",
-                  border: contentMode === "custom" ? "1px solid rgba(212,168,67,0.3)" : "1px solid #2a2a2a",
+                  background: contentMode === "custom" ? "rgb(var(--accent-rgb) / 0.12)" : "var(--surface-2)",
+                  color: contentMode === "custom" ? "var(--accent)" : "var(--fg-muted)",
+                  border: contentMode === "custom" ? "1px solid rgb(var(--accent-rgb) / 0.3)" : "1px solid var(--border)",
                 }}
               >
                 <Sparkles size={15} /> Viet moi
@@ -521,14 +521,14 @@ export default function NewCampaignPage() {
                           onClick={() => selectTemplate(tpl)}
                           className="rounded-lg p-4 cursor-pointer transition-all"
                           style={{
-                            background: selectedTemplate === tpl.id ? "rgba(212,168,67,0.08)" : "#252525",
-                            border: selectedTemplate === tpl.id ? "2px solid #D4A843" : "2px solid #333",
+                            background: selectedTemplate === tpl.id ? "rgb(var(--accent-rgb) / 0.08)" : "var(--surface-3)",
+                            border: selectedTemplate === tpl.id ? "2px solid var(--accent)" : "2px solid #333",
                           }}
                         >
                           <div className="flex items-start justify-between mb-2">
                             <h4 className="text-white text-sm font-medium truncate flex-1">{tpl.name}</h4>
                             {selectedTemplate === tpl.id && (
-                              <Check size={14} className="text-[#D4A843] shrink-0 ml-2" />
+                              <Check size={14} className="text-[var(--accent)] shrink-0 ml-2" />
                             )}
                           </div>
                           <p className="text-xs text-gray-500 truncate mb-2">{tpl.subject}</p>
@@ -560,13 +560,13 @@ export default function NewCampaignPage() {
                 <h3 className="text-white font-semibold text-sm">Noi dung email</h3>
                 <div className="flex items-center gap-2">
                   {/* Editor mode toggle */}
-                  <div className="flex rounded-lg overflow-hidden" style={{ border: "1px solid #2a2a2a" }}>
+                  <div className="flex rounded-lg overflow-hidden" style={{ border: "1px solid var(--border)" }}>
                     <button
                       onClick={() => setEditorMode("wysiwyg")}
                       className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-medium transition-colors"
                       style={{
-                        background: editorMode === "wysiwyg" ? "rgba(212,168,67,0.15)" : "#1f1f1f",
-                        color: editorMode === "wysiwyg" ? "#D4A843" : "#9ca3af",
+                        background: editorMode === "wysiwyg" ? "rgb(var(--accent-rgb) / 0.15)" : "var(--surface-2)",
+                        color: editorMode === "wysiwyg" ? "var(--accent)" : "var(--fg-muted)",
                       }}
                     >
                       <Layout size={11} />
@@ -576,8 +576,8 @@ export default function NewCampaignPage() {
                       onClick={() => setEditorMode("html")}
                       className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-medium transition-colors"
                       style={{
-                        background: editorMode === "html" ? "rgba(212,168,67,0.15)" : "#1f1f1f",
-                        color: editorMode === "html" ? "#D4A843" : "#9ca3af",
+                        background: editorMode === "html" ? "rgb(var(--accent-rgb) / 0.15)" : "var(--surface-2)",
+                        color: editorMode === "html" ? "var(--accent)" : "var(--fg-muted)",
                       }}
                     >
                       <Code size={11} />
@@ -587,7 +587,7 @@ export default function NewCampaignPage() {
                   <button
                     onClick={() => setPreviewOpen(true)}
                     disabled={!htmlContent}
-                    className="flex items-center gap-1.5 text-xs text-[#D4A843] hover:underline disabled:opacity-40 disabled:no-underline"
+                    className="flex items-center gap-1.5 text-xs text-[var(--accent)] hover:underline disabled:opacity-40 disabled:no-underline"
                   >
                     <Eye size={12} /> Xem truoc
                   </button>
@@ -603,8 +603,8 @@ export default function NewCampaignPage() {
                       key={v.label}
                       type="button"
                       onClick={() => insertVariable(v.label)}
-                      className="px-2 py-1 rounded text-xs font-mono transition-colors hover:bg-[#333]"
-                      style={{ background: "#252525", color: "#D4A843", border: "1px solid #333" }}
+                      className="px-2 py-1 rounded text-xs font-mono transition-colors hover:bg-[var(--surface-3)]"
+                      style={{ background: "var(--surface-3)", color: "var(--accent)", border: "1px solid #333" }}
                       title={v.desc}
                     >
                       {v.label}
@@ -669,9 +669,9 @@ export default function NewCampaignPage() {
                 disabled={!htmlContent.trim() || !name.trim() || !subject.trim()}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 style={{
-                  background: "rgba(59,130,246,0.12)",
-                  color: "#3b82f6",
-                  border: "1px solid rgba(59,130,246,0.3)",
+                  background: "rgb(var(--info-rgb) / 0.12)",
+                  color: "var(--info)",
+                  border: "1px solid rgb(var(--info-rgb) / 0.3)",
                 }}
               >
                 <FlaskConical size={15} />
@@ -687,7 +687,7 @@ export default function NewCampaignPage() {
             {/* Summary card */}
             <div className="card-dark p-6 space-y-4">
               <h2 className="text-white font-semibold text-base flex items-center gap-2">
-                <Send size={18} className="text-[#D4A843]" />
+                <Send size={18} className="text-[var(--accent)]" />
                 Xem lai campaign
               </h2>
 
@@ -726,7 +726,7 @@ export default function NewCampaignPage() {
               {htmlContent && (
                 <button
                   onClick={() => setPreviewOpen(true)}
-                  className="flex items-center gap-1.5 text-xs text-[#D4A843] hover:underline"
+                  className="flex items-center gap-1.5 text-xs text-[var(--accent)] hover:underline"
                 >
                   <Eye size={12} /> Xem truoc email
                 </button>
@@ -736,7 +736,7 @@ export default function NewCampaignPage() {
             {/* Test email */}
             <div className="card-dark p-5 space-y-3">
               <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                <Mail size={15} className="text-[#3b82f6]" />
+                <Mail size={15} className="text-[var(--info)]" />
                 Gui email test
               </h3>
               <div className="flex gap-2">
@@ -751,7 +751,7 @@ export default function NewCampaignPage() {
                   onClick={sendTest}
                   disabled={testSending || !testEmail || !campaignId}
                   className="px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
-                  style={{ background: "rgba(59,130,246,0.12)", color: "#3b82f6", border: "1px solid rgba(59,130,246,0.3)" }}
+                  style={{ background: "rgb(var(--info-rgb) / 0.12)", color: "var(--info)", border: "1px solid rgb(var(--info-rgb) / 0.3)" }}
                 >
                   {testSending ? <Loader2 size={13} className="animate-spin" /> : <Send size={13} />}
                   Gui test
@@ -760,16 +760,16 @@ export default function NewCampaignPage() {
               {/* Quick test modal button */}
               <button
                 onClick={() => setTestModalOpen(true)}
-                className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-[#3b82f6] transition-colors"
+                className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-[var(--info)] transition-colors"
               >
                 <FlaskConical size={12} />
                 Mo cua so gui test
               </button>
               {!campaignId && (
-                <p className="text-xs text-[#f59e0b]">Luu campaign truoc khi gui test.</p>
+                <p className="text-xs text-[var(--warn)]">Luu campaign truoc khi gui test.</p>
               )}
               {testResult && (
-                <p className="text-xs" style={{ color: testResult.ok ? "#D4A843" : "#ef4444" }}>
+                <p className="text-xs" style={{ color: testResult.ok ? "var(--accent)" : "var(--danger)" }}>
                   {testResult.msg}
                 </p>
               )}
@@ -778,7 +778,7 @@ export default function NewCampaignPage() {
             {/* Schedule or send */}
             <div className="card-dark p-5 space-y-4">
               <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                <Clock size={15} className="text-[#f59e0b]" />
+                <Clock size={15} className="text-[var(--warn)]" />
                 Len lich gui
               </h3>
               <div className="flex items-center gap-3">
@@ -813,7 +813,7 @@ export default function NewCampaignPage() {
                     router.push("/email/campaigns");
                   }}
                   className="px-6 py-3 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
-                  style={{ background: "rgba(59,130,246,0.12)", color: "#3b82f6", border: "1px solid rgba(59,130,246,0.3)" }}
+                  style={{ background: "rgb(var(--info-rgb) / 0.12)", color: "var(--info)", border: "1px solid rgb(var(--info-rgb) / 0.3)" }}
                 >
                   <Clock size={15} /> Len lich gui
                 </button>
@@ -836,7 +836,7 @@ export default function NewCampaignPage() {
             onClick={() => goToStep(Math.max(0, step - 1))}
             disabled={step === 0}
             className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-gray-400 hover:text-white transition-colors disabled:opacity-30"
-            style={{ border: "1px solid #2a2a2a" }}
+            style={{ border: "1px solid var(--border)" }}
           >
             <ChevronLeft size={15} /> Quay lai
           </button>

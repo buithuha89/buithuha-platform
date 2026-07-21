@@ -25,7 +25,7 @@ function CustomTooltip({ active, payload, label }: any) {
   if (!active || !payload || !payload.length) return null;
 
   return (
-    <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-3 shadow-lg">
+    <div className="bg-[var(--surface)] border border-[var(--border)] rounded-lg p-3 shadow-lg">
       <p className="text-gray-400 text-sm mb-1">{label}</p>
       {payload.map((entry: any, index: number) => (
         <p key={index} className="text-sm" style={{ color: entry.color }}>
@@ -58,26 +58,26 @@ export default function RevenueComparison({ currentData, previousData, loading }
       <h3 className="text-lg font-semibold text-white mb-4">So sánh doanh thu</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={mergedData} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" />
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
           <XAxis
             dataKey="day"
-            stroke="#6b7280"
-            tick={{ fill: '#6b7280', fontSize: 12 }}
+            stroke="var(--fg-subtle)"
+            tick={{ fill: 'var(--fg-subtle)', fontSize: 12 }}
           />
           <YAxis
-            stroke="#6b7280"
-            tick={{ fill: '#6b7280', fontSize: 12 }}
+            stroke="var(--fg-subtle)"
+            tick={{ fill: 'var(--fg-subtle)', fontSize: 12 }}
             tickFormatter={(value) => `${formatRevenue(value)} VND`}
           />
           <Tooltip content={<CustomTooltip />} />
           <Legend
-            wrapperStyle={{ color: '#9ca3af' }}
+            wrapperStyle={{ color: 'var(--fg-muted)' }}
           />
           <Line
             type="monotone"
             dataKey="current"
             name="Kỳ hiện tại"
-            stroke="#D4A843"
+            stroke="var(--accent)"
             strokeWidth={2}
             dot={false}
             connectNulls
@@ -86,7 +86,7 @@ export default function RevenueComparison({ currentData, previousData, loading }
             type="monotone"
             dataKey="previous"
             name="Kỳ trước"
-            stroke="#6b7280"
+            stroke="var(--fg-subtle)"
             strokeWidth={2}
             strokeDasharray="5 5"
             dot={false}

@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 export default function NotFound() {
   return (
     <html lang="vi">
-      <body style={{ background: "#0a0a0a", color: "#f5f5f5", margin: 0 }}>
+      <body style={{ background: "var(--bg)", color: "var(--fg)", margin: 0 }}>
         <div
           style={{
             minHeight: "100vh",
@@ -29,7 +29,7 @@ export default function NotFound() {
               width: "500px",
               height: "300px",
               borderRadius: "50%",
-              background: "radial-gradient(circle, #D4A843, transparent 70%)",
+              background: "radial-gradient(circle, var(--accent), transparent 70%)",
               opacity: 0.08,
               filter: "blur(60px)",
               pointerEvents: "none",
@@ -43,7 +43,7 @@ export default function NotFound() {
                 fontSize: "clamp(80px, 20vw, 140px)",
                 fontWeight: 900,
                 lineHeight: 1,
-                background: "linear-gradient(135deg, #D4A843, #FBBF24)",
+                background: "linear-gradient(135deg, var(--accent), var(--warn))",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -63,7 +63,7 @@ export default function NotFound() {
                 fontSize: "clamp(22px, 5vw, 32px)",
                 fontWeight: 800,
                 margin: "0 0 12px",
-                color: "#f5f5f5",
+                color: "var(--fg)",
               }}
             >
               Không tìm thấy trang
@@ -73,7 +73,7 @@ export default function NotFound() {
             <p
               style={{
                 fontSize: "15px",
-                color: "#9ca3af",
+                color: "var(--fg-muted)",
                 lineHeight: 1.6,
                 margin: "0 0 32px",
               }}
@@ -90,8 +90,8 @@ export default function NotFound() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "8px",
-                backgroundColor: "#D4A843",
-                color: "#0a0a0a",
+                backgroundColor: "var(--accent)",
+                color: "var(--bg)",
                 fontWeight: 700,
                 fontSize: "15px",
                 padding: "13px 32px",
@@ -107,12 +107,12 @@ export default function NotFound() {
               style={{
                 margin: "32px 0",
                 height: "1px",
-                background: "rgba(255,255,255,0.06)",
+                background: "rgb(var(--overlay-rgb) / 0.06)",
               }}
             />
 
             {/* Quick links */}
-            <p style={{ fontSize: "13px", color: "#6b7280", marginBottom: "12px" }}>
+            <p style={{ fontSize: "13px", color: "var(--fg-subtle)", marginBottom: "12px" }}>
               Hoặc truy cập nhanh:
             </p>
             <div
@@ -134,12 +134,12 @@ export default function NotFound() {
                   href={link.href}
                   style={{
                     fontSize: "13px",
-                    color: "#D4A843",
+                    color: "var(--accent)",
                     textDecoration: "none",
                     padding: "6px 14px",
                     borderRadius: "6px",
-                    border: "1px solid rgba(212,168,67,0.25)",
-                    background: "rgba(212,168,67,0.06)",
+                    border: "1px solid rgb(var(--accent-rgb) / 0.25)",
+                    background: "rgb(var(--accent-rgb) / 0.06)",
                   }}
                 >
                   {link.label}
@@ -152,7 +152,7 @@ export default function NotFound() {
               style={{
                 marginTop: "48px",
                 fontSize: "12px",
-                color: "#4b5563",
+                color: "var(--fg-subtle)",
               }}
             >
               {siteConfig.footer.copyright}

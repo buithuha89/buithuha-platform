@@ -63,30 +63,30 @@ export default async function AdminZaloPage() {
       label: "Trang thai ket noi",
       value: configured ? "Da ket noi" : "Chua cau hinh",
       icon: configured ? CheckCircle : XCircle,
-      color: configured ? "#22c55e" : "#ef4444",
-      bg: configured ? "rgba(34,197,94,0.1)" : "rgba(239,68,68,0.1)",
+      color: configured ? "var(--success)" : "var(--danger)",
+      bg: configured ? "rgb(var(--success-rgb) / 0.1)" : "rgb(var(--danger-rgb) / 0.1)",
     },
     {
       label: "Tai khoan lien ket Zalo",
       value: `${linkedCount || 0} / ${totalUsers || 0}`,
       icon: Users,
-      color: "#D4A843",
-      bg: "rgba(212,168,67,0.1)",
+      color: "var(--accent)",
+      bg: "rgb(var(--accent-rgb) / 0.1)",
     },
     {
       label: "Su kien webhook",
       value: String(recentEvents.length),
       icon: Activity,
-      color: "#3b82f6",
-      bg: "rgba(59,130,246,0.1)",
+      color: "var(--info)",
+      bg: "rgb(var(--info-rgb) / 0.1)",
     },
   ];
 
   const eventLabels: Record<string, { label: string; color: string }> = {
-    follow: { label: "Theo doi", color: "#22c55e" },
-    unfollow: { label: "Bo theo doi", color: "#ef4444" },
-    user_send_text: { label: "Tin nhan", color: "#3b82f6" },
-    unknown: { label: "Khac", color: "#6b7280" },
+    follow: { label: "Theo doi", color: "var(--success)" },
+    unfollow: { label: "Bo theo doi", color: "var(--danger)" },
+    user_send_text: { label: "Tin nhan", color: "var(--info)" },
+    unknown: { label: "Khac", color: "var(--fg-subtle)" },
   };
 
   return (
@@ -118,23 +118,23 @@ export default async function AdminZaloPage() {
         {/* Configuration info */}
         <div className="card-dark p-6">
           <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
-            <MessageCircle size={16} className="text-[#D4A843]" />
+            <MessageCircle size={16} className="text-[var(--accent)]" />
             Cau hinh Zalo OA
           </h3>
           {configured ? (
             <div className="space-y-3">
-              <div className="flex items-center gap-2 text-sm text-[#22c55e]">
+              <div className="flex items-center gap-2 text-sm text-[var(--success)]">
                 <CheckCircle size={14} />
                 <span>ZALO_OA_ACCESS_TOKEN da duoc cau hinh</span>
               </div>
               <div className="text-xs text-gray-500 space-y-1">
                 <p>Webhook URL: <code className="text-gray-400">https://buithuha.com/api/zalo/webhook</code></p>
-                <p>Cau hinh tai <a href="https://oa.zalo.me" target="_blank" rel="noopener noreferrer" className="text-[#D4A843] hover:underline">Zalo OA Dashboard</a></p>
+                <p>Cau hinh tai <a href="https://oa.zalo.me" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:underline">Zalo OA Dashboard</a></p>
               </div>
             </div>
           ) : (
             <div className="space-y-3">
-              <div className="flex items-center gap-2 text-sm text-[#ef4444]">
+              <div className="flex items-center gap-2 text-sm text-[var(--danger)]">
                 <XCircle size={14} />
                 <span>Chua cau hinh Zalo OA</span>
               </div>
@@ -156,7 +156,7 @@ export default async function AdminZaloPage() {
         {configured && (
           <div className="card-dark p-6">
             <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
-              <Send size={16} className="text-[#D4A843]" />
+              <Send size={16} className="text-[var(--accent)]" />
               Gui tin nhan thu
             </h3>
             {adminProfile?.zalo_user_id ? (
@@ -174,7 +174,7 @@ export default async function AdminZaloPage() {
           <h3 className="font-semibold text-white mb-4">SQL Migration</h3>
           <div className="text-xs text-gray-500 space-y-2">
             <p>Chay lenh SQL sau de them cot zalo_user_id vao bang profiles:</p>
-            <pre className="p-3 rounded-lg text-gray-300 overflow-x-auto text-[11px]" style={{ background: "#1a1a1a" }}>
+            <pre className="p-3 rounded-lg text-gray-300 overflow-x-auto text-[11px]" style={{ background: "var(--surface)" }}>
 {`-- Add zalo_user_id to profiles for linking Zalo accounts
 ALTER TABLE profiles ADD COLUMN zalo_user_id TEXT DEFAULT NULL;
 CREATE INDEX idx_profiles_zalo ON profiles(zalo_user_id) WHERE zalo_user_id IS NOT NULL;
@@ -196,7 +196,7 @@ CREATE INDEX idx_zalo_events_created ON zalo_webhook_events(created_at DESC);`}
         {recentEvents.length > 0 && (
           <div className="card-dark p-6">
             <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
-              <Activity size={16} className="text-[#D4A843]" />
+              <Activity size={16} className="text-[var(--accent)]" />
               Su kien webhook gan day
             </h3>
             <div className="space-y-2">
@@ -206,7 +206,7 @@ CREATE INDEX idx_zalo_events_created ON zalo_webhook_events(created_at DESC);`}
                   <div
                     key={e.id}
                     className="flex items-center justify-between p-3 rounded-lg"
-                    style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                    style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                   >
                     <div className="flex items-center gap-3">
                       <span

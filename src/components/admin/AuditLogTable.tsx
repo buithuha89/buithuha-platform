@@ -214,7 +214,7 @@ export default function AuditLogTable() {
           <select
             value={actionFilter}
             onChange={(e) => setActionFilter(e.target.value)}
-            className="bg-[#1a1a1a] border border-[#2a2a2a] text-white text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-[#D4A843]/50 transition-colors"
+            className="bg-[var(--surface)] border border-[var(--border)] text-white text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-[var(--accent)]/50 transition-colors"
           >
             {ACTION_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -232,7 +232,7 @@ export default function AuditLogTable() {
             value={dateFrom}
             onChange={(e) => setDateFrom(e.target.value)}
             placeholder="Từ ngày"
-            className="bg-[#1a1a1a] border border-[#2a2a2a] text-white text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-[#D4A843]/50 transition-colors"
+            className="bg-[var(--surface)] border border-[var(--border)] text-white text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-[var(--accent)]/50 transition-colors"
           />
           <span className="text-gray-500 text-xs">-</span>
           <input
@@ -240,7 +240,7 @@ export default function AuditLogTable() {
             value={dateTo}
             onChange={(e) => setDateTo(e.target.value)}
             placeholder="Đến ngày"
-            className="bg-[#1a1a1a] border border-[#2a2a2a] text-white text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-[#D4A843]/50 transition-colors"
+            className="bg-[var(--surface)] border border-[var(--border)] text-white text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-[var(--accent)]/50 transition-colors"
           />
         </div>
 
@@ -248,7 +248,7 @@ export default function AuditLogTable() {
         <button
           onClick={fetchLogs}
           disabled={loading}
-          className="flex items-center gap-1.5 bg-[#1a1a1a] border border-[#2a2a2a] text-gray-400 text-xs rounded-lg px-3 py-2 hover:text-white hover:border-[#3a3a3a] transition-colors disabled:opacity-50"
+          className="flex items-center gap-1.5 bg-[var(--surface)] border border-[var(--border)] text-gray-400 text-xs rounded-lg px-3 py-2 hover:text-white hover:border-[var(--border-strong)] transition-colors disabled:opacity-50"
         >
           <RefreshCw size={12} className={loading ? "animate-spin" : ""} />
           Làm mới
@@ -261,11 +261,11 @@ export default function AuditLogTable() {
       </div>
 
       {/* ── Table ─────────────────────────────────────────────────────── */}
-      <div className="border border-[#2a2a2a] rounded-xl overflow-hidden">
+      <div className="border border-[var(--border)] rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-[#111] text-gray-400 text-xs uppercase tracking-wider">
+              <tr className="bg-[var(--surface)] text-gray-400 text-xs uppercase tracking-wider">
                 <th className="text-left px-4 py-3 font-medium">Thời gian</th>
                 <th className="text-left px-4 py-3 font-medium">
                   Người dùng
@@ -281,7 +281,7 @@ export default function AuditLogTable() {
                   <td colSpan={5} className="text-center py-12">
                     <Loader2
                       size={20}
-                      className="animate-spin text-[#D4A843] mx-auto"
+                      className="animate-spin text-[var(--accent)] mx-auto"
                     />
                     <p className="text-gray-500 text-xs mt-2">
                       Đang tải...
@@ -312,7 +312,7 @@ export default function AuditLogTable() {
                   return (
                     <tr
                       key={log.id}
-                      className="border-t border-[#1a1a1a] hover:bg-[#111] transition-colors"
+                      className="border-t border-[var(--surface)] hover:bg-[var(--surface)] transition-colors"
                     >
                       {/* Thời gian */}
                       <td className="px-4 py-3 whitespace-nowrap">
@@ -383,7 +383,7 @@ export default function AuditLogTable() {
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page <= 1 || loading}
-              className="flex items-center justify-center w-8 h-8 rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] text-gray-400 hover:text-white hover:border-[#3a3a3a] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="flex items-center justify-center w-8 h-8 rounded-lg border border-[var(--border)] bg-[var(--surface)] text-gray-400 hover:text-white hover:border-[var(--border-strong)] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <ChevronLeft size={14} />
             </button>
@@ -407,8 +407,8 @@ export default function AuditLogTable() {
                   disabled={loading}
                   className={`w-8 h-8 rounded-lg text-xs font-medium transition-colors ${
                     pageNum === page
-                      ? "bg-[#D4A843]/15 text-[#D4A843] border border-[#D4A843]/30"
-                      : "border border-[#2a2a2a] bg-[#1a1a1a] text-gray-400 hover:text-white hover:border-[#3a3a3a]"
+                      ? "bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/30"
+                      : "border border-[var(--border)] bg-[var(--surface)] text-gray-400 hover:text-white hover:border-[var(--border-strong)]"
                   }`}
                 >
                   {pageNum}
@@ -419,7 +419,7 @@ export default function AuditLogTable() {
             <button
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page >= totalPages || loading}
-              className="flex items-center justify-center w-8 h-8 rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] text-gray-400 hover:text-white hover:border-[#3a3a3a] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="flex items-center justify-center w-8 h-8 rounded-lg border border-[var(--border)] bg-[var(--surface)] text-gray-400 hover:text-white hover:border-[var(--border-strong)] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <ChevronRight size={14} />
             </button>

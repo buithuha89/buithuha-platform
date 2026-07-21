@@ -113,7 +113,7 @@ export default function RefundPolicyPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <div className="border-b border-[#1a1a1a] px-4 sm:px-6 py-6 sm:py-8">
+      <div className="border-b border-[var(--surface)] px-4 sm:px-6 py-6 sm:py-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">
             Chính sách hoàn tiền
@@ -128,7 +128,7 @@ export default function RefundPolicyPage() {
       <div className="px-4 sm:px-6 py-6 sm:py-10">
         <div className="max-w-4xl mx-auto space-y-10">
           {/* Table of Contents */}
-          <nav className="rounded-xl border border-[#1a1a1a] bg-[#111] p-5">
+          <nav className="rounded-xl border border-[var(--surface)] bg-[var(--surface)] p-5">
             <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
               Mục lục
             </h2>
@@ -137,7 +137,7 @@ export default function RefundPolicyPage() {
                 <li key={section.id}>
                   <a
                     href={`#${section.id}`}
-                    className="text-sm text-[#D4A843] hover:text-[#e6be5a] transition-colors"
+                    className="text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
                   >
                     {section.title}
                   </a>
@@ -166,7 +166,7 @@ export default function RefundPolicyPage() {
                       key={i}
                       className="flex gap-3 text-gray-300 leading-relaxed"
                     >
-                      <span className="text-[#D4A843] mt-1.5 shrink-0">
+                      <span className="text-[var(--accent)] mt-1.5 shrink-0">
                         <svg
                           width="6"
                           height="6"
@@ -204,7 +204,7 @@ export default function RefundPolicyPage() {
                     <span className="text-gray-500">Website:</span>{" "}
                     <Link
                       href="/"
-                      className="text-[#D4A843] hover:underline"
+                      className="text-[var(--accent)] hover:underline"
                     >
                       {siteConfig.domain}
                     </Link>
@@ -213,7 +213,7 @@ export default function RefundPolicyPage() {
                     <span className="text-gray-500">Email:</span>{" "}
                     <a
                       href="mailto:support@buithuha.com"
-                      className="text-[#D4A843] hover:underline"
+                      className="text-[var(--accent)] hover:underline"
                     >
                       support@buithuha.com
                     </a>
@@ -224,7 +224,7 @@ export default function RefundPolicyPage() {
                       href={siteConfig.socials.zalo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#D4A843] hover:underline"
+                      className="text-[var(--accent)] hover:underline"
                     >
                       {siteConfig.socials.zalo.replace(/.*\//, "").replace(/(\d{4})(\d{3})(\d{3})/, "$1 $2 $3")}
                     </a>
@@ -241,22 +241,22 @@ export default function RefundPolicyPage() {
           ))}
 
           {/* Related links */}
-          <div className="pt-6 border-t border-[#1a1a1a] flex flex-col sm:flex-row gap-3">
+          <div className="pt-6 border-t border-[var(--surface)] flex flex-col sm:flex-row gap-3">
             <Link
               href="/terms-of-service"
-              className="text-sm text-[#D4A843] hover:underline"
+              className="text-sm text-[var(--accent)] hover:underline"
             >
               Điều khoản dịch vụ &rarr;
             </Link>
             <Link
               href="/privacy-policy"
-              className="text-sm text-[#D4A843] hover:underline"
+              className="text-sm text-[var(--accent)] hover:underline"
             >
               Chính sách bảo mật &rarr;
             </Link>
             <Link
               href="/"
-              className="text-sm text-[#D4A843] hover:underline"
+              className="text-sm text-[var(--accent)] hover:underline"
             >
               &larr; Quay về trang chủ
             </Link>

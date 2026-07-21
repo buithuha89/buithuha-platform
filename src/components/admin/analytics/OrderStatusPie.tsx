@@ -8,10 +8,10 @@ interface OrderStatusPieProps {
 }
 
 const STATUS_COLORS: Record<string, string> = {
-  paid: '#10b981',
-  pending: '#f59e0b',
-  cancelled: '#ef4444',
-  refunded: '#6b7280',
+  paid: 'var(--cat-emerald)',
+  pending: 'var(--warn)',
+  cancelled: 'var(--danger)',
+  refunded: 'var(--fg-subtle)',
 };
 
 const STATUS_LABELS: Record<string, string> = {
@@ -36,7 +36,7 @@ function CustomTooltip({ active, payload }: any) {
 
   const item = payload[0].payload;
   return (
-    <div className="rounded-lg border px-3 py-2 shadow-lg" style={{ background: '#1a1a1a', borderColor: '#2a2a2a' }}>
+    <div className="rounded-lg border px-3 py-2 shadow-lg" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
       <p className="text-sm font-medium text-white">
         {STATUS_LABELS[item.status] || item.status}
       </p>
@@ -57,7 +57,7 @@ function CustomLegend({ payload, data }: any) {
         <div key={item.status} className="flex items-center gap-2">
           <span
             className="inline-block h-3 w-3 rounded-full"
-            style={{ backgroundColor: STATUS_COLORS[item.status] || '#6b7280' }}
+            style={{ backgroundColor: STATUS_COLORS[item.status] || 'var(--fg-subtle)' }}
           />
           <div className="flex flex-col">
             <span className="text-sm text-gray-400">
@@ -119,7 +119,7 @@ export default function OrderStatusPie({ data, loading }: OrderStatusPieProps) {
               {data.map((entry) => (
                 <Cell
                   key={entry.status}
-                  fill={STATUS_COLORS[entry.status] || '#6b7280'}
+                  fill={STATUS_COLORS[entry.status] || 'var(--fg-subtle)'}
                 />
               ))}
             </Pie>

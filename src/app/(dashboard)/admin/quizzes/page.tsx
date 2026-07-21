@@ -176,9 +176,9 @@ export default async function AdminQuizzesPage() {
             <div className="flex items-center gap-3">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(212,168,67,0.15)" }}
+                style={{ background: "rgb(var(--accent-rgb) / 0.15)" }}
               >
-                <ClipboardCheck size={18} className="text-[#D4A843]" />
+                <ClipboardCheck size={18} className="text-[var(--accent)]" />
               </div>
               <div>
                 <p className="text-2xl font-bold text-white">{totalQuizzes}</p>
@@ -191,9 +191,9 @@ export default async function AdminQuizzesPage() {
             <div className="flex items-center gap-3">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(59,130,246,0.15)" }}
+                style={{ background: "rgb(var(--info-rgb) / 0.15)" }}
               >
-                <Users size={18} className="text-[#3b82f6]" />
+                <Users size={18} className="text-[var(--info)]" />
               </div>
               <div>
                 <p className="text-2xl font-bold text-white">
@@ -208,9 +208,9 @@ export default async function AdminQuizzesPage() {
             <div className="flex items-center gap-3">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(34,197,94,0.15)" }}
+                style={{ background: "rgb(var(--success-rgb) / 0.15)" }}
               >
-                <TrendingUp size={18} className="text-[#22c55e]" />
+                <TrendingUp size={18} className="text-[var(--success)]" />
               </div>
               <div>
                 <p className="text-2xl font-bold text-white">
@@ -229,7 +229,7 @@ export default async function AdminQuizzesPage() {
         <div className="card-dark overflow-hidden">
           <div className="p-4 border-b border-white/[0.06] flex items-center justify-between">
             <h2 className="text-sm font-semibold text-white flex items-center gap-2">
-              <BookOpen size={16} className="text-[#D4A843]" />
+              <BookOpen size={16} className="text-[var(--accent)]" />
               Danh sách Quiz ({rows.length})
             </h2>
           </div>
@@ -286,7 +286,7 @@ export default async function AdminQuizzesPage() {
                           <span
                             className={`font-medium ${
                               row.pass_rate >= 50
-                                ? "text-[#22c55e]"
+                                ? "text-[var(--success)]"
                                 : "text-red-400"
                             }`}
                           >

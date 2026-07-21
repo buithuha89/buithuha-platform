@@ -9,7 +9,7 @@ export default function Loading() {
         {/* Month calendar card */}
         <div
           className="rounded-xl p-5"
-          style={{ background: "#151515", border: "1px solid #2a2a2a" }}
+          style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
         >
           {/* Calendar header */}
           <div className="flex items-center justify-between mb-4">
@@ -52,7 +52,7 @@ export default function Loading() {
           <div
             key={i}
             className="rounded-xl p-5"
-            style={{ background: "#151515", border: "1px solid #2a2a2a" }}
+            style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
           >
             <div className="flex items-start gap-4">
               {/* Date block */}

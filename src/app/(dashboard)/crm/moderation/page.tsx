@@ -174,8 +174,8 @@ export default function ModerationPage() {
               onClick={() => handleFilterChange(f.key)}
               className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition-colors ${
                 filter === f.key
-                  ? "bg-[#D4A843] text-black font-medium"
-                  : "bg-[#1a1a1a] text-gray-400 hover:text-white hover:bg-[#2a2a2a]"
+                  ? "bg-[var(--accent)] text-black font-medium"
+                  : "bg-[var(--surface)] text-gray-400 hover:text-white hover:bg-[var(--border)]"
               }`}
             >
               <f.icon size={12} />
@@ -184,7 +184,7 @@ export default function ModerationPage() {
           ))}
           <button
             onClick={() => fetchPosts()}
-            className="ml-auto flex items-center gap-1.5 text-xs text-gray-400 hover:text-white px-3 py-1.5 rounded-lg bg-[#1a1a1a] hover:bg-[#2a2a2a] transition-colors"
+            className="ml-auto flex items-center gap-1.5 text-xs text-gray-400 hover:text-white px-3 py-1.5 rounded-lg bg-[var(--surface)] hover:bg-[var(--border)] transition-colors"
           >
             <RefreshCw size={12} />
             Làm mới
@@ -206,7 +206,7 @@ export default function ModerationPage() {
         {/* Loading */}
         {loading && (
           <div className="flex items-center justify-center py-12">
-            <Loader2 size={24} className="text-[#D4A843] animate-spin" />
+            <Loader2 size={24} className="text-[var(--accent)] animate-spin" />
           </div>
         )}
 
@@ -259,7 +259,7 @@ export default function ModerationPage() {
                   src={post.profiles?.avatar_url}
                   initials={initials}
                   size={32}
-                  gradient="linear-gradient(135deg, #3b82f6, #1d4ed8)"
+                  gradient="linear-gradient(135deg, var(--info), var(--cat-blue))"
                 />
                 <div className="flex-1">
                   <span className="text-sm font-medium text-white">{fullName}</span>
@@ -274,7 +274,7 @@ export default function ModerationPage() {
               </div>
 
               {/* Content */}
-              <div className="bg-[#111] rounded-lg p-3 border border-[#2a2a2a]">
+              <div className="bg-[var(--surface)] rounded-lg p-3 border border-[var(--border)]">
                 <p className="text-sm text-gray-200 whitespace-pre-line leading-relaxed">
                   {post.content.length > 500 ? post.content.slice(0, 500) + "..." : post.content}
                 </p>
@@ -298,7 +298,7 @@ export default function ModerationPage() {
               )}
 
               {/* Actions */}
-              <div className="flex items-center gap-2 pt-2 border-t border-[#2a2a2a]">
+              <div className="flex items-center gap-2 pt-2 border-t border-[var(--border)]">
                 {post.status === "visible" && (
                   <button
                     onClick={() => handleAction(post.id, "hide")}
@@ -333,7 +333,7 @@ export default function ModerationPage() {
                   <button
                     onClick={() => handleAction(post.id, "dismiss_reports")}
                     disabled={actionLoading === `${post.id}-dismiss_reports`}
-                    className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[#2a2a2a] text-gray-300 hover:bg-[#333] transition-colors disabled:opacity-50"
+                    className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--border)] text-gray-300 hover:bg-[var(--surface-3)] transition-colors disabled:opacity-50"
                   >
                     {actionLoading === `${post.id}-dismiss_reports` ? <Loader2 size={12} className="animate-spin" /> : <CheckCircle size={12} />}
                     Bỏ qua báo cáo

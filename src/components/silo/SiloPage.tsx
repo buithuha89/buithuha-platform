@@ -69,9 +69,9 @@ export default function SiloPage({ data }: { data: SiloData }) {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen text-white overflow-x-hidden">
+    <div className="bg-[var(--bg)] min-h-screen text-white overflow-x-hidden">
       {/* ═══ HEADER ═══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/92 backdrop-blur-xl border-b border-white/5">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)]/92 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-16">
           <Link href="/" className="flex items-center gap-2.5">
             <Image src={siteConfig.owner.avatar} alt={siteConfig.owner.name} width={36} height={36} sizes="36px" className="w-9 h-9 rounded-lg object-cover" />
@@ -97,7 +97,7 @@ export default function SiloPage({ data }: { data: SiloData }) {
         </div>
 
         {mobileMenu && (
-          <div className="md:hidden bg-[#111] border-t border-white/5 px-4 py-4 space-y-3">
+          <div className="md:hidden bg-[var(--surface)] border-t border-white/5 px-4 py-4 space-y-3">
             {navLinks.map((l) => (
               <Link key={l.label} href={l.href} onClick={() => setMobileMenu(false)} className="block text-sm text-gray-300 py-2">{l.label}</Link>
             ))}
@@ -136,7 +136,7 @@ export default function SiloPage({ data }: { data: SiloData }) {
       </section>
 
       {/* ═══ STORY ═══ */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[#0d0d0d]">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[var(--bg-alt)]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold mb-8 sm:mb-10 leading-snug">
             {data.story.heading}
@@ -161,7 +161,7 @@ export default function SiloPage({ data }: { data: SiloData }) {
             {data.topics.map((t, i) => {
               const Icon = ICONS[t.icon];
               return (
-                <div key={i} className="bg-[#111] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors">
+                <div key={i} className="bg-[var(--surface)] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors">
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
                     style={{ background: `${data.color}1A` }}>
                     {Icon && <Icon size={20} style={{ color: data.color }} />}
@@ -176,7 +176,7 @@ export default function SiloPage({ data }: { data: SiloData }) {
       </section>
 
       {/* ═══ AUDIENCE ═══ */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[#0d0d0d]">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-[var(--bg-alt)]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-10">
             Phù hợp với <span style={{ color: data.color }}>bạn</span> nếu...
@@ -184,7 +184,7 @@ export default function SiloPage({ data }: { data: SiloData }) {
 
           <ul className="space-y-3">
             {data.audience.map((a, i) => (
-              <li key={i} className="flex items-start gap-3 bg-[#111] border border-white/5 rounded-xl p-4">
+              <li key={i} className="flex items-start gap-3 bg-[var(--surface)] border border-white/5 rounded-xl p-4">
                 <span className="shrink-0 mt-0.5" style={{ color: data.color }}>✓</span>
                 <span className="text-sm sm:text-base text-gray-300">{a}</span>
               </li>

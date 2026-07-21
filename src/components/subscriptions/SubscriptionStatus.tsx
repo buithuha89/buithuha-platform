@@ -107,7 +107,7 @@ export default function SubscriptionStatus() {
   if (loading) {
     return (
       <div className="card-dark p-6 flex items-center justify-center">
-        <Loader2 size={20} className="animate-spin text-[#D4A843]" />
+        <Loader2 size={20} className="animate-spin text-[var(--accent)]" />
       </div>
     );
   }
@@ -118,7 +118,7 @@ export default function SubscriptionStatus() {
         <div className="flex items-center gap-3 mb-3">
           <div
             className="w-9 h-9 rounded-xl flex items-center justify-center"
-            style={{ background: "rgba(107,114,128,0.12)" }}
+            style={{ background: "rgb(var(--neutral-rgb) / 0.12)" }}
           >
             <CreditCard size={17} className="text-gray-500" />
           </div>
@@ -166,14 +166,14 @@ export default function SubscriptionStatus() {
       {/* Header */}
       <div
         className="px-5 py-4 flex items-center justify-between"
-        style={{ borderBottom: "1px solid #2a2a2a" }}
+        style={{ borderBottom: "1px solid var(--border)" }}
       >
         <div className="flex items-center gap-3">
           <div
             className="w-9 h-9 rounded-xl flex items-center justify-center"
-            style={{ background: "rgba(212,168,67,0.12)" }}
+            style={{ background: "rgb(var(--accent-rgb) / 0.12)" }}
           >
-            <Crown size={17} className="text-[#D4A843]" />
+            <Crown size={17} className="text-[var(--accent)]" />
           </div>
           <div>
             <h3 className="text-sm font-semibold text-white">{plan.name}</h3>
@@ -189,9 +189,9 @@ export default function SubscriptionStatus() {
           <span
             className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold"
             style={{
-              background: "rgba(245,158,11,0.1)",
-              color: "#f59e0b",
-              border: "1px solid rgba(245,158,11,0.2)",
+              background: "rgb(var(--warn-rgb) / 0.1)",
+              color: "var(--warn)",
+              border: "1px solid rgb(var(--warn-rgb) / 0.2)",
             }}
           >
             <XCircle size={11} />
@@ -201,9 +201,9 @@ export default function SubscriptionStatus() {
           <span
             className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold"
             style={{
-              background: "rgba(34,197,94,0.1)",
-              color: "#22c55e",
-              border: "1px solid rgba(34,197,94,0.2)",
+              background: "rgb(var(--success-rgb) / 0.1)",
+              color: "var(--success)",
+              border: "1px solid rgb(var(--success-rgb) / 0.2)",
             }}
           >
             <CheckCircle size={11} />
@@ -241,7 +241,7 @@ export default function SubscriptionStatus() {
             <div
               className="text-sm font-medium"
               style={{
-                color: isNearExpiry ? "#f59e0b" : "#22c55e",
+                color: isNearExpiry ? "var(--warn)" : "var(--success)",
               }}
             >
               {daysRemaining} ngày
@@ -257,15 +257,15 @@ export default function SubscriptionStatus() {
           </div>
           <div
             className="w-full h-1.5 rounded-full overflow-hidden"
-            style={{ background: "#2a2a2a" }}
+            style={{ background: "var(--border)" }}
           >
             <div
               className="h-full rounded-full transition-all"
               style={{
                 width: `${progressPercent}%`,
                 background: isNearExpiry
-                  ? "linear-gradient(90deg, #f59e0b, #ef4444)"
-                  : "linear-gradient(90deg, #D4A843, #22c55e)",
+                  ? "linear-gradient(90deg, var(--warn), var(--danger))"
+                  : "linear-gradient(90deg, var(--accent), var(--success))",
               }}
             />
           </div>
@@ -276,12 +276,12 @@ export default function SubscriptionStatus() {
           <div
             className="flex items-center gap-2 p-3 rounded-lg text-sm"
             style={{
-              background: "rgba(245,158,11,0.08)",
-              border: "1px solid rgba(245,158,11,0.2)",
+              background: "rgb(var(--warn-rgb) / 0.08)",
+              border: "1px solid rgb(var(--warn-rgb) / 0.2)",
             }}
           >
-            <AlertTriangle size={15} className="text-[#f59e0b] shrink-0" />
-            <span className="text-[#f59e0b]">
+            <AlertTriangle size={15} className="text-[var(--warn)] shrink-0" />
+            <span className="text-[var(--warn)]">
               Gói đăng ký sắp hết hạn. Hãy gia hạn để tiếp tục sử dụng.
             </span>
           </div>
@@ -292,8 +292,8 @@ export default function SubscriptionStatus() {
           <div
             className="flex items-center gap-2 p-3 rounded-lg text-sm"
             style={{
-              background: "rgba(107,114,128,0.08)",
-              border: "1px solid rgba(107,114,128,0.2)",
+              background: "rgb(var(--neutral-rgb) / 0.08)",
+              border: "1px solid rgb(var(--neutral-rgb) / 0.2)",
             }}
           >
             <XCircle size={15} className="text-gray-500 shrink-0" />
@@ -309,9 +309,9 @@ export default function SubscriptionStatus() {
           <div
             className="p-3 rounded-lg text-sm"
             style={{
-              background: "rgba(34,197,94,0.08)",
-              border: "1px solid rgba(34,197,94,0.2)",
-              color: "#22c55e",
+              background: "rgb(var(--success-rgb) / 0.08)",
+              border: "1px solid rgb(var(--success-rgb) / 0.2)",
+              color: "var(--success)",
             }}
           >
             {message}
@@ -326,8 +326,8 @@ export default function SubscriptionStatus() {
               href="/subscriptions"
               className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-all"
               style={{
-                background: "linear-gradient(135deg, #D4A843, #b8922e)",
-                boxShadow: "0 2px 8px rgba(212,168,67,0.3)",
+                background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
+                boxShadow: "0 2px 8px rgb(var(--accent-rgb) / 0.3)",
               }}
             >
               <RefreshCw size={14} />
@@ -347,8 +347,8 @@ export default function SubscriptionStatus() {
                     rows={2}
                     className="w-full px-3 py-2 rounded-lg text-sm text-white placeholder-gray-600 outline-none resize-none"
                     style={{
-                      background: "#1a1a1a",
-                      border: "1px solid #2a2a2a",
+                      background: "var(--surface)",
+                      border: "1px solid var(--border)",
                     }}
                   />
                   <div className="flex items-center gap-2">
@@ -357,9 +357,9 @@ export default function SubscriptionStatus() {
                       disabled={cancelling}
                       className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all disabled:opacity-50"
                       style={{
-                        background: "rgba(239,68,68,0.1)",
-                        color: "#ef4444",
-                        border: "1px solid rgba(239,68,68,0.2)",
+                        background: "rgb(var(--danger-rgb) / 0.1)",
+                        color: "var(--danger)",
+                        border: "1px solid rgb(var(--danger-rgb) / 0.2)",
                       }}
                     >
                       {cancelling ? (
@@ -376,8 +376,8 @@ export default function SubscriptionStatus() {
                       }}
                       className="px-4 py-2 rounded-xl text-sm font-medium text-gray-400 hover:text-white transition-colors"
                       style={{
-                        background: "#1a1a1a",
-                        border: "1px solid #2a2a2a",
+                        background: "var(--surface)",
+                        border: "1px solid var(--border)",
                       }}
                     >
                       Không
@@ -389,8 +389,8 @@ export default function SubscriptionStatus() {
                   onClick={() => setShowCancelConfirm(true)}
                   className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium text-gray-400 hover:text-red-400 transition-colors"
                   style={{
-                    background: "#1a1a1a",
-                    border: "1px solid #2a2a2a",
+                    background: "var(--surface)",
+                    border: "1px solid var(--border)",
                   }}
                 >
                   <XCircle size={14} />

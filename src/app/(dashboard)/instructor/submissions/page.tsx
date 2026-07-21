@@ -57,9 +57,9 @@ const STATUS_CONFIG = {
   },
   approved: {
     label: "Đạt",
-    color: "text-[#22c55e]",
-    bg: "bg-[#22c55e]/10",
-    border: "border-[#22c55e]/20",
+    color: "text-[var(--success)]",
+    bg: "bg-[var(--success)]/10",
+    border: "border-[var(--success)]/20",
     icon: CheckCircle2,
   },
 };
@@ -202,7 +202,7 @@ export default function InstructorSubmissionsPage() {
             <select
               value={filterCourse}
               onChange={(e) => setFilterCourse(e.target.value)}
-              className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843] transition-colors"
+              className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)] transition-colors"
             >
               <option value="">Tất cả khoá học</option>
               {courses.map((c) => (
@@ -220,7 +220,7 @@ export default function InstructorSubmissionsPage() {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843] transition-colors"
+              className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)] transition-colors"
             >
               <option value="">Tất cả</option>
               <option value="pending">Chờ duyệt</option>
@@ -265,7 +265,7 @@ export default function InstructorSubmissionsPage() {
                     onClick={() =>
                       setExpandedId(isExpanded ? null : sub.id)
                     }
-                    className="w-full flex items-center gap-3 p-4 text-left hover:bg-[#1a1a1a] transition-colors"
+                    className="w-full flex items-center gap-3 p-4 text-left hover:bg-[var(--surface)] transition-colors"
                   >
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
@@ -286,7 +286,7 @@ export default function InstructorSubmissionsPage() {
                     </div>
 
                     {sub.score !== null && (
-                      <div className="text-sm font-bold text-[#D4A843] shrink-0">
+                      <div className="text-sm font-bold text-[var(--accent)] shrink-0">
                         {sub.score}/100
                       </div>
                     )}
@@ -309,14 +309,14 @@ export default function InstructorSubmissionsPage() {
                       opacity: isExpanded ? 1 : 0,
                     }}
                   >
-                    <div className="px-4 pb-4 border-t border-[#2a2a2a]">
+                    <div className="px-4 pb-4 border-t border-[var(--border)]">
                       {/* Submission content */}
                       {sub.content && (
                         <div className="mt-3">
                           <p className="text-xs text-gray-500 mb-1">
                             Nội dung bài nộp
                           </p>
-                          <div className="bg-[#111] rounded-lg p-3 text-sm text-gray-300 whitespace-pre-line">
+                          <div className="bg-[var(--surface)] rounded-lg p-3 text-sm text-gray-300 whitespace-pre-line">
                             {sub.content}
                           </div>
                         </div>
@@ -335,7 +335,7 @@ export default function InstructorSubmissionsPage() {
                                 href={link.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#111] border border-[#2a2a2a] rounded-lg text-xs text-[#D4A843] hover:bg-[#1a1a1a] transition-colors"
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[var(--surface)] border border-[var(--border)] rounded-lg text-xs text-[var(--accent)] hover:bg-[var(--surface)] transition-colors"
                               >
                                 <ExternalLink size={12} />
                                 {link.label || link.url}
@@ -351,14 +351,14 @@ export default function InstructorSubmissionsPage() {
                           <p className="text-xs text-gray-500 mb-1">
                             Nhận xét hiện tại
                           </p>
-                          <div className="bg-[#0d1a0d] border border-[#22c55e]/20 rounded-lg p-3 text-sm text-gray-300 whitespace-pre-line">
+                          <div className="bg-[#0d1a0d] border border-[var(--success)]/20 rounded-lg p-3 text-sm text-gray-300 whitespace-pre-line">
                             {sub.feedback}
                           </div>
                         </div>
                       )}
 
                       {/* Review form */}
-                      <div className="mt-4 pt-3 border-t border-[#2a2a2a]">
+                      <div className="mt-4 pt-3 border-t border-[var(--border)]">
                         <p className="text-xs text-gray-400 font-medium mb-2">
                           Đánh giá bài nộp
                         </p>
@@ -373,7 +373,7 @@ export default function InstructorSubmissionsPage() {
                             }
                             placeholder="Nhập nhận xét cho học viên..."
                             rows={3}
-                            className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg p-3 text-sm text-white placeholder:text-gray-500 resize-none focus:outline-none focus:border-[#D4A843] transition-colors"
+                            className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg p-3 text-sm text-white placeholder:text-gray-500 resize-none focus:outline-none focus:border-[var(--accent)] transition-colors"
                           />
                           <div className="flex flex-wrap gap-3 items-end">
                             <div>
@@ -394,7 +394,7 @@ export default function InstructorSubmissionsPage() {
                                     [sub.id]: e.target.value,
                                   }))
                                 }
-                                className="w-24 bg-[#111] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843] transition-colors"
+                                className="w-24 bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)] transition-colors"
                               />
                             </div>
                             <div>
@@ -409,7 +409,7 @@ export default function InstructorSubmissionsPage() {
                                     [sub.id]: e.target.value,
                                   }))
                                 }
-                                className="bg-[#111] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843] transition-colors"
+                                className="bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)] transition-colors"
                               >
                                 <option value="pending">Chờ duyệt</option>
                                 <option value="reviewed">Đã xem</option>
@@ -454,8 +454,8 @@ export default function InstructorSubmissionsPage() {
               disabled={offset === 0}
               className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
                 offset === 0
-                  ? "bg-[#1a1a1a] text-gray-600 cursor-not-allowed"
-                  : "bg-[#1a1a1a] text-gray-300 hover:bg-[#222]"
+                  ? "bg-[var(--surface)] text-gray-600 cursor-not-allowed"
+                  : "bg-[var(--surface)] text-gray-300 hover:bg-[var(--surface-2)]"
               }`}
             >
               Trước
@@ -468,8 +468,8 @@ export default function InstructorSubmissionsPage() {
               disabled={currentPage >= totalPages}
               className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
                 currentPage >= totalPages
-                  ? "bg-[#1a1a1a] text-gray-600 cursor-not-allowed"
-                  : "bg-[#1a1a1a] text-gray-300 hover:bg-[#222]"
+                  ? "bg-[var(--surface)] text-gray-600 cursor-not-allowed"
+                  : "bg-[var(--surface)] text-gray-300 hover:bg-[var(--surface-2)]"
               }`}
             >
               Sau

@@ -35,7 +35,7 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   return (
     <div
       className="rounded-lg border px-3 py-2 shadow-lg"
-      style={{ backgroundColor: '#1a1a1a', borderColor: '#2a2a2a' }}
+      style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}
     >
       <p className="mb-1 text-sm text-gray-400">{label}</p>
       {payload.map((entry, index) => (
@@ -70,25 +70,25 @@ export default function UsersChart({ data, groupBy, loading }: UsersChartProps) 
           <AreaChart data={formattedData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
             <defs>
               <linearGradient id="colorNewUsers" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.15} />
-                <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                <stop offset="5%" stopColor="var(--info)" stopOpacity={0.15} />
+                <stop offset="95%" stopColor="var(--info)" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="colorNewEnrollments" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#10b981" stopOpacity={0.15} />
-                <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                <stop offset="5%" stopColor="var(--cat-emerald)" stopOpacity={0.15} />
+                <stop offset="95%" stopColor="var(--cat-emerald)" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
             <XAxis
               dataKey="formattedDate"
-              tick={{ fill: '#6b7280', fontSize: 12 }}
-              axisLine={{ stroke: '#2a2a2a' }}
-              tickLine={{ stroke: '#2a2a2a' }}
+              tick={{ fill: 'var(--fg-subtle)', fontSize: 12 }}
+              axisLine={{ stroke: 'var(--border)' }}
+              tickLine={{ stroke: 'var(--border)' }}
             />
             <YAxis
-              tick={{ fill: '#6b7280', fontSize: 12 }}
-              axisLine={{ stroke: '#2a2a2a' }}
-              tickLine={{ stroke: '#2a2a2a' }}
+              tick={{ fill: 'var(--fg-subtle)', fontSize: 12 }}
+              axisLine={{ stroke: 'var(--border)' }}
+              tickLine={{ stroke: 'var(--border)' }}
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend
@@ -100,7 +100,7 @@ export default function UsersChart({ data, groupBy, loading }: UsersChartProps) 
               type="monotone"
               dataKey="newUsers"
               name="New Users"
-              stroke="#3b82f6"
+              stroke="var(--info)"
               fill="url(#colorNewUsers)"
               fillOpacity={1}
               strokeWidth={2}
@@ -109,7 +109,7 @@ export default function UsersChart({ data, groupBy, loading }: UsersChartProps) 
               type="monotone"
               dataKey="newEnrollments"
               name="New Enrollments"
-              stroke="#10b981"
+              stroke="var(--cat-emerald)"
               fill="url(#colorNewEnrollments)"
               fillOpacity={1}
               strokeWidth={2}

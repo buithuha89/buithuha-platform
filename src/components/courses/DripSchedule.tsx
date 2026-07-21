@@ -25,14 +25,14 @@ export default function DripSchedule({
   enrollmentDate,
 }: DripScheduleProps) {
   return (
-    <div className="rounded-xl border border-[#2a2a2a] bg-[#111] p-5">
-      <h3 className="text-sm font-semibold text-[#f5f5f5] mb-4">
+    <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5">
+      <h3 className="text-sm font-semibold text-[var(--fg)] mb-4">
         Lịch mở khoá bài học
       </h3>
 
       <div className="relative">
         {/* Vertical timeline line */}
-        <div className="absolute left-[15px] top-2 bottom-2 w-px bg-[#2a2a2a]" />
+        <div className="absolute left-[15px] top-2 bottom-2 w-px bg-[var(--border)]" />
 
         <ul className="space-y-0">
           {lessons.map((lesson, idx) => {
@@ -49,12 +49,12 @@ export default function DripSchedule({
                   } ${isLast ? "mb-0" : "mb-0"}`}
                 >
                   {drip.isLocked ? (
-                    <div className="w-[30px] h-[30px] rounded-full bg-[#1a1a1a] border border-[#333] flex items-center justify-center">
+                    <div className="w-[30px] h-[30px] rounded-full bg-[var(--surface)] border border-[var(--border-strong)] flex items-center justify-center">
                       <Lock size={12} className="text-gray-500" />
                     </div>
                   ) : (
-                    <div className="w-[30px] h-[30px] rounded-full bg-[#22c55e]/15 border border-[#22c55e]/30 flex items-center justify-center">
-                      <CheckCircle size={14} className="text-[#22c55e]" />
+                    <div className="w-[30px] h-[30px] rounded-full bg-[var(--success)]/15 border border-[var(--success)]/30 flex items-center justify-center">
+                      <CheckCircle size={14} className="text-[var(--success)]" />
                     </div>
                   )}
                 </div>
@@ -63,7 +63,7 @@ export default function DripSchedule({
                 <div className={`flex-1 pb-5 ${isLast ? "pb-0" : ""}`}>
                   <p
                     className={`text-sm font-medium leading-[30px] ${
-                      drip.isLocked ? "text-gray-500" : "text-[#f5f5f5]"
+                      drip.isLocked ? "text-gray-500" : "text-[var(--fg)]"
                     }`}
                   >
                     {lesson.title}
@@ -71,7 +71,7 @@ export default function DripSchedule({
 
                   <div className="flex items-center gap-2 mt-0.5">
                     {lesson.unlock_after_days === 0 ? (
-                      <span className="text-xs text-[#22c55e]">
+                      <span className="text-xs text-[var(--success)]">
                         Mở khoá ngay
                       </span>
                     ) : drip.isLocked ? (
@@ -80,7 +80,7 @@ export default function DripSchedule({
                           Ngày {lesson.unlock_after_days} &mdash;{" "}
                           {formatDripDate(drip.unlockDate)}
                         </span>
-                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#D4A843]/10 text-[#D4A843] font-medium">
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--accent)]/10 text-[var(--accent)] font-medium">
                           {drip.daysRemaining} ngày nữa
                         </span>
                       </>

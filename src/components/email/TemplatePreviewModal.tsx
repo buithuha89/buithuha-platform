@@ -25,11 +25,11 @@ export default function TemplatePreviewModal({ open, onClose, html, subject }: T
     >
       <div
         className="w-full max-w-4xl max-h-[90vh] flex flex-col rounded-xl overflow-hidden"
-        style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+        style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-3 border-b border-[#2a2a2a]">
+        <div className="flex items-center justify-between px-5 py-3 border-b border-[var(--border)]">
           <div className="min-w-0">
             <h3 className="text-white font-semibold text-sm">Xem truoc email</h3>
             {subject && <p className="text-xs text-gray-500 truncate mt-0.5">{subject}</p>}
@@ -37,13 +37,13 @@ export default function TemplatePreviewModal({ open, onClose, html, subject }: T
 
           <div className="flex items-center gap-3">
             {/* Device toggle */}
-            <div className="flex rounded-lg overflow-hidden" style={{ border: "1px solid #2a2a2a" }}>
+            <div className="flex rounded-lg overflow-hidden" style={{ border: "1px solid var(--border)" }}>
               <button
                 onClick={() => setDevice("desktop")}
                 className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
                 style={{
-                  background: device === "desktop" ? "#D4A843" : "#1f1f1f",
-                  color: device === "desktop" ? "white" : "#9ca3af",
+                  background: device === "desktop" ? "var(--accent)" : "var(--surface-2)",
+                  color: device === "desktop" ? "white" : "var(--fg-muted)",
                 }}
               >
                 <Monitor size={13} />
@@ -53,8 +53,8 @@ export default function TemplatePreviewModal({ open, onClose, html, subject }: T
                 onClick={() => setDevice("mobile")}
                 className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
                 style={{
-                  background: device === "mobile" ? "#D4A843" : "#1f1f1f",
-                  color: device === "mobile" ? "white" : "#9ca3af",
+                  background: device === "mobile" ? "var(--accent)" : "var(--surface-2)",
+                  color: device === "mobile" ? "white" : "var(--fg-muted)",
                 }}
               >
                 <Smartphone size={13} />
@@ -72,7 +72,7 @@ export default function TemplatePreviewModal({ open, onClose, html, subject }: T
         </div>
 
         {/* Preview */}
-        <div className="flex-1 overflow-auto p-6 flex justify-center" style={{ background: "#111" }}>
+        <div className="flex-1 overflow-auto p-6 flex justify-center" style={{ background: "var(--surface)" }}>
           <div
             className="rounded-lg overflow-hidden shadow-2xl transition-all duration-300"
             style={{

@@ -51,21 +51,21 @@ function TierBadge({ tier }: { tier: string }) {
   const config: Record<string, { label: string; color: string; bg: string; border: string }> = {
     vip: {
       label: "VIP",
-      color: "#f59e0b",
-      bg: "rgba(245,158,11,0.1)",
-      border: "rgba(245,158,11,0.2)",
+      color: "var(--warn)",
+      bg: "rgb(var(--warn-rgb) / 0.1)",
+      border: "rgb(var(--warn-rgb) / 0.2)",
     },
     member: {
       label: "Member",
-      color: "#a855f7",
+      color: "var(--cat-purple)",
       bg: "rgba(168,85,247,0.1)",
       border: "rgba(168,85,247,0.2)",
     },
     free: {
       label: "Free",
-      color: "#6b7280",
-      bg: "rgba(107,114,128,0.1)",
-      border: "rgba(107,114,128,0.2)",
+      color: "var(--fg-subtle)",
+      bg: "rgb(var(--neutral-rgb) / 0.1)",
+      border: "rgb(var(--neutral-rgb) / 0.2)",
     },
   };
   const cfg = config[tier] ?? config.free;
@@ -173,9 +173,9 @@ export default async function AdminSubscriptionsPage() {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(59,130,246,0.12)" }}
+                style={{ background: "rgb(var(--info-rgb) / 0.12)" }}
               >
-                <CreditCard size={17} className="text-[#3b82f6]" />
+                <CreditCard size={17} className="text-[var(--info)]" />
               </div>
             </div>
             <div className="text-2xl font-bold text-white">
@@ -189,9 +189,9 @@ export default async function AdminSubscriptionsPage() {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(212,168,67,0.12)" }}
+                style={{ background: "rgb(var(--accent-rgb) / 0.12)" }}
               >
-                <Users size={17} className="text-[#D4A843]" />
+                <Users size={17} className="text-[var(--accent)]" />
               </div>
             </div>
             <div className="text-2xl font-bold text-white">
@@ -207,9 +207,9 @@ export default async function AdminSubscriptionsPage() {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(34,197,94,0.12)" }}
+                style={{ background: "rgb(var(--success-rgb) / 0.12)" }}
               >
-                <TrendingUp size={17} className="text-[#22c55e]" />
+                <TrendingUp size={17} className="text-[var(--success)]" />
               </div>
             </div>
             <div className="text-2xl font-bold text-white">
@@ -225,9 +225,9 @@ export default async function AdminSubscriptionsPage() {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(239,68,68,0.12)" }}
+                style={{ background: "rgb(var(--danger-rgb) / 0.12)" }}
               >
-                <BarChart3 size={17} className="text-[#ef4444]" />
+                <BarChart3 size={17} className="text-[var(--danger)]" />
               </div>
             </div>
             <div className="text-2xl font-bold text-white">{churnRate}%</div>
@@ -245,7 +245,7 @@ export default async function AdminSubscriptionsPage() {
           {/* Header */}
           <div
             className="flex items-center justify-between px-5 py-3"
-            style={{ borderBottom: "1px solid #2a2a2a" }}
+            style={{ borderBottom: "1px solid var(--border)" }}
           >
             <span className="text-xs text-gray-500">
               Hiển thị{" "}
@@ -264,7 +264,7 @@ export default async function AdminSubscriptionsPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                  <tr style={{ borderBottom: "1px solid var(--border)" }}>
                     {[
                       "Tên gói",
                       "Chu kỳ",
@@ -291,7 +291,7 @@ export default async function AdminSubscriptionsPage() {
                       style={{
                         borderBottom:
                           idx < plansWithCounts.length - 1
-                            ? "1px solid #1f1f1f"
+                            ? "1px solid var(--surface-2)"
                             : "none",
                       }}
                     >
@@ -350,9 +350,9 @@ export default async function AdminSubscriptionsPage() {
                           <span
                             className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold"
                             style={{
-                              background: "rgba(34,197,94,0.1)",
-                              color: "#22c55e",
-                              border: "1px solid rgba(34,197,94,0.2)",
+                              background: "rgb(var(--success-rgb) / 0.1)",
+                              color: "var(--success)",
+                              border: "1px solid rgb(var(--success-rgb) / 0.2)",
                             }}
                           >
                             <CheckCircle size={11} />
@@ -362,9 +362,9 @@ export default async function AdminSubscriptionsPage() {
                           <span
                             className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold"
                             style={{
-                              background: "rgba(107,114,128,0.1)",
-                              color: "#6b7280",
-                              border: "1px solid rgba(107,114,128,0.2)",
+                              background: "rgb(var(--neutral-rgb) / 0.1)",
+                              color: "var(--fg-subtle)",
+                              border: "1px solid rgb(var(--neutral-rgb) / 0.2)",
                             }}
                           >
                             <XCircle size={11} />

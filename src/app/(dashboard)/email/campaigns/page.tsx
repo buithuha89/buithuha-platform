@@ -25,11 +25,11 @@ interface Campaign {
 }
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string }> = {
-  draft: { label: "Nhap", color: "#6b7280", bg: "rgba(107,114,128,0.12)" },
-  scheduled: { label: "Da len lich", color: "#3b82f6", bg: "rgba(59,130,246,0.12)" },
-  sending: { label: "Dang gui", color: "#f59e0b", bg: "rgba(245,158,11,0.12)" },
-  sent: { label: "Da gui", color: "#D4A843", bg: "rgba(212,168,67,0.12)" },
-  paused: { label: "Tam dung", color: "#f97316", bg: "rgba(249,115,22,0.12)" },
+  draft: { label: "Nhap", color: "var(--fg-subtle)", bg: "rgb(var(--neutral-rgb) / 0.12)" },
+  scheduled: { label: "Da len lich", color: "var(--info)", bg: "rgb(var(--info-rgb) / 0.12)" },
+  sending: { label: "Dang gui", color: "var(--warn)", bg: "rgb(var(--warn-rgb) / 0.12)" },
+  sent: { label: "Da gui", color: "var(--accent)", bg: "rgb(var(--accent-rgb) / 0.12)" },
+  paused: { label: "Tam dung", color: "var(--cat-orange)", bg: "rgba(249,115,22,0.12)" },
 };
 
 const STATUS_FILTERS = [
@@ -131,10 +131,10 @@ export default function CampaignsPage() {
   const draftCount = campaigns.filter((c) => c.status === "draft").length;
 
   const stats = [
-    { label: "Tong campaigns", value: totalCount, icon: Mail, color: "#3b82f6" },
-    { label: "Da gui", value: sentCount, icon: Send, color: "#D4A843" },
-    { label: "Dang gui", value: sendingCount, icon: Loader2, color: "#f59e0b" },
-    { label: "Nhap", value: draftCount, icon: Edit, color: "#6b7280" },
+    { label: "Tong campaigns", value: totalCount, icon: Mail, color: "var(--info)" },
+    { label: "Da gui", value: sentCount, icon: Send, color: "var(--accent)" },
+    { label: "Dang gui", value: sendingCount, icon: Loader2, color: "var(--warn)" },
+    { label: "Nhap", value: draftCount, icon: Edit, color: "var(--fg-subtle)" },
   ];
 
   // Actions
@@ -184,7 +184,7 @@ export default function CampaignsPage() {
             {/* Search */}
             <div
               className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm"
-              style={{ background: "#1f1f1f", border: "1px solid #2a2a2a" }}
+              style={{ background: "var(--surface-2)", border: "1px solid var(--border)" }}
             >
               <Search size={14} className="text-gray-500" />
               <input
@@ -205,9 +205,9 @@ export default function CampaignsPage() {
                   onClick={() => { setStatusFilter(f.value); setPage(1); }}
                   className="px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors"
                   style={{
-                    background: statusFilter === f.value ? "rgba(212,168,67,0.12)" : "transparent",
-                    color: statusFilter === f.value ? "#D4A843" : "#9ca3af",
-                    border: statusFilter === f.value ? "1px solid rgba(212,168,67,0.25)" : "1px solid transparent",
+                    background: statusFilter === f.value ? "rgb(var(--accent-rgb) / 0.12)" : "transparent",
+                    color: statusFilter === f.value ? "var(--accent)" : "var(--fg-muted)",
+                    border: statusFilter === f.value ? "1px solid rgb(var(--accent-rgb) / 0.25)" : "1px solid transparent",
                   }}
                 >
                   {f.label}
@@ -227,15 +227,15 @@ export default function CampaignsPage() {
         {/* Campaign list */}
         {loading ? (
           <div className="flex items-center justify-center py-20">
-            <Loader2 size={24} className="animate-spin text-[#D4A843]" />
+            <Loader2 size={24} className="animate-spin text-[var(--accent)]" />
           </div>
         ) : filtered.length === 0 ? (
           <div className="card-dark flex flex-col items-center justify-center py-16 text-center">
             <div
               className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-              style={{ background: "rgba(59,130,246,0.1)" }}
+              style={{ background: "rgb(var(--info-rgb) / 0.1)" }}
             >
-              <Inbox size={28} className="text-[#3b82f6]" />
+              <Inbox size={28} className="text-[var(--info)]" />
             </div>
             <p className="text-white font-medium mb-1">
               {searchQuery || statusFilter !== "all"
@@ -267,7 +267,7 @@ export default function CampaignsPage() {
                 return (
                   <div
                     key={c.id}
-                    className="card-dark p-4 hover:border-[#3a3a3a] transition-all cursor-pointer"
+                    className="card-dark p-4 hover:border-[var(--border-strong)] transition-all cursor-pointer"
                     onClick={() => {
                       if (c.status === "sending") {
                         router.push(`/email/campaigns/${c.id}/sending`);
@@ -313,13 +313,13 @@ export default function CampaignsPage() {
                         </div>
                         <div className="text-center min-w-[50px]">
                           <div className="text-gray-500 mb-0.5">Open</div>
-                          <div className="font-semibold" style={{ color: "#D4A843" }}>
+                          <div className="font-semibold" style={{ color: "var(--accent)" }}>
                             {c.sent_count > 0 ? `${openRate}%` : "--"}
                           </div>
                         </div>
                         <div className="text-center min-w-[50px]">
                           <div className="text-gray-500 mb-0.5">Click</div>
-                          <div className="font-semibold" style={{ color: "#3b82f6" }}>
+                          <div className="font-semibold" style={{ color: "var(--info)" }}>
                             {c.sent_count > 0 ? `${clickRate}%` : "--"}
                           </div>
                         </div>
@@ -332,7 +332,7 @@ export default function CampaignsPage() {
                             e.stopPropagation();
                             setOpenDropdown(openDropdown === c.id ? null : c.id);
                           }}
-                          className="p-2 rounded-lg text-gray-500 hover:text-white hover:bg-[#252525] transition-colors"
+                          className="p-2 rounded-lg text-gray-500 hover:text-white hover:bg-[var(--surface-3)] transition-colors"
                         >
                           <MoreHorizontal size={16} />
                         </button>
@@ -340,30 +340,30 @@ export default function CampaignsPage() {
                         {openDropdown === c.id && (
                           <div
                             className="absolute right-0 top-full mt-1 w-44 rounded-lg overflow-hidden shadow-xl z-20"
-                            style={{ background: "#1f1f1f", border: "1px solid #2a2a2a" }}
+                            style={{ background: "var(--surface-2)", border: "1px solid var(--border)" }}
                             onClick={(e) => e.stopPropagation()}
                           >
                             <button
                               onClick={() => { setOpenDropdown(null); router.push(`/email/campaigns/${c.id}`); }}
-                              className="flex items-center gap-2 w-full px-3 py-2 text-xs text-gray-300 hover:bg-[#2a2a2a] hover:text-white transition-colors"
+                              className="flex items-center gap-2 w-full px-3 py-2 text-xs text-gray-300 hover:bg-[var(--border)] hover:text-white transition-colors"
                             >
                               <Edit size={12} /> Chinh sua
                             </button>
                             <button
                               onClick={() => handleDuplicate(c.id)}
-                              className="flex items-center gap-2 w-full px-3 py-2 text-xs text-gray-300 hover:bg-[#2a2a2a] hover:text-white transition-colors"
+                              className="flex items-center gap-2 w-full px-3 py-2 text-xs text-gray-300 hover:bg-[var(--border)] hover:text-white transition-colors"
                             >
                               <Copy size={12} /> Nhan ban
                             </button>
                             {c.status === "sent" && (
                               <button
                                 onClick={() => { setOpenDropdown(null); router.push(`/email/campaigns/${c.id}/analytics`); }}
-                                className="flex items-center gap-2 w-full px-3 py-2 text-xs text-gray-300 hover:bg-[#2a2a2a] hover:text-white transition-colors"
+                                className="flex items-center gap-2 w-full px-3 py-2 text-xs text-gray-300 hover:bg-[var(--border)] hover:text-white transition-colors"
                               >
                                 <BarChart3 size={12} /> Xem analytics
                               </button>
                             )}
-                            <div className="border-t border-[#2a2a2a]" />
+                            <div className="border-t border-[var(--border)]" />
                             <button
                               onClick={() => handleDelete(c.id)}
                               className="flex items-center gap-2 w-full px-3 py-2 text-xs text-red-400 hover:bg-red-500/10 transition-colors"
@@ -389,7 +389,7 @@ export default function CampaignsPage() {
                   <button
                     onClick={() => setPage(Math.max(1, page - 1))}
                     disabled={page === 1}
-                    className="p-1.5 rounded-lg text-gray-500 hover:text-white hover:bg-[#252525] transition-colors disabled:opacity-30"
+                    className="p-1.5 rounded-lg text-gray-500 hover:text-white hover:bg-[var(--surface-3)] transition-colors disabled:opacity-30"
                   >
                     <ChevronLeft size={16} />
                   </button>
@@ -399,8 +399,8 @@ export default function CampaignsPage() {
                       onClick={() => setPage(p)}
                       className="w-8 h-8 rounded-lg text-xs font-medium transition-colors"
                       style={{
-                        background: page === p ? "#D4A843" : "transparent",
-                        color: page === p ? "white" : "#9ca3af",
+                        background: page === p ? "var(--accent)" : "transparent",
+                        color: page === p ? "white" : "var(--fg-muted)",
                       }}
                     >
                       {p}
@@ -409,7 +409,7 @@ export default function CampaignsPage() {
                   <button
                     onClick={() => setPage(Math.min(totalPages, page + 1))}
                     disabled={page === totalPages}
-                    className="p-1.5 rounded-lg text-gray-500 hover:text-white hover:bg-[#252525] transition-colors disabled:opacity-30"
+                    className="p-1.5 rounded-lg text-gray-500 hover:text-white hover:bg-[var(--surface-3)] transition-colors disabled:opacity-30"
                   >
                     <ChevronRight size={16} />
                   </button>

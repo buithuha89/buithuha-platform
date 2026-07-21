@@ -10,7 +10,7 @@ interface OrdersChartProps {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-3 shadow-lg">
+      <div className="bg-[var(--surface)] border border-[var(--border)] rounded-lg p-3 shadow-lg">
         <p className="text-gray-300 text-sm font-medium mb-1">{label}</p>
         {payload.map((entry: any, index: number) => (
           <p key={index} className="text-sm" style={{ color: entry.color }}>
@@ -46,27 +46,27 @@ export default function OrdersChart({ dailyOrders, loading }: OrdersChartProps) 
       <h3 className="text-lg font-semibold text-white mb-4">Đơn hàng theo ngày</h3>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={formattedData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" />
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
           <XAxis
             dataKey="formattedDate"
-            tick={{ fill: '#6b7280', fontSize: 12 }}
-            axisLine={{ stroke: '#2a2a2a' }}
-            tickLine={{ stroke: '#2a2a2a' }}
+            tick={{ fill: 'var(--fg-subtle)', fontSize: 12 }}
+            axisLine={{ stroke: 'var(--border)' }}
+            tickLine={{ stroke: 'var(--border)' }}
           />
           <YAxis
-            tick={{ fill: '#6b7280', fontSize: 12 }}
-            axisLine={{ stroke: '#2a2a2a' }}
-            tickLine={{ stroke: '#2a2a2a' }}
+            tick={{ fill: 'var(--fg-subtle)', fontSize: 12 }}
+            axisLine={{ stroke: 'var(--border)' }}
+            tickLine={{ stroke: 'var(--border)' }}
             allowDecimals={false}
           />
-          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
+          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgb(var(--overlay-rgb) / 0.05)' }} />
           <Legend
             wrapperStyle={{ paddingTop: '10px' }}
             formatter={(value: string) => <span className="text-gray-300 text-sm">{value}</span>}
           />
-          <Bar dataKey="paid" name="Đã thanh toán" stackId="orders" fill="#10b981" radius={[0, 0, 0, 0]} />
-          <Bar dataKey="pending" name="Chờ xử lý" stackId="orders" fill="#f59e0b" radius={[0, 0, 0, 0]} />
-          <Bar dataKey="cancelled" name="Đã huỷ" stackId="orders" fill="#ef4444" radius={[4, 4, 0, 0]} />
+          <Bar dataKey="paid" name="Đã thanh toán" stackId="orders" fill="var(--cat-emerald)" radius={[0, 0, 0, 0]} />
+          <Bar dataKey="pending" name="Chờ xử lý" stackId="orders" fill="var(--warn)" radius={[0, 0, 0, 0]} />
+          <Bar dataKey="cancelled" name="Đã huỷ" stackId="orders" fill="var(--danger)" radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>

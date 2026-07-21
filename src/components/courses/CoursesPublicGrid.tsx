@@ -39,32 +39,32 @@ const CATEGORIES: {
     title: "Giao tiếp & Quan hệ",
     subtitle: "Kết nối, thấu hiểu và hợp tác — trong gia đình và ở chỗ làm",
     icon: Heart,
-    color: "#14b8a6",
+    color: "var(--cat-teal)",
   },
   {
     key: "personal_development",
     title: "Phát triển bản thân",
     subtitle: "Hiểu mình, đặt mục tiêu và tự nhìn lại để đi đúng hướng",
     icon: Sparkles,
-    color: "#22c55e",
+    color: "var(--success)",
   },
   {
     key: "ld",
     title: "Nghề L&D",
     subtitle: "Cho người làm Học & Phát triển trong doanh nghiệp",
     icon: GraduationCap,
-    color: "#3b82f6",
+    color: "var(--info)",
   },
   {
     key: "leadership",
     title: "Lãnh đạo & Quản lý",
     subtitle: "Cho quản lý cấp trung và doanh chủ SME",
     icon: Target,
-    color: "#a855f7",
+    color: "var(--cat-purple)",
   },
 ];
 
-const PLACEHOLDER_COLORS = ["#D4A843", "#3b82f6", "#a855f7", "#f59e0b", "#ec4899", "#06b6d4"];
+const PLACEHOLDER_COLORS = ["var(--accent)", "var(--info)", "var(--cat-purple)", "var(--warn)", "var(--cat-pink)", "var(--cat-cyan)"];
 
 function formatPrice(p: number) {
   return p.toLocaleString("vi-VN") + "đ";
@@ -97,7 +97,7 @@ function PublicCourseCard({
   return (
     // @ts-expect-error -- polymorphic wrapper
     <Wrapper key={course.slug} {...wrapperProps}>
-      <div className="relative aspect-video bg-[#1a1a1a] overflow-hidden">
+      <div className="relative aspect-video bg-[var(--surface)] overflow-hidden">
         {course.thumbnail ? (
           <Image
             src={course.thumbnail}
@@ -120,11 +120,11 @@ function PublicCourseCard({
               <Clock size={11} /> Sắp ra mắt
             </span>
           ) : isFree ? (
-            <span className="px-2 py-1 rounded-md text-[11px] font-semibold bg-[#22c55e] text-white">
+            <span className="px-2 py-1 rounded-md text-[11px] font-semibold bg-[var(--success)] text-white">
               Miễn phí
             </span>
           ) : (
-            <span className="px-2 py-1 rounded-md text-[11px] font-semibold bg-[#D4A843] text-black">
+            <span className="px-2 py-1 rounded-md text-[11px] font-semibold bg-[var(--accent)] text-black">
               {formatPrice(displayPrice)}
             </span>
           )}
@@ -150,14 +150,14 @@ function PublicCourseCard({
             {isComingSoon ? (
               <span className="text-xs text-gray-500 italic">Đang chuẩn bị</span>
             ) : isFree ? (
-              <span className="text-sm font-bold text-[#22c55e]">Miễn phí</span>
+              <span className="text-sm font-bold text-[var(--success)]">Miễn phí</span>
             ) : hasSale ? (
               <div className="flex items-center gap-2">
-                <span className="text-sm font-bold text-[#D4A843]">{formatPrice(course.sale_price!)}</span>
+                <span className="text-sm font-bold text-[var(--accent)]">{formatPrice(course.sale_price!)}</span>
                 <span className="text-xs text-gray-500 line-through">{formatPrice(course.price)}</span>
               </div>
             ) : (
-              <span className="text-sm font-bold text-[#D4A843]">{formatPrice(course.price)}</span>
+              <span className="text-sm font-bold text-[var(--accent)]">{formatPrice(course.price)}</span>
             )}
           </div>
           {isComingSoon ? (
@@ -165,7 +165,7 @@ function PublicCourseCard({
               <Clock size={11} /> Chờ đón
             </span>
           ) : (
-            <span className="flex items-center gap-1 text-xs font-medium text-[#D4A843] group-hover:gap-2 transition-all">
+            <span className="flex items-center gap-1 text-xs font-medium text-[var(--accent)] group-hover:gap-2 transition-all">
               Xem chi tiết <ArrowRight size={13} />
             </span>
           )}
@@ -228,7 +228,7 @@ export default function CoursesPublicGrid({ courses }: { courses: PublicCourse[]
         {/* Header */}
         <div className="mb-10">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
-            Khoá Học Của <span className="text-[#D4A843]">Hà Bùi</span>
+            Khoá Học Của <span className="text-[var(--accent)]">Hà Bùi</span>
           </h1>
           <p className="text-gray-400 text-base sm:text-lg max-w-2xl">
             Được thiết kế để bạn áp dụng ngay — không lý thuyết suông. Học từ người đã làm được.
@@ -255,7 +255,7 @@ export default function CoursesPublicGrid({ courses }: { courses: PublicCourse[]
         {/* ── Uncategorized fallback ── */}
         {uncategorized.length > 0 && !CATEGORIES.some((cat) => publishedCourses.some((c) => c.category === cat.key)) && (
           <section className="mb-12">
-            <SectionHeader icon={Sparkles} title="Khoá học hiện có" subtitle="Bắt đầu học ngay với những khoá học chất lượng" iconColor="#D4A843" />
+            <SectionHeader icon={Sparkles} title="Khoá học hiện có" subtitle="Bắt đầu học ngay với những khoá học chất lượng" iconColor="var(--accent)" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {uncategorized.map((course, idx) => (
                 <PublicCourseCard key={course.slug} course={course} idx={idx} />
@@ -267,7 +267,7 @@ export default function CoursesPublicGrid({ courses }: { courses: PublicCourse[]
         {/* ── Coming soon ── */}
         {comingSoonCourses.length > 0 && (
           <section className="mb-12">
-            <SectionHeader icon={Clock} title="Khoá học sắp ra mắt" subtitle="Những khoá học đang được chuẩn bị, hãy chờ đón!" iconColor="#a855f7" />
+            <SectionHeader icon={Clock} title="Khoá học sắp ra mắt" subtitle="Những khoá học đang được chuẩn bị, hãy chờ đón!" iconColor="var(--cat-purple)" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {comingSoonCourses.map((course, idx) => (
                 <PublicCourseCard key={course.slug} course={course} idx={idx} isComingSoon />
@@ -293,7 +293,7 @@ export default function CoursesPublicGrid({ courses }: { courses: PublicCourse[]
             <Link
               href="/register"
               className="inline-flex items-center gap-2 text-sm font-semibold py-2.5 px-6 rounded-lg transition-all"
-              style={{ background: "linear-gradient(135deg, #FFD814, #FFA41C)", color: "#131921" }}
+              style={{ background: "linear-gradient(135deg, var(--accent), var(--accent-hover))", color: "var(--accent-fg)" }}
             >
               Đăng ký miễn phí
             </Link>

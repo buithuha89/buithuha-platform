@@ -24,7 +24,7 @@ function CustomTooltip({ active, payload }: any) {
 
   const item = payload[0].payload;
   return (
-    <div className="rounded-lg border px-3 py-2 shadow-lg" style={{ background: '#1a1a1a', borderColor: '#2a2a2a' }}>
+    <div className="rounded-lg border px-3 py-2 shadow-lg" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
       <p className="text-sm font-medium text-white">{item.label}</p>
       <p className="text-xs text-gray-400">
         Số lượng: <span className="text-white">{item.count}</span>
@@ -75,25 +75,25 @@ export default function PaymentMethodsChart({ data, loading }: PaymentMethodsCha
           layout="vertical"
           margin={{ top: 5, right: 60, left: 20, bottom: 5 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" horizontal={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" horizontal={false} />
           <XAxis
             type="number"
-            tick={{ fill: '#6b7280', fontSize: 12 }}
-            axisLine={{ stroke: '#2a2a2a' }}
+            tick={{ fill: 'var(--fg-subtle)', fontSize: 12 }}
+            axisLine={{ stroke: 'var(--border)' }}
             tickLine={false}
           />
           <YAxis
             type="category"
             dataKey="label"
-            tick={{ fill: '#6b7280', fontSize: 13 }}
-            axisLine={{ stroke: '#2a2a2a' }}
+            tick={{ fill: 'var(--fg-subtle)', fontSize: 13 }}
+            axisLine={{ stroke: 'var(--border)' }}
             tickLine={false}
             width={130}
           />
-          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(59, 130, 246, 0.1)' }} />
+          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgb(var(--info-rgb) / 0.1)' }} />
           <Bar
             dataKey="count"
-            fill="#3b82f6"
+            fill="var(--info)"
             radius={[0, 4, 4, 0]}
             barSize={24}
             label={({ x, y, width, value, index }: any) => {
@@ -102,7 +102,7 @@ export default function PaymentMethodsChart({ data, loading }: PaymentMethodsCha
                 <text
                   x={x + width + 8}
                   y={y + 12}
-                  fill="#6b7280"
+                  fill="var(--fg-subtle)"
                   fontSize={12}
                   textAnchor="start"
                   dominantBaseline="middle"

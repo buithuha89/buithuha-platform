@@ -98,12 +98,12 @@ export default function TemplateEditor({ open, onClose, onSave, initial }: Templ
       >
         <div
           className="w-full max-w-6xl max-h-[92vh] flex flex-col rounded-xl overflow-hidden"
-          style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+          style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-5 py-3 border-b border-[#2a2a2a]">
+          <div className="flex items-center justify-between px-5 py-3 border-b border-[var(--border)]">
             <div className="flex items-center gap-2">
-              <Layout size={16} className="text-[#D4A843]" />
+              <Layout size={16} className="text-[var(--accent)]" />
               <h3 className="text-white font-semibold text-sm">
                 {initial?.id ? "Chinh sua template" : "Tao template moi"}
               </h3>
@@ -166,7 +166,7 @@ export default function TemplateEditor({ open, onClose, onSave, initial }: Templ
                       type="button"
                       onClick={() => insertVariable(v.label)}
                       className="px-2 py-1 rounded text-xs font-mono transition-colors"
-                      style={{ background: "#252525", color: "#D4A843", border: "1px solid #333" }}
+                      style={{ background: "var(--surface-3)", color: "var(--accent)", border: "1px solid #333" }}
                       title={v.desc}
                     >
                       {v.label}
@@ -179,14 +179,14 @@ export default function TemplateEditor({ open, onClose, onSave, initial }: Templ
               <div className="flex items-center justify-between">
                 <label className="text-xs font-medium text-gray-400">Noi dung HTML</label>
                 <div className="flex items-center gap-2">
-                  <div className="flex rounded-lg overflow-hidden" style={{ border: "1px solid #2a2a2a" }}>
+                  <div className="flex rounded-lg overflow-hidden" style={{ border: "1px solid var(--border)" }}>
                     <button
                       type="button"
                       onClick={() => setEditorMode("wysiwyg")}
                       className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-medium transition-colors"
                       style={{
-                        background: editorMode === "wysiwyg" ? "rgba(212,168,67,0.15)" : "#1f1f1f",
-                        color: editorMode === "wysiwyg" ? "#D4A843" : "#9ca3af",
+                        background: editorMode === "wysiwyg" ? "rgb(var(--accent-rgb) / 0.15)" : "var(--surface-2)",
+                        color: editorMode === "wysiwyg" ? "var(--accent)" : "var(--fg-muted)",
                       }}
                     >
                       <Layout size={11} />
@@ -197,8 +197,8 @@ export default function TemplateEditor({ open, onClose, onSave, initial }: Templ
                       onClick={() => setEditorMode("html")}
                       className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-medium transition-colors"
                       style={{
-                        background: editorMode === "html" ? "rgba(212,168,67,0.15)" : "#1f1f1f",
-                        color: editorMode === "html" ? "#D4A843" : "#9ca3af",
+                        background: editorMode === "html" ? "rgb(var(--accent-rgb) / 0.15)" : "var(--surface-2)",
+                        color: editorMode === "html" ? "var(--accent)" : "var(--fg-muted)",
                       }}
                     >
                       <Code size={11} />
@@ -208,7 +208,7 @@ export default function TemplateEditor({ open, onClose, onSave, initial }: Templ
                   <button
                     type="button"
                     onClick={() => setPreviewOpen(true)}
-                    className="flex items-center gap-1 text-xs text-[#D4A843] hover:underline"
+                    className="flex items-center gap-1 text-xs text-[var(--accent)] hover:underline"
                   >
                     <Eye size={12} /> Xem truoc
                   </button>
@@ -257,12 +257,12 @@ export default function TemplateEditor({ open, onClose, onSave, initial }: Templ
             </div>
 
             {/* Right: Live preview (desktop only) */}
-            <div className="hidden lg:flex flex-col w-[420px] border-l border-[#2a2a2a]">
-              <div className="px-4 py-2.5 border-b border-[#2a2a2a] flex items-center gap-2">
+            <div className="hidden lg:flex flex-col w-[420px] border-l border-[var(--border)]">
+              <div className="px-4 py-2.5 border-b border-[var(--border)] flex items-center gap-2">
                 <Eye size={13} className="text-gray-500" />
                 <span className="text-xs font-medium text-gray-400">Xem truoc truc tiep</span>
               </div>
-              <div className="flex-1 overflow-auto p-3" style={{ background: "#111" }}>
+              <div className="flex-1 overflow-auto p-3" style={{ background: "var(--surface)" }}>
                 <div className="rounded-lg overflow-hidden" style={{ background: "white" }}>
                   <iframe
                     srcDoc={htmlContent || "<p style='padding:40px;color:#999;text-align:center;font-family:sans-serif;'>Nhap HTML de xem truoc...</p>"}
@@ -276,11 +276,11 @@ export default function TemplateEditor({ open, onClose, onSave, initial }: Templ
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-end gap-3 px-5 py-3 border-t border-[#2a2a2a]">
+          <div className="flex items-center justify-end gap-3 px-5 py-3 border-t border-[var(--border)]">
             <button
               onClick={onClose}
               className="px-4 py-2 rounded-lg text-sm text-gray-400 hover:text-white transition-colors"
-              style={{ border: "1px solid #2a2a2a" }}
+              style={{ border: "1px solid var(--border)" }}
             >
               Huy
             </button>

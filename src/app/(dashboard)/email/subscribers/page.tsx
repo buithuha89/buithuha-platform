@@ -59,21 +59,21 @@ const STATUS_CONFIG: Record<
 > = {
   active: {
     label: "Hoạt động",
-    color: "#D4A843",
-    bg: "rgba(212,168,67,0.1)",
-    border: "rgba(212,168,67,0.2)",
+    color: "var(--accent)",
+    bg: "rgb(var(--accent-rgb) / 0.1)",
+    border: "rgb(var(--accent-rgb) / 0.2)",
   },
   unsubscribed: {
     label: "Huỷ đăng ký",
-    color: "#f59e0b",
-    bg: "rgba(245,158,11,0.1)",
-    border: "rgba(245,158,11,0.2)",
+    color: "var(--warn)",
+    bg: "rgb(var(--warn-rgb) / 0.1)",
+    border: "rgb(var(--warn-rgb) / 0.2)",
   },
   bounced: {
     label: "Bounced",
-    color: "#ef4444",
-    bg: "rgba(239,68,68,0.1)",
-    border: "rgba(239,68,68,0.2)",
+    color: "var(--danger)",
+    bg: "rgb(var(--danger-rgb) / 0.1)",
+    border: "rgb(var(--danger-rgb) / 0.2)",
   },
 };
 
@@ -294,14 +294,14 @@ export default function SubscribersPage() {
 
   // ── Skeleton loader ──
   const SkeletonRow = () => (
-    <tr style={{ borderBottom: "1px solid #1f1f1f" }}>
-      <td className="px-4 py-3"><div className="w-4 h-4 rounded bg-[#222] animate-pulse" /></td>
-      <td className="px-4 py-3"><div className="w-40 h-4 rounded bg-[#222] animate-pulse" /></td>
-      <td className="px-4 py-3"><div className="w-24 h-4 rounded bg-[#222] animate-pulse" /></td>
-      <td className="px-4 py-3"><div className="w-16 h-4 rounded bg-[#222] animate-pulse" /></td>
-      <td className="px-4 py-3"><div className="w-14 h-4 rounded bg-[#222] animate-pulse" /></td>
-      <td className="px-4 py-3"><div className="w-20 h-4 rounded bg-[#222] animate-pulse" /></td>
-      <td className="px-4 py-3"><div className="w-6 h-4 rounded bg-[#222] animate-pulse" /></td>
+    <tr style={{ borderBottom: "1px solid var(--surface-2)" }}>
+      <td className="px-4 py-3"><div className="w-4 h-4 rounded bg-[var(--surface-2)] animate-pulse" /></td>
+      <td className="px-4 py-3"><div className="w-40 h-4 rounded bg-[var(--surface-2)] animate-pulse" /></td>
+      <td className="px-4 py-3"><div className="w-24 h-4 rounded bg-[var(--surface-2)] animate-pulse" /></td>
+      <td className="px-4 py-3"><div className="w-16 h-4 rounded bg-[var(--surface-2)] animate-pulse" /></td>
+      <td className="px-4 py-3"><div className="w-14 h-4 rounded bg-[var(--surface-2)] animate-pulse" /></td>
+      <td className="px-4 py-3"><div className="w-20 h-4 rounded bg-[var(--surface-2)] animate-pulse" /></td>
+      <td className="px-4 py-3"><div className="w-6 h-4 rounded bg-[var(--surface-2)] animate-pulse" /></td>
     </tr>
   );
 
@@ -310,25 +310,25 @@ export default function SubscribersPage() {
       label: "Tổng subscribers",
       value: stats.total,
       icon: Users,
-      color: "#3b82f6",
+      color: "var(--info)",
     },
     {
       label: "Đang hoạt động",
       value: stats.active,
       icon: UserCheck,
-      color: "#D4A843",
+      color: "var(--accent)",
     },
     {
       label: "Huỷ đăng ký",
       value: stats.unsubscribed,
       icon: UserMinus,
-      color: "#f59e0b",
+      color: "var(--warn)",
     },
     {
       label: "Bounced",
       value: stats.bounced,
       icon: AlertTriangle,
-      color: "#ef4444",
+      color: "var(--danger)",
     },
   ];
 
@@ -418,7 +418,7 @@ export default function SubscribersPage() {
               <button
                 onClick={() => setImportOpen(true)}
                 className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-400 rounded-lg transition-colors hover:text-white"
-                style={{ background: "#1f1f1f", border: "1px solid #2a2a2a" }}
+                style={{ background: "var(--surface-2)", border: "1px solid var(--border)" }}
               >
                 <Upload size={14} /> Import CSV
               </button>
@@ -433,7 +433,7 @@ export default function SubscribersPage() {
               <button
                 onClick={handleExport}
                 className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-400 rounded-lg transition-colors hover:text-white"
-                style={{ background: "#1f1f1f", border: "1px solid #2a2a2a" }}
+                style={{ background: "var(--surface-2)", border: "1px solid var(--border)" }}
               >
                 <Download size={14} /> Export
               </button>
@@ -446,8 +446,8 @@ export default function SubscribersPage() {
           <div
             className="flex flex-wrap items-center gap-3 px-4 py-3 rounded-xl"
             style={{
-              background: "rgba(212,168,67,0.08)",
-              border: "1px solid rgba(212,168,67,0.2)",
+              background: "rgb(var(--accent-rgb) / 0.08)",
+              border: "1px solid rgb(var(--accent-rgb) / 0.2)",
             }}
           >
             <span className="text-sm text-white font-medium">
@@ -455,7 +455,7 @@ export default function SubscribersPage() {
             </span>
             <div
               className="w-px h-5"
-              style={{ background: "rgba(212,168,67,0.3)" }}
+              style={{ background: "rgb(var(--accent-rgb) / 0.3)" }}
             />
             <button
               onClick={handleBulkDelete}
@@ -483,13 +483,13 @@ export default function SubscribersPage() {
             </button>
             <button
               onClick={() => handleBulkChangeStatus("active")}
-              className="flex items-center gap-1.5 text-sm text-[#D4A843] hover:text-[#B8922E] transition-colors"
+              className="flex items-center gap-1.5 text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
             >
               <RefreshCw size={14} /> Active
             </button>
             <button
               onClick={() => handleBulkChangeStatus("unsubscribed")}
-              className="flex items-center gap-1.5 text-sm text-[#f59e0b] hover:text-[#d97706] transition-colors"
+              className="flex items-center gap-1.5 text-sm text-[var(--warn)] hover:text-[#d97706] transition-colors"
             >
               <UserMinus size={14} /> Unsubscribe
             </button>
@@ -507,7 +507,7 @@ export default function SubscribersPage() {
           {loading ? (
             <table className="w-full text-sm">
               <thead>
-                <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                <tr style={{ borderBottom: "1px solid var(--border)" }}>
                   <th className="px-4 py-3 w-10" />
                   <th className="text-left text-xs text-gray-500 font-medium px-4 py-3">Email</th>
                   <th className="text-left text-xs text-gray-500 font-medium px-4 py-3">Tên</th>
@@ -527,9 +527,9 @@ export default function SubscribersPage() {
             <div className="p-12 text-center">
               <div
                 className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4"
-                style={{ background: "rgba(59,130,246,0.1)" }}
+                style={{ background: "rgb(var(--info-rgb) / 0.1)" }}
               >
-                <Mail size={28} className="text-[#3b82f6]" />
+                <Mail size={28} className="text-[var(--info)]" />
               </div>
               <p className="text-white font-medium mb-1">
                 Chưa có subscriber nào
@@ -548,8 +548,8 @@ export default function SubscribersPage() {
                   onClick={() => setImportOpen(true)}
                   className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-400 rounded-lg transition-colors hover:text-white"
                   style={{
-                    background: "#1f1f1f",
-                    border: "1px solid #2a2a2a",
+                    background: "var(--surface-2)",
+                    border: "1px solid var(--border)",
                   }}
                 >
                   <Upload size={14} /> Import CSV
@@ -561,7 +561,7 @@ export default function SubscribersPage() {
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                    <tr style={{ borderBottom: "1px solid var(--border)" }}>
                       <th className="px-4 py-3 w-10">
                         <input
                           type="checkbox"
@@ -570,7 +570,7 @@ export default function SubscribersPage() {
                             selected.size === subscribers.length
                           }
                           onChange={toggleSelectAll}
-                          className="accent-[#D4A843] w-3.5 h-3.5 cursor-pointer"
+                          className="accent-[var(--accent)] w-3.5 h-3.5 cursor-pointer"
                         />
                       </th>
                       <th className="text-left text-xs text-gray-500 font-medium px-4 py-3">
@@ -598,11 +598,11 @@ export default function SubscribersPage() {
                       return (
                         <tr
                           key={sub.id}
-                          className="hover:bg-[#1f1f1f] transition-colors"
+                          className="hover:bg-[var(--surface-2)] transition-colors"
                           style={{
                             borderBottom:
                               idx < subscribers.length - 1
-                                ? "1px solid #1f1f1f"
+                                ? "1px solid var(--surface-2)"
                                 : "none",
                           }}
                         >
@@ -611,7 +611,7 @@ export default function SubscribersPage() {
                               type="checkbox"
                               checked={selected.has(sub.id)}
                               onChange={() => toggleSelect(sub.id)}
-                              className="accent-[#D4A843] w-3.5 h-3.5 cursor-pointer"
+                              className="accent-[var(--accent)] w-3.5 h-3.5 cursor-pointer"
                             />
                           </td>
                           <td className="px-4 py-3">
@@ -665,7 +665,7 @@ export default function SubscribersPage() {
                                     openMenuId === sub.id ? null : sub.id
                                   );
                                 }}
-                                className="text-gray-500 hover:text-white transition-colors p-1 rounded-md hover:bg-[#2a2a2a]"
+                                className="text-gray-500 hover:text-white transition-colors p-1 rounded-md hover:bg-[var(--border)]"
                               >
                                 <MoreHorizontal size={16} />
                               </button>
@@ -674,8 +674,8 @@ export default function SubscribersPage() {
                                 <div
                                   className="absolute right-0 top-8 z-20 w-44 rounded-lg py-1 shadow-xl"
                                   style={{
-                                    background: "#1a1a1a",
-                                    border: "1px solid #2a2a2a",
+                                    background: "var(--surface)",
+                                    border: "1px solid var(--border)",
                                   }}
                                 >
                                   <button
@@ -683,7 +683,7 @@ export default function SubscribersPage() {
                                       setOpenMenuId(null);
                                       // Could open an edit modal here
                                     }}
-                                    className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-300 hover:bg-[#222] hover:text-white transition-colors"
+                                    className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-300 hover:bg-[var(--surface-2)] hover:text-white transition-colors"
                                   >
                                     <Edit size={14} /> Chỉnh sửa
                                   </button>
@@ -693,7 +693,7 @@ export default function SubscribersPage() {
                                         setOpenMenuId(null);
                                         handleChangeStatus(sub.id, "active");
                                       }}
-                                      className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-300 hover:bg-[#222] hover:text-white transition-colors"
+                                      className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-300 hover:bg-[var(--surface-2)] hover:text-white transition-colors"
                                     >
                                       <UserCheck size={14} /> Đặt Active
                                     </button>
@@ -707,7 +707,7 @@ export default function SubscribersPage() {
                                           "unsubscribed"
                                         );
                                       }}
-                                      className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-300 hover:bg-[#222] hover:text-white transition-colors"
+                                      className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-300 hover:bg-[var(--surface-2)] hover:text-white transition-colors"
                                     >
                                       <UserMinus size={14} /> Unsubscribe
                                     </button>
@@ -715,7 +715,7 @@ export default function SubscribersPage() {
                                   <div
                                     className="my-1"
                                     style={{
-                                      borderTop: "1px solid #2a2a2a",
+                                      borderTop: "1px solid var(--border)",
                                     }}
                                   />
                                   <button
@@ -723,7 +723,7 @@ export default function SubscribersPage() {
                                       setOpenMenuId(null);
                                       handleDelete(sub.id);
                                     }}
-                                    className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-400 hover:bg-[#222] hover:text-red-300 transition-colors"
+                                    className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-400 hover:bg-[var(--surface-2)] hover:text-red-300 transition-colors"
                                   >
                                     <Trash2 size={14} /> Xoá
                                   </button>
@@ -741,7 +741,7 @@ export default function SubscribersPage() {
               {/* Pagination */}
               <div
                 className="flex items-center justify-between px-4 py-3"
-                style={{ borderTop: "1px solid #2a2a2a" }}
+                style={{ borderTop: "1px solid var(--border)" }}
               >
                 <span className="text-xs text-gray-500">
                   Trang {page}/{totalPages} ({totalCount.toLocaleString("vi-VN")}{" "}
@@ -753,8 +753,8 @@ export default function SubscribersPage() {
                     disabled={page <= 1}
                     className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-gray-400 rounded-lg transition-colors hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
                     style={{
-                      background: "#1f1f1f",
-                      border: "1px solid #2a2a2a",
+                      background: "var(--surface-2)",
+                      border: "1px solid var(--border)",
                     }}
                   >
                     <ChevronLeft size={14} /> Trước
@@ -766,8 +766,8 @@ export default function SubscribersPage() {
                     disabled={page >= totalPages}
                     className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-gray-400 rounded-lg transition-colors hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
                     style={{
-                      background: "#1f1f1f",
-                      border: "1px solid #2a2a2a",
+                      background: "var(--surface-2)",
+                      border: "1px solid var(--border)",
                     }}
                   >
                     Sau <ChevronRight size={14} />
@@ -833,8 +833,8 @@ export default function SubscribersPage() {
                 }}
                 className="flex-1 py-2 text-sm font-medium text-gray-400 rounded-lg"
                 style={{
-                  background: "#1f1f1f",
-                  border: "1px solid #2a2a2a",
+                  background: "var(--surface-2)",
+                  border: "1px solid var(--border)",
                 }}
               >
                 Hủy

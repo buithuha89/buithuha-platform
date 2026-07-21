@@ -136,14 +136,14 @@ export default function NotificationDropdown() {
         ref={triggerRef}
         onClick={() => setOpen((v) => !v)}
         className="relative p-2 rounded-lg transition-colors text-gray-400 hover:text-white"
-        style={{ background: open ? "rgba(255,255,255,0.05)" : "transparent" }}
+        style={{ background: open ? "rgb(var(--overlay-rgb) / 0.05)" : "transparent" }}
         aria-label="Thông báo"
       >
         <Bell size={18} />
         {unreadCount > 0 && (
           <span
             className="absolute top-1 right-1 min-w-[16px] h-4 px-0.5 rounded-full flex items-center justify-center text-[10px] font-bold text-white"
-            style={{ background: "#ef4444" }}
+            style={{ background: "var(--danger)" }}
           >
             {unreadCount > 9 ? "9+" : unreadCount}
           </span>
@@ -156,22 +156,22 @@ export default function NotificationDropdown() {
           ref={panelRef}
           className="absolute right-0 mt-2 w-80 rounded-xl shadow-xl z-50"
           style={{
-            background: "#1a1a1a",
-            border: "1px solid #2a2a2a",
+            background: "var(--surface)",
+            border: "1px solid var(--border)",
             top: "100%",
           }}
         >
           {/* Header */}
           <div
             className="flex items-center justify-between px-4 py-3"
-            style={{ borderBottom: "1px solid #2a2a2a" }}
+            style={{ borderBottom: "1px solid var(--border)" }}
           >
             <span className="text-sm font-semibold text-white">Thông báo</span>
             {unreadCount > 0 && (
               <button
                 onClick={markAllRead}
                 className="text-xs font-medium transition-colors"
-                style={{ color: "#D4A843" }}
+                style={{ color: "var(--accent)" }}
               >
                 Đánh dấu tất cả đã đọc
               </button>
@@ -182,7 +182,7 @@ export default function NotificationDropdown() {
           <div className="overflow-y-auto" style={{ maxHeight: "360px" }}>
             {!loaded ? (
               <div className="py-8 flex justify-center">
-                <div className="w-5 h-5 border-2 border-[#D4A843] border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin" />
               </div>
             ) : visible.length === 0 ? (
               <p className="text-xs text-gray-500 text-center py-8">
@@ -196,17 +196,17 @@ export default function NotificationDropdown() {
                   className="flex items-start gap-3 px-4 py-3 cursor-pointer transition-colors"
                   style={{
                     borderBottom: "1px solid #222",
-                    background: notif.read ? "transparent" : "rgba(212,168,67,0.04)",
+                    background: notif.read ? "transparent" : "rgb(var(--accent-rgb) / 0.04)",
                   }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLDivElement).style.background = notif.read
-                      ? "rgba(255,255,255,0.03)"
-                      : "rgba(212,168,67,0.08)";
+                      ? "rgb(var(--overlay-rgb) / 0.03)"
+                      : "rgb(var(--accent-rgb) / 0.08)";
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLDivElement).style.background = notif.read
                       ? "transparent"
-                      : "rgba(212,168,67,0.04)";
+                      : "rgb(var(--accent-rgb) / 0.04)";
                   }}
                 >
                   {/* Icon */}
@@ -218,7 +218,7 @@ export default function NotificationDropdown() {
                   <div className="flex-1 min-w-0">
                     <p className="text-xs font-semibold text-white leading-snug">
                       {notif.is_broadcast && (
-                        <span className="text-[10px] text-[#D4A843] font-medium mr-1">
+                        <span className="text-[10px] text-[var(--accent)] font-medium mr-1">
                           Chung
                         </span>
                       )}
@@ -236,7 +236,7 @@ export default function NotificationDropdown() {
                   {!notif.read && (
                     <span
                       className="w-2 h-2 rounded-full shrink-0 mt-1"
-                      style={{ background: "#D4A843" }}
+                      style={{ background: "var(--accent)" }}
                     />
                   )}
                 </div>
@@ -247,13 +247,13 @@ export default function NotificationDropdown() {
           {/* Footer */}
           <div
             className="px-4 py-2.5 text-center"
-            style={{ borderTop: "1px solid #2a2a2a" }}
+            style={{ borderTop: "1px solid var(--border)" }}
           >
             <a
               href="/notifications"
               onClick={() => setOpen(false)}
               className="text-xs font-medium transition-colors"
-              style={{ color: "#D4A843" }}
+              style={{ color: "var(--accent)" }}
             >
               Xem tất cả →
             </a>

@@ -88,7 +88,7 @@ export default function BulkDeleteOrders({ orders }: Props) {
       <button
         onClick={() => setSelectMode(true)}
         className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium text-gray-400 hover:text-red-400 hover:bg-red-400/10 transition-colors"
-        style={{ border: "1px solid #2a2a2a" }}
+        style={{ border: "1px solid var(--border)" }}
       >
         <CheckSquare size={14} />
         Chọn nhiều để xoá
@@ -101,7 +101,7 @@ export default function BulkDeleteOrders({ orders }: Props) {
       {/* Toolbar */}
       <div
         className="flex items-center gap-3 flex-wrap px-4 py-3 rounded-xl"
-        style={{ background: "rgba(239,68,68,0.06)", border: "1px solid rgba(239,68,68,0.15)" }}
+        style={{ background: "rgb(var(--danger-rgb) / 0.06)", border: "1px solid rgb(var(--danger-rgb) / 0.15)" }}
       >
         <button
           onClick={toggleAll}
@@ -125,7 +125,7 @@ export default function BulkDeleteOrders({ orders }: Props) {
           onClick={handleBulkDelete}
           disabled={loading || selected.size === 0}
           className="flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-bold text-white transition-colors disabled:opacity-40"
-          style={{ background: selected.size > 0 ? "#dc2626" : "#4b5563" }}
+          style={{ background: selected.size > 0 ? "var(--danger)" : "var(--fg-subtle)" }}
         >
           {loading ? <Loader2 size={14} className="animate-spin" /> : <Trash2 size={14} />}
           Xoá {selected.size > 0 ? `${selected.size} đơn hàng` : ""}
@@ -145,9 +145,9 @@ export default function BulkDeleteOrders({ orders }: Props) {
         <div
           className="px-4 py-3 rounded-lg text-sm"
           style={{
-            background: result.deleted > 0 ? "rgba(34,197,94,0.08)" : "rgba(239,68,68,0.08)",
-            border: `1px solid ${result.deleted > 0 ? "rgba(34,197,94,0.2)" : "rgba(239,68,68,0.2)"}`,
-            color: result.deleted > 0 ? "#4ade80" : "#f87171",
+            background: result.deleted > 0 ? "rgb(var(--success-rgb) / 0.08)" : "rgb(var(--danger-rgb) / 0.08)",
+            border: `1px solid ${result.deleted > 0 ? "rgb(var(--success-rgb) / 0.2)" : "rgb(var(--danger-rgb) / 0.2)"}`,
+            color: result.deleted > 0 ? "var(--success)" : "var(--danger)",
           }}
         >
           {result.deleted > 0 && `Đã xoá thành công ${result.deleted} đơn hàng. `}
@@ -158,15 +158,15 @@ export default function BulkDeleteOrders({ orders }: Props) {
       {/* Checkbox list */}
       <div
         className="rounded-xl overflow-hidden max-h-[400px] overflow-y-auto"
-        style={{ background: "#111", border: "1px solid #2a2a2a" }}
+        style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
       >
         {deletableOrders.map((o, idx) => (
           <label
             key={o.id}
             className="flex items-center gap-3 px-4 py-2.5 cursor-pointer hover:bg-white/[0.03] transition-colors"
             style={{
-              borderBottom: idx < deletableOrders.length - 1 ? "1px solid #1f1f1f" : "none",
-              background: selected.has(o.id) ? "rgba(239,68,68,0.06)" : "transparent",
+              borderBottom: idx < deletableOrders.length - 1 ? "1px solid var(--surface-2)" : "none",
+              background: selected.has(o.id) ? "rgb(var(--danger-rgb) / 0.06)" : "transparent",
             }}
           >
             <input
@@ -187,8 +187,8 @@ export default function BulkDeleteOrders({ orders }: Props) {
             <span
               className="text-[10px] px-1.5 py-0.5 rounded font-medium"
               style={{
-                background: o.status === "pending" ? "rgba(245,158,11,0.12)" : "rgba(107,114,128,0.12)",
-                color: o.status === "pending" ? "#f59e0b" : "#6b7280",
+                background: o.status === "pending" ? "rgb(var(--warn-rgb) / 0.12)" : "rgb(var(--neutral-rgb) / 0.12)",
+                color: o.status === "pending" ? "var(--warn)" : "var(--fg-subtle)",
               }}
             >
               {o.status === "pending" ? "Chờ" : "Huỷ"}

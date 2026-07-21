@@ -115,7 +115,7 @@ function ResetPasswordForm() {
         <div className="text-center mb-8">
           <div
             className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4 text-2xl font-bold text-white"
-            style={{ background: "linear-gradient(135deg, #D4A843, #B8922E)" }}
+            style={{ background: "linear-gradient(135deg, var(--accent), var(--accent-hover))" }}
           >
             ĐK
           </div>
@@ -141,7 +141,7 @@ function ResetPasswordForm() {
         <div className="text-center mb-8">
           <div
             className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4 text-2xl font-bold text-white"
-            style={{ background: "linear-gradient(135deg, #D4A843, #B8922E)" }}
+            style={{ background: "linear-gradient(135deg, var(--accent), var(--accent-hover))" }}
           >
             ĐK
           </div>
@@ -149,7 +149,7 @@ function ResetPasswordForm() {
         </div>
         <div
           className="mb-4 p-3 rounded-lg text-sm text-red-400 border border-red-400/20"
-          style={{ background: "rgba(239,68,68,0.08)" }}
+          style={{ background: "rgb(var(--danger-rgb) / 0.08)" }}
         >
           {error}
         </div>
@@ -179,7 +179,7 @@ function ResetPasswordForm() {
       {error && (
         <div
           className="mb-4 p-3 rounded-lg text-sm text-red-400 border border-red-400/20"
-          style={{ background: "rgba(239,68,68,0.08)" }}
+          style={{ background: "rgb(var(--danger-rgb) / 0.08)" }}
         >
           {error}
         </div>
@@ -226,7 +226,7 @@ export default function ResetPasswordPage() {
   return (
     <div
       className="min-h-screen flex items-center justify-center p-4"
-      style={{ background: "radial-gradient(ellipse at top, #0d1a12 0%, #0a0a0a 60%)" }}
+      style={{ background: "radial-gradient(ellipse at top, var(--bg-alt) 0%, var(--bg) 60%)" }}
     >
       <Suspense
         fallback={

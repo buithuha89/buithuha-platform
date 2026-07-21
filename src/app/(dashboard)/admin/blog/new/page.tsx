@@ -36,8 +36,8 @@ const NovelEditor = dynamic(() => import("@/components/editor/NovelEditor"), {
       className="flex items-center justify-center"
       style={{
         minHeight: 450,
-        background: "#141414",
-        border: "1px solid #2a2a2a",
+        background: "var(--surface)",
+        border: "1px solid var(--border)",
         borderRadius: 12,
       }}
     >
@@ -193,18 +193,18 @@ function seoScoreColor(checks: SeoCheck[]): { color: string; label: string; pct:
   const total = checks.length;
   const good = checks.filter((c) => c.status === "good").length;
   const pct = Math.round((good / total) * 100);
-  if (pct >= 80) return { color: "#D4A843", label: "Tốt", pct };
-  if (pct >= 50) return { color: "#f59e0b", label: "Trung bình", pct };
-  return { color: "#ef4444", label: "Cần cải thiện", pct };
+  if (pct >= 80) return { color: "var(--accent)", label: "Tốt", pct };
+  if (pct >= 50) return { color: "var(--warn)", label: "Trung bình", pct };
+  return { color: "var(--danger)", label: "Cần cải thiện", pct };
 }
 
 // ─── Char count bar colors ─────────────────────────────────────────────────
 
 function charBarColor(len: number, min: number, max: number): string {
   if (len === 0) return "#333";
-  if (len < min) return "#f59e0b";
-  if (len <= max) return "#D4A843";
-  return "#ef4444";
+  if (len < min) return "var(--warn)";
+  if (len <= max) return "var(--accent)";
+  return "var(--danger)";
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -408,9 +408,9 @@ export default function NewBlogPostPage() {
               onClick={() => setShowPreview(!showPreview)}
               className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg transition-colors"
               style={{
-                background: showPreview ? "rgba(59,130,246,0.15)" : "rgba(255,255,255,0.05)",
-                color: showPreview ? "#3b82f6" : "#9ca3af",
-                border: showPreview ? "1px solid rgba(59,130,246,0.3)" : "1px solid #333",
+                background: showPreview ? "rgb(var(--info-rgb) / 0.15)" : "rgb(var(--overlay-rgb) / 0.05)",
+                color: showPreview ? "var(--info)" : "var(--fg-muted)",
+                border: showPreview ? "1px solid rgb(var(--info-rgb) / 0.3)" : "1px solid #333",
               }}
             >
               <Eye size={13} />
@@ -420,12 +420,12 @@ export default function NewBlogPostPage() {
         </div>
 
         {error && (
-          <div className="flex items-center gap-2 p-3 rounded-lg text-sm text-red-400 border border-red-400/20" style={{ background: "rgba(239,68,68,0.08)" }}>
+          <div className="flex items-center gap-2 p-3 rounded-lg text-sm text-red-400 border border-red-400/20" style={{ background: "rgb(var(--danger-rgb) / 0.08)" }}>
             <AlertCircle size={14} /> {error}
           </div>
         )}
         {success && (
-          <div className="flex items-center gap-2 p-3 rounded-lg text-sm text-amber-400 border border-amber-400/20" style={{ background: "rgba(212,168,67,0.08)" }}>
+          <div className="flex items-center gap-2 p-3 rounded-lg text-sm text-amber-400 border border-amber-400/20" style={{ background: "rgb(var(--accent-rgb) / 0.08)" }}>
             <CheckCircle2 size={14} /> {success}
           </div>
         )}
@@ -445,7 +445,7 @@ export default function NewBlogPostPage() {
             className="input-dark text-xl font-bold"
           />
           <div className="flex items-center gap-2 mt-2">
-            <div className="h-1 flex-1 rounded-full overflow-hidden" style={{ background: "#222" }}>
+            <div className="h-1 flex-1 rounded-full overflow-hidden" style={{ background: "var(--surface-2)" }}>
               <div
                 className="h-full rounded-full transition-all"
                 style={{
@@ -468,7 +468,7 @@ export default function NewBlogPostPage() {
 
           {showPreview ? (
             <div className="card-dark p-6" style={{ minHeight: 450 }}>
-              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#2a2a2a]">
+              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[var(--border)]">
                 <Eye size={14} className="text-blue-400" />
                 <span className="text-xs font-semibold text-blue-400">PREVIEW</span>
               </div>
@@ -490,7 +490,7 @@ export default function NewBlogPostPage() {
             className="w-full flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors"
           >
             <div className="flex items-center gap-2">
-              <Search size={15} className="text-[#D4A843]" />
+              <Search size={15} className="text-[var(--accent)]" />
               <span className="text-sm font-semibold text-white">SEO & Thông tin bài viết</span>
               <span
                 className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
@@ -503,14 +503,14 @@ export default function NewBlogPostPage() {
           </button>
 
           {seoOpen && (
-            <div className="border-t border-[#2a2a2a] p-5 space-y-5">
+            <div className="border-t border-[var(--border)] p-5 space-y-5">
 
               {/* ── Google Preview ── */}
               <div>
                 <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
                   Xem trước trên Google
                 </label>
-                <div className="rounded-lg p-4" style={{ background: "#fff" }}>
+                <div className="rounded-lg p-4" style={{ background: "var(--surface)" }}>
                   <div className="text-[13px] text-[#202124] truncate" style={{ fontFamily: "Arial, sans-serif" }}>
                     buithuha.com &rsaquo; blog &rsaquo; {currentSlug || "..."}
                   </div>
@@ -590,7 +590,7 @@ export default function NewBlogPostPage() {
                   className="input-dark text-sm resize-none"
                 />
                 <div className="flex items-center gap-2 mt-1">
-                  <div className="h-1 flex-1 rounded-full overflow-hidden" style={{ background: "#222" }}>
+                  <div className="h-1 flex-1 rounded-full overflow-hidden" style={{ background: "var(--surface-2)" }}>
                     <div
                       className="h-full rounded-full transition-all"
                       style={{
@@ -631,7 +631,7 @@ export default function NewBlogPostPage() {
                   />
                   {thumbnail ? (
                     <div className="relative group">
-                      <img src={thumbnail} alt="Thumbnail" className="w-full h-32 object-cover rounded-lg border border-[#2a2a2a]" />
+                      <img src={thumbnail} alt="Thumbnail" className="w-full h-32 object-cover rounded-lg border border-[var(--border)]" />
                       <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center gap-2">
                         <button type="button" onClick={() => thumbInputRef.current?.click()} className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white/10 text-white hover:bg-white/20 transition-colors">
                           <Upload size={12} className="inline mr-1" />Đổi ảnh
@@ -646,7 +646,7 @@ export default function NewBlogPostPage() {
                       type="button"
                       onClick={() => thumbInputRef.current?.click()}
                       disabled={uploadingThumb}
-                      className="w-full h-24 rounded-lg border border-dashed border-[#333] hover:border-[#D4A84340] bg-[#141414] hover:bg-[#1a1a1a] transition-colors flex flex-col items-center justify-center gap-1.5 cursor-pointer"
+                      className="w-full h-24 rounded-lg border border-dashed border-[var(--border-strong)] hover:border-[#D4A84340] bg-[var(--surface)] hover:bg-[var(--surface)] transition-colors flex flex-col items-center justify-center gap-1.5 cursor-pointer"
                     >
                       {uploadingThumb ? (
                         <>
@@ -676,13 +676,13 @@ export default function NewBlogPostPage() {
                   <div>
                     <input ref={authorAvatarRef} type="file" accept="image/jpeg,image/png,image/webp" onChange={handleAuthorAvatarUpload} className="hidden" />
                     <div
-                      className="w-20 h-20 rounded-2xl overflow-hidden cursor-pointer relative group border border-[#2a2a2a]"
+                      className="w-20 h-20 rounded-2xl overflow-hidden cursor-pointer relative group border border-[var(--border)]"
                       onClick={() => authorAvatarRef.current?.click()}
                     >
                       {authorAvatar ? (
                         <img src={authorAvatar} alt="Author" className="w-full h-full object-cover" />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-[#D4A843] bg-[#D4A84310]">
+                        <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-[var(--accent)] bg-[#D4A84310]">
                           {authorName.charAt(0)}
                         </div>
                       )}
@@ -744,7 +744,7 @@ export default function NewBlogPostPage() {
             onClick={() => handleSave("draft")}
             disabled={!!saving}
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-colors"
-            style={{ background: "#1f1f1f", color: "#9ca3af", border: "1px solid #333" }}
+            style={{ background: "var(--surface-2)", color: "var(--fg-muted)", border: "1px solid #333" }}
           >
             {saving === "draft" ? <Loader2 size={14} className="animate-spin" /> : <Save size={14} />}
             Lưu nháp
@@ -754,7 +754,7 @@ export default function NewBlogPostPage() {
             onClick={() => handleSave("published", false)}
             disabled={!!saving}
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-colors"
-            style={{ background: "rgba(59,130,246,0.12)", color: "#3b82f6", border: "1px solid rgba(59,130,246,0.3)" }}
+            style={{ background: "rgb(var(--info-rgb) / 0.12)", color: "var(--info)", border: "1px solid rgb(var(--info-rgb) / 0.3)" }}
           >
             {saving === "published" ? <Loader2 size={14} className="animate-spin" /> : <Globe size={14} />}
             Xuất bản

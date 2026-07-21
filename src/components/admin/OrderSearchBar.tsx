@@ -43,14 +43,14 @@ export default function OrderSearchBar() {
           placeholder="Tìm mã đơn, email, SĐT, tên khách..."
           className="w-full pl-9 pr-9 py-2 rounded-xl text-sm text-white placeholder-gray-600 outline-none transition-colors"
           style={{
-            background: "#1a1a1a",
-            border: "1px solid #2a2a2a",
+            background: "var(--surface)",
+            border: "1px solid var(--border)",
           }}
           onFocus={(e) => {
-            e.currentTarget.style.borderColor = "rgba(212,168,67,0.4)";
+            e.currentTarget.style.borderColor = "rgb(var(--accent-rgb) / 0.4)";
           }}
           onBlur={(e) => {
-            e.currentTarget.style.borderColor = "#2a2a2a";
+            e.currentTarget.style.borderColor = "var(--border)";
           }}
         />
         {value && (
@@ -70,9 +70,9 @@ export default function OrderSearchBar() {
         type="submit"
         className="px-4 py-2 rounded-xl text-sm font-medium transition-colors whitespace-nowrap"
         style={{
-          background: "rgba(212,168,67,0.12)",
-          color: "#D4A843",
-          border: "1px solid rgba(212,168,67,0.25)",
+          background: "rgb(var(--accent-rgb) / 0.12)",
+          color: "var(--accent)",
+          border: "1px solid rgb(var(--accent-rgb) / 0.25)",
         }}
       >
         Tìm kiếm

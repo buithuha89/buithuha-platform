@@ -154,9 +154,9 @@ export default async function AdminCoursesPage() {
           <div className="stat-card flex items-center gap-4">
             <div
               className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-              style={{ background: "rgba(212,168,67,0.09)" }}
+              style={{ background: "rgb(var(--accent-rgb) / 0.09)" }}
             >
-              <BookOpen size={20} className="text-[#D4A843]" />
+              <BookOpen size={20} className="text-[var(--accent)]" />
             </div>
             <div>
               <div className="text-2xl font-bold text-white leading-none mb-1">
@@ -169,9 +169,9 @@ export default async function AdminCoursesPage() {
           <div className="stat-card flex items-center gap-4">
             <div
               className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-              style={{ background: "rgba(245,158,11,0.09)" }}
+              style={{ background: "rgb(var(--warn-rgb) / 0.09)" }}
             >
-              <Layers size={20} className="text-[#f59e0b]" />
+              <Layers size={20} className="text-[var(--warn)]" />
             </div>
             <div>
               <div className="text-2xl font-bold text-white leading-none mb-1">
@@ -184,9 +184,9 @@ export default async function AdminCoursesPage() {
           <div className="stat-card flex items-center gap-4">
             <div
               className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-              style={{ background: "rgba(59,130,246,0.09)" }}
+              style={{ background: "rgb(var(--info-rgb) / 0.09)" }}
             >
-              <Users size={20} className="text-[#3b82f6]" />
+              <Users size={20} className="text-[var(--info)]" />
             </div>
             <div>
               <div className="text-2xl font-bold text-white leading-none mb-1">
@@ -222,7 +222,7 @@ export default async function AdminCoursesPage() {
             return (
               <div
                 key={course.id}
-                className="card-dark p-5 hover:bg-[#1f1f1f] transition-all"
+                className="card-dark p-5 hover:bg-[var(--surface-2)] transition-all"
               >
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
                   {/* Thumbnail + Info */}
@@ -237,8 +237,8 @@ export default async function AdminCoursesPage() {
                       <div
                         className="w-14 h-14 rounded-xl flex items-center justify-center shrink-0"
                         style={{
-                          background: "#252525",
-                          border: "1px solid #2a2a2a",
+                          background: "var(--surface-3)",
+                          border: "1px solid var(--border)",
                         }}
                       >
                         <BookOpen size={22} className="text-gray-500" />
@@ -289,14 +289,14 @@ export default async function AdminCoursesPage() {
                       href={`/admin/courses/${course.id}/students`}
                       className="text-center group"
                     >
-                      <div className="text-gray-400 mb-0.5 group-hover:text-[#D4A843] transition-colors">Học viên</div>
-                      <div className="font-semibold text-white group-hover:text-[#D4A843] transition-colors">
+                      <div className="text-gray-400 mb-0.5 group-hover:text-[var(--accent)] transition-colors">Học viên</div>
+                      <div className="font-semibold text-white group-hover:text-[var(--accent)] transition-colors">
                         {enrolled.toLocaleString("vi-VN")}
                       </div>
                     </Link>
                     <div className="text-center min-w-[80px]">
                       <div className="text-gray-400 mb-0.5">Giá</div>
-                      <div className="font-semibold text-[#D4A843]">
+                      <div className="font-semibold text-[var(--accent)]">
                         {formatPrice(course.sale_price ?? course.price ?? 0)}
                       </div>
                     </div>
@@ -307,7 +307,7 @@ export default async function AdminCoursesPage() {
                     <Link
                       href={`/admin/courses/${course.id}`}
                       className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors text-gray-300 hover:text-white hover:bg-white/5"
-                      style={{ border: "1px solid #2a2a2a" }}
+                      style={{ border: "1px solid var(--border)" }}
                     >
                       <Edit2 size={12} />
                       Sửa
@@ -316,9 +316,9 @@ export default async function AdminCoursesPage() {
                       href={`/admin/courses/${course.id}/students`}
                       className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
                       style={{
-                        background: "rgba(59,130,246,0.1)",
-                        color: "#3b82f6",
-                        border: "1px solid rgba(59,130,246,0.2)",
+                        background: "rgb(var(--info-rgb) / 0.1)",
+                        color: "var(--info)",
+                        border: "1px solid rgb(var(--info-rgb) / 0.2)",
                       }}
                     >
                       <Users size={12} />
@@ -328,9 +328,9 @@ export default async function AdminCoursesPage() {
                       href={`/admin/courses/${course.id}/lessons`}
                       className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
                       style={{
-                        background: "rgba(212,168,67,0.1)",
-                        color: "#D4A843",
-                        border: "1px solid rgba(212,168,67,0.2)",
+                        background: "rgb(var(--accent-rgb) / 0.1)",
+                        color: "var(--accent)",
+                        border: "1px solid rgb(var(--accent-rgb) / 0.2)",
                       }}
                     >
                       <Layers size={12} />

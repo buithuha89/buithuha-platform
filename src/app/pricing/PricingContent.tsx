@@ -118,16 +118,16 @@ export default function PricingContent() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-[var(--bg)] text-white">
       {/* ═══ HERO ═══ */}
       <section className="pt-28 sm:pt-36 pb-10 sm:pb-14 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium mb-8"
             style={{
-              background: "rgba(212,168,67,0.1)",
-              border: "1px solid rgba(212,168,67,0.25)",
-              color: "#D4A843",
+              background: "rgb(var(--accent-rgb) / 0.1)",
+              border: "1px solid rgb(var(--accent-rgb) / 0.25)",
+              color: "var(--accent)",
             }}
           >
             <Sparkles size={13} /> Chọn gói phù hợp với bạn
@@ -135,7 +135,7 @@ export default function PricingContent() {
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.3] sm:leading-[1.25] mb-6">
             Đầu tư cho{" "}
-            <span className="text-[#D4A843]">tương lai của bạn</span>
+            <span className="text-[var(--accent)]">tương lai của bạn</span>
           </h1>
 
           <p className="text-sm sm:text-base text-gray-400 max-w-xl mx-auto leading-relaxed">
@@ -156,11 +156,11 @@ export default function PricingContent() {
               }`}
               style={{
                 background: tier.highlighted
-                  ? "linear-gradient(180deg, rgba(212,168,67,0.06) 0%, #111 40%)"
+                  ? "linear-gradient(180deg, rgb(var(--accent-rgb) / 0.06) 0%, #111 40%)"
                   : "#111",
                 border: tier.highlighted
-                  ? "2px solid rgba(212,168,67,0.5)"
-                  : "1px solid #1f1f1f",
+                  ? "2px solid rgb(var(--accent-rgb) / 0.5)"
+                  : "1px solid var(--surface-2)",
               }}
             >
               {/* Badge */}
@@ -169,8 +169,8 @@ export default function PricingContent() {
                   className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold"
                   style={{
                     background:
-                      "linear-gradient(135deg, #D4A843, #FBBF24)",
-                    color: "#131921",
+                      "linear-gradient(135deg, var(--accent), var(--warn))",
+                    color: "var(--accent-fg)",
                   }}
                 >
                   <Star size={11} className="inline -mt-0.5 mr-1" />
@@ -185,14 +185,14 @@ export default function PricingContent() {
                     className="w-11 h-11 rounded-lg flex items-center justify-center shrink-0"
                     style={{
                       background: tier.highlighted
-                        ? "rgba(212,168,67,0.15)"
-                        : "rgba(255,255,255,0.05)",
+                        ? "rgb(var(--accent-rgb) / 0.15)"
+                        : "rgb(var(--overlay-rgb) / 0.05)",
                     }}
                   >
                     <tier.icon
                       size={20}
                       style={{
-                        color: tier.highlighted ? "#D4A843" : "#888",
+                        color: tier.highlighted ? "var(--accent)" : "#888",
                       }}
                     />
                   </div>
@@ -202,7 +202,7 @@ export default function PricingContent() {
                 <div className="flex items-baseline gap-1.5 mb-3">
                   <span
                     className={`text-3xl sm:text-4xl font-extrabold ${
-                      tier.highlighted ? "text-[#D4A843]" : "text-white"
+                      tier.highlighted ? "text-[var(--accent)]" : "text-white"
                     }`}
                   >
                     {tier.price}
@@ -226,7 +226,7 @@ export default function PricingContent() {
                         size={16}
                         className={`shrink-0 mt-0.5 ${
                           tier.highlighted
-                            ? "text-[#D4A843]"
+                            ? "text-[var(--accent)]"
                             : "text-gray-500"
                         }`}
                       />
@@ -247,7 +247,7 @@ export default function PricingContent() {
                   className={`w-full flex items-center justify-center gap-2 font-bold text-sm py-3.5 rounded-lg transition-all duration-200 ${
                     tier.highlighted
                       ? "btn-green"
-                      : "bg-white/5 text-white hover:bg-white/10 border border-[#2a2a2a]"
+                      : "bg-white/5 text-white hover:bg-white/10 border border-[var(--border)]"
                   }`}
                 >
                   <MessageCircle size={16} />
@@ -259,7 +259,7 @@ export default function PricingContent() {
                   className={`w-full flex items-center justify-center gap-2 font-bold text-sm py-3.5 rounded-lg transition-all duration-200 ${
                     tier.highlighted
                       ? "btn-green"
-                      : "bg-white/5 text-white hover:bg-white/10 border border-[#2a2a2a]"
+                      : "bg-white/5 text-white hover:bg-white/10 border border-[var(--border)]"
                   }`}
                 >
                   {tier.cta}
@@ -279,11 +279,11 @@ export default function PricingContent() {
 
           <div
             className="rounded-xl overflow-hidden"
-            style={{ border: "1px solid #1f1f1f" }}
+            style={{ border: "1px solid var(--surface-2)" }}
           >
             <table className="w-full text-sm">
               <thead>
-                <tr style={{ background: "#151515" }}>
+                <tr style={{ background: "var(--surface)" }}>
                   <th className="text-left p-4 sm:p-5 text-gray-400 font-medium">
                     Tính năng
                   </th>
@@ -292,7 +292,7 @@ export default function PricingContent() {
                   </th>
                   <th
                     className="p-4 sm:p-5 font-medium text-center"
-                    style={{ color: "#D4A843" }}
+                    style={{ color: "var(--accent)" }}
                   >
                     Standard
                   </th>
@@ -316,8 +316,8 @@ export default function PricingContent() {
                   <tr
                     key={i}
                     style={{
-                      background: i % 2 === 0 ? "#111" : "#0d0d0d",
-                      borderTop: "1px solid #1a1a1a",
+                      background: i % 2 === 0 ? "#111" : "var(--bg-alt)",
+                      borderTop: "1px solid var(--surface)",
                     }}
                   >
                     <td className="p-4 sm:p-5 text-gray-300">{row.feature}</td>
@@ -362,13 +362,13 @@ export default function PricingContent() {
               <div
                 key={i}
                 className="p-6 sm:p-7 rounded-xl text-center"
-                style={{ background: "#111", border: "1px solid #1f1f1f" }}
+                style={{ background: "var(--surface)", border: "1px solid var(--surface-2)" }}
               >
                 <div
                   className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4"
-                  style={{ background: "rgba(212,168,67,0.1)" }}
+                  style={{ background: "rgb(var(--accent-rgb) / 0.1)" }}
                 >
-                  <item.icon size={22} className="text-[#D4A843]" />
+                  <item.icon size={22} className="text-[var(--accent)]" />
                 </div>
                 <h3 className="font-semibold text-white text-sm sm:text-base mb-2">
                   {item.title}
@@ -397,7 +397,7 @@ export default function PricingContent() {
               <div
                 key={i}
                 className="rounded-xl overflow-hidden"
-                style={{ background: "#111", border: "1px solid #1f1f1f" }}
+                style={{ background: "var(--surface)", border: "1px solid var(--surface-2)" }}
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -418,7 +418,7 @@ export default function PricingContent() {
                     openFaq === i ? "max-h-48" : "max-h-0"
                   }`}
                 >
-                  <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-sm text-gray-400 leading-relaxed border-t border-[#1f1f1f] pt-4">
+                  <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-sm text-gray-400 leading-relaxed border-t border-[var(--surface-2)] pt-4">
                     {faq.a}
                   </div>
                 </div>
@@ -448,7 +448,7 @@ export default function PricingContent() {
             </Link>
             <Link
               href="/courses"
-              className="text-sm sm:text-base py-3.5 px-8 font-bold rounded-lg bg-white/5 text-white hover:bg-white/10 border border-[#2a2a2a] transition-all duration-200"
+              className="text-sm sm:text-base py-3.5 px-8 font-bold rounded-lg bg-white/5 text-white hover:bg-white/10 border border-[var(--border)] transition-all duration-200"
             >
               Xem khoá học
             </Link>
@@ -472,7 +472,7 @@ function ComparisonCell({
     return (
       <span
         className={`text-sm font-medium ${
-          highlighted ? "text-[#D4A843]" : "text-gray-300"
+          highlighted ? "text-[var(--accent)]" : "text-gray-300"
         }`}
       >
         {value}
@@ -484,7 +484,7 @@ function ComparisonCell({
       <Check
         size={16}
         className={`inline-block ${
-          highlighted ? "text-[#D4A843]" : "text-green-500"
+          highlighted ? "text-[var(--accent)]" : "text-green-500"
         }`}
       />
     );

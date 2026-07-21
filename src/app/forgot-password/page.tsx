@@ -13,7 +13,7 @@ export default function ForgotPasswordPage() {
   return (
     <div
       className="min-h-screen flex items-center justify-center p-4"
-      style={{ background: "radial-gradient(ellipse at top, #0d1a12 0%, #0a0a0a 60%)" }}
+      style={{ background: "radial-gradient(ellipse at top, var(--bg-alt) 0%, var(--bg) 60%)" }}
     >
       <div className="w-full max-w-md">
         {/* Logo */}
@@ -31,7 +31,7 @@ export default function ForgotPasswordPage() {
 
           <p className="text-center text-sm text-gray-500 mt-5">
             Nhớ mật khẩu rồi?{" "}
-            <Link href="/login" className="text-[#D4A843] font-medium hover:underline">
+            <Link href="/login" className="text-[var(--accent)] font-medium hover:underline">
               Đăng nhập
             </Link>
           </p>

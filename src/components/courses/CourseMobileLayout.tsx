@@ -27,8 +27,8 @@ export default function CourseMobileLayout({
 
       {/* Desktop sidebar */}
       <aside
-        className="hidden lg:block w-80 overflow-y-auto border-l border-[#2a2a2a] shrink-0"
-        style={{ background: "#111" }}
+        className="hidden lg:block w-80 overflow-y-auto border-l border-[var(--border)] shrink-0"
+        style={{ background: "var(--surface)" }}
       >
         {sidebarContent}
       </aside>
@@ -39,8 +39,8 @@ export default function CourseMobileLayout({
           onClick={() => setShowSidebar(true)}
           className="lg:hidden fixed bottom-5 right-5 z-40 flex items-center gap-2 px-4 py-3 rounded-full shadow-lg text-sm font-medium text-white transition-transform active:scale-95"
           style={{
-            background: "linear-gradient(135deg, #D4A843, #B8922E)",
-            boxShadow: "0 4px 20px rgba(212,168,67,0.3)",
+            background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
+            boxShadow: "0 4px 20px rgb(var(--accent-rgb) / 0.3)",
           }}
         >
           <List size={18} />
@@ -60,12 +60,12 @@ export default function CourseMobileLayout({
           <div
             className="absolute bottom-0 left-0 right-0 rounded-t-2xl overflow-hidden"
             style={{
-              background: "#111",
+              background: "var(--surface)",
               maxHeight: "85vh",
             }}
           >
             {/* Handle bar + close */}
-            <div className="sticky top-0 z-10 flex items-center justify-between p-4 border-b border-[#2a2a2a]" style={{ background: "#111" }}>
+            <div className="sticky top-0 z-10 flex items-center justify-between p-4 border-b border-[var(--border)]" style={{ background: "var(--surface)" }}>
               <div>
                 <div className="w-10 h-1 rounded-full bg-gray-600 mx-auto mb-3" />
                 <h3 className="font-semibold text-white text-sm">Nội dung khoá học</h3>

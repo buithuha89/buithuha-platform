@@ -24,10 +24,10 @@ interface Automation {
 }
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string }> = {
-  draft: { label: "Nháp", color: "#6b7280", bg: "rgba(107,114,128,0.12)" },
-  active: { label: "Đang chạy", color: "#22c55e", bg: "rgba(34,197,94,0.12)" },
-  paused: { label: "Tạm dừng", color: "#eab308", bg: "rgba(234,179,8,0.12)" },
-  archived: { label: "Lưu trữ", color: "#ef4444", bg: "rgba(239,68,68,0.12)" },
+  draft: { label: "Nháp", color: "var(--fg-subtle)", bg: "rgb(var(--neutral-rgb) / 0.12)" },
+  active: { label: "Đang chạy", color: "var(--success)", bg: "rgb(var(--success-rgb) / 0.12)" },
+  paused: { label: "Tạm dừng", color: "var(--warn)", bg: "rgb(var(--warn-rgb) / 0.12)" },
+  archived: { label: "Lưu trữ", color: "var(--danger)", bg: "rgb(var(--danger-rgb) / 0.12)" },
 };
 
 const TRIGGER_CONFIG: Record<string, { label: string; icon: typeof Tag }> = {
@@ -102,10 +102,10 @@ export default function AutomationsPage() {
       : "0.0";
 
   const stats = [
-    { label: "Total automations", value: totalCount, icon: Workflow, color: "#3b82f6" },
-    { label: "Active automations", value: activeCount, icon: Play, color: "#22c55e" },
-    { label: "Total enrolled", value: totalEnrolled, icon: Users, color: "#D4A843" },
-    { label: "Completion rate", value: `${completionRate}%`, icon: Workflow, color: "#8b5cf6" },
+    { label: "Total automations", value: totalCount, icon: Workflow, color: "var(--info)" },
+    { label: "Active automations", value: activeCount, icon: Play, color: "var(--success)" },
+    { label: "Total enrolled", value: totalEnrolled, icon: Users, color: "var(--accent)" },
+    { label: "Completion rate", value: `${completionRate}%`, icon: Workflow, color: "var(--cat-violet)" },
   ];
 
   // Actions
@@ -166,7 +166,7 @@ export default function AutomationsPage() {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="bg-[#151515] border border-[#2a2a2a] rounded-xl p-4"
+              className="bg-[var(--surface)] border border-[var(--border)] rounded-xl p-4"
             >
               <div className="flex items-center justify-between mb-3">
                 <div
@@ -184,14 +184,14 @@ export default function AutomationsPage() {
 
         {/* Filter tabs + Create button */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-0 border-b border-[#2a2a2a]">
+          <div className="flex items-center gap-0 border-b border-[var(--border)]">
             {FILTER_TABS.map((tab) => (
               <button
                 key={tab.value}
                 onClick={() => setActiveTab(tab.value)}
                 className={`px-4 py-2.5 text-sm font-medium transition-colors relative ${
                   activeTab === tab.value
-                    ? "text-[#D4A843] border-b-2 border-[#D4A843]"
+                    ? "text-[var(--accent)] border-b-2 border-[var(--accent)]"
                     : "text-gray-500 hover:text-gray-300"
                 }`}
               >
@@ -203,7 +203,7 @@ export default function AutomationsPage() {
           <button
             onClick={() => setShowCreateModal(true)}
             className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium text-white transition-colors"
-            style={{ background: "#D4A843" }}
+            style={{ background: "var(--accent)" }}
           >
             <Plus size={15} /> Tạo automation mới
           </button>
@@ -215,19 +215,19 @@ export default function AutomationsPage() {
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="bg-[#151515] border border-[#2a2a2a] rounded-xl p-4 animate-pulse"
+                className="bg-[var(--surface)] border border-[var(--border)] rounded-xl p-4 animate-pulse"
               >
                 <div className="flex items-center gap-4">
                   <div className="flex-1 space-y-2">
-                    <div className="h-4 bg-[#2a2a2a] rounded w-1/3" />
-                    <div className="h-3 bg-[#2a2a2a] rounded w-1/2" />
+                    <div className="h-4 bg-[var(--border)] rounded w-1/3" />
+                    <div className="h-3 bg-[var(--border)] rounded w-1/2" />
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="h-6 w-16 bg-[#2a2a2a] rounded-full" />
+                    <div className="h-6 w-16 bg-[var(--border)] rounded-full" />
                     <div className="flex gap-3">
-                      <div className="h-4 w-12 bg-[#2a2a2a] rounded" />
-                      <div className="h-4 w-12 bg-[#2a2a2a] rounded" />
-                      <div className="h-4 w-12 bg-[#2a2a2a] rounded" />
+                      <div className="h-4 w-12 bg-[var(--border)] rounded" />
+                      <div className="h-4 w-12 bg-[var(--border)] rounded" />
+                      <div className="h-4 w-12 bg-[var(--border)] rounded" />
                     </div>
                   </div>
                 </div>
@@ -235,12 +235,12 @@ export default function AutomationsPage() {
             ))}
           </div>
         ) : filtered.length === 0 ? (
-          <div className="bg-[#151515] border border-[#2a2a2a] rounded-xl flex flex-col items-center justify-center py-16 text-center">
+          <div className="bg-[var(--surface)] border border-[var(--border)] rounded-xl flex flex-col items-center justify-center py-16 text-center">
             <div
               className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-              style={{ background: "rgba(212,168,67,0.1)" }}
+              style={{ background: "rgb(var(--accent-rgb) / 0.1)" }}
             >
-              <Workflow size={28} className="text-[#D4A843]" />
+              <Workflow size={28} className="text-[var(--accent)]" />
             </div>
             <p className="text-white font-medium mb-1">
               {activeTab !== "all" ? "Không tìm thấy automation nào" : "Chưa có automation nào"}
@@ -254,7 +254,7 @@ export default function AutomationsPage() {
               <button
                 onClick={() => setShowCreateModal(true)}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium text-white transition-colors"
-                style={{ background: "#D4A843" }}
+                style={{ background: "var(--accent)" }}
               >
                 <Plus size={15} /> Tạo automation mới
               </button>
@@ -270,7 +270,7 @@ export default function AutomationsPage() {
               return (
                 <div
                   key={a.id}
-                  className="bg-[#151515] border border-[#2a2a2a] rounded-xl p-4 hover:border-[#3a3a3a] transition-all"
+                  className="bg-[var(--surface)] border border-[var(--border)] rounded-xl p-4 hover:border-[var(--border-strong)] transition-all"
                 >
                   <div className="flex flex-col md:flex-row md:items-center gap-3">
                     {/* Info */}
@@ -313,13 +313,13 @@ export default function AutomationsPage() {
                       </div>
                       <div className="text-center min-w-[50px]">
                         <div className="text-gray-500 mb-0.5">Completed</div>
-                        <div className="font-semibold" style={{ color: "#D4A843" }}>
+                        <div className="font-semibold" style={{ color: "var(--accent)" }}>
                           {a.completed_count ?? 0}
                         </div>
                       </div>
                       <div className="text-center min-w-[50px]">
                         <div className="text-gray-500 mb-0.5">Active</div>
-                        <div className="font-semibold" style={{ color: "#22c55e" }}>
+                        <div className="font-semibold" style={{ color: "var(--success)" }}>
                           {a.active_count ?? 0}
                         </div>
                       </div>
@@ -332,7 +332,7 @@ export default function AutomationsPage() {
                           e.stopPropagation();
                           setOpenDropdown(openDropdown === a.id ? null : a.id);
                         }}
-                        className="p-2 rounded-lg text-gray-500 hover:text-white hover:bg-[#252525] transition-colors"
+                        className="p-2 rounded-lg text-gray-500 hover:text-white hover:bg-[var(--surface-3)] transition-colors"
                       >
                         <MoreHorizontal size={16} />
                       </button>
@@ -340,18 +340,18 @@ export default function AutomationsPage() {
                       {openDropdown === a.id && (
                         <div
                           className="absolute right-0 top-full mt-1 w-44 rounded-lg overflow-hidden shadow-xl z-20"
-                          style={{ background: "#1f1f1f", border: "1px solid #2a2a2a" }}
+                          style={{ background: "var(--surface-2)", border: "1px solid var(--border)" }}
                           onClick={(e) => e.stopPropagation()}
                         >
                           <Link
                             href={`/email/automations/${a.id}`}
-                            className="flex items-center gap-2 w-full px-3 py-2 text-xs text-gray-300 hover:bg-[#2a2a2a] hover:text-white transition-colors"
+                            className="flex items-center gap-2 w-full px-3 py-2 text-xs text-gray-300 hover:bg-[var(--border)] hover:text-white transition-colors"
                           >
                             <Edit size={12} /> Chỉnh sửa
                           </Link>
                           <button
                             onClick={() => handleToggleStatus(a.id, a.status)}
-                            className="flex items-center gap-2 w-full px-3 py-2 text-xs text-gray-300 hover:bg-[#2a2a2a] hover:text-white transition-colors"
+                            className="flex items-center gap-2 w-full px-3 py-2 text-xs text-gray-300 hover:bg-[var(--border)] hover:text-white transition-colors"
                           >
                             {a.status === "active" ? (
                               <>
@@ -363,7 +363,7 @@ export default function AutomationsPage() {
                               </>
                             )}
                           </button>
-                          <div className="border-t border-[#2a2a2a]" />
+                          <div className="border-t border-[var(--border)]" />
                           <button
                             onClick={() => handleDelete(a.id)}
                             className="flex items-center gap-2 w-full px-3 py-2 text-xs text-red-400 hover:bg-red-500/10 transition-colors"
@@ -390,7 +390,7 @@ export default function AutomationsPage() {
           />
           <div
             className="relative w-full max-w-md mx-4 rounded-xl p-6"
-            style={{ background: "#151515", border: "1px solid #2a2a2a" }}
+            style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
           >
             <h2 className="text-lg font-semibold text-white mb-1">
               Tạo automation mới
@@ -410,7 +410,7 @@ export default function AutomationsPage() {
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
                   placeholder="VD: Welcome Series"
-                  className="w-full px-3 py-2.5 rounded-lg text-sm text-white placeholder:text-gray-500 bg-[#0d0d0d] border border-[#2a2a2a] outline-none focus:border-[#D4A843] transition-colors"
+                  className="w-full px-3 py-2.5 rounded-lg text-sm text-white placeholder:text-gray-500 bg-[var(--bg-alt)] border border-[var(--border)] outline-none focus:border-[var(--accent)] transition-colors"
                 />
               </div>
 
@@ -424,7 +424,7 @@ export default function AutomationsPage() {
                   onChange={(e) => setNewDescription(e.target.value)}
                   placeholder="Mô tả ngắn gọn về automation này..."
                   rows={3}
-                  className="w-full px-3 py-2.5 rounded-lg text-sm text-white placeholder:text-gray-500 bg-[#0d0d0d] border border-[#2a2a2a] outline-none focus:border-[#D4A843] transition-colors resize-none"
+                  className="w-full px-3 py-2.5 rounded-lg text-sm text-white placeholder:text-gray-500 bg-[var(--bg-alt)] border border-[var(--border)] outline-none focus:border-[var(--accent)] transition-colors resize-none"
                 />
               </div>
 
@@ -436,7 +436,7 @@ export default function AutomationsPage() {
                 <select
                   value={newTriggerType}
                   onChange={(e) => setNewTriggerType(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-lg text-sm text-white bg-[#0d0d0d] border border-[#2a2a2a] outline-none focus:border-[#D4A843] transition-colors"
+                  className="w-full px-3 py-2.5 rounded-lg text-sm text-white bg-[var(--bg-alt)] border border-[var(--border)] outline-none focus:border-[var(--accent)] transition-colors"
                 >
                   <option value="tag_added">Tag Added</option>
                   <option value="subscribed_to_list">Subscribed to List</option>
@@ -458,7 +458,7 @@ export default function AutomationsPage() {
                 onClick={handleCreate}
                 disabled={!newName.trim() || creating}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium text-white transition-colors disabled:opacity-50"
-                style={{ background: "#D4A843" }}
+                style={{ background: "var(--accent)" }}
               >
                 {creating ? (
                   <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />

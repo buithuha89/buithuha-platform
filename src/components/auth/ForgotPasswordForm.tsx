@@ -46,7 +46,7 @@ export default function ForgotPasswordForm() {
       {success && (
         <div
           className="p-3 rounded-lg text-sm text-amber-400 border border-amber-400/20"
-          style={{ background: "rgba(212,168,67,0.08)" }}
+          style={{ background: "rgb(var(--accent-rgb) / 0.08)" }}
         >
           {success}
         </div>
@@ -57,7 +57,7 @@ export default function ForgotPasswordForm() {
           role="alert"
           aria-live="assertive"
           className="p-3 rounded-lg text-sm text-red-400 border border-red-400/20"
-          style={{ background: "rgba(239,68,68,0.08)" }}
+          style={{ background: "rgb(var(--danger-rgb) / 0.08)" }}
         >
           {error}
         </div>

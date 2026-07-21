@@ -115,8 +115,8 @@ export default function CreatePlanForm() {
         onClick={() => setOpen(true)}
         className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white transition-all"
         style={{
-          background: "linear-gradient(135deg, #D4A843, #b8922e)",
-          boxShadow: "0 2px 8px rgba(212,168,67,0.3)",
+          background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
+          boxShadow: "0 2px 8px rgb(var(--accent-rgb) / 0.3)",
         }}
       >
         <Plus size={16} />
@@ -130,7 +130,7 @@ export default function CreatePlanForm() {
       {/* Header */}
       <div
         className="flex items-center justify-between px-5 py-3"
-        style={{ borderBottom: "1px solid #2a2a2a" }}
+        style={{ borderBottom: "1px solid var(--border)" }}
       >
         <h3 className="text-sm font-semibold text-white">
           Tạo gói đăng ký mới
@@ -161,8 +161,8 @@ export default function CreatePlanForm() {
               required
               className="w-full px-3 py-2 rounded-lg text-sm text-white placeholder-gray-600 outline-none transition-colors"
               style={{
-                background: "#1a1a1a",
-                border: "1px solid #2a2a2a",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
               }}
             />
           </div>
@@ -178,8 +178,8 @@ export default function CreatePlanForm() {
               required
               className="w-full px-3 py-2 rounded-lg text-sm text-white placeholder-gray-600 outline-none transition-colors"
               style={{
-                background: "#1a1a1a",
-                border: "1px solid #2a2a2a",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
               }}
             />
           </div>
@@ -197,8 +197,8 @@ export default function CreatePlanForm() {
             placeholder="Mô tả ngắn gọn về gói"
             className="w-full px-3 py-2 rounded-lg text-sm text-white placeholder-gray-600 outline-none transition-colors"
             style={{
-              background: "#1a1a1a",
-              border: "1px solid #2a2a2a",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
             }}
           />
         </div>
@@ -216,8 +216,8 @@ export default function CreatePlanForm() {
               }
               className="w-full px-3 py-2 rounded-lg text-sm text-white outline-none transition-colors"
               style={{
-                background: "#1a1a1a",
-                border: "1px solid #2a2a2a",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
                 colorScheme: "dark",
               }}
             >
@@ -237,8 +237,8 @@ export default function CreatePlanForm() {
               onChange={(e) => setTierGranted(e.target.value)}
               className="w-full px-3 py-2 rounded-lg text-sm text-white outline-none transition-colors"
               style={{
-                background: "#1a1a1a",
-                border: "1px solid #2a2a2a",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
                 colorScheme: "dark",
               }}
             >
@@ -266,8 +266,8 @@ export default function CreatePlanForm() {
               min={1}
               className="w-full px-3 py-2 rounded-lg text-sm text-white placeholder-gray-600 outline-none transition-colors"
               style={{
-                background: "#1a1a1a",
-                border: "1px solid #2a2a2a",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
               }}
             />
           </div>
@@ -283,8 +283,8 @@ export default function CreatePlanForm() {
               min={0}
               className="w-full px-3 py-2 rounded-lg text-sm text-white placeholder-gray-600 outline-none transition-colors"
               style={{
-                background: "#1a1a1a",
-                border: "1px solid #2a2a2a",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
               }}
             />
           </div>
@@ -302,8 +302,8 @@ export default function CreatePlanForm() {
             rows={4}
             className="w-full px-3 py-2 rounded-lg text-sm text-white placeholder-gray-600 outline-none transition-colors resize-none"
             style={{
-              background: "#1a1a1a",
-              border: "1px solid #2a2a2a",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
             }}
           />
         </div>
@@ -321,8 +321,8 @@ export default function CreatePlanForm() {
             min={0}
             className="w-full px-3 py-2 rounded-lg text-sm text-white placeholder-gray-600 outline-none transition-colors"
             style={{
-              background: "#1a1a1a",
-              border: "1px solid #2a2a2a",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
             }}
           />
         </div>
@@ -332,8 +332,8 @@ export default function CreatePlanForm() {
           <div
             className="p-3 rounded-lg flex items-center gap-2 text-sm"
             style={{
-              background: "rgba(239,68,68,0.1)",
-              border: "1px solid rgba(239,68,68,0.2)",
+              background: "rgb(var(--danger-rgb) / 0.1)",
+              border: "1px solid rgb(var(--danger-rgb) / 0.2)",
             }}
           >
             <span className="text-red-400">{error}</span>
@@ -347,8 +347,8 @@ export default function CreatePlanForm() {
             disabled={loading}
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all disabled:opacity-50"
             style={{
-              background: "linear-gradient(135deg, #D4A843, #b8922e)",
-              boxShadow: "0 2px 8px rgba(212,168,67,0.3)",
+              background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
+              boxShadow: "0 2px 8px rgb(var(--accent-rgb) / 0.3)",
             }}
           >
             {loading ? (
@@ -370,7 +370,7 @@ export default function CreatePlanForm() {
               setOpen(false);
             }}
             className="px-4 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:text-white transition-colors"
-            style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+            style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
           >
             Huỷ
           </button>

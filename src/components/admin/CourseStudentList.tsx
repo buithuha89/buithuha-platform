@@ -212,15 +212,15 @@ export default function CourseStudentList({
             placeholder="Tìm theo tên, email, SĐT..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl text-sm bg-[#151515] text-white placeholder-gray-600 outline-none focus:ring-1 focus:ring-[#D4A843]/40"
-            style={{ border: "1px solid #2a2a2a" }}
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl text-sm bg-[var(--surface)] text-white placeholder-gray-600 outline-none focus:ring-1 focus:ring-[var(--accent)]/40"
+            style={{ border: "1px solid var(--border)" }}
           />
         </div>
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-          className="px-3 py-2.5 rounded-xl text-sm bg-[#151515] text-gray-300 outline-none cursor-pointer"
-          style={{ border: "1px solid #2a2a2a" }}
+          className="px-3 py-2.5 rounded-xl text-sm bg-[var(--surface)] text-gray-300 outline-none cursor-pointer"
+          style={{ border: "1px solid var(--border)" }}
         >
           <option value="date">Mới đăng ký</option>
           <option value="progress">Tiến độ cao nhất</option>
@@ -263,7 +263,7 @@ export default function CourseStudentList({
               <div key={student.enrollmentId} className="card-dark overflow-hidden">
                 {/* ── Main row ─────────────────────────── */}
                 <div
-                  className="p-4 flex items-center gap-4 cursor-pointer hover:bg-[#1f1f1f] transition-colors"
+                  className="p-4 flex items-center gap-4 cursor-pointer hover:bg-[var(--surface-2)] transition-colors"
                   onClick={() =>
                     setExpandedId(isExpanded ? null : student.enrollmentId)
                   }
@@ -313,13 +313,13 @@ export default function CourseStudentList({
                     <div className="text-center min-w-[110px]">
                       <div className="text-gray-500 mb-0.5">Tiến độ</div>
                       <div className="flex items-center gap-2">
-                        <div className="w-16 h-1.5 bg-[#252525] rounded-full overflow-hidden">
+                        <div className="w-16 h-1.5 bg-[var(--surface-3)] rounded-full overflow-hidden">
                           <div
                             className="h-full rounded-full transition-all"
                             style={{
                               width: `${pct}%`,
                               background:
-                                pct === 100 ? "#22c55e" : "#D4A843",
+                                pct === 100 ? "var(--success)" : "var(--accent)",
                             }}
                           />
                         </div>
@@ -375,12 +375,12 @@ export default function CourseStudentList({
                 {/* Mobile metrics */}
                 <div className="lg:hidden px-4 pb-3 flex items-center gap-4 text-xs flex-wrap">
                   <div className="flex items-center gap-2">
-                    <div className="w-12 h-1.5 bg-[#252525] rounded-full overflow-hidden">
+                    <div className="w-12 h-1.5 bg-[var(--surface-3)] rounded-full overflow-hidden">
                       <div
                         className="h-full rounded-full"
                         style={{
                           width: `${pct}%`,
-                          background: pct === 100 ? "#22c55e" : "#D4A843",
+                          background: pct === 100 ? "var(--success)" : "var(--accent)",
                         }}
                       />
                     </div>
@@ -398,16 +398,16 @@ export default function CourseStudentList({
 
                 {/* ── Expanded detail ──────────────────── */}
                 {isExpanded && (
-                  <div className="border-t border-[#2a2a2a]">
+                  <div className="border-t border-[var(--border)]">
                     {/* Tabs */}
-                    <div className="flex border-b border-[#2a2a2a]">
+                    <div className="flex border-b border-[var(--border)]">
                       <button
                         onClick={() =>
                           setTab(student.enrollmentId, "progress")
                         }
                         className={`px-4 py-2.5 text-xs font-medium transition-colors flex items-center gap-1.5 ${
                           tab === "progress"
-                            ? "text-[#D4A843] border-b-2 border-[#D4A843]"
+                            ? "text-[var(--accent)] border-b-2 border-[var(--accent)]"
                             : "text-gray-500 hover:text-gray-300"
                         }`}
                       >
@@ -418,7 +418,7 @@ export default function CourseStudentList({
                         onClick={() => setTab(student.enrollmentId, "qa")}
                         className={`px-4 py-2.5 text-xs font-medium transition-colors flex items-center gap-1.5 ${
                           tab === "qa"
-                            ? "text-[#D4A843] border-b-2 border-[#D4A843]"
+                            ? "text-[var(--accent)] border-b-2 border-[var(--accent)]"
                             : "text-gray-500 hover:text-gray-300"
                         }`}
                       >
@@ -457,7 +457,7 @@ export default function CourseStudentList({
                                   return (
                                     <div
                                       key={lesson.id}
-                                      className="flex items-center gap-3 py-1.5 px-3 rounded-lg hover:bg-[#1a1a1a]"
+                                      className="flex items-center gap-3 py-1.5 px-3 rounded-lg hover:bg-[var(--surface)]"
                                     >
                                       {completed ? (
                                         <CheckCircle2
@@ -513,14 +513,14 @@ export default function CourseStudentList({
                               key={q.id}
                               className="p-3 rounded-lg"
                               style={{
-                                background: "#1a1a1a",
-                                border: "1px solid #252525",
+                                background: "var(--surface)",
+                                border: "1px solid var(--surface-3)",
                               }}
                             >
                               <div className="flex items-start gap-2 mb-2">
                                 <MessageSquare
                                   size={12}
-                                  className="text-[#D4A843] mt-0.5 shrink-0"
+                                  className="text-[var(--accent)] mt-0.5 shrink-0"
                                 />
                                 <p className="text-xs text-gray-300 flex-1">
                                   {q.content}
@@ -542,7 +542,7 @@ export default function CourseStudentList({
                                 </span>
                               </div>
                               {q.reply && (
-                                <div className="ml-5 pl-3 border-l-2 border-[#2a2a2a]">
+                                <div className="ml-5 pl-3 border-l-2 border-[var(--border)]">
                                   <p className="text-xs text-gray-400">
                                     {q.reply}
                                   </p>
@@ -581,13 +581,13 @@ export default function CourseStudentList({
         >
           <div
             className="w-full max-w-md rounded-2xl p-6 space-y-4"
-            style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+            style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3">
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
-                style={{ background: "rgba(239,68,68,0.1)" }}
+                style={{ background: "rgb(var(--danger-rgb) / 0.1)" }}
               >
                 <AlertTriangle size={20} className="text-red-400" />
               </div>
@@ -604,8 +604,8 @@ export default function CourseStudentList({
             <div
               className="p-3 rounded-lg text-sm"
               style={{
-                background: "#151515",
-                border: "1px solid #252525",
+                background: "var(--surface)",
+                border: "1px solid var(--surface-3)",
               }}
             >
               <div className="flex items-center gap-3">
@@ -635,7 +635,7 @@ export default function CourseStudentList({
                 onClick={() => setDeleteTarget(null)}
                 disabled={deleting}
                 className="flex-1 px-4 py-2.5 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
-                style={{ border: "1px solid #2a2a2a" }}
+                style={{ border: "1px solid var(--border)" }}
               >
                 Huỷ bỏ
               </button>
@@ -644,7 +644,7 @@ export default function CourseStudentList({
                 disabled={deleting}
                 className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-white transition-colors"
                 style={{
-                  background: deleting ? "#4a1a1a" : "#dc2626",
+                  background: deleting ? "#4a1a1a" : "var(--danger)",
                   opacity: deleting ? 0.7 : 1,
                 }}
               >

@@ -140,7 +140,7 @@ export default function SendingProgressPage() {
       <div>
         <TopBar title="Dang tai..." />
         <div className="flex items-center justify-center py-32">
-          <Loader2 size={28} className="animate-spin text-[#D4A843]" />
+          <Loader2 size={28} className="animate-spin text-[var(--accent)]" />
         </div>
       </div>
     );
@@ -158,12 +158,12 @@ export default function SendingProgressPage() {
           <div className="relative w-40 h-40 mx-auto">
             <svg viewBox="0 0 120 120" className="w-full h-full">
               {/* Background circle */}
-              <circle cx="60" cy="60" r="52" fill="none" stroke="#2a2a2a" strokeWidth="8" />
+              <circle cx="60" cy="60" r="52" fill="none" stroke="var(--border)" strokeWidth="8" />
               {/* Progress circle */}
               <circle
                 cx="60" cy="60" r="52"
                 fill="none"
-                stroke={completed ? "#22c55e" : state?.status === "paused" ? "#f97316" : "#D4A843"}
+                stroke={completed ? "var(--success)" : state?.status === "paused" ? "var(--cat-orange)" : "var(--accent)"}
                 strokeWidth="8"
                 strokeLinecap="round"
                 strokeDasharray={`${2 * Math.PI * 52}`}
@@ -174,13 +174,13 @@ export default function SendingProgressPage() {
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               {completed ? (
-                <CheckCircle size={32} className="text-[#22c55e] mb-1" />
+                <CheckCircle size={32} className="text-[var(--success)] mb-1" />
               ) : state?.status === "paused" ? (
-                <Pause size={32} className="text-[#f97316] mb-1" />
+                <Pause size={32} className="text-[var(--cat-orange)] mb-1" />
               ) : (
                 <div className="relative">
-                  <Send size={24} className="text-[#D4A843]" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#D4A843] animate-ping" />
+                  <Send size={24} className="text-[var(--accent)]" />
+                  <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[var(--accent)] animate-ping" />
                 </div>
               )}
               <span className="text-2xl font-bold text-white mt-1">{Math.round(progress)}%</span>
@@ -191,7 +191,7 @@ export default function SendingProgressPage() {
           <div>
             {completed ? (
               <div className="space-y-2">
-                <h2 className="text-xl font-bold text-[#22c55e]">
+                <h2 className="text-xl font-bold text-[var(--success)]">
                   Da gui thanh cong {sent.toLocaleString("vi-VN")} emails!
                 </h2>
                 {/* Confetti-like dots animation */}
@@ -201,7 +201,7 @@ export default function SendingProgressPage() {
                       key={i}
                       className="w-2 h-2 rounded-full animate-bounce"
                       style={{
-                        background: ["#22c55e", "#16a34a", "#4ade80", "#86efac"][i % 4],
+                        background: ["var(--success)", "var(--success)", "var(--success)", "#86efac"][i % 4],
                         animationDelay: `${i * 0.1}s`,
                         animationDuration: "1.2s",
                       }}
@@ -210,7 +210,7 @@ export default function SendingProgressPage() {
                 </div>
               </div>
             ) : state?.status === "paused" ? (
-              <h2 className="text-lg font-semibold text-[#f97316]">Campaign dang tam dung</h2>
+              <h2 className="text-lg font-semibold text-[var(--cat-orange)]">Campaign dang tam dung</h2>
             ) : (
               <h2 className="text-lg font-semibold text-white">Dang gui emails...</h2>
             )}
@@ -222,16 +222,16 @@ export default function SendingProgressPage() {
 
           {/* Progress bar */}
           <div className="w-full max-w-md mx-auto">
-            <div className="h-2 rounded-full overflow-hidden" style={{ background: "#252525" }}>
+            <div className="h-2 rounded-full overflow-hidden" style={{ background: "var(--surface-3)" }}>
               <div
                 className="h-full rounded-full transition-all duration-500"
                 style={{
                   width: `${progress}%`,
                   background: completed
-                    ? "#22c55e"
+                    ? "var(--success)"
                     : state?.status === "paused"
-                      ? "#f97316"
-                      : "linear-gradient(90deg, #22c55e, #4ade80)",
+                      ? "var(--cat-orange)"
+                      : "linear-gradient(90deg, var(--success), var(--success))",
                 }}
               />
             </div>
@@ -241,22 +241,22 @@ export default function SendingProgressPage() {
         {/* Stats row */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div className="stat-card text-center">
-            <Send size={16} className="text-[#D4A843] mx-auto mb-2" />
+            <Send size={16} className="text-[var(--accent)] mx-auto mb-2" />
             <div className="text-xl font-bold text-white">{sent.toLocaleString("vi-VN")}</div>
             <div className="text-xs text-gray-500 mt-1">Da gui</div>
           </div>
           <div className="stat-card text-center">
-            <XCircle size={16} className="text-[#ef4444] mx-auto mb-2" />
+            <XCircle size={16} className="text-[var(--danger)] mx-auto mb-2" />
             <div className="text-xl font-bold text-white">{failed.toLocaleString("vi-VN")}</div>
             <div className="text-xs text-gray-500 mt-1">That bai</div>
           </div>
           <div className="stat-card text-center">
-            <Mail size={16} className="text-[#3b82f6] mx-auto mb-2" />
+            <Mail size={16} className="text-[var(--info)] mx-auto mb-2" />
             <div className="text-xl font-bold text-white">{total.toLocaleString("vi-VN")}</div>
             <div className="text-xs text-gray-500 mt-1">Tong</div>
           </div>
           <div className="stat-card text-center">
-            <Clock size={16} className="text-[#f59e0b] mx-auto mb-2" />
+            <Clock size={16} className="text-[var(--warn)] mx-auto mb-2" />
             <div className="text-xl font-bold text-white">
               {completed ? "0:00" : remaining > 0 ? `${remainingMin}:${String(remainingSec).padStart(2, "0")}` : "--:--"}
             </div>
@@ -271,7 +271,7 @@ export default function SendingProgressPage() {
               onClick={handlePause}
               disabled={pausing}
               className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors"
-              style={{ background: "rgba(249,115,22,0.12)", color: "#f97316", border: "1px solid rgba(249,115,22,0.3)" }}
+              style={{ background: "rgba(249,115,22,0.12)", color: "var(--cat-orange)", border: "1px solid rgba(249,115,22,0.3)" }}
             >
               {pausing ? <Loader2 size={14} className="animate-spin" /> : <Pause size={14} />}
               Tam dung
@@ -294,14 +294,14 @@ export default function SendingProgressPage() {
               <button
                 onClick={() => router.push(`/email/campaigns/${campaignId}`)}
                 className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors"
-                style={{ background: "rgba(212,168,67,0.12)", color: "#D4A843", border: "1px solid rgba(212,168,67,0.3)" }}
+                style={{ background: "rgb(var(--accent-rgb) / 0.12)", color: "var(--accent)", border: "1px solid rgb(var(--accent-rgb) / 0.3)" }}
               >
                 <BarChart3 size={14} /> Xem analytics
               </button>
               <button
                 onClick={() => router.push("/email/campaigns")}
                 className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm text-gray-400 hover:text-white transition-colors"
-                style={{ border: "1px solid #2a2a2a" }}
+                style={{ border: "1px solid var(--border)" }}
               >
                 <ArrowLeft size={14} /> Ve danh sach
               </button>

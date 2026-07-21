@@ -384,7 +384,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
           {/* Thumbnail */}
           {post.thumbnail && (
-            <div className="mb-6 rounded-xl overflow-hidden relative aspect-[16/9] bg-[#1a1a1a]">
+            <div className="mb-6 rounded-xl overflow-hidden relative aspect-[16/9] bg-[var(--surface)]">
               <Image
                 src={post.thumbnail}
                 alt={post.title}
@@ -396,7 +396,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           )}
 
-          <hr className="border-[#2a2a2a] mb-6" />
+          <hr className="border-[var(--border)] mb-6" />
 
           {/* Content rendered as rich HTML */}
           {post.content && (
@@ -415,7 +415,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               <span
                 key={tag}
                 className="text-xs px-2.5 py-1 rounded-full text-gray-400"
-                style={{ background: "#222", border: "1px solid #2a2a2a" }}
+                style={{ background: "var(--surface-2)", border: "1px solid var(--border)" }}
               >
                 #{tag}
               </span>
@@ -426,11 +426,11 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* ── Author Box ── */}
         <div
           className="card-dark p-5 sm:p-6 mb-6"
-          style={{ borderColor: "rgba(212,168,67,0.15)" }}
+          style={{ borderColor: "rgb(var(--accent-rgb) / 0.15)" }}
         >
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 items-start">
             {/* Avatar */}
-            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden shrink-0 relative bg-[#1a1a1a]">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden shrink-0 relative bg-[var(--surface)]">
               {DEFAULT_AUTHOR.avatar ? (
                 <img
                   src={DEFAULT_AUTHOR.avatar}
@@ -438,7 +438,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-3xl font-bold text-[#D4A843] bg-[#D4A84310]">
+                <div className="w-full h-full flex items-center justify-center text-3xl font-bold text-[var(--accent)] bg-[#D4A84310]">
                   {DEFAULT_AUTHOR.name.charAt(0)}
                 </div>
               )}
@@ -464,9 +464,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all hover:scale-[1.02]"
                   style={{
-                    background: "rgba(59,130,246,0.1)",
-                    color: "#3b82f6",
-                    border: "1px solid rgba(59,130,246,0.25)",
+                    background: "rgb(var(--info-rgb) / 0.1)",
+                    color: "var(--info)",
+                    border: "1px solid rgb(var(--info-rgb) / 0.25)",
                   }}
                 >
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>

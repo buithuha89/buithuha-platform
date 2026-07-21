@@ -118,31 +118,31 @@ const statusConfig: Record<
 > = {
   new: {
     label: "Mới",
-    color: "#3b82f6",
-    bg: "rgba(59,130,246,0.1)",
-    border: "rgba(59,130,246,0.25)",
-    dot: "#3b82f6",
+    color: "var(--info)",
+    bg: "rgb(var(--info-rgb) / 0.1)",
+    border: "rgb(var(--info-rgb) / 0.25)",
+    dot: "var(--info)",
   },
   contacted: {
     label: "Đã liên hệ",
-    color: "#f59e0b",
-    bg: "rgba(245,158,11,0.1)",
-    border: "rgba(245,158,11,0.25)",
-    dot: "#f59e0b",
+    color: "var(--warn)",
+    bg: "rgb(var(--warn-rgb) / 0.1)",
+    border: "rgb(var(--warn-rgb) / 0.25)",
+    dot: "var(--warn)",
   },
   converted: {
     label: "Đã mua",
-    color: "#22c55e",
-    bg: "rgba(34,197,94,0.1)",
-    border: "rgba(34,197,94,0.25)",
-    dot: "#22c55e",
+    color: "var(--success)",
+    bg: "rgb(var(--success-rgb) / 0.1)",
+    border: "rgb(var(--success-rgb) / 0.25)",
+    dot: "var(--success)",
   },
   dismissed: {
     label: "Bỏ qua",
-    color: "#6b7280",
-    bg: "rgba(107,114,128,0.1)",
-    border: "rgba(107,114,128,0.25)",
-    dot: "#6b7280",
+    color: "var(--fg-subtle)",
+    bg: "rgb(var(--neutral-rgb) / 0.1)",
+    border: "rgb(var(--neutral-rgb) / 0.25)",
+    dot: "var(--fg-subtle)",
   },
 };
 
@@ -303,10 +303,10 @@ export default async function CRMInterestsPage({
     .order("title");
 
   const stats = [
-    { label: "Khách hàng", value: totalCustomers, icon: Users, color: "#3b82f6" },
-    { label: "Chưa liên hệ", value: newCount, icon: Clock, color: "#f59e0b" },
-    { label: "Đã liên hệ", value: contactedCount, icon: Phone, color: "#a855f7" },
-    { label: "Đã chuyển đổi", value: convertedCount, icon: CheckCircle, color: "#22c55e" },
+    { label: "Khách hàng", value: totalCustomers, icon: Users, color: "var(--info)" },
+    { label: "Chưa liên hệ", value: newCount, icon: Clock, color: "var(--warn)" },
+    { label: "Đã liên hệ", value: contactedCount, icon: Phone, color: "var(--cat-purple)" },
+    { label: "Đã chuyển đổi", value: convertedCount, icon: CheckCircle, color: "var(--success)" },
   ];
 
   return (
@@ -322,9 +322,9 @@ export default async function CRMInterestsPage({
           <div
             className="rounded-xl p-3 text-sm text-center"
             style={{
-              background: "rgba(34,197,94,0.1)",
-              border: "1px solid rgba(34,197,94,0.25)",
-              color: "#22c55e",
+              background: "rgb(var(--success-rgb) / 0.1)",
+              border: "1px solid rgb(var(--success-rgb) / 0.25)",
+              color: "var(--success)",
             }}
           >
             Cập nhật thành công
@@ -360,7 +360,7 @@ export default async function CRMInterestsPage({
                   name="q"
                   defaultValue={q}
                   placeholder="Tên, email, khoá học..."
-                  className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg pl-9 pr-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#D4A843] transition-colors"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg pl-9 pr-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[var(--accent)] transition-colors"
                 />
               </div>
             </div>
@@ -369,7 +369,7 @@ export default async function CRMInterestsPage({
               <select
                 name="status"
                 defaultValue={statusFilter}
-                className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843]"
+                className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)]"
               >
                 <option value="">Tất cả</option>
                 {Object.entries(statusConfig).map(([key, cfg]) => (
@@ -382,7 +382,7 @@ export default async function CRMInterestsPage({
               <select
                 name="product_id"
                 defaultValue={productFilter}
-                className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843]"
+                className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)]"
               >
                 <option value="">Tất cả khoá học</option>
                 {(allProducts ?? []).map((p) => (
@@ -424,8 +424,8 @@ export default async function CRMInterestsPage({
                         size={44}
                         gradient={
                           isVip
-                            ? "linear-gradient(135deg, #D4A843, #059669)"
-                            : "linear-gradient(135deg, #3b82f6, #1d4ed8)"
+                            ? "linear-gradient(135deg, var(--accent), var(--cat-emerald))"
+                            : "linear-gradient(135deg, var(--info), var(--cat-blue))"
                         }
                       />
                       <div className="min-w-0 flex-1">
@@ -437,8 +437,8 @@ export default async function CRMInterestsPage({
                             <span
                               className="text-[10px] px-1.5 py-0.5 rounded-full font-medium"
                               style={{
-                                background: "rgba(212,168,67,0.15)",
-                                color: "#D4A843",
+                                background: "rgb(var(--accent-rgb) / 0.15)",
+                                color: "var(--accent)",
                               }}
                             >
                               {customer.tier.toUpperCase()}
@@ -469,7 +469,7 @@ export default async function CRMInterestsPage({
                     {/* Summary chips */}
                     <div className="flex items-center gap-3 text-xs text-gray-400 flex-shrink-0">
                       <div className="flex items-center gap-1" title="Khoá học quan tâm">
-                        <BookOpen size={12} className="text-[#D4A843]" />
+                        <BookOpen size={12} className="text-[var(--accent)]" />
                         <span>{customer.interests.length} khoá</span>
                       </div>
                       <div className="flex items-center gap-1" title="Tổng lượt xem">
@@ -505,7 +505,7 @@ export default async function CRMInterestsPage({
                   </div>
 
                   {/* Course interests table */}
-                  <div className="border-t border-[#1f1f1f]">
+                  <div className="border-t border-[var(--surface-2)]">
                     {customer.interests.map((interest, idx) => {
                       const product = interest.products;
                       const sc = statusConfig[interest.status] || statusConfig.new;
@@ -514,8 +514,8 @@ export default async function CRMInterestsPage({
                       return (
                         <div
                           key={interest.id}
-                          className={`flex flex-col sm:flex-row sm:items-center gap-3 px-4 py-3 hover:bg-[#161616] transition-colors ${
-                            idx > 0 ? "border-t border-[#1a1a1a]" : ""
+                          className={`flex flex-col sm:flex-row sm:items-center gap-3 px-4 py-3 hover:bg-[var(--surface)] transition-colors ${
+                            idx > 0 ? "border-t border-[var(--surface)]" : ""
                           }`}
                         >
                           {/* Course info */}
@@ -527,14 +527,14 @@ export default async function CRMInterestsPage({
                                 className="w-14 h-10 rounded-lg object-cover flex-shrink-0"
                               />
                             ) : (
-                              <div className="w-14 h-10 rounded-lg bg-[#2a2a2a] flex items-center justify-center flex-shrink-0">
+                              <div className="w-14 h-10 rounded-lg bg-[var(--border)] flex items-center justify-center flex-shrink-0">
                                 <BookOpen size={14} className="text-gray-600" />
                               </div>
                             )}
                             <div className="min-w-0 flex-1">
                               <Link
                                 href={`/courses/${product?.slug}`}
-                                className="text-sm text-white hover:text-[#D4A843] transition-colors truncate block font-medium"
+                                className="text-sm text-white hover:text-[var(--accent)] transition-colors truncate block font-medium"
                               >
                                 {product?.title || "—"}
                               </Link>
@@ -600,7 +600,7 @@ export default async function CRMInterestsPage({
 
                   {/* Notes (show if any interest has notes) */}
                   {customer.interests.some((i) => i.notes) && (
-                    <div className="px-4 py-2.5 border-t border-[#1f1f1f] bg-[#0f0f0f]">
+                    <div className="px-4 py-2.5 border-t border-[var(--surface-2)] bg-[var(--bg-alt)]">
                       {customer.interests
                         .filter((i) => i.notes)
                         .map((i) => (

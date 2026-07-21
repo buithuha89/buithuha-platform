@@ -117,38 +117,38 @@ const JOURNEY_STAGES = [
 ];
 
 const activityTypeConfig: Record<string, { label: string; color: string }> = {
-  call: { label: "Cuộc gọi", color: "#3b82f6" },
-  email: { label: "Email", color: "#8b5cf6" },
-  note: { label: "Ghi chú", color: "#6b7280" },
-  meeting: { label: "Cuộc họp", color: "#f59e0b" },
-  task: { label: "Task", color: "#ec4899" },
-  system: { label: "Hệ thống", color: "#4b5563" },
+  call: { label: "Cuộc gọi", color: "var(--info)" },
+  email: { label: "Email", color: "var(--cat-violet)" },
+  note: { label: "Ghi chú", color: "var(--fg-subtle)" },
+  meeting: { label: "Cuộc họp", color: "var(--warn)" },
+  task: { label: "Task", color: "var(--cat-pink)" },
+  system: { label: "Hệ thống", color: "var(--fg-subtle)" },
 };
 
 const sourceConfig: Record<string, { label: string; color: string; bg: string }> = {
-  manual: { label: "Thủ công", color: "#6b7280", bg: "rgba(107,114,128,0.1)" },
-  import: { label: "Import", color: "#8b5cf6", bg: "rgba(139,92,246,0.1)" },
-  website: { label: "Website", color: "#3b82f6", bg: "rgba(59,130,246,0.1)" },
-  referral: { label: "Giới thiệu", color: "#D4A843", bg: "rgba(212,168,67,0.1)" },
-  ads: { label: "Quảng cáo", color: "#f59e0b", bg: "rgba(245,158,11,0.1)" },
-  social: { label: "MXH", color: "#ec4899", bg: "rgba(236,72,153,0.1)" },
+  manual: { label: "Thủ công", color: "var(--fg-subtle)", bg: "rgb(var(--neutral-rgb) / 0.1)" },
+  import: { label: "Import", color: "var(--cat-violet)", bg: "rgba(139,92,246,0.1)" },
+  website: { label: "Website", color: "var(--info)", bg: "rgb(var(--info-rgb) / 0.1)" },
+  referral: { label: "Giới thiệu", color: "var(--accent)", bg: "rgb(var(--accent-rgb) / 0.1)" },
+  ads: { label: "Quảng cáo", color: "var(--warn)", bg: "rgb(var(--warn-rgb) / 0.1)" },
+  social: { label: "MXH", color: "var(--cat-pink)", bg: "rgba(236,72,153,0.1)" },
 };
 
 const dealStageConfig: Record<string, { label: string; color: string }> = {
-  lead: { label: "Lead", color: "#3b82f6" },
-  contacted: { label: "Đã liên hệ", color: "#f59e0b" },
-  demo: { label: "Demo", color: "#a855f7" },
-  proposal: { label: "Báo giá", color: "#ec4899" },
-  negotiation: { label: "Đàm phán", color: "#f97316" },
-  won: { label: "Thành công", color: "#D4A843" },
-  lost: { label: "Thất bại", color: "#ef4444" },
+  lead: { label: "Lead", color: "var(--info)" },
+  contacted: { label: "Đã liên hệ", color: "var(--warn)" },
+  demo: { label: "Demo", color: "var(--cat-purple)" },
+  proposal: { label: "Báo giá", color: "var(--cat-pink)" },
+  negotiation: { label: "Đàm phán", color: "var(--cat-orange)" },
+  won: { label: "Thành công", color: "var(--accent)" },
+  lost: { label: "Thất bại", color: "var(--danger)" },
 };
 
 const priorityConfig: Record<string, { label: string; color: string; bg: string }> = {
-  low: { label: "Thấp", color: "#6b7280", bg: "rgba(107,114,128,0.15)" },
-  medium: { label: "TB", color: "#f59e0b", bg: "rgba(245,158,11,0.15)" },
-  high: { label: "Cao", color: "#ef4444", bg: "rgba(239,68,68,0.15)" },
-  urgent: { label: "Gấp", color: "#dc2626", bg: "rgba(220,38,38,0.2)" },
+  low: { label: "Thấp", color: "var(--fg-subtle)", bg: "rgb(var(--neutral-rgb) / 0.15)" },
+  medium: { label: "TB", color: "var(--warn)", bg: "rgb(var(--warn-rgb) / 0.15)" },
+  high: { label: "Cao", color: "var(--danger)", bg: "rgb(var(--danger-rgb) / 0.15)" },
+  urgent: { label: "Gấp", color: "var(--danger)", bg: "rgb(var(--danger-rgb) / 0.2)" },
 };
 
 /* ---------- Helpers ---------- */
@@ -335,7 +335,7 @@ export default async function ContactDetailPage({
             {/* Avatar */}
             <div
               className="w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-white shrink-0"
-              style={{ background: "linear-gradient(135deg, #D4A843, #b8922e)" }}
+              style={{ background: "linear-gradient(135deg, var(--accent), var(--accent-hover))" }}
             >
               {contact.full_name.charAt(0).toUpperCase()}
             </div>
@@ -350,9 +350,9 @@ export default async function ContactDetailPage({
                 <span
                   className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold"
                   style={{
-                    background: "rgba(212,168,67,0.12)",
-                    color: "#D4A843",
-                    border: "1px solid rgba(212,168,67,0.3)",
+                    background: "rgb(var(--accent-rgb) / 0.12)",
+                    color: "var(--accent)",
+                    border: "1px solid rgb(var(--accent-rgb) / 0.3)",
                   }}
                 >
                   <Target size={12} />
@@ -364,9 +364,9 @@ export default async function ContactDetailPage({
                   <span
                     className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold"
                     style={{
-                      background: leadScore >= 70 ? "rgba(34,197,94,0.12)" : leadScore >= 40 ? "rgba(245,158,11,0.12)" : "rgba(107,114,128,0.12)",
-                      color: leadScore >= 70 ? "#22c55e" : leadScore >= 40 ? "#f59e0b" : "#9ca3af",
-                      border: `1px solid ${leadScore >= 70 ? "rgba(34,197,94,0.3)" : leadScore >= 40 ? "rgba(245,158,11,0.3)" : "rgba(107,114,128,0.3)"}`,
+                      background: leadScore >= 70 ? "rgb(var(--success-rgb) / 0.12)" : leadScore >= 40 ? "rgb(var(--warn-rgb) / 0.12)" : "rgb(var(--neutral-rgb) / 0.12)",
+                      color: leadScore >= 70 ? "var(--success)" : leadScore >= 40 ? "var(--warn)" : "var(--fg-muted)",
+                      border: `1px solid ${leadScore >= 70 ? "rgb(var(--success-rgb) / 0.3)" : leadScore >= 40 ? "rgb(var(--warn-rgb) / 0.3)" : "rgb(var(--neutral-rgb) / 0.3)"}`,
                     }}
                   >
                     <Star size={12} />
@@ -376,7 +376,7 @@ export default async function ContactDetailPage({
 
                 {/* Assigned Sales */}
                 {contact.assigned_profile?.full_name && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-[#2a2a2a]">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-[var(--border)]">
                     <User size={12} />
                     {contact.assigned_profile.full_name}
                   </span>
@@ -387,8 +387,8 @@ export default async function ContactDetailPage({
                   <span
                     className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold"
                     style={{
-                      background: "rgba(212,168,67,0.08)",
-                      color: "#D4A843",
+                      background: "rgb(var(--accent-rgb) / 0.08)",
+                      color: "var(--accent)",
                     }}
                   >
                     <DollarSign size={12} />
@@ -414,16 +414,16 @@ export default async function ContactDetailPage({
                       className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 transition-all"
                       style={{
                         background: isActive
-                          ? "#D4A843"
+                          ? "var(--accent)"
                           : isPast
-                          ? "rgba(212,168,67,0.3)"
+                          ? "rgb(var(--accent-rgb) / 0.3)"
                           : "rgba(42,42,42,0.8)",
-                        color: isActive ? "#000" : isPast ? "#D4A843" : "#6b7280",
+                        color: isActive ? "#000" : isPast ? "var(--accent)" : "var(--fg-subtle)",
                         border: isActive
-                          ? "2px solid #D4A843"
+                          ? "2px solid var(--accent)"
                           : isPast
-                          ? "2px solid rgba(212,168,67,0.4)"
-                          : "2px solid #2a2a2a",
+                          ? "2px solid rgb(var(--accent-rgb) / 0.4)"
+                          : "2px solid var(--border)",
                       }}
                     >
                       {isPast ? (
@@ -434,7 +434,7 @@ export default async function ContactDetailPage({
                     </div>
                     <span
                       className="text-[10px] font-medium text-center truncate w-full"
-                      style={{ color: isActive ? "#D4A843" : isPast ? "#D4A843" : "#6b7280" }}
+                      style={{ color: isActive ? "var(--accent)" : isPast ? "var(--accent)" : "var(--fg-subtle)" }}
                     >
                       {stage.label}
                     </span>
@@ -444,7 +444,7 @@ export default async function ContactDetailPage({
                     <div
                       className="h-0.5 flex-1 min-w-4 mx-1"
                       style={{
-                        background: isPast ? "rgba(212,168,67,0.4)" : "#2a2a2a",
+                        background: isPast ? "rgb(var(--accent-rgb) / 0.4)" : "var(--border)",
                       }}
                     />
                   )}
@@ -461,7 +461,7 @@ export default async function ContactDetailPage({
             {/* Add Activity Form */}
             <div className="card-dark p-5">
               <div className="flex items-center gap-2 mb-4">
-                <MessageSquare size={16} className="text-[#D4A843]" />
+                <MessageSquare size={16} className="text-[var(--accent)]" />
                 <h3 className="font-semibold text-white text-sm">Thêm hoạt động</h3>
               </div>
               <form action={addActivity}>
@@ -497,7 +497,7 @@ export default async function ContactDetailPage({
             {/* Activity Timeline */}
             <div className="card-dark p-5">
               <div className="flex items-center gap-2 mb-5">
-                <Clock size={16} className="text-[#D4A843]" />
+                <Clock size={16} className="text-[var(--accent)]" />
                 <h3 className="font-semibold text-white text-sm">
                   Lịch sử hoạt động
                 </h3>
@@ -526,7 +526,7 @@ export default async function ContactDetailPage({
                         {idx < activities.length - 1 && (
                           <div
                             className="absolute left-[15px] top-9 bottom-0 w-px"
-                            style={{ background: "#2a2a2a" }}
+                            style={{ background: "var(--border)" }}
                           />
                         )}
                         {/* Icon */}
@@ -539,7 +539,7 @@ export default async function ContactDetailPage({
                         >
                           <Icon
                             size={14}
-                            style={{ color: isSystem ? "#6b7280" : typeConf.color }}
+                            style={{ color: isSystem ? "var(--fg-subtle)" : typeConf.color }}
                           />
                         </div>
                         {/* Content */}
@@ -549,7 +549,7 @@ export default async function ContactDetailPage({
                               className="text-xs font-semibold px-2 py-0.5 rounded"
                               style={{
                                 background: isSystem ? "rgba(75,85,99,0.15)" : `${typeConf.color}15`,
-                                color: isSystem ? "#9ca3af" : typeConf.color,
+                                color: isSystem ? "var(--fg-muted)" : typeConf.color,
                               }}
                             >
                               {typeConf.label}
@@ -560,7 +560,7 @@ export default async function ContactDetailPage({
                           </div>
                           <p
                             className="text-sm leading-relaxed"
-                            style={{ color: isSystem ? "#6b7280" : "#d1d5db" }}
+                            style={{ color: isSystem ? "var(--fg-subtle)" : "var(--fg-muted)" }}
                           >
                             {activity.content}
                           </p>
@@ -583,7 +583,7 @@ export default async function ContactDetailPage({
             {/* Quick Info Card */}
             <div className="card-dark p-5">
               <div className="flex items-center gap-2 mb-4">
-                <User size={16} className="text-[#D4A843]" />
+                <User size={16} className="text-[var(--accent)]" />
                 <h3 className="font-semibold text-white text-sm">Thông tin</h3>
               </div>
               <div className="space-y-3">
@@ -620,7 +620,7 @@ export default async function ContactDetailPage({
                 </div>
                 {/* UTM Attribution */}
                 {(contact.utm_source || contact.utm_medium || contact.utm_campaign) && (
-                  <div className="pt-2 border-t border-[#2a2a2a]">
+                  <div className="pt-2 border-t border-[var(--border)]">
                     <p className="text-[11px] text-gray-500 uppercase tracking-wide mb-2">UTM Attribution</p>
                     <div className="space-y-1.5">
                       {contact.utm_source && (
@@ -646,7 +646,7 @@ export default async function ContactDetailPage({
                 )}
                 {/* First Page / Referrer */}
                 {(contact.first_page || contact.referrer) && (
-                  <div className="pt-2 border-t border-[#2a2a2a]">
+                  <div className="pt-2 border-t border-[var(--border)]">
                     {contact.first_page && (
                       <div className="flex items-start gap-2 text-xs mb-1.5">
                         <Globe size={12} className="text-gray-500 shrink-0 mt-0.5" />
@@ -662,7 +662,7 @@ export default async function ContactDetailPage({
                   </div>
                 )}
                 {/* Dates */}
-                <div className="pt-2 border-t border-[#2a2a2a] space-y-1.5">
+                <div className="pt-2 border-t border-[var(--border)] space-y-1.5">
                   <div className="flex items-center gap-2 text-xs">
                     <span className="text-gray-500">Tạo lúc:</span>
                     <span className="text-gray-400">{formatDateTime(contact.created_at)}</span>
@@ -680,7 +680,7 @@ export default async function ContactDetailPage({
             {/* Orders Card */}
             <div className="card-dark p-5">
               <div className="flex items-center gap-2 mb-4">
-                <ShoppingCart size={16} className="text-[#D4A843]" />
+                <ShoppingCart size={16} className="text-[var(--accent)]" />
                 <h3 className="font-semibold text-white text-sm">Đơn hàng</h3>
                 <span className="text-xs text-gray-500 ml-auto">{orders.length}</span>
               </div>
@@ -692,7 +692,7 @@ export default async function ContactDetailPage({
                     <div
                       key={order.id}
                       className="p-3 rounded-lg"
-                      style={{ background: "rgba(255,255,255,0.02)", border: "1px solid #2a2a2a" }}
+                      style={{ background: "rgb(var(--overlay-rgb) / 0.02)", border: "1px solid var(--border)" }}
                     >
                       <div className="flex items-start justify-between gap-2">
                         <div className="min-w-0">
@@ -710,8 +710,8 @@ export default async function ContactDetailPage({
                           <span
                             className="inline-block mt-0.5 text-[10px] font-semibold px-1.5 py-0.5 rounded"
                             style={{
-                              background: order.status === "paid" ? "rgba(34,197,94,0.12)" : "rgba(245,158,11,0.12)",
-                              color: order.status === "paid" ? "#22c55e" : "#f59e0b",
+                              background: order.status === "paid" ? "rgb(var(--success-rgb) / 0.12)" : "rgb(var(--warn-rgb) / 0.12)",
+                              color: order.status === "paid" ? "var(--success)" : "var(--warn)",
                             }}
                           >
                             {order.status === "paid" ? "Đã TT" : "Chờ TT"}
@@ -727,7 +727,7 @@ export default async function ContactDetailPage({
             {/* Enrolled Courses Card */}
             <div className="card-dark p-5">
               <div className="flex items-center gap-2 mb-4">
-                <BookOpen size={16} className="text-[#D4A843]" />
+                <BookOpen size={16} className="text-[var(--accent)]" />
                 <h3 className="font-semibold text-white text-sm">Khoá học đã đăng ký</h3>
                 <span className="text-xs text-gray-500 ml-auto">{enrollments.length}</span>
               </div>
@@ -739,11 +739,11 @@ export default async function ContactDetailPage({
                     <div
                       key={enrollment.id}
                       className="flex items-center gap-3 p-2.5 rounded-lg"
-                      style={{ background: "rgba(255,255,255,0.02)", border: "1px solid #2a2a2a" }}
+                      style={{ background: "rgb(var(--overlay-rgb) / 0.02)", border: "1px solid var(--border)" }}
                     >
                       <div
                         className="w-7 h-7 rounded flex items-center justify-center shrink-0"
-                        style={{ background: "rgba(59,130,246,0.12)" }}
+                        style={{ background: "rgb(var(--info-rgb) / 0.12)" }}
                       >
                         <BookOpen size={13} className="text-blue-400" />
                       </div>
@@ -763,7 +763,7 @@ export default async function ContactDetailPage({
             {recommendations.length > 0 && (
               <div className="card-dark p-5">
                 <div className="flex items-center gap-2 mb-4">
-                  <Lightbulb size={16} className="text-[#D4A843]" />
+                  <Lightbulb size={16} className="text-[var(--accent)]" />
                   <h3 className="font-semibold text-white text-sm">Gợi ý khoá học</h3>
                 </div>
                 <div className="space-y-2.5">
@@ -771,7 +771,7 @@ export default async function ContactDetailPage({
                     <div
                       key={rec.id}
                       className="p-3 rounded-lg"
-                      style={{ background: "rgba(212,168,67,0.04)", border: "1px solid rgba(212,168,67,0.15)" }}
+                      style={{ background: "rgb(var(--accent-rgb) / 0.04)", border: "1px solid rgb(var(--accent-rgb) / 0.15)" }}
                     >
                       <p className="text-sm text-white font-medium truncate">
                         {rec.products?.title || "Khoá học"}
@@ -781,8 +781,8 @@ export default async function ContactDetailPage({
                       )}
                       {rec.score != null && (
                         <div className="flex items-center gap-1 mt-1.5">
-                          <TrendingUp size={10} className="text-[#D4A843]" />
-                          <span className="text-[10px] text-[#D4A843] font-semibold">
+                          <TrendingUp size={10} className="text-[var(--accent)]" />
+                          <span className="text-[10px] text-[var(--accent)] font-semibold">
                             Score: {rec.score}
                           </span>
                         </div>
@@ -797,7 +797,7 @@ export default async function ContactDetailPage({
             {nextActions.length > 0 && (
               <div className="card-dark p-5">
                 <div className="flex items-center gap-2 mb-4">
-                  <ListTodo size={16} className="text-[#D4A843]" />
+                  <ListTodo size={16} className="text-[var(--accent)]" />
                   <h3 className="font-semibold text-white text-sm">Việc cần làm</h3>
                   <span className="text-xs text-gray-500 ml-auto">{nextActions.length}</span>
                 </div>
@@ -808,7 +808,7 @@ export default async function ContactDetailPage({
                       <div
                         key={action.id}
                         className="p-3 rounded-lg"
-                        style={{ background: "rgba(255,255,255,0.02)", border: "1px solid #2a2a2a" }}
+                        style={{ background: "rgb(var(--overlay-rgb) / 0.02)", border: "1px solid var(--border)" }}
                       >
                         <div className="flex items-start justify-between gap-2">
                           <p className="text-sm text-gray-200">{action.title}</p>
@@ -838,7 +838,7 @@ export default async function ContactDetailPage({
             {deals.length > 0 && (
               <div className="card-dark p-5">
                 <div className="flex items-center gap-2 mb-4">
-                  <Briefcase size={16} className="text-[#D4A843]" />
+                  <Briefcase size={16} className="text-[var(--accent)]" />
                   <h3 className="font-semibold text-white text-sm">Deals</h3>
                   <span className="text-xs text-gray-500 ml-auto">{deals.length}</span>
                 </div>
@@ -849,7 +849,7 @@ export default async function ContactDetailPage({
                       <div
                         key={deal.id}
                         className="p-3 rounded-lg"
-                        style={{ background: "rgba(255,255,255,0.02)", border: "1px solid #2a2a2a" }}
+                        style={{ background: "rgb(var(--overlay-rgb) / 0.02)", border: "1px solid var(--border)" }}
                       >
                         <div className="flex items-start justify-between gap-2">
                           <div className="min-w-0">

@@ -108,9 +108,9 @@ export default async function AdminCouponsPage() {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(59,130,246,0.12)" }}
+                style={{ background: "rgb(var(--info-rgb) / 0.12)" }}
               >
-                <Tag size={17} className="text-[#3b82f6]" />
+                <Tag size={17} className="text-[var(--info)]" />
               </div>
             </div>
             <div className="text-2xl font-bold text-white">{totalCoupons}</div>
@@ -122,9 +122,9 @@ export default async function AdminCouponsPage() {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(34,197,94,0.12)" }}
+                style={{ background: "rgb(var(--success-rgb) / 0.12)" }}
               >
-                <CheckCircle size={17} className="text-[#22c55e]" />
+                <CheckCircle size={17} className="text-[var(--success)]" />
               </div>
             </div>
             <div className="text-2xl font-bold text-white">{activeCoupons}</div>
@@ -136,9 +136,9 @@ export default async function AdminCouponsPage() {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(212,168,67,0.12)" }}
+                style={{ background: "rgb(var(--accent-rgb) / 0.12)" }}
               >
-                <BarChart3 size={17} className="text-[#D4A843]" />
+                <BarChart3 size={17} className="text-[var(--accent)]" />
               </div>
             </div>
             <div className="text-2xl font-bold text-white">{totalUses}</div>
@@ -154,7 +154,7 @@ export default async function AdminCouponsPage() {
           {/* Header */}
           <div
             className="flex items-center justify-between px-5 py-3"
-            style={{ borderBottom: "1px solid #2a2a2a" }}
+            style={{ borderBottom: "1px solid var(--border)" }}
           >
             <span className="text-xs text-gray-500">
               Hiển thị{" "}
@@ -175,7 +175,7 @@ export default async function AdminCouponsPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                  <tr style={{ borderBottom: "1px solid var(--border)" }}>
                     {[
                       "Mã",
                       "Loại",
@@ -208,13 +208,13 @@ export default async function AdminCouponsPage() {
                         style={{
                           borderBottom:
                             idx < rows.length - 1
-                              ? "1px solid #1f1f1f"
+                              ? "1px solid var(--surface-2)"
                               : "none",
                         }}
                       >
                         {/* Code */}
                         <td className="px-5 py-3.5 whitespace-nowrap">
-                          <span className="font-mono text-sm font-bold text-[#D4A843]">
+                          <span className="font-mono text-sm font-bold text-[var(--accent)]">
                             {coupon.code}
                           </span>
                         </td>
@@ -285,9 +285,9 @@ export default async function AdminCouponsPage() {
                             <span
                               className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold"
                               style={{
-                                background: "rgba(34,197,94,0.1)",
-                                color: "#22c55e",
-                                border: "1px solid rgba(34,197,94,0.2)",
+                                background: "rgb(var(--success-rgb) / 0.1)",
+                                color: "var(--success)",
+                                border: "1px solid rgb(var(--success-rgb) / 0.2)",
                               }}
                             >
                               <CheckCircle size={11} />
@@ -297,9 +297,9 @@ export default async function AdminCouponsPage() {
                             <span
                               className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold"
                               style={{
-                                background: "rgba(107,114,128,0.1)",
-                                color: "#6b7280",
-                                border: "1px solid rgba(107,114,128,0.2)",
+                                background: "rgb(var(--neutral-rgb) / 0.1)",
+                                color: "var(--fg-subtle)",
+                                border: "1px solid rgb(var(--neutral-rgb) / 0.2)",
                               }}
                             >
                               <XCircle size={11} />

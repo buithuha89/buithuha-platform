@@ -57,13 +57,13 @@ export default function ConfirmOrderButton({
         onClick={() => setShowConfirm(true)}
         title="Xác nhận thanh toán"
         className="p-1.5 rounded-lg transition-all hover:scale-110"
-        style={{ color: "#6b7280", background: "transparent" }}
+        style={{ color: "var(--fg-subtle)", background: "transparent" }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.color = "#22c55e";
-          e.currentTarget.style.background = "rgba(34,197,94,0.1)";
+          e.currentTarget.style.color = "var(--success)";
+          e.currentTarget.style.background = "rgb(var(--success-rgb) / 0.1)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.color = "#6b7280";
+          e.currentTarget.style.color = "var(--fg-subtle)";
           e.currentTarget.style.background = "transparent";
         }}
       >
@@ -77,7 +77,7 @@ export default function ConfirmOrderButton({
         >
           <div
             className="card-dark p-6 max-w-md w-full relative"
-            style={{ border: "1px solid rgba(34,197,94,0.3)" }}
+            style={{ border: "1px solid rgb(var(--success-rgb) / 0.3)" }}
           >
             <button
               onClick={() => {
@@ -92,7 +92,7 @@ export default function ConfirmOrderButton({
             <div className="flex items-center gap-3 mb-4">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(34,197,94,0.15)" }}
+                style={{ background: "rgb(var(--success-rgb) / 0.15)" }}
               >
                 <ShieldCheck size={20} className="text-green-400" />
               </div>
@@ -111,7 +111,7 @@ export default function ConfirmOrderButton({
                 {result.success ? (
                   <div
                     className="flex items-center gap-2 p-3 rounded-lg text-sm text-green-400 border border-green-400/20"
-                    style={{ background: "rgba(34,197,94,0.08)" }}
+                    style={{ background: "rgb(var(--success-rgb) / 0.08)" }}
                   >
                     <CheckCircle size={16} />
                     <div>
@@ -126,7 +126,7 @@ export default function ConfirmOrderButton({
                 ) : (
                   <div
                     className="p-3 rounded-lg text-sm text-red-400 border border-red-400/20"
-                    style={{ background: "rgba(239,68,68,0.08)" }}
+                    style={{ background: "rgb(var(--danger-rgb) / 0.08)" }}
                   >
                     {result.message}
                   </div>
@@ -137,8 +137,8 @@ export default function ConfirmOrderButton({
                 <div
                   className="rounded-lg p-4 mb-4 space-y-2"
                   style={{
-                    background: "#1a1a1a",
-                    border: "1px solid #2a2a2a",
+                    background: "var(--surface)",
+                    border: "1px solid var(--border)",
                   }}
                 >
                   <div className="flex items-center justify-between text-sm">
@@ -155,7 +155,7 @@ export default function ConfirmOrderButton({
                   )}
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-gray-500">Số tiền</span>
-                    <span className="text-[#D4A843] font-bold">
+                    <span className="text-[var(--accent)] font-bold">
                       {amount.toLocaleString("vi-VN")}đ
                     </span>
                   </div>
@@ -172,9 +172,9 @@ export default function ConfirmOrderButton({
                     disabled={loading}
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors disabled:opacity-50"
                     style={{
-                      background: "rgba(34,197,94,0.15)",
-                      color: "#22c55e",
-                      border: "1px solid rgba(34,197,94,0.4)",
+                      background: "rgb(var(--success-rgb) / 0.15)",
+                      color: "var(--success)",
+                      border: "1px solid rgb(var(--success-rgb) / 0.4)",
                     }}
                   >
                     {loading ? (
@@ -188,7 +188,7 @@ export default function ConfirmOrderButton({
                     onClick={() => setShowConfirm(false)}
                     className="px-4 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:text-white transition-colors"
                     style={{
-                      background: "#1f1f1f",
+                      background: "var(--surface-2)",
                       border: "1px solid #333",
                     }}
                   >

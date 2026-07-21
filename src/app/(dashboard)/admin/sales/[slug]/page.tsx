@@ -303,9 +303,9 @@ export default function AdminSalesConfigPage() {
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
             style={{
-              background: "rgba(212,168,67,0.1)",
-              color: "#D4A843",
-              border: "1px solid rgba(212,168,67,0.2)",
+              background: "rgb(var(--accent-rgb) / 0.1)",
+              color: "var(--accent)",
+              border: "1px solid rgb(var(--accent-rgb) / 0.2)",
             }}
           >
             <Eye size={12} />
@@ -330,8 +330,8 @@ export default function AdminSalesConfigPage() {
         <div
           className="p-3 rounded-lg text-sm text-gray-400"
           style={{
-            background: "rgba(212,168,67,0.05)",
-            border: "1px solid rgba(212,168,67,0.15)",
+            background: "rgb(var(--accent-rgb) / 0.05)",
+            border: "1px solid rgb(var(--accent-rgb) / 0.15)",
           }}
         >
           Để trống các phần bên dưới để sử dụng nội dung mặc định. Chỉ cấu hình khi muốn tuỳ chỉnh riêng cho khoá học này.
@@ -365,7 +365,7 @@ export default function AdminSalesConfigPage() {
             <button
               type="button"
               onClick={addPainPoint}
-              className="flex items-center gap-1 text-xs text-[#D4A843] hover:text-[#FBBF24] transition-colors"
+              className="flex items-center gap-1 text-xs text-[var(--accent)] hover:text-[var(--warn)] transition-colors"
             >
               <Plus size={12} />
               Thêm
@@ -382,7 +382,7 @@ export default function AdminSalesConfigPage() {
             <div
               key={i}
               className="rounded-lg p-3 space-y-2"
-              style={{ background: "#1a1a1a", border: "1px solid #252525" }}
+              style={{ background: "var(--surface)", border: "1px solid var(--surface-3)" }}
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs text-gray-500">Vấn đề #{i + 1}</span>
@@ -430,7 +430,7 @@ export default function AdminSalesConfigPage() {
             <button
               type="button"
               onClick={addBenefit}
-              className="flex items-center gap-1 text-xs text-[#D4A843] hover:text-[#FBBF24] transition-colors"
+              className="flex items-center gap-1 text-xs text-[var(--accent)] hover:text-[var(--warn)] transition-colors"
             >
               <Plus size={12} />
               Thêm
@@ -447,7 +447,7 @@ export default function AdminSalesConfigPage() {
             <div
               key={i}
               className="rounded-lg p-3 space-y-2"
-              style={{ background: "#1a1a1a", border: "1px solid #252525" }}
+              style={{ background: "var(--surface)", border: "1px solid var(--surface-3)" }}
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs text-gray-500">Lợi ích #{i + 1}</span>
@@ -495,7 +495,7 @@ export default function AdminSalesConfigPage() {
             <button
               type="button"
               onClick={addTestimonial}
-              className="flex items-center gap-1 text-xs text-[#D4A843] hover:text-[#FBBF24] transition-colors"
+              className="flex items-center gap-1 text-xs text-[var(--accent)] hover:text-[var(--warn)] transition-colors"
             >
               <Plus size={12} />
               Thêm
@@ -512,7 +512,7 @@ export default function AdminSalesConfigPage() {
             <div
               key={i}
               className="rounded-lg p-3 space-y-2"
-              style={{ background: "#1a1a1a", border: "1px solid #252525" }}
+              style={{ background: "var(--surface)", border: "1px solid var(--surface-3)" }}
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs text-gray-500">
@@ -577,7 +577,7 @@ export default function AdminSalesConfigPage() {
             <button
               type="button"
               onClick={addFaq}
-              className="flex items-center gap-1 text-xs text-[#D4A843] hover:text-[#FBBF24] transition-colors"
+              className="flex items-center gap-1 text-xs text-[var(--accent)] hover:text-[var(--warn)] transition-colors"
             >
               <Plus size={12} />
               Thêm
@@ -594,7 +594,7 @@ export default function AdminSalesConfigPage() {
             <div
               key={i}
               className="rounded-lg p-3 space-y-2"
-              style={{ background: "#1a1a1a", border: "1px solid #252525" }}
+              style={{ background: "var(--surface)", border: "1px solid var(--surface-3)" }}
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs text-gray-500">FAQ #{i + 1}</span>
@@ -638,8 +638,8 @@ export default function AdminSalesConfigPage() {
         <div
           className="p-4 rounded-lg text-center"
           style={{
-            background: "rgba(212,168,67,0.05)",
-            border: "1px solid rgba(212,168,67,0.15)",
+            background: "rgb(var(--accent-rgb) / 0.05)",
+            border: "1px solid rgb(var(--accent-rgb) / 0.15)",
           }}
         >
           <p className="text-sm text-gray-400 mb-2">
@@ -649,7 +649,7 @@ export default function AdminSalesConfigPage() {
             href={`/sales/${slug}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#D4A843] hover:text-[#FBBF24] transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] hover:text-[var(--warn)] transition-colors"
           >
             /sales/{slug}
             <ExternalLink size={12} />

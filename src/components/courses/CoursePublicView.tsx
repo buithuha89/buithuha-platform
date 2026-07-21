@@ -191,7 +191,7 @@ export default function CoursePublicView({
   };
 
   return (
-    <div className="min-h-screen" style={{ background: "#0a0a0a" }}>
+    <div className="min-h-screen" style={{ background: "var(--bg)" }}>
       {/* ═══ VIDEO PLAYER (when a free lesson is selected) ═══ */}
       {activeVideo && (
         <section className="max-w-4xl mx-auto px-4 pt-20 pb-4">
@@ -243,7 +243,7 @@ export default function CoursePublicView({
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(to bottom, rgba(10,10,10,0.6) 0%, #0a0a0a 100%)",
+                  "linear-gradient(to bottom, rgba(10,10,10,0.6) 0%, var(--bg) 100%)",
               }}
             />
           </div>
@@ -255,7 +255,7 @@ export default function CoursePublicView({
             <div className="lg:col-span-2">
               {/* Thumbnail (mobile only, when no video is playing) */}
               {product.thumbnail && !activeVideo && (
-                <div className="lg:hidden mb-6 rounded-xl overflow-hidden border border-[#2a2a2a]">
+                <div className="lg:hidden mb-6 rounded-xl overflow-hidden border border-[var(--border)]">
                   <Image
                     src={product.thumbnail}
                     alt={product.title}
@@ -287,21 +287,21 @@ export default function CoursePublicView({
               {/* Stats */}
               <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">
                 <span className="flex items-center gap-1.5">
-                  <BookOpen size={16} className="text-[#D4A843]" />
+                  <BookOpen size={16} className="text-[var(--accent)]" />
                   {sortedChapters.length} chương
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <PlayCircle size={16} className="text-[#D4A843]" />
+                  <PlayCircle size={16} className="text-[var(--accent)]" />
                   {totalLessons} bài học
                 </span>
                 {totalDuration > 0 && (
                   <span className="flex items-center gap-1.5">
-                    <Clock size={16} className="text-[#D4A843]" />
+                    <Clock size={16} className="text-[var(--accent)]" />
                     {formatTotalDuration(totalDuration)}
                   </span>
                 )}
                 <span className="flex items-center gap-1.5">
-                  <Award size={16} className="text-[#D4A843]" />
+                  <Award size={16} className="text-[var(--accent)]" />
                   Chứng chỉ hoàn thành
                 </span>
               </div>
@@ -310,11 +310,11 @@ export default function CoursePublicView({
             {/* Right: Price card */}
             <div
               className="card-dark p-5 lg:sticky lg:top-20"
-              style={{ background: "#151515" }}
+              style={{ background: "var(--surface)" }}
             >
               {/* Thumbnail desktop */}
               {product.thumbnail && (
-                <div className="hidden lg:block mb-4 rounded-lg overflow-hidden border border-[#2a2a2a]">
+                <div className="hidden lg:block mb-4 rounded-lg overflow-hidden border border-[var(--border)]">
                   <Image
                     src={product.thumbnail}
                     alt={product.title}
@@ -329,12 +329,12 @@ export default function CoursePublicView({
               {/* Price */}
               <div className="mb-4">
                 {isFree ? (
-                  <div className="text-2xl font-bold text-[#22c55e]">
+                  <div className="text-2xl font-bold text-[var(--success)]">
                     Miễn phí
                   </div>
                 ) : (
                   <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-[#D4A843]">
+                    <span className="text-2xl font-bold text-[var(--accent)]">
                       {formatPrice(displayPrice)}
                     </span>
                     {hasSale && (
@@ -349,7 +349,7 @@ export default function CoursePublicView({
               {/* Meta in card */}
               <div
                 className="space-y-2 mb-5 pb-4"
-                style={{ borderBottom: "1px solid #2a2a2a" }}
+                style={{ borderBottom: "1px solid var(--border)" }}
               >
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-gray-400">Số chương</span>
@@ -400,7 +400,7 @@ export default function CoursePublicView({
                   Đã có tài khoản?{" "}
                   <Link
                     href="/login"
-                    className="text-[#D4A843] hover:underline"
+                    className="text-[var(--accent)] hover:underline"
                   >
                     Đăng nhập
                   </Link>
@@ -417,7 +417,7 @@ export default function CoursePublicView({
           <div className="max-w-4xl">
             <div
               className="rounded-xl p-5 sm:p-6"
-              style={{ background: "#151515", border: "1px solid #2a2a2a" }}
+              style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
             >
               <h3 className="text-lg font-bold text-white mb-4">Giảng viên</h3>
               <div className="flex items-start gap-4">
@@ -430,7 +430,7 @@ export default function CoursePublicView({
                     className="rounded-full object-cover shrink-0"
                   />
                 ) : (
-                  <div className="w-16 h-16 rounded-full bg-[#D4A843]/20 flex items-center justify-center text-[#D4A843] text-xl font-bold shrink-0">
+                  <div className="w-16 h-16 rounded-full bg-[var(--accent)]/20 flex items-center justify-center text-[var(--accent)] text-xl font-bold shrink-0">
                     {(instructor.full_name || "?")[0]}
                   </div>
                 )}
@@ -475,8 +475,8 @@ export default function CoursePublicView({
                   key={chapter.id}
                   className="rounded-xl overflow-hidden"
                   style={{
-                    background: "#151515",
-                    border: "1px solid #2a2a2a",
+                    background: "var(--surface)",
+                    border: "1px solid var(--border)",
                   }}
                 >
                   {/* Chapter header */}
@@ -488,8 +488,8 @@ export default function CoursePublicView({
                       <span
                         className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold shrink-0"
                         style={{
-                          background: "rgba(212,168,67,0.12)",
-                          color: "#D4A843",
+                          background: "rgb(var(--accent-rgb) / 0.12)",
+                          color: "var(--accent)",
                         }}
                       >
                         {chIdx + 1}
@@ -517,7 +517,7 @@ export default function CoursePublicView({
                   {!isCollapsed && (
                     <div
                       className="px-4 pb-3 space-y-0.5"
-                      style={{ borderTop: "1px solid #1f1f1f" }}
+                      style={{ borderTop: "1px solid var(--surface-2)" }}
                     >
                       {chapterLessons.map((lesson) => {
                         const dripLocked = isDripLocked(lesson, enrolledAt);
@@ -552,7 +552,7 @@ export default function CoursePublicView({
                                 : isFreeLesson
                                   ? "hover:bg-white/[0.04]"
                                   : "hover:bg-white/[0.02]"
-                            } ${isPlaying ? "bg-[#D4A843]/10" : ""}`}
+                            } ${isPlaying ? "bg-[var(--accent)]/10" : ""}`}
                           >
                             {/* Icon */}
                             {dripLocked ? (
@@ -565,8 +565,8 @@ export default function CoursePublicView({
                                 size={16}
                                 className={
                                   isPlaying
-                                    ? "text-[#D4A843] shrink-0"
-                                    : "text-[#22c55e] shrink-0"
+                                    ? "text-[var(--accent)] shrink-0"
+                                    : "text-[var(--success)] shrink-0"
                                 }
                               />
                             ) : (
@@ -584,7 +584,7 @@ export default function CoursePublicView({
                                   : lesson.is_free
                                     ? "text-gray-200"
                                     : "text-gray-500"
-                              } ${isPlaying ? "text-[#D4A843] font-medium" : ""}`}
+                              } ${isPlaying ? "text-[var(--accent)] font-medium" : ""}`}
                             >
                               {lesson.title}
                             </span>
@@ -594,9 +594,9 @@ export default function CoursePublicView({
                               <span
                                 className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                                 style={{
-                                  background: "rgba(107,114,128,0.12)",
-                                  color: "#9ca3af",
-                                  border: "1px solid rgba(107,114,128,0.25)",
+                                  background: "rgb(var(--neutral-rgb) / 0.12)",
+                                  color: "var(--fg-muted)",
+                                  border: "1px solid rgb(var(--neutral-rgb) / 0.25)",
                                 }}
                               >
                                 Mở sau {remainingDays} ngày
@@ -606,9 +606,9 @@ export default function CoursePublicView({
                               <span
                                 className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                                 style={{
-                                  background: "rgba(34,197,94,0.12)",
-                                  color: "#22c55e",
-                                  border: "1px solid rgba(34,197,94,0.25)",
+                                  background: "rgb(var(--success-rgb) / 0.12)",
+                                  color: "var(--success)",
+                                  border: "1px solid rgb(var(--success-rgb) / 0.25)",
                                 }}
                               >
                                 Miễn phí
@@ -617,9 +617,9 @@ export default function CoursePublicView({
                               <span
                                 className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                                 style={{
-                                  background: "rgba(212,168,67,0.12)",
-                                  color: "#D4A843",
-                                  border: "1px solid rgba(212,168,67,0.25)",
+                                  background: "rgb(var(--accent-rgb) / 0.12)",
+                                  color: "var(--accent)",
+                                  border: "1px solid rgb(var(--accent-rgb) / 0.25)",
                                 }}
                               >
                                 Pro
@@ -664,18 +664,18 @@ export default function CoursePublicView({
           background: "rgba(10,10,10,0.95)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
-          borderTop: "1px solid #1a1a1a",
+          borderTop: "1px solid var(--surface)",
         }}
       >
         <div className="flex items-center justify-between px-4 py-3">
           <div>
             {isFree ? (
-              <span className="text-base font-bold text-[#22c55e]">
+              <span className="text-base font-bold text-[var(--success)]">
                 Miễn phí
               </span>
             ) : (
               <div className="flex items-baseline gap-2">
-                <span className="text-base font-bold text-[#D4A843]">
+                <span className="text-base font-bold text-[var(--accent)]">
                   {formatPrice(displayPrice)}
                 </span>
                 {hasSale && (

@@ -304,7 +304,7 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
       <div className="relative w-full max-w-md max-h-[90vh] overflow-y-auto card-dark">
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4"
-          style={{ borderBottom: "1px solid #2a2a2a" }}>
+          style={{ borderBottom: "1px solid var(--border)" }}>
           <div>
             <h2 className="font-bold text-white text-base">
               {step === "success" ? "Thanh toán thành công 🎉" : "Thanh toán"}
@@ -321,7 +321,7 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
         {/* Step: Coupon — product info + coupon input + proceed button */}
         {step === "coupon" && (
           <div className="p-5">
-            <div className="p-4 rounded-xl mb-4" style={{ background: "#222", border: "1px solid #333" }}>
+            <div className="p-4 rounded-xl mb-4" style={{ background: "var(--surface-2)", border: "1px solid #333" }}>
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <div className="font-semibold text-white text-sm mb-1">{product.name}</div>
@@ -333,10 +333,10 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
                   {couponApplied ? (
                     <>
                       <div className="text-sm text-gray-500 line-through">{formatPrice(product.price)}</div>
-                      <div className="text-xl font-bold text-[#22c55e]">{formatPrice(couponApplied.final_amount)}</div>
+                      <div className="text-xl font-bold text-[var(--success)]">{formatPrice(couponApplied.final_amount)}</div>
                     </>
                   ) : (
-                    <div className="text-xl font-bold text-[#D4A843]">{formatPrice(product.price)}</div>
+                    <div className="text-xl font-bold text-[var(--accent)]">{formatPrice(product.price)}</div>
                   )}
                 </div>
               </div>
@@ -346,10 +346,10 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
             {couponApplied && (
               <div
                 className="flex items-center justify-between p-3 rounded-lg mb-4"
-                style={{ background: "rgba(34,197,94,0.06)", border: "1px solid rgba(34,197,94,0.15)" }}
+                style={{ background: "rgb(var(--success-rgb) / 0.06)", border: "1px solid rgb(var(--success-rgb) / 0.15)" }}
               >
                 <span className="text-xs text-gray-400">Giảm giá</span>
-                <span className="text-sm font-semibold text-[#22c55e]">
+                <span className="text-sm font-semibold text-[var(--success)]">
                   -{formatPrice(couponApplied.discount_amount)}
                 </span>
               </div>
@@ -365,11 +365,11 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
               {couponApplied ? (
                 <div
                   className="flex items-center justify-between p-3 rounded-lg"
-                  style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)" }}
+                  style={{ background: "rgb(var(--success-rgb) / 0.08)", border: "1px solid rgb(var(--success-rgb) / 0.2)" }}
                 >
                   <div className="flex items-center gap-2">
-                    <Check size={14} className="text-[#22c55e]" />
-                    <span className="text-sm font-mono font-bold text-[#22c55e]">{couponApplied.code}</span>
+                    <Check size={14} className="text-[var(--success)]" />
+                    <span className="text-sm font-mono font-bold text-[var(--success)]">{couponApplied.code}</span>
                     <span className="text-xs text-gray-400">
                       ({couponApplied.discount_type === "percent"
                         ? `-${couponApplied.discount_value}%`
@@ -392,7 +392,7 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
                     onChange={(e) => { setCouponCode(e.target.value.toUpperCase()); setCouponError(""); }}
                     placeholder="Nhập mã giảm giá"
                     className="flex-1 px-3 py-2 rounded-lg text-sm text-white placeholder-gray-600 outline-none transition-colors font-mono"
-                    style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                    style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                     onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); handleApplyCoupon(); } }}
                   />
                   <button
@@ -400,7 +400,7 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
                     disabled={couponLoading || !couponCode.trim()}
                     className="px-4 py-2 rounded-lg text-xs font-semibold text-white transition-all disabled:opacity-50"
                     style={{
-                      background: "linear-gradient(135deg, #D4A843, #b8922e)",
+                      background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
                     }}
                   >
                     {couponLoading ? (
@@ -444,7 +444,7 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
             {errorMsg && (
               <>
                 <div role="alert" aria-live="assertive" className="p-3 rounded-lg flex items-center gap-2 text-sm mb-4"
-                  style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.2)" }}>
+                  style={{ background: "rgb(var(--danger-rgb) / 0.1)", border: "1px solid rgb(var(--danger-rgb) / 0.2)" }}>
                   <AlertCircle size={14} className="text-red-400 shrink-0" />
                   <span className="text-red-400">{errorMsg}</span>
                 </div>
@@ -462,9 +462,9 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
         {step === "method" && order && (
           <div className="p-5">
             <div className="mb-4">
-              <div className="flex items-center justify-between p-3 rounded-lg mb-3" style={{ background: "#222" }}>
+              <div className="flex items-center justify-between p-3 rounded-lg mb-3" style={{ background: "var(--surface-2)" }}>
                 <span className="text-xs text-gray-400">Thanh toán</span>
-                <span className="text-sm font-bold text-[#D4A843]">{formatPrice(order.amount)}</span>
+                <span className="text-sm font-bold text-[var(--accent)]">{formatPrice(order.amount)}</span>
               </div>
             </div>
 
@@ -478,16 +478,16 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
                   disabled={payosLoading}
                   className="w-full p-4 rounded-xl text-left transition-all hover:scale-[1.01]"
                   style={{
-                    background: "linear-gradient(135deg, rgba(212,168,67,0.08), rgba(212,168,67,0.02))",
-                    border: "1px solid rgba(212,168,67,0.25)",
+                    background: "linear-gradient(135deg, rgb(var(--accent-rgb) / 0.08), rgb(var(--accent-rgb) / 0.02))",
+                    border: "1px solid rgb(var(--accent-rgb) / 0.25)",
                   }}
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-                      style={{ background: "rgba(212,168,67,0.15)" }}
+                      style={{ background: "rgb(var(--accent-rgb) / 0.15)" }}
                     >
-                      <Wallet size={20} className="text-[#D4A843]" />
+                      <Wallet size={20} className="text-[var(--accent)]" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="font-semibold text-white text-sm">
@@ -517,14 +517,14 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
                   onClick={handleSelectSepay}
                   className="w-full p-4 rounded-xl text-left transition-all hover:scale-[1.01]"
                   style={{
-                    background: "rgba(255,255,255,0.02)",
+                    background: "rgb(var(--overlay-rgb) / 0.02)",
                     border: "1px solid #333",
                   }}
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-                      style={{ background: "rgba(255,255,255,0.06)" }}
+                      style={{ background: "rgb(var(--overlay-rgb) / 0.06)" }}
                     >
                       <Building2 size={20} className="text-gray-400" />
                     </div>
@@ -552,8 +552,8 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
                 aria-live="assertive"
                 className="p-3 rounded-lg flex items-center gap-2 text-sm mt-4"
                 style={{
-                  background: "rgba(239,68,68,0.1)",
-                  border: "1px solid rgba(239,68,68,0.2)",
+                  background: "rgb(var(--danger-rgb) / 0.1)",
+                  border: "1px solid rgb(var(--danger-rgb) / 0.2)",
                 }}
               >
                 <AlertCircle size={14} className="text-red-400 shrink-0" />
@@ -570,7 +570,7 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
             {expired && (
               <div className="py-8 text-center">
                 <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                  style={{ background: "rgba(239,68,68,0.12)", border: "2px solid rgba(239,68,68,0.3)" }}>
+                  style={{ background: "rgb(var(--danger-rgb) / 0.12)", border: "2px solid rgb(var(--danger-rgb) / 0.3)" }}>
                   <AlertCircle size={28} className="text-red-400" />
                 </div>
                 <p className="text-white font-semibold mb-1">Đơn hàng đã hết hạn.</p>
@@ -587,8 +587,8 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
             {/* Countdown */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2 text-sm">
-                <Clock size={14} className={countdown < 120 ? "text-red-400" : "text-[#f59e0b]"} />
-                <span className={countdown < 120 ? "text-red-400 font-mono font-bold" : "text-[#f59e0b] font-mono font-bold"}>
+                <Clock size={14} className={countdown < 120 ? "text-red-400" : "text-[var(--warn)]"} />
+                <span className={countdown < 120 ? "text-red-400 font-mono font-bold" : "text-[var(--warn)] font-mono font-bold"}>
                   {formatCountdown(countdown)}
                 </span>
                 <span className="text-gray-400 text-xs">còn lại</span>
@@ -614,9 +614,9 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
 
             {/* Manual transfer info (when no Sepay) */}
             {order.manual && (
-              <div className="p-4 rounded-xl mb-4" style={{ background: "#1a1a1a", border: "1px solid #333" }}>
+              <div className="p-4 rounded-xl mb-4" style={{ background: "var(--surface)", border: "1px solid #333" }}>
                 <div className="flex items-center gap-2 mb-3">
-                  <CreditCard size={16} className="text-[#D4A843]" />
+                  <CreditCard size={16} className="text-[var(--accent)]" />
                   <span className="text-sm font-semibold text-white">Thông tin chuyển khoản</span>
                 </div>
                 <p className="text-xs text-gray-400 mb-3">
@@ -633,16 +633,16 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
                 { label: "Mã đơn hàng", value: order.code, copyable: true, key: "code" },
               ].map((item) => (
                 <div key={item.key} className="flex items-center justify-between p-3 rounded-lg"
-                  style={{ background: "#222" }}>
+                  style={{ background: "var(--surface-2)" }}>
                   <span className="text-xs text-gray-400">{item.label}</span>
                   <div className="flex items-center gap-2">
-                    <span className={`text-sm font-semibold ${item.highlight ? "text-[#D4A843]" : "text-white font-mono"}`}>
+                    <span className={`text-sm font-semibold ${item.highlight ? "text-[var(--accent)]" : "text-white font-mono"}`}>
                       {item.value}
                     </span>
                     {item.copyable && (
                       <button onClick={() => copyToClipboard(item.value, item.key)}
                         className="text-gray-500 hover:text-white transition-colors">
-                        {copied === item.key ? <Check size={13} className="text-[#D4A843]" /> : <Copy size={13} />}
+                        {copied === item.key ? <Check size={13} className="text-[var(--accent)]" /> : <Copy size={13} />}
                       </button>
                     )}
                   </div>
@@ -652,14 +652,14 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
 
             {order.qrUrl ? (
               <div className="p-3 rounded-lg text-xs text-gray-400 leading-relaxed"
-                style={{ background: "rgba(212,168,67,0.06)", border: "1px solid rgba(212,168,67,0.15)" }}>
-                <span className="text-[#D4A843] font-medium">⚡ Tự động xác nhận</span> — Sau khi chuyển khoản,
+                style={{ background: "rgb(var(--accent-rgb) / 0.06)", border: "1px solid rgb(var(--accent-rgb) / 0.15)" }}>
+                <span className="text-[var(--accent)] font-medium">⚡ Tự động xác nhận</span> — Sau khi chuyển khoản,
                 hệ thống sẽ tự động xác nhận trong vòng 60 giây và mở khoá quyền truy cập ngay lập tức.
               </div>
             ) : (
               <div className="p-3 rounded-lg text-xs text-gray-400 leading-relaxed"
-                style={{ background: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.15)" }}>
-                <span className="text-[#f59e0b] font-medium">📞 Xác nhận thủ công</span> — Sau khi chuyển khoản,
+                style={{ background: "rgb(var(--warn-rgb) / 0.06)", border: "1px solid rgb(var(--warn-rgb) / 0.15)" }}>
+                <span className="text-[var(--warn)] font-medium">📞 Xác nhận thủ công</span> — Sau khi chuyển khoản,
                 vui lòng liên hệ admin qua Zalo/Facebook để được xác nhận nhanh nhất.
               </div>
             )}
@@ -673,14 +673,14 @@ export default function CheckoutModal({ product, onClose, onSuccess }: CheckoutM
         {step === "success" && (
           <div className="p-8 text-center">
             <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-              style={{ background: "rgba(34,197,94,0.15)", border: "2px solid rgba(34,197,94,0.4)" }}>
-              <CheckCircle size={32} className="text-[#22c55e]" />
+              style={{ background: "rgb(var(--success-rgb) / 0.15)", border: "2px solid rgb(var(--success-rgb) / 0.4)" }}>
+              <CheckCircle size={32} className="text-[var(--success)]" />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Thanh toán thành công!</h3>
             <p className="text-gray-400 text-sm mb-2">
               Cảm ơn bạn đã tin tưởng. Quyền truy cập đã được kích hoạt ngay lập tức.
             </p>
-            <p className="text-[#D4A843] text-sm font-medium mb-6">
+            <p className="text-[var(--accent)] text-sm font-medium mb-6">
               Email xác nhận đã được gửi tới <span className="font-semibold">{email}</span>
             </p>
             <div className="space-y-2">

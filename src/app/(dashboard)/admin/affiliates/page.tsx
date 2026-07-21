@@ -48,17 +48,17 @@ function formatDate(iso: string): string {
 }
 
 const STATUS_CONFIG: Record<string, { bg: string; color: string; label: string; icon: React.ElementType }> = {
-  active: { bg: "rgba(212,168,67,0.1)", color: "#D4A843", label: "Hoạt động", icon: CheckCircle },
-  pending: { bg: "rgba(234,179,8,0.1)", color: "#eab308", label: "Chờ duyệt", icon: Clock },
-  suspended: { bg: "rgba(239,68,68,0.1)", color: "#ef4444", label: "Tạm khoá", icon: Ban },
-  rejected: { bg: "rgba(107,114,128,0.1)", color: "#6b7280", label: "Từ chối", icon: Ban },
+  active: { bg: "rgb(var(--accent-rgb) / 0.1)", color: "var(--accent)", label: "Hoạt động", icon: CheckCircle },
+  pending: { bg: "rgb(var(--warn-rgb) / 0.1)", color: "var(--warn)", label: "Chờ duyệt", icon: Clock },
+  suspended: { bg: "rgb(var(--danger-rgb) / 0.1)", color: "var(--danger)", label: "Tạm khoá", icon: Ban },
+  rejected: { bg: "rgb(var(--neutral-rgb) / 0.1)", color: "var(--fg-subtle)", label: "Từ chối", icon: Ban },
 };
 
 const ORDER_STATUS: Record<string, { bg: string; color: string; label: string }> = {
-  paid: { bg: "rgba(34,197,94,0.1)", color: "#22c55e", label: "Đã thanh toán" },
-  pending: { bg: "rgba(234,179,8,0.1)", color: "#eab308", label: "Chờ thanh toán" },
-  cancelled: { bg: "rgba(239,68,68,0.1)", color: "#ef4444", label: "Đã huỷ" },
-  refunded: { bg: "rgba(107,114,128,0.1)", color: "#6b7280", label: "Hoàn tiền" },
+  paid: { bg: "rgb(var(--success-rgb) / 0.1)", color: "var(--success)", label: "Đã thanh toán" },
+  pending: { bg: "rgb(var(--warn-rgb) / 0.1)", color: "var(--warn)", label: "Chờ thanh toán" },
+  cancelled: { bg: "rgb(var(--danger-rgb) / 0.1)", color: "var(--danger)", label: "Đã huỷ" },
+  refunded: { bg: "rgb(var(--neutral-rgb) / 0.1)", color: "var(--fg-subtle)", label: "Hoàn tiền" },
 };
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -137,24 +137,24 @@ export default async function AdminAffiliatesPage({
 
         {/* Notification */}
         {params.updated === "1" && (
-          <div className="p-3 rounded-lg text-sm text-amber-400 border border-amber-400/20" style={{ background: "rgba(212,168,67,0.08)" }}>
+          <div className="p-3 rounded-lg text-sm text-amber-400 border border-amber-400/20" style={{ background: "rgb(var(--accent-rgb) / 0.08)" }}>
             Đã cập nhật tỷ lệ hoa hồng thành công.
           </div>
         )}
 
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-          <StatCard icon={Users} label="Tổng Affiliate" value={totalAffiliates.toString()} sub={`${activeAffiliates} hoạt động`} color="#3b82f6" />
-          <StatCard icon={MousePointerClick} label="Tổng Clicks" value={totalClicks.toLocaleString("vi-VN")} sub={`${totalConversions} conversions`} color="#a855f7" />
-          <StatCard icon={Wallet} label="Hoa hồng đã trả" value={formatCurrency(totalPaid)} sub={`Tổng: ${formatCurrency(totalEarned)}`} color="#D4A843" />
-          <StatCard icon={Clock} label="Chờ xử lý" value={`${pendingConversions || 0} đơn`} sub={`${pendingPayouts || 0} yêu cầu rút`} color="#f59e0b" />
+          <StatCard icon={Users} label="Tổng Affiliate" value={totalAffiliates.toString()} sub={`${activeAffiliates} hoạt động`} color="var(--info)" />
+          <StatCard icon={MousePointerClick} label="Tổng Clicks" value={totalClicks.toLocaleString("vi-VN")} sub={`${totalConversions} conversions`} color="var(--cat-purple)" />
+          <StatCard icon={Wallet} label="Hoa hồng đã trả" value={formatCurrency(totalPaid)} sub={`Tổng: ${formatCurrency(totalEarned)}`} color="var(--accent)" />
+          <StatCard icon={Clock} label="Chờ xử lý" value={`${pendingConversions || 0} đơn`} sub={`${pendingPayouts || 0} yêu cầu rút`} color="var(--warn)" />
         </div>
 
         {/* Affiliates table */}
         <div className="card-dark p-5">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-              <Users size={16} className="text-[#3b82f6]" />
+              <Users size={16} className="text-[var(--info)]" />
               Danh sách Affiliate ({totalAffiliates})
             </h3>
           </div>
@@ -165,7 +165,7 @@ export default async function AdminAffiliatesPage({
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-left text-gray-500 text-xs border-b border-[#1f1f1f]">
+                  <tr className="text-left text-gray-500 text-xs border-b border-[var(--surface-2)]">
                     <th className="pb-2 font-medium">Affiliate</th>
                     <th className="pb-2 font-medium">Mã</th>
                     <th className="pb-2 font-medium">Trạng thái</th>
@@ -182,10 +182,10 @@ export default async function AdminAffiliatesPage({
                     const statusCfg = STATUS_CONFIG[aff.status] || STATUS_CONFIG.pending;
                     const name = (aff.profiles as { full_name: string | null } | null)?.full_name || "—";
                     return (
-                      <tr key={aff.id} className="border-b border-[#1a1a1a] hover:bg-[#111]">
+                      <tr key={aff.id} className="border-b border-[var(--surface)] hover:bg-[var(--surface)]">
                         <td className="py-2.5 text-white font-medium">{name}</td>
                         <td className="py-2.5">
-                          <code className="text-xs text-[#D4A843] bg-[#D4A843]/10 px-1.5 py-0.5 rounded">{aff.ref_code}</code>
+                          <code className="text-xs text-[var(--accent)] bg-[var(--accent)]/10 px-1.5 py-0.5 rounded">{aff.ref_code}</code>
                         </td>
                         <td className="py-2.5">
                           <span className="text-xs px-2 py-0.5 rounded font-medium" style={{ background: statusCfg.bg, color: statusCfg.color }}>
@@ -194,7 +194,7 @@ export default async function AdminAffiliatesPage({
                         </td>
                         <td className="py-2.5 text-right text-gray-300">{aff.total_clicks?.toLocaleString("vi-VN") || 0}</td>
                         <td className="py-2.5 text-right text-gray-300">{aff.total_conversions || 0}</td>
-                        <td className="py-2.5 text-right text-[#D4A843] font-medium">{formatCurrency(aff.total_earned || 0)}</td>
+                        <td className="py-2.5 text-right text-[var(--accent)] font-medium">{formatCurrency(aff.total_earned || 0)}</td>
                         <td className="py-2.5 text-right text-gray-400">{formatCurrency(aff.total_paid || 0)}</td>
                         <td className="py-2.5 text-center">
                           <EditCommissionForm affiliateId={aff.id} currentRate={aff.commission_rate} />
@@ -212,14 +212,14 @@ export default async function AdminAffiliatesPage({
         <div className="card-dark p-5">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-              <ShoppingCart size={16} className="text-[#a855f7]" />
+              <ShoppingCart size={16} className="text-[var(--cat-purple)]" />
               Đơn hàng từ Affiliate ({affOrders.length})
             </h3>
             <div className="flex items-center gap-2 text-xs">
-              <span className="flex items-center gap-1 text-[#D4A843]">
+              <span className="flex items-center gap-1 text-[var(--accent)]">
                 <CheckCircle size={12} /> {paidAffOrders.length} đã TT
               </span>
-              <span className="flex items-center gap-1 text-[#eab308]">
+              <span className="flex items-center gap-1 text-[var(--warn)]">
                 <Clock size={12} /> {pendingAffOrders.length} chờ TT
               </span>
             </div>
@@ -231,7 +231,7 @@ export default async function AdminAffiliatesPage({
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-left text-gray-500 text-xs border-b border-[#1f1f1f]">
+                  <tr className="text-left text-gray-500 text-xs border-b border-[var(--surface-2)]">
                     <th className="pb-2 font-medium">Mã đơn</th>
                     <th className="pb-2 font-medium">Khách hàng</th>
                     <th className="pb-2 font-medium">Sản phẩm</th>
@@ -247,9 +247,9 @@ export default async function AdminAffiliatesPage({
                     const osCfg = ORDER_STATUS[order.status] || ORDER_STATUS.pending;
                     const affName = order.ref_code ? (refToName[order.ref_code] || "—") : "—";
                     return (
-                      <tr key={order.id} className="border-b border-[#1a1a1a] hover:bg-[#111]">
+                      <tr key={order.id} className="border-b border-[var(--surface)] hover:bg-[var(--surface)]">
                         <td className="py-2.5">
-                          <code className="text-xs text-[#a855f7] bg-[#a855f7]/10 px-1.5 py-0.5 rounded">DK{order.order_code}</code>
+                          <code className="text-xs text-[var(--cat-purple)] bg-[var(--cat-purple)]/10 px-1.5 py-0.5 rounded">DK{order.order_code}</code>
                         </td>
                         <td className="py-2.5 text-white">{order.customer_name || "—"}</td>
                         <td className="py-2.5 text-gray-300 max-w-[200px] truncate">
@@ -263,7 +263,7 @@ export default async function AdminAffiliatesPage({
                         </td>
                         <td className="py-2.5 text-gray-300">{affName}</td>
                         <td className="py-2.5">
-                          <code className="text-xs text-[#D4A843] bg-[#D4A843]/10 px-1.5 py-0.5 rounded">{order.ref_code}</code>
+                          <code className="text-xs text-[var(--accent)] bg-[var(--accent)]/10 px-1.5 py-0.5 rounded">{order.ref_code}</code>
                         </td>
                         <td className="py-2.5 text-gray-500 text-xs">{formatDate(order.created_at)}</td>
                       </tr>

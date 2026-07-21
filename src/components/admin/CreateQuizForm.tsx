@@ -274,7 +274,7 @@ export default function CreateQuizForm({ lessons }: CreateQuizFormProps) {
         className="w-full flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors"
       >
         <div className="flex items-center gap-2">
-          <Plus size={16} className="text-[#D4A843]" />
+          <Plus size={16} className="text-[var(--accent)]" />
           <h2 className="text-sm font-semibold text-white">Tạo Quiz mới</h2>
         </div>
         {expanded ? (
@@ -346,8 +346,8 @@ export default function CreateQuizForm({ lessons }: CreateQuizFormProps) {
                 key={qIndex}
                 className="rounded-xl p-4 space-y-3"
                 style={{
-                  background: "#141414",
-                  border: "1px solid rgba(255,255,255,0.06)",
+                  background: "var(--surface)",
+                  border: "1px solid rgb(var(--overlay-rgb) / 0.06)",
                 }}
               >
                 <div className="flex items-start gap-2">
@@ -358,7 +358,7 @@ export default function CreateQuizForm({ lessons }: CreateQuizFormProps) {
                   <div className="flex-1 space-y-3">
                     {/* Question header */}
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-[#D4A843]">
+                      <span className="text-xs font-bold text-[var(--accent)]">
                         Câu {qIndex + 1}
                       </span>
                       <select
@@ -409,13 +409,13 @@ export default function CreateQuizForm({ lessons }: CreateQuizFormProps) {
                             onClick={() => setCorrectOption(qIndex, oIndex)}
                             className={`w-5 h-5 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-colors ${
                               opt.is_correct
-                                ? "border-[#22c55e] bg-[#22c55e]/20"
+                                ? "border-[var(--success)] bg-[var(--success)]/20"
                                 : "border-white/20 hover:border-white/40"
                             }`}
                             title="Đánh dấu đáp án đúng"
                           >
                             {opt.is_correct && (
-                              <div className="w-2.5 h-2.5 rounded-full bg-[#22c55e]" />
+                              <div className="w-2.5 h-2.5 rounded-full bg-[var(--success)]" />
                             )}
                           </button>
 
@@ -486,7 +486,7 @@ export default function CreateQuizForm({ lessons }: CreateQuizFormProps) {
             </div>
           )}
           {success && (
-            <div className="text-xs text-[#22c55e] bg-[#22c55e]/10 border border-[#22c55e]/20 rounded-lg px-3 py-2">
+            <div className="text-xs text-[var(--success)] bg-[var(--success)]/10 border border-[var(--success)]/20 rounded-lg px-3 py-2">
               Quiz đã được tạo thành công!
             </div>
           )}
@@ -505,8 +505,8 @@ export default function CreateQuizForm({ lessons }: CreateQuizFormProps) {
               disabled={submitting}
               className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-40"
               style={{
-                background: "linear-gradient(135deg, #D4A843, #b8912e)",
-                color: "#0a0a0a",
+                background: "linear-gradient(135deg, var(--accent), #b8912e)",
+                color: "var(--bg)",
               }}
             >
               {submitting ? (

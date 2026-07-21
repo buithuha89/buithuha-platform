@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const data: SiloData = {
   slug: "phat-trien-ban-than",
   num: 2,
-  color: "#84CC16",
+  color: "var(--cat-lime)",
   title: "Phát triển bản thân",
   subtitle: "Hiểu mình rồi mới biết đi đâu",
   intro:

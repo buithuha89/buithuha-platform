@@ -63,9 +63,9 @@ export default function ZaloTestForm({ adminZaloId }: ZaloTestFormProps) {
         <div
           className="flex items-center gap-2 p-3 rounded-lg text-sm"
           style={{
-            background: result.success ? "rgba(34,197,94,0.08)" : "rgba(239,68,68,0.08)",
-            border: `1px solid ${result.success ? "rgba(34,197,94,0.2)" : "rgba(239,68,68,0.2)"}`,
-            color: result.success ? "#22c55e" : "#ef4444",
+            background: result.success ? "rgb(var(--success-rgb) / 0.08)" : "rgb(var(--danger-rgb) / 0.08)",
+            border: `1px solid ${result.success ? "rgb(var(--success-rgb) / 0.2)" : "rgb(var(--danger-rgb) / 0.2)"}`,
+            color: result.success ? "var(--success)" : "var(--danger)",
           }}
         >
           {result.success ? <CheckCircle size={14} /> : <XCircle size={14} />}

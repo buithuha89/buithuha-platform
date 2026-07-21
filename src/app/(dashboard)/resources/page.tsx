@@ -28,8 +28,8 @@ const categories: Category[] = [
   {
     name: "Templates Video AI",
     icon: Video,
-    color: "#D4A843",
-    bg: "rgba(212,168,67,0.1)",
+    color: "var(--accent)",
+    bg: "rgb(var(--accent-rgb) / 0.1)",
     resources: [
       {
         title: "Prompt tạo video VEO3.1",
@@ -54,8 +54,8 @@ const categories: Category[] = [
   {
     name: "Tài liệu Kinh doanh",
     icon: Briefcase,
-    color: "#3b82f6",
-    bg: "rgba(59,130,246,0.1)",
+    color: "var(--info)",
+    bg: "rgb(var(--info-rgb) / 0.1)",
     resources: [
       {
         title: "100 Mô hình kinh doanh sản phẩm số",
@@ -80,7 +80,7 @@ const categories: Category[] = [
   {
     name: "Thương hiệu cá nhân",
     icon: User,
-    color: "#a855f7",
+    color: "var(--cat-purple)",
     bg: "rgba(168,85,247,0.1)",
     resources: [
       {
@@ -121,9 +121,9 @@ export default function ResourcesPage() {
           <div className="flex items-center gap-3 mb-2">
             <div
               className="w-9 h-9 rounded-xl flex items-center justify-center"
-              style={{ background: "rgba(212,168,67,0.1)" }}
+              style={{ background: "rgb(var(--accent-rgb) / 0.1)" }}
             >
-              <FileText size={18} className="text-[#D4A843]" />
+              <FileText size={18} className="text-[var(--accent)]" />
             </div>
             <div>
               <h2 className="text-lg font-bold text-white">
@@ -161,7 +161,7 @@ export default function ResourcesPage() {
               {category.resources.map((resource) => (
                 <div
                   key={resource.title}
-                  className="card-dark p-5 flex flex-col justify-between hover:bg-[#1f1f1f] transition-colors"
+                  className="card-dark p-5 flex flex-col justify-between hover:bg-[var(--surface-2)] transition-colors"
                 >
                   <div>
                     {/* Icon + title */}
@@ -198,7 +198,7 @@ export default function ResourcesPage() {
                       Truy cập
                     </a>
                   ) : (
-                    <span className="inline-flex items-center gap-1.5 text-xs text-gray-500 px-3 py-1.5 rounded-lg w-fit bg-[#222]">
+                    <span className="inline-flex items-center gap-1.5 text-xs text-gray-500 px-3 py-1.5 rounded-lg w-fit bg-[var(--surface-2)]">
                       <Clock size={12} />
                       Sắp ra mắt
                     </span>

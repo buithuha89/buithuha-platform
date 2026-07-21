@@ -99,28 +99,28 @@ export default async function AdminBlogPage() {
       label: "Tổng bài viết",
       value: totalPosts.toLocaleString("vi-VN"),
       icon: FileText,
-      color: "#3b82f6",
+      color: "var(--info)",
       sub: "tất cả trạng thái",
     },
     {
       label: "Đã xuất bản",
       value: publishedCount.toLocaleString("vi-VN"),
       icon: Send,
-      color: "#D4A843",
+      color: "var(--accent)",
       sub: "đang hiển thị",
     },
     {
       label: "Bản nháp",
       value: draftCount.toLocaleString("vi-VN"),
       icon: PenLine,
-      color: "#f59e0b",
+      color: "var(--warn)",
       sub: "chờ hoàn thiện",
     },
     {
       label: "Tổng lượt xem",
       value: formatViews(totalViews),
       icon: BarChart3,
-      color: "#8b5cf6",
+      color: "var(--cat-violet)",
       sub: "trên tất cả bài viết",
     },
   ];
@@ -167,7 +167,7 @@ export default async function AdminBlogPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                <tr style={{ borderBottom: "1px solid var(--border)" }}>
                   {[
                     "Bài viết",
                     "Trạng thái",
@@ -209,14 +209,14 @@ export default async function AdminBlogPage() {
                       style={{
                         borderBottom:
                           idx < blogPosts.length - 1
-                            ? "1px solid #2a2a2a"
+                            ? "1px solid var(--border)"
                             : "none",
                       }}
                     >
                       {/* Title + slug (clickable → edit) */}
                       <td className="px-4 py-3">
                         <Link href={`/admin/blog/${post.id}/edit`} className="block min-w-0 group/title">
-                          <div className="font-medium text-white truncate group-hover/title:text-[#D4A843] transition-colors">
+                          <div className="font-medium text-white truncate group-hover/title:text-[var(--accent)] transition-colors">
                             {post.title}
                           </div>
                           <div className="text-[11px] text-gray-500 truncate mt-0.5 max-w-[300px]">
@@ -233,9 +233,9 @@ export default async function AdminBlogPage() {
                           <span
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold"
                             style={{
-                              background: "rgba(107,114,128,0.1)",
-                              color: "#9ca3af",
-                              border: "1px solid rgba(107,114,128,0.25)",
+                              background: "rgb(var(--neutral-rgb) / 0.1)",
+                              color: "var(--fg-muted)",
+                              border: "1px solid rgb(var(--neutral-rgb) / 0.25)",
                             }}
                           >
                             Nháp
@@ -270,9 +270,9 @@ export default async function AdminBlogPage() {
                             href={`/admin/blog/${post.id}/edit`}
                             className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-lg font-medium transition-colors"
                             style={{
-                              background: "rgba(59,130,246,0.1)",
-                              color: "#3b82f6",
-                              border: "1px solid rgba(59,130,246,0.25)",
+                              background: "rgb(var(--info-rgb) / 0.1)",
+                              color: "var(--info)",
+                              border: "1px solid rgb(var(--info-rgb) / 0.25)",
                             }}
                           >
                             <PenLine size={11} />
@@ -282,9 +282,9 @@ export default async function AdminBlogPage() {
                             href={`/blog/${post.slug}`}
                             className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-lg font-medium transition-colors"
                             style={{
-                              background: "rgba(212,168,67,0.1)",
-                              color: "#D4A843",
-                              border: "1px solid rgba(212,168,67,0.25)",
+                              background: "rgb(var(--accent-rgb) / 0.1)",
+                              color: "var(--accent)",
+                              border: "1px solid rgb(var(--accent-rgb) / 0.25)",
                             }}
                           >
                             <ExternalLink size={11} />

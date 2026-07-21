@@ -71,15 +71,15 @@ export default function SegmentBuilder({ onSegmentChange, onPreview, compact }: 
   };
 
   return (
-    <div className={`space-y-3 ${compact ? "" : "p-4 bg-[#151515] rounded-xl border border-[#2a2a2a]"}`}>
+    <div className={`space-y-3 ${compact ? "" : "p-4 bg-[var(--surface)] rounded-xl border border-[var(--border)]"}`}>
       {!compact && (
         <div className="flex items-center justify-between">
           <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-            <Filter size={14} className="text-[#D4A843]" />
+            <Filter size={14} className="text-[var(--accent)]" />
             Segment Builder
           </h3>
           {previewCount !== null && (
-            <span className="text-xs text-[#D4A843] font-medium">
+            <span className="text-xs text-[var(--accent)] font-medium">
               {previewCount} subscribers khớp
             </span>
           )}
@@ -94,7 +94,7 @@ export default function SegmentBuilder({ onSegmentChange, onPreview, compact }: 
               <select
                 value={cond.operator}
                 onChange={(e) => updateCondition(idx, { operator: e.target.value as "and" | "or" })}
-                className="bg-[#1a1a1a] border border-[#333] rounded px-2 py-1 text-[10px] text-gray-400 w-14"
+                className="bg-[var(--surface)] border border-[var(--border-strong)] rounded px-2 py-1 text-[10px] text-gray-400 w-14"
               >
                 <option value="and">VÀ</option>
                 <option value="or">HOẶC</option>
@@ -105,7 +105,7 @@ export default function SegmentBuilder({ onSegmentChange, onPreview, compact }: 
             <select
               value={cond.type}
               onChange={(e) => updateCondition(idx, { type: e.target.value as SegmentCondition["type"], value: "" })}
-              className="bg-[#1a1a1a] border border-[#333] rounded-lg px-2 py-1.5 text-xs text-white flex-shrink-0"
+              className="bg-[var(--surface)] border border-[var(--border-strong)] rounded-lg px-2 py-1.5 text-xs text-white flex-shrink-0"
             >
               <option value="has_tag">Có tag</option>
               <option value="in_list">Trong list</option>
@@ -118,7 +118,7 @@ export default function SegmentBuilder({ onSegmentChange, onPreview, compact }: 
               <select
                 value={cond.value}
                 onChange={(e) => updateCondition(idx, { value: e.target.value })}
-                className="bg-[#1a1a1a] border border-[#333] rounded-lg px-2 py-1.5 text-xs text-white flex-1 min-w-0"
+                className="bg-[var(--surface)] border border-[var(--border-strong)] rounded-lg px-2 py-1.5 text-xs text-white flex-1 min-w-0"
               >
                 <option value="">Chọn tag...</option>
                 {tags.map(t => (
@@ -131,7 +131,7 @@ export default function SegmentBuilder({ onSegmentChange, onPreview, compact }: 
               <select
                 value={cond.value}
                 onChange={(e) => updateCondition(idx, { value: e.target.value })}
-                className="bg-[#1a1a1a] border border-[#333] rounded-lg px-2 py-1.5 text-xs text-white flex-1 min-w-0"
+                className="bg-[var(--surface)] border border-[var(--border-strong)] rounded-lg px-2 py-1.5 text-xs text-white flex-1 min-w-0"
               >
                 <option value="">Chọn list...</option>
                 {lists.map(l => (
@@ -144,7 +144,7 @@ export default function SegmentBuilder({ onSegmentChange, onPreview, compact }: 
               <select
                 value={cond.value}
                 onChange={(e) => updateCondition(idx, { value: e.target.value })}
-                className="bg-[#1a1a1a] border border-[#333] rounded-lg px-2 py-1.5 text-xs text-white flex-1 min-w-0"
+                className="bg-[var(--surface)] border border-[var(--border-strong)] rounded-lg px-2 py-1.5 text-xs text-white flex-1 min-w-0"
               >
                 <option value="">Chọn...</option>
                 <option value="active">Active</option>
@@ -158,13 +158,13 @@ export default function SegmentBuilder({ onSegmentChange, onPreview, compact }: 
                 type="date"
                 value={cond.value}
                 onChange={(e) => updateCondition(idx, { value: e.target.value })}
-                className="bg-[#1a1a1a] border border-[#333] rounded-lg px-2 py-1.5 text-xs text-white flex-1 min-w-0"
+                className="bg-[var(--surface)] border border-[var(--border-strong)] rounded-lg px-2 py-1.5 text-xs text-white flex-1 min-w-0"
               />
             )}
 
             <button
               onClick={() => removeCondition(idx)}
-              className="p-1 rounded hover:bg-[#222] text-gray-500 hover:text-red-400"
+              className="p-1 rounded hover:bg-[var(--surface-2)] text-gray-500 hover:text-red-400"
             >
               <X size={12} />
             </button>
@@ -184,7 +184,7 @@ export default function SegmentBuilder({ onSegmentChange, onPreview, compact }: 
         <button
           onClick={previewSegment}
           disabled={loadingPreview}
-          className="flex items-center gap-1 text-xs text-[#D4A843] hover:text-[#e5ba54] transition-colors ml-auto"
+          className="flex items-center gap-1 text-xs text-[var(--accent)] hover:text-[#e5ba54] transition-colors ml-auto"
         >
           <Users size={12} />
           {loadingPreview ? "Đang tính..." : "Xem trước"}

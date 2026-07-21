@@ -118,12 +118,12 @@ export default function LessonQA({
         className="w-full flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors"
       >
         <div className="flex items-center gap-2">
-          <MessageCircleQuestion size={16} className="text-[#3b82f6]" />
+          <MessageCircleQuestion size={16} className="text-[var(--info)]" />
           <h3 className="font-semibold text-white text-sm">
             Hỏi giảng viên
           </h3>
           {questions.length > 0 && (
-            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#3b82f6]/15 text-[#3b82f6] font-medium">
+            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[var(--info)]/15 text-[var(--info)] font-medium">
               {questions.length}
             </span>
           )}
@@ -152,7 +152,7 @@ export default function LessonQA({
               </div>
             )}
             {success && (
-              <div className="text-xs text-[#D4A843] bg-[#D4A843]/10 border border-[#D4A843]/20 rounded-lg px-3 py-2">
+              <div className="text-xs text-[var(--accent)] bg-[var(--accent)]/10 border border-[var(--accent)]/20 rounded-lg px-3 py-2">
                 Câu hỏi đã được gửi thành công!
               </div>
             )}
@@ -191,7 +191,7 @@ export default function LessonQA({
                   key={q.id}
                   className="rounded-lg p-3 space-y-2"
                   style={{
-                    background: "#161616",
+                    background: "var(--surface)",
                     border: "1px solid #222",
                   }}
                 >
@@ -228,16 +228,16 @@ export default function LessonQA({
                     <div
                       className="ml-8 rounded-lg p-2.5"
                       style={{
-                        background: "rgba(212,168,67,0.06)",
-                        border: "1px solid rgba(212,168,67,0.15)",
+                        background: "rgb(var(--accent-rgb) / 0.06)",
+                        border: "1px solid rgb(var(--accent-rgb) / 0.15)",
                       }}
                     >
                       <div className="flex items-center gap-1.5 mb-1">
                         <CheckCircle2
                           size={12}
-                          className="text-[#D4A843]"
+                          className="text-[var(--accent)]"
                         />
-                        <span className="text-[10px] font-medium text-[#D4A843]">
+                        <span className="text-[10px] font-medium text-[var(--accent)]">
                           {q.replier?.full_name ?? "Giảng viên"}
                         </span>
                         {q.replied_at && (

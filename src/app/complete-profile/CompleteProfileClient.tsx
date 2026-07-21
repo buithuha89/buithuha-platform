@@ -79,15 +79,15 @@ export default function CompleteProfilePage() {
   if (checking) {
     return (
       <div className="min-h-screen flex items-center justify-center"
-        style={{ background: "radial-gradient(ellipse at top, #0d1a12 0%, #0a0a0a 60%)" }}>
-        <Loader2 size={32} className="text-[#D4A843] animate-spin" />
+        style={{ background: "radial-gradient(ellipse at top, var(--bg-alt) 0%, var(--bg) 60%)" }}>
+        <Loader2 size={32} className="text-[var(--accent)] animate-spin" />
       </div>
     );
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4"
-      style={{ background: "radial-gradient(ellipse at top, #0d1a12 0%, #0a0a0a 60%)" }}>
+      style={{ background: "radial-gradient(ellipse at top, var(--bg-alt) 0%, var(--bg) 60%)" }}>
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
@@ -95,7 +95,7 @@ export default function CompleteProfilePage() {
           <h1 className="text-2xl font-bold text-white">Hoàn tất đăng ký</h1>
           <p className="text-gray-400 mt-1 text-sm">
             {userName ? (
-              <>Xin chào <span className="text-[#D4A843] font-medium">{userName}</span>! </>
+              <>Xin chào <span className="text-[var(--accent)] font-medium">{userName}</span>! </>
             ) : null}
             Vui lòng cung cấp số điện thoại để hoàn tất.
           </p>
@@ -103,7 +103,7 @@ export default function CompleteProfilePage() {
 
         {/* Success icon */}
         <div className="flex items-center gap-2 mb-4 p-3 rounded-lg text-sm border"
-          style={{ background: "rgba(212,168,67,0.06)", borderColor: "rgba(212,168,67,0.2)", color: "#D4A843" }}>
+          style={{ background: "rgb(var(--accent-rgb) / 0.06)", borderColor: "rgb(var(--accent-rgb) / 0.2)", color: "var(--accent)" }}>
           <CheckCircle2 size={16} />
           <span>Đăng nhập thành công! Chỉ cần thêm 1 bước nữa.</span>
         </div>
@@ -111,7 +111,7 @@ export default function CompleteProfilePage() {
         {/* Error */}
         {error && (
           <div className="mb-4 p-3 rounded-lg text-sm text-red-400 border border-red-400/20"
-            style={{ background: "rgba(239,68,68,0.08)" }}>
+            style={{ background: "rgb(var(--danger-rgb) / 0.08)" }}>
             {error}
           </div>
         )}

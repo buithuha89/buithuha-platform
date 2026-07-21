@@ -72,25 +72,25 @@ export default async function AdminPage() {
       label: "Doanh thu hôm nay",
       value: todayRevenue.toLocaleString("vi-VN") + "đ",
       change: "Hôm nay",
-      color: "#D4A843",
+      color: "var(--accent)",
     },
     {
       label: "Đơn hàng hôm nay",
       value: String(todayOrders?.length ?? 0),
       change: "Hôm nay",
-      color: "#f59e0b",
+      color: "var(--warn)",
     },
     {
       label: "Tổng học viên",
       value: (userCount ?? 0).toLocaleString("vi-VN"),
       change: "tài khoản",
-      color: "#3b82f6",
+      color: "var(--info)",
     },
     {
       label: "Tổng doanh thu",
       value: totalRevenue.toLocaleString("vi-VN") + "đ",
       change: "tất cả thời gian",
-      color: "#a855f7",
+      color: "var(--cat-purple)",
     },
   ];
 
@@ -101,7 +101,7 @@ export default async function AdminPage() {
       title: "Quản lý khoá học",
       desc: "Thêm/sửa khoá học, chương, bài học và tài nguyên",
       count: "Khoá học",
-      color: "#D4A843",
+      color: "var(--accent)",
       actions: ["Thêm khoá học", "Xem danh sách"],
     },
     {
@@ -110,7 +110,7 @@ export default async function AdminPage() {
       title: "Quản lý học viên",
       desc: "Xem danh sách, phân quyền và theo dõi tiến độ học viên",
       count: `${(userCount ?? 0).toLocaleString("vi-VN")} học viên`,
-      color: "#3b82f6",
+      color: "var(--info)",
       actions: ["Thêm thủ công", "Xuất Excel"],
     },
     {
@@ -119,7 +119,7 @@ export default async function AdminPage() {
       title: "Quản lý đơn hàng",
       desc: "Theo dõi thanh toán, xác nhận thủ công, xuất hoá đơn",
       count: `${(orderCount ?? 0)} đơn đã thanh toán`,
-      color: "#f59e0b",
+      color: "var(--warn)",
       actions: ["Xem tất cả", "Xác nhận thủ công"],
     },
     {
@@ -128,7 +128,7 @@ export default async function AdminPage() {
       title: "Quản lý Blog",
       desc: "Viết, chỉnh sửa và xuất bản bài viết blog",
       count: `${blogCount ?? 0} bài viết`,
-      color: "#8b5cf6",
+      color: "var(--cat-violet)",
       actions: ["Viết bài mới", "Xem danh sách"],
     },
     {
@@ -137,7 +137,7 @@ export default async function AdminPage() {
       title: "Quản lý Email",
       desc: "Tạo template, quản lý automation và subscribers",
       count: `${(subscriberCount ?? 0).toLocaleString("vi-VN")} subscribers`,
-      color: "#ec4899",
+      color: "var(--cat-pink)",
       actions: ["Tạo campaign", "Quản lý list"],
     },
     {
@@ -146,7 +146,7 @@ export default async function AdminPage() {
       title: "CRM & Analytics",
       desc: "Doanh thu, chuyển đổi, phễu bán hàng và báo cáo tổng thể",
       count: "Xem dashboard →",
-      color: "#14b8a6",
+      color: "var(--cat-teal)",
       actions: ["Mở CRM"],
     },
   ];
@@ -169,10 +169,10 @@ export default async function AdminPage() {
         {/* Warning banner */}
         <div
           className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm"
-          style={{ background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)" }}
+          style={{ background: "rgb(var(--warn-rgb) / 0.08)", border: "1px solid rgb(var(--warn-rgb) / 0.2)" }}
         >
-          <AlertCircle size={15} className="text-[#f59e0b] shrink-0" />
-          <span className="text-[#f59e0b] font-medium">Khu vực Admin</span>
+          <AlertCircle size={15} className="text-[var(--warn)] shrink-0" />
+          <span className="text-[var(--warn)] font-medium">Khu vực Admin</span>
           <span className="text-gray-400">
             — Xin chào {profile?.full_name ?? user.email}. Mọi thay đổi có hiệu lực ngay lập tức.
           </span>
@@ -198,7 +198,7 @@ export default async function AdminPage() {
         {/* Admin cards */}
         <div className="grid md:grid-cols-3 gap-4">
           {adminCards.map((card) => (
-            <div key={card.href} className="card-dark p-5 hover:bg-[#1f1f1f] transition-all">
+            <div key={card.href} className="card-dark p-5 hover:bg-[var(--surface-2)] transition-all">
               <div className="flex items-start justify-between mb-3">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -238,12 +238,12 @@ export default async function AdminPage() {
           {/* Recent users */}
           <div>
             <h2 className="font-bold text-white mb-3 text-sm">Học viên mới đăng ký</h2>
-            <div className="card-dark divide-y divide-[#2a2a2a]">
+            <div className="card-dark divide-y divide-[var(--border)]">
               {(recentUsers ?? []).length === 0 && (
                 <div className="p-4 text-sm text-gray-500">Chưa có học viên nào.</div>
               )}
               {(recentUsers ?? []).map((u, i) => (
-                <div key={i} className="flex items-center gap-3 p-3 hover:bg-[#1a1a1a] transition-colors">
+                <div key={i} className="flex items-center gap-3 p-3 hover:bg-[var(--surface)] transition-colors">
                   <UserAvatar
                     src={u.avatar_url}
                     initials={(u.full_name ?? "?").slice(0, 2).toUpperCase()}
@@ -263,21 +263,21 @@ export default async function AdminPage() {
           {/* Recent orders */}
           <div>
             <h2 className="font-bold text-white mb-3 text-sm">Đơn hàng gần đây</h2>
-            <div className="card-dark divide-y divide-[#2a2a2a]">
+            <div className="card-dark divide-y divide-[var(--border)]">
               {(recentOrders ?? []).length === 0 && (
                 <div className="p-4 text-sm text-gray-500">Chưa có đơn hàng nào.</div>
               )}
               {(recentOrders ?? []).map((o, i) => (
-                <div key={i} className="flex items-center gap-3 p-3 hover:bg-[#1a1a1a] transition-colors">
+                <div key={i} className="flex items-center gap-3 p-3 hover:bg-[var(--surface)] transition-colors">
                   <div
                     className="w-2 h-2 rounded-full shrink-0 mt-0.5"
                     style={{
                       background:
                         o.status === "paid"
-                          ? "#D4A843"
+                          ? "var(--accent)"
                           : o.status === "pending"
-                          ? "#f59e0b"
-                          : "#6b7280",
+                          ? "var(--warn)"
+                          : "var(--fg-subtle)",
                     }}
                   />
                   <div className="flex-1 min-w-0">
@@ -303,16 +303,16 @@ export default async function AdminPage() {
           <h2 className="font-bold text-white mb-3 text-sm">Thao tác nhanh</h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
             {[
-              { label: "Thêm khoá học", icon: BookOpen, color: "#D4A843", href: "/admin/courses" },
-              { label: "Xem đơn hàng", icon: ShoppingCart, color: "#f59e0b", href: "/admin/orders" },
-              { label: "Gửi newsletter", icon: Mail, color: "#3b82f6", href: "/email" },
-              { label: "Quản lý học viên", icon: Users, color: "#8b5cf6", href: "/admin/users" },
-              { label: "Cài đặt", icon: Settings, color: "#6b7280", href: "/settings" },
+              { label: "Thêm khoá học", icon: BookOpen, color: "var(--accent)", href: "/admin/courses" },
+              { label: "Xem đơn hàng", icon: ShoppingCart, color: "var(--warn)", href: "/admin/orders" },
+              { label: "Gửi newsletter", icon: Mail, color: "var(--info)", href: "/email" },
+              { label: "Quản lý học viên", icon: Users, color: "var(--cat-violet)", href: "/admin/users" },
+              { label: "Cài đặt", icon: Settings, color: "var(--fg-subtle)", href: "/settings" },
             ].map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-colors card-dark hover:bg-[#1f1f1f]"
+                className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-colors card-dark hover:bg-[var(--surface-2)]"
               >
                 <item.icon size={15} style={{ color: item.color }} />
                 <span className="text-gray-300">{item.label}</span>

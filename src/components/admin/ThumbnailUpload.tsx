@@ -125,7 +125,7 @@ export default function ThumbnailUpload({ value, onChange }: ThumbnailUploadProp
 
       {/* Preview or Upload zone */}
       {value ? (
-        <div className="relative group rounded-lg overflow-hidden border border-[#2a2a2a]">
+        <div className="relative group rounded-lg overflow-hidden border border-[var(--border)]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={value}
@@ -165,22 +165,22 @@ export default function ThumbnailUpload({ value, onChange }: ThumbnailUploadProp
             transition-colors cursor-pointer
             ${
               dragOver
-                ? "border-[#D4A843] bg-[#D4A843]/5"
-                : "border-[#2a2a2a] hover:border-[#3a3a3a] bg-[#161616]"
+                ? "border-[var(--accent)] bg-[var(--accent)]/5"
+                : "border-[var(--border)] hover:border-[var(--border-strong)] bg-[var(--surface)]"
             }
             ${uploading ? "pointer-events-none opacity-60" : ""}
           `}
         >
           {uploading ? (
             <>
-              <Loader2 size={28} className="text-[#D4A843] animate-spin" />
+              <Loader2 size={28} className="text-[var(--accent)] animate-spin" />
               <span className="text-xs text-gray-400">Đang tải lên...</span>
             </>
           ) : (
             <>
               <ImageIcon size={28} className="text-gray-500" />
               <span className="text-xs text-gray-400">
-                Kéo thả ảnh vào đây hoặc <span className="text-[#D4A843] font-medium">chọn file</span>
+                Kéo thả ảnh vào đây hoặc <span className="text-[var(--accent)] font-medium">chọn file</span>
               </span>
               <span className="text-[10px] text-gray-500">
                 JPEG, PNG, WebP, GIF — tối đa 5MB

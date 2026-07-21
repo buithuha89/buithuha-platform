@@ -42,7 +42,7 @@ export default function DeleteQuizButton({
       <button
         onClick={() => setShowConfirm(true)}
         className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors text-gray-500 hover:text-red-400 hover:bg-red-500/10"
-        style={{ border: "1px solid #2a2a2a" }}
+        style={{ border: "1px solid var(--border)" }}
         title="Xoá quiz"
       >
         <Trash2 size={12} />
@@ -59,13 +59,13 @@ export default function DeleteQuizButton({
         >
           <div
             className="w-full max-w-md rounded-2xl p-6 space-y-4"
-            style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+            style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3">
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
-                style={{ background: "rgba(239,68,68,0.1)" }}
+                style={{ background: "rgb(var(--danger-rgb) / 0.1)" }}
               >
                 <AlertTriangle size={20} className="text-red-400" />
               </div>
@@ -81,7 +81,7 @@ export default function DeleteQuizButton({
 
             <div
               className="p-3 rounded-lg text-sm text-gray-300"
-              style={{ background: "#151515", border: "1px solid #252525" }}
+              style={{ background: "var(--surface)", border: "1px solid var(--surface-3)" }}
             >
               <span className="text-gray-500">Quiz:</span>{" "}
               <span className="font-medium text-white">{quizTitle}</span>
@@ -97,7 +97,7 @@ export default function DeleteQuizButton({
                 onClick={() => setShowConfirm(false)}
                 disabled={deleting}
                 className="flex-1 px-4 py-2.5 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
-                style={{ border: "1px solid #2a2a2a" }}
+                style={{ border: "1px solid var(--border)" }}
               >
                 Huỷ bỏ
               </button>
@@ -106,7 +106,7 @@ export default function DeleteQuizButton({
                 disabled={deleting}
                 className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-white transition-colors"
                 style={{
-                  background: deleting ? "#4a1a1a" : "#dc2626",
+                  background: deleting ? "#4a1a1a" : "var(--danger)",
                   opacity: deleting ? 0.7 : 1,
                 }}
               >

@@ -50,13 +50,13 @@ interface RepPerformance {
 /* ─── Deal Stages ────────────────────────────────────────────────────────────── */
 
 const DEAL_STAGES = [
-  { key: "lead", label: "Lead", color: "#3b82f6" },
-  { key: "contacted", label: "Liên hệ", color: "#8b5cf6" },
-  { key: "demo", label: "Demo", color: "#a855f7" },
-  { key: "proposal", label: "Báo giá", color: "#ec4899" },
-  { key: "negotiation", label: "Đàm phán", color: "#f97316" },
-  { key: "won", label: "Thắng", color: "#22c55e" },
-  { key: "lost", label: "Mất", color: "#ef4444" },
+  { key: "lead", label: "Lead", color: "var(--info)" },
+  { key: "contacted", label: "Liên hệ", color: "var(--cat-violet)" },
+  { key: "demo", label: "Demo", color: "var(--cat-purple)" },
+  { key: "proposal", label: "Báo giá", color: "var(--cat-pink)" },
+  { key: "negotiation", label: "Đàm phán", color: "var(--cat-orange)" },
+  { key: "won", label: "Thắng", color: "var(--success)" },
+  { key: "lost", label: "Mất", color: "var(--danger)" },
 ];
 
 /* ─── Page ───────────────────────────────────────────────────────────────────── */
@@ -130,25 +130,25 @@ export default async function PerformancePage({
       label: "Tổng doanh thu",
       value: formatVND(totalRevenue),
       icon: DollarSign,
-      color: "#D4A843",
+      color: "var(--accent)",
     },
     {
       label: "Tỷ lệ chuyển đổi TB",
       value: `${avgConversion.toFixed(1)}%`,
       icon: Target,
-      color: "#22c55e",
+      color: "var(--success)",
     },
     {
       label: "Deals đang hoạt động",
       value: String(totalActiveDeals),
       icon: BarChart2,
-      color: "#3b82f6",
+      color: "var(--info)",
     },
     {
       label: "Cần xử lý",
       value: String(totalPendingActions),
       icon: Clock,
-      color: "#f59e0b",
+      color: "var(--warn)",
     },
   ];
 
@@ -192,8 +192,8 @@ export default async function PerformancePage({
               type="submit"
               className="px-3 py-1.5 rounded-lg text-xs font-medium text-white"
               style={{
-                background: "rgba(212,168,67,0.15)",
-                border: "1px solid rgba(212,168,67,0.3)",
+                background: "rgb(var(--accent-rgb) / 0.15)",
+                border: "1px solid rgb(var(--accent-rgb) / 0.3)",
               }}
             >
               Lọc
@@ -221,9 +221,9 @@ export default async function PerformancePage({
 
         {/* Sales Leaderboard Table */}
         <div className="card-dark overflow-hidden">
-          <div className="flex items-center justify-between p-5 border-b border-[#2a2a2a]">
+          <div className="flex items-center justify-between p-5 border-b border-[var(--border)]">
             <div className="flex items-center gap-2">
-              <Trophy size={16} className="text-[#D4A843]" />
+              <Trophy size={16} className="text-[var(--accent)]" />
               <h3 className="font-semibold text-white">Bảng xếp hạng</h3>
             </div>
             <span className="text-xs text-gray-500">
@@ -235,7 +235,7 @@ export default async function PerformancePage({
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-[#2a2a2a]">
+                  <tr className="border-b border-[var(--border)]">
                     <th className="text-left px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                       #
                     </th>
@@ -265,14 +265,14 @@ export default async function PerformancePage({
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#2a2a2a]">
+                <tbody className="divide-y divide-[var(--border)]">
                   {reps.map((rep, idx) => {
                     const rank = idx + 1;
                     const isTop = rank === 1;
                     return (
                       <tr
                         key={rep.rep_id}
-                        className="hover:bg-[#111111] transition-colors"
+                        className="hover:bg-[var(--bg-alt)] transition-colors"
                       >
                         {/* Rank */}
                         <td className="px-4 py-3">
@@ -281,12 +281,12 @@ export default async function PerformancePage({
                               <div
                                 className="w-7 h-7 rounded-full flex items-center justify-center"
                                 style={{
-                                  background: "rgba(212,168,67,0.15)",
+                                  background: "rgb(var(--accent-rgb) / 0.15)",
                                 }}
                               >
                                 <Trophy
                                   size={14}
-                                  className="text-[#D4A843]"
+                                  className="text-[var(--accent)]"
                                 />
                               </div>
                             ) : (
@@ -304,15 +304,15 @@ export default async function PerformancePage({
                               <img
                                 src={rep.rep_avatar}
                                 alt={rep.rep_name}
-                                className={`w-8 h-8 rounded-full object-cover ring-2 ${isTop ? "ring-[#D4A843]/40" : "ring-transparent"}`}
+                                className={`w-8 h-8 rounded-full object-cover ring-2 ${isTop ? "ring-[var(--accent)]/40" : "ring-transparent"}`}
                               />
                             ) : (
                               <div
                                 className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
                                 style={{
                                   background: isTop
-                                    ? "linear-gradient(135deg, #D4A843, #b8922e)"
-                                    : "linear-gradient(135deg, #3b82f6, #1d4ed8)",
+                                    ? "linear-gradient(135deg, var(--accent), var(--accent-hover))"
+                                    : "linear-gradient(135deg, var(--info), var(--cat-blue))",
                                 }}
                               >
                                 {getInitials(rep.rep_name)}
@@ -322,13 +322,13 @@ export default async function PerformancePage({
                               <p
                                 className="font-medium text-white text-sm"
                                 style={{
-                                  color: isTop ? "#D4A843" : undefined,
+                                  color: isTop ? "var(--accent)" : undefined,
                                 }}
                               >
                                 {rep.rep_name}
                               </p>
                               {isTop && (
-                                <p className="text-[10px] text-[#D4A843] opacity-70">
+                                <p className="text-[10px] text-[var(--accent)] opacity-70">
                                   Top performer
                                 </p>
                               )}
@@ -345,7 +345,7 @@ export default async function PerformancePage({
 
                         {/* Deals (won/total) */}
                         <td className="px-4 py-3 text-center">
-                          <span className="text-[#22c55e] font-semibold">
+                          <span className="text-[var(--success)] font-semibold">
                             {rep.won_deals}
                           </span>
                           <span className="text-gray-500">
@@ -363,17 +363,17 @@ export default async function PerformancePage({
                         {/* Conversion Rate with Progress Bar */}
                         <td className="px-4 py-3">
                           <div className="flex items-center gap-2">
-                            <div className="flex-1 h-2 rounded-full overflow-hidden bg-[#1a1a1a]">
+                            <div className="flex-1 h-2 rounded-full overflow-hidden bg-[var(--surface)]">
                               <div
                                 className="h-full rounded-full transition-all"
                                 style={{
                                   width: `${Math.min(rep.conversion_rate, 100)}%`,
                                   background:
                                     rep.conversion_rate >= 50
-                                      ? "#22c55e"
+                                      ? "var(--success)"
                                       : rep.conversion_rate >= 25
-                                        ? "#f59e0b"
-                                        : "#ef4444",
+                                        ? "var(--warn)"
+                                        : "var(--danger)",
                                 }}
                               />
                             </div>
@@ -403,8 +403,8 @@ export default async function PerformancePage({
                             <span
                               className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full"
                               style={{
-                                background: "rgba(245,158,11,0.1)",
-                                color: "#f59e0b",
+                                background: "rgb(var(--warn-rgb) / 0.1)",
+                                color: "var(--warn)",
                               }}
                             >
                               {rep.pending_actions}
@@ -412,7 +412,7 @@ export default async function PerformancePage({
                           ) : (
                             <CheckCircle
                               size={14}
-                              className="text-[#22c55e] mx-auto"
+                              className="text-[var(--success)] mx-auto"
                             />
                           )}
                         </td>
@@ -437,7 +437,7 @@ export default async function PerformancePage({
         {reps.length > 0 && (
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <TrendingUp size={16} className="text-[#D4A843]" />
+              <TrendingUp size={16} className="text-[var(--accent)]" />
               <h3 className="font-semibold text-white">
                 Chi tiết từng thành viên
               </h3>
@@ -467,8 +467,8 @@ export default async function PerformancePage({
                           style={{
                             background:
                               idx === 0
-                                ? "linear-gradient(135deg, #D4A843, #b8922e)"
-                                : "linear-gradient(135deg, #3b82f6, #1d4ed8)",
+                                ? "linear-gradient(135deg, var(--accent), var(--accent-hover))"
+                                : "linear-gradient(135deg, var(--info), var(--cat-blue))",
                           }}
                         >
                           {getInitials(rep.rep_name)}
@@ -483,7 +483,7 @@ export default async function PerformancePage({
                         </p>
                       </div>
                       {idx === 0 && (
-                        <Trophy size={16} className="text-[#D4A843] shrink-0" />
+                        <Trophy size={16} className="text-[var(--accent)] shrink-0" />
                       )}
                     </div>
 
@@ -538,14 +538,14 @@ export default async function PerformancePage({
                             className="h-2 rounded-full"
                             style={{
                               width: "100%",
-                              background: "rgba(59,130,246,0.3)",
+                              background: "rgb(var(--info-rgb) / 0.3)",
                             }}
                           >
                             <div
                               className="h-full rounded-full"
                               style={{
                                 width: "100%",
-                                background: "#3b82f6",
+                                background: "var(--info)",
                               }}
                             />
                           </div>
@@ -567,7 +567,7 @@ export default async function PerformancePage({
                               className="h-full rounded-full"
                               style={{
                                 width: `${rep.total_contacts > 0 ? (rep.converted_contacts / rep.total_contacts) * 100 : 0}%`,
-                                background: "#a855f7",
+                                background: "var(--cat-purple)",
                               }}
                             />
                           </div>
@@ -582,14 +582,14 @@ export default async function PerformancePage({
                             className="h-2 rounded-full"
                             style={{
                               width: "100%",
-                              background: "rgba(34,197,94,0.15)",
+                              background: "rgb(var(--success-rgb) / 0.15)",
                             }}
                           >
                             <div
                               className="h-full rounded-full"
                               style={{
                                 width: `${rep.total_contacts > 0 ? (rep.won_deals / rep.total_contacts) * 100 : 0}%`,
-                                background: "#22c55e",
+                                background: "var(--success)",
                               }}
                             />
                           </div>
@@ -601,9 +601,9 @@ export default async function PerformancePage({
                     </div>
 
                     {/* Quick Stats Footer */}
-                    <div className="flex items-center justify-between pt-3 border-t border-[#2a2a2a]">
+                    <div className="flex items-center justify-between pt-3 border-t border-[var(--border)]">
                       <div className="text-center">
-                        <p className="text-sm font-bold text-[#D4A843]">
+                        <p className="text-sm font-bold text-[var(--accent)]">
                           {formatVND(rep.total_revenue)}
                         </p>
                         <p className="text-[10px] text-gray-500">Revenue</p>
@@ -616,13 +616,13 @@ export default async function PerformancePage({
                       </div>
                       <div className="text-center">
                         {rep.pending_actions > 0 ? (
-                          <p className="text-sm font-bold text-[#f59e0b]">
+                          <p className="text-sm font-bold text-[var(--warn)]">
                             {rep.pending_actions}
                           </p>
                         ) : (
                           <CheckCircle
                             size={14}
-                            className="text-[#22c55e] mx-auto"
+                            className="text-[var(--success)] mx-auto"
                           />
                         )}
                         <p className="text-[10px] text-gray-500">Pending</p>

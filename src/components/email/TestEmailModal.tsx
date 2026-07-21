@@ -87,17 +87,17 @@ export default function TestEmailModal({
     >
       <div
         className="w-full max-w-md rounded-xl overflow-hidden"
-        style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+        style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-[#2a2a2a]">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-[var(--border)]">
           <div className="flex items-center gap-2.5">
             <div
               className="w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{ background: "rgba(59,130,246,0.12)" }}
+              style={{ background: "rgb(var(--info-rgb) / 0.12)" }}
             >
-              <Mail size={16} className="text-[#3b82f6]" />
+              <Mail size={16} className="text-[var(--info)]" />
             </div>
             <div>
               <h3 className="text-white font-semibold text-sm">
@@ -146,27 +146,27 @@ export default function TestEmailModal({
               className="flex items-start gap-2.5 p-3.5 rounded-lg text-sm"
               style={{
                 background: result.ok
-                  ? "rgba(212,168,67,0.08)"
-                  : "rgba(239,68,68,0.08)",
+                  ? "rgb(var(--accent-rgb) / 0.08)"
+                  : "rgb(var(--danger-rgb) / 0.08)",
                 border: result.ok
-                  ? "1px solid rgba(212,168,67,0.2)"
-                  : "1px solid rgba(239,68,68,0.2)",
+                  ? "1px solid rgb(var(--accent-rgb) / 0.2)"
+                  : "1px solid rgb(var(--danger-rgb) / 0.2)",
               }}
             >
               {result.ok ? (
                 <Check
                   size={16}
-                  className="text-[#D4A843] shrink-0 mt-0.5"
+                  className="text-[var(--accent)] shrink-0 mt-0.5"
                 />
               ) : (
                 <AlertCircle
                   size={16}
-                  className="text-[#ef4444] shrink-0 mt-0.5"
+                  className="text-[var(--danger)] shrink-0 mt-0.5"
                 />
               )}
               <p
                 style={{
-                  color: result.ok ? "#D4A843" : "#ef4444",
+                  color: result.ok ? "var(--accent)" : "var(--danger)",
                 }}
               >
                 {result.msg}
@@ -176,11 +176,11 @@ export default function TestEmailModal({
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-end gap-3 px-5 py-4 border-t border-[#2a2a2a]">
+        <div className="flex items-center justify-end gap-3 px-5 py-4 border-t border-[var(--border)]">
           <button
             onClick={handleClose}
             className="px-4 py-2 rounded-lg text-sm text-gray-400 hover:text-white transition-colors"
-            style={{ border: "1px solid #2a2a2a" }}
+            style={{ border: "1px solid var(--border)" }}
           >
             Dong
           </button>
@@ -189,9 +189,9 @@ export default function TestEmailModal({
             disabled={sending || !email.trim()}
             className="flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-colors"
             style={{
-              background: "rgba(59,130,246,0.15)",
-              color: "#3b82f6",
-              border: "1px solid rgba(59,130,246,0.3)",
+              background: "rgb(var(--info-rgb) / 0.15)",
+              color: "var(--info)",
+              border: "1px solid rgb(var(--info-rgb) / 0.3)",
               opacity: sending || !email.trim() ? 0.5 : 1,
               cursor: sending || !email.trim() ? "not-allowed" : "pointer",
             }}

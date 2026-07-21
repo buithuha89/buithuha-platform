@@ -47,33 +47,33 @@ const STATUS_CONFIG: Record<
 > = {
   active: {
     label: "Hoạt động",
-    color: "#D4A843",
-    bg: "rgba(212,168,67,0.1)",
-    border: "rgba(212,168,67,0.2)",
+    color: "var(--accent)",
+    bg: "rgb(var(--accent-rgb) / 0.1)",
+    border: "rgb(var(--accent-rgb) / 0.2)",
   },
   unsubscribed: {
     label: "Huỷ đăng ký",
-    color: "#f59e0b",
-    bg: "rgba(245,158,11,0.1)",
-    border: "rgba(245,158,11,0.2)",
+    color: "var(--warn)",
+    bg: "rgb(var(--warn-rgb) / 0.1)",
+    border: "rgb(var(--warn-rgb) / 0.2)",
   },
   bounced: {
     label: "Bounced",
-    color: "#ef4444",
-    bg: "rgba(239,68,68,0.1)",
-    border: "rgba(239,68,68,0.2)",
+    color: "var(--danger)",
+    bg: "rgb(var(--danger-rgb) / 0.1)",
+    border: "rgb(var(--danger-rgb) / 0.2)",
   },
 };
 
 const LIST_COLORS = [
-  "#D4A843",
-  "#3b82f6",
-  "#8b5cf6",
-  "#f59e0b",
-  "#ef4444",
-  "#ec4899",
-  "#14b8a6",
-  "#f97316",
+  "var(--accent)",
+  "var(--info)",
+  "var(--cat-violet)",
+  "var(--warn)",
+  "var(--danger)",
+  "var(--cat-pink)",
+  "var(--cat-teal)",
+  "var(--cat-orange)",
 ];
 
 function formatDate(iso: string): string {
@@ -247,21 +247,21 @@ export default function ListDetailPage() {
 
   // ── Skeleton row ──
   const SkeletonRow = () => (
-    <tr style={{ borderBottom: "1px solid #1f1f1f" }}>
+    <tr style={{ borderBottom: "1px solid var(--surface-2)" }}>
       <td className="px-4 py-3">
-        <div className="w-40 h-4 rounded bg-[#222] animate-pulse" />
+        <div className="w-40 h-4 rounded bg-[var(--surface-2)] animate-pulse" />
       </td>
       <td className="px-4 py-3">
-        <div className="w-24 h-4 rounded bg-[#222] animate-pulse" />
+        <div className="w-24 h-4 rounded bg-[var(--surface-2)] animate-pulse" />
       </td>
       <td className="px-4 py-3">
-        <div className="w-16 h-4 rounded bg-[#222] animate-pulse" />
+        <div className="w-16 h-4 rounded bg-[var(--surface-2)] animate-pulse" />
       </td>
       <td className="px-4 py-3">
-        <div className="w-20 h-4 rounded bg-[#222] animate-pulse" />
+        <div className="w-20 h-4 rounded bg-[var(--surface-2)] animate-pulse" />
       </td>
       <td className="px-4 py-3">
-        <div className="w-6 h-4 rounded bg-[#222] animate-pulse" />
+        <div className="w-6 h-4 rounded bg-[var(--surface-2)] animate-pulse" />
       </td>
     </tr>
   );
@@ -272,8 +272,8 @@ export default function ListDetailPage() {
         <TopBar title="Đang tải..." subtitle="" />
         <div className="p-6 max-w-6xl mx-auto">
           <div className="card-dark p-6">
-            <div className="w-48 h-6 rounded bg-[#222] animate-pulse mb-3" />
-            <div className="w-72 h-4 rounded bg-[#222] animate-pulse" />
+            <div className="w-48 h-6 rounded bg-[var(--surface-2)] animate-pulse mb-3" />
+            <div className="w-72 h-4 rounded bg-[var(--surface-2)] animate-pulse" />
           </div>
         </div>
       </div>
@@ -349,8 +349,8 @@ export default function ListDetailPage() {
                   onClick={() => setEditing(false)}
                   className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-400 rounded-lg transition-colors hover:text-white"
                   style={{
-                    background: "#1f1f1f",
-                    border: "1px solid #2a2a2a",
+                    background: "var(--surface-2)",
+                    border: "1px solid var(--border)",
                   }}
                 >
                   <X size={14} /> Hủy
@@ -407,8 +407,8 @@ export default function ListDetailPage() {
                 onClick={startEditing}
                 className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-400 rounded-lg transition-colors hover:text-white shrink-0"
                 style={{
-                  background: "#1f1f1f",
-                  border: "1px solid #2a2a2a",
+                  background: "var(--surface-2)",
+                  border: "1px solid var(--border)",
                 }}
               >
                 <Edit size={14} /> Chỉnh sửa
@@ -422,7 +422,7 @@ export default function ListDetailPage() {
           {/* Header */}
           <div
             className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-4 py-3"
-            style={{ borderBottom: "1px solid #2a2a2a" }}
+            style={{ borderBottom: "1px solid var(--border)" }}
           >
             <div className="relative flex-1 w-full sm:w-auto">
               <Search
@@ -449,7 +449,7 @@ export default function ListDetailPage() {
           {loadingSubs ? (
             <table className="w-full text-sm">
               <thead>
-                <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                <tr style={{ borderBottom: "1px solid var(--border)" }}>
                   <th className="text-left text-xs text-gray-500 font-medium px-4 py-3">
                     Email
                   </th>
@@ -475,9 +475,9 @@ export default function ListDetailPage() {
             <div className="p-10 text-center">
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3"
-                style={{ background: "rgba(59,130,246,0.1)" }}
+                style={{ background: "rgb(var(--info-rgb) / 0.1)" }}
               >
-                <Mail size={24} className="text-[#3b82f6]" />
+                <Mail size={24} className="text-[var(--info)]" />
               </div>
               <p className="text-white font-medium mb-1">
                 Chưa có subscriber nào trong list
@@ -497,7 +497,7 @@ export default function ListDetailPage() {
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                    <tr style={{ borderBottom: "1px solid var(--border)" }}>
                       <th className="text-left text-xs text-gray-500 font-medium px-4 py-3">
                         Email
                       </th>
@@ -520,11 +520,11 @@ export default function ListDetailPage() {
                       return (
                         <tr
                           key={sub.id}
-                          className="hover:bg-[#1f1f1f] transition-colors"
+                          className="hover:bg-[var(--surface-2)] transition-colors"
                           style={{
                             borderBottom:
                               idx < subscribers.length - 1
-                                ? "1px solid #1f1f1f"
+                                ? "1px solid var(--surface-2)"
                                 : "none",
                           }}
                         >
@@ -565,7 +565,7 @@ export default function ListDetailPage() {
                           <td className="px-4 py-3">
                             <button
                               onClick={() => handleRemoveFromList(sub.id)}
-                              className="text-gray-500 hover:text-red-400 transition-colors p-1 rounded-md hover:bg-[#2a2a2a]"
+                              className="text-gray-500 hover:text-red-400 transition-colors p-1 rounded-md hover:bg-[var(--border)]"
                               title="Gỡ khỏi list"
                             >
                               <Trash2 size={15} />
@@ -581,7 +581,7 @@ export default function ListDetailPage() {
               {/* Pagination */}
               <div
                 className="flex items-center justify-between px-4 py-3"
-                style={{ borderTop: "1px solid #2a2a2a" }}
+                style={{ borderTop: "1px solid var(--border)" }}
               >
                 <span className="text-xs text-gray-500">
                   Trang {page}/{totalPages} (
@@ -593,8 +593,8 @@ export default function ListDetailPage() {
                     disabled={page <= 1}
                     className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-gray-400 rounded-lg transition-colors hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
                     style={{
-                      background: "#1f1f1f",
-                      border: "1px solid #2a2a2a",
+                      background: "var(--surface-2)",
+                      border: "1px solid var(--border)",
                     }}
                   >
                     <ChevronLeft size={14} /> Trước
@@ -606,8 +606,8 @@ export default function ListDetailPage() {
                     disabled={page >= totalPages}
                     className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-gray-400 rounded-lg transition-colors hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
                     style={{
-                      background: "#1f1f1f",
-                      border: "1px solid #2a2a2a",
+                      background: "var(--surface-2)",
+                      border: "1px solid var(--border)",
                     }}
                   >
                     Sau <ChevronRight size={14} />
@@ -635,7 +635,7 @@ export default function ListDetailPage() {
           >
             <div
               className="flex items-center justify-between px-5 py-4"
-              style={{ borderBottom: "1px solid #2a2a2a" }}
+              style={{ borderBottom: "1px solid var(--border)" }}
             >
               <h3 className="text-white font-semibold text-sm">
                 Thêm subscriber vào list
@@ -671,8 +671,8 @@ export default function ListDetailPage() {
                   onClick={() => setAddSubModalOpen(false)}
                   className="flex-1 py-2 text-sm font-medium text-gray-400 rounded-lg"
                   style={{
-                    background: "#1f1f1f",
-                    border: "1px solid #2a2a2a",
+                    background: "var(--surface-2)",
+                    border: "1px solid var(--border)",
                   }}
                 >
                   Hủy

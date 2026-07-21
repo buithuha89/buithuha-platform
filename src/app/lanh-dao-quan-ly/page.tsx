@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const data: SiloData = {
   slug: "lanh-dao-quan-ly",
   num: 4,
-  color: "#84CC16",
+  color: "var(--cat-lime)",
   title: "Lãnh đạo & Quản lý",
   subtitle: "Cho quản lý cấp trung và doanh chủ SME",
   intro:

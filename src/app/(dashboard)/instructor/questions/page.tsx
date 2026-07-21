@@ -295,7 +295,7 @@ export default function InstructorQuestionsPage() {
             <select
               value={filterCourse}
               onChange={(e) => setFilterCourse(e.target.value)}
-              className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843] transition-colors"
+              className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)] transition-colors"
             >
               <option value="">Tất cả khoá học</option>
               {courses.map((c) => (
@@ -313,7 +313,7 @@ export default function InstructorQuestionsPage() {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843] transition-colors"
+              className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)] transition-colors"
             >
               <option value="">Tất cả</option>
               <option value="unresolved">Chưa giải đáp</option>
@@ -361,10 +361,10 @@ export default function InstructorQuestionsPage() {
                     onClick={() =>
                       handleToggleExpand(q.id, q.reply_count)
                     }
-                    className="w-full flex items-center gap-3 p-4 text-left hover:bg-[#1a1a1a] transition-colors"
+                    className="w-full flex items-center gap-3 p-4 text-left hover:bg-[var(--surface)] transition-colors"
                   >
                     {/* Avatar */}
-                    <div className="w-9 h-9 rounded-full bg-[#2a2a2a] shrink-0 overflow-hidden flex items-center justify-center">
+                    <div className="w-9 h-9 rounded-full bg-[var(--border)] shrink-0 overflow-hidden flex items-center justify-center">
                       {q.student_avatar ? (
                         <img
                           src={q.student_avatar}
@@ -387,18 +387,18 @@ export default function InstructorQuestionsPage() {
                         {isPinned && (
                           <Pin
                             size={12}
-                            className="text-[#D4A843] shrink-0"
+                            className="text-[var(--accent)] shrink-0"
                           />
                         )}
 
                         {/* Status badge */}
                         {isResolved ? (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-[#22c55e]/10 text-[#22c55e]">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-[var(--success)]/10 text-[var(--success)]">
                             <CheckCircle2 size={10} />
                             Đã giải đáp
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-[#f59e0b]/10 text-[#f59e0b]">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-[var(--warn)]/10 text-[var(--warn)]">
                             <Clock size={10} />
                             Chưa giải đáp
                           </span>
@@ -445,13 +445,13 @@ export default function InstructorQuestionsPage() {
                       opacity: isExpanded ? 1 : 0,
                     }}
                   >
-                    <div className="px-4 pb-4 border-t border-[#2a2a2a]">
+                    <div className="px-4 pb-4 border-t border-[var(--border)]">
                       {/* Full question content */}
                       <div className="mt-3">
                         <p className="text-xs text-gray-500 mb-1">
                           Nội dung câu hỏi
                         </p>
-                        <div className="bg-[#111] rounded-lg p-3 text-sm text-gray-300 whitespace-pre-line">
+                        <div className="bg-[var(--surface)] rounded-lg p-3 text-sm text-gray-300 whitespace-pre-line">
                           {q.content}
                         </div>
                       </div>
@@ -463,8 +463,8 @@ export default function InstructorQuestionsPage() {
                           disabled={actionLoading[`resolve-${q.id}`]}
                           className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                             q.is_resolved
-                              ? "bg-[#f59e0b]/10 text-[#f59e0b] hover:bg-[#f59e0b]/20"
-                              : "bg-[#22c55e]/10 text-[#22c55e] hover:bg-[#22c55e]/20"
+                              ? "bg-[var(--warn)]/10 text-[var(--warn)] hover:bg-[var(--warn)]/20"
+                              : "bg-[var(--success)]/10 text-[var(--success)] hover:bg-[var(--success)]/20"
                           } ${
                             actionLoading[`resolve-${q.id}`]
                               ? "opacity-40 cursor-not-allowed"
@@ -489,7 +489,7 @@ export default function InstructorQuestionsPage() {
                           disabled={actionLoading[`pin-${q.id}`]}
                           className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                             q.is_pinned
-                              ? "bg-[#D4A843]/10 text-[#D4A843] hover:bg-[#D4A843]/20"
+                              ? "bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
                               : "bg-gray-500/10 text-gray-400 hover:bg-gray-500/20"
                           } ${
                             actionLoading[`pin-${q.id}`]
@@ -510,7 +510,7 @@ export default function InstructorQuestionsPage() {
                       </div>
 
                       {/* Replies section */}
-                      <div className="mt-4 pt-3 border-t border-[#2a2a2a]">
+                      <div className="mt-4 pt-3 border-t border-[var(--border)]">
                         <p className="text-xs text-gray-400 font-medium mb-2">
                           Trả lời ({q.reply_count})
                         </p>
@@ -534,7 +534,7 @@ export default function InstructorQuestionsPage() {
                                   key={reply.id}
                                   className="flex gap-2.5"
                                 >
-                                  <div className="w-7 h-7 rounded-full bg-[#2a2a2a] shrink-0 overflow-hidden flex items-center justify-center">
+                                  <div className="w-7 h-7 rounded-full bg-[var(--border)] shrink-0 overflow-hidden flex items-center justify-center">
                                     {reply.user_avatar ? (
                                       <img
                                         src={reply.user_avatar}
@@ -559,7 +559,7 @@ export default function InstructorQuestionsPage() {
                                         {timeAgo(reply.created_at)}
                                       </span>
                                     </div>
-                                    <div className="bg-[#111] rounded-lg p-2.5 text-sm text-gray-300 whitespace-pre-line">
+                                    <div className="bg-[var(--surface)] rounded-lg p-2.5 text-sm text-gray-300 whitespace-pre-line">
                                       {reply.content}
                                     </div>
                                   </div>
@@ -589,7 +589,7 @@ export default function InstructorQuestionsPage() {
                             placeholder="Nhập trả lời..."
                             maxLength={5000}
                             rows={3}
-                            className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg p-3 text-sm text-white placeholder:text-gray-500 resize-none focus:outline-none focus:border-[#D4A843] transition-colors"
+                            className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg p-3 text-sm text-white placeholder:text-gray-500 resize-none focus:outline-none focus:border-[var(--accent)] transition-colors"
                             style={{ minHeight: "80px" }}
                           />
                           <div className="flex items-center justify-between">
@@ -602,7 +602,7 @@ export default function InstructorQuestionsPage() {
                                 replyLoading[q.id] ||
                                 !(replyContent[q.id] ?? "").trim()
                               }
-                              className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#D4A843] text-black hover:bg-[#c49a3a] ${
+                              className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[var(--accent)] text-black hover:bg-[var(--accent-hover)] ${
                                 replyLoading[q.id] ||
                                 !(replyContent[q.id] ?? "").trim()
                                   ? "opacity-40 cursor-not-allowed"
@@ -636,7 +636,7 @@ export default function InstructorQuestionsPage() {
             <button
               onClick={handleLoadMore}
               disabled={loadingMore}
-              className={`px-6 py-2 rounded-lg text-sm font-medium transition-colors bg-[#1a1a1a] text-gray-300 hover:bg-[#222] border border-[#2a2a2a] ${
+              className={`px-6 py-2 rounded-lg text-sm font-medium transition-colors bg-[var(--surface)] text-gray-300 hover:bg-[var(--surface-2)] border border-[var(--border)] ${
                 loadingMore ? "opacity-40 cursor-not-allowed" : ""
               }`}
             >

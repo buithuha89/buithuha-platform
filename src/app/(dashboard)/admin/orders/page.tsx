@@ -64,27 +64,27 @@ const STATUS_CONFIG: Record<
 > = {
   paid: {
     label: "Đã thanh toán",
-    bg: "rgba(34,197,94,0.1)",
-    color: "#22c55e",
-    border: "rgba(34,197,94,0.2)",
+    bg: "rgb(var(--success-rgb) / 0.1)",
+    color: "var(--success)",
+    border: "rgb(var(--success-rgb) / 0.2)",
   },
   pending: {
     label: "Chờ thanh toán",
-    bg: "rgba(245,158,11,0.1)",
-    color: "#f59e0b",
-    border: "rgba(245,158,11,0.2)",
+    bg: "rgb(var(--warn-rgb) / 0.1)",
+    color: "var(--warn)",
+    border: "rgb(var(--warn-rgb) / 0.2)",
   },
   cancelled: {
     label: "Đã huỷ",
-    bg: "rgba(107,114,128,0.1)",
-    color: "#6b7280",
-    border: "rgba(107,114,128,0.2)",
+    bg: "rgb(var(--neutral-rgb) / 0.1)",
+    color: "var(--fg-subtle)",
+    border: "rgb(var(--neutral-rgb) / 0.2)",
   },
   refunded: {
     label: "Hoàn tiền",
-    bg: "rgba(239,68,68,0.1)",
-    color: "#ef4444",
-    border: "rgba(239,68,68,0.2)",
+    bg: "rgb(var(--danger-rgb) / 0.1)",
+    color: "var(--danger)",
+    border: "rgb(var(--danger-rgb) / 0.2)",
   },
 };
 
@@ -103,13 +103,13 @@ function StatusBadge({ status }: { status: OrderStatus }) {
 function StatusIcon({ status }: { status: OrderStatus }) {
   switch (status) {
     case "paid":
-      return <CheckCircle size={17} className="text-[#D4A843]" />;
+      return <CheckCircle size={17} className="text-[var(--accent)]" />;
     case "pending":
-      return <Clock size={17} className="text-[#f59e0b]" />;
+      return <Clock size={17} className="text-[var(--warn)]" />;
     case "cancelled":
-      return <Ban size={17} className="text-[#6b7280]" />;
+      return <Ban size={17} className="text-[var(--fg-subtle)]" />;
     case "refunded":
-      return <XCircle size={17} className="text-[#ef4444]" />;
+      return <XCircle size={17} className="text-[var(--danger)]" />;
   }
 }
 
@@ -228,9 +228,9 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(59,130,246,0.12)" }}
+                style={{ background: "rgb(var(--info-rgb) / 0.12)" }}
               >
-                <ShoppingCart size={17} className="text-[#3b82f6]" />
+                <ShoppingCart size={17} className="text-[var(--info)]" />
               </div>
             </div>
             <div className="text-2xl font-bold text-white">{totalOrders}</div>
@@ -242,9 +242,9 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(212,168,67,0.12)" }}
+                style={{ background: "rgb(var(--accent-rgb) / 0.12)" }}
               >
-                <CheckCircle size={17} className="text-[#D4A843]" />
+                <CheckCircle size={17} className="text-[var(--accent)]" />
               </div>
             </div>
             <div className="text-2xl font-bold text-white">{paidOrders}</div>
@@ -256,9 +256,9 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(245,158,11,0.12)" }}
+                style={{ background: "rgb(var(--warn-rgb) / 0.12)" }}
               >
-                <Clock size={17} className="text-[#f59e0b]" />
+                <Clock size={17} className="text-[var(--warn)]" />
               </div>
             </div>
             <div className="text-2xl font-bold text-white">{pendingOrders}</div>
@@ -270,9 +270,9 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(212,168,67,0.12)" }}
+                style={{ background: "rgb(var(--accent-rgb) / 0.12)" }}
               >
-                <TrendingUp size={17} className="text-[#D4A843]" />
+                <TrendingUp size={17} className="text-[var(--accent)]" />
               </div>
             </div>
             <div className="text-2xl font-bold text-white">
@@ -305,7 +305,7 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
           {/* Header */}
           <div
             className="flex items-center justify-between px-5 py-3"
-            style={{ borderBottom: "1px solid #2a2a2a" }}
+            style={{ borderBottom: "1px solid var(--border)" }}
           >
             <span className="text-xs text-gray-500">
               {query ? (
@@ -313,7 +313,7 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
                   Tìm thấy{" "}
                   <span className="text-white font-medium">{totalFilteredOrders}</span>{" "}
                   kết quả cho &ldquo;
-                  <span className="text-[#D4A843]">{query}</span>&rdquo;
+                  <span className="text-[var(--accent)]">{query}</span>&rdquo;
                 </>
               ) : (
                 <>
@@ -329,9 +329,9 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
               <span
                 className="text-xs font-medium px-2.5 py-1 rounded-lg"
                 style={{
-                  background: "rgba(245,158,11,0.1)",
-                  color: "#f59e0b",
-                  border: "1px solid rgba(245,158,11,0.2)",
+                  background: "rgb(var(--warn-rgb) / 0.1)",
+                  color: "var(--warn)",
+                  border: "1px solid rgb(var(--warn-rgb) / 0.2)",
                 }}
               >
                 {pendingOrders} đơn chờ thanh toán
@@ -353,7 +353,7 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                  <tr style={{ borderBottom: "1px solid var(--border)" }}>
                     {[
                       "Mã đơn",
                       "Khách hàng",
@@ -381,7 +381,7 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
                       style={{
                         borderBottom:
                           idx < rows.length - 1
-                            ? "1px solid #1f1f1f"
+                            ? "1px solid var(--surface-2)"
                             : "none",
                       }}
                     >
@@ -497,20 +497,20 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
           {totalPages > 1 && (
             <div
               className="flex items-center justify-center gap-4 px-4 py-3"
-              style={{ borderTop: "1px solid #2a2a2a" }}
+              style={{ borderTop: "1px solid var(--border)" }}
             >
               {safePage > 1 ? (
                 <Link
                   href={buildPageUrl(safePage - 1)}
                   className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-white transition-colors"
-                  style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                 >
                   ← Trước
                 </Link>
               ) : (
                 <span
                   className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 cursor-not-allowed"
-                  style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                 >
                   ← Trước
                 </span>
@@ -524,14 +524,14 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
                 <Link
                   href={buildPageUrl(safePage + 1)}
                   className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-white transition-colors"
-                  style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                 >
                   Tiếp →
                 </Link>
               ) : (
                 <span
                   className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 cursor-not-allowed"
-                  style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                 >
                   Tiếp →
                 </span>

@@ -2,17 +2,23 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import {
+  QUIZ_QUESTIONS as QUESTIONS,
+  QUIZ_OPTIONS as OPTIONS,
+  QUIZ_MAX as MAX,
+  QUIZ_BANDS as BANDS,
+} from "@/lib/trac-nghiem/quiz";
 
 const CSS = `
-.tnq{--paper:#F7F3EC;--surf:#FFFDF9;--surf2:#F1EADD;--ink:#221E18;--muted:#6E6455;--faint:#9A8E7B;
---line:#E7DECE;--line2:#F0E9DB;--night:#14171C;
---gold:#CC8A22;--gold-b:#E4A93A;--gold-d:#A9741A;--gold-tint:#F6EAD1;--gold-line:#E7CE9C;
+.tnq{--paper:var(--bg);--surf:var(--surface);--surf2:var(--bg-alt);--ink:var(--fg);--muted:var(--fg-muted);--faint:#9A8E7B;
+--line:var(--border);--line2:#F0E9DB;--night:#14171C;
+--gold:var(--accent-hover);--gold-b:#E4A93A;--gold-d:var(--accent-hover);--gold-tint:#F6EAD1;--gold-line:#E7CE9C;
 --teal:#0C6070;--teal-tint:#E4EEEF;--teal-line:#BAD7DB;--pain:#B4530A;--pain-tint:#FAEBDD;
 --f:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 background:var(--paper);color:var(--ink);font-family:var(--f);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
 .tnq *{box-sizing:border-box}
 .tnq .wrap{max-width:680px;margin:0 auto;padding:0 20px}
-.tnq .top{background:var(--night);color:#F3EEE4;padding:20px 0;text-align:center}
+.tnq .top{background:var(--night);color:var(--bg-alt);padding:20px 0;text-align:center}
 .tnq .top .brand{font-weight:800;font-size:14px;letter-spacing:.01em;color:#fff;text-decoration:none}
 .tnq .top .brand small{display:block;font-weight:500;font-size:11px;color:#9A8F7D}
 .tnq .stage{padding:44px 0 90px}
@@ -66,64 +72,6 @@ padding:15px 18px;font-size:15.5px;font-weight:600;color:var(--ink);cursor:point
 @media(max-width:560px){.tnq .stage{padding:32px 0 70px}.tnq .card{padding:24px 20px}}
 `;
 
-const QUESTIONS = [
-  "Việc quan trọng, tôi thấy tự làm cho chắc thay vì giao đi.",
-  "Tôi thường phải kiểm lại, sửa lại việc đã giao cho nhân viên.",
-  "Nghỉ một, hai ngày là công việc ùn lại chờ tôi về xử lý.",
-  "Nhân viên hay hỏi lại tôi những việc đáng ra họ tự quyết được.",
-  "Tôi khó tìm được người “làm được như mình”.",
-  "Cuối ngày tôi mới bắt đầu làm phần việc thật sự của mình, sau khi lo cho mọi người.",
-  "Tôi ôm nhiều đầu việc tới mức không nhớ hết mình đang gánh những gì.",
-  "Tôi ngại giao việc vì giải thích còn lâu hơn tự làm.",
-  "Đội của tôi giỏi “làm theo” hơn là chủ động tự quyết.",
-  "Tôi thấy mình là nút cổ chai — nhiều việc phải qua tôi mới chạy tiếp.",
-  "Tôi hiếm khi có thời gian cho việc lớn, tầm nhìn — vì bận việc vụn.",
-  "Nếu tôi vắng mặt một tuần, tôi không chắc mọi thứ vẫn ổn.",
-];
-
-const OPTIONS = [
-  { label: "Thường xuyên đúng với tôi", score: 2 },
-  { label: "Thỉnh thoảng", score: 1 },
-  { label: "Hiếm khi / không đúng", score: 0 },
-];
-
-const MAX = QUESTIONS.length * 2; // 24
-
-const BANDS = [
-  {
-    min: 0, max: 6, emoji: "👑", band: "Người DẪN DẮT",
-    title: "Bạn đang DẪN DẮT",
-    body: "Đội của bạn tự chạy khá tốt và bạn đang ở đúng vai người dẫn dắt — không phải người làm thay. Việc của bạn giờ là nâng trần: xây lớp kế cận, chuẩn hoá để nhân bản mô hình cho quy mô lớn hơn.",
-    recLabel: "Bước tiếp cho bạn",
-    recText: "Đào sâu Khung năng lực & Quản trị hiệu suất để đội không chỉ tự chạy mà còn tự lớn.",
-    ctaText: "Xem chủ đề Lãnh đạo & Quản lý →", ctaHref: "/lanh-dao-quan-ly",
-  },
-  {
-    min: 7, max: 12, emoji: "🌤️", band: "Nghiêng về dẫn dắt",
-    title: "Bạn nghiêng về DẪN DẮT — còn vài chỗ đang ôm",
-    body: "Bạn đã giao được kha khá, nhưng vẫn còn vài mảng tự ôm “cho chắc”. Chỉ cần gỡ 2–3 nút thắt quen thuộc là đội có thể tự chạy hẳn, và bạn nhẹ gánh rõ rệt.",
-    recLabel: "Bước tiếp cho bạn",
-    recText: "Tập trung vào Giao việc & uỷ quyền — biến thứ trong đầu bạn thành quy trình ai cũng dùng được.",
-    ctaText: "Xem chương trình Người Tắt Đèn Cuối Cùng →", ctaHref: "/nguoi-tat-den-cuoi-cung",
-  },
-  {
-    min: 13, max: 18, emoji: "🔥", band: "Đang GÁNH là chính",
-    title: "Bạn đang GÁNH là chính",
-    body: "Bạn đang là nút cổ chai: nhiều việc phải qua tay bạn mới chạy tiếp, và bạn khó rời khỏi việc vụn để lo việc lớn. Đây là lúc chuyển từ “làm cho nhanh” sang “xây hệ thống” — trước khi kiệt sức.",
-    recLabel: "Bước tiếp cho bạn",
-    recText: "Chương trình 6 năng lực giúp bạn đưa việc ra khỏi đầu mình, để đội tự chạy mà vẫn giữ chuẩn.",
-    ctaText: "Xem chương trình Người Tắt Đèn Cuối Cùng →", ctaHref: "/nguoi-tat-den-cuoi-cung",
-  },
-  {
-    min: 19, max: 24, emoji: "🌙", band: "GÁNH gần như tất cả",
-    title: "Bạn đang GÁNH gần như tất cả",
-    body: "Doanh nghiệp/đội đang phụ thuộc gần như hoàn toàn vào một mình bạn — rủi ro lớn nhất là kiệt sức và không nhân bản được chính mình. Tin tốt: đây cũng là lúc một cách làm khác tạo ra thay đổi rõ nhất.",
-    recLabel: "Bắt đầu từ đây",
-    recText: "Bắt đầu chuyển giao ngay từ những việc lặp lại. Chương trình Người Tắt Đèn Cuối Cùng được thiết kế đúng cho tình huống này.",
-    ctaText: "Xem chương trình Người Tắt Đèn Cuối Cùng →", ctaHref: "/nguoi-tat-den-cuoi-cung",
-  },
-];
-
 export default function TracNghiemClient() {
   const [step, setStep] = useState<"intro" | "quiz" | "form" | "result">("intro");
   const [idx, setIdx] = useState(0);
@@ -154,21 +102,33 @@ export default function TracNghiemClient() {
     setStatus("loading");
     setErr("");
     try {
-      const res = await fetch("/api/auth/register", {
+      const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           full_name: form.name,
           email: form.email,
           phone: form.phone,
-          password: crypto.randomUUID().slice(0, 12) + "Aa1",
-          newsletter_opt_in: true,
+          source: "trac_nghiem",
+          quiz_score: total,
         }),
       });
-      const d = await res.json();
-      if (res.ok && d.success) setStep("result");
-      else { setErr(d.error || "Có lỗi xảy ra. Vui lòng thử lại."); setStatus("idle"); }
-    } catch {
+      const d = await res.json().catch(() => ({}));
+      if (res.ok && d.success) {
+        setStep("result");
+        return;
+      }
+      // Lỗi do người dùng nhập sai (400) hoặc gửi quá nhanh (429): báo để sửa rồi gửi lại.
+      if (res.status === 400 || res.status === 429) {
+        setErr(d.error || "Có lỗi xảy ra. Vui lòng thử lại.");
+        setStatus("idle");
+        return;
+      }
+      // Lỗi phía hệ thống: khách đã làm xong bài thì vẫn phải được xem kết quả.
+      console.error("[TracNghiem] lưu lead thất bại:", res.status, d.error);
+      setStep("result");
+    } catch (e) {
+      console.error("[TracNghiem] lỗi kết nối khi lưu lead:", e);
       setErr("Lỗi kết nối. Vui lòng thử lại.");
       setStatus("idle");
     }

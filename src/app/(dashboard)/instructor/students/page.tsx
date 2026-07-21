@@ -60,15 +60,15 @@ function timeAgo(iso: string | null): string {
 }
 
 function progressColor(percent: number): string {
-  if (percent >= 70) return "#22c55e";
-  if (percent >= 30) return "#eab308";
-  return "#f97316";
+  if (percent >= 70) return "var(--success)";
+  if (percent >= 30) return "var(--warn)";
+  return "var(--cat-orange)";
 }
 
 function progressGradient(percent: number): string {
-  if (percent >= 70) return "linear-gradient(90deg, #16a34a, #22c55e)";
-  if (percent >= 30) return "linear-gradient(90deg, #ca8a04, #eab308)";
-  return "linear-gradient(90deg, #ea580c, #f97316)";
+  if (percent >= 70) return "linear-gradient(90deg, var(--success), var(--success))";
+  if (percent >= 30) return "linear-gradient(90deg, #ca8a04, var(--warn))";
+  return "linear-gradient(90deg, var(--cat-orange), var(--cat-orange))";
 }
 
 function getInitials(name: string | null): string {
@@ -190,9 +190,9 @@ export default function InstructorStudentsPage() {
               <span className="text-xs text-gray-400">Tổng học viên</span>
               <div
                 className="w-7 h-7 rounded-lg flex items-center justify-center"
-                style={{ background: "rgba(59,130,246,0.1)" }}
+                style={{ background: "rgb(var(--info-rgb) / 0.1)" }}
               >
-                <Users size={14} style={{ color: "#3b82f6" }} />
+                <Users size={14} style={{ color: "var(--info)" }} />
               </div>
             </div>
             <div className="text-xl font-bold text-white">
@@ -204,12 +204,12 @@ export default function InstructorStudentsPage() {
               <span className="text-xs text-gray-400">Hoàn thành</span>
               <div
                 className="w-7 h-7 rounded-lg flex items-center justify-center"
-                style={{ background: "rgba(34,197,94,0.1)" }}
+                style={{ background: "rgb(var(--success-rgb) / 0.1)" }}
               >
-                <CheckCircle2 size={14} style={{ color: "#22c55e" }} />
+                <CheckCircle2 size={14} style={{ color: "var(--success)" }} />
               </div>
             </div>
-            <div className="text-xl font-bold text-[#22c55e]">
+            <div className="text-xl font-bold text-[var(--success)]">
               {summaryStats.completed}
             </div>
           </div>
@@ -218,12 +218,12 @@ export default function InstructorStudentsPage() {
               <span className="text-xs text-gray-400">Đang học</span>
               <div
                 className="w-7 h-7 rounded-lg flex items-center justify-center"
-                style={{ background: "rgba(234,179,8,0.1)" }}
+                style={{ background: "rgb(var(--warn-rgb) / 0.1)" }}
               >
-                <BookOpen size={14} style={{ color: "#eab308" }} />
+                <BookOpen size={14} style={{ color: "var(--warn)" }} />
               </div>
             </div>
-            <div className="text-xl font-bold text-[#eab308]">
+            <div className="text-xl font-bold text-[var(--warn)]">
               {summaryStats.inProgress}
             </div>
           </div>
@@ -232,9 +232,9 @@ export default function InstructorStudentsPage() {
               <span className="text-xs text-gray-400">Chưa bắt đầu</span>
               <div
                 className="w-7 h-7 rounded-lg flex items-center justify-center"
-                style={{ background: "rgba(107,114,128,0.1)" }}
+                style={{ background: "rgb(var(--neutral-rgb) / 0.1)" }}
               >
-                <Clock size={14} style={{ color: "#6b7280" }} />
+                <Clock size={14} style={{ color: "var(--fg-subtle)" }} />
               </div>
             </div>
             <div className="text-xl font-bold text-gray-400">
@@ -252,7 +252,7 @@ export default function InstructorStudentsPage() {
             <select
               value={filterCourse}
               onChange={(e) => setFilterCourse(e.target.value)}
-              className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843] transition-colors"
+              className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)] transition-colors"
             >
               <option value="">Tất cả khoá học</option>
               {courses.map((c) => (
@@ -277,7 +277,7 @@ export default function InstructorStudentsPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Tìm theo tên hoặc email..."
-                className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg pl-9 pr-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#D4A843] transition-colors"
+                className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg pl-9 pr-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[var(--accent)] transition-colors"
               />
             </div>
           </div>
@@ -320,7 +320,7 @@ export default function InstructorStudentsPage() {
                   {/* ── Row header ──────────────────────────────── */}
                   <button
                     onClick={() => toggleExpanded(key)}
-                    className="w-full flex items-center gap-3 p-4 text-left hover:bg-[#1a1a1a] transition-colors"
+                    className="w-full flex items-center gap-3 p-4 text-left hover:bg-[var(--surface)] transition-colors"
                   >
                     {/* Avatar */}
                     <div className="shrink-0">
@@ -331,7 +331,7 @@ export default function InstructorStudentsPage() {
                           className="w-9 h-9 rounded-full object-cover"
                         />
                       ) : (
-                        <div className="w-9 h-9 rounded-full bg-[#2a2a2a] flex items-center justify-center text-xs font-medium text-gray-400">
+                        <div className="w-9 h-9 rounded-full bg-[var(--border)] flex items-center justify-center text-xs font-medium text-gray-400">
                           {getInitials(student.full_name)}
                         </div>
                       )}
@@ -344,7 +344,7 @@ export default function InstructorStudentsPage() {
                           {student.full_name ?? "Học viên"}
                         </span>
                         {!filterCourse && student.course_title && (
-                          <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-[#D4A843]/10 text-[#D4A843] truncate max-w-[200px]">
+                          <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-[var(--accent)]/10 text-[var(--accent)] truncate max-w-[200px]">
                             {student.course_title}
                           </span>
                         )}
@@ -352,7 +352,7 @@ export default function InstructorStudentsPage() {
 
                       {/* Progress bar */}
                       <div className="flex items-center gap-2">
-                        <div className="flex-1 h-1.5 bg-[#2a2a2a] rounded-full overflow-hidden max-w-[200px]">
+                        <div className="flex-1 h-1.5 bg-[var(--border)] rounded-full overflow-hidden max-w-[200px]">
                           <div
                             className="h-full rounded-full transition-all duration-500"
                             style={{
@@ -377,7 +377,7 @@ export default function InstructorStudentsPage() {
 
                       {/* Mobile: course title */}
                       {!filterCourse && student.course_title && (
-                        <p className="sm:hidden text-[10px] text-[#D4A843] mt-1 truncate">
+                        <p className="sm:hidden text-[10px] text-[var(--accent)] mt-1 truncate">
                           {student.course_title}
                         </p>
                       )}
@@ -412,7 +412,7 @@ export default function InstructorStudentsPage() {
                       opacity: isExpanded ? 1 : 0,
                     }}
                   >
-                    <div className="px-4 pb-4 border-t border-[#2a2a2a]">
+                    <div className="px-4 pb-4 border-t border-[var(--border)]">
                       {/* Mobile dates */}
                       <div className="sm:hidden mt-3 flex gap-4 text-[10px] text-gray-500">
                         <span>
@@ -430,7 +430,7 @@ export default function InstructorStudentsPage() {
                         </p>
 
                         {/* Visual progress breakdown */}
-                        <div className="bg-[#111] rounded-lg p-3 space-y-3">
+                        <div className="bg-[var(--surface)] rounded-lg p-3 space-y-3">
                           {/* Large progress bar */}
                           <div>
                             <div className="flex items-center justify-between mb-1.5">
@@ -444,7 +444,7 @@ export default function InstructorStudentsPage() {
                                 {student.completion_percent}%
                               </span>
                             </div>
-                            <div className="h-2.5 bg-[#2a2a2a] rounded-full overflow-hidden">
+                            <div className="h-2.5 bg-[var(--border)] rounded-full overflow-hidden">
                               <div
                                 className="h-full rounded-full transition-all duration-500"
                                 style={{
@@ -457,21 +457,21 @@ export default function InstructorStudentsPage() {
 
                           {/* Lesson count grid */}
                           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#1a1a1a]">
+                            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--surface)]">
                               <CheckCircle2
                                 size={14}
-                                className="text-[#22c55e] shrink-0"
+                                className="text-[var(--success)] shrink-0"
                               />
                               <div>
                                 <p className="text-xs text-gray-400">
                                   Hoàn thành
                                 </p>
-                                <p className="text-sm font-semibold text-[#22c55e]">
+                                <p className="text-sm font-semibold text-[var(--success)]">
                                   {student.completed_lessons} bài
                                 </p>
                               </div>
                             </div>
-                            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#1a1a1a]">
+                            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--surface)]">
                               <Clock
                                 size={14}
                                 className="text-gray-500 shrink-0"
@@ -487,10 +487,10 @@ export default function InstructorStudentsPage() {
                                 </p>
                               </div>
                             </div>
-                            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#1a1a1a]">
+                            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--surface)]">
                               <BookOpen
                                 size={14}
-                                className="text-[#D4A843] shrink-0"
+                                className="text-[var(--accent)] shrink-0"
                               />
                               <div>
                                 <p className="text-xs text-gray-400">
@@ -506,7 +506,7 @@ export default function InstructorStudentsPage() {
                       </div>
 
                       {/* Summary line */}
-                      <div className="mt-3 pt-3 border-t border-[#2a2a2a] flex items-center gap-4 text-xs text-gray-400">
+                      <div className="mt-3 pt-3 border-t border-[var(--border)] flex items-center gap-4 text-xs text-gray-400">
                         <span>
                           Hoàn thành:{" "}
                           <strong
@@ -539,8 +539,8 @@ export default function InstructorStudentsPage() {
               disabled={offset === 0}
               className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
                 offset === 0
-                  ? "bg-[#1a1a1a] text-gray-600 cursor-not-allowed"
-                  : "bg-[#1a1a1a] text-gray-300 hover:bg-[#222]"
+                  ? "bg-[var(--surface)] text-gray-600 cursor-not-allowed"
+                  : "bg-[var(--surface)] text-gray-300 hover:bg-[var(--surface-2)]"
               }`}
             >
               Trước
@@ -553,8 +553,8 @@ export default function InstructorStudentsPage() {
               disabled={currentPage >= totalPages}
               className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
                 currentPage >= totalPages
-                  ? "bg-[#1a1a1a] text-gray-600 cursor-not-allowed"
-                  : "bg-[#1a1a1a] text-gray-300 hover:bg-[#222]"
+                  ? "bg-[var(--surface)] text-gray-600 cursor-not-allowed"
+                  : "bg-[var(--surface)] text-gray-300 hover:bg-[var(--surface-2)]"
               }`}
             >
               Sau

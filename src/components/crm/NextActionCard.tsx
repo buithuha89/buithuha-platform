@@ -24,10 +24,10 @@ interface NextActionCardProps {
 }
 
 const PRIORITY_COLORS: Record<string, string> = {
-  urgent: "#ef4444",
-  high: "#f97316",
-  medium: "#3b82f6",
-  low: "#6b7280",
+  urgent: "var(--danger)",
+  high: "var(--cat-orange)",
+  medium: "var(--info)",
+  low: "var(--fg-subtle)",
 };
 
 const TYPE_ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -55,11 +55,11 @@ function isOverdue(dateStr: string): boolean {
 }
 
 export default function NextActionCard({ action }: NextActionCardProps) {
-  const priorityColor = PRIORITY_COLORS[action.priority] || "#6b7280";
+  const priorityColor = PRIORITY_COLORS[action.priority] || "var(--fg-subtle)";
   const Icon = TYPE_ICONS[action.type] || ClipboardList;
 
   return (
-    <div className="flex items-start gap-3 p-3 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a]">
+    <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--surface)] border border-[var(--border)]">
       {/* Priority dot */}
       <div className="flex-shrink-0 mt-1">
         <div
@@ -88,7 +88,7 @@ export default function NextActionCard({ action }: NextActionCardProps) {
             <span
               className="text-xs"
               style={{
-                color: isOverdue(action.due_at) ? "#ef4444" : "#9ca3af",
+                color: isOverdue(action.due_at) ? "var(--danger)" : "var(--fg-muted)",
               }}
             >
               {formatVietnameseDate(action.due_at)}
@@ -96,7 +96,7 @@ export default function NextActionCard({ action }: NextActionCardProps) {
           )}
 
           {action.assigned_to_name && (
-            <span className="text-xs px-1.5 py-0.5 rounded bg-[#2a2a2a] text-gray-300">
+            <span className="text-xs px-1.5 py-0.5 rounded bg-[var(--border)] text-gray-300">
               {action.assigned_to_name}
             </span>
           )}

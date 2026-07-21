@@ -100,7 +100,7 @@ export default function AddSubscriberModal({
         {/* Header */}
         <div
           className="flex items-center justify-between px-5 py-4"
-          style={{ borderBottom: "1px solid #2a2a2a" }}
+          style={{ borderBottom: "1px solid var(--border)" }}
         >
           <h2 className="text-white font-semibold text-base">
             Thêm subscriber mới
@@ -119,9 +119,9 @@ export default function AddSubscriberModal({
             <div
               className="text-sm px-3 py-2 rounded-lg"
               style={{
-                background: "rgba(239,68,68,0.1)",
-                color: "#ef4444",
-                border: "1px solid rgba(239,68,68,0.2)",
+                background: "rgb(var(--danger-rgb) / 0.1)",
+                color: "var(--danger)",
+                border: "1px solid rgb(var(--danger-rgb) / 0.2)",
               }}
             >
               {error}
@@ -205,7 +205,7 @@ export default function AddSubscriberModal({
               type="button"
               onClick={onClose}
               className="flex-1 py-2.5 text-sm font-medium text-gray-400 rounded-lg transition-colors hover:text-white"
-              style={{ background: "#1f1f1f", border: "1px solid #2a2a2a" }}
+              style={{ background: "var(--surface-2)", border: "1px solid var(--border)" }}
             >
               Hủy
             </button>

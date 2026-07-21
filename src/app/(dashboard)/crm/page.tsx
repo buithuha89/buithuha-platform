@@ -23,9 +23,9 @@ function timeAgo(dateStr: string): string {
 }
 
 const statusConfig: Record<string, { label: string; color: string; bg: string }> = {
-  paid:      { label: "Đã TT",   color: "#22c55e", bg: "rgba(34,197,94,0.1)" },
-  pending:   { label: "Chờ XL",  color: "#f59e0b", bg: "rgba(245,158,11,0.1)" },
-  cancelled: { label: "Đã huỷ",  color: "#6b7280", bg: "rgba(107,114,128,0.1)" },
+  paid:      { label: "Đã TT",   color: "var(--success)", bg: "rgb(var(--success-rgb) / 0.1)" },
+  pending:   { label: "Chờ XL",  color: "var(--warn)", bg: "rgb(var(--warn-rgb) / 0.1)" },
+  cancelled: { label: "Đã huỷ",  color: "var(--fg-subtle)", bg: "rgb(var(--neutral-rgb) / 0.1)" },
 };
 
 /* ---------- page ---------- */
@@ -96,12 +96,12 @@ export default async function CRMPage() {
     advocate: "Advocate",
   };
   const journeyStageColors: Record<string, string> = {
-    lead: "#3b82f6",
-    contacted: "#8b5cf6",
-    qualified: "#f59e0b",
-    negotiation: "#ef4444",
-    customer: "#22c55e",
-    advocate: "#D4A843",
+    lead: "var(--info)",
+    contacted: "var(--cat-violet)",
+    qualified: "var(--warn)",
+    negotiation: "var(--danger)",
+    customer: "var(--success)",
+    advocate: "var(--accent)",
   };
   const journeyCountMap = new Map<string, number>();
   for (const row of (journeyFunnelRes.data ?? []) as { journey_stage: string }[]) {
@@ -115,7 +115,7 @@ export default async function CRMPage() {
       stage,
       label: journeyStageLabels[stage] ?? stage,
       count: journeyCountMap.get(stage) ?? 0,
-      color: journeyStageColors[stage] ?? "#6b7280",
+      color: journeyStageColors[stage] ?? "var(--fg-subtle)",
     }))
     .filter((item) => item.count > 0 || journeyStageOrder.indexOf(item.stage) < 4);
   const maxFunnelCount = Math.max(...journeyFunnel.map((f) => f.count), 1);
@@ -168,26 +168,26 @@ export default async function CRMPage() {
       label: "Doanh thu",
       value: formatVND(overview.total_revenue),
       icon: DollarSign,
-      color: "#f59e0b",
+      color: "var(--warn)",
     },
     {
       label: "Đơn đã TT",
       value: String(overview.total_orders),
       sub: `${overview.pending_orders} đang chờ`,
       icon: ShoppingCart,
-      color: "#a855f7",
+      color: "var(--cat-purple)",
     },
     {
       label: "Khách hàng",
       value: String(overview.total_customers),
       icon: Users,
-      color: "#D4A843",
+      color: "var(--accent)",
     },
     {
       label: "TB/đơn hàng",
       value: formatVND(Math.round(overview.avg_order_value)),
       icon: TrendingUp,
-      color: "#3b82f6",
+      color: "var(--info)",
     },
   ];
 
@@ -221,10 +221,10 @@ export default async function CRMPage() {
         {/* CRM Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Lead chưa phân công", value: String(unassignedLeads), icon: AlertTriangle, color: "#ef4444" },
-            { label: "Pipeline đang hoạt động", value: String(activePipeline), icon: Target, color: "#3b82f6" },
-            { label: "Task đang chờ", value: String(pendingTasks), icon: ClipboardList, color: "#f59e0b" },
-            { label: "Tỷ lệ chuyển đổi", value: `${conversionRate}%`, icon: TrendingUp, color: "#22c55e" },
+            { label: "Lead chưa phân công", value: String(unassignedLeads), icon: AlertTriangle, color: "var(--danger)" },
+            { label: "Pipeline đang hoạt động", value: String(activePipeline), icon: Target, color: "var(--info)" },
+            { label: "Task đang chờ", value: String(pendingTasks), icon: ClipboardList, color: "var(--warn)" },
+            { label: "Tỷ lệ chuyển đổi", value: `${conversionRate}%`, icon: TrendingUp, color: "var(--success)" },
           ].map((s, i) => (
             <div key={i} className="stat-card">
               <div className="flex items-center justify-between mb-2">
@@ -244,13 +244,13 @@ export default async function CRMPage() {
         {/* Quick Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { href: "/crm/contacts", label: "Khách hàng", desc: "Quản lý danh sách liên hệ", icon: Users, color: "#D4A843" },
-            { href: "/crm/pipeline", label: "Pipeline", desc: "Theo dõi cơ hội kinh doanh", icon: GitBranch, color: "#8b5cf6" },
-            { href: "/crm/performance", label: "Hiệu suất Sale", desc: "Phân tích hiệu quả bán hàng", icon: TrendingUp, color: "#3b82f6" },
-            { href: "/crm/assignments", label: "Phân công Lead", desc: "Phân bổ lead cho sale", icon: UserCheck, color: "#22c55e" },
+            { href: "/crm/contacts", label: "Khách hàng", desc: "Quản lý danh sách liên hệ", icon: Users, color: "var(--accent)" },
+            { href: "/crm/pipeline", label: "Pipeline", desc: "Theo dõi cơ hội kinh doanh", icon: GitBranch, color: "var(--cat-violet)" },
+            { href: "/crm/performance", label: "Hiệu suất Sale", desc: "Phân tích hiệu quả bán hàng", icon: TrendingUp, color: "var(--info)" },
+            { href: "/crm/assignments", label: "Phân công Lead", desc: "Phân bổ lead cho sale", icon: UserCheck, color: "var(--success)" },
           ].map((link) => (
             <Link key={link.href} href={link.href}>
-              <div className="card-dark p-4 hover:border-[#3a3a3a] hover:bg-[#1e1e1e] transition-all cursor-pointer group">
+              <div className="card-dark p-4 hover:border-[var(--border-strong)] hover:bg-[#1e1e1e] transition-all cursor-pointer group">
                 <div className="flex items-center gap-3 mb-2">
                   <div
                     className="w-9 h-9 rounded-lg flex items-center justify-center"
@@ -258,7 +258,7 @@ export default async function CRMPage() {
                   >
                     <link.icon size={16} style={{ color: link.color }} />
                   </div>
-                  <span className="text-sm font-semibold text-white group-hover:text-[#D4A843] transition-colors">
+                  <span className="text-sm font-semibold text-white group-hover:text-[var(--accent)] transition-colors">
                     {link.label}
                   </span>
                 </div>
@@ -271,7 +271,7 @@ export default async function CRMPage() {
         {/* Journey Funnel */}
         <div className="card-dark p-5">
           <div className="flex items-center gap-2 mb-4">
-            <Target size={16} className="text-[#3b82f6]" />
+            <Target size={16} className="text-[var(--info)]" />
             <h3 className="font-semibold text-white">Customer Journey Funnel</h3>
           </div>
           {journeyFunnel.length > 0 ? (
@@ -283,7 +283,7 @@ export default async function CRMPage() {
                     <span className="text-xs text-gray-400 w-24 shrink-0 text-right">
                       {item.label}
                     </span>
-                    <div className="flex-1 h-7 rounded-md overflow-hidden" style={{ background: "#1a1a1a" }}>
+                    <div className="flex-1 h-7 rounded-md overflow-hidden" style={{ background: "var(--surface)" }}>
                       <div
                         className="h-full rounded-md flex items-center px-3 transition-all"
                         style={{
@@ -335,9 +335,9 @@ export default async function CRMPage() {
         {overview.pending_orders > 0 && (
           <div
             className="flex items-center gap-3 p-3 rounded-xl text-sm"
-            style={{ background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)" }}
+            style={{ background: "rgb(var(--warn-rgb) / 0.08)", border: "1px solid rgb(var(--warn-rgb) / 0.2)" }}
           >
-            <AlertCircle size={16} className="text-[#f59e0b] shrink-0" />
+            <AlertCircle size={16} className="text-[var(--warn)] shrink-0" />
             <div>
               <strong className="text-white">
                 {overview.pending_orders} đơn hàng đang chờ xử lý
@@ -382,7 +382,7 @@ export default async function CRMPage() {
                         className="w-full rounded-t transition-all hover:opacity-80"
                         style={{
                           height: `${pct}%`,
-                          background: "#D4A843",
+                          background: "var(--accent)",
                           minHeight: 4,
                         }}
                         title={`${dayLabel}: ${formatVND(d.revenue)} (${d.orders} đơn)`}
@@ -411,21 +411,21 @@ export default async function CRMPage() {
                 className="w-24 h-24 rounded-full flex items-center justify-center font-bold text-white"
                 style={{
                   background: totalOrdersAll > 0
-                    ? `conic-gradient(#22c55e 0% ${paidPct}%, #f59e0b ${paidPct}% ${paidPct + pendingPct}%, #6b7280 ${paidPct + pendingPct}% 100%)`
-                    : "#2a2a2a",
+                    ? `conic-gradient(var(--success) 0% ${paidPct}%, var(--warn) ${paidPct}% ${paidPct + pendingPct}%, var(--fg-subtle) ${paidPct + pendingPct}% 100%)`
+                    : "var(--border)",
                 }}
               >
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center text-sm font-bold"
-                  style={{ background: "#1a1a1a" }}
+                  style={{ background: "var(--surface)" }}
                 >
                   {totalOrdersAll > 0 ? `${paidPct}%` : "—"}
                 </div>
               </div>
             </div>
             {[
-              { label: "Đã thanh toán", count: paidCount, color: "#22c55e" },
-              { label: "Chờ xử lý", count: overview.pending_orders, color: "#f59e0b" },
+              { label: "Đã thanh toán", count: paidCount, color: "var(--success)" },
+              { label: "Chờ xử lý", count: overview.pending_orders, color: "var(--warn)" },
             ].map((item) => (
               <div key={item.label} className="flex items-center justify-between py-1.5">
                 <div className="flex items-center gap-2">
@@ -440,12 +440,12 @@ export default async function CRMPage() {
 
         {/* Recent Orders */}
         <div className="card-dark">
-          <div className="flex items-center justify-between p-5 border-b border-[#2a2a2a]">
+          <div className="flex items-center justify-between p-5 border-b border-[var(--border)]">
             <h3 className="font-semibold text-white">Đơn hàng gần đây</h3>
             <span className="text-xs text-gray-500">10 đơn mới nhất</span>
           </div>
           {recentOrders.length > 0 ? (
-            <div className="divide-y divide-[#2a2a2a]">
+            <div className="divide-y divide-[var(--border)]">
               {recentOrders.map((order) => {
                 const st = statusConfig[order.status] ?? statusConfig.cancelled;
                 const productTitle =
@@ -456,7 +456,7 @@ export default async function CRMPage() {
                   <div key={order.id} className="flex items-center gap-4 p-4">
                     <div
                       className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
-                      style={{ background: "linear-gradient(135deg,#3b82f6,#1d4ed8)" }}
+                      style={{ background: "linear-gradient(135deg,var(--info),var(--cat-blue))" }}
                     >
                       {initial}
                     </div>
@@ -491,7 +491,7 @@ export default async function CRMPage() {
         {/* Top Products */}
         <div className="card-dark p-5">
           <div className="flex items-center gap-2 mb-4">
-            <Package size={16} className="text-[#D4A843]" />
+            <Package size={16} className="text-[var(--accent)]" />
             <h3 className="font-semibold text-white">Sản phẩm bán chạy</h3>
           </div>
           {topProducts.length > 0 ? (
@@ -505,8 +505,8 @@ export default async function CRMPage() {
                         <span
                           className="w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold"
                           style={{
-                            background: i === 0 ? "rgba(245,158,11,0.15)" : "rgba(255,255,255,0.05)",
-                            color: i === 0 ? "#f59e0b" : "#9ca3af",
+                            background: i === 0 ? "rgb(var(--warn-rgb) / 0.15)" : "rgb(var(--overlay-rgb) / 0.05)",
+                            color: i === 0 ? "var(--warn)" : "var(--fg-muted)",
                           }}
                         >
                           {i + 1}
@@ -522,12 +522,12 @@ export default async function CRMPage() {
                         </span>
                       </div>
                     </div>
-                    <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "#1a1a1a" }}>
+                    <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "var(--surface)" }}>
                       <div
                         className="h-full rounded-full transition-all"
                         style={{
                           width: `${barPct}%`,
-                          background: i === 0 ? "#f59e0b" : "#D4A843",
+                          background: i === 0 ? "var(--warn)" : "var(--accent)",
                         }}
                       />
                     </div>

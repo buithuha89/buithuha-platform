@@ -341,26 +341,26 @@ export default async function CourseStudentsPage({
         {/* Stats */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <StatCard
-            icon={<Users size={20} className="text-[#3b82f6]" />}
-            bg="rgba(59,130,246,0.09)"
+            icon={<Users size={20} className="text-[var(--info)]" />}
+            bg="rgb(var(--info-rgb) / 0.09)"
             value={totalStudents}
             label="Tổng học viên"
           />
           <StatCard
-            icon={<BookCheck size={20} className="text-[#22c55e]" />}
-            bg="rgba(34,197,94,0.09)"
+            icon={<BookCheck size={20} className="text-[var(--success)]" />}
+            bg="rgb(var(--success-rgb) / 0.09)"
             value={`${avgCompletion}%`}
             label="Hoàn thành TB"
           />
           <StatCard
-            icon={<Clock size={20} className="text-[#f59e0b]" />}
-            bg="rgba(245,158,11,0.09)"
+            icon={<Clock size={20} className="text-[var(--warn)]" />}
+            bg="rgb(var(--warn-rgb) / 0.09)"
             value={activeThisWeek}
             label="Active 7 ngày"
           />
           <StatCard
-            icon={<GraduationCap size={20} className="text-[#D4A843]" />}
-            bg="rgba(212,168,67,0.09)"
+            icon={<GraduationCap size={20} className="text-[var(--accent)]" />}
+            bg="rgb(var(--accent-rgb) / 0.09)"
             value={completedAll}
             label="Hoàn thành 100%"
           />
@@ -369,7 +369,7 @@ export default async function CourseStudentsPage({
         {/* Filter tabs + CSV export */}
         <div className="flex items-center justify-between gap-4 flex-wrap">
           {/* Filter tabs */}
-          <div className="flex items-center gap-1 p-1 rounded-xl bg-[#151515]" style={{ border: "1px solid #2a2a2a" }}>
+          <div className="flex items-center gap-1 p-1 rounded-xl bg-[var(--surface)]" style={{ border: "1px solid var(--border)" }}>
             {FILTER_TABS.map((tab) => {
               const isActive = activeFilter === tab.key;
               return (
@@ -382,16 +382,16 @@ export default async function CourseStudentsPage({
                   }
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors flex items-center gap-1.5 ${
                     isActive
-                      ? "bg-[#D4A843]/15 text-[#D4A843]"
-                      : "text-gray-500 hover:text-gray-300 hover:bg-[#1f1f1f]"
+                      ? "bg-[var(--accent)]/15 text-[var(--accent)]"
+                      : "text-gray-500 hover:text-gray-300 hover:bg-[var(--surface-2)]"
                   }`}
                 >
                   {tab.label}
                   <span
                     className={`text-[10px] px-1.5 py-0.5 rounded-full ${
                       isActive
-                        ? "bg-[#D4A843]/20 text-[#D4A843]"
-                        : "bg-[#252525] text-gray-500"
+                        ? "bg-[var(--accent)]/20 text-[var(--accent)]"
+                        : "bg-[var(--surface-3)] text-gray-500"
                     }`}
                   >
                     {tabCounts[tab.key]}
@@ -405,8 +405,8 @@ export default async function CourseStudentsPage({
           <a
             href={csvDataUri}
             download={`students-${course.slug || courseId}.csv`}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium text-gray-300 hover:text-white hover:bg-[#1f1f1f] transition-colors shrink-0"
-            style={{ border: "1px solid #2a2a2a" }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium text-gray-300 hover:text-white hover:bg-[var(--surface-2)] transition-colors shrink-0"
+            style={{ border: "1px solid var(--border)" }}
           >
             <Download size={14} />
             Xuất CSV
@@ -419,7 +419,7 @@ export default async function CourseStudentsPage({
             <Filter size={12} />
             <span>
               Đang lọc:{" "}
-              <span className="text-[#D4A843] font-medium">
+              <span className="text-[var(--accent)] font-medium">
                 {FILTER_TABS.find((t) => t.key === activeFilter)?.label}
               </span>
               {" "}&middot;{" "}

@@ -31,7 +31,7 @@ export default function PublicHeader({ user }: PublicHeaderProps) {
         background: "rgba(10,10,10,0.92)",
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
-        borderBottom: "1px solid #1a1a1a",
+        borderBottom: "1px solid var(--surface)",
       }}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-14">
@@ -75,7 +75,7 @@ export default function PublicHeader({ user }: PublicHeaderProps) {
                 src={user.avatar_url}
                 initials={initials}
                 size={32}
-                gradient="linear-gradient(135deg, #D4A843, #059669)"
+                gradient="linear-gradient(135deg, var(--accent), var(--cat-emerald))"
               />
               <Link
                 href="/dashboard"
@@ -96,8 +96,8 @@ export default function PublicHeader({ user }: PublicHeaderProps) {
                 href="/register"
                 className="text-sm font-semibold py-1.5 px-4 rounded-lg transition-all"
                 style={{
-                  background: "linear-gradient(135deg, #FFD814, #FFA41C)",
-                  color: "#131921",
+                  background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
+                  color: "var(--accent-fg)",
                 }}
               >
                 Đăng ký

@@ -30,10 +30,10 @@ const CATEGORIES = [
 ];
 
 const CATEGORY_LABELS: Record<string, { label: string; color: string }> = {
-  marketing: { label: "Marketing", color: "#D4A843" },
-  newsletter: { label: "Newsletter", color: "#3b82f6" },
-  transactional: { label: "Transactional", color: "#f59e0b" },
-  other: { label: "Khac", color: "#6b7280" },
+  marketing: { label: "Marketing", color: "var(--accent)" },
+  newsletter: { label: "Newsletter", color: "var(--info)" },
+  transactional: { label: "Transactional", color: "var(--warn)" },
+  other: { label: "Khac", color: "var(--fg-subtle)" },
 };
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
@@ -179,7 +179,7 @@ export default function TemplatesPage() {
             {/* Search */}
             <div
               className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm"
-              style={{ background: "#1f1f1f", border: "1px solid #2a2a2a" }}
+              style={{ background: "var(--surface-2)", border: "1px solid var(--border)" }}
             >
               <Search size={14} className="text-gray-500" />
               <input
@@ -199,9 +199,9 @@ export default function TemplatesPage() {
                   onClick={() => setCategory(c.value)}
                   className="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
                   style={{
-                    background: category === c.value ? "rgba(212,168,67,0.12)" : "transparent",
-                    color: category === c.value ? "#D4A843" : "#9ca3af",
-                    border: category === c.value ? "1px solid rgba(212,168,67,0.25)" : "1px solid transparent",
+                    background: category === c.value ? "rgb(var(--accent-rgb) / 0.12)" : "transparent",
+                    color: category === c.value ? "var(--accent)" : "var(--fg-muted)",
+                    border: category === c.value ? "1px solid rgb(var(--accent-rgb) / 0.25)" : "1px solid transparent",
                   }}
                 >
                   {c.label}
@@ -221,15 +221,15 @@ export default function TemplatesPage() {
         {/* Templates grid */}
         {loading ? (
           <div className="flex items-center justify-center py-20">
-            <Loader2 size={24} className="animate-spin text-[#D4A843]" />
+            <Loader2 size={24} className="animate-spin text-[var(--accent)]" />
           </div>
         ) : filtered.length === 0 ? (
           <div className="card-dark flex flex-col items-center justify-center py-16 text-center">
             <div
               className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-              style={{ background: "rgba(59,130,246,0.1)" }}
+              style={{ background: "rgb(var(--info-rgb) / 0.1)" }}
             >
-              <Layout size={28} className="text-[#3b82f6]" />
+              <Layout size={28} className="text-[var(--info)]" />
             </div>
             <p className="text-white font-medium mb-1">
               {searchQuery || category !== "all"
@@ -254,7 +254,7 @@ export default function TemplatesPage() {
               return (
                 <div
                   key={t.id}
-                  className="card-dark hover:border-[#3a3a3a] transition-all group"
+                  className="card-dark hover:border-[var(--border-strong)] transition-all group"
                 >
                   {/* Card header */}
                   <div className="p-4 pb-3">
@@ -290,23 +290,23 @@ export default function TemplatesPage() {
 
                   {/* Actions */}
                   <div
-                    className="flex items-center border-t border-[#2a2a2a] divide-x divide-[#2a2a2a]"
+                    className="flex items-center border-t border-[var(--border)] divide-x divide-[var(--border)]"
                   >
                     <button
                       onClick={() => handleEdit(t)}
-                      className="flex items-center justify-center gap-1.5 flex-1 py-2.5 text-xs text-gray-400 hover:text-white hover:bg-[#252525] transition-colors"
+                      className="flex items-center justify-center gap-1.5 flex-1 py-2.5 text-xs text-gray-400 hover:text-white hover:bg-[var(--surface-3)] transition-colors"
                     >
                       <Edit size={12} /> Sua
                     </button>
                     <button
                       onClick={() => handlePreview(t)}
-                      className="flex items-center justify-center gap-1.5 flex-1 py-2.5 text-xs text-gray-400 hover:text-white hover:bg-[#252525] transition-colors"
+                      className="flex items-center justify-center gap-1.5 flex-1 py-2.5 text-xs text-gray-400 hover:text-white hover:bg-[var(--surface-3)] transition-colors"
                     >
                       <Eye size={12} /> Xem
                     </button>
                     <button
                       onClick={() => handleDuplicate(t)}
-                      className="flex items-center justify-center gap-1.5 flex-1 py-2.5 text-xs text-gray-400 hover:text-white hover:bg-[#252525] transition-colors"
+                      className="flex items-center justify-center gap-1.5 flex-1 py-2.5 text-xs text-gray-400 hover:text-white hover:bg-[var(--surface-3)] transition-colors"
                     >
                       <Copy size={12} /> Sao chep
                     </button>

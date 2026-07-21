@@ -510,7 +510,7 @@ export default function NovelEditor({ initialContent, initialHtml, onChange }: N
           {/* ── Slash command menu ── */}
           <EditorCommand
             ref={commandRef}
-            className="novel-command-menu z-50 overflow-hidden rounded-xl border border-[#333] bg-[#1a1a1a] shadow-2xl transition-all"
+            className="novel-command-menu z-50 overflow-hidden rounded-xl border border-[var(--border-strong)] bg-[var(--surface)] shadow-2xl transition-all"
           >
             <EditorCommandEmpty className="px-4 py-3 text-sm text-gray-500">
               Không tìm thấy lệnh nào
@@ -521,9 +521,9 @@ export default function NovelEditor({ initialContent, initialHtml, onChange }: N
                   key={item.title}
                   value={item.title}
                   onCommand={(val) => item.command?.(val)}
-                  className="flex items-center gap-3 px-3 py-2.5 text-sm cursor-pointer hover:bg-[#252525] transition-colors aria-selected:bg-[#252525]"
+                  className="flex items-center gap-3 px-3 py-2.5 text-sm cursor-pointer hover:bg-[var(--surface-3)] transition-colors aria-selected:bg-[var(--surface-3)]"
                 >
-                  <div className="flex items-center justify-center w-9 h-9 rounded-lg border border-[#333] bg-[#111] text-gray-400">
+                  <div className="flex items-center justify-center w-9 h-9 rounded-lg border border-[var(--border-strong)] bg-[var(--surface)] text-gray-400">
                     {item.icon}
                   </div>
                   <div>
@@ -536,7 +536,7 @@ export default function NovelEditor({ initialContent, initialHtml, onChange }: N
           </EditorCommand>
 
           {/* ── Bubble menu (select text to format) ── */}
-          <EditorBubble className="novel-bubble-menu flex items-center gap-0.5 rounded-xl border border-[#333] bg-[#1a1a1a] px-1 py-1 shadow-2xl">
+          <EditorBubble className="novel-bubble-menu flex items-center gap-0.5 rounded-xl border border-[var(--border-strong)] bg-[var(--surface)] px-1 py-1 shadow-2xl">
             <BubbleBtn
               action={(e) => e.chain().focus().toggleBold().run()}
               isActiveCheck={(e) => e.isActive("bold")}
@@ -580,7 +580,7 @@ export default function NovelEditor({ initialContent, initialHtml, onChange }: N
               <Highlighter size={14} />
             </BubbleBtn>
 
-            <div className="w-px h-5 bg-[#333] mx-1" />
+            <div className="w-px h-5 bg-[var(--surface-3)] mx-1" />
 
             <BubbleBtn
               action={(e) => {

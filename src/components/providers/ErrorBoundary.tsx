@@ -44,8 +44,8 @@ export class ErrorBoundary extends Component<
             justifyContent: "center",
             minHeight: "50vh",
             padding: "2rem",
-            backgroundColor: "#0a0a0a",
-            color: "#f5f5f5",
+            backgroundColor: "var(--bg)",
+            color: "var(--fg)",
             fontFamily:
               '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
           }}
@@ -56,7 +56,7 @@ export class ErrorBoundary extends Component<
               textAlign: "center",
               padding: "2.5rem",
               borderRadius: "1rem",
-              backgroundColor: "#111111",
+              backgroundColor: "var(--bg-alt)",
               border: "1px solid #222222",
             }}
           >
@@ -74,7 +74,7 @@ export class ErrorBoundary extends Component<
                 fontSize: "1.5rem",
                 fontWeight: 700,
                 marginBottom: "0.75rem",
-                color: "#f5f5f5",
+                color: "var(--fg)",
               }}
             >
               {"Đã xảy ra lỗi"}
@@ -93,8 +93,8 @@ export class ErrorBoundary extends Component<
               <pre
                 style={{
                   fontSize: "0.75rem",
-                  color: "#ef4444",
-                  backgroundColor: "#1a1a1a",
+                  color: "var(--danger)",
+                  backgroundColor: "var(--surface)",
                   padding: "0.75rem",
                   borderRadius: "0.5rem",
                   marginBottom: "1.5rem",
@@ -114,18 +114,18 @@ export class ErrorBoundary extends Component<
                 padding: "0.625rem 1.5rem",
                 fontSize: "0.95rem",
                 fontWeight: 600,
-                color: "#0a0a0a",
-                backgroundColor: "#D4A843",
+                color: "var(--bg)",
+                backgroundColor: "var(--accent)",
                 border: "none",
                 borderRadius: "0.5rem",
                 cursor: "pointer",
                 transition: "background-color 150ms ease",
               }}
               onMouseOver={(e) =>
-                (e.currentTarget.style.backgroundColor = "#FBBF24")
+                (e.currentTarget.style.backgroundColor = "var(--warn)")
               }
               onMouseOut={(e) =>
-                (e.currentTarget.style.backgroundColor = "#D4A843")
+                (e.currentTarget.style.backgroundColor = "var(--accent)")
               }
             >
               {"Thử lại"}

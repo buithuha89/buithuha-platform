@@ -93,13 +93,13 @@ const periods = [
 
 function rateColor(rate: number, type: "open" | "click") {
   if (type === "open") {
-    if (rate >= 20) return "#D4A843";
-    if (rate >= 10) return "#f59e0b";
-    return "#ef4444";
+    if (rate >= 20) return "var(--accent)";
+    if (rate >= 10) return "var(--warn)";
+    return "var(--danger)";
   }
-  if (rate >= 3) return "#D4A843";
-  if (rate >= 1) return "#f59e0b";
-  return "#ef4444";
+  if (rate >= 3) return "var(--accent)";
+  if (rate >= 1) return "var(--warn)";
+  return "var(--danger)";
 }
 
 function formatDate(dateStr: string) {
@@ -281,21 +281,21 @@ export default function AnalyticsPage() {
             <h2 className="text-xl font-bold text-white">
               Analytics Dashboard
             </h2>
-            <p className="text-sm text-[#9ca3af] mt-0.5">
+            <p className="text-sm text-[var(--fg-muted)] mt-0.5">
               Thống kê tổng quan hiệu suất email marketing
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <Calendar size={14} className="text-[#9ca3af]" />
-            <div className="flex rounded-lg overflow-hidden" style={{ border: "1px solid #2a2a2a" }}>
+            <Calendar size={14} className="text-[var(--fg-muted)]" />
+            <div className="flex rounded-lg overflow-hidden" style={{ border: "1px solid var(--border)" }}>
               {periods.map((p) => (
                 <button
                   key={p.value}
                   onClick={() => setPeriod(p.value)}
                   className={`px-3 py-1.5 text-xs font-medium transition-colors ${
                     period === p.value
-                      ? "bg-[#D4A843] text-white"
-                      : "bg-[#1a1a1a] text-[#9ca3af] hover:text-white"
+                      ? "bg-[var(--accent)] text-white"
+                      : "bg-[var(--surface)] text-[var(--fg-muted)] hover:text-white"
                   }`}
                 >
                   {p.label}
@@ -304,8 +304,8 @@ export default function AnalyticsPage() {
             </div>
             <button
               onClick={fetchData}
-              className="p-1.5 rounded-lg text-[#9ca3af] hover:text-white transition-colors"
-              style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+              className="p-1.5 rounded-lg text-[var(--fg-muted)] hover:text-white transition-colors"
+              style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
             >
               <RefreshCw size={14} className={loading ? "animate-spin" : ""} />
             </button>
@@ -314,8 +314,8 @@ export default function AnalyticsPage() {
 
         {loading && !data ? (
           <div className="flex items-center justify-center py-20">
-            <Loader2 size={24} className="animate-spin text-[#D4A843]" />
-            <span className="ml-2 text-[#9ca3af]">Đang tải dữ liệu...</span>
+            <Loader2 size={24} className="animate-spin text-[var(--accent)]" />
+            <span className="ml-2 text-[var(--fg-muted)]">Đang tải dữ liệu...</span>
           </div>
         ) : data ? (
           <>
@@ -326,35 +326,35 @@ export default function AnalyticsPage() {
                   label: "Email đã gửi",
                   value: data.summary.total_sent.toLocaleString("vi-VN"),
                   icon: Send,
-                  color: "#3b82f6",
+                  color: "var(--info)",
                   sub: `${data.campaign_count} campaigns`,
                 },
                 {
                   label: "Tỷ lệ mở",
                   value: `${data.rates.avg_open_rate}%`,
                   icon: Eye,
-                  color: "#D4A843",
+                  color: "var(--accent)",
                   sub: `${data.summary.total_opens.toLocaleString("vi-VN")} lượt mở`,
                 },
                 {
                   label: "Tỷ lệ click",
                   value: `${data.rates.avg_click_rate}%`,
                   icon: MousePointer,
-                  color: "#8b5cf6",
+                  color: "var(--cat-violet)",
                   sub: `${data.summary.total_clicks.toLocaleString("vi-VN")} lượt click`,
                 },
                 {
                   label: "Tỷ lệ bounce",
                   value: `${data.rates.avg_bounce_rate}%`,
                   icon: AlertTriangle,
-                  color: "#f59e0b",
+                  color: "var(--warn)",
                   sub: `${data.summary.total_bounces} bounces`,
                 },
                 {
                   label: "Huỷ đăng ký",
                   value: data.summary.total_unsubscribes.toLocaleString("vi-VN"),
                   icon: UserMinus,
-                  color: "#ef4444",
+                  color: "var(--danger)",
                   sub: `${data.summary.total_complaints} complaints`,
                 },
               ].map((s) => (
@@ -366,7 +366,7 @@ export default function AnalyticsPage() {
                     >
                       <s.icon size={18} style={{ color: s.color }} />
                     </div>
-                    <TrendingUp size={14} className="text-[#D4A843]" />
+                    <TrendingUp size={14} className="text-[var(--accent)]" />
                   </div>
                   <div className="text-2xl font-bold text-white mb-0.5">
                     {s.value}
@@ -389,16 +389,16 @@ export default function AnalyticsPage() {
                     <span className="flex items-center gap-1">
                       <span
                         className="w-2.5 h-2.5 rounded-sm"
-                        style={{ background: "#D4A843" }}
+                        style={{ background: "var(--accent)" }}
                       />
-                      <span className="text-[#9ca3af]">Đã gửi</span>
+                      <span className="text-[var(--fg-muted)]">Đã gửi</span>
                     </span>
                     <span className="flex items-center gap-1">
                       <span
                         className="w-2.5 h-2.5 rounded-sm"
-                        style={{ background: "rgba(212,168,67,0.3)" }}
+                        style={{ background: "rgb(var(--accent-rgb) / 0.3)" }}
                       />
-                      <span className="text-[#9ca3af]">Đã mở</span>
+                      <span className="text-[var(--fg-muted)]">Đã mở</span>
                     </span>
                   </div>
                 </div>
@@ -421,17 +421,17 @@ export default function AnalyticsPage() {
                             <div
                               className="absolute -top-12 left-1/2 -translate-x-1/2 px-2 py-1.5 rounded-lg text-[10px] whitespace-nowrap z-10"
                               style={{
-                                background: "#2a2a2a",
+                                background: "var(--border)",
                                 border: "1px solid #333",
                               }}
                             >
                               <div className="text-white font-medium">
                                 {formatDate(d.date)}
                               </div>
-                              <div className="text-[#D4A843]">
+                              <div className="text-[var(--accent)]">
                                 Gửi: {d.sent}
                               </div>
-                              <div className="text-[#9ca3af]">
+                              <div className="text-[var(--fg-muted)]">
                                 Mở: {d.opens}
                               </div>
                             </div>
@@ -441,7 +441,7 @@ export default function AnalyticsPage() {
                               className="w-full rounded-t-sm transition-all"
                               style={{
                                 height: `${Math.max(sentHeight * 1.6, d.sent > 0 ? 2 : 0)}px`,
-                                background: "#D4A843",
+                                background: "var(--accent)",
                                 opacity: hoveredBar === i ? 1 : 0.8,
                               }}
                             />
@@ -449,7 +449,7 @@ export default function AnalyticsPage() {
                               className="w-full absolute bottom-0 rounded-t-sm"
                               style={{
                                 height: `${Math.max(openHeight * 1.6, d.opens > 0 ? 2 : 0)}px`,
-                                background: "rgba(212,168,67,0.3)",
+                                background: "rgb(var(--accent-rgb) / 0.3)",
                               }}
                             />
                           </div>
@@ -485,16 +485,16 @@ export default function AnalyticsPage() {
                     <span className="flex items-center gap-1">
                       <span
                         className="w-2.5 h-2.5 rounded-full"
-                        style={{ background: "#D4A843" }}
+                        style={{ background: "var(--accent)" }}
                       />
-                      <span className="text-[#9ca3af]">Open rate</span>
+                      <span className="text-[var(--fg-muted)]">Open rate</span>
                     </span>
                     <span className="flex items-center gap-1">
                       <span
                         className="w-2.5 h-2.5 rounded-full"
-                        style={{ background: "#3b82f6" }}
+                        style={{ background: "var(--info)" }}
                       />
-                      <span className="text-[#9ca3af]">Click rate</span>
+                      <span className="text-[var(--fg-muted)]">Click rate</span>
                     </span>
                   </div>
                 </div>
@@ -520,7 +520,7 @@ export default function AnalyticsPage() {
                           padding -
                           ratio * (chartHeight - padding * 2)
                         }
-                        stroke="#2a2a2a"
+                        stroke="var(--border)"
                         strokeWidth="1"
                       />
                     ))}
@@ -528,7 +528,7 @@ export default function AnalyticsPage() {
                     {openRatePoints.length > 0 && (
                       <polyline
                         fill="none"
-                        stroke="#D4A843"
+                        stroke="var(--accent)"
                         strokeWidth="2"
                         points={openRatePoints}
                         strokeLinejoin="round"
@@ -538,7 +538,7 @@ export default function AnalyticsPage() {
                     {clickRatePoints.length > 0 && (
                       <polyline
                         fill="none"
-                        stroke="#3b82f6"
+                        stroke="var(--info)"
                         strokeWidth="2"
                         points={clickRatePoints}
                         strokeLinejoin="round"
@@ -551,7 +551,7 @@ export default function AnalyticsPage() {
                         cx={p.x}
                         cy={p.y}
                         r={hoveredPoint === i ? 5 : 3}
-                        fill="#D4A843"
+                        fill="var(--accent)"
                         className="cursor-pointer"
                         onMouseEnter={() => setHoveredPoint(i)}
                         onMouseLeave={() => setHoveredPoint(null)}
@@ -564,7 +564,7 @@ export default function AnalyticsPage() {
                         cx={p.x}
                         cy={p.y}
                         r={hoveredPoint === i ? 5 : 3}
-                        fill="#3b82f6"
+                        fill="var(--info)"
                         className="cursor-pointer"
                         onMouseEnter={() => setHoveredPoint(i)}
                         onMouseLeave={() => setHoveredPoint(null)}
@@ -576,7 +576,7 @@ export default function AnalyticsPage() {
                     <div
                       className="absolute top-0 px-2 py-1.5 rounded-lg text-[10px] z-10 pointer-events-none"
                       style={{
-                        background: "#2a2a2a",
+                        background: "var(--border)",
                         border: "1px solid #333",
                         left: `${(hoveredPoint / Math.max(dailyStats.length - 1, 1)) * 100}%`,
                         transform: "translateX(-50%)",
@@ -585,10 +585,10 @@ export default function AnalyticsPage() {
                       <div className="text-white font-medium">
                         {formatDate(dailyStats[hoveredPoint].date)}
                       </div>
-                      <div className="text-[#D4A843]">
+                      <div className="text-[var(--accent)]">
                         Open: {dailyOpenRates[hoveredPoint]?.toFixed(1)}%
                       </div>
-                      <div className="text-[#3b82f6]">
+                      <div className="text-[var(--info)]">
                         Click: {dailyClickRates[hoveredPoint]?.toFixed(1)}%
                       </div>
                     </div>
@@ -612,23 +612,23 @@ export default function AnalyticsPage() {
 
             {/* Campaign Performance Table */}
             <div className="card-dark overflow-hidden">
-              <div className="flex items-center justify-between p-4 border-b border-[#2a2a2a]">
+              <div className="flex items-center justify-between p-4 border-b border-[var(--border)]">
                 <h3 className="font-semibold text-white text-sm">
                   Hiệu suất Campaign
                 </h3>
-                <span className="text-xs text-[#9ca3af]">
+                <span className="text-xs text-[var(--fg-muted)]">
                   {sortedCampaigns.length} campaigns đã gửi
                 </span>
               </div>
               {sortedCampaigns.length === 0 ? (
-                <div className="p-8 text-center text-[#9ca3af] text-sm">
+                <div className="p-8 text-center text-[var(--fg-muted)] text-sm">
                   Chưa có campaign nào đã gửi trong khoảng thời gian này.
                 </div>
               ) : (
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                      <tr style={{ borderBottom: "1px solid var(--border)" }}>
                         {[
                           { key: "name" as SortField, label: "Campaign" },
                           { key: "sent_count" as SortField, label: "Đã gửi" },
@@ -647,7 +647,7 @@ export default function AnalyticsPage() {
                             <span className="inline-flex items-center gap-1">
                               {col.label}
                               {sortField === col.key && (
-                                <span className="text-[#D4A843]">
+                                <span className="text-[var(--accent)]">
                                   {sortDir === "asc" ? "↑" : "↓"}
                                 </span>
                               )}
@@ -674,11 +674,11 @@ export default function AnalyticsPage() {
                         return (
                           <tr
                             key={c.id}
-                            className="hover:bg-[#1f1f1f] transition-colors"
+                            className="hover:bg-[var(--surface-2)] transition-colors"
                             style={{
                               borderBottom:
                                 i < sortedCampaigns.length - 1
-                                  ? "1px solid #2a2a2a"
+                                  ? "1px solid var(--border)"
                                   : "none",
                             }}
                           >
@@ -733,7 +733,7 @@ export default function AnalyticsPage() {
               {/* Subscriber Growth */}
               <div className="card-dark p-5">
                 <div className="flex items-center gap-2 mb-4">
-                  <UserPlus size={16} className="text-[#D4A843]" />
+                  <UserPlus size={16} className="text-[var(--accent)]" />
                   <h3 className="font-semibold text-white text-sm">
                     Subscribers mới
                   </h3>
@@ -755,7 +755,7 @@ export default function AnalyticsPage() {
                           className="w-full rounded-t-sm transition-all hover:opacity-100 opacity-80"
                           style={{
                             height: `${Math.max(height * 1.12, d.new_subscribers > 0 ? 2 : 0)}px`,
-                            background: "#D4A843",
+                            background: "var(--accent)",
                           }}
                         />
                       </div>
@@ -776,9 +776,9 @@ export default function AnalyticsPage() {
                     </>
                   )}
                 </div>
-                <div className="mt-3 pt-3 border-t border-[#2a2a2a]">
+                <div className="mt-3 pt-3 border-t border-[var(--border)]">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-[#9ca3af]">Tổng mới</span>
+                    <span className="text-[var(--fg-muted)]">Tổng mới</span>
                     <span className="text-white font-medium">
                       {dailyStats
                         .reduce((sum, d) => sum + d.new_subscribers, 0)
@@ -791,13 +791,13 @@ export default function AnalyticsPage() {
               {/* Top Performing Campaigns */}
               <div className="card-dark p-5">
                 <div className="flex items-center gap-2 mb-4">
-                  <Trophy size={16} className="text-[#f59e0b]" />
+                  <Trophy size={16} className="text-[var(--warn)]" />
                   <h3 className="font-semibold text-white text-sm">
                     Top Campaigns
                   </h3>
                 </div>
                 {data.top_campaigns.length === 0 ? (
-                  <p className="text-[#9ca3af] text-xs text-center py-4">
+                  <p className="text-[var(--fg-muted)] text-xs text-center py-4">
                     Chưa có dữ liệu
                   </p>
                 ) : (
@@ -806,7 +806,7 @@ export default function AnalyticsPage() {
                       <div
                         key={c.id}
                         className="p-2.5 rounded-lg"
-                        style={{ background: "#222" }}
+                        style={{ background: "var(--surface-2)" }}
                       >
                         <div className="flex items-start justify-between gap-2">
                           <div className="min-w-0 flex-1">
@@ -816,10 +816,10 @@ export default function AnalyticsPage() {
                                 style={{
                                   background:
                                     i === 0
-                                      ? "rgba(245,158,11,0.2)"
-                                      : "rgba(107,114,128,0.2)",
+                                      ? "rgb(var(--warn-rgb) / 0.2)"
+                                      : "rgb(var(--neutral-rgb) / 0.2)",
                                   color:
-                                    i === 0 ? "#f59e0b" : "#9ca3af",
+                                    i === 0 ? "var(--warn)" : "var(--fg-muted)",
                                 }}
                               >
                                 {i + 1}
@@ -841,12 +841,12 @@ export default function AnalyticsPage() {
                             >
                               {c.open_rate}%
                             </div>
-                            <div className="text-[10px] text-[#9ca3af]">
+                            <div className="text-[10px] text-[var(--fg-muted)]">
                               open rate
                             </div>
                           </div>
                         </div>
-                        <div className="flex gap-3 mt-1.5 ml-6 text-[10px] text-[#9ca3af]">
+                        <div className="flex gap-3 mt-1.5 ml-6 text-[10px] text-[var(--fg-muted)]">
                           <span>
                             Gửi: {c.sent_count.toLocaleString("vi-VN")}
                           </span>
@@ -861,7 +861,7 @@ export default function AnalyticsPage() {
               {/* Bounce & Complaint Summary */}
               <div className="card-dark p-5">
                 <div className="flex items-center gap-2 mb-4">
-                  <ShieldAlert size={16} className="text-[#ef4444]" />
+                  <ShieldAlert size={16} className="text-[var(--danger)]" />
                   <h3 className="font-semibold text-white text-sm">
                     Bounce & Complaints
                   </h3>
@@ -870,49 +870,49 @@ export default function AnalyticsPage() {
                 <div className="space-y-3 mb-4">
                   <div
                     className="flex items-center justify-between p-2.5 rounded-lg"
-                    style={{ background: "#222" }}
+                    style={{ background: "var(--surface-2)" }}
                   >
                     <div>
                       <div className="text-xs text-white font-medium">
                         Hard Bounces
                       </div>
-                      <div className="text-[10px] text-[#9ca3af]">
+                      <div className="text-[10px] text-[var(--fg-muted)]">
                         Email không tồn tại
                       </div>
                     </div>
-                    <span className="text-sm font-bold text-[#ef4444]">
+                    <span className="text-sm font-bold text-[var(--danger)]">
                       {data.bounce_breakdown.hard_bounces}
                     </span>
                   </div>
                   <div
                     className="flex items-center justify-between p-2.5 rounded-lg"
-                    style={{ background: "#222" }}
+                    style={{ background: "var(--surface-2)" }}
                   >
                     <div>
                       <div className="text-xs text-white font-medium">
                         Soft Bounces
                       </div>
-                      <div className="text-[10px] text-[#9ca3af]">
+                      <div className="text-[10px] text-[var(--fg-muted)]">
                         Hộp thư đầy / tạm thời
                       </div>
                     </div>
-                    <span className="text-sm font-bold text-[#f59e0b]">
+                    <span className="text-sm font-bold text-[var(--warn)]">
                       {data.bounce_breakdown.soft_bounces}
                     </span>
                   </div>
                   <div
                     className="flex items-center justify-between p-2.5 rounded-lg"
-                    style={{ background: "#222" }}
+                    style={{ background: "var(--surface-2)" }}
                   >
                     <div>
                       <div className="text-xs text-white font-medium">
                         Complaints
                       </div>
-                      <div className="text-[10px] text-[#9ca3af]">
+                      <div className="text-[10px] text-[var(--fg-muted)]">
                         Báo spam
                       </div>
                     </div>
-                    <span className="text-sm font-bold text-[#ef4444]">
+                    <span className="text-sm font-bold text-[var(--danger)]">
                       {data.summary.total_complaints}
                     </span>
                   </div>
@@ -938,12 +938,12 @@ export default function AnalyticsPage() {
                             style={{
                               background:
                                 b.bounce_type === "Permanent"
-                                  ? "rgba(239,68,68,0.1)"
-                                  : "rgba(245,158,11,0.1)",
+                                  ? "rgb(var(--danger-rgb) / 0.1)"
+                                  : "rgb(var(--warn-rgb) / 0.1)",
                               color:
                                 b.bounce_type === "Permanent"
-                                  ? "#ef4444"
-                                  : "#f59e0b",
+                                  ? "var(--danger)"
+                                  : "var(--warn)",
                             }}
                           >
                             {b.bounce_type === "Permanent"
@@ -960,8 +960,8 @@ export default function AnalyticsPage() {
           </>
         ) : (
           <div className="text-center py-20">
-            <AlertTriangle size={24} className="text-[#f59e0b] mx-auto mb-2" />
-            <p className="text-[#9ca3af] text-sm">
+            <AlertTriangle size={24} className="text-[var(--warn)] mx-auto mb-2" />
+            <p className="text-[var(--fg-muted)] text-sm">
               Không thể tải dữ liệu analytics. Vui lòng thử lại.
             </p>
           </div>

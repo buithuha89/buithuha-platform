@@ -72,18 +72,18 @@ function formatShortDate(dateStr: string) {
 
 function rateColor(rate: number, type: "open" | "click" | "bounce") {
   if (type === "bounce") {
-    if (rate <= 2) return "#D4A843";
-    if (rate <= 5) return "#f59e0b";
-    return "#ef4444";
+    if (rate <= 2) return "var(--accent)";
+    if (rate <= 5) return "var(--warn)";
+    return "var(--danger)";
   }
   if (type === "open") {
-    if (rate >= 20) return "#D4A843";
-    if (rate >= 10) return "#f59e0b";
-    return "#ef4444";
+    if (rate >= 20) return "var(--accent)";
+    if (rate >= 10) return "var(--warn)";
+    return "var(--danger)";
   }
-  if (rate >= 3) return "#D4A843";
-  if (rate >= 1) return "#f59e0b";
-  return "#ef4444";
+  if (rate >= 3) return "var(--accent)";
+  if (rate >= 1) return "var(--warn)";
+  return "var(--danger)";
 }
 
 export default function CampaignAnalyticsPage() {
@@ -213,7 +213,7 @@ export default function CampaignAnalyticsPage() {
         <div className="flex items-center justify-between">
           <button
             onClick={() => router.push("/email/campaigns")}
-            className="flex items-center gap-2 text-sm text-[#9ca3af] hover:text-white transition-colors"
+            className="flex items-center gap-2 text-sm text-[var(--fg-muted)] hover:text-white transition-colors"
           >
             <ArrowLeft size={16} />
             Quay lại Campaigns
@@ -221,15 +221,15 @@ export default function CampaignAnalyticsPage() {
           <div className="flex items-center gap-2">
             <button
               onClick={fetchData}
-              className="p-1.5 rounded-lg text-[#9ca3af] hover:text-white transition-colors"
-              style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+              className="p-1.5 rounded-lg text-[var(--fg-muted)] hover:text-white transition-colors"
+              style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
             >
               <RefreshCw size={14} className={loading ? "animate-spin" : ""} />
             </button>
             <button
               onClick={handleExport}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-[#9ca3af] hover:text-white transition-colors"
-              style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-[var(--fg-muted)] hover:text-white transition-colors"
+              style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
             >
               <Download size={14} />
               Xuất CSV
@@ -239,15 +239,15 @@ export default function CampaignAnalyticsPage() {
 
         {loading && !data ? (
           <div className="flex items-center justify-center py-20">
-            <Loader2 size={24} className="animate-spin text-[#D4A843]" />
-            <span className="ml-2 text-[#9ca3af]">Đang tải dữ liệu...</span>
+            <Loader2 size={24} className="animate-spin text-[var(--accent)]" />
+            <span className="ml-2 text-[var(--fg-muted)]">Đang tải dữ liệu...</span>
           </div>
         ) : data ? (
           <>
             {/* Campaign info bar */}
             {campaign && (
               <div
-                className="card-dark p-4 flex flex-wrap items-center gap-4 text-xs text-[#9ca3af]"
+                className="card-dark p-4 flex flex-wrap items-center gap-4 text-xs text-[var(--fg-muted)]"
               >
                 <span>
                   <strong className="text-white">Tiêu đề:</strong>{" "}
@@ -261,7 +261,7 @@ export default function CampaignAnalyticsPage() {
                 )}
                 <span>
                   <strong className="text-white">Trạng thái:</strong>{" "}
-                  <span className="text-[#D4A843] font-medium capitalize">
+                  <span className="text-[var(--accent)] font-medium capitalize">
                     {campaign.status}
                   </span>
                 </span>
@@ -275,39 +275,39 @@ export default function CampaignAnalyticsPage() {
                   label: "Đã gửi",
                   value: data.overview.sent,
                   icon: Send,
-                  color: "#3b82f6",
+                  color: "var(--info)",
                 },
                 {
                   label: "Delivered",
                   value: data.overview.delivered,
                   icon: CheckCircle,
-                  color: "#D4A843",
+                  color: "var(--accent)",
                 },
                 {
                   label: "Opens",
                   value: data.overview.unique_opens,
                   icon: Eye,
-                  color: "#f59e0b",
+                  color: "var(--warn)",
                   sub: `${data.overview.opens} tổng`,
                 },
                 {
                   label: "Clicks",
                   value: data.overview.unique_clicks,
                   icon: MousePointer,
-                  color: "#8b5cf6",
+                  color: "var(--cat-violet)",
                   sub: `${data.overview.clicks} tổng`,
                 },
                 {
                   label: "Bounces",
                   value: data.overview.bounces,
                   icon: AlertTriangle,
-                  color: "#ef4444",
+                  color: "var(--danger)",
                 },
                 {
                   label: "Complaints",
                   value: data.overview.complaints,
                   icon: ShieldAlert,
-                  color: "#ef4444",
+                  color: "var(--danger)",
                 },
               ].map((s) => (
                 <div key={s.label} className="stat-card text-center">
@@ -361,7 +361,7 @@ export default function CampaignAnalyticsPage() {
                   >
                     {r.value}%
                   </div>
-                  <div className="text-xs text-[#9ca3af]">{r.label}</div>
+                  <div className="text-xs text-[var(--fg-muted)]">{r.label}</div>
                 </div>
               ))}
             </div>
@@ -378,22 +378,22 @@ export default function CampaignAnalyticsPage() {
                     <span className="flex items-center gap-1">
                       <span
                         className="w-2.5 h-2.5 rounded-full"
-                        style={{ background: "#D4A843" }}
+                        style={{ background: "var(--accent)" }}
                       />
-                      <span className="text-[#9ca3af]">Opens</span>
+                      <span className="text-[var(--fg-muted)]">Opens</span>
                     </span>
                     <span className="flex items-center gap-1">
                       <span
                         className="w-2.5 h-2.5 rounded-full"
-                        style={{ background: "#3b82f6" }}
+                        style={{ background: "var(--info)" }}
                       />
-                      <span className="text-[#9ca3af]">Clicks</span>
+                      <span className="text-[var(--fg-muted)]">Clicks</span>
                     </span>
                   </div>
                 </div>
 
                 {timeline.length === 0 ? (
-                  <div className="h-40 flex items-center justify-center text-[#9ca3af] text-xs">
+                  <div className="h-40 flex items-center justify-center text-[var(--fg-muted)] text-xs">
                     Chưa có dữ liệu timeline
                   </div>
                 ) : (
@@ -418,20 +418,20 @@ export default function CampaignAnalyticsPage() {
                             padding -
                             ratio * (chartHeight - padding * 2)
                           }
-                          stroke="#2a2a2a"
+                          stroke="var(--border)"
                           strokeWidth="1"
                         />
                       ))}
                       <polyline
                         fill="none"
-                        stroke="#D4A843"
+                        stroke="var(--accent)"
                         strokeWidth="2"
                         points={openLinePoints}
                         strokeLinejoin="round"
                       />
                       <polyline
                         fill="none"
-                        stroke="#3b82f6"
+                        stroke="var(--info)"
                         strokeWidth="2"
                         points={clickLinePoints}
                         strokeLinejoin="round"
@@ -442,7 +442,7 @@ export default function CampaignAnalyticsPage() {
                           cx={p.x}
                           cy={p.y}
                           r={hoveredTimelinePoint === i ? 5 : 3}
-                          fill="#D4A843"
+                          fill="var(--accent)"
                           className="cursor-pointer"
                           onMouseEnter={() => setHoveredTimelinePoint(i)}
                           onMouseLeave={() => setHoveredTimelinePoint(null)}
@@ -454,7 +454,7 @@ export default function CampaignAnalyticsPage() {
                           cx={p.x}
                           cy={p.y}
                           r={hoveredTimelinePoint === i ? 5 : 3}
-                          fill="#3b82f6"
+                          fill="var(--info)"
                           className="cursor-pointer"
                           onMouseEnter={() => setHoveredTimelinePoint(i)}
                           onMouseLeave={() => setHoveredTimelinePoint(null)}
@@ -466,7 +466,7 @@ export default function CampaignAnalyticsPage() {
                         <div
                           className="absolute top-0 px-2 py-1.5 rounded-lg text-[10px] z-10 pointer-events-none"
                           style={{
-                            background: "#2a2a2a",
+                            background: "var(--border)",
                             border: "1px solid #333",
                             left: `${(hoveredTimelinePoint / Math.max(timeline.length - 1, 1)) * 100}%`,
                             transform: "translateX(-50%)",
@@ -477,10 +477,10 @@ export default function CampaignAnalyticsPage() {
                               timeline[hoveredTimelinePoint].date
                             )}
                           </div>
-                          <div className="text-[#D4A843]">
+                          <div className="text-[var(--accent)]">
                             Opens: {timeline[hoveredTimelinePoint].opens}
                           </div>
-                          <div className="text-[#3b82f6]">
+                          <div className="text-[var(--info)]">
                             Clicks: {timeline[hoveredTimelinePoint].clicks}
                           </div>
                         </div>
@@ -506,13 +506,13 @@ export default function CampaignAnalyticsPage() {
               {/* Top clicked links */}
               <div className="card-dark p-5">
                 <div className="flex items-center gap-2 mb-4">
-                  <Link2 size={16} className="text-[#3b82f6]" />
+                  <Link2 size={16} className="text-[var(--info)]" />
                   <h3 className="font-semibold text-white text-sm">
                     Top Links được click
                   </h3>
                 </div>
                 {data.top_links.length === 0 ? (
-                  <div className="h-40 flex items-center justify-center text-[#9ca3af] text-xs">
+                  <div className="h-40 flex items-center justify-center text-[var(--fg-muted)] text-xs">
                     Chưa có link nào được click
                   </div>
                 ) : (
@@ -526,23 +526,23 @@ export default function CampaignAnalyticsPage() {
                             <span className="text-xs text-gray-300 truncate flex-1 flex items-center gap-1">
                               <ExternalLink
                                 size={10}
-                                className="text-[#3b82f6] shrink-0"
+                                className="text-[var(--info)] shrink-0"
                               />
                               {link.url}
                             </span>
-                            <span className="text-xs font-medium text-[#3b82f6] shrink-0">
+                            <span className="text-xs font-medium text-[var(--info)] shrink-0">
                               {link.clicks}
                             </span>
                           </div>
                           <div
                             className="h-1.5 rounded-full"
-                            style={{ background: "#222" }}
+                            style={{ background: "var(--surface-2)" }}
                           >
                             <div
                               className="h-full rounded-full transition-all"
                               style={{
                                 width: `${width}%`,
-                                background: "#3b82f6",
+                                background: "var(--info)",
                               }}
                             />
                           </div>
@@ -564,20 +564,20 @@ export default function CampaignAnalyticsPage() {
                   {Object.entries(data.engagement_breakdown).map(
                     ([status, count]) => {
                       const colors: Record<string, string> = {
-                        delivered: "#D4A843",
-                        sent: "#3b82f6",
-                        opened: "#f59e0b",
-                        clicked: "#8b5cf6",
-                        bounced: "#ef4444",
-                        failed: "#ef4444",
-                        pending: "#6b7280",
+                        delivered: "var(--accent)",
+                        sent: "var(--info)",
+                        opened: "var(--warn)",
+                        clicked: "var(--cat-violet)",
+                        bounced: "var(--danger)",
+                        failed: "var(--danger)",
+                        pending: "var(--fg-subtle)",
                       };
-                      const color = colors[status] || "#6b7280";
+                      const color = colors[status] || "var(--fg-subtle)";
                       return (
                         <div
                           key={status}
                           className="flex items-center gap-2 px-3 py-2 rounded-lg"
-                          style={{ background: "#222" }}
+                          style={{ background: "var(--surface-2)" }}
                         >
                           <span
                             className="w-2.5 h-2.5 rounded-full"
@@ -604,14 +604,14 @@ export default function CampaignAnalyticsPage() {
           <div className="text-center py-20">
             <AlertTriangle
               size={24}
-              className="text-[#f59e0b] mx-auto mb-2"
+              className="text-[var(--warn)] mx-auto mb-2"
             />
-            <p className="text-[#9ca3af] text-sm">
+            <p className="text-[var(--fg-muted)] text-sm">
               Không thể tải analytics cho campaign này.
             </p>
             <button
               onClick={() => router.push("/email/campaigns")}
-              className="mt-3 text-sm text-[#D4A843] hover:underline"
+              className="mt-3 text-sm text-[var(--accent)] hover:underline"
             >
               Quay lại danh sách campaigns
             </button>

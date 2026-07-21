@@ -65,7 +65,7 @@ function FlowBuilderInner({ initialFlow, onChange, onSave }: FlowBuilderProps) {
       source: connection.source,
       target: connection.target,
       animated: true,
-      style: { stroke: "#D4A843", strokeWidth: 2 },
+      style: { stroke: "var(--accent)", strokeWidth: 2 },
     };
     setEdges((eds) => addEdge(newEdge, eds));
     setTimeout(notifyChange, 0);
@@ -143,13 +143,13 @@ function FlowBuilderInner({ initialFlow, onChange, onSave }: FlowBuilderProps) {
           fitView
           defaultEdgeOptions={{
             animated: true,
-            style: { stroke: "#D4A843", strokeWidth: 2 },
+            style: { stroke: "var(--accent)", strokeWidth: 2 },
           }}
-          style={{ background: "#0a0a0a" }}
+          style={{ background: "var(--bg)" }}
         >
           <Controls
-            className="!bg-[#1a1a1a] !border-[#333] !rounded-lg"
-            style={{ button: { background: "#1a1a1a", color: "white", borderColor: "#333" } } as any}
+            className="!bg-[var(--surface)] !border-[var(--border-strong)] !rounded-lg"
+            style={{ button: { background: "var(--surface)", color: "white", borderColor: "var(--border-strong)" } } as any}
           />
           <Background variant={BackgroundVariant.Dots} gap={20} size={1} color="#333" />
         </ReactFlow>

@@ -61,8 +61,8 @@ const STATUS_CONFIG = {
   },
   approved: {
     label: "Đạt",
-    color: "text-[#22c55e]",
-    bg: "bg-[#22c55e]/10",
+    color: "text-[var(--success)]",
+    bg: "bg-[var(--success)]/10",
     icon: CheckCircle2,
   },
 };
@@ -170,10 +170,10 @@ export default function LessonSubmission({
         className="w-full flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors"
       >
         <div className="flex items-center gap-2">
-          <Upload size={16} className="text-[#D4A843]" />
+          <Upload size={16} className="text-[var(--accent)]" />
           <h3 className="font-semibold text-white text-sm">Nộp bài</h3>
           {submissions.length > 0 && (
-            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#D4A843]/15 text-[#D4A843] font-medium">
+            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[var(--accent)]/15 text-[var(--accent)] font-medium">
               {submissions.length}
             </span>
           )}
@@ -205,13 +205,13 @@ export default function LessonSubmission({
                     key={i}
                     className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm"
                     style={{
-                      background: "rgba(255,255,255,0.03)",
-                      border: "1px solid #2a2a2a",
+                      background: "rgb(var(--overlay-rgb) / 0.03)",
+                      border: "1px solid var(--border)",
                     }}
                   >
                     <ExternalLink
                       size={14}
-                      className="text-[#D4A843] shrink-0"
+                      className="text-[var(--accent)] shrink-0"
                     />
                     <span className="flex-1 min-w-0 text-gray-300 truncate">
                       {link.label}
@@ -233,8 +233,8 @@ export default function LessonSubmission({
               <div
                 className="rounded-lg p-3 space-y-2"
                 style={{
-                  background: "rgba(255,255,255,0.02)",
-                  border: "1px solid #2a2a2a",
+                  background: "rgb(var(--overlay-rgb) / 0.02)",
+                  border: "1px solid var(--border)",
                 }}
               >
                 <input
@@ -258,8 +258,8 @@ export default function LessonSubmission({
                     onClick={handleAddLink}
                     className="text-xs px-3 py-1.5 rounded-lg font-medium transition-colors"
                     style={{
-                      background: "rgba(212,168,67,0.15)",
-                      color: "#D4A843",
+                      background: "rgb(var(--accent-rgb) / 0.15)",
+                      color: "var(--accent)",
                     }}
                   >
                     Thêm
@@ -281,7 +281,7 @@ export default function LessonSubmission({
               <button
                 type="button"
                 onClick={() => setShowLinkInput(true)}
-                className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-[#D4A843] transition-colors"
+                className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-[var(--accent)] transition-colors"
               >
                 <Plus size={14} />
                 Thêm liên kết (Google Drive, Notion, v.v.)
@@ -295,7 +295,7 @@ export default function LessonSubmission({
               </div>
             )}
             {success && (
-              <div className="flex items-start gap-2 text-xs text-[#22c55e] bg-[#22c55e]/10 border border-[#22c55e]/20 rounded-lg px-3 py-2">
+              <div className="flex items-start gap-2 text-xs text-[var(--success)] bg-[var(--success)]/10 border border-[var(--success)]/20 rounded-lg px-3 py-2">
                 <CheckCircle2 size={14} className="shrink-0 mt-0.5" />
                 Nộp bài thành công!
               </div>
@@ -312,7 +312,7 @@ export default function LessonSubmission({
                 }
                 className="flex items-center gap-1.5 text-xs py-1.5 px-3 rounded-lg font-medium transition-all disabled:opacity-40"
                 style={{
-                  background: "linear-gradient(135deg, #D4A843, #B8922E)",
+                  background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
                   color: "#000",
                 }}
               >
@@ -346,7 +346,7 @@ export default function LessonSubmission({
                     key={sub.id}
                     className="rounded-lg p-3 space-y-2"
                     style={{
-                      background: "#161616",
+                      background: "var(--surface)",
                       border: "1px solid #222",
                     }}
                   >
@@ -379,7 +379,7 @@ export default function LessonSubmission({
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-xs text-[#D4A843] hover:text-[#B8922E] transition-colors"
+                            className="flex items-center gap-2 text-xs text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
                           >
                             <ExternalLink size={12} className="shrink-0" />
                             <span className="truncate">
@@ -395,16 +395,16 @@ export default function LessonSubmission({
                       <div
                         className="rounded-lg p-2.5 mt-2"
                         style={{
-                          background: "rgba(212,168,67,0.06)",
-                          border: "1px solid rgba(212,168,67,0.15)",
+                          background: "rgb(var(--accent-rgb) / 0.06)",
+                          border: "1px solid rgb(var(--accent-rgb) / 0.15)",
                         }}
                       >
                         <div className="flex items-center gap-1.5 mb-1">
                           <CheckCircle2
                             size={12}
-                            className="text-[#D4A843]"
+                            className="text-[var(--accent)]"
                           />
-                          <span className="text-[10px] font-medium text-[#D4A843]">
+                          <span className="text-[10px] font-medium text-[var(--accent)]">
                             Phản hồi từ giảng viên
                           </span>
                         </div>

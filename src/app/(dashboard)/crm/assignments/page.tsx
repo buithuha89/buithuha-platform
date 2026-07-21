@@ -71,9 +71,9 @@ function formatDate(iso: string): string {
 }
 
 const methodConfig: Record<string, { label: string; color: string; bg: string }> = {
-  manual:      { label: "Thủ công",     color: "#6b7280", bg: "rgba(107,114,128,0.1)" },
-  round_robin: { label: "Round Robin",  color: "#3b82f6", bg: "rgba(59,130,246,0.1)" },
-  rule_based:  { label: "Rule-Based",   color: "#a855f7", bg: "rgba(168,85,247,0.1)" },
+  manual:      { label: "Thủ công",     color: "var(--fg-subtle)", bg: "rgb(var(--neutral-rgb) / 0.1)" },
+  round_robin: { label: "Round Robin",  color: "var(--info)", bg: "rgb(var(--info-rgb) / 0.1)" },
+  rule_based:  { label: "Rule-Based",   color: "var(--cat-purple)", bg: "rgba(168,85,247,0.1)" },
 };
 
 // ─── Auth Guard ──────────────────────────────────────────────────────────────
@@ -420,19 +420,19 @@ export default async function AssignmentsPage() {
       label: "Leads chưa phân công",
       value: unassignedCount,
       icon: UserCheck,
-      color: "#f59e0b",
+      color: "var(--warn)",
     },
     {
       label: "Nhân viên sale",
       value: saleReps.length,
       icon: Users,
-      color: "#3b82f6",
+      color: "var(--info)",
     },
     {
       label: "Phân công hôm nay",
       value: todayAssignments,
       icon: Clock,
-      color: "#22c55e",
+      color: "var(--success)",
     },
   ];
 
@@ -462,7 +462,7 @@ export default async function AssignmentsPage() {
         {/* ── Quick Auto-Assign Section ── */}
         <div className="card-dark p-5">
           <div className="flex items-center gap-2 mb-4">
-            <Shuffle size={16} className="text-[#D4A843]" />
+            <Shuffle size={16} className="text-[var(--accent)]" />
             <h3 className="font-semibold text-white">Phân công tự động</h3>
           </div>
           <p className="text-sm text-gray-400 mb-4">
@@ -474,7 +474,7 @@ export default async function AssignmentsPage() {
                 <label className="text-xs text-gray-500 mb-1 block">Phương pháp</label>
                 <select
                   name="method"
-                  className="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843]"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)]"
                 >
                   <option value="round_robin">Round Robin (chia đều)</option>
                   <option value="rule_based">Rule-Based (theo quy tắc)</option>
@@ -483,7 +483,7 @@ export default async function AssignmentsPage() {
               <button
                 type="submit"
                 className="px-4 py-2 rounded-lg text-sm font-medium text-black transition-colors"
-                style={{ background: "#D4A843" }}
+                style={{ background: "var(--accent)" }}
               >
                 Phân công ngay
               </button>
@@ -495,9 +495,9 @@ export default async function AssignmentsPage() {
 
         {/* ── Assignment Rules Section ── */}
         <div className="card-dark">
-          <div className="flex items-center justify-between p-5 border-b border-[#2a2a2a]">
+          <div className="flex items-center justify-between p-5 border-b border-[var(--border)]">
             <div className="flex items-center gap-2">
-              <Settings size={16} className="text-[#D4A843]" />
+              <Settings size={16} className="text-[var(--accent)]" />
               <h3 className="font-semibold text-white">Quy tắc phân công</h3>
             </div>
             <span className="text-xs text-gray-500">{rules.length} quy tắc</span>
@@ -505,7 +505,7 @@ export default async function AssignmentsPage() {
 
           {/* Existing rules */}
           {rules.length > 0 ? (
-            <div className="divide-y divide-[#2a2a2a]">
+            <div className="divide-y divide-[var(--border)]">
               {rules.map((rule) => (
                 <div key={rule.id} className="p-4 flex items-center gap-4">
                   <div className="flex-1 min-w-0">
@@ -515,8 +515,8 @@ export default async function AssignmentsPage() {
                       <span
                         className="text-xs px-2 py-0.5 rounded-full"
                         style={{
-                          background: rule.is_active ? "rgba(34,197,94,0.1)" : "rgba(107,114,128,0.1)",
-                          color: rule.is_active ? "#22c55e" : "#6b7280",
+                          background: rule.is_active ? "rgb(var(--success-rgb) / 0.1)" : "rgb(var(--neutral-rgb) / 0.1)",
+                          color: rule.is_active ? "var(--success)" : "var(--fg-subtle)",
                         }}
                       >
                         {rule.is_active ? "Active" : "Inactive"}
@@ -526,13 +526,13 @@ export default async function AssignmentsPage() {
                       {Object.entries(rule.conditions || {}).map(([key, val]) => (
                         <span
                           key={key}
-                          className="text-xs px-2 py-0.5 rounded bg-[#1a1a1a] text-gray-400 border border-[#2a2a2a]"
+                          className="text-xs px-2 py-0.5 rounded bg-[var(--surface)] text-gray-400 border border-[var(--border)]"
                         >
                           {key}: {val}
                         </span>
                       ))}
                       {rule.assigned_profile && (
-                        <span className="text-xs text-[#D4A843]">
+                        <span className="text-xs text-[var(--accent)]">
                           → {rule.assigned_profile.full_name}
                         </span>
                       )}
@@ -544,7 +544,7 @@ export default async function AssignmentsPage() {
                     <input type="hidden" name="current_active" value={String(rule.is_active)} />
                     <button
                       type="submit"
-                      className="text-xs px-3 py-1.5 rounded-lg border border-[#2a2a2a] text-gray-400 hover:text-white hover:border-[#D4A843] transition-colors"
+                      className="text-xs px-3 py-1.5 rounded-lg border border-[var(--border)] text-gray-400 hover:text-white hover:border-[var(--accent)] transition-colors"
                     >
                       {rule.is_active ? "Tắt" : "Bật"}
                     </button>
@@ -559,9 +559,9 @@ export default async function AssignmentsPage() {
           )}
 
           {/* Add new rule form */}
-          <div className="p-5 border-t border-[#2a2a2a]">
+          <div className="p-5 border-t border-[var(--border)]">
             <div className="flex items-center gap-2 mb-3">
-              <Plus size={14} className="text-[#D4A843]" />
+              <Plus size={14} className="text-[var(--accent)]" />
               <span className="text-sm font-medium text-white">Thêm quy tắc mới</span>
             </div>
             <form action={createAssignmentRule} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -571,7 +571,7 @@ export default async function AssignmentsPage() {
                   type="text"
                   name="rule_name"
                   placeholder="VD: Lead từ Facebook Ads"
-                  className="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#D4A843]"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[var(--accent)]"
                   required
                 />
               </div>
@@ -582,14 +582,14 @@ export default async function AssignmentsPage() {
                   name="priority"
                   defaultValue={10}
                   min={1}
-                  className="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843]"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)]"
                 />
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">Nguồn (source)</label>
                 <select
                   name="condition_source"
-                  className="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843]"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)]"
                 >
                   <option value="">-- Không lọc --</option>
                   <option value="website">Website</option>
@@ -605,7 +605,7 @@ export default async function AssignmentsPage() {
                   type="text"
                   name="condition_utm_source"
                   placeholder="VD: facebook"
-                  className="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#D4A843]"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[var(--accent)]"
                 />
               </div>
               <div>
@@ -614,14 +614,14 @@ export default async function AssignmentsPage() {
                   type="text"
                   name="condition_utm_campaign"
                   placeholder="VD: summer_sale"
-                  className="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#D4A843]"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[var(--accent)]"
                 />
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">Phân cho</label>
                 <select
                   name="assign_to"
-                  className="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843]"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)]"
                 >
                   <option value="">-- Round Robin Pool --</option>
                   {saleReps.map((rep) => (
@@ -635,7 +635,7 @@ export default async function AssignmentsPage() {
                 <label className="text-xs text-gray-500 mb-1 block">Phương pháp</label>
                 <select
                   name="method"
-                  className="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843]"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)]"
                 >
                   <option value="specific">Chỉ định cụ thể</option>
                   <option value="round_robin_pool">Round Robin Pool</option>
@@ -645,7 +645,7 @@ export default async function AssignmentsPage() {
                 <button
                   type="submit"
                   className="px-4 py-2 rounded-lg text-sm font-medium text-black transition-colors"
-                  style={{ background: "#D4A843" }}
+                  style={{ background: "var(--accent)" }}
                 >
                   Tạo quy tắc
                 </button>
@@ -656,9 +656,9 @@ export default async function AssignmentsPage() {
 
         {/* ── Sales Rep Workload Overview ── */}
         <div className="card-dark">
-          <div className="flex items-center justify-between p-5 border-b border-[#2a2a2a]">
+          <div className="flex items-center justify-between p-5 border-b border-[var(--border)]">
             <div className="flex items-center gap-2">
-              <Users size={16} className="text-[#D4A843]" />
+              <Users size={16} className="text-[var(--accent)]" />
               <h3 className="font-semibold text-white">Khối lượng công việc</h3>
             </div>
           </div>
@@ -666,21 +666,21 @@ export default async function AssignmentsPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-[#2a2a2a]">
+                  <tr className="border-b border-[var(--border)]">
                     <th className="text-left p-4 text-xs text-gray-500 font-medium">Nhân viên</th>
                     <th className="text-center p-4 text-xs text-gray-500 font-medium">Contacts</th>
                     <th className="text-center p-4 text-xs text-gray-500 font-medium">Pending Actions</th>
                     <th className="text-center p-4 text-xs text-gray-500 font-medium">Won (tháng)</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#2a2a2a]">
+                <tbody className="divide-y divide-[var(--border)]">
                   {workload.map((rep) => (
-                    <tr key={rep.id} className="hover:bg-[#111]">
+                    <tr key={rep.id} className="hover:bg-[var(--surface)]">
                       <td className="p-4">
                         <div className="flex items-center gap-3">
                           <div
                             className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
-                            style={{ background: "linear-gradient(135deg,#D4A843,#b8922f)" }}
+                            style={{ background: "linear-gradient(135deg,var(--accent),#b8922f)" }}
                           >
                             {rep.full_name?.charAt(0)?.toUpperCase() || "?"}
                           </div>
@@ -692,15 +692,15 @@ export default async function AssignmentsPage() {
                         <span
                           className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium"
                           style={{
-                            background: rep.pending_actions > 5 ? "rgba(239,68,68,0.1)" : "rgba(34,197,94,0.1)",
-                            color: rep.pending_actions > 5 ? "#ef4444" : "#22c55e",
+                            background: rep.pending_actions > 5 ? "rgb(var(--danger-rgb) / 0.1)" : "rgb(var(--success-rgb) / 0.1)",
+                            color: rep.pending_actions > 5 ? "var(--danger)" : "var(--success)",
                           }}
                         >
                           {rep.pending_actions}
                         </span>
                       </td>
                       <td className="p-4 text-center">
-                        <span className="text-[#D4A843] font-semibold">{rep.won_deals}</span>
+                        <span className="text-[var(--accent)] font-semibold">{rep.won_deals}</span>
                       </td>
                     </tr>
                   ))}
@@ -716,25 +716,25 @@ export default async function AssignmentsPage() {
 
         {/* ── Manual Assign Section ── */}
         <div className="card-dark">
-          <div className="flex items-center justify-between p-5 border-b border-[#2a2a2a]">
+          <div className="flex items-center justify-between p-5 border-b border-[var(--border)]">
             <div className="flex items-center gap-2">
-              <UserCheck size={16} className="text-[#D4A843]" />
+              <UserCheck size={16} className="text-[var(--accent)]" />
               <h3 className="font-semibold text-white">Phân công thủ công</h3>
             </div>
             <span className="text-xs text-gray-500">{unassignedContacts.length} lead chưa phân công</span>
           </div>
           {unassignedContacts.length > 0 ? (
             <form action={manualAssignLeads}>
-              <div className="divide-y divide-[#2a2a2a]">
+              <div className="divide-y divide-[var(--border)]">
                 {unassignedContacts.map((contact) => (
                   <label
                     key={contact.id}
-                    className="flex items-center gap-4 p-4 hover:bg-[#111] cursor-pointer"
+                    className="flex items-center gap-4 p-4 hover:bg-[var(--surface)] cursor-pointer"
                   >
                     <input
                       type="checkbox"
                       name={`contact_${contact.id}`}
-                      className="w-4 h-4 rounded border-[#2a2a2a] bg-[#1a1a1a] accent-[#D4A843]"
+                      className="w-4 h-4 rounded border-[var(--border)] bg-[var(--surface)] accent-[var(--accent)]"
                     />
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-white truncate">{contact.full_name}</p>
@@ -748,11 +748,11 @@ export default async function AssignmentsPage() {
                   </label>
                 ))}
               </div>
-              <div className="p-4 border-t border-[#2a2a2a] flex items-center gap-3">
+              <div className="p-4 border-t border-[var(--border)] flex items-center gap-3">
                 <select
                   name="assign_to"
                   required
-                  className="flex-1 max-w-xs bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4A843]"
+                  className="flex-1 max-w-xs bg-[var(--surface)] border border-[var(--border)] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--accent)]"
                 >
                   <option value="">Chọn nhân viên...</option>
                   {saleReps.map((rep) => (
@@ -764,7 +764,7 @@ export default async function AssignmentsPage() {
                 <button
                   type="submit"
                   className="px-4 py-2 rounded-lg text-sm font-medium text-black transition-colors"
-                  style={{ background: "#D4A843" }}
+                  style={{ background: "var(--accent)" }}
                 >
                   Phân công
                 </button>
@@ -779,9 +779,9 @@ export default async function AssignmentsPage() {
 
         {/* ── Recent Assignment History ── */}
         <div className="card-dark">
-          <div className="flex items-center justify-between p-5 border-b border-[#2a2a2a]">
+          <div className="flex items-center justify-between p-5 border-b border-[var(--border)]">
             <div className="flex items-center gap-2">
-              <Clock size={16} className="text-[#D4A843]" />
+              <Clock size={16} className="text-[var(--accent)]" />
               <h3 className="font-semibold text-white">Lịch sử phân công</h3>
             </div>
             <span className="text-xs text-gray-500">{logs.length} bản ghi gần nhất</span>
@@ -790,18 +790,18 @@ export default async function AssignmentsPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-[#2a2a2a]">
+                  <tr className="border-b border-[var(--border)]">
                     <th className="text-left p-4 text-xs text-gray-500 font-medium">Contact</th>
                     <th className="text-left p-4 text-xs text-gray-500 font-medium">Assigned To</th>
                     <th className="text-center p-4 text-xs text-gray-500 font-medium">Phương pháp</th>
                     <th className="text-right p-4 text-xs text-gray-500 font-medium">Thời gian</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#2a2a2a]">
+                <tbody className="divide-y divide-[var(--border)]">
                   {logs.map((log) => {
                     const mc = methodConfig[log.method] ?? methodConfig.manual;
                     return (
-                      <tr key={log.id} className="hover:bg-[#111]">
+                      <tr key={log.id} className="hover:bg-[var(--surface)]">
                         <td className="p-4 text-white">
                           {log.contact?.full_name || "—"}
                         </td>

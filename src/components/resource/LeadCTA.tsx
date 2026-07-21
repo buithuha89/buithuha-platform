@@ -27,18 +27,17 @@ export default function LeadCTA({
     setStatus("loading");
     setErr("");
     try {
-      const res = await fetch("/api/auth/register", {
+      const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           full_name: form.name,
           email: form.email,
           phone: form.phone,
-          password: crypto.randomUUID().slice(0, 12) + "Aa1",
-          newsletter_opt_in: true,
+          source: "resource",
         }),
       });
-      const d = await res.json();
+      const d = await res.json().catch(() => ({}));
       if (res.ok && d.success) setStatus("done");
       else { setErr(d.error || "Có lỗi xảy ra. Vui lòng thử lại."); setStatus("idle"); }
     } catch {

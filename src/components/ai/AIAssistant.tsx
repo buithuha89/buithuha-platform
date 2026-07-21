@@ -96,21 +96,21 @@ export default function AIAssistant({ context }: AIAssistantProps) {
         <button
           onClick={() => setOpen(true)}
           className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-105"
-          style={{ background: "linear-gradient(135deg, #FFD814, #FFA41C)", boxShadow: "0 4px 24px rgba(255,216,20,0.4)" }}>
-          <MessageCircle size={22} className="text-[#131921]" />
+          style={{ background: "linear-gradient(135deg, var(--accent), var(--accent-hover))", boxShadow: "0 4px 24px rgb(var(--accent-rgb) / 0.4)" }}>
+          <MessageCircle size={22} className="text-[var(--accent-fg)]" />
         </button>
       )}
 
       {/* Chat window */}
       {open && (
         <div className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 w-full sm:w-80 sm:rounded-2xl overflow-hidden shadow-2xl flex flex-col"
-          style={{ background: "#1a1a1a", border: "1px solid #2a2a2a", height: "100dvh", maxHeight: "480px" }}>
+          style={{ background: "var(--surface)", border: "1px solid var(--border)", height: "100dvh", maxHeight: "480px" }}>
 
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 shrink-0"
-            style={{ background: "linear-gradient(135deg, #166534, #14532d)", borderBottom: "1px solid #2a2a2a" }}>
+            style={{ background: "linear-gradient(135deg, #166534, #14532d)", borderBottom: "1px solid var(--border)" }}>
             <div className="w-8 h-8 rounded-full flex items-center justify-center"
-              style={{ background: "rgba(255,255,255,0.15)" }}>
+              style={{ background: "rgb(var(--overlay-rgb) / 0.15)" }}>
               <Sparkles size={16} className="text-white" />
             </div>
             <div className="flex-1">
@@ -128,16 +128,16 @@ export default function AIAssistant({ context }: AIAssistantProps) {
             {messages.map((msg, i) => (
               <div key={i} className={`flex gap-2 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
                 <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                  style={{ background: msg.role === "user" ? "#D4A843" : "#333" }}>
+                  style={{ background: msg.role === "user" ? "var(--accent)" : "#333" }}>
                   {msg.role === "user"
                     ? <User size={12} className="text-white" />
-                    : <Bot size={12} className="text-[#D4A843]" />}
+                    : <Bot size={12} className="text-[var(--accent)]" />}
                 </div>
                 <div className="max-w-[80%]">
                   <div className="text-xs leading-relaxed whitespace-pre-wrap rounded-2xl px-3 py-2"
                     style={msg.role === "user"
-                      ? { background: "#D4A843", color: "white", borderBottomRightRadius: "4px" }
-                      : { background: "#252525", color: "#e5e7eb", borderBottomLeftRadius: "4px" }}>
+                      ? { background: "var(--accent)", color: "white", borderBottomRightRadius: "4px" }
+                      : { background: "var(--surface-3)", color: "var(--fg)", borderBottomLeftRadius: "4px" }}>
                     {msg.content}
                   </div>
                 </div>
@@ -147,12 +147,12 @@ export default function AIAssistant({ context }: AIAssistantProps) {
             {loading && (
               <div className="flex gap-2">
                 <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
-                  style={{ background: "#333" }}>
-                  <Bot size={12} className="text-[#D4A843]" />
+                  style={{ background: "var(--surface-3)" }}>
+                  <Bot size={12} className="text-[var(--accent)]" />
                 </div>
                 <div className="px-3 py-2 rounded-2xl rounded-bl-sm"
-                  style={{ background: "#252525" }}>
-                  <Loader2 size={14} className="text-[#D4A843] animate-spin" />
+                  style={{ background: "var(--surface-3)" }}>
+                  <Loader2 size={14} className="text-[var(--accent)] animate-spin" />
                 </div>
               </div>
             )}
@@ -164,9 +164,9 @@ export default function AIAssistant({ context }: AIAssistantProps) {
                   <button key={q}
                     onClick={() => sendMessage(q)}
                     className="w-full text-left text-xs px-3 py-2 rounded-xl transition-colors"
-                    style={{ background: "#222", color: "#9ca3af", border: "1px solid #333" }}
-                    onMouseEnter={(e) => { e.currentTarget.style.background = "#2a2a2a"; e.currentTarget.style.color = "#fff"; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.background = "#222"; e.currentTarget.style.color = "#9ca3af"; }}>
+                    style={{ background: "var(--surface-2)", color: "var(--fg-muted)", border: "1px solid #333" }}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = "var(--border)"; e.currentTarget.style.color = "#fff"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = "#222"; e.currentTarget.style.color = "var(--fg-muted)"; }}>
                     {q}
                   </button>
                 ))}
@@ -177,7 +177,7 @@ export default function AIAssistant({ context }: AIAssistantProps) {
           </div>
 
           {/* Input */}
-          <div className="px-3 py-3 shrink-0" style={{ borderTop: "1px solid #2a2a2a" }}>
+          <div className="px-3 py-3 shrink-0" style={{ borderTop: "1px solid var(--border)" }}>
             <div className="flex gap-2">
               <input
                 ref={inputRef}
@@ -193,8 +193,8 @@ export default function AIAssistant({ context }: AIAssistantProps) {
                 onClick={() => sendMessage(input)}
                 disabled={!input.trim() || loading}
                 className="w-9 h-9 rounded-xl flex items-center justify-center transition-all disabled:opacity-40"
-                style={{ background: "#FFD814" }}>
-                <Send size={14} className="text-[#131921]" />
+                style={{ background: "var(--accent)" }}>
+                <Send size={14} className="text-[var(--accent-fg)]" />
               </button>
             </div>
             <div className="text-center text-[10px] text-gray-500 mt-2">Powered by Claude AI · Hà Bùi Academy</div>

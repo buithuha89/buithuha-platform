@@ -11,16 +11,16 @@ import {
 import FeaturedCourses from "@/components/dashboard/FeaturedCourses";
 
 const quickCards = [
-  { href: "/courses", icon: BookOpen, color: "#D4A843", bg: "rgba(212,168,67,0.1)", label: "Khoá học của tôi", desc: "Xem và học các khoá học" },
-  { href: "/resources", icon: FolderOpen, color: "#3b82f6", bg: "rgba(59,130,246,0.1)", label: "Tài nguyên", desc: "Templates, tài liệu hỗ trợ" },
-  { href: "/community", icon: Users, color: "#a855f7", bg: "rgba(168,85,247,0.1)", label: "Cộng đồng", desc: "Kết nối & học hỏi cùng nhau" },
+  { href: "/courses", icon: BookOpen, color: "var(--accent)", bg: "rgb(var(--accent-rgb) / 0.1)", label: "Khoá học của tôi", desc: "Xem và học các khoá học" },
+  { href: "/resources", icon: FolderOpen, color: "var(--info)", bg: "rgb(var(--info-rgb) / 0.1)", label: "Tài nguyên", desc: "Templates, tài liệu hỗ trợ" },
+  { href: "/community", icon: Users, color: "var(--cat-purple)", bg: "rgba(168,85,247,0.1)", label: "Cộng đồng", desc: "Kết nối & học hỏi cùng nhau" },
 ];
 
 /* Mobile-only quick access — compact, action-oriented */
 const mobileQuickAccess = [
-  { href: "/courses", icon: BookOpen, color: "#D4A843", bg: "rgba(212,168,67,0.1)", label: "Khoá học của tôi" },
-  { href: "/notifications", icon: Bell, color: "#ef4444", bg: "rgba(239,68,68,0.1)", label: "Thông báo" },
-  { href: "/community", icon: Users, color: "#a855f7", bg: "rgba(168,85,247,0.1)", label: "Cộng đồng" },
+  { href: "/courses", icon: BookOpen, color: "var(--accent)", bg: "rgb(var(--accent-rgb) / 0.1)", label: "Khoá học của tôi" },
+  { href: "/notifications", icon: Bell, color: "var(--danger)", bg: "rgb(var(--danger-rgb) / 0.1)", label: "Thông báo" },
+  { href: "/community", icon: Users, color: "var(--cat-purple)", bg: "rgba(168,85,247,0.1)", label: "Cộng đồng" },
 ];
 
 function tierLabel(tier: string) {
@@ -30,9 +30,9 @@ function tierLabel(tier: string) {
 }
 
 function tierColor(tier: string) {
-  if (tier === "vip") return "#f59e0b";
-  if (tier === "member") return "#a855f7";
-  return "#D4A843";
+  if (tier === "vip") return "var(--warn)";
+  if (tier === "member") return "var(--cat-purple)";
+  return "var(--accent)";
 }
 
 export default async function DashboardPage() {
@@ -156,7 +156,7 @@ export default async function DashboardPage() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="card-dark p-3 flex flex-col items-center gap-2 hover:bg-[#1a1a1a] transition-colors"
+                className="card-dark p-3 flex flex-col items-center gap-2 hover:bg-[var(--surface)] transition-colors"
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -174,10 +174,10 @@ export default async function DashboardPage() {
             <div>
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-sm font-semibold text-white flex items-center gap-1.5">
-                  <BookOpen size={14} className="text-[#D4A843]" />
+                  <BookOpen size={14} className="text-[var(--accent)]" />
                   Khoá học của tôi
                 </h3>
-                <Link href="/courses" className="text-xs text-[#D4A843] flex items-center gap-1">
+                <Link href="/courses" className="text-xs text-[var(--accent)] flex items-center gap-1">
                   Xem tất cả <ArrowRight size={11} />
                 </Link>
               </div>
@@ -186,10 +186,10 @@ export default async function DashboardPage() {
                   <Link
                     key={c.id}
                     href={`/courses/${c.slug}`}
-                    className="card-dark p-3 flex items-center gap-3 hover:bg-[#1a1a1a] transition-colors"
+                    className="card-dark p-3 flex items-center gap-3 hover:bg-[var(--surface)] transition-colors"
                   >
                     {/* Thumbnail */}
-                    <div className="w-12 h-12 rounded-lg bg-[#222] overflow-hidden shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-[var(--surface-2)] overflow-hidden shrink-0">
                       {c.thumbnail ? (
                         <Image src={c.thumbnail} alt={c.title} width={48} height={48} className="w-full h-full object-cover" />
                       ) : (
@@ -202,12 +202,12 @@ export default async function DashboardPage() {
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-white truncate">{c.title}</p>
                       <div className="flex items-center gap-2 mt-1">
-                        <div className="flex-1 h-1.5 rounded-full bg-[#2a2a2a] overflow-hidden">
+                        <div className="flex-1 h-1.5 rounded-full bg-[var(--border)] overflow-hidden">
                           <div
                             className="h-full rounded-full transition-all"
                             style={{
                               width: `${c.progress}%`,
-                              background: c.progress === 100 ? "#22c55e" : "#D4A843",
+                              background: c.progress === 100 ? "var(--success)" : "var(--accent)",
                             }}
                           />
                         </div>
@@ -230,12 +230,12 @@ export default async function DashboardPage() {
             href={siteConfig.socials.zalo}
             target="_blank"
             rel="noopener noreferrer"
-            className="card-dark p-4 border border-[#D4A843]/20 hover:bg-[#222] transition-all block"
-            style={{ background: "rgba(212,168,67,0.05)" }}
+            className="card-dark p-4 border border-[var(--accent)]/20 hover:bg-[var(--surface-2)] transition-all block"
+            style={{ background: "rgb(var(--accent-rgb) / 0.05)" }}
           >
             <div className="flex items-center gap-2 mb-1.5">
-              <Star size={14} className="text-[#D4A843]" />
-              <span className="text-sm font-semibold text-[#D4A843]">Cần hỗ trợ?</span>
+              <Star size={14} className="text-[var(--accent)]" />
+              <span className="text-sm font-semibold text-[var(--accent)]">Cần hỗ trợ?</span>
             </div>
             <p className="text-xs text-gray-400 mb-2">Tư vấn khoá học phù hợp nhu cầu của bạn</p>
             <span className="btn-green text-xs inline-flex items-center gap-1.5">
@@ -258,11 +258,11 @@ export default async function DashboardPage() {
               </p>
               <div className="flex items-center gap-4 text-sm">
                 <span className="flex items-center gap-1.5 text-gray-300">
-                  <BookOpen size={14} className="text-[#D4A843]" />
+                  <BookOpen size={14} className="text-[var(--accent)]" />
                   <span>{courses} khoá đăng ký</span>
                 </span>
                 <span className="flex items-center gap-1.5 text-gray-300">
-                  <Zap size={14} className="text-[#f59e0b]" />
+                  <Zap size={14} className="text-[var(--warn)]" />
                   <span>{streak} ngày liên tiếp</span>
                 </span>
               </div>
@@ -300,10 +300,10 @@ export default async function DashboardPage() {
             <div>
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <BookOpen size={14} className="text-[#D4A843]" />
+                  <BookOpen size={14} className="text-[var(--accent)]" />
                   Khoá học của tôi
                 </h3>
-                <Link href="/courses" className="text-xs text-[#D4A843] hover:underline flex items-center gap-1">
+                <Link href="/courses" className="text-xs text-[var(--accent)] hover:underline flex items-center gap-1">
                   Xem tất cả <ArrowRight size={12} />
                 </Link>
               </div>
@@ -312,9 +312,9 @@ export default async function DashboardPage() {
                   <Link
                     key={c.id}
                     href={`/courses/${c.slug}`}
-                    className="card-dark p-4 flex items-center gap-4 hover:bg-[#1a1a1a] transition-colors group"
+                    className="card-dark p-4 flex items-center gap-4 hover:bg-[var(--surface)] transition-colors group"
                   >
-                    <div className="w-14 h-14 rounded-lg bg-[#222] overflow-hidden shrink-0">
+                    <div className="w-14 h-14 rounded-lg bg-[var(--surface-2)] overflow-hidden shrink-0">
                       {c.thumbnail ? (
                         <Image src={c.thumbnail} alt={c.title} width={56} height={56} className="w-full h-full object-cover" />
                       ) : (
@@ -326,12 +326,12 @@ export default async function DashboardPage() {
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-white truncate">{c.title}</p>
                       <div className="flex items-center gap-2 mt-1.5">
-                        <div className="flex-1 h-1.5 rounded-full bg-[#2a2a2a] overflow-hidden">
+                        <div className="flex-1 h-1.5 rounded-full bg-[var(--border)] overflow-hidden">
                           <div
                             className="h-full rounded-full transition-all"
                             style={{
                               width: `${c.progress}%`,
-                              background: c.progress === 100 ? "#22c55e" : "#D4A843",
+                              background: c.progress === 100 ? "var(--success)" : "var(--accent)",
                             }}
                           />
                         </div>
@@ -341,7 +341,7 @@ export default async function DashboardPage() {
                         {c.completedLessons}/{c.totalLessons} bài học
                       </p>
                     </div>
-                    <PlayCircle size={22} className="text-gray-500 group-hover:text-[#D4A843] shrink-0 transition-colors" />
+                    <PlayCircle size={22} className="text-gray-500 group-hover:text-[var(--accent)] shrink-0 transition-colors" />
                   </Link>
                 ))}
               </div>
@@ -361,7 +361,7 @@ export default async function DashboardPage() {
                 <Link
                   key={card.label}
                   href={card.href}
-                  className="card-dark p-4 hover:bg-[#222] transition-all duration-150 group cursor-pointer"
+                  className="card-dark p-4 hover:bg-[var(--surface-2)] transition-all duration-150 group cursor-pointer"
                 >
                   <div
                     className="w-9 h-9 rounded-xl flex items-center justify-center mb-3"
@@ -383,12 +383,12 @@ export default async function DashboardPage() {
             href={siteConfig.socials.zalo}
             target="_blank"
             rel="noopener noreferrer"
-            className="card-dark p-5 border border-[#D4A843]/20 hover:bg-[#222] transition-all block"
-            style={{ background: "rgba(212,168,67,0.05)" }}
+            className="card-dark p-5 border border-[var(--accent)]/20 hover:bg-[var(--surface-2)] transition-all block"
+            style={{ background: "rgb(var(--accent-rgb) / 0.05)" }}
           >
             <div className="flex items-center gap-2 mb-2">
-              <Star size={16} className="text-[#D4A843]" />
-              <span className="font-semibold text-[#D4A843]">Cần hỗ trợ?</span>
+              <Star size={16} className="text-[var(--accent)]" />
+              <span className="font-semibold text-[var(--accent)]">Cần hỗ trợ?</span>
             </div>
             <p className="text-sm text-gray-400 mb-3">
               Liên hệ để được tư vấn khoá học phù hợp với nhu cầu và mục tiêu của bạn.
@@ -408,12 +408,12 @@ export default async function DashboardPage() {
                 </h3>
                 <Link
                   href="/community"
-                  className="text-xs text-[#D4A843] hover:underline flex items-center gap-1"
+                  className="text-xs text-[var(--accent)] hover:underline flex items-center gap-1"
                 >
                   Xem tất cả <ArrowRight size={12} />
                 </Link>
               </div>
-              <div className="card-dark divide-y divide-[#2a2a2a]">
+              <div className="card-dark divide-y divide-[var(--border)]">
                 {recentPosts.map((post) => {
                   const profileData = post.profiles as { full_name?: string; avatar_url?: string } | null;
                   const author = profileData?.full_name ?? "Thành viên";
@@ -436,7 +436,7 @@ export default async function DashboardPage() {
                         src={avatarUrl}
                         initials={initials || "?"}
                         size={32}
-                        gradient="linear-gradient(135deg, #D4A843, #059669)"
+                        gradient="linear-gradient(135deg, var(--accent), var(--cat-emerald))"
                       />
                       <div className="flex-1 min-w-0">
                         <p className="text-sm text-white">

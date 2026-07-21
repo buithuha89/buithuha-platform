@@ -102,7 +102,7 @@ export default function PricingSection({ onSubscribe }: PricingSectionProps) {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-16">
-        <Loader2 size={24} className="animate-spin text-[#D4A843]" />
+        <Loader2 size={24} className="animate-spin text-[var(--accent)]" />
       </div>
     );
   }
@@ -122,9 +122,9 @@ export default function PricingSection({ onSubscribe }: PricingSectionProps) {
         <div
           className="p-4 rounded-xl text-sm"
           style={{
-            background: "rgba(239,68,68,0.1)",
-            border: "1px solid rgba(239,68,68,0.2)",
-            color: "#ef4444",
+            background: "rgb(var(--danger-rgb) / 0.1)",
+            border: "1px solid rgb(var(--danger-rgb) / 0.2)",
+            color: "var(--danger)",
           }}
         >
           {error}
@@ -134,9 +134,9 @@ export default function PricingSection({ onSubscribe }: PricingSectionProps) {
         <div
           className="p-4 rounded-xl text-sm"
           style={{
-            background: "rgba(34,197,94,0.1)",
-            border: "1px solid rgba(34,197,94,0.2)",
-            color: "#22c55e",
+            background: "rgb(var(--success-rgb) / 0.1)",
+            border: "1px solid rgb(var(--success-rgb) / 0.2)",
+            color: "var(--success)",
           }}
         >
           {success}
@@ -163,11 +163,11 @@ export default function PricingSection({ onSubscribe }: PricingSectionProps) {
               className="relative rounded-2xl p-5 flex flex-col transition-all"
               style={{
                 background: isPopular
-                  ? "linear-gradient(135deg, rgba(212,168,67,0.08), rgba(212,168,67,0.02))"
-                  : "#111111",
+                  ? "linear-gradient(135deg, rgb(var(--accent-rgb) / 0.08), rgb(var(--accent-rgb) / 0.02))"
+                  : "var(--bg-alt)",
                 border: isPopular
-                  ? "2px solid rgba(212,168,67,0.4)"
-                  : "1px solid #2a2a2a",
+                  ? "2px solid rgb(var(--accent-rgb) / 0.4)"
+                  : "1px solid var(--border)",
               }}
             >
               {/* Popular badge */}
@@ -176,8 +176,8 @@ export default function PricingSection({ onSubscribe }: PricingSectionProps) {
                   className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold"
                   style={{
                     background:
-                      "linear-gradient(135deg, #D4A843, #b8922e)",
-                    color: "#0a0a0a",
+                      "linear-gradient(135deg, var(--accent), var(--accent-hover))",
+                    color: "var(--bg)",
                   }}
                 >
                   <Star size={11} />
@@ -190,9 +190,9 @@ export default function PricingSection({ onSubscribe }: PricingSectionProps) {
                 <div
                   className="absolute top-3 right-3 px-2 py-0.5 rounded-lg text-xs font-bold"
                   style={{
-                    background: "rgba(239,68,68,0.15)",
-                    color: "#ef4444",
-                    border: "1px solid rgba(239,68,68,0.2)",
+                    background: "rgb(var(--danger-rgb) / 0.15)",
+                    color: "var(--danger)",
+                    border: "1px solid rgb(var(--danger-rgb) / 0.2)",
                   }}
                 >
                   -{discount}%
@@ -243,7 +243,7 @@ export default function PricingSection({ onSubscribe }: PricingSectionProps) {
                       size={14}
                       className="shrink-0 mt-0.5"
                       style={{
-                        color: isPopular ? "#D4A843" : "#22c55e",
+                        color: isPopular ? "var(--accent)" : "var(--success)",
                       }}
                     />
                     <span>{feature}</span>
@@ -258,13 +258,13 @@ export default function PricingSection({ onSubscribe }: PricingSectionProps) {
                   style={{
                     background:
                       plan.tier_granted === "vip"
-                        ? "rgba(245,158,11,0.1)"
+                        ? "rgb(var(--warn-rgb) / 0.1)"
                         : "rgba(168,85,247,0.1)",
                     color:
-                      plan.tier_granted === "vip" ? "#f59e0b" : "#a855f7",
+                      plan.tier_granted === "vip" ? "var(--warn)" : "var(--cat-purple)",
                     border: `1px solid ${
                       plan.tier_granted === "vip"
-                        ? "rgba(245,158,11,0.2)"
+                        ? "rgb(var(--warn-rgb) / 0.2)"
                         : "rgba(168,85,247,0.2)"
                     }`,
                   }}
@@ -281,12 +281,12 @@ export default function PricingSection({ onSubscribe }: PricingSectionProps) {
                 className="w-full py-2.5 rounded-xl text-sm font-semibold transition-all disabled:opacity-50"
                 style={{
                   background: isPopular
-                    ? "linear-gradient(135deg, #D4A843, #b8922e)"
-                    : "rgba(212,168,67,0.1)",
-                  color: isPopular ? "#0a0a0a" : "#D4A843",
+                    ? "linear-gradient(135deg, var(--accent), var(--accent-hover))"
+                    : "rgb(var(--accent-rgb) / 0.1)",
+                  color: isPopular ? "var(--bg)" : "var(--accent)",
                   border: isPopular
                     ? "none"
-                    : "1px solid rgba(212,168,67,0.3)",
+                    : "1px solid rgb(var(--accent-rgb) / 0.3)",
                 }}
               >
                 {subscribing === plan.id ? (

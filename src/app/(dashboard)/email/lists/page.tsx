@@ -29,14 +29,14 @@ interface EmailList {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 const LIST_COLORS = [
-  "#D4A843",
-  "#3b82f6",
-  "#8b5cf6",
-  "#f59e0b",
-  "#ef4444",
-  "#ec4899",
-  "#14b8a6",
-  "#f97316",
+  "var(--accent)",
+  "var(--info)",
+  "var(--cat-violet)",
+  "var(--warn)",
+  "var(--danger)",
+  "var(--cat-pink)",
+  "var(--cat-teal)",
+  "var(--cat-orange)",
 ];
 
 function formatDate(iso: string): string {
@@ -170,15 +170,15 @@ export default function ListsPage() {
   const SkeletonCard = () => (
     <div className="card-dark p-5">
       <div className="flex items-start gap-3 mb-3">
-        <div className="w-3 h-3 rounded-full bg-[#222] animate-pulse mt-1" />
+        <div className="w-3 h-3 rounded-full bg-[var(--surface-2)] animate-pulse mt-1" />
         <div className="flex-1">
-          <div className="w-32 h-5 rounded bg-[#222] animate-pulse mb-2" />
-          <div className="w-48 h-3 rounded bg-[#222] animate-pulse" />
+          <div className="w-32 h-5 rounded bg-[var(--surface-2)] animate-pulse mb-2" />
+          <div className="w-48 h-3 rounded bg-[var(--surface-2)] animate-pulse" />
         </div>
       </div>
       <div className="flex items-center justify-between mt-4">
-        <div className="w-24 h-4 rounded bg-[#222] animate-pulse" />
-        <div className="w-16 h-4 rounded bg-[#222] animate-pulse" />
+        <div className="w-24 h-4 rounded bg-[var(--surface-2)] animate-pulse" />
+        <div className="w-16 h-4 rounded bg-[var(--surface-2)] animate-pulse" />
       </div>
     </div>
   );
@@ -211,9 +211,9 @@ export default function ListsPage() {
           <div className="card-dark p-12 text-center">
             <div
               className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4"
-              style={{ background: "rgba(212,168,67,0.1)" }}
+              style={{ background: "rgb(var(--accent-rgb) / 0.1)" }}
             >
-              <ListPlus size={28} className="text-[#D4A843]" />
+              <ListPlus size={28} className="text-[var(--accent)]" />
             </div>
             <p className="text-white font-medium mb-1">
               Chưa có danh sách nào
@@ -230,7 +230,7 @@ export default function ListsPage() {
             {lists.map((list) => (
               <div
                 key={list.id}
-                className="card-dark p-5 hover:border-[#3a3a3a] transition-colors cursor-pointer group"
+                className="card-dark p-5 hover:border-[var(--border-strong)] transition-colors cursor-pointer group"
                 onClick={() => router.push(`/email/lists/${list.id}`)}
               >
                 {/* Header */}
@@ -243,7 +243,7 @@ export default function ListsPage() {
                       }}
                     />
                     <div className="min-w-0">
-                      <h3 className="text-white font-semibold text-sm truncate group-hover:text-[#D4A843] transition-colors">
+                      <h3 className="text-white font-semibold text-sm truncate group-hover:text-[var(--accent)] transition-colors">
                         {list.name}
                       </h3>
                       {list.description && (
@@ -263,7 +263,7 @@ export default function ListsPage() {
                           openMenuId === list.id ? null : list.id
                         );
                       }}
-                      className="text-gray-500 hover:text-white transition-colors p-1 rounded-md hover:bg-[#2a2a2a]"
+                      className="text-gray-500 hover:text-white transition-colors p-1 rounded-md hover:bg-[var(--border)]"
                     >
                       <MoreHorizontal size={16} />
                     </button>
@@ -272,8 +272,8 @@ export default function ListsPage() {
                       <div
                         className="absolute right-0 top-8 z-20 w-40 rounded-lg py-1 shadow-xl"
                         style={{
-                          background: "#1a1a1a",
-                          border: "1px solid #2a2a2a",
+                          background: "var(--surface)",
+                          border: "1px solid var(--border)",
                         }}
                         onClick={(e) => e.stopPropagation()}
                       >
@@ -282,7 +282,7 @@ export default function ListsPage() {
                             setOpenMenuId(null);
                             router.push(`/email/lists/${list.id}`);
                           }}
-                          className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-300 hover:bg-[#222] hover:text-white transition-colors"
+                          className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-300 hover:bg-[var(--surface-2)] hover:text-white transition-colors"
                         >
                           <Eye size={14} /> Xem subscribers
                         </button>
@@ -291,20 +291,20 @@ export default function ListsPage() {
                             setOpenMenuId(null);
                             openEditModal(list);
                           }}
-                          className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-300 hover:bg-[#222] hover:text-white transition-colors"
+                          className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-300 hover:bg-[var(--surface-2)] hover:text-white transition-colors"
                         >
                           <Edit size={14} /> Chỉnh sửa
                         </button>
                         <div
                           className="my-1"
-                          style={{ borderTop: "1px solid #2a2a2a" }}
+                          style={{ borderTop: "1px solid var(--border)" }}
                         />
                         <button
                           onClick={() => {
                             setOpenMenuId(null);
                             handleDelete(list.id);
                           }}
-                          className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-400 hover:bg-[#222] hover:text-red-300 transition-colors"
+                          className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-400 hover:bg-[var(--surface-2)] hover:text-red-300 transition-colors"
                         >
                           <Trash2 size={14} /> Xoá
                         </button>
@@ -352,7 +352,7 @@ export default function ListsPage() {
             {/* Header */}
             <div
               className="flex items-center justify-between px-5 py-4"
-              style={{ borderBottom: "1px solid #2a2a2a" }}
+              style={{ borderBottom: "1px solid var(--border)" }}
             >
               <h2 className="text-white font-semibold text-base">
                 {editingList ? "Chỉnh sửa danh sách" : "Tạo danh sách mới"}
@@ -371,9 +371,9 @@ export default function ListsPage() {
                 <div
                   className="text-sm px-3 py-2 rounded-lg"
                   style={{
-                    background: "rgba(239,68,68,0.1)",
-                    color: "#ef4444",
-                    border: "1px solid rgba(239,68,68,0.2)",
+                    background: "rgb(var(--danger-rgb) / 0.1)",
+                    color: "var(--danger)",
+                    border: "1px solid rgb(var(--danger-rgb) / 0.2)",
                   }}
                 >
                   {formError}
@@ -437,8 +437,8 @@ export default function ListsPage() {
                   onClick={() => setModalOpen(false)}
                   className="flex-1 py-2.5 text-sm font-medium text-gray-400 rounded-lg transition-colors hover:text-white"
                   style={{
-                    background: "#1f1f1f",
-                    border: "1px solid #2a2a2a",
+                    background: "var(--surface-2)",
+                    border: "1px solid var(--border)",
                   }}
                 >
                   Hủy

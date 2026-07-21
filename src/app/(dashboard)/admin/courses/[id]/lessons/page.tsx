@@ -672,7 +672,7 @@ export default function LessonsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen" style={{ backgroundColor: "#111" }}>
+      <div className="min-h-screen" style={{ backgroundColor: "var(--surface)" }}>
         <TopBar title="Quản lý bài học" subtitle="Đang tải..." />
         <div className="max-w-5xl mx-auto px-6 py-8">
           <p className="text-gray-400">Đang tải...</p>
@@ -682,7 +682,7 @@ export default function LessonsPage() {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#111" }}>
+    <div className="min-h-screen" style={{ backgroundColor: "var(--surface)" }}>
       <TopBar
         title={`Quản lý bài học — ${courseTitle}`}
         subtitle="Thêm chương và bài học cho khoá học"
@@ -711,7 +711,7 @@ export default function LessonsPage() {
                 onClick={handleDuplicateCourse}
                 disabled={duplicating}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors text-gray-300 hover:text-white hover:bg-white/5 disabled:opacity-50"
-                style={{ border: "1px solid #2a2a2a" }}
+                style={{ border: "1px solid var(--border)" }}
               >
                 {duplicating ? (
                   <Loader2 size={15} className="animate-spin" />
@@ -726,9 +726,9 @@ export default function LessonsPage() {
                 onClick={openCopyModal}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
                 style={{
-                  background: "rgba(59,130,246,0.1)",
-                  color: "#3b82f6",
-                  border: "1px solid rgba(59,130,246,0.2)",
+                  background: "rgb(var(--info-rgb) / 0.1)",
+                  color: "var(--info)",
+                  border: "1px solid rgb(var(--info-rgb) / 0.2)",
                 }}
               >
                 <FolderOutput size={15} />
@@ -786,7 +786,7 @@ export default function LessonsPage() {
 
           <DragOverlay>
             {activeChapterId ? (
-              <div className="card-dark rounded-xl px-5 py-4 opacity-90 shadow-2xl border border-[#D4A843]/40">
+              <div className="card-dark rounded-xl px-5 py-4 opacity-90 shadow-2xl border border-[var(--accent)]/40">
                 <span className="text-white font-medium">
                   {chapters.find((c) => c.id === activeChapterId)?.title}
                 </span>
@@ -800,7 +800,7 @@ export default function LessonsPage() {
           {showAddChapter ? (
             <div
               className="card-dark rounded-xl p-5 space-y-4"
-              style={{ border: "1px solid #2a2a2a" }}
+              style={{ border: "1px solid var(--border)" }}
             >
               <h3 className="text-white font-medium text-sm">
                 Thêm chương mới
@@ -853,7 +853,7 @@ export default function LessonsPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
           <div
             className="card-dark rounded-2xl p-6 max-w-md w-full mx-4 space-y-4"
-            style={{ border: "1px solid #2a2a2a" }}
+            style={{ border: "1px solid var(--border)" }}
           >
             <h3 className="text-white font-bold text-lg">Xác nhận xóa</h3>
             <p className="text-gray-400 text-sm">
@@ -896,7 +896,7 @@ export default function LessonsPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
           <div
             className="card-dark rounded-2xl p-6 max-w-lg w-full mx-4 space-y-5 max-h-[85vh] overflow-y-auto"
-            style={{ border: "1px solid #2a2a2a" }}
+            style={{ border: "1px solid var(--border)" }}
           >
             <div className="flex items-center justify-between">
               <h3 className="text-white font-bold text-lg flex items-center gap-2">
@@ -952,11 +952,11 @@ export default function LessonsPage() {
                     className="flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors hover:bg-white/5"
                     style={{
                       backgroundColor: selectedChapterIds.has(ch.id)
-                        ? "rgba(59,130,246,0.08)"
-                        : "#1a1a1a",
+                        ? "rgb(var(--info-rgb) / 0.08)"
+                        : "var(--surface)",
                       border: selectedChapterIds.has(ch.id)
-                        ? "1px solid rgba(59,130,246,0.3)"
-                        : "1px solid #2a2a2a",
+                        ? "1px solid rgb(var(--info-rgb) / 0.3)"
+                        : "1px solid var(--border)",
                     }}
                   >
                     <input
@@ -984,12 +984,12 @@ export default function LessonsPage() {
                 className="p-3 rounded-lg text-sm"
                 style={{
                   backgroundColor: copyResult.startsWith("Lỗi")
-                    ? "rgba(239,68,68,0.1)"
-                    : "rgba(34,197,94,0.1)",
-                  color: copyResult.startsWith("Lỗi") ? "#ef4444" : "#22c55e",
+                    ? "rgb(var(--danger-rgb) / 0.1)"
+                    : "rgb(var(--success-rgb) / 0.1)",
+                  color: copyResult.startsWith("Lỗi") ? "var(--danger)" : "var(--success)",
                   border: copyResult.startsWith("Lỗi")
-                    ? "1px solid rgba(239,68,68,0.2)"
-                    : "1px solid rgba(34,197,94,0.2)",
+                    ? "1px solid rgb(var(--danger-rgb) / 0.2)"
+                    : "1px solid rgb(var(--success-rgb) / 0.2)",
                 }}
               >
                 <div className="flex items-center gap-2">
@@ -1065,9 +1065,9 @@ function ChapterCard({
     <div className="card-dark rounded-xl overflow-hidden">
       {/* Chapter Header */}
       <div
-        className="flex items-center justify-between px-5 py-4 cursor-pointer hover:bg-[#2a2a2a] transition-colors"
+        className="flex items-center justify-between px-5 py-4 cursor-pointer hover:bg-[var(--border)] transition-colors"
         style={{
-          borderBottom: expanded ? "1px solid #2a2a2a" : "none",
+          borderBottom: expanded ? "1px solid var(--border)" : "none",
         }}
         onClick={onToggle}
       >
@@ -1238,8 +1238,8 @@ function SortableLessonRow({
   return (
     <div
       ref={setNodeRef}
-      style={{ ...style, backgroundColor: "#1a1a1a" }}
-      className="flex items-center justify-between pl-10 pr-2 py-3 rounded-lg hover:bg-[#2a2a2a] transition-colors"
+      style={{ ...style, backgroundColor: "var(--surface)" }}
+      className="flex items-center justify-between pl-10 pr-2 py-3 rounded-lg hover:bg-[var(--border)] transition-colors"
       {...attributes}
     >
       <div className="flex items-center gap-3">
@@ -1321,7 +1321,7 @@ function LessonFormComponent({
   return (
     <div
       className="mt-4 p-5 rounded-xl space-y-4"
-      style={{ backgroundColor: "#1a1a1a", border: "1px solid #2a2a2a" }}
+      style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)" }}
     >
       <h4 className="text-white font-medium text-sm">
         {editingLessonId ? "Sửa bài học" : "Thêm bài học mới"}
@@ -1377,7 +1377,7 @@ function LessonFormComponent({
             />
             <p className="text-[10px] text-gray-500 mt-1">
               Upload video lên YouTube ở chế độ{" "}
-              <strong className="text-[#f59e0b]">Unlisted</strong> (Không công
+              <strong className="text-[var(--warn)]">Unlisted</strong> (Không công
               khai) rồi paste link vào đây.
             </p>
           </div>
@@ -1417,7 +1417,7 @@ function LessonFormComponent({
           />
           <p className="text-[10px] text-gray-500 mt-1">
             Paste link Google Drive video. Video phải được chia sẻ ở chế độ{" "}
-            <strong className="text-[#f59e0b]">&quot;Bất kỳ ai có link&quot;</strong>
+            <strong className="text-[var(--warn)]">&quot;Bất kỳ ai có link&quot;</strong>
             . YouTube ID sẽ được ưu tiên nếu có cả hai.
           </p>
         </div>
@@ -1555,7 +1555,7 @@ function LessonAttachmentsSection({
   return (
     <div
       className="p-4 rounded-lg space-y-3"
-      style={{ backgroundColor: "#151515", border: "1px solid #252525" }}
+      style={{ backgroundColor: "var(--surface)", border: "1px solid var(--surface-3)" }}
     >
       <div className="flex items-center justify-between">
         <label className="flex items-center gap-2 text-gray-400 text-xs font-medium">
@@ -1567,7 +1567,7 @@ function LessonAttachmentsSection({
             type="button"
             onClick={() => setShowAddForm(true)}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-amber-400 hover:text-amber-300 hover:bg-white/5 transition-colors"
-            style={{ border: "1px solid #2a2a2a" }}
+            style={{ border: "1px solid var(--border)" }}
           >
             <LinkIcon size={13} />
             Thêm link tài liệu
@@ -1577,7 +1577,7 @@ function LessonAttachmentsSection({
 
       {/* Add link form */}
       {showAddForm && (
-        <div className="space-y-2 p-3 rounded-lg" style={{ backgroundColor: "#1a1a1a", border: "1px solid #2a2a2a" }}>
+        <div className="space-y-2 p-3 rounded-lg" style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)" }}>
           <input
             type="text"
             value={linkName}
@@ -1605,7 +1605,7 @@ function LessonAttachmentsSection({
               type="button"
               onClick={handleAdd}
               disabled={!linkUrl.trim()}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[#D4A843] text-black hover:bg-[#c49a3a] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--accent)] text-black hover:bg-[var(--accent-hover)] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               <Plus size={12} />
               Thêm
@@ -1624,7 +1624,7 @@ function LessonAttachmentsSection({
             <div
               key={idx}
               className="flex items-center justify-between gap-3 px-3 py-2 rounded-lg"
-              style={{ backgroundColor: "#1a1a1a", border: "1px solid #2a2a2a" }}
+              style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)" }}
             >
               <div className="flex items-center gap-2 min-w-0">
                 <LinkIcon size={14} className="text-blue-400 shrink-0" />
@@ -1635,7 +1635,7 @@ function LessonAttachmentsSection({
                   href={att.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-[#D4A843] p-1 transition-colors"
+                  className="text-gray-500 hover:text-[var(--accent)] p-1 transition-colors"
                   title="Mở link"
                 >
                   <ExternalLink size={13} />

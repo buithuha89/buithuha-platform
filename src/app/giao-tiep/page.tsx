@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const data: SiloData = {
   slug: "giao-tiep-quan-he",
   num: 1,
-  color: "#FBBF24",
+  color: "var(--warn)",
   title: "Giao tiếp & Quan hệ",
   subtitle: "Trong gia đình, và ở chỗ làm",
   intro:

@@ -117,12 +117,12 @@ export default async function BlogPage({
                   href={href}
                   className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
                     isActive
-                      ? "bg-[#D4A843] text-white"
+                      ? "bg-[var(--accent)] text-white"
                       : "text-gray-400 hover:text-white"
                   }`}
                   style={
                     !isActive
-                      ? { background: "#1a1a1a", border: "1px solid #2a2a2a" }
+                      ? { background: "var(--surface)", border: "1px solid var(--border)" }
                       : {}
                   }
                 >
@@ -148,7 +148,7 @@ export default async function BlogPage({
               {activeCategory ? (
                 <>
                   Hãy chọn danh mục khác hoặc{" "}
-                  <Link href="/blog" className="text-[#D4A843] hover:underline">
+                  <Link href="/blog" className="text-[var(--accent)] hover:underline">
                     xem tất cả bài viết
                   </Link>
                   .
@@ -164,11 +164,11 @@ export default async function BlogPage({
         {featured && (
           <Link
             href={`/blog/${featured.slug}`}
-            className="card-dark block hover:bg-[#1f1f1f] transition-all group overflow-hidden"
+            className="card-dark block hover:bg-[var(--surface-2)] transition-all group overflow-hidden"
           >
             {/* Thumbnail */}
             {featured.thumbnail ? (
-              <div className="relative w-full aspect-[21/9] bg-[#1a1a1a]">
+              <div className="relative w-full aspect-[21/9] bg-[var(--surface)]">
                 <Image
                   src={featured.thumbnail}
                   alt={featured.title}
@@ -198,13 +198,13 @@ export default async function BlogPage({
                   {featured.category && (
                     <span
                       className="text-[11px] text-gray-500 px-2 py-0.5 rounded-full"
-                      style={{ background: "#222" }}
+                      style={{ background: "var(--surface-2)" }}
                     >
                       {featured.category}
                     </span>
                   )}
                 </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-[#D4A843] transition-colors leading-snug">
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-[var(--accent)] transition-colors leading-snug">
                   {featured.title}
                 </h2>
               </div>
@@ -229,7 +229,7 @@ export default async function BlogPage({
                   </span>
                   <span>{formatVietnameseDate(featured.published_at)}</span>
                 </div>
-                <span className="flex items-center gap-1 text-xs text-[#D4A843] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="flex items-center gap-1 text-xs text-[var(--accent)] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                   Đọc bài viết <ArrowRight size={12} />
                 </span>
               </div>
@@ -240,7 +240,7 @@ export default async function BlogPage({
                     <span
                       key={tag}
                       className="text-[10px] text-gray-500 px-1.5 py-0.5 rounded-full"
-                      style={{ background: "#222" }}
+                      style={{ background: "var(--surface-2)" }}
                     >
                       #{tag}
                     </span>
@@ -258,11 +258,11 @@ export default async function BlogPage({
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="card-dark block hover:bg-[#1f1f1f] transition-all group overflow-hidden"
+                className="card-dark block hover:bg-[var(--surface-2)] transition-all group overflow-hidden"
               >
                 {/* Thumbnail */}
                 {post.thumbnail ? (
-                  <div className="relative w-full aspect-[16/9] bg-[#1a1a1a]">
+                  <div className="relative w-full aspect-[16/9] bg-[var(--surface)]">
                     <Image
                       src={post.thumbnail}
                       alt={post.title}
@@ -274,7 +274,7 @@ export default async function BlogPage({
                 ) : (
                   <div
                     className="w-full aspect-[16/9] flex items-center justify-center"
-                    style={{ background: "#1a1a1a" }}
+                    style={{ background: "var(--surface)" }}
                   >
                     <FileText size={36} className="text-gray-700" />
                   </div>
@@ -285,12 +285,12 @@ export default async function BlogPage({
                   {post.category && (
                     <span
                       className="text-[11px] text-gray-500 font-medium px-2 py-0.5 rounded-full mb-2 inline-block"
-                      style={{ background: "#222" }}
+                      style={{ background: "var(--surface-2)" }}
                     >
                       {post.category}
                     </span>
                   )}
-                  <h3 className="font-semibold text-white text-[15px] leading-snug mb-1.5 group-hover:text-[#D4A843] transition-colors line-clamp-2">
+                  <h3 className="font-semibold text-white text-[15px] leading-snug mb-1.5 group-hover:text-[var(--accent)] transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   {post.excerpt && (
@@ -315,7 +315,7 @@ export default async function BlogPage({
                         <span
                           key={tag}
                           className="text-[10px] text-gray-500 px-1.5 py-0.5 rounded-full"
-                          style={{ background: "#1a1a1a" }}
+                          style={{ background: "var(--surface)" }}
                         >
                           #{tag}
                         </span>

@@ -25,8 +25,8 @@ export default function Error({ error, reset }: ErrorProps) {
         alignItems: "center",
         justifyContent: "center",
         padding: "24px",
-        background: "#0a0a0a",
-        color: "#f5f5f5",
+        background: "var(--bg)",
+        color: "var(--fg)",
         fontFamily:
           "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
         textAlign: "center",
@@ -43,7 +43,7 @@ export default function Error({ error, reset }: ErrorProps) {
           width: "500px",
           height: "300px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, #ef4444, transparent 70%)",
+          background: "radial-gradient(circle, var(--danger), transparent 70%)",
           opacity: 0.06,
           filter: "blur(60px)",
           pointerEvents: "none",
@@ -60,7 +60,7 @@ export default function Error({ error, reset }: ErrorProps) {
             fontSize: "clamp(22px, 5vw, 30px)",
             fontWeight: 800,
             margin: "0 0 10px",
-            color: "#f5f5f5",
+            color: "var(--fg)",
           }}
         >
           Đã xảy ra lỗi
@@ -70,7 +70,7 @@ export default function Error({ error, reset }: ErrorProps) {
         <p
           style={{
             fontSize: "15px",
-            color: "#9ca3af",
+            color: "var(--fg-muted)",
             lineHeight: 1.6,
             margin: "0 0 8px",
           }}
@@ -85,7 +85,7 @@ export default function Error({ error, reset }: ErrorProps) {
           <p
             style={{
               fontSize: "11px",
-              color: "#6b7280",
+              color: "var(--fg-subtle)",
               marginBottom: "8px",
               fontFamily: "monospace",
             }}
@@ -101,8 +101,8 @@ export default function Error({ error, reset }: ErrorProps) {
               margin: "16px 0",
               padding: "12px 16px",
               borderRadius: "8px",
-              background: "rgba(239,68,68,0.08)",
-              border: "1px solid rgba(239,68,68,0.2)",
+              background: "rgb(var(--danger-rgb) / 0.08)",
+              border: "1px solid rgb(var(--danger-rgb) / 0.2)",
               textAlign: "left",
               fontSize: "12px",
               color: "#fca5a5",
@@ -112,7 +112,7 @@ export default function Error({ error, reset }: ErrorProps) {
               overflowY: "auto",
             }}
           >
-            <strong style={{ color: "#ef4444" }}>Dev:</strong> {error.message}
+            <strong style={{ color: "var(--danger)" }}>Dev:</strong> {error.message}
           </div>
         )}
 
@@ -133,8 +133,8 @@ export default function Error({ error, reset }: ErrorProps) {
               alignItems: "center",
               justifyContent: "center",
               gap: "8px",
-              backgroundColor: "#D4A843",
-              color: "#0a0a0a",
+              backgroundColor: "var(--accent)",
+              color: "var(--bg)",
               fontWeight: 700,
               fontSize: "15px",
               padding: "13px 32px",
@@ -163,12 +163,12 @@ export default function Error({ error, reset }: ErrorProps) {
               justifyContent: "center",
               gap: "8px",
               backgroundColor: "transparent",
-              color: "#9ca3af",
+              color: "var(--fg-muted)",
               fontWeight: 600,
               fontSize: "14px",
               padding: "12px 32px",
               borderRadius: "10px",
-              border: "1px solid rgba(255,255,255,0.08)",
+              border: "1px solid rgb(var(--overlay-rgb) / 0.08)",
               textDecoration: "none",
               width: "100%",
               boxSizing: "border-box",
@@ -176,13 +176,13 @@ export default function Error({ error, reset }: ErrorProps) {
             }}
             onMouseOver={(e) => {
               const el = e.currentTarget as HTMLAnchorElement;
-              el.style.borderColor = "rgba(255,255,255,0.18)";
-              el.style.color = "#f5f5f5";
+              el.style.borderColor = "rgb(var(--overlay-rgb) / 0.18)";
+              el.style.color = "var(--fg)";
             }}
             onMouseOut={(e) => {
               const el = e.currentTarget as HTMLAnchorElement;
-              el.style.borderColor = "rgba(255,255,255,0.08)";
-              el.style.color = "#9ca3af";
+              el.style.borderColor = "rgb(var(--overlay-rgb) / 0.08)";
+              el.style.color = "var(--fg-muted)";
             }}
           >
             ← Về trang chủ
@@ -194,7 +194,7 @@ export default function Error({ error, reset }: ErrorProps) {
           style={{
             marginTop: "48px",
             fontSize: "12px",
-            color: "#4b5563",
+            color: "var(--fg-subtle)",
           }}
         >
           © 2026 Hà Bùi Academy

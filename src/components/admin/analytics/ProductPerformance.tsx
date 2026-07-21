@@ -32,7 +32,7 @@ export default function ProductPerformance({
         <h3 className="text-white font-semibold mb-4">Hiệu suất sản phẩm</h3>
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[#2a2a2a]">
+            <tr className="border-b border-[var(--border)]">
               <th className="text-xs text-gray-500 font-medium text-left pb-3 w-10">
                 #
               </th>
@@ -52,24 +52,24 @@ export default function ProductPerformance({
           </thead>
           <tbody>
             {Array.from({ length: 5 }).map((_, i) => (
-              <tr key={i} className="border-b border-[#2a2a2a]/50">
+              <tr key={i} className="border-b border-[var(--border)]/50">
                 <td className="py-3">
-                  <div className="h-4 w-4 bg-[#2a2a2a] rounded animate-pulse" />
+                  <div className="h-4 w-4 bg-[var(--border)] rounded animate-pulse" />
                 </td>
                 <td className="py-3">
                   <div className="flex items-center gap-3">
-                    <div className="h-6 w-6 bg-[#2a2a2a] rounded animate-pulse" />
-                    <div className="h-4 w-32 bg-[#2a2a2a] rounded animate-pulse" />
+                    <div className="h-6 w-6 bg-[var(--border)] rounded animate-pulse" />
+                    <div className="h-4 w-32 bg-[var(--border)] rounded animate-pulse" />
                   </div>
                 </td>
                 <td className="py-3">
-                  <div className="h-4 w-20 bg-[#2a2a2a] rounded animate-pulse ml-auto" />
+                  <div className="h-4 w-20 bg-[var(--border)] rounded animate-pulse ml-auto" />
                 </td>
                 <td className="py-3">
-                  <div className="h-4 w-10 bg-[#2a2a2a] rounded animate-pulse ml-auto" />
+                  <div className="h-4 w-10 bg-[var(--border)] rounded animate-pulse ml-auto" />
                 </td>
                 <td className="py-3">
-                  <div className="h-4 w-16 bg-[#2a2a2a] rounded animate-pulse ml-auto" />
+                  <div className="h-4 w-16 bg-[var(--border)] rounded animate-pulse ml-auto" />
                 </td>
               </tr>
             ))}
@@ -96,7 +96,7 @@ export default function ProductPerformance({
       <h3 className="text-white font-semibold mb-4">Hiệu suất sản phẩm</h3>
       <table className="w-full">
         <thead>
-          <tr className="border-b border-[#2a2a2a]">
+          <tr className="border-b border-[var(--border)]">
             <th className="text-xs text-gray-500 font-medium text-left pb-3 w-10">
               #
             </th>
@@ -118,8 +118,8 @@ export default function ProductPerformance({
           {topProducts.map((product, index) => (
             <tr
               key={product.id}
-              className={`text-sm text-gray-300 hover:bg-[#1a1a1a] transition-colors ${
-                index % 2 === 1 ? "bg-[#141414]" : ""
+              className={`text-sm text-gray-300 hover:bg-[var(--surface)] transition-colors ${
+                index % 2 === 1 ? "bg-[var(--surface)]" : ""
               }`}
             >
               <td className="py-3 text-gray-500">{index + 1}</td>
@@ -132,7 +132,7 @@ export default function ProductPerformance({
                       className="w-6 h-6 rounded object-cover"
                     />
                   ) : (
-                    <div className="w-6 h-6 rounded bg-[#2a2a2a] flex items-center justify-center">
+                    <div className="w-6 h-6 rounded bg-[var(--border)] flex items-center justify-center">
                       <Package className="w-3.5 h-3.5 text-gray-500" />
                     </div>
                   )}

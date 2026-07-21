@@ -227,7 +227,7 @@ export default function AdminPromotionsPage() {
               Xem trước banner:
             </p>
             <div className="notification-bar flex flex-wrap items-center justify-center gap-x-2 gap-y-1 py-1.5 px-3 text-sm rounded-lg">
-              <Megaphone size={13} className="text-[#D4A843] shrink-0" />
+              <Megaphone size={13} className="text-[var(--accent)] shrink-0" />
               <span className="text-gray-400 text-xs">
                 Hà Bùi vừa cập nhật:
               </span>
@@ -244,7 +244,7 @@ export default function AdminPromotionsPage() {
                     <div
                       key={p.id}
                       className="w-1.5 h-1.5 rounded-full"
-                      style={{ background: i === 0 ? "#D4A843" : "#333" }}
+                      style={{ background: i === 0 ? "var(--accent)" : "#333" }}
                     />
                   ))}
               </div>

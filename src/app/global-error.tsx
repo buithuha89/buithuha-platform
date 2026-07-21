@@ -25,8 +25,8 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
         <style>{`
           *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
           body {
-            background: #0a0a0a;
-            color: #f5f5f5;
+            background: var(--bg);
+            color: var(--fg);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             min-height: 100vh;
             display: flex;
@@ -44,7 +44,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
             width: 500px;
             height: 300px;
             border-radius: 50%;
-            background: radial-gradient(circle, #D4A843, transparent 70%);
+            background: radial-gradient(circle, var(--accent), transparent 70%);
             opacity: 0.07;
             filter: blur(60px);
             pointer-events: none;
@@ -59,17 +59,17 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
             font-size: clamp(22px, 5vw, 30px);
             font-weight: 800;
             margin-bottom: 10px;
-            color: #f5f5f5;
+            color: var(--fg);
           }
           .subtitle {
             font-size: 15px;
-            color: #9ca3af;
+            color: var(--fg-muted);
             line-height: 1.6;
             margin-bottom: 8px;
           }
           .digest {
             font-size: 11px;
-            color: #6b7280;
+            color: var(--fg-subtle);
             margin-bottom: 8px;
             font-family: monospace;
           }
@@ -77,8 +77,8 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
             margin: 16px 0;
             padding: 12px 16px;
             border-radius: 8px;
-            background: rgba(239,68,68,0.08);
-            border: 1px solid rgba(239,68,68,0.2);
+            background: rgb(var(--danger-rgb) / 0.08);
+            border: 1px solid rgb(var(--danger-rgb) / 0.2);
             text-align: left;
             font-size: 12px;
             color: #fca5a5;
@@ -87,7 +87,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
             max-height: 120px;
             overflow-y: auto;
           }
-          .dev-error strong { color: #ef4444; }
+          .dev-error strong { color: var(--danger); }
           .actions {
             display: flex;
             flex-direction: column;
@@ -99,8 +99,8 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background: #D4A843;
-            color: #0a0a0a;
+            background: var(--accent);
+            color: var(--bg);
             font-weight: 700;
             font-size: 15px;
             padding: 13px 32px;
@@ -118,30 +118,30 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
             justify-content: center;
             gap: 8px;
             background: transparent;
-            color: #9ca3af;
+            color: var(--fg-muted);
             font-weight: 600;
             font-size: 14px;
             padding: 12px 32px;
             border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgb(var(--overlay-rgb) / 0.08);
             cursor: pointer;
             width: 100%;
             transition: border-color 0.2s, color 0.2s;
             font-family: inherit;
           }
           .btn-secondary:hover {
-            border-color: rgba(255,255,255,0.18);
-            color: #f5f5f5;
+            border-color: rgb(var(--overlay-rgb) / 0.18);
+            color: var(--fg);
           }
           .divider {
             margin: 32px 0;
             height: 1px;
-            background: rgba(255,255,255,0.06);
+            background: rgb(var(--overlay-rgb) / 0.06);
           }
           .brand {
             margin-top: 48px;
             font-size: 12px;
-            color: #4b5563;
+            color: var(--fg-subtle);
           }
           .badge {
             display: inline-flex;
@@ -149,9 +149,9 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
             gap: 6px;
             padding: 6px 14px;
             border-radius: 20px;
-            background: rgba(212,168,67,0.1);
-            border: 1px solid rgba(212,168,67,0.2);
-            color: #D4A843;
+            background: rgb(var(--accent-rgb) / 0.1);
+            border: 1px solid rgb(var(--accent-rgb) / 0.2);
+            color: var(--accent);
             font-size: 12px;
             font-weight: 600;
             margin-bottom: 20px;
@@ -208,13 +208,13 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
           <div className="divider" />
 
           {/* Support hint */}
-          <p style={{ fontSize: "13px", color: "#6b7280" }}>
+          <p style={{ fontSize: "13px", color: "var(--fg-subtle)" }}>
             Nếu lỗi vẫn tiếp tục, hãy liên hệ hỗ trợ qua{" "}
             <a
               href={siteConfig.socials.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#D4A843", textDecoration: "none" }}
+              style={{ color: "var(--accent)", textDecoration: "none" }}
             >
               Facebook
             </a>

@@ -46,25 +46,25 @@ const SOURCE_COLORS: Record<string, string> = {
   facebook: "#1877F2",
   google: "#EA4335",
   tiktok: "#010101",
-  email: "#D4A843",
-  organic: "#22c55e",
-  ads: "#f59e0b",
-  social: "#ec4899",
-  referral: "#a855f7",
+  email: "var(--accent)",
+  organic: "var(--success)",
+  ads: "var(--warn)",
+  social: "var(--cat-pink)",
+  referral: "var(--cat-purple)",
 };
 
 const STAGE_COLORS: Record<string, { label: string; color: string }> = {
-  visitor: { label: "Visitor", color: "#6b7280" },
-  lead: { label: "Lead", color: "#3b82f6" },
-  contacted: { label: "Contacted", color: "#f59e0b" },
-  qualified: { label: "Qualified", color: "#a855f7" },
-  negotiation: { label: "Negotiation", color: "#f97316" },
-  customer: { label: "Customer", color: "#22c55e" },
-  advocate: { label: "Advocate", color: "#D4A843" },
+  visitor: { label: "Visitor", color: "var(--fg-subtle)" },
+  lead: { label: "Lead", color: "var(--info)" },
+  contacted: { label: "Contacted", color: "var(--warn)" },
+  qualified: { label: "Qualified", color: "var(--cat-purple)" },
+  negotiation: { label: "Negotiation", color: "var(--cat-orange)" },
+  customer: { label: "Customer", color: "var(--success)" },
+  advocate: { label: "Advocate", color: "var(--accent)" },
 };
 
 function getSourceColor(source: string): string {
-  return SOURCE_COLORS[source.toLowerCase()] ?? "#6b7280";
+  return SOURCE_COLORS[source.toLowerCase()] ?? "var(--fg-subtle)";
 }
 
 /* ---------- Page ---------- */
@@ -180,7 +180,7 @@ export default async function AttributionPage({
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
-              <Target size={20} className="text-[#D4A843]" />
+              <Target size={20} className="text-[var(--accent)]" />
               Marketing Attribution
             </h2>
             <p className="text-gray-400 text-sm mt-1">
@@ -214,7 +214,7 @@ export default async function AttributionPage({
               label: "Contacts tracked",
               value: String(totalTracked),
               icon: Users,
-              color: "#3b82f6",
+              color: "var(--info)",
             },
             {
               label: "Top source",
@@ -226,13 +226,13 @@ export default async function AttributionPage({
               label: "Conversion rate",
               value: overallConversionRate + "%",
               icon: TrendingUp,
-              color: "#22c55e",
+              color: "var(--success)",
             },
             {
               label: "Attributed revenue",
               value: formatVND(totalRevenue),
               icon: DollarSign,
-              color: "#D4A843",
+              color: "var(--accent)",
             },
           ].map((stat, i) => (
             <div key={i} className="stat-card">
@@ -253,7 +253,7 @@ export default async function AttributionPage({
         {/* Source Distribution - Visual Bar Chart */}
         <div className="card-dark p-5">
           <div className="flex items-center gap-2 mb-4">
-            <BarChart2 size={16} className="text-[#D4A843]" />
+            <BarChart2 size={16} className="text-[var(--accent)]" />
             <h3 className="font-semibold text-white text-sm">Phân bố nguồn khách hàng</h3>
             <span className="text-xs text-gray-500 ml-auto">{totalTracked} contacts</span>
           </div>
@@ -279,7 +279,7 @@ export default async function AttributionPage({
                       </span>
                     </div>
                   </div>
-                  <div className="h-2 rounded-full overflow-hidden" style={{ background: "#1a1a1a" }}>
+                  <div className="h-2 rounded-full overflow-hidden" style={{ background: "var(--surface)" }}>
                     <div
                       className="h-full rounded-full transition-all"
                       style={{
@@ -301,9 +301,9 @@ export default async function AttributionPage({
 
         {/* Source Breakdown Table */}
         <div className="card-dark overflow-hidden">
-          <div className="flex items-center justify-between p-5 border-b border-[#2a2a2a]">
+          <div className="flex items-center justify-between p-5 border-b border-[var(--border)]">
             <div className="flex items-center gap-2">
-              <Globe size={16} className="text-[#D4A843]" />
+              <Globe size={16} className="text-[var(--accent)]" />
               <h3 className="font-semibold text-white text-sm">Chi tiết theo nguồn</h3>
             </div>
             <span className="text-xs text-gray-500">{sourceRows.length} sources</span>
@@ -313,7 +313,7 @@ export default async function AttributionPage({
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                  <tr style={{ borderBottom: "1px solid var(--border)" }}>
                     {["Nguồn", "Contacts", "Customers", "Conversion", "Revenue", ""].map((col) => (
                       <th
                         key={col}
@@ -330,7 +330,7 @@ export default async function AttributionPage({
                       key={row.utm_source}
                       className="transition-colors hover:bg-white/[0.02]"
                       style={{
-                        borderBottom: idx < sourceRows.length - 1 ? "1px solid #2a2a2a" : "none",
+                        borderBottom: idx < sourceRows.length - 1 ? "1px solid var(--border)" : "none",
                       }}
                     >
                       <td className="px-4 py-3">
@@ -348,7 +348,7 @@ export default async function AttributionPage({
                         <div className="flex items-center gap-2">
                           <span className="text-white font-semibold">{row.count}</span>
                           <div className="flex-1 max-w-[80px]">
-                            <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "#1a1a1a" }}>
+                            <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "var(--surface)" }}>
                               <div
                                 className="h-full rounded-full"
                                 style={{
@@ -367,26 +367,26 @@ export default async function AttributionPage({
                         <span
                           className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold"
                           style={{
-                            background: "rgba(34,197,94,0.1)",
-                            color: "#22c55e",
+                            background: "rgb(var(--success-rgb) / 0.1)",
+                            color: "var(--success)",
                           }}
                         >
                           {pct(row.customers, row.count)}
                         </span>
                       </td>
                       <td className="px-4 py-3">
-                        <span className="text-[#D4A843] font-semibold">
+                        <span className="text-[var(--accent)] font-semibold">
                           {formatVND(row.revenue)}
                         </span>
                       </td>
                       <td className="px-4 py-3">
                         <div className="flex-1 max-w-[60px]">
-                          <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "#1a1a1a" }}>
+                          <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "var(--surface)" }}>
                             <div
                               className="h-full rounded-full"
                               style={{
                                 width: `${totalRevenue > 0 ? (row.revenue / totalRevenue) * 100 : 0}%`,
-                                background: "#D4A843",
+                                background: "var(--accent)",
                               }}
                             />
                           </div>
@@ -406,9 +406,9 @@ export default async function AttributionPage({
 
         {/* Campaign Performance Table */}
         <div className="card-dark overflow-hidden">
-          <div className="flex items-center justify-between p-5 border-b border-[#2a2a2a]">
+          <div className="flex items-center justify-between p-5 border-b border-[var(--border)]">
             <div className="flex items-center gap-2">
-              <Target size={16} className="text-[#D4A843]" />
+              <Target size={16} className="text-[var(--accent)]" />
               <h3 className="font-semibold text-white text-sm">Hiệu quả chiến dịch</h3>
             </div>
             <span className="text-xs text-gray-500">{campaignRows.length} campaigns</span>
@@ -418,7 +418,7 @@ export default async function AttributionPage({
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                  <tr style={{ borderBottom: "1px solid var(--border)" }}>
                     {["Campaign", "Source / Medium", "Contacts", "Conversions", "Revenue"].map((col) => (
                       <th
                         key={col}
@@ -435,7 +435,7 @@ export default async function AttributionPage({
                       key={row.utm_campaign}
                       className="transition-colors hover:bg-white/[0.02]"
                       style={{
-                        borderBottom: idx < campaignRows.length - 1 ? "1px solid #2a2a2a" : "none",
+                        borderBottom: idx < campaignRows.length - 1 ? "1px solid var(--border)" : "none",
                       }}
                     >
                       <td className="px-4 py-3">
@@ -477,16 +477,16 @@ export default async function AttributionPage({
                       </td>
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-2">
-                          <span className="text-[#D4A843] font-semibold">
+                          <span className="text-[var(--accent)] font-semibold">
                             {formatVND(row.revenue)}
                           </span>
                           <div className="flex-1 max-w-[60px]">
-                            <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "#1a1a1a" }}>
+                            <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "var(--surface)" }}>
                               <div
                                 className="h-full rounded-full"
                                 style={{
                                   width: `${(row.revenue / maxCampaignRevenue) * 100}%`,
-                                  background: "#D4A843",
+                                  background: "var(--accent)",
                                 }}
                               />
                             </div>
@@ -508,7 +508,7 @@ export default async function AttributionPage({
         {/* Contact Status by Source - Stacked Segments */}
         <div className="card-dark p-5">
           <div className="flex items-center gap-2 mb-4">
-            <TrendingUp size={16} className="text-[#D4A843]" />
+            <TrendingUp size={16} className="text-[var(--accent)]" />
             <h3 className="font-semibold text-white text-sm">Journey Stage theo nguồn</h3>
           </div>
 
@@ -540,7 +540,7 @@ export default async function AttributionPage({
                       </div>
                       <span className="text-xs text-gray-500">{total} contacts</span>
                     </div>
-                    <div className="h-4 rounded-full overflow-hidden flex" style={{ background: "#1a1a1a" }}>
+                    <div className="h-4 rounded-full overflow-hidden flex" style={{ background: "var(--surface)" }}>
                       {Object.entries(STAGE_COLORS).map(([stage, cfg]) => {
                         const stageCount = row.stages[stage] || 0;
                         if (stageCount === 0) return null;

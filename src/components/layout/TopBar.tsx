@@ -98,7 +98,7 @@ export default function TopBar({ title, subtitle, onMenuClick, notification, pro
         const current = promotions[promoIndex % promotions.length];
         const inner = (
           <div className="notification-bar flex flex-wrap items-center justify-center gap-x-2 gap-y-1 py-1.5 sm:py-2 px-3 sm:px-4 text-sm">
-            <Bell size={13} className="text-[#D4A843] shrink-0" />
+            <Bell size={13} className="text-[var(--accent)] shrink-0" />
             <span className="text-gray-400 text-xs">
               Hà Bùi vừa cập nhật:
             </span>
@@ -110,7 +110,7 @@ export default function TopBar({ title, subtitle, onMenuClick, notification, pro
                   <button
                     key={i}
                     className="w-1.5 h-1.5 rounded-full transition-colors"
-                    style={{ background: i === promoIndex % promotions.length ? "#D4A843" : "#333" }}
+                    style={{ background: i === promoIndex % promotions.length ? "var(--accent)" : "#333" }}
                     onClick={(e) => { e.preventDefault(); e.stopPropagation(); setPromoIndex(i); }}
                   />
                 ))}
@@ -126,7 +126,7 @@ export default function TopBar({ title, subtitle, onMenuClick, notification, pro
       {/* Legacy notification support */}
       {!promotions?.length && notification && (
         <div className="notification-bar flex flex-wrap items-center justify-center gap-x-2 gap-y-1 py-1.5 sm:py-2 px-3 sm:px-4 text-sm">
-          <Bell size={13} className="text-[#D4A843] shrink-0" />
+          <Bell size={13} className="text-[var(--accent)] shrink-0" />
           <span className="text-gray-400 text-xs">
             Hà Bùi vừa cập nhật:
           </span>
@@ -136,7 +136,7 @@ export default function TopBar({ title, subtitle, onMenuClick, notification, pro
       )}
 
       {/* Main Top Bar */}
-      <div className="flex items-center justify-between px-4 sm:px-6 h-14 border-b border-[#1f1f1f]">
+      <div className="flex items-center justify-between px-4 sm:px-6 h-14 border-b border-[var(--surface-2)]">
         <div className="flex items-center gap-3">
           <button onClick={handleMenuClick}
             aria-label="Mở menu"
@@ -151,12 +151,12 @@ export default function TopBar({ title, subtitle, onMenuClick, notification, pro
 
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Search */}
-          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-500 cursor-pointer hover:bg-[#1a1a1a] transition-colors"
-            style={{ background: "#151515", border: "1px solid #2a2a2a", minWidth: 180 }}
+          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-500 cursor-pointer hover:bg-[var(--surface)] transition-colors"
+            style={{ background: "var(--surface)", border: "1px solid var(--border)", minWidth: 180 }}
             onClick={() => setSearchOpen(true)}>
             <Search size={14} />
             <span>Tìm kiếm...</span>
-            <kbd className="ml-auto text-[10px] text-gray-500 bg-[#2a2a2a] px-1.5 py-0.5 rounded">⌘K</kbd>
+            <kbd className="ml-auto text-[10px] text-gray-500 bg-[var(--border)] px-1.5 py-0.5 rounded">⌘K</kbd>
           </div>
 
           {/* Mobile search button */}
@@ -174,13 +174,13 @@ export default function TopBar({ title, subtitle, onMenuClick, notification, pro
           <div className="relative" ref={menuRef}>
             <button
               onClick={() => setAvatarMenuOpen(!avatarMenuOpen)}
-              className="shrink-0 rounded-full focus:outline-none focus:ring-2 focus:ring-[#D4A843]/50"
+              className="shrink-0 rounded-full focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/50"
             >
               <UserAvatar
                 src={profile?.avatar_url}
                 initials={initials}
                 size={32}
-                gradient="linear-gradient(135deg, #D4A843, #059669)"
+                gradient="linear-gradient(135deg, var(--accent), var(--cat-emerald))"
               />
             </button>
 
@@ -189,18 +189,18 @@ export default function TopBar({ title, subtitle, onMenuClick, notification, pro
               <div
                 className="absolute right-0 top-full mt-2 w-56 rounded-xl shadow-2xl z-50 py-1 overflow-hidden"
                 style={{
-                  background: "#1a1a1a",
-                  border: "1px solid #2a2a2a",
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
                 }}
               >
                 {/* User Info */}
-                <div className="px-4 py-3 border-b border-[#2a2a2a]">
+                <div className="px-4 py-3 border-b border-[var(--border)]">
                   <div className="flex items-center gap-3">
                     <UserAvatar
                       src={profile?.avatar_url}
                       initials={initials}
                       size={36}
-                      gradient="linear-gradient(135deg, #D4A843, #059669)"
+                      gradient="linear-gradient(135deg, var(--accent), var(--cat-emerald))"
                     />
                     <div className="min-w-0">
                       <div className="text-sm font-medium text-white truncate">
@@ -235,7 +235,7 @@ export default function TopBar({ title, subtitle, onMenuClick, notification, pro
                 </div>
 
                 {/* Logout */}
-                <div className="border-t border-[#2a2a2a] py-1">
+                <div className="border-t border-[var(--border)] py-1">
                   <form action={signOut}>
                     <button
                       type="submit"

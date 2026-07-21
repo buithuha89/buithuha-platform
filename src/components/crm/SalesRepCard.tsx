@@ -33,7 +33,7 @@ export default function SalesRepCard({ rep }: SalesRepCardProps) {
     .toUpperCase();
 
   return (
-    <div className="p-4 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a]">
+    <div className="p-4 rounded-lg bg-[var(--surface)] border border-[var(--border)]">
       {/* Header */}
       <div className="flex items-center gap-3 mb-3">
         {/* Avatar */}
@@ -45,12 +45,12 @@ export default function SalesRepCard({ rep }: SalesRepCardProps) {
               className="w-10 h-10 rounded-full object-cover"
             />
           ) : (
-            <div className="w-10 h-10 rounded-full bg-[#D4A843] flex items-center justify-center text-white text-sm font-bold">
+            <div className="w-10 h-10 rounded-full bg-[var(--accent)] flex items-center justify-center text-white text-sm font-bold">
               {initials}
             </div>
           )}
           {rep.pending_actions > 0 && (
-            <div className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-red-500 border-2 border-[#1a1a1a]" />
+            <div className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-red-500 border-2 border-[var(--surface)]" />
           )}
         </div>
 
@@ -68,13 +68,13 @@ export default function SalesRepCard({ rep }: SalesRepCardProps) {
       {/* Stats grid */}
       <div className="grid grid-cols-2 gap-2">
         {/* Contacts */}
-        <div className="p-2 rounded bg-[#0f0f0f]">
+        <div className="p-2 rounded bg-[var(--bg-alt)]">
           <p className="text-[10px] text-gray-500 uppercase tracking-wide">Liên hệ</p>
           <p className="text-sm font-semibold text-white">{rep.total_contacts}</p>
         </div>
 
         {/* Deals */}
-        <div className="p-2 rounded bg-[#0f0f0f]">
+        <div className="p-2 rounded bg-[var(--bg-alt)]">
           <p className="text-[10px] text-gray-500 uppercase tracking-wide">Deals</p>
           <p className="text-sm font-semibold text-white">
             {rep.converted_contacts}/{rep.active_deals}
@@ -82,28 +82,28 @@ export default function SalesRepCard({ rep }: SalesRepCardProps) {
         </div>
 
         {/* Revenue */}
-        <div className="p-2 rounded bg-[#0f0f0f]">
+        <div className="p-2 rounded bg-[var(--bg-alt)]">
           <p className="text-[10px] text-gray-500 uppercase tracking-wide">Doanh thu</p>
-          <p className="text-sm font-semibold text-[#D4A843]">
+          <p className="text-sm font-semibold text-[var(--accent)]">
             {formatVND(rep.total_revenue)}
           </p>
         </div>
 
         {/* Conversion rate */}
-        <div className="p-2 rounded bg-[#0f0f0f]">
+        <div className="p-2 rounded bg-[var(--bg-alt)]">
           <p className="text-[10px] text-gray-500 uppercase tracking-wide">Tỷ lệ</p>
           <div className="flex items-center gap-1.5 mt-0.5">
-            <div className="flex-1 h-1.5 rounded-full bg-[#2a2a2a]">
+            <div className="flex-1 h-1.5 rounded-full bg-[var(--border)]">
               <div
                 className="h-full rounded-full"
                 style={{
                   width: `${Math.min(Math.max(rep.conversion_rate, 0), 100)}%`,
                   backgroundColor:
                     rep.conversion_rate >= 50
-                      ? "#22c55e"
+                      ? "var(--success)"
                       : rep.conversion_rate >= 25
-                        ? "#f59e0b"
-                        : "#ef4444",
+                        ? "var(--warn)"
+                        : "var(--danger)",
                 }}
               />
             </div>

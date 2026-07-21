@@ -97,60 +97,60 @@ function getInitials(name: string | null): string {
 const roleConfig: Record<Role, { label: string; bg: string; color: string; border: string }> = {
   admin: {
     label: "Admin",
-    bg: "rgba(239,68,68,0.1)",
-    color: "#ef4444",
-    border: "rgba(239,68,68,0.25)",
+    bg: "rgb(var(--danger-rgb) / 0.1)",
+    color: "var(--danger)",
+    border: "rgb(var(--danger-rgb) / 0.25)",
   },
   manager: {
     label: "Quản lý",
     bg: "rgba(168,85,247,0.1)",
-    color: "#a855f7",
+    color: "var(--cat-purple)",
     border: "rgba(168,85,247,0.25)",
   },
   marketing: {
     label: "Marketing",
-    bg: "rgba(59,130,246,0.1)",
-    color: "#3b82f6",
-    border: "rgba(59,130,246,0.25)",
+    bg: "rgb(var(--info-rgb) / 0.1)",
+    color: "var(--info)",
+    border: "rgb(var(--info-rgb) / 0.25)",
   },
   sale: {
     label: "Sale",
-    bg: "rgba(245,158,11,0.1)",
-    color: "#f59e0b",
-    border: "rgba(245,158,11,0.25)",
+    bg: "rgb(var(--warn-rgb) / 0.1)",
+    color: "var(--warn)",
+    border: "rgb(var(--warn-rgb) / 0.25)",
   },
   support: {
     label: "CSKH",
-    bg: "rgba(212,168,67,0.1)",
-    color: "#D4A843",
-    border: "rgba(212,168,67,0.25)",
+    bg: "rgb(var(--accent-rgb) / 0.1)",
+    color: "var(--accent)",
+    border: "rgb(var(--accent-rgb) / 0.25)",
   },
   student: {
     label: "Học viên",
-    bg: "rgba(107,114,128,0.1)",
-    color: "#9ca3af",
-    border: "rgba(107,114,128,0.25)",
+    bg: "rgb(var(--neutral-rgb) / 0.1)",
+    color: "var(--fg-muted)",
+    border: "rgb(var(--neutral-rgb) / 0.25)",
   },
 };
 
 const tierConfig: Record<Tier, { label: string; bg: string; color: string; border: string }> = {
   free: {
     label: "Free",
-    bg: "rgba(107,114,128,0.1)",
-    color: "#9ca3af",
-    border: "rgba(107,114,128,0.25)",
+    bg: "rgb(var(--neutral-rgb) / 0.1)",
+    color: "var(--fg-muted)",
+    border: "rgb(var(--neutral-rgb) / 0.25)",
   },
   member: {
     label: "Member",
     bg: "rgba(147,51,234,0.1)",
-    color: "#a855f7",
+    color: "var(--cat-purple)",
     border: "rgba(147,51,234,0.25)",
   },
   vip: {
     label: "VIP",
-    bg: "rgba(245,158,11,0.1)",
-    color: "#f59e0b",
-    border: "rgba(245,158,11,0.25)",
+    bg: "rgb(var(--warn-rgb) / 0.1)",
+    color: "var(--warn)",
+    border: "rgb(var(--warn-rgb) / 0.25)",
   },
 };
 
@@ -193,49 +193,49 @@ const TABS: {
     key: "all",
     label: "Tất cả",
     icon: Users,
-    color: "#3b82f6",
+    color: "var(--info)",
     filter: () => true,
   },
   {
     key: "staff",
     label: "Nhân viên",
     icon: Briefcase,
-    color: "#ef4444",
+    color: "var(--danger)",
     filter: (u) => ["admin", "manager", "marketing", "sale", "support"].includes(u.role),
   },
   {
     key: "paid",
     label: "Đã mua",
     icon: ShoppingCart,
-    color: "#D4A843",
+    color: "var(--accent)",
     filter: (u, paidEmails) => !!u.email && (paidEmails?.has(u.email.toLowerCase()) ?? false),
   },
   {
     key: "free",
     label: "Free",
     icon: GraduationCap,
-    color: "#9ca3af",
+    color: "var(--fg-muted)",
     filter: (u) => u.role === "student" && u.tier === "free",
   },
   {
     key: "member",
     label: "Member",
     icon: UserCheck,
-    color: "#a855f7",
+    color: "var(--cat-purple)",
     filter: (u) => u.tier === "member",
   },
   {
     key: "vip",
     label: "VIP",
     icon: Crown,
-    color: "#f59e0b",
+    color: "var(--warn)",
     filter: (u) => u.tier === "vip",
   },
   {
     key: "fake",
     label: "Tài khoản ảo",
     icon: Ghost,
-    color: "#ef4444",
+    color: "var(--danger)",
     filter: (u, paidEmails) =>
       u.role === "student" &&
       u.tier === "free" &&
@@ -421,8 +421,8 @@ export default async function AdminUsersPage({
                 href={`/admin/users${tab.key === "all" ? "" : `?tab=${tab.key}`}${searchQuery ? `${tab.key === "all" ? "?" : "&"}q=${searchQuery}` : ""}`}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all"
                 style={{
-                  background: isActive ? tab.color + "18" : "rgba(255,255,255,0.03)",
-                  color: isActive ? tab.color : "#9ca3af",
+                  background: isActive ? tab.color + "18" : "rgb(var(--overlay-rgb) / 0.03)",
+                  color: isActive ? tab.color : "var(--fg-muted)",
                   border: isActive
                     ? `1px solid ${tab.color}40`
                     : "1px solid transparent",
@@ -433,8 +433,8 @@ export default async function AdminUsersPage({
                 <span
                   className="text-xs px-1.5 py-0.5 rounded-md font-bold"
                   style={{
-                    background: isActive ? tab.color + "20" : "rgba(255,255,255,0.05)",
-                    color: isActive ? tab.color : "#6b7280",
+                    background: isActive ? tab.color + "20" : "rgb(var(--overlay-rgb) / 0.05)",
+                    color: isActive ? tab.color : "var(--fg-subtle)",
                   }}
                 >
                   {tabCounts[tab.key]}
@@ -511,9 +511,9 @@ export default async function AdminUsersPage({
               <div className="flex items-center justify-between">
                 <div
                   className="w-9 h-9 rounded-xl flex items-center justify-center"
-                  style={{ background: "rgba(212,168,67,0.12)" }}
+                  style={{ background: "rgb(var(--accent-rgb) / 0.12)" }}
                 >
-                  <ShoppingCart size={18} className="text-[#D4A843]" />
+                  <ShoppingCart size={18} className="text-[var(--accent)]" />
                 </div>
               </div>
               <div className="text-2xl font-bold text-white">{filteredUsers.length}</div>
@@ -525,12 +525,12 @@ export default async function AdminUsersPage({
               <div className="flex items-center justify-between">
                 <div
                   className="w-9 h-9 rounded-xl flex items-center justify-center"
-                  style={{ background: "rgba(212,168,67,0.12)" }}
+                  style={{ background: "rgb(var(--accent-rgb) / 0.12)" }}
                 >
-                  <DollarSign size={18} className="text-[#D4A843]" />
+                  <DollarSign size={18} className="text-[var(--accent)]" />
                 </div>
               </div>
-              <div className="text-2xl font-bold text-[#D4A843]">
+              <div className="text-2xl font-bold text-[var(--accent)]">
                 {formatVND(
                   filteredUsers.reduce((sum, u) => {
                     const info = orderMap.get((u.email ?? "").toLowerCase());
@@ -546,9 +546,9 @@ export default async function AdminUsersPage({
               <div className="flex items-center justify-between">
                 <div
                   className="w-9 h-9 rounded-xl flex items-center justify-center"
-                  style={{ background: "rgba(245,158,11,0.12)" }}
+                  style={{ background: "rgb(var(--warn-rgb) / 0.12)" }}
                 >
-                  <ShoppingCart size={18} className="text-[#f59e0b]" />
+                  <ShoppingCart size={18} className="text-[var(--warn)]" />
                 </div>
               </div>
               <div className="text-2xl font-bold text-white">
@@ -565,9 +565,9 @@ export default async function AdminUsersPage({
               <div className="flex items-center justify-between">
                 <div
                   className="w-9 h-9 rounded-xl flex items-center justify-center"
-                  style={{ background: "rgba(59,130,246,0.12)" }}
+                  style={{ background: "rgb(var(--info-rgb) / 0.12)" }}
                 >
-                  <DollarSign size={18} className="text-[#3b82f6]" />
+                  <DollarSign size={18} className="text-[var(--info)]" />
                 </div>
               </div>
               <div className="text-2xl font-bold text-white">
@@ -610,9 +610,9 @@ export default async function AdminUsersPage({
               <div className="flex items-center justify-between">
                 <div
                   className="w-9 h-9 rounded-xl flex items-center justify-center"
-                  style={{ background: "rgba(212,168,67,0.1)" }}
+                  style={{ background: "rgb(var(--accent-rgb) / 0.1)" }}
                 >
-                  <Star size={18} className="text-[#D4A843]" />
+                  <Star size={18} className="text-[var(--accent)]" />
                 </div>
               </div>
               <div className="text-2xl font-bold text-white">
@@ -626,9 +626,9 @@ export default async function AdminUsersPage({
               <div className="flex items-center justify-between">
                 <div
                   className="w-9 h-9 rounded-xl flex items-center justify-center"
-                  style={{ background: "rgba(245,158,11,0.1)" }}
+                  style={{ background: "rgb(var(--warn-rgb) / 0.1)" }}
                 >
-                  <Flame size={18} className="text-[#f59e0b]" />
+                  <Flame size={18} className="text-[var(--warn)]" />
                 </div>
               </div>
               <div className="text-2xl font-bold text-white">
@@ -642,9 +642,9 @@ export default async function AdminUsersPage({
               <div className="flex items-center justify-between">
                 <div
                   className="w-9 h-9 rounded-xl flex items-center justify-center"
-                  style={{ background: "rgba(59,130,246,0.1)" }}
+                  style={{ background: "rgb(var(--info-rgb) / 0.1)" }}
                 >
-                  <Clock size={18} className="text-[#3b82f6]" />
+                  <Clock size={18} className="text-[var(--info)]" />
                 </div>
               </div>
               <div className="text-2xl font-bold text-white">
@@ -663,7 +663,7 @@ export default async function AdminUsersPage({
         {error && (
           <div
             className="card-dark p-4 text-sm text-red-400"
-            style={{ border: "1px solid rgba(239,68,68,0.25)" }}
+            style={{ border: "1px solid rgb(var(--danger-rgb) / 0.25)" }}
           >
             Lỗi khi tải dữ liệu: {error.message}
           </div>
@@ -684,7 +684,7 @@ export default async function AdminUsersPage({
         <div className="card-dark overflow-hidden">
           <div
             className="flex items-center justify-between px-4 py-3"
-            style={{ borderBottom: "1px solid #2a2a2a" }}
+            style={{ borderBottom: "1px solid var(--border)" }}
           >
             <span className="text-xs text-gray-500">
               <span className="text-white font-semibold">{totalFiltered}</span> người dùng
@@ -698,7 +698,7 @@ export default async function AdminUsersPage({
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
+                <tr style={{ borderBottom: "1px solid var(--border)" }}>
                   {(activeTab === "paid"
                     ? ["Khách hàng", "Doanh thu", "Đơn hàng", "Vai trò & Hạng", "Đơn gần nhất", "Ngày tham gia"]
                     : ["Người dùng", "Vai trò & Hạng", "XP / Level", "Streak", "Đăng nhập cuối", "Ngày tham gia"]
@@ -736,7 +736,7 @@ export default async function AdminUsersPage({
                       style={{
                         borderBottom:
                           idx < paginatedUsers.length - 1
-                            ? "1px solid #2a2a2a"
+                            ? "1px solid var(--border)"
                             : "none",
                       }}
                     >
@@ -777,8 +777,8 @@ export default async function AdminUsersPage({
                           {/* Doanh thu */}
                           <td className="px-4 py-3 whitespace-nowrap">
                             <div className="flex items-center gap-2">
-                              <DollarSign size={14} className="text-[#D4A843]" />
-                              <span className="font-bold text-[#D4A843] text-base">
+                              <DollarSign size={14} className="text-[var(--accent)]" />
+                              <span className="font-bold text-[var(--accent)] text-base">
                                 {formatVND(userOrderInfo?.totalPaid ?? 0)}
                               </span>
                             </div>
@@ -789,7 +789,7 @@ export default async function AdminUsersPage({
                             <div className="flex items-center gap-3">
                               <span
                                 className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold"
-                                style={{ background: "rgba(212,168,67,0.1)", color: "#D4A843", border: "1px solid rgba(212,168,67,0.2)" }}
+                                style={{ background: "rgb(var(--accent-rgb) / 0.1)", color: "var(--accent)", border: "1px solid rgb(var(--accent-rgb) / 0.2)" }}
                               >
                                 <ShoppingCart size={11} />
                                 {userOrderInfo?.paidCount ?? 0} đã TT
@@ -797,7 +797,7 @@ export default async function AdminUsersPage({
                               {(userOrderInfo?.pendingCount ?? 0) > 0 && (
                                 <span
                                   className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold"
-                                  style={{ background: "rgba(245,158,11,0.1)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.2)" }}
+                                  style={{ background: "rgb(var(--warn-rgb) / 0.1)", color: "var(--warn)", border: "1px solid rgb(var(--warn-rgb) / 0.2)" }}
                                 >
                                   {userOrderInfo?.pendingCount} chờ
                                 </span>
@@ -862,8 +862,8 @@ export default async function AdminUsersPage({
                                 style={{
                                   color:
                                     (profile.streak ?? 0) > 0
-                                      ? "#f59e0b"
-                                      : "#4b5563",
+                                      ? "var(--warn)"
+                                      : "var(--fg-subtle)",
                                 }}
                               />
                               <span
@@ -871,8 +871,8 @@ export default async function AdminUsersPage({
                                 style={{
                                   color:
                                     (profile.streak ?? 0) > 0
-                                      ? "#f59e0b"
-                                      : "#4b5563",
+                                      ? "var(--warn)"
+                                      : "var(--fg-subtle)",
                                 }}
                               >
                                 {profile.streak ?? 0}
@@ -913,20 +913,20 @@ export default async function AdminUsersPage({
           {totalPages > 1 && (
             <div
               className="flex items-center justify-center gap-4 px-4 py-3"
-              style={{ borderTop: "1px solid #2a2a2a" }}
+              style={{ borderTop: "1px solid var(--border)" }}
             >
               {safePage > 1 ? (
                 <Link
                   href={buildPageUrl(safePage - 1)}
                   className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-white transition-colors"
-                  style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                 >
                   ← Trước
                 </Link>
               ) : (
                 <span
                   className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 cursor-not-allowed"
-                  style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                 >
                   ← Trước
                 </span>
@@ -940,14 +940,14 @@ export default async function AdminUsersPage({
                 <Link
                   href={buildPageUrl(safePage + 1)}
                   className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-white transition-colors"
-                  style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                 >
                   Tiếp →
                 </Link>
               ) : (
                 <span
                   className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 cursor-not-allowed"
-                  style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}
+                  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
                 >
                   Tiếp →
                 </span>

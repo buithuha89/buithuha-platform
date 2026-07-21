@@ -84,7 +84,7 @@ function UnsubscribeContent() {
         alignItems: "center",
         justifyContent: "center",
         padding: "16px",
-        background: "#0a0a0a",
+        background: "var(--bg)",
       }}
     >
       <div style={{ width: "100%", maxWidth: "440px" }}>
@@ -98,8 +98,8 @@ function UnsubscribeContent() {
         {/* Card */}
         <div
           style={{
-            background: "#1a1a1a",
-            border: "1px solid #2a2a2a",
+            background: "var(--surface)",
+            border: "1px solid var(--border)",
             borderRadius: "12px",
             padding: "32px",
           }}
@@ -112,7 +112,7 @@ function UnsubscribeContent() {
                   width: "64px",
                   height: "64px",
                   borderRadius: "50%",
-                  background: "rgba(212,168,67,0.1)",
+                  background: "rgb(var(--accent-rgb) / 0.1)",
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -124,7 +124,7 @@ function UnsubscribeContent() {
                   height="32"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#D4A843"
+                  stroke="var(--accent)"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -136,7 +136,7 @@ function UnsubscribeContent() {
                 style={{
                   fontSize: "20px",
                   fontWeight: 700,
-                  color: "#fff",
+                  color: "var(--fg)",
                   marginBottom: "8px",
                 }}
               >
@@ -145,11 +145,11 @@ function UnsubscribeContent() {
               <p
                 style={{
                   fontSize: "14px",
-                  color: "#9ca3af",
+                  color: "var(--fg-muted)",
                   marginBottom: "24px",
                 }}
               >
-                Email <strong style={{ color: "#f5f5f5" }}>{email}</strong> sẽ
+                Email <strong style={{ color: "var(--fg)" }}>{email}</strong> sẽ
                 không nhận thêm email từ chúng tôi.
               </p>
               <a
@@ -158,8 +158,8 @@ function UnsubscribeContent() {
                   display: "inline-block",
                   padding: "10px 24px",
                   borderRadius: "8px",
-                  background: "linear-gradient(135deg, #D4A843, #B8922E)",
-                  color: "#fff",
+                  background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
+                  color: "var(--fg)",
                   fontWeight: 600,
                   fontSize: "14px",
                   textDecoration: "none",
@@ -175,7 +175,7 @@ function UnsubscribeContent() {
                 style={{
                   fontSize: "20px",
                   fontWeight: 700,
-                  color: "#fff",
+                  color: "var(--fg)",
                   marginBottom: "8px",
                 }}
               >
@@ -184,11 +184,11 @@ function UnsubscribeContent() {
               <p
                 style={{
                   fontSize: "14px",
-                  color: "#9ca3af",
+                  color: "var(--fg-muted)",
                   marginBottom: "24px",
                 }}
               >
-                Email <strong style={{ color: "#f5f5f5" }}>{email}</strong> đã
+                Email <strong style={{ color: "var(--fg)" }}>{email}</strong> đã
                 được huỷ đăng ký trước đó.
               </p>
               <a
@@ -197,8 +197,8 @@ function UnsubscribeContent() {
                   display: "inline-block",
                   padding: "10px 24px",
                   borderRadius: "8px",
-                  background: "linear-gradient(135deg, #D4A843, #B8922E)",
-                  color: "#fff",
+                  background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
+                  color: "var(--fg)",
                   fontWeight: 600,
                   fontSize: "14px",
                   textDecoration: "none",
@@ -214,7 +214,7 @@ function UnsubscribeContent() {
                 style={{
                   fontSize: "20px",
                   fontWeight: 700,
-                  color: "#fff",
+                  color: "var(--fg)",
                   marginBottom: "4px",
                   textAlign: "center",
                 }}
@@ -224,7 +224,7 @@ function UnsubscribeContent() {
               <p
                 style={{
                   fontSize: "14px",
-                  color: "#9ca3af",
+                  color: "var(--fg-muted)",
                   textAlign: "center",
                   marginBottom: "24px",
                 }}
@@ -239,9 +239,9 @@ function UnsubscribeContent() {
                     padding: "12px",
                     borderRadius: "8px",
                     fontSize: "14px",
-                    color: "#f87171",
-                    background: "rgba(239,68,68,0.08)",
-                    border: "1px solid rgba(239,68,68,0.2)",
+                    color: "var(--danger)",
+                    background: "rgb(var(--danger-rgb) / 0.08)",
+                    border: "1px solid rgb(var(--danger-rgb) / 0.2)",
                   }}
                 >
                   {error}
@@ -256,7 +256,7 @@ function UnsubscribeContent() {
                       display: "block",
                       fontSize: "14px",
                       fontWeight: 500,
-                      color: "#d1d5db",
+                      color: "var(--fg-muted)",
                       marginBottom: "6px",
                     }}
                   >
@@ -273,9 +273,9 @@ function UnsubscribeContent() {
                       width: "100%",
                       padding: "10px 14px",
                       borderRadius: "8px",
-                      border: "1px solid #2a2a2a",
-                      background: emailParam ? "#111" : "#1a1a1a",
-                      color: "#f5f5f5",
+                      border: "1px solid var(--border)",
+                      background: emailParam ? "#111" : "var(--surface)",
+                      color: "var(--fg)",
                       fontSize: "14px",
                       outline: "none",
                       boxSizing: "border-box",
@@ -291,7 +291,7 @@ function UnsubscribeContent() {
                       display: "block",
                       fontSize: "14px",
                       fontWeight: 500,
-                      color: "#d1d5db",
+                      color: "var(--fg-muted)",
                       marginBottom: "6px",
                     }}
                   >
@@ -304,9 +304,9 @@ function UnsubscribeContent() {
                       width: "100%",
                       padding: "10px 14px",
                       borderRadius: "8px",
-                      border: "1px solid #2a2a2a",
-                      background: "#1a1a1a",
-                      color: "#f5f5f5",
+                      border: "1px solid var(--border)",
+                      background: "var(--surface)",
+                      color: "var(--fg)",
                       fontSize: "14px",
                       outline: "none",
                       boxSizing: "border-box",
@@ -332,8 +332,8 @@ function UnsubscribeContent() {
                     padding: "12px",
                     borderRadius: "8px",
                     border: "none",
-                    background: loading ? "#991b1b" : "#dc2626",
-                    color: "#fff",
+                    background: loading ? "#991b1b" : "var(--danger)",
+                    color: "var(--fg)",
                     fontWeight: 600,
                     fontSize: "14px",
                     cursor: loading ? "not-allowed" : "pointer",
@@ -351,7 +351,7 @@ function UnsubscribeContent() {
                   href={getBaseUrl()}
                   style={{
                     fontSize: "14px",
-                    color: "#D4A843",
+                    color: "var(--accent)",
                     textDecoration: "none",
                   }}
                 >
@@ -367,7 +367,7 @@ function UnsubscribeContent() {
           style={{
             textAlign: "center",
             fontSize: "12px",
-            color: "#6b7280",
+            color: "var(--fg-subtle)",
             marginTop: "24px",
           }}
         >
@@ -388,8 +388,8 @@ export default function UnsubscribePage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "#0a0a0a",
-            color: "#9ca3af",
+            background: "var(--bg)",
+            color: "var(--fg-muted)",
           }}
         >
           Đang tải...

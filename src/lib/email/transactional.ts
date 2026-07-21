@@ -121,6 +121,46 @@ export async function sendLeadMagnetWelcomeEmail(to: string, name: string) {
   );
 }
 
+/**
+ * Gửi kết quả bài trắc nghiệm "Bạn đang GÁNH hay đang DẪN DẮT?".
+ * Form hứa "dùng email để gửi kết quả" — email này chính là thứ đã hứa.
+ */
+export async function sendQuizResultEmail(
+  to: string,
+  name: string,
+  band: {
+    emoji: string;
+    band: string;
+    title: string;
+    body: string;
+    recLabel: string;
+    recText: string;
+    ctaText: string;
+    ctaHref: string;
+  }
+) {
+  const baseUrl = getBaseUrl();
+  const hi = name?.trim() ? `, ${escapeHtml(name.trim())}` : "";
+  const ctaUrl = `${baseUrl}${band.ctaHref}`;
+  return sesSendEmail(
+    to,
+    `Kết quả của bạn: ${band.band} ${band.emoji}`,
+    baseTemplate(`
+      <h1>${band.emoji} ${escapeHtml(band.title)}</h1>
+      <p>Cảm ơn bạn đã dành 2 phút làm bài${hi}. Đây là kết quả của bạn — giữ lại để đọc kỹ khi rảnh:</p>
+      <p style="color:#d1d5db;">${escapeHtml(band.body)}</p>
+      <div class="divider"></div>
+      <p style="color:#D4A843; font-weight:600; margin-bottom:8px;">${escapeHtml(band.recLabel)}</p>
+      <p>${escapeHtml(band.recText)}</p>
+      <a href="${ctaUrl}" class="btn">${escapeHtml(band.ctaText.replace(/\s*→\s*$/, ""))} →</a>
+      <div class="divider"></div>
+      <p>Mỗi tuần tôi gửi bạn một email ngắn: một <span class="highlight">câu chuyện thật</span>, một <span class="highlight">mô hình chuẩn</span>, hoặc một <span class="highlight">hướng dẫn thực hành cụ thể</span> — áp dụng được ngay. Không spam.</p>
+      <p style="margin:0;">Có câu hỏi gì, bạn cứ trả lời thẳng email này — tôi đọc tất cả.</p>
+      <p style="margin:8px 0 0; color:#6b7280; font-size:13px;">— Hà</p>
+    `),
+  );
+}
+
 export async function sendPurchaseConfirmation(
   to: string,
   name: string,

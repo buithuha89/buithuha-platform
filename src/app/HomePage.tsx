@@ -8,7 +8,7 @@ import {
   ArrowRight, ChevronDown, CheckCircle,
   Users, BookOpen, Heart, GraduationCap, Briefcase, Sprout,
   Mail, Shield, Gift, Menu, X, MessageSquare, MessageCircle,
-  Compass, Layers, Award, Download, Coffee,
+  Compass, Layers, Award, Download, Coffee, Lock,
 } from "lucide-react";
 import PasswordInput from "@/components/auth/PasswordInput";
 import SocialLoginButtons from "@/components/auth/SocialLoginButtons";
@@ -283,13 +283,13 @@ export default function HomePage() {
     {
       badge: "Miễn phí",
       heading: "Nếm thử — để bạn tin",
-      sub: "Đọc, làm, tự chẩn đoán. Đủ để bạn hiểu cách tôi làm việc.",
+      sub: "Một phần nhỏ để bạn đọc, làm, tự chẩn đoán — đủ hiểu cách tôi làm việc.",
       color: "var(--success)",
       items: [
-        { icon: "📝", title: "Trắc nghiệm", desc: "Tự chẩn đoán “GÁNH hay DẪN DẮT?” — 2 phút, có kết quả riêng.", href: "/trac-nghiem" },
-        { icon: "✍️", title: "Blog & Tình huống", desc: "Chia sẻ thật và tình huống quản trị từ trải nghiệm.", href: "/blog" },
-        { icon: "🧾", title: "Biểu mẫu & Checklist", desc: "Vài mẫu giao việc, đánh giá, kiểm việc để bạn bắt đầu.", href: "/bieu-mau" },
-        { icon: "📘", title: "Ebook mồi", desc: "Cẩm nang ngắn, đọc là áp dụng được ngay.", href: "/ebook" },
+        { icon: "📝", title: "Trắc nghiệm", desc: "Bộ bài tự chẩn đoán nhanh theo các chủ đề của web — quản lý, giao tiếp, phát triển bản thân. 2 phút, có kết quả riêng.", href: "/trac-nghiem", paidHint: "Bài chuyên sâu, chấm chi tiết → tính phí" },
+        { icon: "✍️", title: "Blog & Tình huống", desc: "Một vài tình huống quản trị phổ biến, kể thật từ trải nghiệm.", href: "/blog", paidHint: "Case study & bộ tình huống có phân tích → tính phí" },
+        { icon: "🧾", title: "Biểu mẫu & Checklist", desc: "Vài mẫu giao việc, đánh giá, kiểm việc để bạn bắt đầu.", href: "/bieu-mau", paidHint: "Trọn bộ thư viện biểu mẫu → tính phí" },
+        { icon: "📘", title: "Ebook & Cẩm nang", desc: "Cẩm nang ngắn, đọc là áp dụng được ngay.", href: "/ebook", paidHint: "Ebook chuyên sâu, đầy đủ chương → tính phí" },
       ],
     },
     {
@@ -301,7 +301,7 @@ export default function HomePage() {
         { icon: "🎓", title: "Khóa học", desc: "Khóa nâng cao năng lực quản lý & kỹ năng thiết yếu.", href: "/courses" },
         { icon: "📕", title: "Ebook chuyên sâu", desc: "Sách đầy đủ như “Nghệ thuật thừa nhận sai” — đọc thử rồi mua.", href: "/ebook/nghe-thuat-thua-nhan-sai" },
         { icon: "🧰", title: "Bộ công cụ & Prompt AI", desc: "Trọn bộ biểu mẫu và prompt dùng ngay — đi kèm khóa học.", href: "/courses" },
-        { icon: "🧩", title: "Thư viện Case study", desc: "Tình huống quản trị thật, có phân tích và bài học.", href: "#", soon: true },
+        { icon: "🧩", title: "Bộ tình huống & Case study", desc: "Tình huống quản trị thật — mỗi ca có bối cảnh, cách xử lý và bài học rút ra. Phần giá trị nhất.", href: "#", soon: true },
       ],
     },
     {
@@ -388,8 +388,8 @@ export default function HomePage() {
 
           {/* Sub-headline */}
           <p className="text-sm sm:text-lg text-[var(--fg-muted)] max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
-            Nơi dành cho <strong className="text-[var(--fg)]">quản lý mới lên, quản lý cấp trung, chủ doanh nghiệp nhỏ và người làm một mình</strong> —
-            học cách xây đội nhóm, giao việc và vận hành bằng hệ thống, thay vì gồng bằng sức.
+            Dù bạn là <strong className="text-[var(--fg)]">nhân viên văn phòng muốn giỏi hơn, người làm L&amp;D/HR, quản lý mới lên hay cấp trung, hay chủ doanh nghiệp đang một mình gánh việc</strong> —
+            ở đây là những kỹ năng quản trị và kỹ năng thiết yếu thật sự dùng được ở chỗ làm: giao tiếp, xử lý việc, dẫn dắt và vận hành — thay vì tự mò hay gồng bằng sức.
             Tôi là {siteConfig.owner.name}: MBA, nhiều năm đào tạo trong doanh nghiệp, vẫn đang ngồi đúng cái ghế quản lý áp lực đó — và viết lại những gì thật sự dùng được.
           </p>
 
@@ -473,6 +473,11 @@ export default function HomePage() {
                       <div className="text-2xl mb-2">{c.icon}</div>
                       <h4 className="font-bold text-sm mb-1 group-hover:text-[var(--accent-hover)] transition-colors">{c.title}</h4>
                       <p className="text-xs text-[var(--fg-subtle)] leading-relaxed">{c.desc}</p>
+                      {"paidHint" in c && c.paidHint && (
+                        <p className="mt-2.5 pt-2 border-t border-[var(--border)] text-[11px] font-semibold flex items-center gap-1 text-[var(--accent-hover)]">
+                          <Lock size={11} strokeWidth={2.5} /> {c.paidHint}
+                        </p>
+                      )}
                     </a>
                   ))}
                 </div>

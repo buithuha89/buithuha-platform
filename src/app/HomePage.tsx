@@ -383,14 +383,25 @@ export default function HomePage() {
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-4 sm:mb-6">
-            Đi làm giỏi rồi, sao vẫn thấy mình <span className="text-[var(--accent-hover)]">mãi “gồng”?</span>
+            Đi làm giỏi rồi, sao vẫn thấy mình <span className="text-[var(--accent-hover)]">mãi loay hoay?</span>
           </h1>
 
           {/* Sub-headline */}
           <p className="text-sm sm:text-lg text-[var(--fg-muted)] max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
-            Vì không ai chỉ bạn những thứ thật sự quyết định ở chỗ làm: <strong className="text-[var(--fg)]">nói chuyện khó mà không mất lòng, giao việc không phải làm lại, nhận sai mà vẫn giữ uy</strong>. Đây là nơi học những điều đó — cho nhân viên văn phòng, người làm L&amp;D/HR, quản lý mới lên hay cấp trung, và chủ doanh nghiệp đang một mình gánh việc.
+            Vì không ai chỉ bạn những thứ thật sự quyết định ở chỗ làm: <strong className="text-[var(--fg)]">nói điều khó nói mà không làm mất lòng ai, giao việc mà không phải làm lại, nhận sai mà vẫn giữ được uy tín</strong>. Đây là nơi học những điều đó — cho nhân viên văn phòng, người làm L&amp;D/HR, quản lý mới lên hay cấp trung, và chủ doanh nghiệp đang một mình gánh việc.
             Tôi là {siteConfig.owner.name} — MBA, 15 năm đào tạo ở Vingroup, FPT, TokyoLife, hơn 10.000 học viên, và đến giờ vẫn trực tiếp quản lý mỗi ngày.
           </p>
+
+          {/* CTA chính ngay dưới hook */}
+          <div className="mb-8 sm:mb-10 flex flex-col items-center gap-2.5">
+            <a href="/trac-nghiem"
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-bold transition-all hover:-translate-y-0.5"
+              style={{ background: "var(--warn)", color: "var(--fg)" }}>
+              Làm thử trắc nghiệm 2 phút — bạn đang GÁNH hay DẪN DẮT?
+              <ArrowRight size={17} />
+            </a>
+            <span className="text-xs text-[var(--fg-subtle)]">Miễn phí, có kết quả riêng ngay — chưa cần đăng ký.</span>
+          </div>
 
           {/* Phân nhóm khách — chọn lối đi */}
           <div className="max-w-3xl mx-auto">

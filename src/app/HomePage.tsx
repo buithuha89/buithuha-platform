@@ -8,7 +8,7 @@ import {
   ArrowRight, ChevronDown, CheckCircle,
   Users, BookOpen, Heart, GraduationCap, Briefcase, Sprout,
   Mail, Shield, Gift, Menu, X, MessageSquare, MessageCircle,
-  Compass, Layers, Award, Download, Coffee, Lock,
+  Compass, Layers, Award, Download, Coffee,
 } from "lucide-react";
 import PasswordInput from "@/components/auth/PasswordInput";
 import SocialLoginButtons from "@/components/auth/SocialLoginButtons";
@@ -286,10 +286,10 @@ export default function HomePage() {
       sub: "Một phần nhỏ để bạn đọc, làm, tự chẩn đoán — đủ hiểu cách tôi làm việc.",
       color: "var(--success)",
       items: [
-        { icon: "📝", title: "Trắc nghiệm", desc: "Bộ bài tự chẩn đoán nhanh theo các chủ đề của web — quản lý, giao tiếp, phát triển bản thân. 2 phút, có kết quả riêng.", href: "/trac-nghiem", paidHint: "Bài chuyên sâu, chấm chi tiết → tính phí" },
-        { icon: "✍️", title: "Blog & Tình huống", desc: "Một vài tình huống quản trị phổ biến, kể thật từ trải nghiệm.", href: "/blog", paidHint: "Case study & bộ tình huống có phân tích → tính phí" },
-        { icon: "🧾", title: "Biểu mẫu & Checklist", desc: "Vài mẫu giao việc, đánh giá, kiểm việc để bạn bắt đầu.", href: "/bieu-mau", paidHint: "Trọn bộ thư viện biểu mẫu → tính phí" },
-        { icon: "📘", title: "Ebook & Cẩm nang", desc: "Cẩm nang ngắn, đọc là áp dụng được ngay.", href: "/ebook", paidHint: "Ebook chuyên sâu, đầy đủ chương → tính phí" },
+        { icon: "📝", title: "Trắc nghiệm", desc: "Bạn đang GÁNH hay DẪN DẮT? Tự chấm 2 phút, có kết quả riêng ngay.", href: "/trac-nghiem", cta: "Làm thử ngay" },
+        { icon: "✍️", title: "Blog & Tình huống", desc: "Chuyện quản trị thật, kể không giấu — đọc là thấy mình trong đó.", href: "/blog", cta: "Đọc ngay" },
+        { icon: "🧾", title: "Biểu mẫu & Checklist", desc: "Mẫu giao việc, đánh giá, kiểm việc — tải về điền là dùng ngay.", href: "/bieu-mau", cta: "Lấy mẫu miễn phí" },
+        { icon: "📘", title: "Ebook & Cẩm nang", desc: "Cẩm nang ngắn, đọc xong áp dụng được liền.", href: "/ebook", cta: "Đọc ngay" },
       ],
     },
     {
@@ -388,7 +388,7 @@ export default function HomePage() {
 
           {/* Sub-headline */}
           <p className="text-sm sm:text-lg text-[var(--fg-muted)] max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
-            Vì không ai chỉ bạn những thứ thật sự quyết định ở chỗ làm: <strong className="text-[var(--fg)]">nói điều khó nói mà không làm mất lòng ai, giao việc mà không phải làm lại, nhận sai mà vẫn giữ được uy tín</strong>. Đây là nơi học những điều đó — cho nhân viên văn phòng, người làm L&amp;D/HR, quản lý mới lên hay cấp trung, và chủ doanh nghiệp đang một mình gánh việc.
+            Vì thứ đưa bạn lên — tự tay làm thật giỏi — lại chẳng giúp được gì cho việc khó hơn gấp bội: khiến người khác cũng làm giỏi. Thế là bạn ôm hết. <strong className="text-[var(--fg)]">Giao ra thì sợ phải làm lại, giữ lại thì kiệt sức, mà team thì mãi không lớn.</strong> Rồi cả những việc chẳng ai chỉ cho bạn: nói điều khó nói mà không mất lòng ai, nhận sai mà vẫn giữ được uy tín, đứng giữa sếp trên và nhân viên dưới mà vẫn vững. Đây là nơi gỡ từng nút một — cho nhân viên văn phòng, người làm L&amp;D/HR, quản lý mới lên hay cấp trung, và chủ doanh nghiệp đang một mình gánh việc.
             Tôi là {siteConfig.owner.name} — MBA, 15 năm đào tạo ở Vingroup, FPT, TokyoLife, hơn 10.000 học viên, và đến giờ vẫn trực tiếp quản lý mỗi ngày.
           </p>
 
@@ -397,7 +397,7 @@ export default function HomePage() {
             <a href="/trac-nghiem"
               className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-bold transition-all hover:-translate-y-0.5"
               style={{ background: "var(--warn)", color: "var(--accent-fg)" }}>
-              Làm thử trắc nghiệm 2 phút — bạn đang GÁNH hay DẪN DẮT?
+              Làm thử trắc nghiệm 2 phút: bạn đang ôm hết việc, hay dẫn dắt để team tự chạy?
               <ArrowRight size={17} />
             </a>
             <span className="text-xs text-[var(--fg-subtle)]">Miễn phí, có kết quả riêng ngay — chưa cần đăng ký.</span>
@@ -483,9 +483,9 @@ export default function HomePage() {
                       <div className="text-2xl mb-2">{c.icon}</div>
                       <h4 className="font-bold text-sm mb-1 group-hover:text-[var(--accent-hover)] transition-colors">{c.title}</h4>
                       <p className="text-xs text-[var(--fg-subtle)] leading-relaxed">{c.desc}</p>
-                      {"paidHint" in c && c.paidHint && (
-                        <p className="mt-2.5 pt-2 border-t border-[var(--border)] text-[11px] font-semibold flex items-center gap-1 text-[var(--accent-hover)]">
-                          <Lock size={11} strokeWidth={2.5} /> {c.paidHint}
+                      {"cta" in c && c.cta && (
+                        <p className="mt-3 text-xs font-bold flex items-center gap-1.5 text-[var(--accent-hover)] group-hover:gap-2.5 transition-all">
+                          {c.cta} <ArrowRight size={13} strokeWidth={2.5} />
                         </p>
                       )}
                     </a>

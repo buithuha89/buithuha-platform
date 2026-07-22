@@ -48,7 +48,7 @@ export const siteConfig = {
   socials: {
     facebook: env("NEXT_PUBLIC_SOCIAL_FACEBOOK", "https://facebook.com/habuiacademy"),
     youtube: env("NEXT_PUBLIC_SOCIAL_YOUTUBE", "https://youtube.com/@habuiacademy"),
-    zalo: env("NEXT_PUBLIC_SOCIAL_ZALO", "https://zalo.me/0782276727"),
+    zalo: env("NEXT_PUBLIC_SOCIAL_ZALO", "https://zalo.me/0963231506"),
     tiktok: env("NEXT_PUBLIC_SOCIAL_TIKTOK", ""),
     instagram: env("NEXT_PUBLIC_SOCIAL_INSTAGRAM", ""),
   },
@@ -79,7 +79,7 @@ export const siteConfig = {
 export type SiteConfig = typeof siteConfig;
 
 /**
- * Extracts the phone number from the Zalo URL (e.g. "https://zalo.me/0782276727" → "0782276727").
+ * Extracts the phone number from the Zalo URL (e.g. "https://zalo.me/0963231506" → "0963231506").
  * Falls back to the raw URL if parsing fails.
  */
 export function getZaloPhone(): string {

@@ -383,12 +383,12 @@ export default function HomePage() {
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-4 sm:mb-6">
-            Đi làm giỏi rồi, sao vẫn thấy mình <span className="text-[var(--accent-hover)]">mãi loay hoay?</span>
+            Đâu là cách <span className="text-[var(--accent-hover)]">sinh tồn nơi công sở?</span>
           </h1>
 
           {/* Sub-headline */}
           <p className="text-sm sm:text-lg text-[var(--fg-muted)] max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
-            Vì thứ đưa bạn lên — tự tay làm thật giỏi — lại chẳng giúp được gì cho việc khó hơn gấp bội: khiến người khác cũng làm giỏi. Thế là bạn ôm hết. <strong className="text-[var(--fg)]">Giao ra thì sợ phải làm lại, giữ lại thì kiệt sức, mà team thì mãi không lớn.</strong> Rồi cả những việc chẳng ai chỉ cho bạn: nói điều khó nói mà không mất lòng ai, nhận sai mà vẫn giữ được uy tín, đứng giữa sếp trên và nhân viên dưới mà vẫn vững. Đây là nơi gỡ từng nút một — cho nhân viên văn phòng, người làm L&amp;D/HR, quản lý mới lên hay cấp trung, và chủ doanh nghiệp đang một mình gánh việc.
+            Trường lớp dạy bạn chuyên môn — nhưng cách sinh tồn nơi công sở thì không có trong giáo trình. Là lần bị bắt lỗi giữa cuộc họp mà không biết đỡ thế nào. Là ngày đầu lên quản lý, giao việc xong vẫn phải ngồi làm lại từ đầu. Là khi công ty lớn dần mà bạn vẫn ôm hết, không dám buông cho ai. <strong className="text-[var(--fg)]">Không ai chỉ bạn những điều đó — nên ai cũng phải tự mò, và trả giá bằng chính con đường của mình.</strong> Đây là nơi gỡ từng nút một — cho nhân viên văn phòng, người làm L&amp;D/HR, quản lý mới lên hay cấp trung, và chủ doanh nghiệp đang một mình gánh việc.
             Tôi là {siteConfig.owner.name} — MBA, 15 năm đào tạo ở Vingroup, FPT, TokyoLife, hơn 10.000 học viên, và đến giờ vẫn trực tiếp quản lý mỗi ngày.
           </p>
 

@@ -383,8 +383,8 @@ export default function HomePage() {
           </div>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-4 sm:mb-6">
-            Đâu là cách <span className="text-[var(--accent-hover)]"><span className="whitespace-nowrap">sinh tồn</span> <span className="whitespace-nowrap">nơi công sở?</span></span>
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.15] mb-4 sm:mb-6">
+            Đâu là cách <span className="text-[var(--accent-hover)] whitespace-nowrap">sinh tồn nơi công sở?</span>
           </h1>
 
           {/* Sub-headline */}

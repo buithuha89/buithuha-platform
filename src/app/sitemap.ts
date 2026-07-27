@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { createAdminClient } from "@/lib/supabase/server";
+import { ARTICLES } from "./yeu-lanh/articles";
 
 const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://buithuha.com";
 
@@ -92,6 +93,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/yeu-lanh`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/yeu-lanh/cam-nang`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    ...ARTICLES.map((a) => ({
+      url: `${BASE_URL}/yeu-lanh/${a.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ];
 
   // Dynamic course pages

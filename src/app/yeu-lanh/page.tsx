@@ -33,12 +33,12 @@ const data: SiloData = {
     ],
   },
   topics: [
-    { icon: "Frown", title: "Vì sao cho đi nhiều mà vẫn thấy trống", desc: "Khi yêu thương trở thành cách để được công nhận, càng cho đi càng cạn. Gọi tên cơ chế này là bước đầu để thoát khỏi nó." },
-    { icon: "Ear", title: "“Mình có đang đòi hỏi quá không?”", desc: "Phân biệt nhu cầu chính đáng và đòi hỏi. Vì sao câu tự vấn này xuất hiện — và vì sao nó thường xuất hiện ở người cho đi nhiều nhất." },
-    { icon: "HeartHandshake", title: "Ranh giới trong tình yêu", desc: "Giữ được mình mà không đẩy người kia ra xa. Ranh giới không phải bức tường — là cách nói “tôi cần điều này” mà không thấy có lỗi." },
-    { icon: "RefreshCw", title: "Vòng lặp thỏa hiệp — nhận ra và bước ra", desc: "Từng nhân nhượng nhỏ tưởng vô hại, cộng lại thành bào mòn. Cách nhận diện vòng lặp sớm, trước khi nó lấy đi động lực của bạn." },
-    { icon: "Sparkles", title: "Yêu lành nghĩa là gì", desc: "Không phải yêu ít đi, càng không phải phòng thủ. Là yêu mà vẫn còn nguyên mình: sở thích, bạn bè, tiếng nói và lựa chọn của riêng bạn." },
-    { icon: "NotebookPen", title: "Bước nhỏ mỗi ngày + checkpoint", desc: "Thay đổi không cần cú quay xe. Mỗi ngày một bước rất nhỏ, có điểm tự kiểm — và có cộng đồng để chia sẻ ẩn danh cùng người đồng cảnh ngộ." },
+    { icon: "Frown", title: "Vì sao cho đi nhiều mà vẫn thấy trống", desc: "Khi yêu thương trở thành cách để được công nhận, càng cho đi càng cạn. Gọi tên cơ chế này là bước đầu để thoát khỏi nó.", href: "/yeu-lanh/cho-di-nhieu-ma-van-thay-trong" },
+    { icon: "Ear", title: "“Mình có đang đòi hỏi quá không?”", desc: "Phân biệt nhu cầu chính đáng và đòi hỏi. Vì sao câu tự vấn này xuất hiện — và vì sao nó thường xuất hiện ở người cho đi nhiều nhất.", href: "/yeu-lanh/minh-co-dang-doi-hoi-qua-khong" },
+    { icon: "HeartHandshake", title: "Ranh giới trong tình yêu", desc: "Giữ được mình mà không đẩy người kia ra xa. Ranh giới không phải bức tường — là cách nói “tôi cần điều này” mà không thấy có lỗi.", href: "/yeu-lanh/ranh-gioi-trong-tinh-yeu" },
+    { icon: "RefreshCw", title: "Vòng lặp thỏa hiệp — nhận ra và bước ra", desc: "Từng nhân nhượng nhỏ tưởng vô hại, cộng lại thành bào mòn. Cách nhận diện vòng lặp sớm, trước khi nó lấy đi động lực của bạn.", href: "/yeu-lanh/vong-lap-thoa-hiep" },
+    { icon: "Sparkles", title: "Yêu lành nghĩa là gì", desc: "Không phải yêu ít đi, càng không phải phòng thủ. Là yêu mà vẫn còn nguyên mình: sở thích, bạn bè, tiếng nói và lựa chọn của riêng bạn.", href: "/yeu-lanh/yeu-lanh-nghia-la-gi" },
+    { icon: "NotebookPen", title: "Bước nhỏ mỗi ngày + checkpoint", desc: "Thay đổi không cần cú quay xe. Mỗi ngày một bước rất nhỏ, có điểm tự kiểm — và có cộng đồng để chia sẻ ẩn danh cùng người đồng cảnh ngộ.", href: "/yeu-lanh/buoc-nho-moi-ngay-checkpoint" },
   ],
   audience: [
     "Bạn yêu hết lòng mà vẫn thấy mình không được ưu tiên — và đang quen dần với điều đó",
@@ -48,7 +48,9 @@ const data: SiloData = {
   ],
   cta: {
     heading: "Bắt đầu từ một bước rất nhỏ",
-    body: "Bạn không cần quyết định điều gì to tát hôm nay. Chỉ cần bắt đầu gọi tên điều mình đang trải qua — nhận cẩm nang miễn phí để làm bước đầu tiên đó.",
+    body: "Bạn không cần quyết định điều gì to tát hôm nay. Cẩm nang 7 ngày gọi tên — mỗi ngày một bước dưới 5 phút, kèm câu checkpoint buổi tối. Miễn phí, làm một mình được, không cần kể với ai.",
+    href: "/yeu-lanh/cam-nang",
+    label: "Mở cẩm nang 7 ngày miễn phí",
   },
 };
 

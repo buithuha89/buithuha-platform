@@ -27,6 +27,8 @@ export interface SiloTopic {
   icon: IconName;
   title: string;
   desc: string;
+  /** Nếu có, thẻ chủ đề trở thành link tới bài viết đầy đủ */
+  href?: string;
 }
 
 export interface SiloData {
@@ -51,6 +53,10 @@ export interface SiloData {
   cta: {
     heading: string;
     body: string;
+    /** Đích của các nút CTA (mặc định /register) */
+    href?: string;
+    /** Nhãn nút CTA (mặc định "Nhận cẩm nang miễn phí") */
+    label?: string;
   };
   /** Màu chủ đạo: FBBF24 hoặc 84CC16 */
   color: string;
@@ -67,6 +73,8 @@ const navLinks = [
 
 export default function SiloPage({ data }: { data: SiloData }) {
   const [mobileMenu, setMobileMenu] = useState(false);
+  const ctaHref = data.cta.href ?? "/register";
+  const ctaLabel = data.cta.label ?? "Nhận cẩm nang miễn phí";
 
   return (
     <div className="bg-[var(--bg)] min-h-screen text-white overflow-x-hidden">
@@ -129,8 +137,8 @@ export default function SiloPage({ data }: { data: SiloData }) {
             {data.intro}
           </p>
 
-          <Link href="/register" className="btn-green inline-flex text-sm sm:text-base py-3 sm:py-3.5 px-5 sm:px-8 justify-center">
-            <Download size={16} /> Nhận cẩm nang miễn phí
+          <Link href={ctaHref} className="btn-green inline-flex text-sm sm:text-base py-3 sm:py-3.5 px-5 sm:px-8 justify-center">
+            <Download size={16} /> {ctaLabel}
           </Link>
         </div>
       </section>
@@ -160,15 +168,26 @@ export default function SiloPage({ data }: { data: SiloData }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             {data.topics.map((t, i) => {
               const Icon = ICONS[t.icon];
-              return (
-                <div key={i} className="bg-[var(--surface)] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors">
+              const inner = (
+                <>
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
                     style={{ background: `${data.color}1A` }}>
                     {Icon && <Icon size={20} style={{ color: data.color }} />}
                   </div>
                   <h3 className="font-bold text-base mb-2">{t.title}</h3>
                   <p className="text-sm text-gray-400 leading-relaxed">{t.desc}</p>
-                </div>
+                  {t.href && (
+                    <span className="inline-block mt-3 text-sm font-semibold" style={{ color: data.color }}>
+                      Đọc bài →
+                    </span>
+                  )}
+                </>
+              );
+              const cls = "bg-[var(--surface)] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors";
+              return t.href ? (
+                <Link key={i} href={t.href} className={`${cls} block`}>{inner}</Link>
+              ) : (
+                <div key={i} className={cls}>{inner}</div>
               );
             })}
           </div>
@@ -207,8 +226,8 @@ export default function SiloPage({ data }: { data: SiloData }) {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/register" className="btn-green text-base py-3.5 px-8 justify-center inline-flex">
-              <Download size={18} /> Nhận cẩm nang miễn phí
+            <Link href={ctaHref} className="btn-green text-base py-3.5 px-8 justify-center inline-flex">
+              <Download size={18} /> {ctaLabel}
             </Link>
             <a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 py-3.5 px-8 rounded-lg text-base font-semibold border border-white/10 hover:border-white/20 transition-colors">
@@ -236,9 +255,9 @@ export default function SiloPage({ data }: { data: SiloData }) {
       <div className="fixed bottom-0 left-0 right-0 z-40 pb-[env(safe-area-inset-bottom)]"
         style={{ background: "linear-gradient(transparent, rgba(0,0,0,0.9) 30%)" }}>
         <div className="max-w-lg mx-auto px-4 pb-4 pt-6 flex items-center justify-center">
-          <Link href="/register"
+          <Link href={ctaHref}
             className="btn-success py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full shadow-lg shadow-green-500/25 flex-1 max-w-sm justify-center inline-flex">
-            <Mail size={16} /> Nhận cẩm nang miễn phí
+            <Mail size={16} /> {ctaLabel}
             <ArrowRight size={14} />
           </Link>
         </div>

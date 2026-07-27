@@ -147,7 +147,7 @@ export default function TracNghiemClient() {
           {step === "intro" && (
             <div>
               <span className="lbl">Trắc nghiệm · 2 phút</span>
-              <h1>Bạn đang <em>GÁNH</em> hay đang <em>DẪN DẮT</em>?</h1>
+              <h1>Bạn là <em><span style={{ whiteSpace: "nowrap" }}>quản lý</span> ôm hết việc</em>, hay <em>người <span style={{ whiteSpace: "nowrap" }}>dẫn dắt</span> để đội tự lớn</em>?</h1>
               <p className="lead">12 câu hỏi ngắn giúp bạn tự soi: bạn đang là nút thắt mà mọi việc phải qua tay, hay đang dẫn dắt để đội tự chạy? Nhận kết quả + gợi ý lộ trình dành riêng cho bạn.</p>
               <div className="card">
                 <p style={{ margin: 0, fontSize: 15.5, color: "var(--muted)" }}>Với mỗi câu, chọn mức đúng nhất với bạn <b style={{ color: "var(--ink)" }}>trong 3 tháng gần đây</b>. Không có đúng/sai — chỉ để nhìn rõ mình đang ở đâu.</p>

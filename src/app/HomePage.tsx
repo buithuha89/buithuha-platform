@@ -276,6 +276,7 @@ export default function HomePage() {
     { id: "ai-quanly", icon: "📋", title: "Quản lý cấp trung", btn: "Tôi là quản lý cấp trung", pain: "Kẹp giữa sếp và nhân viên, việc gì cũng dội tới tay. Cần giao việc & dẫn đội cho vững.", links: [{ label: "Đọc chủ đề Lãnh đạo & Quản lý →", href: "/lanh-dao-quan-ly" }] },
     { id: "ai-nhanvien", icon: "💼", title: "Nhân viên văn phòng", btn: "Tôi là nhân viên văn phòng", pain: "Muốn phát triển bản thân, giao tiếp tốt hơn và đi nhanh hơn trong sự nghiệp.", links: [{ label: "Đọc chủ đề Phát triển bản thân →", href: "/phat-trien-ban-than" }] },
     { id: "ai-ld", icon: "🎓", title: "Người làm nghề L&D / HR", btn: "Tôi làm L&D / HR", pain: "Bạn làm đào tạo / nhân sự và muốn hiểu nghề sâu hơn — có phương pháp bài bản, không mò mẫm.", links: [{ label: "Đọc chủ đề Nghề L&D →", href: "/nghe-ld" }] },
+    { id: "ai-yeulanh", icon: "🌱", title: "Phụ nữ đang loay hoay trong tình yêu", btn: "Tôi đang loay hoay trong tình yêu", pain: "Yêu hết lòng mà vẫn thấy mình không được ưu tiên, hay tự hỏi mình có đang đòi hỏi quá không. Muốn yêu mà vẫn giữ được chính mình.", links: [{ label: "Chủ đề Yêu lành — sắp ra mắt", href: "#ai-yeulanh", soon: true }] },
   ];
 
   // Hệ sinh thái — chia 3 tầng theo mức cam kết: nếm thử miễn phí → học sâu trả phí → đồng hành
@@ -383,7 +384,7 @@ export default function HomePage() {
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-4 sm:mb-6">
-            Đâu là cách <span className="text-[var(--accent-hover)]">sinh tồn nơi công sở?</span>
+            Đâu là cách <span className="text-[var(--accent-hover)]"><span className="whitespace-nowrap">sinh tồn</span> <span className="whitespace-nowrap">nơi công sở?</span></span>
           </h1>
 
           {/* Sub-headline */}
@@ -443,9 +444,11 @@ export default function HomePage() {
                 <h3 className="text-lg font-bold mb-2">{a.title}</h3>
                 <p className="text-sm text-[var(--fg-muted)] leading-relaxed mb-4">{a.pain}</p>
                 <div className="flex flex-col gap-2">
-                  {a.links.map((lk) => (
+                  {a.links.map((lk) => ("soon" in lk && lk.soon ? (
+                    <span key={lk.href} className="text-sm font-semibold text-[var(--fg-subtle)] w-fit">{lk.label}</span>
+                  ) : (
                     <a key={lk.href} href={lk.href} className="text-sm font-semibold text-[var(--accent-hover)] inline-flex items-center gap-1.5 hover:gap-2.5 transition-all w-fit">{lk.label}</a>
-                  ))}
+                  )))}
                 </div>
               </div>
             ))}
@@ -457,7 +460,7 @@ export default function HomePage() {
       <section id="he-sinh-thai" className="py-12 sm:py-20 px-4 sm:px-6 border-t border-[var(--border)] scroll-mt-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 sm:mb-14">
-            <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">Hệ sinh thái <span className="text-[var(--accent-hover)]">Hà Bùi</span></h2>
+            <h2 className="text-2xl sm:text-4xl font-extrabold mb-3"><span className="whitespace-nowrap">Hệ sinh thái</span> <span className="text-[var(--accent-hover)] whitespace-nowrap">Hà Bùi</span></h2>
             <p className="text-[var(--fg-muted)] max-w-xl mx-auto">Mọi thứ bạn cần để quản trị tốt hơn — học, thực hành và áp dụng ngay.</p>
           </div>
           <div className="space-y-10 sm:space-y-12">

@@ -75,7 +75,7 @@ export default function EbookClient() {
             <div className="card">
               <div className="ctitle"><span className="ic">☕</span> Tủ ebook — mỗi cuốn là một buổi cà phê 99.000đ</div>
               <p className="csub">
-                Không lý thuyết. Mỗi cuốn là một buổi ngồi nghe chuyện thật từ mười ba năm làm nghề — mà bạn giữ được
+                Không lý thuyết. Mỗi cuốn là một buổi ngồi nghe chuyện thật từ mười lăm năm làm nghề — mà bạn giữ được
                 mãi, đọc lại bao nhiêu lần tùy bạn. Đồng giá 99.000đ, kèm cam kết hoàn tiền không hỏi lý do.
               </p>
             </div>

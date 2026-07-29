@@ -128,7 +128,7 @@ export default function GiaoViecClient() {
             </div>
 
             <div className="card">
-              <div className="ctitle"><span className="ic">🕚</span> Ba câu tôi nghe nhiều nhất trong mười ba năm</div>
+              <div className="ctitle"><span className="ic">🕚</span> Ba câu tôi nghe nhiều nhất trong mười lăm năm</div>
               <ul style={{ listStyle: "none", margin: "14px 0 0", padding: 0, display: "grid", gap: 11 }}>
                 {PAINS.map((t, i) => (
                   <li key={i} style={{ fontSize: 15.2, fontStyle: "italic", color: "var(--fg-muted)" }}>{t}</li>

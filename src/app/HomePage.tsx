@@ -293,7 +293,7 @@ export default function HomePage() {
         { icon: "📝", title: "Trắc nghiệm", desc: "Bạn đang GÁNH hay DẪN DẮT? Tự chấm 2 phút, có kết quả riêng ngay.", href: "/trac-nghiem", cta: "Làm thử ngay" },
         { icon: "✍️", title: "Blog & Tình huống", desc: "Chuyện quản trị thật, kể không giấu — đọc là thấy mình trong đó.", href: "/blog", cta: "Đọc ngay" },
         { icon: "🧾", title: "Biểu mẫu & Checklist", desc: "Mẫu giao việc, đánh giá, kiểm việc — tải về điền là dùng ngay.", href: "/bieu-mau", cta: "Lấy mẫu miễn phí" },
-        { icon: "📘", title: "Ebook & Cẩm nang", desc: "Cẩm nang ngắn, đọc xong áp dụng được liền.", href: "/ebook", cta: "Đọc ngay" },
+        { icon: "📘", title: "Ebook & Cẩm nang", desc: "Cẩm nang miễn phí đọc ngay — và tủ ebook đồng giá một buổi cà phê 99.000đ.", href: "/ebook", cta: "Đọc ngay" },
       ],
     },
     {
@@ -303,7 +303,7 @@ export default function HomePage() {
       color: "var(--accent-hover)",
       items: [
         { icon: "🎓", title: "Khóa học", desc: "Khóa nâng cao năng lực quản lý & kỹ năng thiết yếu.", href: "/courses" },
-        { icon: "📕", title: "Ebook chuyên sâu", desc: "Sách đầy đủ như “Nghệ thuật thừa nhận sai” — đọc thử rồi mua.", href: "/ebook/nghe-thuat-thua-nhan-sai" },
+        { icon: "📕", title: "Ebook chuyên sâu", desc: "Mỗi cuốn là một buổi cà phê với tôi — 99.000đ, chuyện thật 15 năm làm nghề, đọc thử miễn phí trước khi mua.", href: "/ebook/nghe-thuat-thua-nhan-sai" },
         { icon: "🧰", title: "Bộ công cụ & Prompt AI", desc: "Trọn bộ biểu mẫu và prompt dùng ngay — đi kèm khóa học.", href: "/courses" },
         { icon: "🧩", title: "Bộ tình huống & Case study", desc: "Tình huống quản trị thật — mỗi ca có bối cảnh, cách xử lý và bài học rút ra. Phần giá trị nhất.", href: "#", soon: true },
       ],

@@ -62,18 +62,18 @@ const silos = [
 
 export default function AboutPage() {
   return (
-    <div className="bg-[var(--bg)] min-h-screen text-white">
+    <div className="bg-[var(--bg)] min-h-screen text-[var(--fg)]">
       {/* HEADER nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)]/92 backdrop-blur-xl border-b border-white/5">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)]/92 backdrop-blur-xl border-b border-[var(--border)]">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-16">
           <Link href="/" className="flex items-center gap-2.5">
             <Image src={siteConfig.owner.avatar} alt={siteConfig.owner.name} width={36} height={36} sizes="36px" className="w-9 h-9 rounded-lg object-cover" />
             <div className="text-sm font-bold leading-tight">{siteConfig.name}</div>
           </Link>
           <div className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-sm text-gray-400 hover:text-white transition-colors">Trang chủ</Link>
-            <Link href="/#silos" className="text-sm text-gray-400 hover:text-white transition-colors">4 chủ đề</Link>
-            <Link href="/blog" className="text-sm text-gray-400 hover:text-white transition-colors">Blog</Link>
+            <Link href="/" className="text-sm text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">Trang chủ</Link>
+            <Link href="/#silos" className="text-sm text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">4 chủ đề</Link>
+            <Link href="/blog" className="text-sm text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">Blog</Link>
             <Link href="/register" className="btn-green text-sm py-2 px-5"><Mail size={14} /> Nhận cẩm nang</Link>
           </div>
         </div>
@@ -82,9 +82,10 @@ export default function AboutPage() {
       {/* ═══ HERO ═══ */}
       <section className="pt-24 sm:pt-36 pb-12 sm:pb-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+            {/* Photo */}
             <div className="lg:col-span-2">
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden relative border border-white/10 max-w-sm mx-auto lg:mx-0">
+              <div className="aspect-square rounded-2xl overflow-hidden relative border border-[var(--border-strong)] shadow-xl shadow-[var(--accent)]/10 max-w-sm mx-auto lg:mx-0">
                 <Image
                   src={siteConfig.owner.avatar}
                   alt={siteConfig.owner.name}
@@ -94,26 +95,41 @@ export default function AboutPage() {
                   priority
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center"
-                  style={{ background: "linear-gradient(transparent, rgba(0,0,0,0.85))" }}>
-                  <div className="text-lg font-bold">{siteConfig.owner.name}</div>
-                  <div className="text-sm text-[var(--warn)]">{siteConfig.name}</div>
+                  style={{ background: "linear-gradient(transparent, rgba(0,0,0,0.78))" }}>
+                  <div className="text-lg font-bold text-white">{siteConfig.owner.name}</div>
+                  <div className="text-sm font-semibold" style={{ color: "#5eead4" }}>{siteConfig.name}</div>
                 </div>
               </div>
             </div>
 
+            {/* Bio */}
             <div className="lg:col-span-3 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium"
-                style={{ background: "rgb(var(--warn-rgb) / 0.1)", border: "1px solid rgb(var(--warn-rgb) / 0.25)", color: "var(--warn)" }}>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold"
+                style={{ background: "rgb(var(--accent-rgb) / 0.1)", border: "1px solid rgb(var(--accent-rgb) / 0.25)", color: "var(--accent-hover)" }}>
                 <Heart size={14} /> Về Hà
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight">
-                Tôi là <span className="text-[var(--warn)]">{siteConfig.owner.name}</span>
+                Tôi là <span className="text-[var(--accent-hover)]">{siteConfig.owner.name}</span>
               </h1>
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                <strong className="text-white">MBA Quản trị Kinh doanh · 15 năm đào tạo quản lý cho Vingroup, FPT Telecom, TokyoLife</strong> — và tôi vẫn đang trực tiếp quản lý nhân sự mỗi ngày. Hơn <strong className="text-white">10.000 học viên</strong> và <strong className="text-white">350+ chương trình</strong> đã đi qua tay tôi.
+              <p className="text-base sm:text-lg text-[var(--fg-muted)] leading-relaxed">
+                <strong className="text-[var(--fg)]">MBA Quản trị Kinh doanh</strong> · <strong className="text-[var(--fg)]">15 năm kinh nghiệm đào tạo quản lý</strong> — và tôi vẫn đang trực tiếp quản lý nhân sự mỗi ngày. Hơn <strong className="text-[var(--fg)]">10.000 học viên</strong> và <strong className="text-[var(--fg)]">350+ chương trình</strong> đã đi qua tay tôi.
               </p>
-              <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-                Tôi không phải diễn giả truyền cảm hứng hay coach bán “công thức thần kỳ”. Tôi là người <strong className="text-gray-200">đang làm thật</strong> — rồi đóng gói lại đúng cái dùng được thành <strong className="text-gray-200">phương pháp bài bản</strong>. Ở đây có nội dung miễn phí để đọc, và có những <strong className="text-gray-200">khóa học chuyên sâu</strong> cho ai muốn đi xa hơn cùng tôi.
+
+              {/* Companies chip row */}
+              <div className="pt-1">
+                <div className="text-[11px] font-bold uppercase tracking-widest text-[var(--fg-subtle)] mb-2.5">Đã đào tạo tại</div>
+                <div className="flex flex-wrap gap-2">
+                  {["Vingroup", "FPT Telecom", "TokyoLife", "Luvina", "Scots English"].map((c) => (
+                    <span key={c}
+                      className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-[var(--surface)] border border-[var(--border)] text-[var(--fg-muted)]">
+                      {c}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <p className="text-sm sm:text-base text-[var(--fg-muted)] leading-relaxed pt-1">
+                Tôi không phải diễn giả truyền cảm hứng hay coach bán “công thức thần kỳ”. Tôi là người <strong className="text-[var(--fg)]">đang làm thật</strong> — rồi đóng gói lại đúng cái dùng được thành <strong className="text-[var(--fg)]">phương pháp bài bản</strong>. Ở đây có nội dung miễn phí để đọc, và có những <strong className="text-[var(--fg)]">khóa học chuyên sâu</strong> cho ai muốn đi xa hơn cùng tôi.
               </p>
             </div>
           </div>
@@ -143,7 +159,7 @@ export default function AboutPage() {
               với văn hóa Việt, gia đình Việt, công sở Việt.
             </p>
             <p>
-              <strong className="text-white">{siteConfig.name} là nơi tôi ghi lại những điều đó.</strong> Không hứa hẹn màu mè,
+              <strong className="text-[var(--fg)]">{siteConfig.name} là nơi tôi ghi lại những điều đó.</strong> Không hứa hẹn màu mè,
               không lý thuyết cao siêu. Phần lớn ở đây miễn phí để đọc — còn nếu bạn muốn đi sâu theo lộ trình, tôi có những
               khóa học được đóng gói kỹ, đúc kết từ chính việc tôi đang làm mỗi ngày.
             </p>
@@ -160,7 +176,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {background.map((b, i) => (
-              <div key={i} className="flex gap-4 bg-[var(--surface)] border border-white/5 rounded-2xl p-6">
+              <div key={i} className="flex gap-4 bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-6">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
                   style={{ background: "rgb(var(--warn-rgb) / 0.1)" }}>
                   <b.icon size={22} className="text-[var(--warn)]" />
@@ -192,7 +208,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {principles.map((p, i) => (
-              <div key={i} className="bg-[var(--surface)] border border-white/5 rounded-2xl p-6">
+              <div key={i} className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-6">
                 <h3 className="font-bold text-base mb-3 text-[var(--cat-lime)]">{p.title}</h3>
                 <p className="text-sm text-gray-400 leading-relaxed">{p.body}</p>
               </div>
@@ -211,7 +227,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {silos.map((s) => (
               <Link key={s.num} href={s.href}
-                className="flex items-center gap-4 bg-[var(--surface)] border border-white/5 rounded-2xl p-5 hover:border-white/10 transition-colors group">
+                className="flex items-center gap-4 bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-5 hover:border-[var(--border-strong)] transition-colors group">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
                   style={{ background: `${s.color}20` }}>
                   <s.icon size={22} style={{ color: s.color }} />
@@ -220,7 +236,7 @@ export default function AboutPage() {
                   <div className="text-xs font-bold uppercase tracking-wider mb-0.5" style={{ color: s.color }}>Chủ đề {s.num}</div>
                   <div className="font-bold">{s.title}</div>
                 </div>
-                <ArrowRight size={16} className="text-gray-500 group-hover:text-white transition-colors" />
+                <ArrowRight size={16} className="text-[var(--fg-subtle)] group-hover:text-[var(--fg)] transition-colors" />
               </Link>
             ))}
           </div>
@@ -239,21 +255,21 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
             <a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer"
-              className="bg-[var(--surface)] border border-white/5 rounded-2xl p-6 hover:border-[#1877F2]/30 transition-colors group">
+              className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-6 hover:border-[#1877F2]/30 transition-colors group">
               <div className="text-[#1877F2] mx-auto mb-3 w-7 h-7"><FacebookIcon size={28} /></div>
               <div className="font-bold text-sm mb-1">Facebook</div>
               <div className="text-xs text-gray-500">Bài viết hàng tuần</div>
             </a>
 
             <Link href="/register"
-              className="bg-[var(--surface)] border border-white/5 rounded-2xl p-6 hover:border-[var(--warn)]/30 transition-colors group">
+              className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--warn)]/30 transition-colors group">
               <Mail size={28} className="text-[var(--warn)] mx-auto mb-3" />
               <div className="font-bold text-sm mb-1">Newsletter</div>
               <div className="text-xs text-gray-500">Mỗi tuần 1 email ngắn</div>
             </Link>
 
             <Link href="/community"
-              className="bg-[var(--surface)] border border-white/5 rounded-2xl p-6 hover:border-[var(--cat-lime)]/30 transition-colors group">
+              className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--cat-lime)]/30 transition-colors group">
               <Coffee size={28} className="text-[var(--cat-lime)] mx-auto mb-3" />
               <div className="font-bold text-sm mb-1">Cộng đồng</div>
               <div className="text-xs text-gray-500">Chia sẻ và hỏi đáp</div>
@@ -283,14 +299,14 @@ export default function AboutPage() {
       </section>
 
       {/* ═══ FOOTER ═══ */}
-      <footer className="border-t border-white/5 py-10 px-4 sm:px-6">
+      <footer className="border-t border-[var(--border)] py-10 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p>{siteConfig.footer.copyright} | buithuha.com</p>
           <div className="flex gap-4">
-            <Link href="/" className="hover:text-white transition-colors">Trang chủ</Link>
-            <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Bảo mật</Link>
-            <Link href="/terms-of-service" className="hover:text-white transition-colors">Điều khoản</Link>
+            <Link href="/" className="hover:text-[var(--fg)] transition-colors">Trang chủ</Link>
+            <Link href="/blog" className="hover:text-[var(--fg)] transition-colors">Blog</Link>
+            <Link href="/privacy-policy" className="hover:text-[var(--fg)] transition-colors">Bảo mật</Link>
+            <Link href="/terms-of-service" className="hover:text-[var(--fg)] transition-colors">Điều khoản</Link>
           </div>
         </div>
       </footer>

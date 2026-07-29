@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const SLUG = "/ebook/nghe-thuat-thua-nhan-sai";
 const PREVIEW_PDF = "/ebooks/nghe-thuat-thua-nhan-sai-doc-thu.pdf";
-const PRICE = "499.000đ";
+const PRICE = "99.000đ";
 
 const WHAT_YOU_GET = [
   "Bốn lối tư duy phá vỡ phản xạ phòng thủ tự nhiên — để câu nói đúng không nghe giả tạo.",
@@ -41,10 +41,11 @@ function BuyGate() {
 
       {state === "guest" && (
         <>
-          <h3>Hết phần đọc thử — phần hay nhất bắt đầu ngay sau đây</h3>
+          <h3>Mời tôi một buổi cà phê — {PRICE}</h3>
           <p>
-            Đăng nhập để mở trọn bộ 61 trang: đúng câu Minh nên nói trong tình huống trên, 12 kịch bản mô phỏng,
-            bộ công cụ ngôn ngữ và lộ trình 30 ngày. Trọn bộ chỉ <b style={{ color: "var(--fg)" }}>{PRICE}</b>.
+            Hết phần đọc thử — phần hay nhất bắt đầu ngay sau đây. Đăng nhập để mở trọn bộ 61 trang: đúng câu Minh nên
+            nói trong tình huống trên, 12 kịch bản mô phỏng, bộ công cụ ngôn ngữ và lộ trình 30 ngày. Trọn bộ bằng
+            đúng giá một buổi cà phê: <b style={{ color: "var(--fg)" }}>{PRICE}</b> — và bạn giữ được mãi.
           </p>
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
             <Link className="btn" href={`/login?redirect=${SLUG}`}>Đăng nhập để mua</Link>
@@ -61,10 +62,10 @@ function BuyGate() {
 
       {state === "user" && (
         <>
-          <h3>Sẵn sàng đọc trọn bộ?</h3>
+          <h3>Mời tôi buổi cà phê này — {PRICE}</h3>
           <p>
             Trọn bộ 61 trang — 12 tình huống mô phỏng (3 phiên bản mỗi tình huống), bộ công cụ ngôn ngữ dùng ngay,
-            và lộ trình luyện tập 30 ngày. Trọn đời, đọc lại bao nhiêu lần tuỳ bạn.
+            và lộ trình luyện tập 30 ngày. Thanh toán một lần · tải về ngay · đọc lại bao nhiêu lần tuỳ bạn.
           </p>
           <a
             className="btn"
@@ -72,7 +73,7 @@ function BuyGate() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Mua trọn bộ — {PRICE}
+            Mời tôi buổi cà phê này — {PRICE}
           </a>
           <p style={{ color: "#9A8F7D", fontSize: 12.5, marginTop: 12, marginBottom: 0 }}>
             Nhắn “Mua ebook Thừa nhận sai” qua Zalo để nhận link thanh toán &amp; bản đầy đủ.
@@ -103,7 +104,7 @@ export default function ThuaNhanSaiClient() {
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginTop: 16 }}>
               <span style={{ fontSize: 20, fontWeight: 800, color: "var(--accent-hover)" }}>{PRICE}</span>
-              <span style={{ fontSize: 13.5, color: "var(--fg-muted)" }}>· Đọc thử 15 trang miễn phí bên dưới</span>
+              <span style={{ fontSize: 13.5, color: "var(--fg-muted)" }}>· giá một buổi cà phê — đọc thử 15 trang miễn phí bên dưới</span>
             </div>
           </div>
 
@@ -171,12 +172,28 @@ export default function ThuaNhanSaiClient() {
             <BuyGate />
 
             <div className="card">
+              <div className="ctitle"><span className="ic">🛡️</span> Cam kết “buổi cà phê đáng giá”</div>
+              <p className="csub" style={{ marginBottom: 0 }}>
+                Nếu đọc xong bạn thấy buổi cà phê này không đáng, nhắn tôi một câu — tôi hoàn đủ {PRICE}. Không hỏi
+                thêm gì. Rủi ro nằm ở phía tôi, không nằm ở phía bạn.
+              </p>
+            </div>
+
+            <div className="card">
               <p className="intro" style={{ fontSize: 15 }}>
                 Tôi viết cuốn này từ nhiều năm làm L&amp;D — và từ chính những lần đứng hình như vậy. Mỗi kỹ thuật
                 trong sách đều đã được dùng thật trong môi trường doanh nghiệp Việt Nam, không có lý thuyết nào chưa
                 được ứng dụng. Là người đến giờ vẫn đang trực tiếp quản lý mỗi ngày, tôi viết ra thứ tôi vẫn dùng.
               </p>
             </div>
+
+            <Link href="/ebook/giao-viec-ma-khong-phai-lam-lai" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
+              <div className="ctitle"><span className="ic">📗</span> Cuốn tiếp theo trong tủ: Giao việc mà không phải làm lại</div>
+              <p className="csub" style={{ marginBottom: 0 }}>
+                Mô hình 5G — hệ thống giao việc và ủy quyền cho chủ doanh nghiệp và quản lý cấp trung · cũng là một
+                buổi cà phê {PRICE} →
+              </p>
+            </Link>
           </div>
         </div>
 

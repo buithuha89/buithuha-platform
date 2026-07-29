@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import EbookClient from "./EbookClient";
 
 export const metadata: Metadata = {
-  title: "Ebook: 7 câu hỏi tự nhìn vào bản thân | Hà Bùi Academy",
+  title: "Tủ ebook: mỗi cuốn một buổi cà phê 99K | Hà Bùi Academy",
   description:
-    "Bộ câu hỏi tự vấn cho người quản lý & chủ doanh nghiệp đang ôm quá nhiều việc. Đọc ngay 7 câu hỏi + gợi ý suy ngẫm, hoặc tải bản PDF để in và ngồi lại với chính mình.",
+    "Đọc miễn phí bộ 7 câu hỏi tự nhìn vào bản thân, và tủ ebook đồng giá 99.000đ — Giao việc mà không phải làm lại (mô hình 5G) & Nghệ thuật thừa nhận sai. Chuyện thật từ mười ba năm làm nghề, kèm cam kết hoàn tiền.",
   alternates: { canonical: "https://buithuha.com/ebook" },
   openGraph: {
     title: "7 câu hỏi tự nhìn vào bản thân",

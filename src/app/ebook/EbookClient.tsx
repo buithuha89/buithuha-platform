@@ -72,9 +72,22 @@ export default function EbookClient() {
               ))}
             </div>
 
+            <div className="card">
+              <div className="ctitle"><span className="ic">☕</span> Tủ ebook — mỗi cuốn là một buổi cà phê 99.000đ</div>
+              <p className="csub">
+                Không lý thuyết. Mỗi cuốn là một buổi ngồi nghe chuyện thật từ mười ba năm làm nghề — mà bạn giữ được
+                mãi, đọc lại bao nhiêu lần tùy bạn. Đồng giá 99.000đ, kèm cam kết hoàn tiền không hỏi lý do.
+              </p>
+            </div>
+
+            <Link href="/ebook/giao-viec-ma-khong-phai-lam-lai" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
+              <div className="ctitle"><span className="ic">📗</span> Giao việc mà không phải làm lại</div>
+              <p className="csub" style={{ marginBottom: 0 }}>Mô hình 5G — hệ thống giao việc &amp; ủy quyền cho chủ doanh nghiệp và quản lý cấp trung · 13 chương · 99.000đ — đọc thử miễn phí →</p>
+            </Link>
+
             <Link href="/ebook/nghe-thuat-thua-nhan-sai" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
-              <div className="ctitle"><span className="ic">📕</span> Ebook trả phí: Nghệ thuật thừa nhận sai</div>
-              <p className="csub" style={{ marginBottom: 0 }}>Phản hồi thông minh dưới áp lực mà không mất uy tín · 61 trang · 499.000đ — đọc thử 15 trang miễn phí →</p>
+              <div className="ctitle"><span className="ic">📕</span> Nghệ thuật thừa nhận sai</div>
+              <p className="csub" style={{ marginBottom: 0 }}>Phản hồi thông minh dưới áp lực mà không mất uy tín · 61 trang · 99.000đ — đọc thử 15 trang miễn phí →</p>
             </Link>
 
             <LeadCTA

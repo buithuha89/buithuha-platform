@@ -58,7 +58,7 @@ function BuyGate() {
           <h3>Mời tôi một buổi cà phê — {PRICE}</h3>
           <p>
             Không phải một khóa học, không phải lý thuyết. Là một buổi ngồi nghe chuyện thật của{" "}
-            <span style={nw}>mười ba</span> năm làm nghề — những lần <span style={nw}>mắc kẹt</span>, những bài học trả
+            <span style={nw}>mười lăm</span> năm làm nghề — những lần <span style={nw}>mắc kẹt</span>, những bài học trả
             giá thật — mà bạn giữ được mãi, đọc lại bao nhiêu lần tùy bạn. Đăng nhập để mua trọn bộ 13 chương.
           </p>
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
@@ -225,7 +225,7 @@ export default function GiaoViecClient() {
               <p className="intro" style={{ fontSize: 15 }}>
                 Toàn bộ tình huống trong sách — anh Dũng với hai mươi ba tin nhắn một tối, chị Trang với lần giao việc
                 bảy phút — đều xây từ các trường hợp có thật tại doanh nghiệp Việt Nam mà tôi đã ngồi cùng trong{" "}
-                <span style={nw}>mười ba</span> năm làm nghề đào tạo. Là người đến giờ vẫn đang trực tiếp{" "}
+                <span style={nw}>mười lăm</span> năm làm nghề đào tạo. Là người đến giờ vẫn đang trực tiếp{" "}
                 <span style={nw}>quản lý</span> mỗi ngày, tôi viết ra thứ tôi vẫn dùng.
               </p>
             </div>

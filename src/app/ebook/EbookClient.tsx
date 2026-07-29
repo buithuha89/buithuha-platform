@@ -90,6 +90,29 @@ export default function EbookClient() {
               <p className="csub" style={{ marginBottom: 0 }}>Phản hồi thông minh dưới áp lực mà không mất uy tín · 61 trang · 99.000đ — đọc thử 15 trang miễn phí →</p>
             </Link>
 
+            <div className="card">
+              <div className="ctitle"><span className="ic">📚</span> Bộ ba cho người trẻ đi làm — trọn bộ 249.000đ</div>
+              <p className="csub" style={{ marginBottom: 0 }}>
+                Ba cuốn viết liền mạch cho người trẻ trong môi trường công sở khó ở: nhận diện và ứng phó → nói ra
+                điều khó nói → giữ lấy chính mình. Mua lẻ 99.000đ/cuốn, trọn bộ 249.000đ (thay vì 297.000đ).
+              </p>
+            </div>
+
+            <Link href="/ebook/khong-phai-do-ban-nhay-cam" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
+              <div className="ctitle"><span className="ic">📙</span> Tập 1 — Không phải do bạn nhạy cảm</div>
+              <p className="csub" style={{ marginBottom: 0 }}>Giữ bản lĩnh trong môi trường công sở độc hại — khung 5B, tám kiểu người khiến bạn khổ sở · 10 chương · 99.000đ →</p>
+            </Link>
+
+            <Link href="/ebook/noi-duoc-dieu-kho-noi" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
+              <div className="ctitle"><span className="ic">📒</span> Tập 2 — Nói được điều khó nói</div>
+              <p className="csub" style={{ marginBottom: 0 }}>Từ chối, phản hồi, thương lượng mà không run — mô hình 5T, bốn công thức nói điều khó · 11 chương · 99.000đ →</p>
+            </Link>
+
+            <Link href="/ebook/giu-lay-minh" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
+              <div className="ctitle"><span className="ic">📘</span> Tập 3 — Giữ lấy mình</div>
+              <p className="csub" style={{ marginBottom: 0 }}>Ranh giới và sức khỏe tinh thần cho người trẻ đi làm — thoát thao túng, khỏi kiệt sức · 11 chương · 99.000đ →</p>
+            </Link>
+
             <LeadCTA
               title="Muốn ngồi lại với bản in?"
               desc="Nhận bản PDF đẹp của “7 câu hỏi tự nhìn vào bản thân” — có chỗ để bạn viết câu trả lời, in ra và ngồi thật với chính mình."

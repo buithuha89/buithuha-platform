@@ -1,7 +1,9 @@
 import { createAdminClient } from "@/lib/supabase/server";
+import { sendTelegramMessage } from "@/lib/telegram";
 
 /**
  * Send critical alerts to all admin/manager users via in-app notifications.
+ * Also mirrors the alert to admin Telegram (if configured).
  * Non-blocking — fire-and-forget, never throws.
  */
 export async function alertAdmins(
@@ -9,6 +11,7 @@ export async function alertAdmins(
   message: string,
   link?: string
 ): Promise<void> {
+  sendTelegramMessage(`${title}\n${message}`).catch(() => {});
   try {
     const supabase = await createAdminClient();
 

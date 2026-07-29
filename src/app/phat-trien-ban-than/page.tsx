@@ -31,6 +31,14 @@ const data: SiloData = {
       "Trong chủ đề này tôi chia sẻ những công cụ thực dụng — không thiền cao siêu, không journaling chung chung. Chỉ là những câu hỏi cụ thể, bài tập cụ thể, mà tôi đã dùng cho bản thân.",
     ],
   },
+  cost: {
+    heading: "Đứng yên không miễn phí",
+    paragraphs: [
+      "Bận rộn mà không có hướng nhìn giống đang tiến — cho đến khi nhìn lại. Một năm đi qua với đầy việc, mà câu “tôi thật sự muốn gì?” vẫn nằm nguyên chỗ cũ. Cái giá không phải là những gì bạn làm sai, mà là những lựa chọn bạn chưa bao giờ đặt lên bàn — vì chưa từng ngồi xuống với chính mình.",
+      "Và có một thứ hao hụt lặng lẽ hơn: cảm giác bạn còn điều khiển được đời mình. Mỗi năm trôi theo quán tính, niềm tin đó mòn đi một chút — đến lúc kiệt quệ mới ngồi nhìn lại thì mọi thứ khó hơn nhiều so với bắt đầu từ hôm nay.",
+    ],
+    question: "Nếu một năm nữa bạn vẫn bận y như bây giờ, và vẫn chưa trả lời được “mình thật sự muốn gì” — bạn có chấp nhận được không?",
+  },
   topics: [
     { icon: "Compass", title: "7 câu hỏi tự nhìn vào bản thân", desc: "Bộ câu hỏi tôi dùng nhiều nhất — cho bản thân và cho học viên. Có trong cẩm nang miễn phí." },
     { icon: "Target", title: "Lập kế hoạch năm — cách tôi làm", desc: "Không phải SMART goals khô khan. Cách tôi lập kế hoạch năm có cả phần lý trí lẫn phần mong muốn." },

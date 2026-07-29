@@ -31,6 +31,14 @@ const data: SiloData = {
       "Không có công thức. Chỉ là từng bài học nhỏ, mỗi lần đi qua một tình huống. Tôi viết lại ở đây những gì có thể giúp ai đó đang ở vị trí giống tôi ngày xưa.",
     ],
   },
+  cost: {
+    heading: "Ôm hết hôm nay là trả giá kép ngày mai",
+    paragraphs: [
+      "Quản lý ôm việc trả giá hai lần. Lần một là chính bạn: ngày dài hơn, giấc ngủ ngắn hơn, kiệt quệ dần mà tưởng là chăm chỉ. Lần hai kín hơn: đội của bạn không lớn lên được — vì mọi quyết định, mọi tiêu chuẩn vẫn nằm trong đầu bạn, người giỏi dưới quyền bạn sẽ chán và đi.",
+      "Và vòng lặp này không đứng yên. Càng ôm, việc càng dồn về bạn; càng dồn, càng không có thời gian xây người; càng không xây người, càng phải ôm. Mỗi năm ở yên trong vòng lặp, cái giá cộng thêm một tầng — và động lực để thoát ra mỏng đi một tầng.",
+    ],
+    question: "Nếu một năm nữa, bạn vẫn là người duyệt mọi việc và tắt đèn cuối cùng mỗi tối — bạn có chấp nhận được không?",
+  },
   topics: [
     { icon: "ShieldAlert", title: "Lần đầu lên quản lý — 5 nỗi sợ tôi từng có", desc: "Sợ nhân viên không nghe. Sợ sếp kỳ vọng. Sợ làm sai. Sợ trở nên xa cách với đồng nghiệp cũ. Sợ tôi không đủ giỏi." },
     { icon: "UserCheck", title: "Giao việc mà vẫn yên tâm", desc: "Không phải micromanage, không phải buông tay hoàn toàn. Có khung tôi dùng để vừa đỡ tay vừa không mất kiểm soát." },

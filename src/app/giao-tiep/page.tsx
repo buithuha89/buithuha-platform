@@ -31,6 +31,14 @@ const data: SiloData = {
       "Tôi không có công thức giao tiếp nào. Tôi chỉ có những bài học rút ra từ việc làm sai, làm lại, và đứng lùi một bước để nhìn cho rõ.",
     ],
   },
+  cost: {
+    heading: "Chuyện không nói ra không tự biến mất — nó tính lãi",
+    paragraphs: [
+      "Mỗi lần chọn im lặng “cho êm chuyện”, cái chuyện đó không đi đâu cả. Nó nằm lại, và lần va chạm sau nó quay về — nặng hơn một chút. Mối quan hệ không vỡ vì một trận cãi lớn; nó bào mòn qua hàng trăm lần nuốt vào không nói.",
+      "Cái giá ẩn ít ai đặt tên: càng lâu không nói, càng mất dần khả năng nói. Câu khó nói của năm nay, sang năm sẽ khó gấp đôi — vì khoảng cách đã rộng thêm, và bạn đã quen thỏa hiệp thêm một năm nữa.",
+    ],
+    question: "Nếu một năm nữa, cuộc nói chuyện đó vẫn chưa diễn ra và mối quan hệ đó vẫn y như bây giờ — bạn có chấp nhận được không?",
+  },
   topics: [
     { icon: "MessageSquare", title: "Cách nói điều khó nói", desc: "Khi cần phản hồi nhân viên, từ chối một đề nghị, hoặc thẳng thắn với người thân — tôi thường chuẩn bị thế nào." },
     { icon: "Ear", title: "Lắng nghe mà không cắt ngang", desc: "Nghe ai đó nói trong khi não mình đang chuẩn bị câu trả lời — đó không phải lắng nghe. Tôi chia sẻ cách tập lại từ đầu." },

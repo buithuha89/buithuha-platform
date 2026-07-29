@@ -211,6 +211,20 @@ export async function POST(req: NextRequest) {
       ]);
     }
 
+    // Báo Telegram cho admin có đơn mới (non-critical, không chặn luồng)
+    try {
+      const { notifyNewOrder } = await import("@/lib/telegram");
+      notifyNewOrder({
+        orderCode,
+        productTitle: product.title || product.name || "Sản phẩm",
+        amount: order.amount,
+        customerName: order.customer_name,
+        customerEmail: order.customer_email,
+      });
+    } catch {
+      console.warn("[Create Order] Telegram notify failed (non-critical)");
+    }
+
     // Thông tin thanh toán
     const bankAccount = process.env.SEPAY_BANK_ACCOUNT;
     const bankCode = process.env.SEPAY_BANK_CODE;

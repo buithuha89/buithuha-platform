@@ -170,6 +170,21 @@ export async function POST(req: NextRequest) {
       },
     });
 
+    // Báo Telegram cho admin: đơn đã thanh toán (non-critical)
+    try {
+      const { notifyOrderPaid } = await import("@/lib/telegram");
+      const paidProducts = order.products as Record<string, unknown> | null;
+      notifyOrderPaid({
+        orderCode: order.order_code,
+        productTitle: (paidProducts?.title as string) || (paidProducts?.name as string) || "Sản phẩm",
+        amount: payosAmount,
+        customerName: (order.customer_name as string) || null,
+        source: "PayOS",
+      });
+    } catch {
+      console.warn("[PayOS] Telegram notify failed (non-critical)");
+    }
+
     // 5b. Handle subscription orders
     if (order.payment_method === "subscription") {
       try {

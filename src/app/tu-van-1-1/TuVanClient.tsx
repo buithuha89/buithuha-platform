@@ -76,6 +76,15 @@ export default function TuVanClient() {
             </div>
 
             <div className="card">
+              <div className="purpose" style={{ marginBottom: 0 }}>
+                <b>Vì sao không nên để dành “lúc nào rảnh rồi tính”:</b> khúc quanh không đứng yên chờ bạn. Mỗi
+                tháng loay hoay không hướng là một tháng rải hồ sơ sai chỗ, nhận việc không hợp, hoặc quen dần với
+                một vị trí đang bào mòn mình. Tự hỏi thử: nếu một năm nữa bạn vẫn đứng đúng chỗ này — có chấp nhận
+                được không? Nếu không, một buổi ngồi xuống nhìn cho rõ là bước nhỏ nhất để bắt đầu.
+              </div>
+            </div>
+
+            <div className="card">
               <div className="ctitle"><span className="ic">🧭</span> Buổi tư vấn giúp bạn</div>
               <ul style={{ listStyle: "none", margin: "14px 0 0", padding: 0, display: "grid", gap: 10 }}>
                 {WHAT.map((t, i) => (

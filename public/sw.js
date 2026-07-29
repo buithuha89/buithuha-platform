@@ -1,7 +1,7 @@
-// Service Worker for KOHODA Academy PWA
+// Service Worker for Hà Bùi Academy PWA
 // Cache-first for static assets, network-first for API/HTML
 
-const CACHE_VERSION = "kohoda-v2";
+const CACHE_VERSION = "habui-v3";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 
@@ -125,7 +125,7 @@ function offlinePage() {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Offline — LĐK Academy</title>
+  <title>Ngoại tuyến — Hà Bùi Academy</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -133,8 +133,8 @@ function offlinePage() {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #0a0a0a;
-      color: #f5f5f5;
+      background: #0b1512;
+      color: #eaf5ef;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       text-align: center;
       padding: 2rem;
@@ -149,18 +149,18 @@ function offlinePage() {
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 0.75rem;
-      color: #D4A843;
+      color: #2dd4bf;
     }
     p {
       font-size: 1rem;
-      color: #999;
+      color: #9db4ab;
       line-height: 1.6;
       margin-bottom: 2rem;
     }
     button {
       padding: 0.75rem 2rem;
-      background: #D4A843;
-      color: #000;
+      background: #2dd4bf;
+      color: #04211e;
       border: none;
       border-radius: 0.5rem;
       font-size: 1rem;
@@ -168,7 +168,7 @@ function offlinePage() {
       cursor: pointer;
       transition: background 0.2s;
     }
-    button:hover { background: #c49a3a; }
+    button:hover { background: #24b8a5; }
   </style>
 </head>
 <body>

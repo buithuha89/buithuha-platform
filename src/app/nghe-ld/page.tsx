@@ -31,6 +31,14 @@ const data: SiloData = {
       "Tôi chia sẻ ở đây những gì tôi đã học được — từ việc làm sai, làm lại, và quan sát những L&D giỏi trong và ngoài Việt Nam.",
     ],
   },
+  cost: {
+    heading: "Làm L&D kiểu “tổ chức lớp” lâu ngày — chính mình cũng mòn",
+    paragraphs: [
+      "Nếu mỗi năm của bạn là một chuỗi lớp học được tổ chức trơn tru rồi… trôi qua, thì có một cái giá đang tích lại: bạn thành người đặt lịch chuyên nghiệp, không phải người làm phát triển con người. Doanh nghiệp cắt ngân sách là cắt bạn trước — vì không ai đo được bạn đã thay đổi điều gì.",
+      "Cái giá thứ hai nằm ở chính bạn: làm mãi phần vỏ của nghề thì lửa nghề mòn dần. Nhiều người giỏi rời L&D không phải vì hết yêu nghề — mà vì mắc kẹt quá lâu ở 10% bề mặt, và mất dần động lực đi tiếp.",
+    ],
+    question: "Nếu một năm nữa, bạn vẫn được nhớ đến là “người tổ chức lớp” chứ không phải người tạo ra thay đổi — bạn có chấp nhận được không?",
+  },
   topics: [
     { icon: "BookOpen", title: "L&D khác đào tạo nội bộ chỗ nào", desc: "Phân biệt rõ vai trò — và tại sao nhầm lẫn này khiến nhiều người làm L&D bị burnout." },
     { icon: "BarChart3", title: "Đo hiệu quả đào tạo", desc: "Không phải 4 levels của Kirkpatrick lý thuyết. Cách tôi thực sự đo trong dự án nhỏ và lớn." },

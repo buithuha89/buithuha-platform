@@ -31,6 +31,7 @@ export default async function YeuLanhArticlePage({ params }: { params: Promise<{
   if (!article) notFound();
 
   const next = article.next ? getArticle(article.next) : undefined;
+  const idx = ARTICLES.findIndex((a) => a.slug === article.slug);
 
   return (
     <>
@@ -43,7 +44,7 @@ export default async function YeuLanhArticlePage({ params }: { params: Promise<{
 
         <div className="wrap">
           <div className="head">
-            <span className="eyebrow">Yêu lành · Bài chia sẻ</span>
+            <span className="eyebrow">Yêu lành · Bài {idx + 1}/{ARTICLES.length} trên hành trình</span>
             <h1>{article.title}</h1>
             <p className="lead">{article.lead}</p>
           </div>
@@ -63,6 +64,30 @@ export default async function YeuLanhArticlePage({ params }: { params: Promise<{
                 {s.note && <div className="purpose" style={{ marginTop: 16, marginBottom: 0 }}>{s.note}</div>}
               </div>
             ))}
+
+            {/* Bước 4 LA BÀN — bản đồ hành trình: bạn đang ở đâu trên con đường 6 bài */}
+            <div className="card">
+              <div className="ctitle"><span className="ic">🧭</span> Bạn đang ở đây trên hành trình</div>
+              <ol style={{ listStyle: "none", margin: "14px 0 0", padding: 0, display: "grid", gap: 8 }}>
+                {ARTICLES.map((a, i) => {
+                  const current = a.slug === article.slug;
+                  return (
+                    <li key={a.slug} style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 10, alignItems: "start", fontSize: 14.6 }}>
+                      <span style={{ fontWeight: 800, color: current ? "var(--ink)" : "var(--muted)", fontVariantNumeric: "tabular-nums" }}>
+                        {current ? "▶" : i + 1 + "."}
+                      </span>
+                      {current ? (
+                        <span style={{ fontWeight: 800, color: "var(--ink)" }}>{a.title} — bạn đang ở đây</span>
+                      ) : (
+                        <Link href={`/yeu-lanh/${a.slug}`} style={{ color: "var(--muted)", textDecoration: "underline", textUnderlineOffset: 3 }}>
+                          {a.title}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
 
             <div className="card" style={{ borderColor: "rgb(var(--accent-rgb) / .35)" }}>
               <div className="ctitle"><span className="ic">🌱</span> Bước nhỏ của bài này</div>

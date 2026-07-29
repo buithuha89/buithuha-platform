@@ -45,8 +45,21 @@ export interface SiloData {
     heading: string;
     paragraphs: string[];
   };
+  /** Bước 2 LA BÀN — cái giá của việc ở yên. 1-2 đoạn + 1 câu hỏi soi lại. */
+  cost?: {
+    heading: string;
+    paragraphs: string[];
+    question: string;
+  };
   /** 4-6 chủ đề / bài viết / topic liên quan */
   topics: SiloTopic[];
+  /**
+   * Bước 4 LA BÀN — nếu true, topics render thành bản đồ hành trình có đánh số
+   * thứ tự (đi lần lượt), thay vì lưới chủ đề rời rạc.
+   */
+  journey?: boolean;
+  /** Câu dẫn dưới tiêu đề khu hành trình (chỉ dùng khi journey=true) */
+  journeyIntro?: string;
   /** Ai phù hợp đọc/học silo này */
   audience: string[];
   /** Final CTA */
@@ -133,7 +146,7 @@ export default function SiloPage({ data }: { data: SiloData }) {
 
           <p className="text-base sm:text-xl text-gray-300 mb-6">{data.subtitle}</p>
 
-          <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed text-left">
             {data.intro}
           </p>
 
@@ -158,39 +171,107 @@ export default function SiloPage({ data }: { data: SiloData }) {
         </div>
       </section>
 
-      {/* ═══ TOPICS ═══ */}
+      {/* ═══ COST — Bước 2 LA BÀN: cái giá của việc ở yên ═══ */}
+      {data.cost && (
+        <section className="py-12 sm:py-20 px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-extrabold mb-6 sm:mb-8 leading-snug">
+              {data.cost.heading}
+            </h2>
+            <div className="space-y-5 text-base text-gray-300 leading-relaxed">
+              {data.cost.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+            <div className="mt-8 rounded-2xl border p-6 sm:p-7 text-base sm:text-lg font-semibold leading-relaxed"
+              style={{ background: `${data.color}12`, borderColor: `${data.color}40` }}>
+              {data.cost.question}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ═══ TOPICS — lưới chủ đề, hoặc bản đồ hành trình (Bước 4 LA BÀN) ═══ */}
       <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-10 sm:mb-14">
-            Những điều Hà <span style={{ color: data.color }}>sẽ chia sẻ</span> trong chủ đề này
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-4">
+            {data.journey ? (
+              <>Bản đồ <span style={{ color: data.color }}>hành trình</span> của chủ đề này</>
+            ) : (
+              <>Những điều tôi <span style={{ color: data.color }}>sẽ chia sẻ</span> trong chủ đề này</>
+            )}
           </h2>
+          {data.journey && data.journeyIntro && (
+            <p className="text-sm sm:text-base text-gray-400 text-center max-w-2xl mx-auto mb-10 sm:mb-14 leading-relaxed">
+              {data.journeyIntro}
+            </p>
+          )}
+          {!data.journey && <div className="mb-6 sm:mb-10" />}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-            {data.topics.map((t, i) => {
-              const Icon = ICONS[t.icon];
-              const inner = (
-                <>
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                    style={{ background: `${data.color}1A` }}>
-                    {Icon && <Icon size={20} style={{ color: data.color }} />}
-                  </div>
-                  <h3 className="font-bold text-base mb-2">{t.title}</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">{t.desc}</p>
-                  {t.href && (
-                    <span className="inline-block mt-3 text-sm font-semibold" style={{ color: data.color }}>
-                      Đọc bài →
-                    </span>
-                  )}
-                </>
-              );
-              const cls = "bg-[var(--surface)] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors";
-              return t.href ? (
-                <Link key={i} href={t.href} className={`${cls} block`}>{inner}</Link>
-              ) : (
-                <div key={i} className={cls}>{inner}</div>
-              );
-            })}
-          </div>
+          {data.journey ? (
+            /* Bản đồ hành trình: đường dọc có đánh số, đi lần lượt từ 1 → hết */
+            <div className="max-w-2xl mx-auto relative">
+              <div className="absolute left-[19px] top-6 bottom-6 w-px" style={{ background: `${data.color}40` }} />
+              <div className="space-y-4">
+                {data.topics.map((t, i) => {
+                  const Icon = ICONS[t.icon];
+                  const inner = (
+                    <div className="flex items-start gap-4">
+                      <div className="relative shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-sm"
+                        style={{ background: `${data.color}1A`, border: `1.5px solid ${data.color}66`, color: data.color }}>
+                        {i + 1}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-bold text-base mb-1 flex items-center gap-2">
+                          {Icon && <Icon size={16} style={{ color: data.color }} className="shrink-0" />}
+                          {t.title}
+                        </h3>
+                        <p className="text-sm text-gray-400 leading-relaxed">{t.desc}</p>
+                        {t.href && (
+                          <span className="inline-block mt-2 text-sm font-semibold" style={{ color: data.color }}>
+                            Đọc bài →
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  );
+                  const cls = "relative bg-[var(--surface)] border border-white/5 rounded-2xl p-5 sm:p-6 hover:border-white/10 transition-colors";
+                  return t.href ? (
+                    <Link key={i} href={t.href} className={`${cls} block`}>{inner}</Link>
+                  ) : (
+                    <div key={i} className={cls}>{inner}</div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+              {data.topics.map((t, i) => {
+                const Icon = ICONS[t.icon];
+                const inner = (
+                  <>
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+                      style={{ background: `${data.color}1A` }}>
+                      {Icon && <Icon size={20} style={{ color: data.color }} />}
+                    </div>
+                    <h3 className="font-bold text-base mb-2">{t.title}</h3>
+                    <p className="text-sm text-gray-400 leading-relaxed">{t.desc}</p>
+                    {t.href && (
+                      <span className="inline-block mt-3 text-sm font-semibold" style={{ color: data.color }}>
+                        Đọc bài →
+                      </span>
+                    )}
+                  </>
+                );
+                const cls = "bg-[var(--surface)] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors";
+                return t.href ? (
+                  <Link key={i} href={t.href} className={`${cls} block`}>{inner}</Link>
+                ) : (
+                  <div key={i} className={cls}>{inner}</div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
@@ -221,7 +302,7 @@ export default function SiloPage({ data }: { data: SiloData }) {
           <h2 className="text-2xl sm:text-4xl font-extrabold mb-4">
             {data.cta.heading}
           </h2>
-          <p className="text-gray-400 mb-8 max-w-lg mx-auto">
+          <p className="text-gray-400 mb-8 max-w-xl mx-auto leading-relaxed">
             {data.cta.body}
           </p>
 
@@ -231,7 +312,7 @@ export default function SiloPage({ data }: { data: SiloData }) {
             </Link>
             <a href={siteConfig.socials.facebook || "#"} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 py-3.5 px-8 rounded-lg text-base font-semibold border border-white/10 hover:border-white/20 transition-colors">
-              <MessageCircle size={16} style={{ color: data.color }} /> Nhắn cho Hà
+              <MessageCircle size={16} style={{ color: data.color }} /> Nhắn cho tôi
             </a>
           </div>
         </div>

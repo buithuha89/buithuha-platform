@@ -6,6 +6,7 @@ import FacebookPixel from "@/components/analytics/FacebookPixel";
 import AffiliateTracker from "@/components/affiliate/AffiliateTracker";
 import CookieConsent from "@/components/CookieConsent";
 import ErrorBoundary from "@/components/providers/ErrorBoundary";
+import PWA from "@/components/providers/PWA";
 import WebsiteJsonLd from "@/components/seo/WebsiteJsonLd";
 import { siteConfig, getBaseUrl } from "@/lib/site-config";
 import { validateEnv } from "@/lib/env-check";
@@ -105,6 +106,7 @@ export default function RootLayout({
           <main id="main-content">{children}</main>
         </ErrorBoundary>
         <CookieConsent />
+        <PWA />
         <WebsiteJsonLd />
       </body>
     </html>

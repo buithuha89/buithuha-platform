@@ -6,7 +6,7 @@ import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import {
   ArrowRight, ChevronDown, CheckCircle,
-  Users, BookOpen, Heart, GraduationCap, Briefcase, Sprout,
+  Users, BookOpen, Heart, GraduationCap, Briefcase,
   Mail, Shield, Gift, Menu, X, MessageSquare, MessageCircle,
   Compass, Layers, Award, Download, Coffee,
 } from "lucide-react";
@@ -15,31 +15,43 @@ import SocialLoginButtons from "@/components/auth/SocialLoginButtons";
 
 /* ─── Data ───────────────────────────────────────────────────── */
 
+/* Khớp 1-1 với 6 nhóm trong `audiences` — cùng icon, cùng thứ tự; id trỏ về thẻ nhóm tương ứng */
 const painPoints = [
   {
-    emoji: "💬",
-    title: "Cãi nhau với người thân mà không hiểu vì sao",
-    desc: "Có những lần nói ra để giải thích, mà càng nói càng xa. Vợ chồng, con cái, đồng nghiệp — đôi khi cứ vướng mãi một chuyện cũ.",
-  },
-  {
-    emoji: "👔",
-    title: "Mới lên quản lý — chưa biết bắt đầu thế nào",
-    desc: "Trước làm tốt việc của mình. Giờ phải lo cho cả team. Sếp ép, nhân viên hỏi, mà mình thì cũng đang loay hoay.",
-  },
-  {
-    emoji: "❓",
-    title: "Đi làm vài năm rồi mà chưa rõ mình muốn gì",
-    desc: "Mỗi ngày vẫn đến công ty. Nhưng nhìn lại thấy mình đứng nguyên một chỗ. Không biết nên đổi việc, học thêm, hay làm gì.",
-  },
-  {
+    id: "ai-sme",
     emoji: "🏢",
-    title: "Doanh chủ SME — team không theo kịp mình",
-    desc: "Giao việc xong vẫn phải kiểm. Muốn buông tay mà sợ rớt việc. Người làm thì có, nhưng người chịu trách nhiệm thì chỉ mình mình.",
+    title: "Chủ doanh nghiệp SME — việc gì cũng phải qua tay bạn",
+    desc: "Giao việc xong vẫn phải kiểm. Muốn buông tay mà sợ rớt việc. Người làm thì có, nhưng người chịu trách nhiệm thì chỉ mình bạn.",
   },
   {
-    emoji: "🔥",
+    id: "ai-solo",
+    emoji: "🧑‍💻",
     title: "Làm một mình — nghỉ một ngày là mọi thứ dừng",
     desc: "Bạn tự cân hết: bán hàng, chăm khách, sổ sách. Không có ai để giao. Sợ ốm một hôm là cả guồng đứng lại.",
+  },
+  {
+    id: "ai-quanly",
+    emoji: "📋",
+    title: "Quản lý — kẹp giữa sếp và nhân viên",
+    desc: "Mới lên thì chưa ai chỉ phải bắt đầu thế nào. Làm lâu rồi thì việc vẫn dội tới tay, giao xong vẫn phải ngồi làm lại.",
+  },
+  {
+    id: "ai-nhanvien",
+    emoji: "💼",
+    title: "Đi làm vài năm mà thấy mình đứng nguyên một chỗ",
+    desc: "Mỗi ngày vẫn đến công ty, việc vẫn chạy. Nhưng chưa rõ mình muốn gì tiếp theo — đổi việc, học thêm, hay cứ thế, và động lực cứ mất dần.",
+  },
+  {
+    id: "ai-ld",
+    emoji: "🎓",
+    title: "Làm L&D / HR mà toàn phải tự mò",
+    desc: "Được giao dựng chương trình, đứng lớp, đo hiệu quả — nhưng không có phương pháp bài bản để dựa vào, làm tới đâu dò tới đó.",
+  },
+  {
+    id: "ai-yeulanh",
+    emoji: "🌱",
+    title: "Yêu hết lòng mà vẫn thấy mình không được ưu tiên",
+    desc: "Cho đi nhiều mà vẫn thấy trống. Tự hỏi mình có đang đòi hỏi quá không. Muốn yêu mà vẫn giữ được chính mình.",
   },
 ];
 
@@ -97,15 +109,6 @@ const silos = [
     ],
     quote: "Quản lý là việc làm hàng ngày, không phải chức danh treo trên cửa",
   },
-];
-
-const targetAudience = [
-  { icon: Sprout, title: "Người mới đi làm 1-3 năm", desc: "Muốn xây nền tảng kỹ năng mềm vững chắc trước khi phát triển sự nghiệp." },
-  { icon: Briefcase, title: "Người đi làm 3-7 năm", desc: "Đang ở ngã rẽ — tiếp tục chuyên môn hay rẽ sang quản lý? Cần tự nhìn lại bản thân." },
-  { icon: Users, title: "Lần đầu lên vị trí quản lý", desc: "Chuyển từ 'người làm giỏi' sang 'người dẫn dắt giỏi' — hành trình không ai dạy." },
-  { icon: Award, title: "Quản lý cấp trung", desc: "Đang vận hành team 5-20 người, muốn nâng cấp khả năng lãnh đạo và đào tạo nhân viên." },
-  { icon: Heart, title: "Doanh chủ SME", desc: "Muốn xây team bền vững, học cách giao quyền, và dành thời gian cho việc đáng làm hơn." },
-  { icon: GraduationCap, title: "Người làm L&D / HR / Trainer", desc: "Muốn nâng cấp tay nghề trong lĩnh vực Học & Phát triển — từ người thực chiến." },
 ];
 
 const fallbackCourses = [
@@ -375,7 +378,7 @@ export default function HomePage() {
         <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full opacity-15 blur-[80px] pointer-events-none"
           style={{ background: "radial-gradient(circle, var(--warn), transparent 70%)" }} />
 
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-5 sm:mb-8 text-xs sm:text-sm font-medium"
             style={{ background: "rgb(var(--warn-rgb) / 0.1)", border: "1px solid rgb(var(--warn-rgb) / 0.25)", color: "var(--accent-hover)" }}>
@@ -388,10 +391,17 @@ export default function HomePage() {
           </h1>
 
           {/* Sub-headline */}
-          <p className="text-sm sm:text-lg text-[var(--fg-muted)] max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
-            Trường lớp dạy bạn chuyên môn — nhưng cách sinh tồn nơi công sở thì không có trong giáo trình. Là lần bị bắt lỗi giữa cuộc họp mà không biết đỡ thế nào. Là ngày đầu lên quản lý, giao việc xong vẫn phải ngồi làm lại từ đầu. Là khi công ty lớn dần mà bạn vẫn ôm hết, không dám buông cho ai. <strong className="text-[var(--fg)]">Không ai chỉ bạn những điều đó — nên ai cũng phải tự mò, và trả giá bằng chính con đường của mình.</strong> Đây là nơi gỡ từng nút một — cho nhân viên văn phòng, người làm L&amp;D/HR, quản lý mới lên hay cấp trung, và chủ doanh nghiệp đang một mình gánh việc.
-            Tôi là {siteConfig.owner.name} — MBA, 15 năm đào tạo ở Vingroup, FPT, TokyoLife, hơn 10.000 học viên, và đến giờ vẫn trực tiếp quản lý mỗi ngày.
-          </p>
+          <div className="text-sm sm:text-lg text-[var(--fg-muted)] mb-6 sm:mb-10 leading-relaxed text-left space-y-3 sm:space-y-4">
+            <p>
+              Trường lớp dạy bạn chuyên môn — nhưng cách sinh tồn nơi <span className="whitespace-nowrap">công sở</span> thì không có trong giáo trình. Là lần bị bắt lỗi giữa cuộc họp mà không biết đỡ thế nào. Là ngày đầu lên <span className="whitespace-nowrap">quản lý</span>, giao việc xong vẫn phải ngồi làm lại từ đầu. Là khi công ty lớn dần mà bạn vẫn ôm hết, không dám buông cho ai.
+            </p>
+            <p>
+              <strong className="text-[var(--fg)]">Không ai chỉ bạn những điều đó — nên ai cũng phải tự mò, và trả giá bằng chính con đường của mình.</strong> Đây là nơi gỡ từng nút một — cho nhân viên văn phòng, người làm L&amp;D/HR, <span className="whitespace-nowrap">quản lý</span> mới lên hay cấp trung, và chủ doanh nghiệp đang một mình gánh việc.
+            </p>
+            <p>
+              Tôi là {siteConfig.owner.name} — MBA, 15 năm đào tạo ở Vingroup, FPT, TokyoLife, hơn 10.000 học viên, và đến giờ vẫn trực tiếp <span className="whitespace-nowrap">quản lý</span> mỗi ngày.
+            </p>
+          </div>
 
           {/* CTA chính ngay dưới hook */}
           <div className="mb-8 sm:mb-10 flex flex-col items-center gap-2.5">
@@ -422,10 +432,36 @@ export default function HomePage() {
 
           {/* Trust bar */}
           <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 mt-8 sm:mt-12 text-xs sm:text-sm text-[var(--fg-subtle)]">
-            <span className="flex items-center gap-1.5"><BookOpen size={14} className="text-[var(--accent-hover)]" /> MBA</span>
-            <span className="flex items-center gap-1.5"><Briefcase size={14} className="text-[var(--cat-lime)]" /> Nhiều năm đào tạo</span>
-            <span className="flex items-center gap-1.5"><Heart size={14} className="text-[var(--accent-hover)]" /> Vẫn đang làm quản lý</span>
+            <span className="flex items-center gap-1.5"><BookOpen size={14} className="text-[var(--accent-hover)]" /> MBA <span className="whitespace-nowrap">Quản trị Kinh doanh</span></span>
+            <span className="flex items-center gap-1.5"><Briefcase size={14} className="text-[var(--cat-lime)]" /> 15 năm đào tạo — Vingroup · FPT · TokyoLife</span>
+            <span className="flex items-center gap-1.5"><Users size={14} className="text-[var(--accent-hover)]" /> 10.000+ <span className="whitespace-nowrap">học viên</span></span>
+            <span className="flex items-center gap-1.5"><GraduationCap size={14} className="text-[var(--cat-lime)]" /> 350+ <span className="whitespace-nowrap">chương trình</span></span>
           </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 2: PAIN POINTS — gọi tên nỗi đau ngay dưới hero, bấm thẻ là nhảy tới lối đi ═══ */}
+      <section className="py-12 sm:py-24 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
+            Có thể bạn đang <span className="text-[var(--accent-hover)]">gặp một trong những điều này</span></h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+            {painPoints.map((p) => (
+              <a key={p.id} href={`#${p.id}`} className="group block bg-white border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--warn)]/40 transition-colors">
+                <div className="text-3xl mb-3">{p.emoji}</div>
+                <h3 className="text-lg font-bold mb-2">{p.title}</h3>
+                <p className="text-sm text-[var(--fg-muted)] leading-relaxed mb-3">{p.desc}</p>
+                <span className="text-sm font-semibold text-[var(--accent-hover)] inline-flex items-center gap-1.5 opacity-80 group-hover:opacity-100 group-hover:gap-2.5 transition-all">
+                  Xem lối đi dành cho bạn <ArrowRight size={14} />
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <p className="text-center mt-10 text-[var(--fg-muted)] max-w-2xl mx-auto leading-relaxed">
+            Tôi đã từng ở những chỗ này. Không có lối thoát thần kỳ — nhưng có phương pháp, có trải nghiệm thật, và những điều tôi rút ra được để đi qua. Bấm vào điều bạn đang gặp để xem lối đi dành riêng cho bạn.
+          </p>
         </div>
       </section>
 
@@ -434,7 +470,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 sm:mb-14">
             <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">Bạn là <span className="text-[var(--accent-hover)]">ai</span>?</h2>
-            <p className="text-[var(--fg-muted)] max-w-xl mx-auto">Mỗi nhóm có một lối đi riêng. Chọn đúng vai trò của bạn để vào thẳng nội dung hợp nhất.</p>
+            <p className="text-[var(--fg-muted)] max-w-2xl mx-auto">Mỗi nhóm có một lối đi riêng. Chọn đúng vai trò của bạn để vào thẳng nội dung hợp nhất.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {audiences.map((a) => (
@@ -454,12 +490,105 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ═══ FLAGSHIP PROGRAM BANNER ═══ */}
+      <section className="py-10 sm:py-16 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl border border-[var(--warn)]/25 p-8 sm:p-12 text-center"
+            style={{ background: "linear-gradient(135deg,var(--surface),#F6EAD1)" }}>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[420px] h-[220px] rounded-full opacity-10 blur-[70px] pointer-events-none"
+              style={{ background: "radial-gradient(circle,var(--warn),transparent 70%)" }} />
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-5 text-xs font-bold"
+                style={{ background: "rgb(var(--warn-rgb) / 0.12)", border: "1px solid rgb(var(--warn-rgb) / 0.25)", color: "var(--accent-hover)" }}>
+                ⭐ Chương trình chủ lực
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-extrabold mb-4">
+                Người Tắt Đèn Cuối Cùng
+              </h2>
+              <p className="text-[var(--fg-muted)] max-w-2xl mx-auto mb-2 leading-relaxed">
+                Chương trình <span className="text-[var(--accent-hover)] font-semibold">180 ngày nâng cao năng lực quản lý</span> — để công việc chạy mà không phải qua tay bạn.
+              </p>
+              <p className="text-sm text-[var(--fg-subtle)] mb-7">Dành cho chủ doanh nghiệp SME · quản lý lâu năm · người làm một mình</p>
+              <Link href="/nguoi-tat-den-cuoi-cung" className="btn-green text-base py-3.5 px-8 inline-flex justify-center">
+                Tìm hiểu chương trình <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ KHÓA HỌC — ngay dưới chương trình chủ lực để khách chọn mua ═══ */}
+      <section id="courses" className="py-12 sm:py-24 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">
+              Chương trình của <span className="text-[var(--accent-hover)]">{siteConfig.name}</span>
+            </h2>
+            <p className="text-[var(--fg-muted)] max-w-2xl mx-auto">Học online trên nền tảng này — chọn chương trình đúng với vai trò và giai đoạn của bạn.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {dynamicCourses.map((c, i) => (
+              <div key={c.slug ?? i} className="bg-white border border-[var(--border)] rounded-2xl overflow-hidden flex flex-col hover:border-[var(--warn)]/20 transition-colors">
+                {c.thumbnail && !c._static && (
+                  <div className="relative aspect-video bg-[var(--bg-alt)] overflow-hidden">
+                    <Image src={c.thumbnail} alt={c.title} fill sizes="(max-width: 640px) 100vw, 50vw" className="object-cover" />
+                    {c.price > 0 && c.sale_price !== null && c.sale_price < c.price && (
+                      <span className="absolute top-3 right-3 px-2 py-1 rounded-md text-[11px] font-bold bg-red-500 text-[var(--fg)]">
+                        -{Math.round(((c.price - c.sale_price) / c.price) * 100)}%
+                      </span>
+                    )}
+                  </div>
+                )}
+
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-center gap-3 mb-4">
+                    {c._static && c.emoji && <span className="text-3xl">{c.emoji}</span>}
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <h3 className="font-bold text-lg">{c.title}</h3>
+                      </div>
+                      {c.badge && (
+                        <span className="text-xs font-bold px-2 py-0.5 rounded-md"
+                          style={{
+                            background: c.badge === "Sắp ra mắt" ? "rgba(132,204,22,0.1)" : c.badge === "Miễn phí" ? "rgb(var(--success-rgb) / 0.1)" : "rgb(var(--warn-rgb) / 0.1)",
+                            color: c.badge === "Sắp ra mắt" ? "var(--cat-lime)" : c.badge === "Miễn phí" ? "var(--success)" : "var(--accent-hover)",
+                          }}>
+                          {c.badge}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <p className="text-sm text-[var(--fg-muted)] leading-relaxed mb-4 flex-1">{c.desc}</p>
+                  <div className="text-xs text-[var(--fg-subtle)] mb-4">{c.stats}</div>
+                  {c.slug ? (
+                    <Link href={`/courses/${c.slug}`} className="btn-green text-sm py-2.5 justify-center">
+                      Xem chi tiết <ArrowRight size={15} />
+                    </Link>
+                  ) : (
+                    <button onClick={() => setShowLeadModal(true)} className="inline-flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-bold border border-[var(--cat-lime)]/30 text-[var(--cat-lime)] hover:bg-[var(--cat-lime)]/5 transition-colors">
+                      Đăng ký nhận thông báo <ArrowRight size={15} />
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/courses" className="inline-flex items-center gap-2 text-sm font-medium text-[var(--accent-hover)] hover:text-[var(--accent)] transition-colors">
+              Xem tất cả chương trình <ArrowRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ HỆ SINH THÁI ═══ */}
       <section id="he-sinh-thai" className="py-12 sm:py-20 px-4 sm:px-6 border-t border-[var(--border)] scroll-mt-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 sm:mb-14">
             <h2 className="text-2xl sm:text-4xl font-extrabold mb-3"><span className="whitespace-nowrap">Hệ sinh thái</span> <span className="text-[var(--accent-hover)] whitespace-nowrap">Hà Bùi</span></h2>
-            <p className="text-[var(--fg-muted)] max-w-xl mx-auto">Mọi thứ bạn cần để quản trị tốt hơn — học, thực hành và áp dụng ngay.</p>
+            <p className="text-[var(--fg-muted)] max-w-2xl mx-auto">Mọi thứ bạn cần để quản trị tốt hơn — học, thực hành và áp dụng ngay.</p>
           </div>
           <div className="space-y-10 sm:space-y-12">
             {ecosystemTiers.map((tier) => (
@@ -498,55 +627,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ SECTION 2: PAIN POINTS ═══ */}
-      <section className="py-12 sm:py-24 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Có thể bạn đang <span className="text-[var(--accent-hover)]">gặp một trong những điều này</span></h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-            {painPoints.map((p, i) => (
-              <div key={i} className="bg-white border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--warn)]/20 transition-colors">
-                <div className="text-3xl mb-3">{p.emoji}</div>
-                <h3 className="text-lg font-bold mb-2">{p.title}</h3>
-                <p className="text-sm text-[var(--fg-muted)] leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center mt-10 text-[var(--fg-muted)]">
-            Tôi đã từng ở những chỗ này. Không có lối thoát thần kỳ — nhưng có phương pháp, có trải nghiệm thật, và những điều tôi rút ra được để đi qua.
-          </p>
-        </div>
-      </section>
-
-      {/* ═══ FLAGSHIP PROGRAM BANNER ═══ */}
-      <section className="py-10 sm:py-16 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="relative overflow-hidden rounded-3xl border border-[var(--warn)]/25 p-8 sm:p-12 text-center"
-            style={{ background: "linear-gradient(135deg,var(--surface),#F6EAD1)" }}>
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[420px] h-[220px] rounded-full opacity-10 blur-[70px] pointer-events-none"
-              style={{ background: "radial-gradient(circle,var(--warn),transparent 70%)" }} />
-            <div className="relative">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-5 text-xs font-bold"
-                style={{ background: "rgb(var(--warn-rgb) / 0.12)", border: "1px solid rgb(var(--warn-rgb) / 0.25)", color: "var(--accent-hover)" }}>
-                ⭐ Chương trình chủ lực
-              </div>
-              <h2 className="text-2xl sm:text-4xl font-extrabold mb-4">
-                Người Tắt Đèn Cuối Cùng
-              </h2>
-              <p className="text-[var(--fg-muted)] max-w-2xl mx-auto mb-2 leading-relaxed">
-                Chương trình <span className="text-[var(--accent-hover)] font-semibold">180 ngày nâng cao năng lực quản lý</span> — để công việc chạy mà không phải qua tay bạn.
-              </p>
-              <p className="text-sm text-[var(--fg-subtle)] mb-7">Dành cho chủ doanh nghiệp SME · quản lý lâu năm · người làm một mình</p>
-              <Link href="/nguoi-tat-den-cuoi-cung" className="btn-green text-base py-3.5 px-8 inline-flex justify-center">
-                Tìm hiểu chương trình <ArrowRight size={18} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ═══ SECTION 3: 4 SILO ═══ */}
       <section id="silos" className="py-12 sm:py-24 px-4 sm:px-6 bg-[var(--bg-alt)]">
         <div className="max-w-6xl mx-auto">
@@ -557,16 +637,16 @@ export default function HomePage() {
             <p className="text-[var(--fg-muted)]">Không phải &quot;4 bước thành công&quot;. Đây là 4 mảng Hà có chuyện thật để kể.</p>
           </div>
 
-          <div className="space-y-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {silos.map((s) => (
               <Link key={s.num} href={s.href}
-                className="block bg-white border border-[var(--border)] rounded-2xl p-6 sm:p-8 relative overflow-hidden hover:border-[var(--border-strong)] transition-colors group">
+                className="flex flex-col bg-white border border-[var(--border)] rounded-2xl p-6 sm:p-8 relative overflow-hidden hover:border-[var(--border-strong)] transition-colors group">
                 {/* Number bg */}
                 <div className="absolute top-4 right-6 text-[80px] font-extrabold leading-none opacity-5" style={{ color: s.color }}>
                   {s.num}
                 </div>
 
-                <div className="relative">
+                <div className="relative flex flex-col flex-1">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                       style={{ background: `${s.color}20` }}>
@@ -580,7 +660,7 @@ export default function HomePage() {
 
                   <p className="text-[var(--fg-muted)] font-medium mb-4">{s.subtitle}</p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+                  <div className="space-y-2 mb-4">
                     {s.points.map((pt, j) => (
                       <div key={j} className="flex items-start gap-2 text-sm text-[var(--fg-muted)]">
                         <CheckCircle size={15} className="text-[var(--success)] shrink-0 mt-0.5" />
@@ -589,7 +669,7 @@ export default function HomePage() {
                     ))}
                   </div>
 
-                  <p className="text-sm italic" style={{ color: s.color }}>→ &quot;{s.quote}&quot;</p>
+                  <p className="text-sm italic mt-auto" style={{ color: s.color }}>→ &quot;{s.quote}&quot;</p>
 
                   <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium opacity-70 group-hover:opacity-100 transition-opacity" style={{ color: s.color }}>
                     Đọc chủ đề này <ArrowRight size={14} />
@@ -677,94 +757,6 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ SECTION 5: WHO IS THIS FOR ═══ */}
-      <section className="py-12 sm:py-24 px-4 sm:px-6 bg-[var(--bg-alt)]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-center mb-8 sm:mb-14">
-            Tôi viết cho <span className="text-[var(--cat-lime)]">ai</span>?
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {targetAudience.map((t, i) => (
-              <div key={i} className="bg-white border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--cat-lime)]/20 transition-colors">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                  style={{ background: "rgba(132,204,22,0.1)" }}>
-                  <t.icon size={20} className="text-[var(--cat-lime)]" />
-                </div>
-                <h3 className="font-bold mb-2">{t.title}</h3>
-                <p className="text-sm text-[var(--fg-muted)] leading-relaxed">{t.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ SECTION 6: KHÓA HỌC ═══ */}
-      <section id="courses" className="py-12 sm:py-24 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-2xl sm:text-4xl font-extrabold mb-3">
-              Chương trình của <span className="text-[var(--accent-hover)]">{siteConfig.name}</span>
-            </h2>
-            <p className="text-[var(--fg-muted)]">Đang được hoàn thiện — đăng ký nhận thông báo sớm để được ưu tiên</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {dynamicCourses.map((c, i) => (
-              <div key={c.slug ?? i} className="bg-white border border-[var(--border)] rounded-2xl overflow-hidden flex flex-col hover:border-[var(--warn)]/20 transition-colors">
-                {c.thumbnail && !c._static && (
-                  <div className="relative aspect-video bg-[var(--bg-alt)] overflow-hidden">
-                    <Image src={c.thumbnail} alt={c.title} fill sizes="(max-width: 640px) 100vw, 50vw" className="object-cover" />
-                    {c.price > 0 && c.sale_price !== null && c.sale_price < c.price && (
-                      <span className="absolute top-3 right-3 px-2 py-1 rounded-md text-[11px] font-bold bg-red-500 text-[var(--fg)]">
-                        -{Math.round(((c.price - c.sale_price) / c.price) * 100)}%
-                      </span>
-                    )}
-                  </div>
-                )}
-
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="flex items-center gap-3 mb-4">
-                    {c._static && c.emoji && <span className="text-3xl">{c.emoji}</span>}
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-bold text-lg">{c.title}</h3>
-                      </div>
-                      {c.badge && (
-                        <span className="text-xs font-bold px-2 py-0.5 rounded-md"
-                          style={{
-                            background: c.badge === "Sắp ra mắt" ? "rgba(132,204,22,0.1)" : c.badge === "Miễn phí" ? "rgb(var(--success-rgb) / 0.1)" : "rgb(var(--warn-rgb) / 0.1)",
-                            color: c.badge === "Sắp ra mắt" ? "var(--cat-lime)" : c.badge === "Miễn phí" ? "var(--success)" : "var(--accent-hover)",
-                          }}>
-                          {c.badge}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <p className="text-sm text-[var(--fg-muted)] leading-relaxed mb-4 flex-1">{c.desc}</p>
-                  <div className="text-xs text-[var(--fg-subtle)] mb-4">{c.stats}</div>
-                  {c.slug ? (
-                    <Link href={`/courses/${c.slug}`} className="btn-green text-sm py-2.5 justify-center">
-                      Xem chi tiết <ArrowRight size={15} />
-                    </Link>
-                  ) : (
-                    <button onClick={() => setShowLeadModal(true)} className="inline-flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-bold border border-[var(--cat-lime)]/30 text-[var(--cat-lime)] hover:bg-[var(--cat-lime)]/5 transition-colors">
-                      Đăng ký nhận thông báo <ArrowRight size={15} />
-                    </button>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <Link href="/courses" className="inline-flex items-center gap-2 text-sm font-medium text-[var(--accent-hover)] hover:text-[var(--accent)] transition-colors">
-              Xem tất cả chương trình <ArrowRight size={15} />
-            </Link>
           </div>
         </div>
       </section>
@@ -908,7 +900,7 @@ export default function HomePage() {
           <h2 className="text-2xl sm:text-4xl font-extrabold mb-4">
             Bắt đầu từ <span className="text-[var(--accent-hover)]">một email</span>
           </h2>
-          <p className="text-[var(--fg-muted)] mb-8 max-w-lg mx-auto">
+          <p className="text-[var(--fg-muted)] mb-8 max-w-xl mx-auto leading-relaxed">
             Không hứa hẹn viển vông — chỉ là phương pháp thật, trải nghiệm thật, dùng được ngay. Bạn thử một đoạn, thấy hợp thì tôi đi cùng bạn một đoạn nữa.
           </p>
 

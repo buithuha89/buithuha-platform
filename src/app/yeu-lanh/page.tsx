@@ -32,6 +32,17 @@ const data: SiloData = {
       "Tôi kể lại câu chuyện này vì tin rằng nếu bạn thấy mình trong đó, bạn cũng sẽ thấy điều cô ấy đã thấy: bạn không sai, bạn không một mình, và bạn có thể làm được — bắt đầu từ một bước nhỏ hôm nay.",
     ],
   },
+  cost: {
+    heading: "Ở yên không phải là lựa chọn trung tính",
+    paragraphs: [
+      "Trạng thái này có một đặc điểm khiến nó nguy hiểm hơn vẻ ngoài: nó không đau dữ dội. Nó chỉ bào mòn — từng chút một, mỗi ngày một ít. Bạn bớt kể chuyện của mình. Bạn hạ chuẩn xuống một nấc, rồi nấc nữa. Cái bất thường của năm ngoái lặng lẽ thành cái bình thường của năm nay.",
+      "Và cái giá lớn nhất không phải là những gì bạn đang chịu — mà là thứ bạn đang mất dần: động lực hành động. Càng ở lâu trong vòng lặp thỏa hiệp, năng lượng để thay đổi càng cạn. Đó là lý do bài toán này không thể để dành cho “lúc nào đó rảnh rồi tính”.",
+    ],
+    question: "Nếu một năm nữa mọi thứ vẫn y như bây giờ — bạn có chấp nhận được không? Nếu câu trả lời là không, hành trình dưới đây dành cho bạn.",
+  },
+  journey: true,
+  journeyIntro:
+    "Sáu bài — đi lần lượt từ gọi tên điều bạn đang trải qua, đến hình dung rõ đích đến, rồi phương pháp bước nhỏ mỗi ngày. Bạn đang ở đâu trên con đường này, đích là gì, đi qua những chặng nào — tất cả nằm trong một bản đồ.",
   topics: [
     { icon: "Frown", title: "Vì sao cho đi nhiều mà vẫn thấy trống", desc: "Khi yêu thương trở thành cách để được công nhận, càng cho đi càng cạn. Gọi tên cơ chế này là bước đầu để thoát khỏi nó.", href: "/yeu-lanh/cho-di-nhieu-ma-van-thay-trong" },
     { icon: "Ear", title: "“Mình có đang đòi hỏi quá không?”", desc: "Phân biệt nhu cầu chính đáng và đòi hỏi. Vì sao câu tự vấn này xuất hiện — và vì sao nó thường xuất hiện ở người cho đi nhiều nhất.", href: "/yeu-lanh/minh-co-dang-doi-hoi-qua-khong" },

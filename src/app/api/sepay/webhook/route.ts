@@ -347,21 +347,48 @@ export async function POST(req: NextRequest) {
         console.warn("[Sepay] Email confirmation failed (non-critical)");
       }
 
-      // 8b. Gửi email chào mừng khoá học
-      try {
-        const { sendEnrollmentWelcomeEmail } = await import("@/lib/email/transactional");
-        const { data: enrollProfile } = await supabase.from("profiles").select("full_name").eq("id", order.user_id).single();
-        const { data: enrollAuth } = await supabase.auth.admin.getUserById(order.user_id as string);
-        if (enrollAuth?.user?.email) {
-          await sendEnrollmentWelcomeEmail(
-            enrollAuth.user.email,
-            enrollProfile?.full_name || "bạn",
-            products?.title as string || "Khoá học",
-            products?.slug as string || "",
-          ).catch((err) => console.error("[SePay Webhook] Enrollment email error (non-critical):", err));
+      // 8b. Giao sản phẩm theo loại:
+      //     - ebook  → email giao sách kèm link tải (bucket private, tải lại được mãi)
+      //     - còn lại → email chào mừng khoá học như cũ
+      if (products?.type === "ebook") {
+        try {
+          const { sendEbookDeliveryEmail } = await import("@/lib/email/transactional");
+          const { EBOOK_CATALOG } = await import("@/lib/ebooks");
+          const entry = EBOOK_CATALOG[(products?.slug as string) || ""];
+          const { data: ebookProfile } = await supabase.from("profiles").select("full_name").eq("id", order.user_id).single();
+          const { data: ebookAuth } = await supabase.auth.admin.getUserById(order.user_id as string);
+          if (ebookAuth?.user?.email && entry) {
+            const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://buithuha.com";
+            const links = entry.files.map((f, i) => ({
+              label: f.label,
+              url: `${baseUrl}/api/ebooks/download?slug=${products.slug}&file=${i}`,
+            }));
+            await sendEbookDeliveryEmail(
+              ebookAuth.user.email,
+              ebookProfile?.full_name || "bạn",
+              (products?.title as string) || "Ebook",
+              links,
+            ).catch((err) => console.error("[SePay Webhook] Ebook delivery email error (non-critical):", err));
+          }
+        } catch {
+          console.warn("[Sepay] Ebook delivery email failed (non-critical)");
         }
-      } catch {
-        console.warn("[Sepay] Enrollment welcome email failed (non-critical)");
+      } else {
+        try {
+          const { sendEnrollmentWelcomeEmail } = await import("@/lib/email/transactional");
+          const { data: enrollProfile } = await supabase.from("profiles").select("full_name").eq("id", order.user_id).single();
+          const { data: enrollAuth } = await supabase.auth.admin.getUserById(order.user_id as string);
+          if (enrollAuth?.user?.email) {
+            await sendEnrollmentWelcomeEmail(
+              enrollAuth.user.email,
+              enrollProfile?.full_name || "bạn",
+              products?.title as string || "Khoá học",
+              products?.slug as string || "",
+            ).catch((err) => console.error("[SePay Webhook] Enrollment email error (non-critical):", err));
+          }
+        } catch {
+          console.warn("[Sepay] Enrollment welcome email failed (non-critical)");
+        }
       }
 
       // 8c. Gửi thông báo Zalo OA

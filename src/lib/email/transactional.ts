@@ -191,6 +191,38 @@ export async function sendPurchaseConfirmation(
   );
 }
 
+/**
+ * Giao ebook sau khi thanh toán thành công — kèm link tải cho từng file.
+ * Link trỏ về /api/ebooks/download (yêu cầu đăng nhập) nên khách tải lại được mãi.
+ */
+export async function sendEbookDeliveryEmail(
+  to: string,
+  name: string,
+  productTitle: string,
+  files: { label: string; url: string }[],
+) {
+  const fileButtons = files
+    .map(
+      (f) =>
+        `<a href="${f.url}" class="btn" style="display:block;text-align:center;margin:0 0 10px;">📖 ${escapeHtml(f.label)} →</a>`,
+    )
+    .join("");
+  return sesSendEmail(
+    to,
+    `📚 Sách của bạn đây — ${escapeHtml(productTitle)}`,
+    baseTemplate(`
+      <h1>Buổi cà phê của chúng ta bắt đầu ☕</h1>
+      <p>Xin chào <span class="highlight">${escapeHtml(name)}</span>,</p>
+      <p>Cảm ơn bạn đã mời tôi một buổi cà phê. Sách của bạn đã sẵn sàng — bấm nút bên dưới để tải về (đăng nhập bằng đúng tài khoản đã mua):</p>
+      ${fileButtons}
+      <div class="divider"></div>
+      <p>Bạn tải lại được bất cứ lúc nào bằng chính link này. Đọc trên điện thoại, máy tính hay máy đọc sách đều được.</p>
+      <p>Và đúng như đã hứa: nếu đọc xong bạn thấy buổi cà phê này không đáng, reply email này một câu — tôi hoàn đủ tiền, không hỏi thêm gì.</p>
+      <p style="margin:8px 0 0; color:#6b7280; font-size:13px;">— Hà</p>
+    `),
+  );
+}
+
 export async function sendWeeklyNewsletter(
   to: string,
   name: string,

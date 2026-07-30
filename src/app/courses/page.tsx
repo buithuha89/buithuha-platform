@@ -50,6 +50,7 @@ export default async function CoursesPage() {
     `
     )
     .in("status", ["published", "coming_soon"])
+    .neq("type", "ebook")
     .order("sort_order");
 
   const allProducts = (products ?? []).map((p) => {

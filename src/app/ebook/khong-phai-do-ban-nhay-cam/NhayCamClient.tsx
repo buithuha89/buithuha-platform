@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, type CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import { RESOURCE_CSS } from "@/components/resource/resourceCss";
-import { createClient } from "@/lib/supabase/client";
-import { siteConfig } from "@/lib/site-config";
+import EbookBuyGate from "@/components/ebook/EbookBuyGate";
 
 const SLUG = "/ebook/khong-phai-do-ban-nhay-cam";
 const PRICE = "99.000đ";
@@ -39,62 +38,6 @@ const FOR_WHOM = [
   { who: "Người đang bị cướp công, cô lập, chèn ép", fear: "“Nhóm chat của phòng có một nhóm chat nhỏ hơn — và mình không ở trong đó.”" },
   { who: "Người đang tự nghi ngờ chính mình", fear: "“Đến một lúc mình không còn chắc điều gì có thật nữa. Có khi vấn đề nằm ở mình thật.”" },
 ];
-
-function BuyGate() {
-  const [state, setState] = useState<"loading" | "guest" | "user">("loading");
-
-  useEffect(() => {
-    const supabase = createClient();
-    supabase.auth
-      .getUser()
-      .then(({ data: { user } }) => setState(user ? "user" : "guest"))
-      .catch(() => setState("guest"));
-  }, []);
-
-  return (
-    <div className="ctaband" id="mua">
-      {state === "loading" && <p style={{ color: "#C9C0B1", margin: 0 }}>Đang kiểm tra tài khoản…</p>}
-
-      {state === "guest" && (
-        <>
-          <h3>Mời tôi một buổi cà phê — {PRICE}</h3>
-          <p>
-            Không phải lý thuyết. Là một buổi ngồi nghe chuyện thật từ <span style={nw}>mười lăm</span> năm làm nghề{" "}
-            <span style={nw}>nhân sự</span> — những chuyện tôi đã ngồi cùng người trẻ lúc mười một giờ đêm — mà bạn giữ
-            được mãi, đọc lại bao nhiêu lần tùy bạn. Đăng nhập để mua trọn bộ 10 chương.
-          </p>
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
-            <Link className="btn" href={`/login?redirect=${SLUG}`}>Đăng nhập để mua</Link>
-            <Link
-              className="btn"
-              href="/register"
-              style={{ background: "transparent", color: "var(--bg-alt)", boxShadow: "none", border: "1px solid #4A4A44" }}
-            >
-              Tạo tài khoản miễn phí
-            </Link>
-          </div>
-        </>
-      )}
-
-      {state === "user" && (
-        <>
-          <h3>Mời tôi buổi cà phê này — {PRICE}</h3>
-          <p>
-            Trọn bộ 10 chương — khung 5B, tám kiểu người, nhật ký năm cột, công thức DESC. Thanh toán một lần · tải về
-            ngay · đọc trên mọi thiết bị.
-          </p>
-          <a className="btn" href={siteConfig.socials.zalo} target="_blank" rel="noopener noreferrer">
-            Mời tôi buổi cà phê này — {PRICE}
-          </a>
-          <p style={{ color: "#9A8F7D", fontSize: 12.5, marginTop: 12, marginBottom: 0 }}>
-            Nhắn “Mua ebook Nhạy cảm” qua Zalo để nhận link thanh toán &amp; bản đầy đủ — hoặc “Mua trọn bộ 3 cuốn” để
-            lấy giá 249.000đ.
-          </p>
-        </>
-      )}
-    </div>
-  );
-}
 
 export default function NhayCamClient() {
   return (
@@ -237,7 +180,27 @@ export default function NhayCamClient() {
               </p>
             </div>
 
-            <BuyGate />
+            <EbookBuyGate
+              slug="ebook-khong-phai-do-ban-nhay-cam"
+              comboSlug="ebook-tron-bo-nguoi-tre-di-lam"
+              priceLabel={PRICE}
+              comboPriceLabel="249.000đ"
+              loginRedirect={SLUG}
+              guestText={
+                <>
+                  Không phải lý thuyết. Là một buổi ngồi nghe chuyện thật từ <span style={nw}>mười lăm</span> năm làm
+                  nghề <span style={nw}>nhân sự</span> — những chuyện tôi đã ngồi cùng người trẻ lúc mười một giờ đêm
+                  — mà bạn giữ được mãi. Đăng nhập để mua trọn bộ 10 chương.
+                </>
+              }
+              readyText={
+                <>
+                  Trọn bộ 10 chương — khung 5B, tám kiểu người, nhật ký năm cột, công thức DESC. Thanh toán một lần ·
+                  tải về ngay · đọc trên mọi thiết bị.
+                </>
+              }
+              zaloMessage="Mua ebook Nhạy cảm"
+            />
 
             <div className="card">
               <div className="ctitle"><span className="ic">🛡️</span> Cam kết “buổi cà phê đáng giá”</div>

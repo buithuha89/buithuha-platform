@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { RESOURCE_CSS } from "@/components/resource/resourceCss";
-import { createClient } from "@/lib/supabase/client";
-import { siteConfig } from "@/lib/site-config";
+import EbookBuyGate from "@/components/ebook/EbookBuyGate";
 
 const SLUG = "/ebook/nghe-thuat-thua-nhan-sai";
 const PREVIEW_PDF = "/ebooks/nghe-thuat-thua-nhan-sai-doc-thu.pdf";
@@ -23,66 +21,6 @@ const FOR_WHOM = [
   { who: "Quản lý mới lên (6–18 tháng)", fear: "“Nhận sai trước nhân viên thì mất uy. Không nhận sai thì nhân viên mất niềm tin.”" },
   { who: "Lãnh đạo cấp cao", fear: "“Nếu mình thừa nhận sai ở tầm này, liệu tổ chức có mất niềm tin vào cả chiến lược không?”" },
 ];
-
-function BuyGate() {
-  const [state, setState] = useState<"loading" | "guest" | "user">("loading");
-
-  useEffect(() => {
-    const supabase = createClient();
-    supabase.auth
-      .getUser()
-      .then(({ data: { user } }) => setState(user ? "user" : "guest"))
-      .catch(() => setState("guest"));
-  }, []);
-
-  return (
-    <div className="ctaband" id="mua">
-      {state === "loading" && <p style={{ color: "#C9C0B1", margin: 0 }}>Đang kiểm tra tài khoản…</p>}
-
-      {state === "guest" && (
-        <>
-          <h3>Mời tôi một buổi cà phê — {PRICE}</h3>
-          <p>
-            Hết phần đọc thử — phần hay nhất bắt đầu ngay sau đây. Đăng nhập để mở trọn bộ 61 trang: đúng câu Minh nên
-            nói trong tình huống trên, 12 kịch bản mô phỏng, bộ công cụ ngôn ngữ và lộ trình 30 ngày. Trọn bộ bằng
-            đúng giá một buổi cà phê: <b style={{ color: "var(--fg)" }}>{PRICE}</b> — và bạn giữ được mãi.
-          </p>
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
-            <Link className="btn" href={`/login?redirect=${SLUG}`}>Đăng nhập để mua</Link>
-            <Link
-              className="btn"
-              href="/register"
-              style={{ background: "transparent", color: "var(--bg-alt)", boxShadow: "none", border: "1px solid #4A4A44" }}
-            >
-              Tạo tài khoản miễn phí
-            </Link>
-          </div>
-        </>
-      )}
-
-      {state === "user" && (
-        <>
-          <h3>Mời tôi buổi cà phê này — {PRICE}</h3>
-          <p>
-            Trọn bộ 61 trang — 12 tình huống mô phỏng (3 phiên bản mỗi tình huống), bộ công cụ ngôn ngữ dùng ngay,
-            và lộ trình luyện tập 30 ngày. Thanh toán một lần · tải về ngay · đọc lại bao nhiêu lần tuỳ bạn.
-          </p>
-          <a
-            className="btn"
-            href={siteConfig.socials.zalo}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Mời tôi buổi cà phê này — {PRICE}
-          </a>
-          <p style={{ color: "#9A8F7D", fontSize: 12.5, marginTop: 12, marginBottom: 0 }}>
-            Nhắn “Mua ebook Thừa nhận sai” qua Zalo để nhận link thanh toán &amp; bản đầy đủ.
-          </p>
-        </>
-      )}
-    </div>
-  );
-}
 
 export default function ThuaNhanSaiClient() {
   return (
@@ -169,7 +107,25 @@ export default function ThuaNhanSaiClient() {
               </p>
             </div>
 
-            <BuyGate />
+            <EbookBuyGate
+              slug="ebook-nghe-thuat-thua-nhan-sai"
+              priceLabel={PRICE}
+              loginRedirect={SLUG}
+              guestText={
+                <>
+                  Không phải lý thuyết. 61 trang, 12 tình huống mô phỏng, bộ công cụ ngôn ngữ, lộ trình 30 ngày —
+                  chuyện thật từ mười lăm năm làm nghề, đúng giá một buổi cà phê, và bạn giữ được mãi. Đăng nhập để
+                  mua bản đầy đủ.
+                </>
+              }
+              readyText={
+                <>
+                  Trọn bộ 61 trang — 12 tình huống mô phỏng, bộ công cụ ngôn ngữ, lộ trình 30 ngày. Thanh toán một lần
+                  · tải về ngay · đọc trên mọi thiết bị.
+                </>
+              }
+              zaloMessage="Mua ebook Thừa nhận sai"
+            />
 
             <div className="card">
               <div className="ctitle"><span className="ic">🛡️</span> Cam kết “buổi cà phê đáng giá”</div>

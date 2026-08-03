@@ -33,7 +33,8 @@ export const EBOOK_CATALOG: Record<string, EbookEntry> = {
     available: true,
   },
   "ebook-khong-phai-do-ban-nhay-cam": {
-        files: [{ path: "khong-phai-do-ban-nhay-cam.pdf", label: "Không phải do bạn nhạy cảm (PDF)" }],
+    title: "Không ai bắt nạt được bạn nữa",
+    files: [{ path: "khong-phai-do-ban-nhay-cam.pdf", label: "Không ai bắt nạt được bạn nữa (PDF)" }],
     available: true,
   },
   "ebook-noi-duoc-dieu-kho-noi": {

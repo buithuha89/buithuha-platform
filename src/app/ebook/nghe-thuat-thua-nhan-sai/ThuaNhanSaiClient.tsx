@@ -35,7 +35,7 @@ export default function ThuaNhanSaiClient() {
         <div className="wrap">
           <div className="head">
             <span className="eyebrow">Ebook · 61 trang · Bản đầy đủ</span>
-            <h1>Nghệ thuật thừa nhận sai</h1>
+            <h1>Nhận sai để thăng chức</h1>
             <p className="lead">
               Phản hồi thông minh dưới áp lực mà không mất uy tín — cho nhân viên văn phòng, quản lý mới lên
               và lãnh đạo cấp cao.
@@ -94,7 +94,7 @@ export default function ThuaNhanSaiClient() {
               <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid var(--border)", background: "var(--surface)" }}>
                 <iframe
                   src={`${PREVIEW_PDF}#view=FitH`}
-                  title="Đọc thử: Nghệ thuật thừa nhận sai (15 trang đầu)"
+                  title="Đọc thử: Nhận sai để thăng chức (15 trang đầu)"
                   style={{ width: "100%", height: "min(82vh, 820px)", border: 0, display: "block" }}
                 />
               </div>
@@ -144,7 +144,7 @@ export default function ThuaNhanSaiClient() {
             </div>
 
             <Link href="/ebook/giao-viec-ma-khong-phai-lam-lai" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
-              <div className="ctitle"><span className="ic">📗</span> Cuốn tiếp theo trong tủ: Giao việc mà không phải làm lại</div>
+              <div className="ctitle"><span className="ic">📗</span> Cuốn tiếp theo trong tủ: 7 phút giao việc, 7 giờ rảnh tay</div>
               <p className="csub" style={{ marginBottom: 0 }}>
                 Mô hình 5G — hệ thống giao việc và ủy quyền cho chủ doanh nghiệp và quản lý cấp trung · cũng là một
                 buổi cà phê {PRICE} →

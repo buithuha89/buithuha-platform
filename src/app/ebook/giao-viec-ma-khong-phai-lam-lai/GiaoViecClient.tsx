@@ -50,7 +50,7 @@ export default function GiaoViecClient() {
         <div className="wrap">
           <div className="head">
             <span className="eyebrow">Ebook · 13 chương · Mô hình 5G</span>
-            <h1>Giao việc mà không phải <span style={nw}>làm lại</span></h1>
+            <h1>7 phút giao việc, <span style={nw}>7 giờ</span> rảnh tay</h1>
             <p className="lead">
               Hệ thống giao việc và ủy quyền dành cho chủ doanh nghiệp vừa và nhỏ và{" "}
               <span style={nw}>quản lý</span> cấp trung — xây từ các trường hợp có thật tại doanh nghiệp Việt Nam.
@@ -194,7 +194,7 @@ export default function GiaoViecClient() {
             </div>
 
             <Link href="/ebook/nghe-thuat-thua-nhan-sai" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
-              <div className="ctitle"><span className="ic">📕</span> Cuốn tiếp theo trong tủ: Nghệ thuật thừa nhận sai</div>
+              <div className="ctitle"><span className="ic">📕</span> Cuốn tiếp theo trong tủ: Nhận sai để thăng chức</div>
               <p className="csub" style={{ marginBottom: 0 }}>
                 Phản hồi thông minh dưới áp lực mà không mất uy tín · 61 trang · cũng là một buổi cà phê {PRICE} →
               </p>

@@ -52,7 +52,7 @@ export default function GiuLayMinhClient() {
         <div className="wrap">
           <div className="head">
             <span className="eyebrow">Ebook · Tập 3/3 bộ người trẻ đi làm · 11 chương</span>
-            <h1>Giữ lấy <span style={nw}>mình</span></h1>
+            <h1>Sếp tốt, đồng nghiệp ổn — sao tôi vẫn <span style={nw}>kiệt sức</span>?</h1>
             <p className="lead">
               Cẩm nang <span style={nw}>ranh giới</span> và sức khỏe tinh thần cho người trẻ đi làm — vì có một loại{" "}
               <span style={nw}>độc hại</span> không đến từ ai khác, mà đến từ cách chính bạn đối xử với bản thân mình
@@ -192,8 +192,8 @@ export default function GiuLayMinhClient() {
                 mọi kỹ năng khác cũng chẳng để làm gì. Mua cả bộ ba: 249.000đ thay vì 297.000đ.
               </p>
               <ul style={{ margin: 0, paddingLeft: 20, display: "grid", gap: 5 }}>
-                <li style={{ fontSize: 14.4 }}><Link href="/ebook/khong-phai-do-ban-nhay-cam" style={{ color: "var(--accent-hover)" }}>Tập 1 — Không phải do bạn nhạy cảm</Link></li>
-                <li style={{ fontSize: 14.4 }}><Link href="/ebook/noi-duoc-dieu-kho-noi" style={{ color: "var(--accent-hover)" }}>Tập 2 — Nói được điều khó nói</Link></li>
+                <li style={{ fontSize: 14.4 }}><Link href="/ebook/khong-phai-do-ban-nhay-cam" style={{ color: "var(--accent-hover)" }}>Tập 1 — Không ai bắt nạt được bạn nữa</Link></li>
+                <li style={{ fontSize: 14.4 }}><Link href="/ebook/noi-duoc-dieu-kho-noi" style={{ color: "var(--accent-hover)" }}>Tập 2 — Từ chối được, đòi lương được, không mất lòng ai</Link></li>
               </ul>
             </div>
 

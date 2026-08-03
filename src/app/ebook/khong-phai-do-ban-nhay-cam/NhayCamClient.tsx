@@ -52,7 +52,7 @@ export default function NhayCamClient() {
         <div className="wrap">
           <div className="head">
             <span className="eyebrow">Ebook · Tập 1/3 bộ người trẻ đi làm · 10 chương · Khung 5B</span>
-            <h1>Không phải do bạn <span style={nw}>nhạy cảm</span></h1>
+            <h1>Không ai bắt nạt được bạn <span style={nw}>nữa</span></h1>
             <p className="lead">
               Cẩm nang giữ bản lĩnh cho người trẻ trong môi trường <span style={nw}>công sở</span>{" "}
               <span style={nw}>độc hại</span> — đặt tên cho những thứ đang xảy ra với bạn, rồi đưa cho bạn từng câu
@@ -217,8 +217,8 @@ export default function NhayCamClient() {
                 bạn <b>giữ lấy chính mình</b> khỏi kiệt sức. Mua cả bộ ba: 249.000đ thay vì 297.000đ.
               </p>
               <ul style={{ margin: 0, paddingLeft: 20, display: "grid", gap: 5 }}>
-                <li style={{ fontSize: 14.4 }}><Link href="/ebook/noi-duoc-dieu-kho-noi" style={{ color: "var(--accent-hover)" }}>Tập 2 — Nói được điều khó nói</Link></li>
-                <li style={{ fontSize: 14.4 }}><Link href="/ebook/giu-lay-minh" style={{ color: "var(--accent-hover)" }}>Tập 3 — Giữ lấy mình</Link></li>
+                <li style={{ fontSize: 14.4 }}><Link href="/ebook/noi-duoc-dieu-kho-noi" style={{ color: "var(--accent-hover)" }}>Tập 2 — Từ chối được, đòi lương được, không mất lòng ai</Link></li>
+                <li style={{ fontSize: 14.4 }}><Link href="/ebook/giu-lay-minh" style={{ color: "var(--accent-hover)" }}>Tập 3 — Sếp tốt, đồng nghiệp ổn — sao tôi vẫn kiệt sức?</Link></li>
               </ul>
             </div>
 

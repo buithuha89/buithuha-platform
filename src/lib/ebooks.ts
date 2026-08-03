@@ -23,36 +23,35 @@ export interface EbookEntry {
 
 export const EBOOK_CATALOG: Record<string, EbookEntry> = {
   "ebook-nghe-thuat-thua-nhan-sai": {
-    title: "Nghệ thuật thừa nhận sai",
-    files: [{ path: "nghe-thuat-thua-nhan-sai.pdf", label: "Nghệ thuật thừa nhận sai (PDF)" }],
+    title: "Nhận sai để thăng chức",
+    files: [{ path: "nghe-thuat-thua-nhan-sai.pdf", label: "Nhận sai để thăng chức (PDF)" }],
     available: true,
   },
   "ebook-giao-viec-ma-khong-phai-lam-lai": {
-    title: "Giao việc mà không phải làm lại",
-    files: [{ path: "giao-viec-ma-khong-phai-lam-lai.pdf", label: "Giao việc mà không phải làm lại (PDF)" }],
+    title: "7 phút giao việc, 7 giờ rảnh tay",
+    files: [{ path: "giao-viec-ma-khong-phai-lam-lai.pdf", label: "7 phút giao việc, 7 giờ rảnh tay (PDF)" }],
     available: true,
   },
   "ebook-khong-phai-do-ban-nhay-cam": {
-    title: "Không phải do bạn nhạy cảm",
-    files: [{ path: "khong-phai-do-ban-nhay-cam.pdf", label: "Không phải do bạn nhạy cảm (PDF)" }],
+        files: [{ path: "khong-phai-do-ban-nhay-cam.pdf", label: "Không phải do bạn nhạy cảm (PDF)" }],
     available: true,
   },
   "ebook-noi-duoc-dieu-kho-noi": {
-    title: "Nói được điều khó nói",
-    files: [{ path: "noi-duoc-dieu-kho-noi.pdf", label: "Nói được điều khó nói (PDF)" }],
+    title: "Từ chối được, đòi lương được, không mất lòng ai",
+    files: [{ path: "noi-duoc-dieu-kho-noi.pdf", label: "Từ chối được, đòi lương được, không mất lòng ai (PDF)" }],
     available: true,
   },
   "ebook-giu-lay-minh": {
-    title: "Giữ lấy mình",
-    files: [{ path: "giu-lay-minh.pdf", label: "Giữ lấy mình (PDF)" }],
+    title: "Sếp tốt, đồng nghiệp ổn — sao tôi vẫn kiệt sức?",
+    files: [{ path: "giu-lay-minh.pdf", label: "Sếp tốt, đồng nghiệp ổn — sao tôi vẫn kiệt sức? (PDF)" }],
     available: true,
   },
   "ebook-tron-bo-nguoi-tre-di-lam": {
     title: "Trọn bộ 3 cuốn cho người trẻ đi làm",
     files: [
-      { path: "khong-phai-do-ban-nhay-cam.pdf", label: "Tập 1 — Không phải do bạn nhạy cảm (PDF)" },
-      { path: "noi-duoc-dieu-kho-noi.pdf", label: "Tập 2 — Nói được điều khó nói (PDF)" },
-      { path: "giu-lay-minh.pdf", label: "Tập 3 — Giữ lấy mình (PDF)" },
+      { path: "khong-phai-do-ban-nhay-cam.pdf", label: "Tập 1 — Không ai bắt nạt được bạn nữa (PDF)" },
+      { path: "noi-duoc-dieu-kho-noi.pdf", label: "Tập 2 — Từ chối được, đòi lương được, không mất lòng ai (PDF)" },
+      { path: "giu-lay-minh.pdf", label: "Tập 3 — Sếp tốt, đồng nghiệp ổn — sao tôi vẫn kiệt sức? (PDF)" },
     ],
     available: true,
     includes: ["ebook-khong-phai-do-ban-nhay-cam", "ebook-noi-duoc-dieu-kho-noi", "ebook-giu-lay-minh"],

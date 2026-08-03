@@ -81,12 +81,12 @@ export default function EbookClient() {
             </div>
 
             <Link href="/ebook/giao-viec-ma-khong-phai-lam-lai" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
-              <div className="ctitle"><span className="ic">📗</span> Giao việc mà không phải làm lại</div>
+              <div className="ctitle"><span className="ic">📗</span> 7 phút giao việc, 7 giờ rảnh tay</div>
               <p className="csub" style={{ marginBottom: 0 }}>Mô hình 5G — hệ thống giao việc &amp; ủy quyền cho chủ doanh nghiệp và quản lý cấp trung · 13 chương · 99.000đ — đọc thử miễn phí →</p>
             </Link>
 
             <Link href="/ebook/nghe-thuat-thua-nhan-sai" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
-              <div className="ctitle"><span className="ic">📕</span> Nghệ thuật thừa nhận sai</div>
+              <div className="ctitle"><span className="ic">📕</span> Nhận sai để thăng chức</div>
               <p className="csub" style={{ marginBottom: 0 }}>Phản hồi thông minh dưới áp lực mà không mất uy tín · 61 trang · 99.000đ — đọc thử 15 trang miễn phí →</p>
             </Link>
 
@@ -99,17 +99,17 @@ export default function EbookClient() {
             </div>
 
             <Link href="/ebook/khong-phai-do-ban-nhay-cam" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
-              <div className="ctitle"><span className="ic">📙</span> Tập 1 — Không phải do bạn nhạy cảm</div>
+              <div className="ctitle"><span className="ic">📙</span> Tập 1 — Không ai bắt nạt được bạn nữa</div>
               <p className="csub" style={{ marginBottom: 0 }}>Giữ bản lĩnh trong môi trường công sở độc hại — khung 5B, tám kiểu người khiến bạn khổ sở · 10 chương · 99.000đ →</p>
             </Link>
 
             <Link href="/ebook/noi-duoc-dieu-kho-noi" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
-              <div className="ctitle"><span className="ic">📒</span> Tập 2 — Nói được điều khó nói</div>
+              <div className="ctitle"><span className="ic">📒</span> Tập 2 — Từ chối được, đòi lương được, không mất lòng ai</div>
               <p className="csub" style={{ marginBottom: 0 }}>Từ chối, phản hồi, thương lượng mà không run — mô hình 5T, bốn công thức nói điều khó · 11 chương · 99.000đ →</p>
             </Link>
 
             <Link href="/ebook/giu-lay-minh" className="card" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
-              <div className="ctitle"><span className="ic">📘</span> Tập 3 — Giữ lấy mình</div>
+              <div className="ctitle"><span className="ic">📘</span> Tập 3 — Sếp tốt, đồng nghiệp ổn — sao tôi vẫn kiệt sức?</div>
               <p className="csub" style={{ marginBottom: 0 }}>Ranh giới và sức khỏe tinh thần cho người trẻ đi làm — thoát thao túng, khỏi kiệt sức · 11 chương · 99.000đ →</p>
             </Link>
 

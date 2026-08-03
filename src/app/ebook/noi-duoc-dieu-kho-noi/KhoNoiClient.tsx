@@ -52,7 +52,7 @@ export default function KhoNoiClient() {
         <div className="wrap">
           <div className="head">
             <span className="eyebrow">Ebook · Tập 2/3 bộ người trẻ đi làm · 11 chương · Mô hình 5T</span>
-            <h1>Nói được điều <span style={nw}>khó nói</span></h1>
+            <h1>Từ chối được, đòi lương được, <span style={nw}>không mất lòng ai</span></h1>
             <p className="lead">
               Cẩm nang giao tiếp cho người trẻ: <span style={nw}>từ chối</span>, phản hồi,{" "}
               <span style={nw}>thương lượng</span> mà không run — và không phản bội chính mình.
@@ -193,8 +193,8 @@ export default function KhoNoiClient() {
                 xử tệ, tập 3 giúp bạn <b>giữ lấy chính mình</b> khỏi kiệt sức. Mua cả bộ ba: 249.000đ thay vì 297.000đ.
               </p>
               <ul style={{ margin: 0, paddingLeft: 20, display: "grid", gap: 5 }}>
-                <li style={{ fontSize: 14.4 }}><Link href="/ebook/khong-phai-do-ban-nhay-cam" style={{ color: "var(--accent-hover)" }}>Tập 1 — Không phải do bạn nhạy cảm</Link></li>
-                <li style={{ fontSize: 14.4 }}><Link href="/ebook/giu-lay-minh" style={{ color: "var(--accent-hover)" }}>Tập 3 — Giữ lấy mình</Link></li>
+                <li style={{ fontSize: 14.4 }}><Link href="/ebook/khong-phai-do-ban-nhay-cam" style={{ color: "var(--accent-hover)" }}>Tập 1 — Không ai bắt nạt được bạn nữa</Link></li>
+                <li style={{ fontSize: 14.4 }}><Link href="/ebook/giu-lay-minh" style={{ color: "var(--accent-hover)" }}>Tập 3 — Sếp tốt, đồng nghiệp ổn — sao tôi vẫn kiệt sức?</Link></li>
               </ul>
             </div>
 

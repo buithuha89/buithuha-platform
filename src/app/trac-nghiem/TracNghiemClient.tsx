@@ -5,15 +5,14 @@ import Link from "next/link";
 import {
   QUIZ_QUESTIONS as QUESTIONS,
   QUIZ_OPTIONS as OPTIONS,
-  QUIZ_MAX as MAX,
-  QUIZ_BANDS as BANDS,
+  computeResult,
 } from "@/lib/trac-nghiem/quiz";
 
 const CSS = `
 .tnq{--paper:var(--bg);--surf:var(--surface);--surf2:var(--bg-alt);--ink:var(--fg);--muted:var(--fg-muted);--faint:#9A8E7B;
 --line:var(--border);--line2:#F0E9DB;--night:#14171C;
 --gold:var(--accent-hover);--gold-b:#E4A93A;--gold-d:var(--accent-hover);--gold-tint:#F6EAD1;--gold-line:#E7CE9C;
---teal:#0C6070;--teal-tint:#E4EEEF;--teal-line:#BAD7DB;--pain:#B4530A;--pain-tint:#FAEBDD;
+--teal:#0C6070;--teal-tint:#E4EEEF;--teal-line:#BAD7DB;--pain:#B4530A;--pain-tint:#FAEBDD;--ok:#2E8B57;
 --f:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 background:var(--paper);color:var(--ink);font-family:var(--f);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
 .tnq *{box-sizing:border-box}
@@ -54,22 +53,30 @@ padding:15px 18px;font-size:15.5px;font-weight:600;color:var(--ink);cursor:point
 .tnq .err{background:var(--pain-tint);border:1px solid #ECCBA8;color:var(--pain);padding:10px 13px;border-radius:9px;font-size:13.5px;margin-bottom:14px}
 .tnq .fine{color:var(--faint);font-size:12.5px;margin-top:8px;text-align:center}
 /* result */
-.tnq .rhead{text-align:center;margin-bottom:22px}
+.tnq .rhead{text-align:center;margin-bottom:14px}
 .tnq .remoji{font-size:46px;line-height:1}
 .tnq .rband{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
-.tnq .rtitle{font-size:clamp(23px,4vw,30px);font-weight:800;letter-spacing:-.02em}
-.tnq .gauge{height:12px;background:linear-gradient(90deg,#2E8B57,#E4A93A,#B4530A);border-radius:999px;position:relative;margin:22px 0 8px}
-.tnq .gauge .mk{position:absolute;top:-6px;width:4px;height:24px;background:var(--ink);border-radius:2px;transform:translateX(-50%);box-shadow:0 0 0 3px var(--surf)}
-.tnq .gscale{display:flex;justify-content:space-between;font-size:11.5px;color:var(--faint);font-weight:700}
+.tnq .rtitle{font-size:clamp(21px,3.6vw,27px);font-weight:800;letter-spacing:-.02em}
+.tnq .roverall{text-align:center;color:var(--muted);font-size:15px;margin:0 0 20px;text-wrap:pretty}
+.tnq .barsttl{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:6px 0 12px}
+.tnq .bars{display:grid;gap:13px;margin-bottom:6px}
+.tnq .brow{display:grid;gap:6px}
+.tnq .bt{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:700;color:var(--muted)}
+.tnq .bt .nm{color:var(--ink)}
+.tnq .bt .tag{font-size:11px;font-weight:800;letter-spacing:.02em;color:var(--pain);background:var(--pain-tint);border:1px solid #ECCBA8;padding:2px 9px;border-radius:999px;margin-left:9px;white-space:nowrap}
+.tnq .btrack{height:10px;background:var(--surf2);border-radius:999px;overflow:hidden}
+.tnq .bfill{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--ok),#7BB661);transition:width .5s ease}
+.tnq .brow.weak .bfill{background:linear-gradient(90deg,var(--pain),var(--gold-b))}
 .tnq .rbody{font-size:16px;color:var(--ink);margin:22px 0;text-wrap:pretty}
 .tnq .rec{background:var(--gold-tint);border:1px solid var(--gold-line);border-radius:14px;padding:20px 22px;margin-top:20px}
 .tnq .rec .rl{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);margin-bottom:8px}
 .tnq .rec b{color:var(--ink)}
 .tnq .rec .btn{margin-top:16px;width:100%}
+.tnq .rec .more{display:block;text-align:center;margin-top:12px;font-size:13.5px;color:var(--gold-d);text-decoration:underline;text-underline-offset:3px}
 .tnq .again{text-align:center;margin-top:22px}
 .tnq footer{padding:28px 0 40px;text-align:center;color:var(--faint);font-size:13px}
 .tnq footer a{color:var(--gold-d);text-decoration:none;font-weight:600}
-@media(max-width:560px){.tnq .stage{padding:32px 0 70px}.tnq .card{padding:24px 20px}}
+@media(max-width:560px){.tnq .stage{padding:32px 0 70px}.tnq .card{padding:24px 20px}.tnq .bt .tag{margin-left:6px}}
 `;
 
 export default function TracNghiemClient() {
@@ -80,9 +87,8 @@ export default function TracNghiemClient() {
   const [status, setStatus] = useState<"idle" | "loading">("idle");
   const [err, setErr] = useState("");
 
-  const total = answers.reduce((a, b) => a + b, 0);
-  const band = BANDS.find((b) => total >= b.min && total <= b.max) || BANDS[0];
-  const pct = Math.round((total / MAX) * 100);
+  const outcome = computeResult(answers);
+  const { result, dims, overallLine } = outcome;
 
   const pick = (score: number) => {
     const next = [...answers];
@@ -110,7 +116,8 @@ export default function TracNghiemClient() {
           email: form.email,
           phone: form.phone,
           source: "trac_nghiem",
-          quiz_score: total,
+          answers,
+          quiz_score: outcome.total,
         }),
       });
       const d = await res.json().catch(() => ({}));
@@ -146,13 +153,13 @@ export default function TracNghiemClient() {
 
           {step === "intro" && (
             <div>
-              <span className="lbl">Trắc nghiệm · 2 phút</span>
-              <h1>Bạn là <em><span style={{ whiteSpace: "nowrap" }}>quản lý</span> ôm hết việc</em>, hay <em>người <span style={{ whiteSpace: "nowrap" }}>dẫn dắt</span> để đội tự lớn</em>?</h1>
-              <p className="lead">12 câu hỏi ngắn giúp bạn tự soi: bạn đang là nút thắt mà mọi việc phải qua tay, hay đang dẫn dắt để đội tự chạy? Nhận kết quả + gợi ý lộ trình dành riêng cho bạn.</p>
+              <span className="lbl">Trắc nghiệm · ~2 phút</span>
+              <h1>Đâu là <em>lỗ hổng</em> khiến bạn <em>đuối sức nơi công sở?</em></h1>
+              <p className="lead">15 câu ngắn soi 5 kỹ năng “sinh tồn” chốn công sở — nhận sai, giữ ranh giới, nói “không”, giữ năng lượng và san sẻ việc. Kết quả chỉ ra <b>lỗ hổng lớn nhất</b> của bạn, kèm cuốn cẩm nang nên đọc để vá.</p>
               <div className="card">
-                <p style={{ margin: 0, fontSize: 15.5, color: "var(--muted)" }}>Với mỗi câu, chọn mức đúng nhất với bạn <b style={{ color: "var(--ink)" }}>trong 3 tháng gần đây</b>. Không có đúng/sai — chỉ để nhìn rõ mình đang ở đâu.</p>
+                <p style={{ margin: 0, fontSize: 15.5, color: "var(--muted)" }}>Với mỗi câu, chọn mức đúng nhất với bạn <b style={{ color: "var(--ink)" }}>trong 3 tháng gần đây</b>. Không có đúng/sai — chỉ để nhìn rõ mình đang hụt ở đâu.</p>
                 <div className="meta">
-                  <span>⏱️ ~2 phút</span><span>📝 12 câu</span><span>🎯 4 mức kết quả</span>
+                  <span>⏱️ ~2 phút</span><span>📝 15 câu</span><span>🎯 5 kỹ năng</span>
                 </div>
                 <button className="btn full" style={{ marginTop: 22 }} onClick={() => setStep("quiz")}>Bắt đầu →</button>
               </div>
@@ -167,7 +174,7 @@ export default function TracNghiemClient() {
               </div>
               <div className="card">
                 <span className="lbl">Câu {idx + 1}</span>
-                <p className="q">{QUESTIONS[idx]}</p>
+                <p className="q">{QUESTIONS[idx].text}</p>
                 <div className="opts">
                   {OPTIONS.map((o) => (
                     <button key={o.label} className="opt" onClick={() => pick(o.score)}>
@@ -184,7 +191,7 @@ export default function TracNghiemClient() {
             <div>
               <span className="lbl">Xong rồi!</span>
               <h1>Bài của bạn đã hoàn thành 🎉</h1>
-              <p className="lead">Nhập email để xem <b>kết quả</b> và nhận <b>gợi ý lộ trình</b> dành riêng cho tình huống của bạn.</p>
+              <p className="lead">Nhập email để xem <b>lỗ hổng lớn nhất</b> của bạn và nhận <b>gợi ý cuốn nên đọc</b> để vá đúng chỗ.</p>
               <div className="card">
                 {err && <div className="err">{err}</div>}
                 <form onSubmit={submit}>
@@ -207,17 +214,34 @@ export default function TracNghiemClient() {
             <div>
               <div className="card">
                 <div className="rhead">
-                  <div className="remoji">{band.emoji}</div>
-                  <div className="rband">{band.band}</div>
-                  <div className="rtitle">{band.title}</div>
+                  <div className="remoji">{result.emoji}</div>
+                  <div className="rband">{result.band}</div>
+                  <div className="rtitle">{result.title}</div>
                 </div>
-                <div className="gauge"><span className="mk" style={{ left: `${pct}%` }} /></div>
-                <div className="gscale"><span>DẪN DẮT</span><span>GÁNH</span></div>
-                <p className="rbody">{band.body}</p>
+                <p className="roverall">{overallLine}</p>
+
+                <div className="barsttl">5 kỹ năng sinh tồn của bạn — thanh càng dài càng vững</div>
+                <div className="bars">
+                  {dims.map((d) => (
+                    <div key={d.dim} className={`brow${d.dim === result.dim ? " weak" : ""}`}>
+                      <div className="bt">
+                        <span className="nm">
+                          {d.short}
+                          {d.dim === result.dim && <span className="tag">điểm cần vá</span>}
+                        </span>
+                        <span>{d.strengthPct}%</span>
+                      </div>
+                      <div className="btrack"><span className="bfill" style={{ width: `${Math.max(d.strengthPct, 3)}%` }} /></div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="rbody">{result.body}</p>
                 <div className="rec">
-                  <div className="rl">{band.recLabel}</div>
-                  <div>{band.recText}</div>
-                  <Link href={band.ctaHref} className="btn">{band.ctaText}</Link>
+                  <div className="rl">{result.recLabel}</div>
+                  <div>{result.recText}</div>
+                  <Link href={result.ctaHref} className="btn">{result.ctaText}</Link>
+                  <Link href="/ebook" className="more">Xem cả 5 cuốn cẩm nang công sở →</Link>
                 </div>
               </div>
               <div className="again"><button className="back" onClick={restart}>↺ Làm lại từ đầu</button></div>

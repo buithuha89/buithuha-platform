@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/server";
 import { rateLimit } from "@/lib/rate-limit";
-import { getQuizBand, QUIZ_MAX } from "@/lib/trac-nghiem/quiz";
+import { computeResult, QUIZ_QUESTIONS } from "@/lib/trac-nghiem/quiz";
 
 /**
  * POST /api/lead — nhận thông tin khách để lại trên các form mồi
@@ -15,7 +15,7 @@ import { getQuizBand, QUIZ_MAX } from "@/lib/trac-nghiem/quiz";
 
 /** Nguồn hợp lệ — client chỉ được chọn trong danh sách này. */
 const SOURCES: Record<string, string> = {
-  trac_nghiem: "trac_nghiem_ganh_hay_dan_dat",
+  trac_nghiem: "trac_nghiem_sinh_ton_cong_so",
   cam_nang: "cam_nang_mien_phi",
   giu_cho: "giu_cho_nguoi_tat_den",
   resource: "tai_lieu_mien_phi",
@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { full_name, email, phone, source, tags, quiz_score } = body ?? {};
+    const { full_name, email, phone, source, tags, answers } = body ?? {};
 
     // ─── Validate ──────────────────────────────────────────────────
     if (typeof full_name !== "string" || !full_name.trim()) {
@@ -78,13 +78,13 @@ export async function POST(req: NextRequest) {
       cleanPhone = p;
     }
 
-    // Điểm trắc nghiệm (chỉ có ở form trắc nghiệm). Band luôn tính lại ở server.
-    const hasScore =
-      typeof quiz_score === "number" &&
-      Number.isFinite(quiz_score) &&
-      quiz_score >= 0 &&
-      quiz_score <= QUIZ_MAX;
-    const band = hasScore ? getQuizBand(quiz_score) : null;
+    // Kết quả trắc nghiệm (chỉ có ở form trắc nghiệm). Luôn TÍNH LẠI từ mảng câu
+    // trả lời ở server — không tin điểm/kết quả client gửi lên.
+    const validAnswers =
+      Array.isArray(answers) &&
+      answers.length === QUIZ_QUESTIONS.length &&
+      answers.every((a: unknown) => a === 0 || a === 1 || a === 2);
+    const band = validAnswers ? computeResult(answers as number[]).result : null;
 
     const safeSource = SOURCES[source as string] ?? "website";
     const newTags = [

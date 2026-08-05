@@ -290,7 +290,7 @@ export default function HomePage() {
       sub: "Một phần nhỏ để bạn đọc, làm, tự chẩn đoán — đủ hiểu cách tôi làm việc.",
       color: "var(--success)",
       items: [
-        { icon: "📝", title: "Trắc nghiệm", desc: "Bạn đang GÁNH hay DẪN DẮT? Tự chấm 2 phút, có kết quả riêng ngay.", href: "/trac-nghiem", cta: "Làm thử ngay" },
+        { icon: "📝", title: "Trắc nghiệm", desc: "Đâu là lỗ hổng khiến bạn đuối sức nơi công sở? Tự soi 2 phút, ra ngay điểm cần vá.", href: "/trac-nghiem", cta: "Làm thử ngay" },
         { icon: "✍️", title: "Blog & Tình huống", desc: "Chuyện quản trị thật, kể không giấu — đọc là thấy mình trong đó.", href: "/blog", cta: "Đọc ngay" },
         { icon: "🧾", title: "Biểu mẫu & Checklist", desc: "Mẫu giao việc, đánh giá, kiểm việc — tải về điền là dùng ngay.", href: "/bieu-mau", cta: "Lấy mẫu miễn phí" },
         { icon: "📘", title: "Ebook & Cẩm nang", desc: "Cẩm nang miễn phí đọc ngay — và tủ ebook đồng giá một buổi cà phê 99.000đ.", href: "/ebook", cta: "Đọc ngay" },
@@ -408,7 +408,7 @@ export default function HomePage() {
             <a href="/trac-nghiem"
               className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-bold transition-all hover:-translate-y-0.5"
               style={{ background: "var(--warn)", color: "var(--accent-fg)" }}>
-              Làm thử trắc nghiệm 2 phút: bạn đang ôm hết việc, hay dẫn dắt để team tự chạy?
+              Làm thử trắc nghiệm 2 phút: đâu là lỗ hổng khiến bạn đuối sức nơi công sở?
               <ArrowRight size={17} />
             </a>
             <span className="text-xs text-[var(--fg-subtle)]">Miễn phí, có kết quả riêng ngay — chưa cần đăng ký.</span>
